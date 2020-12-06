@@ -18,6 +18,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+final _formKey = GlobalKey<FormState>();
+
 class _HomePageState extends State<HomePage> {
   ScrollController _scrollController;
   double _scrollPosition = 0;
@@ -103,6 +105,72 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/cover.jpg',
                         fit: BoxFit.cover,
                       ),
+                    ),
+                  ),
+                  Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 500,
+                          margin: EdgeInsets.only(top: 50),
+                          child: Card(
+                            clipBehavior: Clip.antiAlias,
+                            color: Colors.grey[50],
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Icon(Icons.memory_rounded),
+                                  title: const Text(
+                                    'Bizimle bişeyler paylaş',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Form(
+                                    key: _formKey,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        TextFormField(
+                                          decoration: const InputDecoration(
+                                            icon: Icon(Icons.message),
+                                            hintText:
+                                                'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
+                                          ),
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              return 'Please enter some text';
+                                            }
+                                            return null;
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                    autovalidateMode: AutovalidateMode.always,
+                                  ),
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.start,
+                                  children: [
+                                    FlatButton(
+                                      color: Colors.grey[50],
+                                      child: Text(
+                                        'Gönder',
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 16),
+                                      ),
+                                      textColor: const Color(000),
+                                      onPressed: () {},
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Column(
