@@ -12,55 +12,55 @@ class FeaturedHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: screenSize.height * 0.06,
-        left: screenSize.width / 15,
-        right: screenSize.width / 15,
-      ),
-      child: ResponsiveWidget.isSmallScreen(context)
-          ? Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(),
-                Text(
-                  'Featured',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
-                  ),
+        padding: EdgeInsets.only(
+          top: screenSize.height * 0.02,
+          left: screenSize.width / 15,
+          right: screenSize.width / 15,
+        ),
+        child: ResponsiveWidget.isSmallScreen(context)
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [],
+              )
+            : Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: screenSize.width * 8 / 10,
+                      child: Card(
+                        color: Colors.grey[50],
+                        clipBehavior: Clip.antiAlias,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.download_done_outlined),
+                              title: const Text('Card Title'),
+                              subtitle: Text('Subtitle created time'),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  'Lorem impul deneme metinleri olarak oluşturulmuş özel veri karakterleridir.Açık kaynaklı olarak kullanıcıların kullanımına sunulmuştur.'),
+                            ),
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: [
+                                FlatButton(
+                                  textColor: Colors.black,
+                                  onPressed: () {},
+                                  child: Text('Action'),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 5),
-                Text(
-                  'Unique wildlife tours & destinations',
-                  textAlign: TextAlign.end,
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
-                ),
-                SizedBox(height: 10),
-              ],
-            )
-          : Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Featured',
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Expanded(
-                  child: Text(
-                    'Unique wildlife tours & destinations',
-                    textAlign: TextAlign.end,
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
-                  ),
-                ),
-              ],
-            ),
-    );
+              ));
   }
 }

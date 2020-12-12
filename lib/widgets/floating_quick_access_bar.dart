@@ -17,12 +17,10 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
   List _isHovering = [false, false, false, false];
   List<Widget> rowElements = [];
 
-  List<String> items = ['Destination', 'Dates', 'People', 'Experience'];
+  List<String> items = ['Akış Zamanı', 'Trend Gönderiler'];
   List<IconData> icons = [
-    Icons.location_on,
-    Icons.date_range,
-    Icons.people,
-    Icons.wb_sunny
+    Icons.timeline,
+    Icons.trending_up,
   ];
 
   List<Widget> generateRowElements() {

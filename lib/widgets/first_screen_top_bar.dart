@@ -4,17 +4,18 @@ import 'package:explore/utils/authentication.dart';
 import 'package:explore/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
-class TopBarContents extends StatefulWidget {
+class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity;
   final int fontSize = 16;
 
-  TopBarContents(this.opacity);
+  FirstScreenTopBarContents(this.opacity);
 
   @override
-  _TopBarContentsState createState() => _TopBarContentsState();
+  _FirstScreenTopBarContentsState createState() =>
+      _FirstScreenTopBarContentsState();
 }
 
-class _TopBarContentsState extends State<TopBarContents> {
+class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
   final List _isHovering = [
     false,
     false,
@@ -64,104 +65,6 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Anasayfa',
-                            style: TextStyle(
-                              color:
-                                  _isHovering[0] ? Colors.white : Colors.black,
-                              fontSize: 16,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: _isHovering[0],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenSize.width / 20),
-                    InkWell(
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
-                        });
-                      },
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Bildirimler',
-                            style: TextStyle(
-                              color:
-                                  _isHovering[1] ? Colors.white : Colors.black,
-                              fontSize: 16,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: _isHovering[1],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: screenSize.width / 20),
-                    InkWell(
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
-                        });
-                      },
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Mesajlar',
-                            style: TextStyle(
-                              color:
-                                  _isHovering[1] ? Colors.black : Colors.black,
-                              fontSize: 16,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: _isHovering[1],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.black,
-                            ),
-                          )
-                        ],
-                      ),
                     ),
                   ],
                 ),
