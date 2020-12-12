@@ -1,6 +1,18 @@
 import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
+List<String> userName = [
+  'Stanbrige, Peter',
+  'Lee-Walsh, Natalie',
+  'Li, Ang',
+  'Ithya, Nguta',
+  'French, Tamzyn',
+  'Simoes, Salome',
+  'Virtue, Trevor',
+  'Campbell-Gillies,Tarryn',
+  'Anderson, Eugenia',
+];
+
 class FeaturedHeading extends StatelessWidget {
   const FeaturedHeading({
     Key key,
@@ -36,14 +48,17 @@ class FeaturedHeading extends StatelessWidget {
                         child: Column(
                           children: [
                             ListTile(
-                              leading: Icon(Icons.download_done_outlined),
-                              title: const Text('Card Title'),
-                              subtitle: Text('Subtitle created time'),
+                              leading:
+                                  Image.network('https://picsum.photos/150'),
+                              title: const Text(
+                                'Lee-Walsh, Natalie',
+                              ),
+                              subtitle: Text('1 dk önce yayınlandı.'),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                  'Lorem impul deneme metinleri olarak oluşturulmuş özel veri karakterleridir.Açık kaynaklı olarak kullanıcıların kullanımına sunulmuştur.'),
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ac nisi id placerat. Praesent nec ante et lorem semper venenatis eget id mauris. Aenean auctor efficitur cursus. In vitae pharetra urna. Pellentesque faucibus massa diam. In sit amet mauris suscipit, volutpat tortor id, rutrum risus. Phasellus nec justo urna. Donec vitae lectus dignissim, venenatis ligula ut, scelerisque justo. Nullam auctor blandit hendrerit. Pellentesque vitae feugiat arcu. Duis sit amet tincidunt nulla, eget morbi. '),
                             ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
@@ -51,8 +66,22 @@ class FeaturedHeading extends StatelessWidget {
                                 FlatButton(
                                   textColor: Colors.black,
                                   onPressed: () {},
-                                  child: Text('Action'),
-                                )
+                                  child: Text('Yorum Yap'),
+                                ),
+                                FlatButton(
+                                  textColor: Colors.blue,
+                                  onPressed: () {},
+                                  child: Text('Yorumlar'),
+                                ),
+                                IconButton(
+                                    alignment: Alignment.centerRight,
+                                    icon: Icon(Icons.star_outline),
+                                    tooltip: 'Bunu hak ettin',
+                                    onPressed: () {
+                                      icon:
+                                      Icon(Icons.star);
+                                    }),
+                                Text('12'),
                               ],
                             )
                           ],

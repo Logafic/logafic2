@@ -16,13 +16,22 @@ ScrollController _scrollController;
 double _scrollPosition = 0;
 double _opacity = 0;
 
-class FirstScreen extends StatefulWidget {
-  static const String route = '/';
+class HomePage extends StatefulWidget {
   @override
-  _FirstScreenState createState() => _FirstScreenState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      routes: {
+        '/home': (context) => _FirstScreenState(),
+      },
+    );
+  }
+
+  _HomePageState createState() => _HomePageState();
 }
 
-class _FirstScreenState extends State<FirstScreen> {
+final _formKey = GlobalKey<FormState>();
+
+class _FirstScreenState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -56,13 +65,6 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 }
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-final _formKey = GlobalKey<FormState>();
 
 class _HomePageState extends State<HomePage> {
   ScrollController _scrollController;
@@ -171,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           validator: (value) {
                                             if (value.isEmpty) {
-                                              return 'Please enter some text';
+                                              return 'Lütfen boş bırakma null kalmasın.';
                                             }
                                             return null;
                                           },
@@ -192,7 +194,13 @@ class _HomePageState extends State<HomePage> {
                                             color: Colors.black, fontSize: 16),
                                       ),
                                       textColor: const Color(000),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    _FirstScreenState()));
+                                      },
                                     ),
                                   ],
                                 )
