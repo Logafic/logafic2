@@ -7,13 +7,57 @@ import 'package:explore/widgets/explore_drawer.dart';
 import 'package:explore/widgets/featured_heading.dart';
 import 'package:explore/widgets/featured_tiles.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
+import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  static const String route = '/';
+ScrollController _scrollController;
+double _scrollPosition = 0;
+double _opacity = 0;
 
+class FirstScreen extends StatefulWidget {
+  static const String route = '/';
+  @override
+  _FirstScreenState createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
+  @override
+  Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? _scrollPosition / (screenSize.height * 0.40)
+        : 1;
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      extendBodyBehindAppBar: true,
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? AppBar(
+              backgroundColor:
+                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+              elevation: 0,
+              centerTitle: true,
+              title: Text(
+                'LOGAFIC',
+                style: TextStyle(
+                  color: Colors.blueGrey[100],
+                  fontSize: 20,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 3,
+                ),
+              ),
+            )
+          : PreferredSize(
+              preferredSize: Size(screenSize.width, 1000),
+              child: TopBarContents(_opacity),
+            ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -54,20 +98,6 @@ class _HomePageState extends State<HomePage> {
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: 0,
               centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    DynamicTheme.of(context).setBrightness(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? Brightness.light
-                            : Brightness.dark);
-                    print(Theme.of(context).brightness);
-                  },
-                ),
-              ],
               title: Text(
                 'LOGAFIC',
                 style: TextStyle(
@@ -102,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                       height: screenSize.height * 0.45,
                       width: screenSize.width,
                       child: Image.asset(
-                        'assets/images/cover.jpg',
+                        'assets/images/back_image.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -111,8 +141,8 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Container(
-                          width: 500,
-                          margin: EdgeInsets.only(top: 50),
+                          width: screenSize.width * 4 / 10,
+                          margin: EdgeInsets.only(top: 80),
                           child: Card(
                             clipBehavior: Clip.antiAlias,
                             color: Colors.grey[50],
@@ -154,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                 ButtonBar(
                                   alignment: MainAxisAlignment.start,
                                   children: [
-                                    FlatButton(
+                                    OutlineButton(
                                       color: Colors.grey[50],
                                       child: Text(
                                         'Gönder',
@@ -179,10 +209,10 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         child: Column(
                           children: [
-                            FeaturedHeading(
-                              screenSize: screenSize,
-                            ),
-                            FeaturedTiles(screenSize: screenSize)
+                            for (int i = 0; i < 5; i++)
+                              FeaturedHeading(
+                                screenSize: screenSize,
+                              )
                           ],
                         ),
                       ),
@@ -192,7 +222,6 @@ class _HomePageState extends State<HomePage> {
               ),
               // SizedBox(height: screenSize.height / 8),
               DestinationHeading(screenSize: screenSize),
-              DestinationCarousel(),
               SizedBox(height: screenSize.height / 10),
               BottomBar(),
             ],
