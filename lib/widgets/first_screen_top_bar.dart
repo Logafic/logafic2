@@ -1,5 +1,4 @@
 import 'dart:html';
-
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
@@ -22,37 +21,6 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    /*
-    return PreferredSize(
-      preferredSize: Size(screenSize.width, 1000),
-      child: Container(
-        color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'LOGAFIC',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Icon(Icons.login),
-              ),
-              
-            ],
-          ),
-        ),
-      ),
-    );
-    */
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.6),
       appBar: new AppBar(
@@ -94,53 +62,57 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                   child: Card(
                     color: Colors.white,
                     clipBehavior: Clip.antiAlias,
-                    child: Column(children: <Widget>[
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.chevron_right,
-                            color: Colors.grey[400].withOpacity(0.6),
-                          ),
-                          Text(
-                            '  Karşılaştığın sorunları bizlerle paylaş.',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.grey[400],
-                                fontWeight: FontWeight.w400),
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.chevron_right,
-                            color: Colors.grey[400].withOpacity(0.6),
-                          ),
-                          Text(
-                            '  Başkalarının hayatlarına dokun.',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.grey[400],
-                                fontWeight: FontWeight.w400),
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.chevron_right,
-                            color: Colors.grey[400].withOpacity(0.6),
-                          ),
-                          Text(
-                            '  Senin gibi düşünen arkadaşlar edin.',
-                            style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.grey[400],
-                                fontWeight: FontWeight.w400),
-                          )
-                        ],
-                      ),
-                    ]),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.chevron_right,
+                              color: Colors.grey[400].withOpacity(0.6),
+                            ),
+                            Text(
+                              ' Karşılaştığın sorunları bizlerle paylaş.',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.grey[400],
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.chevron_right,
+                              color: Colors.grey[400].withOpacity(0.6),
+                            ),
+                            Text(
+                              ' Başkalarının hayatlarına dokun.',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.grey[400],
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.chevron_right,
+                              color: Colors.grey[400].withOpacity(0.6),
+                            ),
+                            Text(
+                              ' Senin gibi düşünen arkadaşlar edin.',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.grey[400],
+                                  fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -163,7 +135,53 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                     color: Colors.white,
                     clipBehavior: Clip.antiAlias,
                     child: Column(
-                      children: [],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'İçerikleri görüntülemek için Giriş yap veya Kayıt ol.',
+                          style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.grey[400],
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 200,
+                            height: 50,
+                            child: FlatButton(
+                              color: Colors.grey[300],
+                              child: Text(
+                                'Giriş Yap',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 200,
+                            height: 50,
+                            child: FlatButton(
+                              color: Colors.blue[300],
+                              child: Text(
+                                'Kayıt Ol',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
