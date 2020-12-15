@@ -60,7 +60,7 @@ class _FirstScreenState extends StatelessWidget {
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),
-              child: TopBarContents(_opacity),
+              child: FirstScreenTopBarContents(_opacity),
             ),
     );
   }
