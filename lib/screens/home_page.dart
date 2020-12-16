@@ -1,11 +1,8 @@
-import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
-import 'package:explore/widgets/carousel.dart';
 import 'package:explore/widgets/destination_heading.dart';
 import 'package:explore/widgets/explore_drawer.dart';
 import 'package:explore/widgets/featured_heading.dart';
-import 'package:explore/widgets/featured_tiles.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';

@@ -1,10 +1,6 @@
-import 'dart:html';
-import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:explore/screens/home_page.dart';
-import 'package:explore/utils/authentication.dart';
-import 'package:explore/widgets/auth_dialog.dart';
-import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:explore/screens/login_screen.dart';
+import 'package:explore/screens/register_screen.dart';
 
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity;
@@ -138,12 +134,15 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          'İçerikleri görüntülemek için Giriş yap veya Kayıt ol.',
-                          style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.grey[400],
-                              fontWeight: FontWeight.w400),
+                        Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Text(
+                            'İçerikleri görüntülemek için Giriş yap veya Kayıt ol.',
+                            style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.grey[400],
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.all(8.0),
@@ -159,7 +158,12 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w400),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()));
+                              },
                             ),
                           ),
                         ),
@@ -177,7 +181,13 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w400),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            RegisterScreen()));
+                              },
                             ),
                           ),
                         ),
