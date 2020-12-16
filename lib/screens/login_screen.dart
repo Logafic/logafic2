@@ -22,6 +22,21 @@ class _LoginScreenState extends State<LoginScreen> {
             letterSpacing: 3,
           ),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: FlatButton(
+              child: Text(
+                'Kayıt Ol',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500),
+              ),
+              onPressed: () {},
+            ),
+          )
+        ],
       ),
       body: Container(
         alignment: Alignment.center,
