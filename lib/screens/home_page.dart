@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.only(top: 80),
                           child: Card(
                             clipBehavior: Clip.antiAlias,
-                            color: Colors.grey[50],
+                            color: Colors.white60,
                             child: Column(
                               children: [
                                 ListTile(

@@ -1,5 +1,6 @@
 import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_star_rating/flutter_star_rating.dart';
 
 List<String> userName = [
   'Stanbrige, Peter',
@@ -23,6 +24,7 @@ class FeaturedHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double rating = 3.5;
     return Padding(
         padding: EdgeInsets.only(
           top: screenSize.height * 0.02,
@@ -73,14 +75,13 @@ class FeaturedHeading extends StatelessWidget {
                                   onPressed: () {},
                                   child: Text('Yorumlar'),
                                 ),
-                                IconButton(
-                                    alignment: Alignment.centerRight,
-                                    icon: Icon(Icons.star_outline),
-                                    tooltip: 'Bunu hak ettin',
-                                    onPressed: () {
-                                      icon:
-                                      Icon(Icons.star);
-                                    }),
+                                StarRating(
+                                    rating: 2.0,
+                                    starConfig: StarConfig(
+                                      fillColor: Colors.yellow[400],
+                                      size: 30,
+                                      // other props
+                                    )),
                                 Text('12'),
                               ],
                             )
