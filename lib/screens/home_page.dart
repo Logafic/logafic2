@@ -8,6 +8,8 @@ import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:explore/screens/status_screen.dart';
+import 'package:explore/screens/profile_screen.dart';
+
 import 'package:flutter/material.dart';
 
 ScrollController _scrollController;
@@ -197,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    StatusScreen()));
+                                                    ProfileScreen()));
                                       },
                                     ),
                                   ],

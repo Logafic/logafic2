@@ -9,8 +9,7 @@ class CommentWidget extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: screenSizeW * 5 / 10,
-            height: 200,
+            width: screenSizeW * 4 / 10,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
