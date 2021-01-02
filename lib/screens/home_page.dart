@@ -203,9 +203,11 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       textColor: const Color(000),
                                       onPressed: () {
-
-
-                                     
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    notification()));
                                       },
                                     ),
                                   ],

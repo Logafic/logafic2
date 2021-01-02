@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/comment_widget.dart';
-void main() => runApp(notification());
 
+void main() => runApp(notification());
 
 class notification extends StatelessWidget {
   @override
@@ -35,16 +35,17 @@ class _ListDemoState extends State<ListDemo> {
       body: ListView(
         children: [
           for (int count in List.generate(9, (index) => index + 1))
-          
-            ListTile(
-              title: Text('Lee-Walsh, Natalie $count'),
-              subtitle: Text('Gönderinizi Puanladı'),
-              
-              leading: Image.network(
-                                      'https://picsum.photos/150'),
-                                  
-           
-           /*   selected: count == groupValue,
+            Column(
+              children: [
+                ListTile(
+                  title: Text('Lee-Walsh, Natalie $count'),
+                  subtitle: Text('Gönderinizi Puanladı'),
+                  leading: Image.network('https://picsum.photos/150'),
+                ),
+                IconButton(icon: Icon(Icons.reply), onPressed: () {})
+              ],
+
+              /*   selected: count == groupValue,
               trailing: Radio(
                 value: count,
                 groupValue: groupValue,
