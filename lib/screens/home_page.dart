@@ -1,3 +1,5 @@
+import 'package:explore/screens/login_screen.dart';
+import 'package:explore/screens/register_screen.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/destination_heading.dart';
@@ -21,7 +23,11 @@ class HomePage extends StatefulWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/home': (context) => _FirstScreenState(),
+        '/': (context) => HomePage(),
+        '/profil': (context) => ProfileScreen(),
+        '/durum': (context) => StatusScreen(),
+        '/girisyap': (context) => LoginScreen(),
+        '/kayitol': (context) => RegisterScreen()
       },
     );
   }
@@ -195,11 +201,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       textColor: const Color(000),
                                       onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ProfileScreen()));
+                                        Navigator.pushNamed(context, '/durum');
                                       },
                                     ),
                                   ],
@@ -218,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             for (int i = 0; i < 5; i++)
-                              FeaturedHeading(
+                              FeaturedHeadingStatu(
                                 screenSize: screenSize,
                               )
                           ],

@@ -1,6 +1,7 @@
 import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_star_rating/flutter_star_rating.dart';
+import 'package:explore/screens/home_page.dart';
+import 'package:explore/screens/status_screen.dart';
 
 List<String> userName = [
   'Stanbrige, Peter',
@@ -14,12 +15,11 @@ List<String> userName = [
   'Anderson, Eugenia',
 ];
 
-class FeaturedHeading extends StatelessWidget {
-  const FeaturedHeading({
+class FeaturedHeadingStatu extends StatelessWidget {
+  const FeaturedHeadingStatu({
     Key key,
     this.screenSize,
   }) : super(key: key);
-
   final Size screenSize;
 
   @override
@@ -67,7 +67,12 @@ class FeaturedHeading extends StatelessWidget {
                               children: [
                                 FlatButton(
                                   textColor: Colors.black,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/durum',
+                                    );
+                                  },
                                   child: Text('Yorum Yap'),
                                 ),
                                 FlatButton(
@@ -75,13 +80,9 @@ class FeaturedHeading extends StatelessWidget {
                                   onPressed: () {},
                                   child: Text('Yorumlar'),
                                 ),
-                                StarRating(
-                                    rating: 2.0,
-                                    starConfig: StarConfig(
-                                      fillColor: Colors.yellow[400],
-                                      size: 30,
-                                      // other props
-                                    )),
+                                IconButton(
+                                    icon: Icon(Icons.star_outline),
+                                    onPressed: () {}),
                                 Text('12'),
                               ],
                             )
