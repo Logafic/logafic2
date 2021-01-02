@@ -1,3 +1,5 @@
+import 'package:explore/screens/login_screen.dart';
+import 'package:explore/screens/register_screen.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/destination_heading.dart';
@@ -6,6 +8,8 @@ import 'package:explore/widgets/featured_heading.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
+import 'package:explore/screens/message.dart';
+import 'package:explore/screens/notification.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:explore/screens/status_screen.dart';
 import 'package:explore/screens/profile_screen.dart';
@@ -21,7 +25,11 @@ class HomePage extends StatefulWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/home': (context) => _FirstScreenState(),
+        '/': (context) => HomePage(),
+        '/profil': (context) => ProfileScreen(),
+        '/durum': (context) => StatusScreen(),
+        '/girisyap': (context) => LoginScreen(),
+        '/kayitol': (context) => RegisterScreen()
       },
     );
   }
@@ -195,11 +203,14 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       textColor: const Color(000),
                                       onPressed: () {
+
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    ProfileScreen()));
+                                                   notification()));
+                                        Navigator.pushNamed(context, '/durum');
+
                                       },
                                     ),
                                   ],
@@ -218,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             for (int i = 0; i < 5; i++)
-                              FeaturedHeading(
+                              FeaturedHeadingStatu(
                                 screenSize: screenSize,
                               )
                           ],
