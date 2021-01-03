@@ -4,12 +4,11 @@ class MessageWidget extends StatelessWidget {
   final int screenSizeW = 1920;
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        Container(
-          height: 100,
-          color: Colors.amber[100],
+    return Container(
+        child: Row(
+      children: [
+        SizedBox(
+          width: 1500,
           child: ListTile(
             title: Text('Lee-Walsh, Natalie'),
             isThreeLine: true,
@@ -18,8 +17,21 @@ class MessageWidget extends StatelessWidget {
             leading: Image.network('https://picsum.photos/150'),
           ),
         ),
+        IconButton(
+          icon: Icon(Icons.reply),
+          tooltip: 'Yanıtla',
+          onPressed: () {},
+        ),
+        IconButton(
+          icon: const Icon(
+            Icons.delete,
+          ),
+          tooltip: 'Sil',
+          onPressed: () {},
+        ),
+        const Divider(),
       ],
-    );
+    ));
     /*Row(
       children: [
         Row(
