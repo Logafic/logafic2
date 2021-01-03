@@ -8,7 +8,7 @@ import 'package:explore/widgets/featured_heading.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
-import 'package:explore/screens/message.dart';
+import 'package:explore/screens/message_screen.dart';
 import 'package:explore/screens/notification.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:explore/screens/status_screen.dart';
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                message()));
+                                                    MessageScreen()));
                                       },
                                     ),
                                   ],
