@@ -32,7 +32,8 @@ class _ListDemoState extends State<ListDemo> {
       appBar: AppBar(
         title: Text('Bildirim Sayfası'),
       ),
-      body: ListView(
+      body: SizedBox(width: 300,
+        child: ListView(
         children: [
           for (int count in List.generate(9, (index) => index + 1))
             Column(
@@ -42,7 +43,8 @@ class _ListDemoState extends State<ListDemo> {
                   subtitle: Text('Gönderinizi Puanladı'),
                   leading: Image.network('https://picsum.photos/150'),
                 ),
-                IconButton(icon: Icon(Icons.reply), onPressed: () {})
+                IconButton(icon: Icon(Icons.redo),onPressed: (){},),
+            
               ],
 
               /*   selected: count == groupValue,
@@ -57,7 +59,7 @@ class _ListDemoState extends State<ListDemo> {
               ),*/
             ),
         ],
-      ),
+      ),)
     );
   }
 }
