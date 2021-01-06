@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
-import 'package:explore/widgets/message_widget.dart';
-=======
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/comment_widget.dart';
 void main() => runApp(message());
@@ -16,23 +13,21 @@ class message extends StatelessWidget {
       
      
     );
+    
   }
 }
->>>>>>> Stashed changes
 
-import 'package:explore/widgets/responsive.dart';
+class ListDemo extends StatefulWidget {
+  @override
+  _ListDemoState createState() => _ListDemoState();
+}
 
-class MessageScreen extends StatelessWidget {
-  final int screenSizeW = 1920;
-  final int screenSizeH = 1080;
+class _ListDemoState extends State<ListDemo> {
+  Map<int, bool> countToValue = <int, bool>{};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< Updated upstream
-        appBar: AppBar(
-          title: Text('Mesajlar'),
-          backgroundColor: Colors.pink[300],
-=======
       appBar: AppBar(
         title: Text('Mesajlar'),
         backgroundColor: Colors.pink[300],
@@ -69,28 +64,12 @@ class MessageScreen extends StatelessWidget {
               Column(children: [IconButton(icon:Icon(Icons.reply),tooltip:'Yanıtla',onPressed: (){},),],),
               Column(children:[IconButton(icon: const Icon(Icons.delete,), tooltip: 'Sil', onPressed: () {},)])
           ],
->>>>>>> Stashed changes
         ),
-        body: Padding(
-            padding: EdgeInsets.only(
-              top: screenSizeH * 0.02,
-              left: screenSizeW / 15,
-              right: screenSizeW / 15,
-            ),
-            child: ResponsiveWidget.isSmallScreen(context)
-                ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [MessageWidget()],
-                  )
-                : Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        MessageScreen(),
-                      ],
-                    ),
-                  )));
+      
+      
+      )
+    );
+    
   }
 }
+
