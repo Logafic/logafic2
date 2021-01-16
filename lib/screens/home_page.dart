@@ -68,7 +68,7 @@ class _FirstScreenState extends StatelessWidget {
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),
-              child: FirstScreenTopBarContents(_opacity),
+              child: FirstScreenTopBarContents(),
             ),
     );
   }
@@ -202,13 +202,7 @@ class _HomePageState extends State<HomePage> {
                                             color: Colors.black, fontSize: 16),
                                       ),
                                       textColor: const Color(000),
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    MessageScreen()));
-                                      },
+                                      onPressed: () {},
                                     ),
                                   ],
                                 )

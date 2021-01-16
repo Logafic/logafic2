@@ -1,8 +1,9 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
-
-import 'screens/home_page.dart';
+import 'package:explore/routing/router.dart';
+import 'package:explore/routing/router_names.dart';
+import 'package:explore/services/navigation_service.dart';
 
 void main() {
   runApp(MyApp());
@@ -81,7 +82,9 @@ class _MyAppState extends State<MyApp> {
         title: 'LOGAFİC',
         theme: data,
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        navigatorKey: NavigationService().navigatorKey,
+        onGenerateRoute: generateRoute,
+        initialRoute: HomeRoute,
       ),
     );
   }

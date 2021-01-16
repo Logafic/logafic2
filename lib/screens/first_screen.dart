@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:explore/screens/login_screen.dart';
 import 'package:explore/screens/register_screen.dart';
+import 'package:explore/routing/router_names.dart';
 
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity = 8;
@@ -42,7 +43,9 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                     fontSize: 17,
                     fontWeight: FontWeight.w500),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, LoginRoute);
+              },
             ),
           )
         ],
@@ -159,10 +162,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                                     fontWeight: FontWeight.w400),
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginScreen()));
+                                Navigator.pushNamed(context, LoginRoute);
                               },
                             ),
                           ),
@@ -182,11 +182,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                                     fontWeight: FontWeight.w400),
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            RegisterScreen()));
+                                Navigator.pushNamed(context, RegisterRoute);
                               },
                             ),
                           ),

@@ -1,7 +1,7 @@
 import 'dart:js_util';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:explore/routing/router_names.dart';
 
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -34,7 +34,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     fontSize: 17,
                     fontWeight: FontWeight.w500),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, LoginRoute);
+              },
             ),
           )
         ],

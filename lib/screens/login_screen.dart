@@ -1,5 +1,6 @@
 import 'dart:js_util';
 
+import 'package:explore/routing/router_names.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,7 +34,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontSize: 17,
                     fontWeight: FontWeight.w500),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterRoute);
+              },
             ),
           )
         ],

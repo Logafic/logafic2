@@ -29,25 +29,28 @@ class _ListDemoState extends State<ListDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bildirim Sayfası'),
-      ),
-      body: SizedBox(width: 300,
-        child: ListView(
-        children: [
-          for (int count in List.generate(9, (index) => index + 1))
-            Column(
-              children: [
-                ListTile(
-                  title: Text('Lee-Walsh, Natalie $count'),
-                  subtitle: Text('Gönderinizi Puanladı'),
-                  leading: Image.network('https://picsum.photos/150'),
-                ),
-                IconButton(icon: Icon(Icons.redo),onPressed: (){},),
-            
-              ],
+        appBar: AppBar(
+          title: Text('Bildirim Sayfası'),
+        ),
+        body: SizedBox(
+          width: 300,
+          child: ListView(
+            children: [
+              for (int count in List.generate(9, (index) => index + 1))
+                Column(
+                  children: [
+                    ListTile(
+                      title: Text('Lee-Walsh, Natalie $count'),
+                      subtitle: Text('Gönderinizi Puanladı'),
+                      leading: Image.network('https://picsum.photos/150'),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.redo),
+                      onPressed: () {},
+                    ),
+                  ],
 
-              /*   selected: count == groupValue,
+                  /*   selected: count == groupValue,
               trailing: Radio(
                 value: count,
                 groupValue: groupValue,
@@ -57,9 +60,9 @@ class _ListDemoState extends State<ListDemo> {
                   });
                 },
               ),*/
-            ),
-        ],
-      ),)
-    );
+                ),
+            ],
+          ),
+        ));
   }
 }

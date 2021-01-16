@@ -1,5 +1,6 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:explore/screens/home_page.dart';
+import 'package:explore/routing/router.dart';
+import 'package:explore/routing/router_names.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, HomeRoute);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -100,7 +103,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[1] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, NotificationRoute);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -132,11 +137,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                       onHover: (value) {
                         setState(() {
                           value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
+                              ? _isHovering[2] = true
+                              : _isHovering[2] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, MessageRoute);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -144,7 +151,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'Mesajlar',
                             style: TextStyle(
                               color:
-                                  _isHovering[1] ? Colors.black : Colors.black,
+                                  _isHovering[2] ? Colors.white : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -153,11 +160,11 @@ class _TopBarContentsState extends State<TopBarContents> {
                             maintainAnimation: true,
                             maintainState: true,
                             maintainSize: true,
-                            visible: _isHovering[1],
+                            visible: _isHovering[2],
                             child: Container(
                               height: 2,
                               width: 20,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           )
                         ],
@@ -189,26 +196,35 @@ class _TopBarContentsState extends State<TopBarContents> {
                       color: Colors.white,
                     ),
                     itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, ProfileRoute);
+                          },
                           leading: Icon(Icons.reorder),
                           title: Text('Profilim'),
                         ),
                       ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, NotificationRoute);
+                          },
                           leading: Icon(Icons.notification_important),
                           title: Text('Bildirimler'),
                         ),
                       ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         child: ListTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, MessageRoute);
+                          },
                           leading: Icon(Icons.message),
                           title: Text('Mesajlar'),
                         ),
                       ),
                       const PopupMenuDivider(),
-                      const PopupMenuItem(child: Text('Çıkış Yap')),
+                      PopupMenuItem(child: Text('Çıkış Yap')),
                     ],
                   )),
             ],
