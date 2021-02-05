@@ -1,4 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:explore/screens/login_screen.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:explore/routing/router.dart';
@@ -15,15 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  /*
   Future getUserInfo() async {
     await getUser();
     setState(() {});
     print(uid);
-  }
+  }*/
 
   @override
   void initState() {
-    getUserInfo();
+    //getUserInfo();
     super.initState();
   }
 
@@ -84,7 +86,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         navigatorKey: NavigationService().navigatorKey,
         onGenerateRoute: generateRoute,
-        initialRoute: HomeRoute,
+        initialRoute: StatusRoute,
       ),
     );
   }

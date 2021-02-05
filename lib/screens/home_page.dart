@@ -8,8 +8,6 @@ import 'package:explore/widgets/featured_heading.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
-import 'package:explore/screens/message_screen.dart';
-import 'package:explore/screens/notification.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:explore/screens/status_screen.dart';
 import 'package:explore/screens/profile_screen.dart';
@@ -151,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Container(
-                          width: screenSize.width * 4 / 10,
+                          width: screenSize.width * 6 / 10,
                           margin: EdgeInsets.only(top: 80),
                           child: Card(
                             clipBehavior: Clip.antiAlias,
@@ -170,8 +168,6 @@ class _HomePageState extends State<HomePage> {
                                   child: Form(
                                     key: _formKey,
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
                                       children: <Widget>[
                                         TextFormField(
                                           decoration: const InputDecoration(

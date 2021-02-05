@@ -1,6 +1,7 @@
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
+import 'package:explore/routing/router_names.dart';
 
 import 'auth_dialog.dart';
 
@@ -48,7 +49,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             bottom: 15.0,
                           ),
                           child: Text(
-                            'Sign in',
+                            'Giris Yap',
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -98,14 +99,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                 });
                                 await signOut().then((result) {
                                   print(result);
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      fullscreenDialog: true,
-                                      builder: (context) => HomePage(),
-                                    ),
-                                  );
+                                  Navigator.pushNamed(context, FirstRoute);
                                 }).catchError((error) {
-                                  print('Sign Out Error: $error');
+                                  print('Çıkış yaparken hata oluştu : $error');
                                 });
                                 setState(() {
                                   _isProcessing = false;
@@ -122,7 +118,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                           child: _isProcessing
                               ? CircularProgressIndicator()
                               : Text(
-                                  'Sign out',
+                                  'Çıkış Yap',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -134,9 +130,27 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   : Container(),
               userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, NotificationRoute);
+                },
                 child: Text(
-                  'Discover',
+                  'Bildirimler',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, MessageRoute);
+                },
+                child: Text(
+                  'Mesajlar',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -150,7 +164,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               InkWell(
                 onTap: () {},
                 child: Text(
-                  'Contact Us',
+                  'İletişim',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -158,7 +172,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2020 | EXPLORE',
+                    'Copyright © 2020 | LOGAFIC',
                     style: TextStyle(
                       color: Colors.blueGrey[300],
                       fontSize: 14,

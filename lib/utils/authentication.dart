@@ -102,7 +102,7 @@ Future<String> registerWithEmailPassword(String email, String password) async {
     assert(!user.isAnonymous);
     assert(await user.getIdToken() != null);
 
-    return 'Successfully registered, User UID: ${user.uid}';
+    return ('Successfully registered, User UID: ${user.uid}');
   }
 
   return null;

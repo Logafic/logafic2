@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:explore/widgets/responsive.dart';
 
 class CommentWidget extends StatelessWidget {
-  int screenSizeW = 1920;
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.all(3.0),
       child: Row(
         children: [
           SizedBox(
-            width: screenSizeW * 4 / 10,
+            width: screenSize.width * 4 / 10,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -31,34 +32,6 @@ class CommentWidget extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 8),
-                child: IconButton(
-                    icon: const Icon(
-                      Icons.reply,
-                      color: Colors.grey,
-                    ),
-                    tooltip: 'Yanıtla',
-                    onPressed: () {}),
-              )
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 8),
-                child: IconButton(
-                    icon: const Icon(
-                      Icons.notification_important,
-                      color: Colors.grey,
-                    ),
-                    tooltip: 'Mesaj Gönder',
-                    onPressed: () {}),
-              )
-            ],
           ),
           Column(
             children: [

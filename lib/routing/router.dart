@@ -6,7 +6,7 @@ import 'package:explore/screens/status_screen.dart';
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/screens/login_screen.dart';
 import 'package:explore/screens/message_screen.dart';
-import 'package:explore/screens/notification.dart';
+import 'package:explore/screens/notification_screen.dart';
 import 'package:explore/screens/profile_screen.dart';
 import 'package:explore/screens/register_screen.dart';
 import 'package:explore/screens/first_screen.dart';
@@ -23,7 +23,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case MessageRoute:
       return _getPageRoute(MessageScreen(), settings);
     case NotificationRoute:
-      return _getPageRoute(notification(), settings);
+      return _getPageRoute(NotificationScreen(), settings);
     case ProfileRoute:
       return _getPageRoute(ProfileScreen(), settings);
     case RegisterRoute:
