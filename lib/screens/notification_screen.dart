@@ -82,7 +82,7 @@ class NotificationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: screenSize.width * 0.3,
+                    width: screenSize.width * 0.4,
                     child: Card(
                       child: ListView(
                         children: [
