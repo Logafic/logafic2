@@ -2,7 +2,7 @@ import 'dart:html';
 import 'dart:js_util';
 
 import 'package:explore/routing/router_names.dart';
-import 'package:explore/widgets/responsive.dart';
+import 'package:toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:explore/utils/authentication.dart';
 
@@ -10,7 +10,10 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
+Future<String> success;
+
 class _LoginScreenState extends State<LoginScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController;
   TextEditingController _passController;
   void initState() {
@@ -23,6 +26,10 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     _passController.dispose();
     super.dispose();
+  }
+
+  void showToast(String msg, int duration, {int gravity}) {
+    Toast.show(msg, context, duration: duration, gravity: gravity);
   }
 
   @override
@@ -72,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
         body: Form(
+          key: _formKey,
           child: Container(
             alignment: Alignment.center,
             child: SizedBox(
@@ -106,6 +114,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               icon: Icon(Icons.mail),
                               hintText: ('Mail adresi'),
                               labelText: ('Email')),
+                          validator: (String value) {
+                            if (value.isEmpty) {
+                              return 'Lütfen geçerli bir şifreyi giriniz.';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
@@ -120,6 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
                               icon: Icon(Icons.vpn_key),
                               hintText: ('Şifre'),
                               labelText: ('Şifre')),
+                          validator: (String value) {
+                            if (value.isEmpty) {
+                              return 'Lütfen geçerli bir şifreyi giriniz.';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
@@ -129,34 +149,31 @@ class _LoginScreenState extends State<LoginScreen> {
                           width: 200,
                           height: 50,
                           child: FlatButton(
-                            color: Colors.blue[300],
-                            child: Text(
-                              'Giriş Yap',
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            onPressed: () {
-                              try {
-                                if (signInWithEmailPassword(
+                              color: Colors.blue[300],
+                              child: Text(
+                                'Giriş Yap',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              onPressed: () {
+                                if (_formKey.currentState.validate()) {
+                                  try {
+                                    success = signInWithEmailPassword(
                                         _emailController.text,
-                                        _passController.text) !=
-                                    null) {
-                                  Navigator.pushNamed(context, HomeRoute);
-                                  print(uid);
-                                  shape:
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  );
-                                } else {
-                                  print('Hata olustu');
+                                        _passController.text);
+                                  } catch (e) {
+                                    showToast(e.toString(), 3);
+                                  }
+                                  if (success == null) {
+                                    showToast('Giriş Yapılamadı', 2);
+                                  } else {
+                                    Navigator.pushNamed(context, HomeRoute);
+                                    showToast('Giriş Yapıldı', 1);
+                                  }
                                 }
-                              } catch (e) {
-                                print(e);
-                              }
-                            },
-                          ),
+                              }),
                         ))
                   ],
                 ),

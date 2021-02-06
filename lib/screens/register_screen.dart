@@ -2,9 +2,10 @@ import 'dart:js_util';
 
 import 'package:flutter/material.dart';
 import 'package:explore/routing/router_names.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:explore/utils/authentication.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:toast/toast.dart';
+
+bool _sozlesme = false;
 
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -14,8 +15,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController;
   TextEditingController _passController;
-  bool _success;
-  String _userMail = '';
   void initState() {
     super.initState();
     _emailController = TextEditingController();
@@ -26,6 +25,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     _emailController.dispose();
     _passController.dispose();
     super.dispose();
+  }
+
+  void showToast(String msg, int duration, {int gravity}) {
+    Toast.show(msg, context, duration: duration, gravity: gravity);
   }
 
   @override
@@ -110,9 +113,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               icon: Icon(Icons.mail),
                               hintText: ('Geçerli bir mail adresi giriniz.'),
                               labelText: ('*Email')),
+                          autofocus: true,
                           validator: (String value) {
                             if (value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Lütfen geçerli bir mail adresi giriniz.';
                             }
                             return null;
                           },
@@ -132,7 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               labelText: ('*Şifre')),
                           validator: (String value) {
                             if (value.isEmpty) {
-                              return 'Please enter some text';
+                              return 'Lütfen geçerli bir şifre giriniz.';
                             }
                             return null;
                           },
@@ -149,6 +153,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               icon: Icon(Icons.vpn_key_outlined),
                               hintText: ('Şifreyi tekrar giriniz.'),
                               labelText: ('*Tekrar Şifre')),
+                          validator: (String value) {
+                            if (value.isEmpty) {
+                              return 'Lütfen geçerli bir şifreyi giriniz.';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
@@ -161,6 +171,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               icon: Icon(Icons.mail_outline),
                               hintText: ('Email adresi .edu uzantılı'),
                               labelText: ('*Okul mail adresi')),
+                          validator: (String value) {
+                            if (value.isEmpty) {
+                              return 'Lütfen geçerli bir mail adresi giriniz.';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                     ),
@@ -168,15 +184,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: EdgeInsets.all(8),
                         child: SizedBox(
                           width: 400,
-                          child: Row(
-                            children: [
-                              Checkbox(
-                                activeColor: Colors.blue,
-                                value: false,
-                              ),
-                              Text('Kullanıcı sözleşmesini kabul ediyorum'),
-                            ],
-                          ),
+                          child: Row(children: [
+                            Switch(
+                              value: _sozlesme,
+                              onChanged: (bool newValue) {
+                                setState(() {
+                                  _sozlesme = newValue;
+                                });
+                              },
+                            ),
+                            Text('Kullanıcı sözleşmesini kabul ediyorum.')
+                          ]),
                         )),
                     Padding(
                         padding: EdgeInsets.all(8),
@@ -193,17 +211,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   fontWeight: FontWeight.w400),
                             ),
                             onPressed: () {
-                              print(_emailController.text);
-                              print(_passController.text);
                               try {
-                                if (_passController.text != null &&
-                                    _emailController.text != null) {
-                                  registerWithEmailPassword(
-                                      _emailController.text,
-                                      _passController.text);
-                                  Navigator.pushNamed(context, LoginRoute);
+                                if (_formKey.currentState.validate()) {
+                                  if (_sozlesme == true) {
+                                    registerWithEmailPassword(
+                                        _emailController.text,
+                                        _passController.text);
+                                    showToast("Logafic'e hoşgeldiniz :)", 1);
+                                    Navigator.pushNamed(context, LoginRoute);
+                                  } else {
+                                    showToast(
+                                        'Kullanıcı şözleşmesini kabul etmelisiniz !',
+                                        2);
+                                  }
                                 } else {
-                                  print('Hata var be kardeşim');
+                                  print('Hata var!');
                                 }
                               } catch (e) {
                                 print(e);

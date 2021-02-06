@@ -1,4 +1,3 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -12,8 +11,6 @@ String name;
 String userEmail;
 String imageUrl;
 
-/// For checking if the user is already signed into the
-/// app using Google Sign In
 Future getUser() async {
   await Firebase.initializeApp();
 
@@ -32,11 +29,6 @@ Future getUser() async {
   }
 }
 
-/// For authenticating user using Google Sign In
-/// with Firebase Authentication API.
-///
-/// Retrieves some general user related information
-/// from their Google account for ease of the login process
 Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
 
@@ -54,7 +46,6 @@ Future<String> signInWithGoogle() async {
   final User user = userCredential.user;
 
   if (user != null) {
-    // Checking if email and name is null
     assert(user.uid != null);
     assert(user.email != null);
     assert(user.displayName != null);
