@@ -1,4 +1,3 @@
-import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/routing/router.dart';
 import 'package:explore/routing/router_names.dart';
 import 'package:explore/utils/authentication.dart';

@@ -1,5 +1,3 @@
-import 'package:explore/screens/login_screen.dart';
-import 'package:explore/screens/register_screen.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/destination_heading.dart';
@@ -9,29 +7,15 @@ import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/first_screen_top_bar.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
-import 'package:explore/screens/status_screen.dart';
-import 'package:explore/screens/profile_screen.dart';
 
 import 'package:flutter/material.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 ScrollController _scrollController;
 double _scrollPosition = 0;
 double _opacity = 0;
 
 class HomePage extends StatefulWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/': (context) => HomePage(),
-        '/profil': (context) => ProfileScreen(),
-        '/durum': (context) => StatusScreen(),
-        '/girisyap': (context) => LoginScreen(),
-        '/kayitol': (context) => RegisterScreen()
-      },
-    );
-  }
-
   _HomePageState createState() => _HomePageState();
 }
 
@@ -73,6 +57,10 @@ class _FirstScreenState extends StatelessWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> data = [];
+  int currentLenght = 0;
+  final int increment = 0;
+  bool isLoading = false;
   ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -85,6 +73,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    _loadMore();
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
     super.initState();
@@ -98,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         : 1;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Colors.white70,
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
@@ -215,10 +204,23 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         child: Column(
                           children: [
-                            for (int i = 0; i < 5; i++)
-                              FeaturedHeadingStatu(
-                                screenSize: screenSize,
-                              )
+                            LazyLoadScrollView(
+                                isLoading: isLoading,
+                                onEndOfPage: () => _loadMore(),
+                                child: ListView.builder(
+                                    itemCount: data.length,
+                                    itemBuilder: (context, position) {
+                                      if (isLoading &&
+                                          position == data.length - 1) {
+                                        return Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      } else {
+                                        return FeaturedHeadingStatu(
+                                          screenSize: screenSize,
+                                        );
+                                      }
+                                    })),
                           ],
                         ),
                       ),
@@ -236,4 +238,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  Future<String> _loadMore() async {}
 }
