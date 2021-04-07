@@ -1,11 +1,14 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/responsive.dart';
+import 'package:explore/widgets/menubaraction.dart';
 import 'package:explore/widgets/comment_widget.dart';
 import 'package:explore/routing/router_names.dart';
 
 class StatusScreen extends StatelessWidget {
-  int screenSizeW = 1920;
-  int screenSizeH = 1080;
+  final String id;
+
+  StatusScreen({Key key, @required this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,84 +37,17 @@ class StatusScreen extends StatelessWidget {
               letterSpacing: 3,
             ),
           ),
-          actions: <Widget>[
-            IconButton(
-                icon: const Icon(
-                  Icons.reply,
-                  color: Colors.black,
-                ),
-                tooltip: 'Yanıtla',
-                onPressed: () {}),
-            IconButton(
-                icon: const Icon(
-                  Icons.message,
-                  color: Colors.black,
-                ),
-                tooltip: 'Mesaj Gönder',
-                onPressed: () {}),
-            IconButton(
-                icon: const Icon(
-                  Icons.notification_important,
-                  color: Colors.black,
-                ),
-                tooltip: 'Bildir',
-                onPressed: () {}),
-            Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: InkWell(
-                  child: PopupMenuButton(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.black,
-                ),
-                itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                  PopupMenuItem(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.pushNamed(context, ProfileRoute);
-                      },
-                      leading: Icon(Icons.reorder),
-                      title: Text('Profilim'),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.pushNamed(context, NotificationRoute);
-                      },
-                      leading: Icon(Icons.notification_important),
-                      title: Text('Bildirimler'),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.pushNamed(context, MessageRoute);
-                      },
-                      leading: Icon(Icons.message),
-                      title: Text('Mesajlar'),
-                    ),
-                  ),
-                  const PopupMenuDivider(),
-                  PopupMenuItem(child: Text('Çıkış Yap')),
-                ],
-              )),
-            ),
-          ],
+          actions: <Widget>[MenuActionBar()],
         ),
-        body: Padding(
-            padding: EdgeInsets.only(
-              top: screenSizeH * 0.02,
-              left: screenSizeW / 15,
-              right: screenSizeW / 15,
-            ),
-            child: Center(
+        body: Scrollbar(
+            child: ListView(
+          children: [
+            Center(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: screenSizeW * 6 / 10,
                     child: Card(
                       color: Colors.grey[150],
                       clipBehavior: Clip.antiAlias,
@@ -144,18 +80,15 @@ class StatusScreen extends StatelessWidget {
                               ),
                             ],
                           ),
+                          Text(
+                            'Yorumlar',
+                            style: TextStyle(fontSize: 25),
+                          ),
                           Divider(),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: Column(
-                                  children: [
-                                    for (int i = 0; i < 2; i++) CommentWidget()
-                                  ],
-                                ),
-                              ),
+                              for (int i = 0; i < 2; i++) CommentWidget()
                             ],
                           )
                         ],
@@ -164,6 +97,8 @@ class StatusScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            )));
+            )
+          ],
+        )));
   }
 }

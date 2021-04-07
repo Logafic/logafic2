@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+final FirebaseAuth auth = _auth;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 String uid;
@@ -22,9 +23,7 @@ Future getUser() async {
   if (authSignedIn == true) {
     if (user != null) {
       uid = user.uid;
-      name = user.displayName;
       userEmail = user.email;
-      imageUrl = user.photoURL;
     }
   }
 }
@@ -117,15 +116,11 @@ Future<String> signInWithEmailPassword(String email, String password) async {
     uid = user.uid;
     userEmail = user.email;
 
-    assert(!user.isAnonymous);
-    assert(await user.getIdToken() != null);
-
     final User currentUser = _auth.currentUser;
     assert(user.uid == currentUser.uid);
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('auth', true);
-
     return 'Successfully logged in, User UID: ${user.uid}';
   }
 

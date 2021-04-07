@@ -157,20 +157,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.black,
                                     fontWeight: FontWeight.w400),
                               ),
-                              onPressed: () {
+                              onPressed: () async {
                                 if (_formKey.currentState.validate()) {
                                   try {
-                                    success = signInWithEmailPassword(
-                                        _emailController.text,
-                                        _passController.text);
+                                    signInWithEmailPassword(
+                                            _emailController.text,
+                                            _passController.text)
+                                        .then((value) {
+                                      print(value);
+                                      Navigator.pushNamed(context, HomeRoute);
+                                      showToast('Giriş Yapıldı', 1);
+                                    });
                                   } catch (e) {
                                     showToast(e.toString(), 3);
-                                  }
-                                  if (success == null) {
-                                    showToast('Giriş Yapılamadı', 2);
-                                  } else {
-                                    Navigator.pushNamed(context, HomeRoute);
-                                    showToast('Giriş Yapıldı', 1);
                                   }
                                 }
                               }),

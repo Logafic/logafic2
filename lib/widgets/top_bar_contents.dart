@@ -1,8 +1,8 @@
-import 'package:explore/routing/router.dart';
 import 'package:explore/routing/router_names.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:explore/utils/authentication.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
@@ -73,8 +73,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'Anasayfa',
                             style: TextStyle(
-                              color:
-                                  _isHovering[0] ? Colors.white : Colors.black,
+                              color: _isHovering[0] ? Colors.red : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -87,7 +86,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             child: Container(
                               height: 2,
                               width: 20,
-                              color: Colors.white,
+                              color: Colors.black45,
                             ),
                           )
                         ],
@@ -111,8 +110,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'Bildirimler',
                             style: TextStyle(
-                              color:
-                                  _isHovering[1] ? Colors.white : Colors.black,
+                              color: _isHovering[1] ? Colors.red : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -125,7 +123,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             child: Container(
                               height: 2,
                               width: 20,
-                              color: Colors.white,
+                              color: Colors.black45,
                             ),
                           )
                         ],
@@ -149,8 +147,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'Mesajlar',
                             style: TextStyle(
-                              color:
-                                  _isHovering[2] ? Colors.white : Colors.black,
+                              color: _isHovering[2] ? Colors.red : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -163,7 +160,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             child: Container(
                               height: 2,
                               width: 20,
-                              color: Colors.white,
+                              color: Colors.black45,
                             ),
                           )
                         ],
@@ -192,7 +189,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                   child: PopupMenuButton(
                     icon: Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color: Colors.black45,
                     ),
                     itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                       PopupMenuItem(
@@ -223,7 +220,14 @@ class _TopBarContentsState extends State<TopBarContents> {
                         ),
                       ),
                       const PopupMenuDivider(),
-                      PopupMenuItem(child: Text('Çıkış Yap')),
+                      PopupMenuItem(
+                          child: ListTile(
+                        onTap: () {
+                          signOut();
+                          Navigator.pushNamed(context, FirstRoute);
+                        },
+                        title: Text('Çıkış Yap'),
+                      )),
                     ],
                   )),
             ],

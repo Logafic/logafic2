@@ -1,8 +1,8 @@
-import 'package:explore/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:explore/routing/router.dart';
 import 'package:explore/routing/router_names.dart';
 import 'package:explore/services/navigation_service.dart';
+import 'package:explore/utils/authentication.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       navigatorKey: NavigationService().navigatorKey,
       onGenerateRoute: generateRoute,
-      initialRoute: HomeRoute,
+      initialRoute: uid == null ? FirstRoute : HomeRoute,
     );
   }
 }

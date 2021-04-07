@@ -40,7 +40,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           style: TextStyle(
             color: _isHovering[i]
                 ? Theme.of(context).primaryTextTheme.button.decorationColor
-                : Theme.of(context).primaryTextTheme.button.color,
+                : Colors.black54,
           ),
         ),
       );
@@ -67,7 +67,6 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
       heightFactor: 1,
       child: Padding(
         padding: EdgeInsets.only(
-          top: widget.screenSize.height * 0.40,
           left: ResponsiveWidget.isSmallScreen(context)
               ? widget.screenSize.width / 12
               : widget.screenSize.width / 5,
@@ -104,11 +103,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                                 child: Text(
                                   items[pageIndex],
                                   style: TextStyle(
-                                      color: Theme.of(context)
-                                          .primaryTextTheme
-                                          .button
-                                          .color,
-                                      fontSize: 16),
+                                      color: Colors.black54, fontSize: 16),
                                 ),
                               ),
                             ],
