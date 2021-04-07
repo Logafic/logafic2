@@ -1,4 +1,4 @@
-import 'package:explore/data_model/routing_data.dart';
+import 'package:logafic/data_model/routing_data.dart';
 
 extension StringExtensions on String {
   RoutingData get getRoutingData {

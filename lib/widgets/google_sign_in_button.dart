@@ -1,5 +1,5 @@
-import 'package:explore/screens/home_page.dart';
-import 'package:explore/utils/authentication.dart';
+import 'package:logafic/screens/home_page.dart';
+import 'package:logafic/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 class GoogleButton extends StatefulWidget {

@@ -1,6 +1,6 @@
-import 'package:explore/widgets/bottom_bar_column.dart';
-import 'package:explore/widgets/info_text.dart';
-import 'package:explore/widgets/responsive.dart';
+import 'package:logafic/widgets/bottom_bar_column.dart';
+import 'package:logafic/widgets/info_text.dart';
+import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -48,7 +48,7 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 InfoText(
                   type: 'Email',
-                  text: 'explore@gmail.com',
+                  text: 'logafic@gmail.com',
                 ),
                 SizedBox(height: 5),
                 InfoText(
@@ -63,7 +63,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | EXPLORE',
+                  'Copyright © 2020 | logafic',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
@@ -105,7 +105,7 @@ class BottomBar extends StatelessWidget {
                       children: [
                         InfoText(
                           type: 'Email',
-                          text: 'explore@gmail.com',
+                          text: 'logafic@gmail.com',
                         ),
                         SizedBox(height: 5),
                         InfoText(

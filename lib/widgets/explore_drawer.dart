@@ -1,20 +1,20 @@
-import 'package:explore/screens/home_page.dart';
-import 'package:explore/utils/authentication.dart';
+import 'package:logafic/screens/home_page.dart';
+import 'package:logafic/utils/authentication.dart';
 import 'package:flutter/material.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/routing/router_names.dart';
 
 import 'auth_dialog.dart';
 
-class ExploreDrawer extends StatefulWidget {
-  const ExploreDrawer({
+class logaficDrawer extends StatefulWidget {
+  const logaficDrawer({
     Key key,
   }) : super(key: key);
 
   @override
-  _ExploreDrawerState createState() => _ExploreDrawerState();
+  _logaficDrawerState createState() => _logaficDrawerState();
 }
 
-class _ExploreDrawerState extends State<ExploreDrawer> {
+class _logaficDrawerState extends State<logaficDrawer> {
   bool _isProcessing = false;
   @override
   Widget build(BuildContext context) {

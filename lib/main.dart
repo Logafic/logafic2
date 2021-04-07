@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:explore/routing/router.dart';
-import 'package:explore/routing/router_names.dart';
-import 'package:explore/services/navigation_service.dart';
-import 'package:explore/utils/authentication.dart';
+import 'package:logafic/routing/router.dart';
+import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/services/navigation_service.dart';
+import 'package:logafic/utils/authentication.dart';
 
 void main() {
   runApp(MyApp());

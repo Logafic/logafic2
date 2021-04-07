@@ -71,60 +71,69 @@ Future<String> signInWithGoogle() async {
 }
 
 Future<String> registerWithEmailPassword(String email, String password) async {
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp();
 
-  final UserCredential userCredential =
-      await _auth.createUserWithEmailAndPassword(
-    email: email,
-    password: password,
-  );
+    final UserCredential userCredential =
+        await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
 
-  final User user = userCredential.user;
+    final User user = userCredential.user;
 
-  if (user != null) {
-    // checking if uid or email is null
-    assert(user.uid != null);
-    assert(user.email != null);
+    if (user != null) {
+      // checking if uid or email is null
+      assert(user.uid != null);
+      assert(user.email != null);
 
-    uid = user.uid;
-    userEmail = user.email;
+      uid = user.uid;
+      userEmail = user.email;
 
-    assert(!user.isAnonymous);
-    assert(await user.getIdToken() != null);
+      assert(!user.isAnonymous);
+      assert(await user.getIdToken() != null);
 
-    return ('Successfully registered, User UID: ${user.uid}');
+      return ('Successfully registered, User UID: ${user.uid}');
+    }
+
+    return null;
+  } catch (err) {
+    print(err);
   }
-
-  return null;
 }
 
 Future<String> signInWithEmailPassword(String email, String password) async {
-  await Firebase.initializeApp();
+  try {
+    await Firebase.initializeApp();
 
-  final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-    email: email,
-    password: password,
-  );
+    final UserCredential userCredential =
+        await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
 
-  final User user = userCredential.user;
+    final User user = userCredential.user;
 
-  if (user != null) {
-    // checking if uid or email is null
-    assert(user.uid != null);
-    assert(user.email != null);
+    if (user != null) {
+      // checking if uid or email is null
+      assert(user.uid != null);
+      assert(user.email != null);
 
-    uid = user.uid;
-    userEmail = user.email;
+      uid = user.uid;
+      userEmail = user.email;
 
-    final User currentUser = _auth.currentUser;
-    assert(user.uid == currentUser.uid);
+      final User currentUser = _auth.currentUser;
+      assert(user.uid == currentUser.uid);
 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('auth', true);
-    return 'Successfully logged in, User UID: ${user.uid}';
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('auth', true);
+      return 'Successfully logged in, User UID: ${user.uid}';
+    }
+
+    return null;
+  } catch (err) {
+    print(err);
   }
-
-  return null;
 }
 
 Future<String> signOut() async {

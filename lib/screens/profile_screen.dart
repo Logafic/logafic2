@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/comment_widget.dart';
-import 'package:explore/widgets/profileBarAction.dart';
-import 'package:explore/widgets/responsive.dart';
-import 'package:explore/widgets/profile_widget_small.dart';
+import 'package:logafic/widgets/comment_widget.dart';
+import 'package:logafic/widgets/profileBarAction.dart';
+import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/profile_widget_small.dart';
 
 class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {

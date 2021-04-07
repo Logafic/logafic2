@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/routing/router_names.dart';
 
 class MessageBarAction extends StatelessWidget {
   const MessageBarAction({Key key}) : super(key: key);

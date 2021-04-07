@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:explore/routing/router_names.dart';
-import 'package:explore/widgets/responsive.dart';
+import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity = 8;

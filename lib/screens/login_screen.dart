@@ -1,21 +1,35 @@
-import 'dart:html';
-import 'dart:js_util';
-
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/routing/router_names.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter/material.dart';
-import 'package:explore/utils/authentication.dart';
+import 'package:logafic/utils/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
+/*
+
+(String value) {
+                            if (value.isEmpty) {
+                              return 'Lütfen geçerli bir email adresi giriniz.';
+                            }
+                            return null;
+                          },
+
+
+*/
 Future<String> success;
 
 class _LoginScreenState extends State<LoginScreen> {
+  //Form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController;
   TextEditingController _passController;
+
+  //Validation
+  final FocusNode _emailFocusNode = FocusNode();
+  bool _agree = false;
+
   void initState() {
     super.initState();
     _emailController = TextEditingController();
@@ -107,21 +121,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.mail),
-                              hintText: ('Mail adresi'),
-                              labelText: ('Email')),
-                          validator: (String value) {
-                            if (value.isEmpty) {
-                              return 'Lütfen geçerli bir şifreyi giriniz.';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
+                          width: 400,
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
+                                icon: Icon(Icons.mail),
+                                hintText: ('Mail adresi'),
+                                labelText: ('Email')),
+                            validator: _validateEmail,
+                            autofocus: true,
+                            focusNode: _emailFocusNode,
+                          )),
                     ),
                     Padding(
                       padding: EdgeInsets.all(8),
@@ -134,12 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               icon: Icon(Icons.vpn_key),
                               hintText: ('Şifre'),
                               labelText: ('Şifre')),
-                          validator: (String value) {
-                            if (value.isEmpty) {
-                              return 'Lütfen geçerli bir şifreyi giriniz.';
-                            }
-                            return null;
-                          },
+                          validator: _validatePassword,
                         ),
                       ),
                     ),
@@ -164,9 +169,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                             _emailController.text,
                                             _passController.text)
                                         .then((value) {
-                                      print(value);
-                                      Navigator.pushNamed(context, HomeRoute);
-                                      showToast('Giriş Yapıldı', 1);
+                                      value == null
+                                          ? showToast(
+                                              'E-mail veya şifre yanlış.', 1)
+                                          : {
+                                              Navigator.pushNamed(
+                                                  context, HomeRoute),
+                                              showToast('Giriş Yapıldı', 1)
+                                            };
+                                    }, onError: (error) {
+                                      print(error);
                                     });
                                   } catch (e) {
                                     showToast(e.toString(), 3);
@@ -180,5 +192,27 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ));
+  }
+
+  String _validateEmail(String email) {
+    // 1
+    RegExp regex = RegExp(r'\w+@\w+\.\w+');
+    // Add the following line to set focus to the email field
+    if (email.isEmpty || !regex.hasMatch(email)) _emailFocusNode.requestFocus();
+    // 2
+    if (email.isEmpty)
+      return 'Bir e-posta adresine ihtiyacımız var';
+    else if (!regex.hasMatch(email))
+      // 3
+      return "Bu bir e-posta adresine benzemiyor";
+    else
+      // 4
+      return null;
+  }
+
+  String _validatePassword(String pass1) {
+    if (!RegExp(r'.{8,}').hasMatch(pass1))
+      return 'Şifreler en az 8 karakter içermelidir';
+    return null;
   }
 }

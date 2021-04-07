@@ -1,9 +1,9 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/menubaraction.dart';
-import 'package:explore/widgets/comment_widget.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/widgets/menubaraction.dart';
+import 'package:logafic/widgets/comment_widget.dart';
+import 'package:logafic/routing/router_names.dart';
 
 class StatusScreen extends StatelessWidget {
   final String id;

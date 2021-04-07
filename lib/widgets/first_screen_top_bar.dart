@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:explore/screens/login_screen.dart';
-import 'package:explore/screens/register_screen.dart';
+import 'package:logafic/screens/login_screen.dart';
+import 'package:logafic/screens/register_screen.dart';
 
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity = 8;

@@ -1,7 +1,7 @@
-import 'package:explore/widgets/responsive.dart';
+import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:explore/screens/home_page.dart';
-import 'package:explore/screens/status_screen.dart';
+import 'package:logafic/screens/home_page.dart';
+import 'package:logafic/screens/status_screen.dart';
 
 List<String> userName = [
   'Stanbrige, Peter',

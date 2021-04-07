@@ -1,19 +1,19 @@
-import 'package:explore/data_model/content_model.dart';
-import 'package:explore/data_model/model.dart';
+import 'package:logafic/data_model/content_model.dart';
+import 'package:logafic/data_model/model.dart';
 
-import 'package:explore/widgets/bottom_bar.dart';
-import 'package:explore/data_model/post_data_model.dart';
+import 'package:logafic/widgets/bottom_bar.dart';
+import 'package:logafic/data_model/post_data_model.dart';
 
-import 'package:explore/widgets/explore_drawer.dart';
-import 'package:explore/widgets/floating_quick_access_bar.dart';
+import 'package:logafic/widgets/explore_drawer.dart';
+import 'package:logafic/widgets/floating_quick_access_bar.dart';
 
-import 'package:explore/widgets/responsive.dart';
-import 'package:explore/widgets/top_bar_contents.dart';
+import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/top_bar_contents.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:explore/utils/authentication.dart';
+import 'package:logafic/utils/authentication.dart';
 
 import 'package:flutter/material.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                 preferredSize: Size(screenSize.width, 1000),
                 child: TopBarContents(_opacity),
               ),
-        drawer: ExploreDrawer(),
+        drawer: logaficDrawer(),
         body: LazyLoadScrollView(
             isLoading: isLoading,
             child: Scrollbar(

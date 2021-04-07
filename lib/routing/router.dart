@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/routing/router_names.dart';
 //Screens
-import 'package:explore/screens/status_screen.dart';
-import 'package:explore/screens/home_page.dart';
-import 'package:explore/screens/login_screen.dart';
-import 'package:explore/screens/message_screen.dart';
-import 'package:explore/screens/notification_screen.dart';
-import 'package:explore/screens/profile_screen.dart';
-import 'package:explore/screens/register_screen.dart';
-import 'package:explore/screens/first_screen.dart';
+import 'package:logafic/screens/status_screen.dart';
+import 'package:logafic/screens/home_page.dart';
+import 'package:logafic/screens/login_screen.dart';
+import 'package:logafic/screens/message_screen.dart';
+import 'package:logafic/screens/notification_screen.dart';
+import 'package:logafic/screens/profile_screen.dart';
+import 'package:logafic/screens/register_screen.dart';
+import 'package:logafic/screens/first_screen.dart';
 //Extensions
-import 'package:explore/extensions/string_extensions.dart';
+import 'package:logafic/extensions/string_extensions.dart';
+import 'package:logafic/screens/user_information_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   var routingData = settings.name.getRoutingData;
@@ -30,6 +31,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(RegisterScreen(), settings);
     case StatusRoute:
       return _getPageRoute(StatusScreen(), settings);
+    case UserInformationRoute:
+      return _getPageRoute(UserInformation(), settings);
     default:
       return _getPageRoute(LoginScreen(), settings);
   }

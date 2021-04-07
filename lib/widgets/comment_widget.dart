@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/responsive.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 class CommentWidget extends StatelessWidget {
   @override

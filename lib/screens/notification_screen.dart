@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/notification_widget.dart';
-import 'package:explore/widgets/responsive.dart';
-import 'package:explore/routing/router_names.dart';
+import 'package:logafic/widgets/notification_widget.dart';
+import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/routing/router_names.dart';
 
 class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {

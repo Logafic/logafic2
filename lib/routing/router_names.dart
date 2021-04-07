@@ -6,3 +6,4 @@ const String NotificationRoute = '/notification';
 const String ProfileRoute = '/profile';
 const String RegisterRoute = '/register';
 const String StatusRoute = '/status';
+const String UserInformationRoute = '/save';

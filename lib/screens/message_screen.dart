@@ -1,11 +1,11 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:explore/widgets/message_widget.dart';
-import 'package:explore/routing/router_names.dart';
-import 'package:explore/widgets/responsive.dart';
-import 'package:explore/widgets/message_widget_small.dart';
-import 'package:explore/widgets/messageBarAction.dart';
+import 'package:logafic/widgets/message_widget.dart';
+import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/message_widget_small.dart';
+import 'package:logafic/widgets/messageBarAction.dart';
 
 class MessageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
