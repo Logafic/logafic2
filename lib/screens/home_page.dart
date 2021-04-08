@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 title: Text(
                   'LOGAFIC',
                   style: TextStyle(
-                    color: Colors.blueGrey[100],
+                    color: Colors.black54,
                     fontSize: 20,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Container(
                           child: SizedBox(
-                            height: screenSize.height * 0.45,
+                            height: screenSize.height * 0.46,
                             width: screenSize.width,
                             child: Image.asset(
                               'assets/images/back_image.jpg',
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                         Center(
                           child: Container(
                             width: MediaQuery.of(context).size.width * 6 / 10,
-                            margin: EdgeInsets.only(top: 80),
+                            margin: EdgeInsets.only(top: 25),
                             child: Card(
                               clipBehavior: Clip.antiAlias,
                               color: Colors.white60,
@@ -140,6 +140,10 @@ class _HomePageState extends State<HomePage> {
                                               hintText:
                                                   'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
                                             ),
+                                            minLines: 2,
+                                            maxLines: 4,
+                                            keyboardType:
+                                                TextInputType.multiline,
                                             validator: (value) {
                                               if (value.isEmpty) {
                                                 return 'Lütfen boş bırakma null kalmasın.';
@@ -167,9 +171,7 @@ class _HomePageState extends State<HomePage> {
                                         onPressed: () async {
                                           PostModel post = new PostModel(
                                               userId: uid,
-                                              userName: 'Yunus Emre Arslan',
-                                              userSmallImage:
-                                                  'https://picsum.photos/200',
+                                              userName: userEmail,
                                               content: postController.value.text
                                                   .toString());
                                           print(post.toJson());
@@ -211,19 +213,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<DataModel> loadData() async {
-    setState(() {
-      isLoading = true;
-    });
-    await new Future.delayed(const Duration(seconds: 1));
-    final res = await http.get("$_baseUrl/user");
-    if (res.statusCode == 200) {
-      List<dynamic> dataBody = jsonDecode(res.body);
-      data =
-          data + dataBody.map((dynamic e) => ContentModel.fromJson(e)).toList();
+    try {
+      setState(() {
+        isLoading = true;
+      });
+      await new Future.delayed(const Duration(seconds: 1));
+      final res = await http.get("$_baseUrl/user");
+      if (res.statusCode == 200) {
+        List<dynamic> dataBody = jsonDecode(res.body);
+        data = data +
+            dataBody.map((dynamic e) => ContentModel.fromJson(e)).toList();
+      }
+      setState(() {
+        isLoading = false;
+      });
+    } catch (err) {
+      print(err);
     }
-    setState(() {
-      isLoading = false;
-    });
   }
 
   @override

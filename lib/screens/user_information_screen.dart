@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:logafic/data_model/user_profile_model.dart';
 
 class UserInformation extends StatefulWidget {
   UserInformation({Key key}) : super(key: key);
@@ -14,6 +15,7 @@ class _UserInformationState extends State<UserInformation> {
   File _imageFile;
   String dropdownCity = 'Şehir';
   String dropdownGender = 'Cinsiyet';
+  String _birthday;
   TextEditingController _userName;
   TextEditingController _university;
   TextEditingController _department;
@@ -80,9 +82,7 @@ class _UserInformationState extends State<UserInformation> {
                   child: Container(
                     height: 200,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(30.0),
-                            bottomRight: Radius.circular(30.0)),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
                         gradient: LinearGradient(
                             colors: [Colors.black45, Colors.black12],
                             begin: Alignment.topCenter,
@@ -108,9 +108,7 @@ class _UserInformationState extends State<UserInformation> {
                     width: 50,
                     height: 200,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(30.0),
-                            bottomRight: Radius.circular(30.0)),
+                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
                         gradient: LinearGradient(
                             colors: [Colors.black45, Colors.black12],
                             begin: Alignment.topCenter,
@@ -177,14 +175,14 @@ class _UserInformationState extends State<UserInformation> {
                         initialDate: DateTime.now(),
                         firstDate: DateTime(1900),
                         lastDate: DateTime(2100));
-
+                    _birthday = "${date.day}.${date.month}.${date.year}";
                     dateCtl.text = "${date.day}.${date.month}.${date.year}";
                   },
                 ),
                 TextField(
                   controller: _biography,
                   decoration: InputDecoration(labelText: 'Biyografi'),
-                  minLines: 3,
+                  minLines: 2,
                   maxLines: 10,
                   keyboardType: TextInputType.multiline,
                 ),
@@ -193,7 +191,22 @@ class _UserInformationState extends State<UserInformation> {
                   child: ElevatedButton.icon(
                     icon: Icon(Icons.save_alt_outlined, size: 18),
                     label: Text("KAYDET"),
-                    onPressed: () {},
+                    onPressed: () {
+                      UserProfile userProfile = UserProfile();
+                      userProfile.userId = 'asdasdasdq2123123';
+                      userProfile.userName = _userName.value.text;
+                      userProfile.universty = _university.value.text;
+                      userProfile.department = _department.value.text;
+                      userProfile.gender = dropdownGender;
+                      userProfile.city = dropdownCity;
+                      userProfile.webSite = _webSite.value.text;
+                      userProfile.linkedin = _linkedin.value.text;
+                      userProfile.twitter = _twitter.value.text;
+                      userProfile.instagram = _instagram.value.text;
+                      userProfile.birtday = _birthday;
+                      userProfile.biograpfy = _biography.value.text;
+                      print(userProfile.toJson());
+                    },
                   ),
                 )
               ],

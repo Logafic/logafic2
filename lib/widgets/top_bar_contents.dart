@@ -2,7 +2,6 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/utils/authentication.dart';
 import 'package:logafic/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/utils/authentication.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
