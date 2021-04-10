@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/utils/authentication.dart';
 import 'package:toast/toast.dart';
-
-bool _sozlesme = false;
+import 'package:logafic/widgets/background.dart';
 
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -41,9 +40,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+    final body = new Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           title: Text(
             'LOGAFIC',
             style: TextStyle(
@@ -105,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Text(
                           "Logafic'e kayıt ol",
                           style: TextStyle(
-                              color: Colors.grey[400],
+                              color: Colors.black54,
                               fontSize: 23,
                               fontFamily: 'Montserrat'),
                         ),
@@ -178,7 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           width: 200,
                           height: 50,
                           child: FlatButton(
-                            color: Colors.lightGreen[200],
+                            color: Colors.lightGreen[300],
                             child: Text(
                               'Kayıt Ol',
                               style: TextStyle(
@@ -209,6 +211,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
           ),
+        ));
+    return new Container(
+        decoration: new BoxDecoration(
+          color: Colors.black26,
+        ),
+        child: new Stack(
+          children: <Widget>[
+            new CustomPaint(
+              size: new Size(_width, _height),
+              painter: new Background(),
+            ),
+            body,
+          ],
         ));
   }
 

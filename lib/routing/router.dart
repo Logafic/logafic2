@@ -22,7 +22,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case HomeRoute:
       return _getPageRoute(HomePage(), settings);
     case MessageRoute:
-      return _getPageRoute(MessageScreen(), settings);
+      return _getPageRoute(MyHomePage(), settings);
     case NotificationRoute:
       return _getPageRoute(NotificationScreen(), settings);
     case ProfileRoute:

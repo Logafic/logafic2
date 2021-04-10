@@ -5,13 +5,13 @@ class MessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
+        child: Row(
       children: [
         ListTile(
           title: Text('Lee-Walsh, Natalie'),
           isThreeLine: true,
           subtitle: Text(
-              '1 dk önce gönderildi.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ac nisi id placerat.'),
+              '1 dk önce gönderildi.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ac nisi id placerat. Praesent nec ante et lorem semper venenatis eget id mauris. Aenean auctor efficitur cursus. In vitae pharetra urna. Pellentesque faucibus massa diam. In sit amet mauris suscipit, volutpat tortor id, rutrum risus. Phasellus nec justo urna. Donec vitae lectus dignissim, venenatis ligula ut, scelerisque justo. Nullam auctor blandit hendrerit.\n'),
           leading: Image.network('https://picsum.photos/150'),
         ),
         IconButton(

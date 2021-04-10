@@ -7,8 +7,8 @@ class NotificationWidget extends StatelessWidget {
         child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: ScreenW * 0.3,
+        Container(
+          width: ScreenW * 0.7,
           child: ListTile(
             title: Text('Lee-Walsh, Natalie'),
             isThreeLine: true,
@@ -22,6 +22,7 @@ class NotificationWidget extends StatelessWidget {
           tooltip: 'Git',
           onPressed: () {},
         ),
+        Divider()
       ],
     ));
   }

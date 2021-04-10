@@ -53,8 +53,15 @@ class ProfileSmallWidgetTwo extends StatelessWidget {
                 ],
               )),
               new IconButton(
-                icon: Icon(Icons.more_vert),
-                tooltip: 'Daha Fazlası',
+                icon: Icon(Icons.reply),
+                tooltip: 'Yanıtla',
+                onPressed: () {},
+              ),
+              new IconButton(
+                icon: const Icon(
+                  Icons.delete,
+                ),
+                tooltip: 'Sil',
                 onPressed: () {},
               ),
             ],

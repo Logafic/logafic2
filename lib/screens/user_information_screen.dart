@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:logafic/data_model/user_profile_model.dart';
+import 'package:logafic/widgets/background.dart';
 
 class UserInformation extends StatefulWidget {
   UserInformation({Key key}) : super(key: key);
@@ -50,13 +51,16 @@ class _UserInformationState extends State<UserInformation> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+    final body = new Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(
             'Profilinizi birlikte tamamlayalım.',
             style: TextStyle(color: Colors.black54),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
@@ -82,11 +86,14 @@ class _UserInformationState extends State<UserInformation> {
                   child: Container(
                     height: 200,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(30.0)), // Şekil
                         gradient: LinearGradient(
-                            colors: [Colors.black45, Colors.black12],
+                            // Gradiant renk düzenleme başlangıcı
+                            colors: [Colors.black12, Colors.black12],
                             begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter)),
+                            end: Alignment
+                                .bottomCenter)), // Gradiant renk düzenleme bitişi
                     child: Center(
                       child: OutlinedButton.icon(
                         icon: Icon(
@@ -108,11 +115,14 @@ class _UserInformationState extends State<UserInformation> {
                     width: 50,
                     height: 200,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(10.0)), // Şekil
                         gradient: LinearGradient(
+                            // Gradiant renk düzenleme başlangıcı
                             colors: [Colors.black45, Colors.black12],
                             begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter)),
+                            end: Alignment
+                                .bottomCenter)), // Gradiant renk düzenleme bitişi
                     child: Center(
                       child: OutlinedButton.icon(
                         icon: Icon(
@@ -213,6 +223,19 @@ class _UserInformationState extends State<UserInformation> {
             ),
           ),
         )));
+    return new Container(
+        decoration: new BoxDecoration(
+          color: Colors.black26,
+        ),
+        child: new Stack(
+          children: <Widget>[
+            new CustomPaint(
+              size: new Size(_width, _height),
+              painter: new Background(),
+            ),
+            body,
+          ],
+        ));
   }
 
   Widget get _dropdownCity {

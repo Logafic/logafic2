@@ -2,22 +2,12 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/utils/authentication.dart';
+import 'package:logafic/widgets/background.dart';
 
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-/*
-
-(String value) {
-                            if (value.isEmpty) {
-                              return 'Lütfen geçerli bir email adresi giriniz.';
-                            }
-                            return null;
-                          },
-
-
-*/
 Future<String> success;
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -28,7 +18,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   //Validation
   final FocusNode _emailFocusNode = FocusNode();
-  bool _agree = false;
 
   void initState() {
     super.initState();
@@ -48,9 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+    final boyd = new Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
           title: Text(
             'LOGAFIC',
             style: TextStyle(
@@ -100,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 500,
               height: 300,
               child: Card(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 clipBehavior: Clip.antiAlias,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Logafic'e giriş yap",
                           style: TextStyle(
-                              color: Colors.grey[400],
+                              color: Colors.black54,
                               fontSize: 23,
                               fontFamily: 'Montserrat'),
                         ),
@@ -192,21 +184,30 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ));
+    return new Container(
+      decoration: new BoxDecoration(
+        color: Colors.black26,
+      ),
+      child: new Stack(
+        children: <Widget>[
+          new CustomPaint(
+            size: new Size(_width, _height),
+            painter: new Background(),
+          ),
+          boyd,
+        ],
+      ),
+    );
   }
 
   String _validateEmail(String email) {
-    // 1
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    // Add the following line to set focus to the email field
     if (email.isEmpty || !regex.hasMatch(email)) _emailFocusNode.requestFocus();
-    // 2
     if (email.isEmpty)
       return 'Bir e-posta adresine ihtiyacımız var';
     else if (!regex.hasMatch(email))
-      // 3
       return "Bu bir e-posta adresine benzemiyor";
     else
-      // 4
       return null;
   }
 

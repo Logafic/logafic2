@@ -18,6 +18,8 @@ import 'package:logafic/utils/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
+import 'package:logafic/widgets/background.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -61,27 +63,22 @@ class _HomePageState extends State<HomePage> {
         ? _scrollPosition / (screenSize.height * 0.40)
         : 1;
     _opacity = 1;
-    return Scaffold(
-        backgroundColor: Colors.white70,
+
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+
+    final body = new Scaffold(
+        backgroundColor: Colors.transparent,
         extendBodyBehindAppBar: true,
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBar(
-                leading: IconButton(
-                  icon: const Icon(Icons.menu_rounded, color: Colors.black45),
-                  onPressed: () {
-                    setState(() {
-                      bottom.add(bottom.length);
-                    });
-                  },
-                ),
-                backgroundColor:
-                    Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+                backgroundColor: Colors.transparent,
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
                   'LOGAFIC',
                   style: TextStyle(
-                    color: Colors.black54,
+                    color: Colors.white,
                     fontSize: 20,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w400,
@@ -93,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                 preferredSize: Size(screenSize.width, 1000),
                 child: TopBarContents(_opacity),
               ),
-        drawer: logaficDrawer(),
+        drawer: ExploreDrawer(),
         body: LazyLoadScrollView(
             isLoading: isLoading,
             child: Scrollbar(
@@ -169,6 +166,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         textColor: const Color(000),
                                         onPressed: () async {
+                                          getUser();
                                           PostModel post = new PostModel(
                                               userId: uid,
                                               userName: userEmail,
@@ -210,6 +208,21 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             onEndOfPage: () => loadData()));
+
+    return new Container(
+      decoration: new BoxDecoration(
+        color: Colors.black26,
+      ),
+      child: new Stack(
+        children: <Widget>[
+          new CustomPaint(
+            size: new Size(_width, _height),
+            painter: new Background(),
+          ),
+          body,
+        ],
+      ),
+    );
   }
 
   Future<DataModel> loadData() async {

@@ -34,7 +34,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
+        color: Theme.of(context).splashColor.withOpacity(widget.opacity),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Row(

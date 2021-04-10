@@ -1,17 +1,24 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/comment_widget.dart';
 import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/profile_widget_small.dart';
 
+import 'package:logafic/widgets/background.dart';
+
 class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
     var screenSizeW = MediaQuery.of(context).size.width * 8 / 10;
-    return Scaffold(
+    final body = new Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         leading: Builder(
           builder: (BuildContext context) {
-            return IconButton(
+            return new IconButton(
               icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.black,
@@ -32,12 +39,12 @@ class ProfileScreen extends StatelessWidget {
             letterSpacing: 3,
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         actions: <Widget>[ProfileActionBar()],
       ),
       body: ResponsiveWidget.isLargeScreen(context) ||
               ResponsiveWidget.isMediumScreen(context)
-          ? Container(
+          ? new Container(
               child: Scrollbar(
               child: ListView(
                 children: [
@@ -130,14 +137,14 @@ class ProfileScreen extends StatelessWidget {
                                         )
                                       ],
                                     )),
-                                Divider(
+                                new Divider(
                                   indent: 8,
                                 ),
-                                Padding(
+                                new Padding(
                                     padding: EdgeInsets.only(left: 20, top: 5),
-                                    child: Row(
+                                    child: new Row(
                                       children: [
-                                        FlatButton(
+                                        new FlatButton(
                                             color: Colors.lightBlue,
                                             onPressed: () {},
                                             child: Text(
@@ -167,7 +174,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ))
           : Container(
-              child: ListView(
+              child: new ListView(
                 children: [
                   Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -191,10 +198,24 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         )
                       ]),
-                  for (int i = 0; i < 2; i++) ProfileWidgetSmall(),
+                  for (int i = 0; i < 2; i++) ProfileSmallWidgetTwo(),
                 ],
               ),
             ),
+    );
+    return new Container(
+      decoration: new BoxDecoration(
+        color: Colors.black26,
+      ),
+      child: new Stack(
+        children: <Widget>[
+          new CustomPaint(
+            size: new Size(_width, _height),
+            painter: new Background(),
+          ),
+          body
+        ],
+      ),
     );
   }
 }

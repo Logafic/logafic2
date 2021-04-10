@@ -1,26 +1,25 @@
 import 'package:logafic/screens/home_page.dart';
 import 'package:logafic/utils/authentication.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/routing/router_names.dart';
 
 import 'auth_dialog.dart';
 
-class logaficDrawer extends StatefulWidget {
-  const logaficDrawer({
+class ExploreDrawer extends StatefulWidget {
+  const ExploreDrawer({
     Key key,
   }) : super(key: key);
 
   @override
-  _logaficDrawerState createState() => _logaficDrawerState();
+  _ExploreDrawerState createState() => _ExploreDrawerState();
 }
 
-class _logaficDrawerState extends State<logaficDrawer> {
+class _ExploreDrawerState extends State<ExploreDrawer> {
   bool _isProcessing = false;
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Theme.of(context).bottomAppBarColor,
+        color: Colors.black26,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -30,26 +29,32 @@ class _logaficDrawerState extends State<logaficDrawer> {
               userEmail == null
                   ? Container(
                       width: double.maxFinite,
-                      child: FlatButton(
-                        color: Colors.black,
-                        hoverColor: Colors.blueGrey[800],
-                        highlightColor: Colors.blueGrey[700],
+                      child: TextButton(
+                        // color: Colors.black,
+                        // hoverColor: Colors.blueGrey[800],
+                        // highlightColor: Colors.blueGrey[700],
+                        style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                         onPressed: () {
                           showDialog(
                             context: context,
                             builder: (context) => AuthDialog(),
                           );
                         },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(15),
+                        // ),
                         child: Padding(
                           padding: EdgeInsets.only(
                             top: 15.0,
                             bottom: 15.0,
                           ),
                           child: Text(
-                            'Giris Yap',
+                            'Giriş Yap',
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -87,10 +92,16 @@ class _logaficDrawerState extends State<logaficDrawer> {
               userEmail != null
                   ? Container(
                       width: double.maxFinite,
-                      child: FlatButton(
-                        color: Colors.black,
-                        hoverColor: Colors.blueGrey[800],
-                        highlightColor: Colors.blueGrey[700],
+                      child: TextButton(
+                        // color: Colors.black,
+                        // hoverColor: Colors.blueGrey[800],
+                        // highlightColor: Colors.blueGrey[700],
+                        style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                         onPressed: _isProcessing
                             ? null
                             : () async {
@@ -99,17 +110,22 @@ class _logaficDrawerState extends State<logaficDrawer> {
                                 });
                                 await signOut().then((result) {
                                   print(result);
-                                  Navigator.pushNamed(context, FirstRoute);
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      fullscreenDialog: true,
+                                      builder: (context) => HomePage(),
+                                    ),
+                                  );
                                 }).catchError((error) {
-                                  print('Çıkış yaparken hata oluştu : $error');
+                                  print('Çıkış yaparken hata oluştu: $error');
                                 });
                                 setState(() {
                                   _isProcessing = false;
                                 });
                               },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(15),
+                        // ),
                         child: Padding(
                           padding: EdgeInsets.only(
                             top: 15.0,
@@ -118,7 +134,7 @@ class _logaficDrawerState extends State<logaficDrawer> {
                           child: _isProcessing
                               ? CircularProgressIndicator()
                               : Text(
-                                  'Çıkış Yap',
+                                  'Çıkış yap',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -131,11 +147,14 @@ class _logaficDrawerState extends State<logaficDrawer> {
               userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, NotificationRoute);
+                  Navigator.pushNamed(
+                    context,
+                    '/message',
+                  );
                 },
                 child: Text(
-                  'Bildirimler',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  'Mesajlar',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
               Padding(
@@ -147,11 +166,14 @@ class _logaficDrawerState extends State<logaficDrawer> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, MessageRoute);
+                  Navigator.pushNamed(
+                    context,
+                    '/notification',
+                  );
                 },
                 child: Text(
-                  'Mesajlar',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  'Bildirimler',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
               Padding(
@@ -162,10 +184,15 @@ class _logaficDrawerState extends State<logaficDrawer> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/profile',
+                  );
+                },
                 child: Text(
-                  'İletişim',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+                  'Profil',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ),
               Expanded(
@@ -174,7 +201,7 @@ class _logaficDrawerState extends State<logaficDrawer> {
                   child: Text(
                     'Copyright © 2020 | LOGAFIC',
                     style: TextStyle(
-                      color: Colors.blueGrey[300],
+                      color: Colors.white,
                       fontSize: 14,
                     ),
                   ),
