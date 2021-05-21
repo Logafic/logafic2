@@ -30,7 +30,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RegisterRoute:
       return _getPageRoute(RegisterScreen(), settings);
     case StatusRoute:
-      return _getPageRoute(StatusScreen(), settings);
+      return _getPageRoute(
+          StatusScreen(
+            id: '12',
+          ),
+          settings);
     case UserInformationRoute:
       return _getPageRoute(UserInformation(), settings);
     default:

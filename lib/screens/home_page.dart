@@ -9,7 +9,6 @@ import 'package:logafic/widgets/floating_quick_access_bar.dart';
 
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/top_bar_contents.dart';
-
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -166,7 +165,6 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                         textColor: const Color(000),
                                         onPressed: () async {
-                                          getUser();
                                           PostModel post = new PostModel(
                                               userId: uid,
                                               userName: userEmail,
@@ -231,7 +229,8 @@ class _HomePageState extends State<HomePage> {
         isLoading = true;
       });
       await new Future.delayed(const Duration(seconds: 1));
-      final res = await http.get("$_baseUrl/user");
+      var url = Uri.https("$_baseUrl", '/user');
+      final res = await http.get(url);
       if (res.statusCode == 200) {
         List<dynamic> dataBody = jsonDecode(res.body);
         data = data +

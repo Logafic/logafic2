@@ -3,9 +3,11 @@ import 'package:logafic/routing/router.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/navigation_service.dart';
 import 'package:logafic/utils/authentication.dart';
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
-void main() {
+Future<void> main() async {
   runApp(MyApp());
+  await firebase_core.Firebase.initializeApp();
 }
 
 class MyApp extends StatefulWidget {

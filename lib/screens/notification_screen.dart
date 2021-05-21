@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:logafic/widgets/comment_widget.dart';
 import 'package:logafic/widgets/notification_widget.dart';
-import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
 

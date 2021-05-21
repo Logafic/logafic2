@@ -1,4 +1,5 @@
 class UserProfile {
+  String userEmail;
   String userId;
   String userName;
   String universty;
@@ -15,7 +16,8 @@ class UserProfile {
   String biograpfy;
 
   UserProfile(
-      {this.userId,
+      {this.userEmail,
+      this.userId,
       this.userName,
       this.universty,
       this.userProfileImage,

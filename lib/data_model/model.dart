@@ -1,9 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'dart:convert';
-
-DataModel ModelFromJson(String str) => DataModel.fromJson(json.decode(str));
-String ModelToJson(DataModel data) => json.encode(data.toJson());
-
 class DataModel {
   int id;
   String name;
