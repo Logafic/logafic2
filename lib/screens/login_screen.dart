@@ -160,18 +160,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                     signInWithEmailPassword(
                                             _emailController.text,
                                             _passController.text)
-                                        .then((value) {
-                                      value == null
-                                          ? showToast(
-                                              'E-mail veya şifre yanlış.', 1)
-                                          : {
-                                              Navigator.pushNamed(
-                                                  context, HomeRoute),
-                                              showToast('Giriş Yapıldı', 1)
-                                            };
-                                    }, onError: (error) {
-                                      print(error);
-                                    });
+                                        .then(
+                                      (value) {
+                                        value == null
+                                            ? showToast(
+                                                'E-mail veya şifre yanlış.', 1)
+                                            : {
+                                                Navigator.pushNamed(
+                                                    context, HomeRoute),
+                                                showToast('Giriş Yapıldı', 1)
+                                              };
+                                      },
+                                    );
                                   } catch (e) {
                                     showToast(e.toString(), 3);
                                   }

@@ -97,7 +97,6 @@ Future<User> signInWithGoogle() async {
 Future<User> registerWithEmailPassword(String email, String password) async {
   await Firebase.initializeApp();
   User user;
-
   try {
     UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
       email: email,
@@ -118,14 +117,15 @@ Future<User> registerWithEmailPassword(String email, String password) async {
   } catch (e) {
     print(e);
   }
-
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('register', true);
+  Future<void>.delayed(Duration(seconds: 1));
   return user;
 }
 
-Future<User> signInWithEmailPassword(String email, String password) async {
+Future<String> signInWithEmailPassword(String email, String password) async {
   await Firebase.initializeApp();
   User user;
-
   try {
     UserCredential userCredential = await _auth.signInWithEmailAndPassword(
       email: email,
@@ -147,6 +147,7 @@ Future<User> signInWithEmailPassword(String email, String password) async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool('auth', true);
       await prefs.setStringList('user', listeUser);
+      return 'ok';
     }
   } catch (e) {
     if (e.code == 'user-not-found') {
@@ -155,7 +156,7 @@ Future<User> signInWithEmailPassword(String email, String password) async {
       print('Wrong password provided.');
     }
   }
-  return user;
+  return null;
 }
 
 Future<String> signOut() async {

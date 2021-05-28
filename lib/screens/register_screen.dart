@@ -192,11 +192,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               try {
                                 if (_formKey.currentState.validate()) {
                                   registerWithEmailPassword(
-                                      _emailController.text,
-                                      _passController.text);
-                                  showToast("Logafic'e hoşgeldiniz :)", 1);
-                                  Navigator.pushNamed(
-                                      context, UserInformationRoute);
+                                          _emailController.text,
+                                          _passController.text)
+                                      .whenComplete(() => {
+                                            showToast(
+                                                "Logafic'e hoşgeldiniz :)", 1),
+                                            Navigator.pushNamed(
+                                                context, UserInformationRoute),
+                                          });
                                 } else {
                                   print('Hata var!');
                                 }

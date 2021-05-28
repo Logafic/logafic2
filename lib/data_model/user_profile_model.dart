@@ -39,6 +39,7 @@ class UserProfile {
     data['userProfileImage'] = this.userProfileImage;
     data['userBackImage'] = this.userBackImage;
     data['department'] = this.department;
+    data['universty'] = this.universty;
     data['city'] = this.city;
     data['gender'] = this.gender;
     data['webSite'] = this.webSite;
@@ -47,6 +48,7 @@ class UserProfile {
     data['instagram'] = this.instagram;
     data['birtday'] = this.birtday;
     data['biograpfy'] = this.biograpfy;
+    data['email'] = this.userEmail;
     return data;
   }
 }
