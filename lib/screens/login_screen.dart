@@ -1,40 +1,25 @@
 import 'package:logafic/routing/router_names.dart';
-import 'package:toast/toast.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/utils/authentication.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/widgets/background.dart';
+import 'package:logafic/widgets/labelButton.dart';
+import 'package:logafic/widgets/primaryButton.dart';
+import 'package:logafic/widgets/formInputFieldWithIcon.dart';
+import 'package:logafic/widgets/formVerticalSpacing.dart';
 
 class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-Future<String> success;
+Future<String>? success;
 
 class _LoginScreenState extends State<LoginScreen> {
   //Form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController;
-  TextEditingController _passController;
 
   //Validation
   final FocusNode _emailFocusNode = FocusNode();
-
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-    _passController = TextEditingController();
-  }
-
-  void dispose() {
-    _emailController.dispose();
-    _passController.dispose();
-    super.dispose();
-  }
-
-  void showToast(String msg, int duration, {int gravity}) {
-    Toast.show(msg, context, duration: duration, gravity: gravity);
-  }
-
+  final AuthController authController = AuthController.to;
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -46,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           title: Text(
             'LOGAFIC',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 20,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
@@ -58,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               return IconButton(
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -69,11 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
           actions: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   'Kayıt Ol',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.w500),
                 ),
@@ -90,14 +75,14 @@ class _LoginScreenState extends State<LoginScreen> {
             alignment: Alignment.center,
             child: SizedBox(
               width: 500,
-              height: 300,
+              height: 400,
               child: Card(
                 color: Theme.of(context).cardColor,
                 clipBehavior: Clip.antiAlias,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(8),
                       child: SizedBox(
@@ -110,74 +95,46 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                          width: 400,
-                          child: TextFormField(
-                            controller: _emailController,
-                            decoration: const InputDecoration(
-                                icon: Icon(Icons.mail),
-                                hintText: ('Mail adresi'),
-                                labelText: ('Email')),
-                            validator: _validateEmail,
-                            autofocus: true,
-                            focusNode: _emailFocusNode,
-                          )),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _passController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.vpn_key),
-                              hintText: ('Şifre'),
-                              labelText: ('Şifre')),
-                          validator: _validatePassword,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                        padding: EdgeInsets.all(8),
-                        child: SizedBox(
-                          width: 200,
-                          height: 50,
-                          child: FlatButton(
-                              color: Colors.blue[300],
-                              child: Text(
-                                'Giriş Yap',
-                                style: TextStyle(
-                                    fontSize: 25,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              onPressed: () async {
-                                if (_formKey.currentState.validate()) {
-                                  try {
-                                    signInWithEmailPassword(
-                                            _emailController.text,
-                                            _passController.text)
-                                        .then(
-                                      (value) {
-                                        value == null
-                                            ? showToast(
-                                                'E-mail veya şifre yanlış.', 1)
-                                            : {
-                                                Navigator.pushNamed(
-                                                    context, HomeRoute),
-                                                showToast('Giriş Yapıldı', 1)
-                                              };
-                                      },
-                                    );
-                                  } catch (e) {
-                                    showToast(e.toString(), 3);
-                                  }
-                                }
-                              }),
-                        ))
+                    FormInputFieldWithIcon(
+                        controller: authController.emailController,
+                        iconPrefix: Icons.email,
+                        labelText: 'Email',
+                        obscureText: false,
+                        validator: _validateEmail,
+                        keyboardType: TextInputType.emailAddress,
+                        onChanged: (value) => null,
+                        onSaved: (value) =>
+                            authController.emailController.text != value),
+                    FormVerticalSpace(),
+                    FormInputFieldWithIcon(
+                        controller: authController.passwordController,
+                        iconPrefix: Icons.password,
+                        labelText: 'Şifre',
+                        validator: _validatePassword,
+                        maxLines: 1,
+                        obscureText: true,
+                        onChanged: (value) => null,
+                        onSaved: (value) =>
+                            authController.passwordController.text != value),
+                    FormVerticalSpace(),
+                    PrimaryButton(
+                        labelText: 'Giriş Yap',
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            try {
+                              authController
+                                  .signInWithEmailAndPassword(context);
+                            } catch (err) {
+                              print(err);
+                            }
+                          }
+                        }),
+                    FormVerticalSpace(),
+                    LabelButton(
+                        labelText: 'Şifreni mi Unuttun?',
+                        onPressed: () {
+                          Navigator.pushNamed(context, ResetRoute);
+                        })
                   ],
                 ),
               ),
@@ -200,20 +157,27 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  String _validateEmail(String email) {
+  String? _validateEmail(String? email) {
+    // 1
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    if (email.isEmpty || !regex.hasMatch(email)) _emailFocusNode.requestFocus();
+    // Add the following line to set focus to the email field
+    if (email!.isEmpty || !regex.hasMatch(email))
+      _emailFocusNode.requestFocus();
+    // 2
     if (email.isEmpty)
       return 'Bir e-posta adresine ihtiyacımız var';
     else if (!regex.hasMatch(email))
+      // 3
       return "Bu bir e-posta adresine benzemiyor";
     else
+      // 4
       return null;
   }
 
-  String _validatePassword(String pass1) {
-    if (!RegExp(r'.{8,}').hasMatch(pass1))
+  String? _validatePassword(String? pass1) {
+    if (!RegExp(r'.{8,}').hasMatch(pass1!))
       return 'Şifreler en az 8 karakter içermelidir';
+
     return null;
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
 class ProfileActionBar extends StatelessWidget {
-  const ProfileActionBar({Key key}) : super(key: key);
+  const ProfileActionBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

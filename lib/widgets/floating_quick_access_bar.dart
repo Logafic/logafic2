@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class FloatingQuickAccessBar extends StatefulWidget {
   const FloatingQuickAccessBar({
-    Key key,
-    @required this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;
@@ -14,7 +14,7 @@ class FloatingQuickAccessBar extends StatefulWidget {
 }
 
 class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
-  List _isHovering = [false, false, false, false];
+  List _isHovering = [false, false];
   List<Widget> rowElements = [];
 
   List<String> items = ['Akış Zamanı', 'Trend Gönderiler'];
@@ -34,18 +34,20 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
             value ? _isHovering[i] = true : _isHovering[i] = false;
           });
         },
-        onTap: () {},
+        onTap: () {
+          i % 2 == 0 ? print('Çift') : print('Tek');
+        },
         child: Text(
           items[i],
           style: TextStyle(
             color: _isHovering[i]
-                ? Theme.of(context).primaryTextTheme.button.decorationColor
+                ? Theme.of(context).primaryTextTheme.button!.decorationColor
                 : Colors.black54,
           ),
         ),
       );
       Widget spacer = SizedBox(
-        height: widget.screenSize.height / 20,
+        height: widget.screenSize.height / 60,
         child: VerticalDivider(
           width: 1,
           color: Colors.blueGrey[100],

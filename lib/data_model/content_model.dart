@@ -1,22 +1,22 @@
 class ContentModel {
-  String parentId;
-  String parentName;
-  int id;
-  String image;
-  String content;
-  String follows;
-  String comment;
-  String createdAt;
+  String? parentId;
+  String? parentName;
+  int? id;
+  String? image;
+  String? content;
+  String? follows;
+  String? comment;
+  String? createdAt;
 
   ContentModel(
-      {this.parentId,
-      this.parentName,
-      this.id,
-      this.image,
-      this.content,
-      this.follows,
-      this.comment,
-      this.createdAt});
+      {required this.parentId,
+      required this.parentName,
+      required this.id,
+      required this.image,
+      required this.content,
+      required this.follows,
+      required this.comment,
+      required this.createdAt});
 
   ContentModel.fromJson(Map<String, dynamic> json) {
     parentId = json['parent_id'];

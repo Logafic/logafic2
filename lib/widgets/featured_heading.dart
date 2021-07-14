@@ -1,7 +1,5 @@
 import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/screens/home_page.dart';
-import 'package:logafic/screens/status_screen.dart';
 
 List<String> userName = [
   'Stanbrige, Peter',
@@ -17,14 +15,13 @@ List<String> userName = [
 
 class FeaturedHeadingStatu extends StatelessWidget {
   const FeaturedHeadingStatu({
-    Key key,
-    this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
   final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
-    double rating = 3.5;
     return Padding(
         padding: EdgeInsets.only(
           top: screenSize.height * 0.02,
@@ -65,8 +62,7 @@ class FeaturedHeadingStatu extends StatelessWidget {
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: [
-                                FlatButton(
-                                  textColor: Colors.black,
+                                ElevatedButton(
                                   onPressed: () {
                                     Navigator.pushNamed(
                                       context,
@@ -75,8 +71,7 @@ class FeaturedHeadingStatu extends StatelessWidget {
                                   },
                                   child: Text('Yorum Yap'),
                                 ),
-                                FlatButton(
-                                  textColor: Colors.blue,
+                                TextButton(
                                   onPressed: () {},
                                   child: Text('Yorumlar'),
                                 ),

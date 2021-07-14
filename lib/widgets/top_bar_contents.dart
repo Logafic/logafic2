@@ -1,6 +1,6 @@
+import 'package:get/get.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
-import 'package:logafic/utils/authentication.dart';
-import 'package:logafic/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
 class TopBarContents extends StatefulWidget {
@@ -14,6 +14,7 @@ class TopBarContents extends StatefulWidget {
 }
 
 class _TopBarContentsState extends State<TopBarContents> {
+  AuthController authController = AuthController.to;
   final List _isHovering = [
     false,
     false,
@@ -24,8 +25,6 @@ class _TopBarContentsState extends State<TopBarContents> {
     false,
     false
   ];
-
-  bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -177,14 +176,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                       value ? _isHovering[3] = true : _isHovering[3] = false;
                     });
                   },
-                  onTap: userEmail == null
-                      ? () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AuthDialog(),
-                          );
-                        }
-                      : null,
+                  onTap: '' == null ? () {} : null,
                   child: PopupMenuButton(
                     icon: Icon(
                       Icons.person,
@@ -221,9 +213,10 @@ class _TopBarContentsState extends State<TopBarContents> {
                       const PopupMenuDivider(),
                       PopupMenuItem(
                           child: ListTile(
-                        onTap: () {
-                          signOut();
-                          Navigator.pushNamed(context, FirstRoute);
+                        onTap: () async {
+                          await authController
+                              .signOut()
+                              .whenComplete(() => Get.offAllNamed(FirstRoute));
                         },
                         title: Text('Çıkış Yap'),
                       )),

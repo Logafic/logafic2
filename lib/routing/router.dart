@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:logafic/data_model/user_model.dart';
 import 'package:logafic/routing/router_names.dart';
 //Screens
 import 'package:logafic/screens/status_screen.dart';
@@ -10,13 +11,15 @@ import 'package:logafic/screens/notification_screen.dart';
 import 'package:logafic/screens/profile_screen.dart';
 import 'package:logafic/screens/register_screen.dart';
 import 'package:logafic/screens/first_screen.dart';
+import 'package:logafic/screens/reset_password_screen.dart';
 //Extensions
 import 'package:logafic/extensions/string_extensions.dart';
+import 'package:logafic/screens/update_user_information.dart';
 import 'package:logafic/screens/user_information_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  var routingData = settings.name.getRoutingData;
-  switch (routingData.route) {
+  var routingData = settings.name?.getRoutingData;
+  switch (routingData?.route) {
     case FirstRoute:
       return _getPageRoute(FirstScreenTopBarContents(), settings);
     case HomeRoute:
@@ -26,13 +29,29 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case NotificationRoute:
       return _getPageRoute(NotificationScreen(), settings);
     case ProfileRoute:
-      return _getPageRoute(ProfileScreen(), settings);
+      final arguments = settings.arguments as Map<String, dynamic>;
+      return _getPageRoute(
+          ProfileScreen(
+            userId: arguments['userId'],
+            // userId: '6MEgQEHzIpVMSxUcE5zq8u0ZPPm2',
+          ),
+          settings);
+    case UpdateUserInformationRoute:
+      final arguments = settings.arguments as Map<String, dynamic>;
+      return _getPageRoute(
+          UpdateUserInformation(userId: arguments['userId']
+              // userId: '6MEgQEHzIpVMSxUcE5zq8u0ZPPm2',
+              ),
+          settings);
     case RegisterRoute:
       return _getPageRoute(RegisterScreen(), settings);
+    case ResetRoute:
+      return _getPageRoute(ResetPasswordUI(), settings);
     case StatusRoute:
+      final arguments = settings.arguments as Map<String, dynamic>;
       return _getPageRoute(
           StatusScreen(
-            id: '12',
+            id: arguments['id'],
           ),
           settings);
     case UserInformationRoute:
@@ -48,8 +67,8 @@ PageRoute _getPageRoute(Widget child, RouteSettings settings) {
 
 class _FadeRoute extends PageRouteBuilder {
   final Widget child;
-  final String routeName;
-  _FadeRoute({this.child, this.routeName})
+  final String? routeName;
+  _FadeRoute({required this.child, required this.routeName})
       : super(
           settings: RouteSettings(name: routeName),
           pageBuilder: (

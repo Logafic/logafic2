@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
 class MenuActionBar extends StatelessWidget {
-  const MenuActionBar({Key key}) : super(key: key);
+  const MenuActionBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

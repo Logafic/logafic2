@@ -1,19 +1,19 @@
 class UserProfile {
-  String userEmail;
-  String userId;
-  String userName;
-  String universty;
-  String userProfileImage;
-  String userBackImage;
-  String department;
-  String city;
-  String gender;
-  String webSite;
-  String linkedin;
-  String twitter;
-  String instagram;
-  String birtday;
-  String biograpfy;
+  String? userEmail;
+  String? userId;
+  String? userName;
+  String? universty;
+  String? userProfileImage;
+  String? userBackImage;
+  String? department;
+  String? city;
+  String? gender;
+  String? webSite;
+  String? linkedin;
+  String? twitter;
+  String? instagram;
+  String? birtday;
+  String? biograpfy;
 
   UserProfile(
       {this.userEmail,

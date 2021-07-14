@@ -1,30 +1,27 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
-import 'package:logafic/widgets/comment_widget.dart';
+import 'package:logafic/widgets/deletePostProfileScreenWidget.dart';
 import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/profile_widget_small.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:logafic/widgets/updatePostWidget.dart';
 
-class ProfileScreen extends StatefulWidget {
-  ProfileScreen({Key key}) : super(key: key);
+class ProfileScreen extends StatelessWidget {
+  AuthController authController = AuthController.to;
+  final String userId;
+  ProfileScreen({Key? key, required this.userId}) : super(key: key);
+  CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
+  TextEditingController updateContentController = TextEditingController();
 
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    CollectionReference user = FirebaseFirestore.instance.collection('users');
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
     var screenSizeW = MediaQuery.of(context).size.width * 8 / 10;
+
     final body = new Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -68,37 +65,62 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ? new Container(
                       child: Scrollbar(
                       child: ListView(
-                        children: [
-                          Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: 8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      height: 200,
-                                      child: Image.network(
-                                          snapshot.data['userBackImage']),
-                                    )
-                                  ],
+                                  padding: EdgeInsets.only(top: 8),
+                                  child: SizedBox(
+                                    width: 200,
+                                    height: 200,
+                                    child: Image.network(
+                                        snapshot.data['userBackImage'] ??
+                                            'https://picsum.photos/600'),
+                                  )),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(right: 100),
+                                child: Text(
+                                  'Gönderiler',
+                                  style: TextStyle(
+                                    color: Colors.black.withOpacity(0.6),
+                                    fontSize: 25,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 3,
+                                  ),
                                 ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              )
+                            ],
+                          ),
+                          Padding(
+                              padding: EdgeInsets.only(left: 100, right: 100),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(
                                     width: screenSizeW * 3 / 10,
                                     child: Column(
                                       children: [
-                                        Card(
-                                          color: Colors.grey,
-                                          child: Image.network(snapshot
-                                              .data['userProfileImage']),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 100, top: 10),
+                                          child: Card(
+                                            color: Colors.grey,
+                                            child: Image.network(snapshot
+                                                    .data['userProfileImage'] ??
+                                                'https://picsum.photos/600/200'),
+                                          ),
                                         ),
                                         Padding(
                                             padding: EdgeInsets.only(
-                                                left: 20, top: 10),
+                                                left: 100, top: 10),
                                             child: Row(
                                               children: [
                                                 Padding(
@@ -125,7 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ),
                                         Padding(
                                             padding: EdgeInsets.only(
-                                                left: 20, top: 5),
+                                                left: 100, top: 5),
                                             child: Row(
                                               children: [
                                                 Padding(
@@ -152,7 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ),
                                         Padding(
                                             padding: EdgeInsets.only(
-                                                left: 20, top: 5),
+                                                left: 100, top: 5),
                                             child: Row(
                                               children: [
                                                 Padding(
@@ -177,39 +199,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         new Divider(
                                           indent: 8,
                                         ),
-                                        new Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 20, top: 5),
-                                            child: new Row(
-                                              children: [
-                                                new FlatButton(
-                                                    color: Colors.lightBlue,
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      'Profili Düzenle',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ))
-                                              ],
-                                            )),
+                                        authController
+                                                    .firebaseUser.value!.uid ==
+                                                userId
+                                            ? new Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 100, top: 5),
+                                                child: new Row(
+                                                  children: [
+                                                    new FlatButton(
+                                                        color: Colors.lightBlue,
+                                                        onPressed: () {
+                                                          Navigator.pushNamed(
+                                                              context,
+                                                              UpdateUserInformationRoute,
+                                                              arguments: {
+                                                                'userId': userId
+                                                              });
+                                                        },
+                                                        child: Text(
+                                                          'Profili Düzenle',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ))
+                                                  ],
+                                                ))
+                                            : Text('')
                                       ],
                                     ),
                                   ),
-                                  Container(
-                                    width: screenSizeW * 6 / 10,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        for (int i = 0; i < 3; i++)
-                                          CommentWidget()
-                                      ],
-                                    ),
-                                  ),
+                                  Expanded(child: streamPosts(userId))
                                 ],
-                              ),
-                            ],
-                          ),
+                              ))
                         ],
                       ),
                     ))
@@ -223,7 +245,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   padding: EdgeInsets.all(16),
                                   child: Image(
                                       image: NetworkImage(
-                                          snapshot.data['userProfileImage'])),
+                                          snapshot.data['userProfileImage'] ??
+                                              'https://picsum.photos/200')),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(bottom: 16),
@@ -260,18 +283,200 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  @override
-  Future<Map> getUser() async {
-    final documentId = await getUserId();
-    CollectionReference user = FirebaseFirestore.instance.collection('users');
-    DocumentSnapshot userSnap = await user.doc(documentId).get();
-    Map<String, dynamic> data = userSnap.data();
-    return data;
+  Widget streamPosts(String userId) {
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection('posts')
+          .where('userId', isEqualTo: userId)
+          .snapshots(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          // return Text(snapshot.data.docs[index]['content']);
+
+          return ListView.builder(
+              shrinkWrap: true,
+              itemCount: snapshot.data.docs.length,
+              itemBuilder: (context, index) {
+                return Center(
+                    child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        child: GestureDetector(
+                          onTap: () {
+                            print(snapshot.data.id);
+                            Navigator.pushNamed(context, StatusRoute,
+                                arguments: {'id': snapshot.data.id});
+                          },
+                          child: Card(
+                            color: Colors.grey[50],
+                            clipBehavior: Clip.antiAlias,
+                            child: Column(
+                              children: [
+                                ListTile(
+                                    leading: Image.network(snapshot
+                                        .data.docs[index]['userProfile']),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        TextButton(
+                                          child: Text(
+                                            (snapshot.data.docs[index]
+                                                ['userName']),
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                      ],
+                                    ),
+                                    subtitle: Text(snapshot
+                                        .data.docs[index]['created_at']
+                                        .toString()),
+                                    trailing: authController
+                                                .firebaseUser.value!.uid ==
+                                            userId
+                                        ? PopupMenuButton(
+                                            icon: Icon(
+                                              Icons.more_horiz,
+                                              color: Colors.black45,
+                                            ),
+                                            itemBuilder:
+                                                (BuildContext context) =>
+                                                    <PopupMenuEntry>[
+                                              PopupMenuItem(
+                                                  child: ListTile(
+                                                      onTap: () {
+                                                        postUpdataShowDialog(
+                                                            context,
+                                                            '${snapshot.data.docs[index].id}',
+                                                            '${snapshot.data.docs[index]['content']}',
+                                                            '${snapshot.data.docs[index]['created_at']}');
+                                                      },
+                                                      title: Text('Düzenle'),
+                                                      leading:
+                                                          Icon(Icons.edit))),
+                                              const PopupMenuDivider(),
+                                              PopupMenuItem(
+                                                  child: ListTile(
+                                                      onTap: () {
+                                                        showDeletePostProfileScreenWidget(
+                                                            context,
+                                                            '${snapshot.data.docs[index].id}');
+                                                      },
+                                                      title: Text('Sil'),
+                                                      leading:
+                                                          Icon(Icons.delete))),
+                                            ],
+                                          )
+                                        : Text('')),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                      snapshot.data.docs[index]['content']),
+                                ),
+                                ButtonBar(
+                                  alignment: MainAxisAlignment.start,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Yorum Yap',
+                                        style: TextStyle(color: Colors.black54),
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Yorumlar',
+                                        style: TextStyle(color: Colors.black54),
+                                      ),
+                                    ),
+                                    FutureBuilder(
+                                      future: checkIfDocExists(
+                                          '${snapshot.data.docs[index].id}'),
+                                      builder: (BuildContext context,
+                                          AsyncSnapshot snapshot) {
+                                        if (snapshot.data == false) {
+                                          return IconButton(
+                                              icon: Icon(
+                                                Icons.star_outline,
+                                                color: Colors.green,
+                                              ),
+                                              onPressed: () {
+                                                likeRef
+                                                    .doc(
+                                                        '${snapshot.data.docs[index].id}')
+                                                    .collection('likes')
+                                                    .doc(userId)
+                                                    .set({'like': true});
+                                              });
+                                        } else {
+                                          return IconButton(
+                                              icon: Icon(
+                                                Icons.star_outline,
+                                                color: Colors.amber,
+                                              ),
+                                              onPressed: () {
+                                                likeRef
+                                                    .doc(
+                                                        '${snapshot.data.docs[index].id}')
+                                                    .collection('likes')
+                                                    .doc(userId)
+                                                    .delete();
+                                              });
+                                        }
+                                      },
+                                    ),
+                                    FutureBuilder(
+                                        future: getSize(
+                                            '${snapshot.data.docs[index].id}'),
+                                        builder: (BuildContext context,
+                                            AsyncSnapshot<int> snapshot) {
+                                          if (snapshot.hasData) {
+                                            return Text(
+                                                snapshot.data.toString());
+                                          }
+                                          return Text('0');
+                                        }),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        )));
+              });
+        }
+      },
+    );
   }
 
-  Future<String> getUserId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> userInformaiton = prefs.getStringList('user');
-    return userInformaiton[0];
+  Future<bool> checkIfDocExists(String docId) async {
+    try {
+      // Get reference to Firestore collection
+      var doc = await likeRef.doc(docId).collection('likes').doc(userId).get();
+      return doc.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<int> getSize(String documentId) async {
+    var size = 0;
+    await likeRef
+        .doc(documentId)
+        .collection('likes')
+        .get()
+        .then((value) => size = value.size);
+    return size;
+  }
+
+  Future<Map<String, dynamic>> getUser() async {
+    final documentId = userId;
+    CollectionReference user = FirebaseFirestore.instance.collection('users');
+    DocumentSnapshot userSnap = await user.doc(documentId).get();
+    Map<String, dynamic> data = userSnap.data() as Map<String, dynamic>;
+    return data;
   }
 }

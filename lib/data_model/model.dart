@@ -1,9 +1,9 @@
 class DataModel {
-  int id;
-  String name;
-  String country;
-  String image;
-  String createdAt;
+  int? id;
+  String? name;
+  String? country;
+  String? image;
+  String? createdAt;
 
   DataModel(int id, String name, String country, String createdAt) {
     this.id = id;

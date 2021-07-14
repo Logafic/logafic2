@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 
 class ContentForm extends StatefulWidget {
   const ContentForm({
-    Key key,
+    Key? key,
   }) : super(key: key);
   @override
   _ContentFormState createState() => _ContentFormState();
 }
 
 class _ContentFormState extends State<ContentForm> {
-  TextEditingController _controller;
+  TextEditingController? _controller;
   void initState() {
     super.initState();
     _controller = TextEditingController();
   }
 
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -34,7 +34,10 @@ class _ContentFormState extends State<ContentForm> {
                   title: const Text('Thanks!'),
                   content: Text('You typed "$value".'),
                   actions: <Widget>[
-                    FlatButton(
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.black12)),
                       onPressed: () {
                         Navigator.pop(context);
                       },

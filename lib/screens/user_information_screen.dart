@@ -1,6 +1,6 @@
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/data_model/user_profile_model.dart';
 import 'package:logafic/widgets/background.dart';
-import 'package:logafic/routing/router_names.dart';
 import 'dart:async';
 import 'dart:io' as io;
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
@@ -8,13 +8,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:logafic/utils/authentication.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
 
 class UserInformation extends StatefulWidget {
-  UserInformation({Key key}) : super(key: key);
+  UserInformation({Key? key}) : super(key: key);
 
   @override
   _UserInformationState createState() => _UserInformationState();
@@ -27,7 +24,7 @@ enum UploadType {
 }
 
 class _UserInformationState extends State<UserInformation> {
-  bool currentUser = false;
+  AuthController authController = AuthController.to;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -37,10 +34,9 @@ class _UserInformationState extends State<UserInformation> {
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  DateTime dateTime;
-  List<String> imageRf = [];
-  PickedFile _fileProfileImage;
-  PickedFile _fileBannerImage;
+  DateTime? dateTime;
+  PickedFile? _fileProfileImage;
+  PickedFile? _fileBannerImage;
 
   /// Enum representing the upload task types the example app supports.
 
@@ -48,17 +44,16 @@ class _UserInformationState extends State<UserInformation> {
 
   String dropdownCity = 'Şehir';
   String dropdownGender = 'Cinsiyet';
-  String _birthday;
-  TextEditingController _userName;
-  TextEditingController _university;
-  TextEditingController _department;
-  TextEditingController _webSite;
-  TextEditingController _linkedin;
-  TextEditingController _twitter;
-  TextEditingController _instagram;
-  TextEditingController _biography;
+  String? _birthday;
+  TextEditingController? _userName;
+  TextEditingController? _university;
+  TextEditingController? _department;
+  TextEditingController? _webSite;
+  TextEditingController? _linkedin;
+  TextEditingController? _twitter;
+  TextEditingController? _instagram;
+  TextEditingController? _biography;
   void initState() {
-    getShared();
     _userName = new TextEditingController();
     _university = new TextEditingController();
     _department = new TextEditingController();
@@ -72,23 +67,14 @@ class _UserInformationState extends State<UserInformation> {
   }
 
   void dispose() {
-    _userName.dispose();
-    _university.dispose();
-    _department.dispose();
-    _webSite.dispose();
-    _linkedin.dispose();
-    _twitter.dispose();
-    _biography.dispose();
+    _userName!.dispose();
+    _university!.dispose();
+    _department!.dispose();
+    _webSite!.dispose();
+    _linkedin!.dispose();
+    _twitter!.dispose();
+    _biography!.dispose();
     super.dispose();
-  }
-
-  Future getShared() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if (prefs.getBool('register') == true) {
-      setState(() {
-        currentUser = true;
-      });
-    }
   }
 
   @override
@@ -117,11 +103,7 @@ class _UserInformationState extends State<UserInformation> {
             },
           ),
         ),
-        body: currentUser == false
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : _userInfoForm);
+        body: _userInfoForm);
     return new Container(
         decoration: new BoxDecoration(
           color: Colors.black26,
@@ -144,9 +126,9 @@ class _UserInformationState extends State<UserInformation> {
         height: 2,
         color: Colors.black26,
       ),
-      onChanged: (String newValue) {
+      onChanged: (String? newValue) {
         setState(() {
-          dropdownCity = newValue;
+          dropdownCity = newValue!;
         });
       },
       items: <String>['Şehir', 'İstanbul', 'İzmir', 'Ankara', 'Balıkesir']
@@ -166,9 +148,9 @@ class _UserInformationState extends State<UserInformation> {
         height: 2,
         color: Colors.black26,
       ),
-      onChanged: (String newValue) {
+      onChanged: (String? newValue) {
         setState(() {
-          dropdownGender = newValue;
+          dropdownGender = newValue!;
         });
       },
       items: <String>['Cinsiyet', 'Erkek', 'Kadın', 'Belirtmek istemiyorum']
@@ -212,8 +194,8 @@ class _UserInformationState extends State<UserInformation> {
                                 child: SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.2,
-                                    child:
-                                        Image.network(_fileProfileImage.path))),
+                                    child: Image.network(
+                                        _fileProfileImage!.path))),
                         PopupMenuButton<UploadType>(
                             onSelected: handleUploadType,
                             icon: const Icon(Icons.photo_album_outlined),
@@ -251,7 +233,7 @@ class _UserInformationState extends State<UserInformation> {
                                           MediaQuery.of(context).size.height *
                                               0.2,
                                       child: Image.network(
-                                          _fileBannerImage.path))),
+                                          _fileBannerImage!.path))),
                           PopupMenuButton<UploadType>(
                               onSelected: handleUploadType,
                               icon: const Icon(Icons.photo_album_outlined),
@@ -309,7 +291,7 @@ class _UserInformationState extends State<UserInformation> {
                 validator: _validateEmptyString,
                 onTap: () async {
                   try {
-                    DateTime date = DateTime(1900);
+                    DateTime? date = DateTime(1900);
                     FocusScope.of(context).requestFocus(new FocusNode());
 
                     date = await showDatePicker(
@@ -317,7 +299,7 @@ class _UserInformationState extends State<UserInformation> {
                         initialDate: DateTime.now(),
                         firstDate: DateTime(1900),
                         lastDate: DateTime(2100));
-                    _birthday = "${date.day}.${date.month}.${date.year}";
+                    _birthday = "${date!.day}.${date.month}.${date.year}";
                     dateCtl.text = "${date.day}.${date.month}.${date.year}";
                   } catch (Err) {
                     print(Err);
@@ -337,38 +319,39 @@ class _UserInformationState extends State<UserInformation> {
                   icon: Icon(Icons.save_alt_outlined, size: 18),
                   label: Text("KAYDET"),
                   onPressed: () async {
-                    if (_formKey.currentState.validate()) {
-                      if (_fileBannerImage != null ||
-                          _fileProfileImage != null) {
+                    if (_formKey.currentState!.validate()) {
+                      if (authController.firebaseUser.value!.uid.isNotEmpty) {
                         String profileRef =
-                            await uploadFile(_fileProfileImage, 'profile');
-
+                            await uploadFile(_fileProfileImage!, 'profile');
+                        Duration(seconds: 1);
                         String bannerRef =
-                            await uploadFile(_fileBannerImage, 'banner');
-
-                        UserProfile userProfile = UserProfile();
-                        userProfile.userEmail = userEmail;
-                        userProfile.userId = uid;
-                        userProfile.userName = _userName.value.text;
-                        userProfile.universty = _university.value.text;
-                        userProfile.department = _department.value.text;
+                            await uploadFile(_fileBannerImage!, 'banner');
+                        Duration(seconds: 1);
+                        UserProfile? userProfile = UserProfile();
+                        userProfile.userEmail =
+                            authController.firebaseUser.value!.email;
+                        userProfile.userId =
+                            authController.firebaseUser.value!.uid;
+                        userProfile.userName = _userName!.value.text;
+                        userProfile.universty = _university!.value.text;
+                        userProfile.department = _department!.value.text;
                         userProfile.gender = dropdownGender;
                         userProfile.city = dropdownCity;
-                        userProfile.webSite = _webSite.value.text;
-                        userProfile.linkedin = _linkedin.value.text;
-                        userProfile.twitter = _twitter.value.text;
-                        userProfile.instagram = _instagram.value.text;
+                        userProfile.webSite = _webSite!.value.text;
+                        userProfile.linkedin = _linkedin!.value.text;
+                        userProfile.twitter = _twitter!.value.text;
+                        userProfile.instagram = _instagram!.value.text;
                         userProfile.birtday = _birthday;
-                        userProfile.biograpfy = _biography.value.text;
+                        userProfile.biograpfy = _biography!.value.text;
                         userProfile.userProfileImage = profileRef;
                         userProfile.userBackImage = bannerRef;
-                        print(userProfile.toJson());
-                        await addUser(userProfile.toJson())
-                            .then((value) => {CircularProgressIndicator()})
-                            .whenComplete(
-                                () => Navigator.pushNamed(context, LoginRoute));
+                        authController.createUserFirestore(
+                            userProfile, authController.firebaseUser.value!);
+                        authController.newUser = false;
                       } else {
-                        showToast('Lütfen fotoğrafları seçiniz...', 2);
+                        Center(
+                          child: CircularProgressIndicator(),
+                        );
                       }
                     }
                   },
@@ -381,22 +364,20 @@ class _UserInformationState extends State<UserInformation> {
     );
   }
 
-  String _validateEmptyString(String email) {
+  String? _validateEmptyString(String? email) {
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    if (email.isEmpty || !regex.hasMatch(email)) _emailFocusNode.requestFocus();
-    if (email.isEmpty)
-      return 'Bu alanı boş bırakamazsınız.';
-    else
-      return null;
+    if (email!.isEmpty || !regex.hasMatch(email))
+      _emailFocusNode.requestFocus();
+    if (email.isEmpty) return 'Bu alanı boş bırakamazsınız.';
   }
 
   Future<String> uploadFile(PickedFile file, String imageName) async {
     try {
       // Create a Reference to the file
       firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance
-          .ref('gs://logafic-7911f.appspot.com')
+          .ref()
           .child('users')
-          .child('$uid-$imageName.jpg');
+          .child('${authController.firebaseUser.value!.uid}-$imageName.jpg');
       final metadata = firebase_storage.SettableMetadata(
           contentType: 'image/jpeg',
           customMetadata: {'picked-file-path': file.path});
@@ -409,41 +390,17 @@ class _UserInformationState extends State<UserInformation> {
       return await ref.getDownloadURL();
     } catch (err) {
       print(err);
-      return null;
     }
+    return '';
   }
 
-  Future<void> userAddedInformation() async {}
-  void showToast(String msg, int duration, {int gravity}) {
-    Toast.show(msg, context, duration: duration, gravity: gravity);
-  }
-
-  Future<void> addUser(Map<String, dynamic> user) async {
-    try {
-      CollectionReference users =
-          FirebaseFirestore.instance.collection('users');
-      return users
-          .doc(uid)
-          .set(user)
-          .then((value) => {
-                print('Success user added'),
-                showToast('Kullanıcı bilgileri başarıyla kayıt edildi', 1)
-              })
-          .catchError((err) {
-        showToast('Kullanıcı kayıt sırasında hata oluştu : $err', 2);
-      });
-    } catch (E) {
-      showToast(E, 1);
-    }
-  }
-
-  Future<void> handleUploadType(UploadType type) async {
+  Future<void>? handleUploadType(UploadType type) async {
     switch (type) {
       case UploadType.profileFile:
         try {
           final file = await _picker.getImage(source: ImageSource.gallery);
           setState(() {
-            _fileProfileImage = file;
+            _fileProfileImage = file!;
           });
         } catch (Err) {
           print(Err);
@@ -453,7 +410,7 @@ class _UserInformationState extends State<UserInformation> {
         try {
           final file = await _picker.getImage(source: ImageSource.gallery);
           setState(() {
-            _fileBannerImage = file;
+            _fileBannerImage = file!;
           });
         } catch (Err) {
           print(Err);

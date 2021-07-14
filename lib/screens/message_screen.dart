@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/messageScreenWidget.dart';
+import 'package:logafic/widgets/userMessageScreenWidget.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -8,85 +11,78 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> items = [
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-    "Yunus Emre Arslan",
-    "Melahat Büşra Ekren",
-  ];
+  final Stream<QuerySnapshot> _usersMessageStream =
+      FirebaseFirestore.instance.collection('users').snapshots();
 
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
-
-    final headerList = new ListView.builder(
-      itemBuilder: (context, index) {
-        EdgeInsets padding = index == 0
-            ? const EdgeInsets.only(
-                left: 20.0, right: 10.0, top: 4.0, bottom: 30.0)
-            : const EdgeInsets.only(
-                left: 10.0, right: 10.0, top: 4.0, bottom: 30.0);
-
-        return new Padding(
-          padding: padding,
-          child: new InkWell(
-            onTap: () {
-              print('Card Seçildi..');
-            },
-            child: new Container(
-              decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(10.0),
-                  color: Colors.black12,
-                  boxShadow: [
-                    new BoxShadow(
-                        color: Colors.black.withAlpha(20),
-                        offset: const Offset(3.0, 10.0),
-                        blurRadius: 15.0)
-                  ],
-                  image: new DecorationImage(
-                    image: NetworkImage('https://picsum.photos/200/300'),
-                  )),
-              width: 200.0,
-              child: new Stack(
-                children: <Widget>[
-                  new Align(
-                    alignment: Alignment.bottomCenter,
-                    child: new Container(
-                        decoration: new BoxDecoration(
-                            color: Colors.black12,
-                            borderRadius: new BorderRadius.only(
-                                bottomLeft: new Radius.circular(10.0),
-                                bottomRight: new Radius.circular(10.0))),
-                        height: 30.0,
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new Text(
-                              '${items[index % items.length]}',
-                              style: new TextStyle(color: Colors.white),
-                            )
-                          ],
-                        )),
-                  )
-                ],
+    final headerList = new StreamBuilder(
+      stream: _usersMessageStream,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+        return new ListView(
+          children: snapshot.data!.docs.map((DocumentSnapshot document) {
+            Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+            return new Padding(
+              padding: EdgeInsets.all(8),
+              child: new InkWell(
+                onTap: () {
+                  messageShowDialogWidget(context, data['userName'],
+                      data['userProfileImage'], data['userId']);
+                },
+                child: new Container(
+                  decoration: new BoxDecoration(
+                      borderRadius: new BorderRadius.circular(10.0),
+                      color: Colors.black12,
+                      boxShadow: [
+                        new BoxShadow(
+                            color: Colors.black.withAlpha(20),
+                            offset: const Offset(3.0, 10.0),
+                            blurRadius: 15.0)
+                      ],
+                      image: new DecorationImage(
+                        image: NetworkImage('${data['userProfileImage']}'),
+                      )),
+                  width: 200.0,
+                  child: new Stack(
+                    children: <Widget>[
+                      new Align(
+                        alignment: Alignment.bottomCenter,
+                        child: new Container(
+                            decoration: new BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: new BorderRadius.only(
+                                    bottomLeft: new Radius.circular(10.0),
+                                    bottomRight: new Radius.circular(10.0))),
+                            height: 30.0,
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                new Text(
+                                  '${data['userName']}',
+                                  style: new TextStyle(color: Colors.white),
+                                )
+                              ],
+                            )),
+                      )
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          }).toList(),
+          scrollDirection: Axis.horizontal,
         );
       },
-      scrollDirection: Axis.horizontal,
-      itemCount: items.length,
     );
 
     final body = new Scaffold(
@@ -109,15 +105,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           'Mesajlar',
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
+            color: Colors.white,
+            fontSize: 30,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
             letterSpacing: 3,
           ),
         ),
         actions: [
-          FlatButton(
+          ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, HomeRoute);
               },
@@ -169,112 +165,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       backgroundColor: Colors.transparent,
-      body: new Container(
-        child: new Stack(
-          children: <Widget>[
-            new Padding(
-              padding: new EdgeInsets.only(top: 10.0),
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  new Align(
-                    alignment: Alignment.centerLeft,
-                    child: new Padding(
-                        padding: new EdgeInsets.only(left: 14.0),
-                        child: new Text(
-                          'Kişiler',
-                          style: new TextStyle(
-                              color: Colors.white70, fontSize: 25),
-                        )),
-                  ),
-                  new Container(
-                      height: 300.0, width: _width, child: headerList),
-                  new Expanded(
-                    child: ListView(children: [
-                      new Align(
-                        alignment: Alignment.centerLeft,
-                        child: new Padding(
-                            padding: new EdgeInsets.only(left: 14.0, bottom: 8),
-                            child: new Text(
-                              'Mesajlar',
-                              style: new TextStyle(
-                                  color: Colors.black, fontSize: 25),
-                            )),
-                      ),
-                      new ListTile(
-                        title: new Column(
-                          children: <Widget>[
-                            new Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                new Container(
-                                  height: 72.0,
-                                  width: 72.0,
-                                  decoration: new BoxDecoration(
-                                      color: Colors.black12,
-                                      boxShadow: [
-                                        new BoxShadow(
-                                            color: Colors.black.withAlpha(70),
-                                            offset: const Offset(2.0, 2.0),
-                                            blurRadius: 2.0)
-                                      ],
-                                      borderRadius: new BorderRadius.all(
-                                          new Radius.circular(12.0)),
-                                      image: new DecorationImage(
-                                        image: NetworkImage(
-                                            'https://picsum.photos/200/300'),
-                                      )),
-                                ),
-                                new SizedBox(
-                                  width: 10.0,
-                                ),
-                                new Expanded(
-                                    child: new Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    new Text(
-                                      'My item header',
-                                      style: new TextStyle(
-                                          fontSize: 14.0,
-                                          color: Colors.black87,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    new Text(
-                                      'Item Subheader goes here\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
-                                      style: new TextStyle(
-                                          fontSize: 12.0,
-                                          color: Colors.black54,
-                                          fontWeight: FontWeight.normal),
-                                    )
-                                  ],
-                                )),
-                                new IconButton(
-                                  icon: Icon(Icons.reply),
-                                  tooltip: 'Yanıtla',
-                                  onPressed: () {},
-                                ),
-                                new IconButton(
-                                  icon: const Icon(
-                                    Icons.delete,
-                                  ),
-                                  tooltip: 'Sil',
-                                  onPressed: () {},
-                                ),
-                              ],
-                            ),
-                            new Divider(),
-                          ],
-                        ),
-                      )
-                    ]),
-                  )
-                ],
+      body: Center(
+        child: new Container(
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: new Stack(
+            children: <Widget>[
+              new Padding(
+                padding: new EdgeInsets.only(top: 10.0),
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    new Align(
+                      alignment: Alignment.centerLeft,
+                      child: new Padding(
+                          padding: new EdgeInsets.only(left: 14.0),
+                          child: new Text(
+                            'Kişiler',
+                            style: new TextStyle(
+                                color: Colors.white70, fontSize: 25),
+                          )),
+                    ),
+                    new Container(
+                        height: 300.0, width: _width, child: headerList),
+                    new Expanded(child: MessageScreenUserMessagesWidget())
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

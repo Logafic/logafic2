@@ -1,47 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:logafic/routing/router.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/navigation_service.dart';
-import 'package:firebase_core/firebase_core.dart' as firebase_core;
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'controllers/authController.dart';
 
-Future<void> main() async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await GetStorage.init();
+  Get.put<AuthController>(AuthController());
   runApp(MyApp());
-  await firebase_core.Firebase.initializeApp();
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool currentUser = false;
-  @override
-  void initState() {
-    //getUserInfo();
-    getShared();
-
-    super.initState();
-  }
-
-  Future getShared() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    if (pref.getBool('auth') != false) {
-      setState(() {
-        currentUser = true;
-      });
-    }
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LOGAFİC',
+    return GetMaterialApp(
+      title: 'LOGAFIC',
       debugShowCheckedModeBanner: false,
+      initialRoute: FirstRoute,
       navigatorKey: NavigationService().navigatorKey,
       onGenerateRoute: generateRoute,
-      initialRoute: currentUser ? FirstRoute : HomeRoute,
     );
   }
 }

@@ -1,22 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:logafic/controllers/authController.dart';
+
 import 'package:logafic/data_model/content_model.dart';
-import 'package:logafic/data_model/model.dart';
-
-import 'package:logafic/widgets/bottom_bar.dart';
-import 'package:logafic/data_model/post_data_model.dart';
-
-import 'package:logafic/widgets/explore_drawer.dart';
+import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/services/database.dart';
+import 'package:logafic/services/notificationService.dart';
+import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/floating_quick_access_bar.dart';
-
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/top_bar_contents.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-import 'package:logafic/utils/authentication.dart';
-
 import 'package:flutter/material.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
-
 import 'package:logafic/widgets/background.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,34 +17,41 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-final _formKey = GlobalKey<FormState>();
-
 class _HomePageState extends State<HomePage> {
-  String firebaseUserId = '';
-  String firebaseUserName = '';
+  bool isRank = false;
+  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+      .collection('posts')
+      .orderBy('created_at', descending: true)
+      .snapshots();
+  final Stream<QuerySnapshot> _usersStreamLike = FirebaseFirestore.instance
+      .collection('posts')
+      .orderBy('like', descending: true)
+      .snapshots();
+
+  Color colors = Colors.white;
+
+  CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
+  AuthController authController = AuthController.to;
 
   List<int> bottom = <int>[0];
-  String _baseUrl = "http://localhost:3000";
   List<ContentModel> data = [];
 
   final postController = TextEditingController();
   bool isLoading = false;
-  ScrollController _scrollController;
+  ScrollController? _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
 
   @override
   void initState() {
-    loadData();
     _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
-
+    _scrollController!.addListener(_scrollListener);
     super.initState();
   }
 
   _scrollListener() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      _scrollPosition = _scrollController!.position.pixels;
     });
   }
 
@@ -67,146 +67,292 @@ class _HomePageState extends State<HomePage> {
     final _height = MediaQuery.of(context).size.height;
 
     final body = new Scaffold(
-        backgroundColor: Colors.transparent,
-        extendBodyBehindAppBar: true,
-        appBar: ResponsiveWidget.isSmallScreen(context)
-            ? AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                centerTitle: true,
-                title: Text(
-                  'LOGAFIC',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 3,
-                  ),
-                ),
-              )
-            : PreferredSize(
-                preferredSize: Size(screenSize.width, 1000),
-                child: TopBarContents(_opacity),
-              ),
-        drawer: ExploreDrawer(),
-        body: LazyLoadScrollView(
-            isLoading: isLoading,
-            child: Scrollbar(
-              child: ListView(
+      backgroundColor: Colors.transparent,
+      extendBodyBehindAppBar: true,
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? appBarHomePageWidget()
+          : PreferredSize(
+              preferredSize: Size(screenSize.width, 1000),
+              child: TopBarContents(_opacity),
+            ),
+      body: Scrollbar(
+        child: Column(
+          children: [
+            Center(
+              child: Stack(
                 children: [
-                  Center(
-                    child: Stack(
-                      children: [
-                        Container(
-                          child: SizedBox(
-                            height: screenSize.height * 0.46,
-                            width: screenSize.width,
-                            child: Image.asset(
-                              'assets/images/back_image.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 6 / 10,
-                            margin: EdgeInsets.only(top: 25),
-                            child: Card(
-                              clipBehavior: Clip.antiAlias,
-                              color: Colors.white60,
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    leading: Icon(Icons.memory_rounded),
-                                    title: const Text(
-                                      'Bizimle bişeyler paylaş',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Form(
-                                      child: Column(
-                                        children: <Widget>[
-                                          TextFormField(
-                                            controller: postController,
-                                            decoration: const InputDecoration(
-                                              icon: Icon(Icons.message),
-                                              hintText:
-                                                  'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
-                                            ),
-                                            minLines: 2,
-                                            maxLines: 4,
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            validator: (value) {
-                                              if (value.isEmpty) {
-                                                return 'Lütfen boş bırakma null kalmasın.';
-                                              }
-                                              return null;
-                                            },
-                                          )
-                                        ],
-                                      ),
-                                      autovalidateMode: AutovalidateMode.always,
-                                    ),
-                                  ),
-                                  ButtonBar(
-                                    alignment: MainAxisAlignment.start,
-                                    children: [
-                                      OutlineButton(
-                                        color: Colors.grey[50],
-                                        child: Text(
-                                          'Gönder',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 16),
-                                        ),
-                                        textColor: const Color(000),
-                                        onPressed: () async {
-                                          PostModel post = new PostModel(
-                                              userId: uid,
-                                              userName: userEmail,
-                                              content: postController.value.text
-                                                  .toString());
-                                          print(post.toJson());
-                                          postController.clear();
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                  Container(
+                    child: SizedBox(
+                      height: screenSize.height * 0.34,
+                      width: screenSize.width,
+                      child: Image.asset(
+                        'assets/images/back_image.jpg',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Center(
-                    child: isLoading
-                        ? CircularProgressIndicator()
-                        : FloatingQuickAccessBar(screenSize: screenSize),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 6 / 10,
+                      margin: EdgeInsets.only(top: 100),
+                      child: Card(
+                        clipBehavior: Clip.antiAlias,
+                        color: Colors.white60,
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.memory_rounded),
+                              title: const Text(
+                                'Bizimle bişeyler paylaş',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Form(
+                                child: Column(
+                                  children: <Widget>[
+                                    TextFormField(
+                                      controller: postController,
+                                      decoration: const InputDecoration(
+                                        icon: Icon(Icons.message),
+                                        hintText:
+                                            'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
+                                      ),
+                                      minLines: 2,
+                                      maxLines: 4,
+                                      keyboardType: TextInputType.multiline,
+                                      validator: (value) {
+                                        if (value!.isEmpty) {
+                                          return 'Lütfen boş bırakma null kalmasın.';
+                                        }
+                                        return null;
+                                      },
+                                    )
+                                  ],
+                                ),
+                                autovalidateMode: AutovalidateMode.always,
+                              ),
+                            ),
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: [
+                                ElevatedButton(
+                                  child: Text(
+                                    'Gönder',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16),
+                                  ),
+                                  onPressed: () async {
+                                    await Database()
+                                        .addPost(postController.text);
+                                    postController.clear();
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: data.length,
-                    itemBuilder: (context, position) {
-                      if (isLoading && position == data.length - 1) {
-                        Center(child: CircularProgressIndicator());
-                      } else {
-                        return DisplayCardItem(data[position]);
-                      }
-                    },
-                  ),
-                  BottomBar()
                 ],
               ),
             ),
-            onEndOfPage: () => loadData()));
+            Center(
+              child: FloatingQuickAccessBar(screenSize: screenSize),
+            ),
+            Expanded(
+                child: StreamBuilder(
+                    stream: _usersStream,
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text('Birşeyler yanlış gitti'),
+                        );
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return new ListView(
+                        children: snapshot.data.docs
+                            .map<Widget>((DocumentSnapshot document) {
+                          Map<String, dynamic> data =
+                              document.data() as Map<String, dynamic>;
+                          return new Center(
+                              child: SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.7,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      print(document.id);
+                                      Navigator.pushNamed(context, StatusRoute,
+                                          arguments: {'id': document.id});
+                                    },
+                                    child: Card(
+                                      color: Colors.grey[50],
+                                      clipBehavior: Clip.antiAlias,
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Image.network(
+                                                data['userProfile']),
+                                            title: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                TextButton(
+                                                  child: Text(
+                                                    (data['userName']),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pushNamed(
+                                                        context, ProfileRoute,
+                                                        arguments: {
+                                                          'userId':
+                                                              data['userId']
+                                                        });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                            subtitle: Text(
+                                                data['created_at'].toString()),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(data['content']),
+                                          ),
+                                          ButtonBar(
+                                            alignment: MainAxisAlignment.start,
+                                            children: [
+                                              TextButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  'Yorum Yap',
+                                                  style: TextStyle(
+                                                      color: Colors.black54),
+                                                ),
+                                              ),
+                                              TextButton(
+                                                onPressed: () {},
+                                                child: Text(
+                                                  'Yorumlar',
+                                                  style: TextStyle(
+                                                      color: Colors.black54),
+                                                ),
+                                              ),
+                                              FutureBuilder(
+                                                future: checkIfDocExists(
+                                                    '${document.id}'),
+                                                builder: (BuildContext context,
+                                                    AsyncSnapshot snapshot) {
+                                                  if (snapshot.data == false) {
+                                                    return IconButton(
+                                                        icon: Icon(
+                                                          Icons.star_outline,
+                                                          color: Colors.green,
+                                                        ),
+                                                        onPressed: () {
+                                                          likeRef
+                                                              .doc(
+                                                                  '${document.id}')
+                                                              .get()
+                                                              .then((value) {
+                                                            var like = value
+                                                                .get('like');
+                                                            print(like);
+                                                            likeRef
+                                                                .doc(
+                                                                    '${document.id}')
+                                                                .update({
+                                                              'like': like + 1
+                                                            });
+                                                          });
 
+                                                          likeRef
+                                                              .doc(
+                                                                  '${document.id}')
+                                                              .collection(
+                                                                  'likes')
+                                                              .doc(
+                                                                  '${authController.firebaseUser.value!.uid}')
+                                                              .set({
+                                                            'like': true
+                                                          }).then((value) => addNotification(
+                                                                  data[
+                                                                      'userProfile'],
+                                                                  '${authController.firestoreUser.value!.userName}',
+                                                                  data[
+                                                                      'userId'],
+                                                                  authController
+                                                                      .firebaseUser
+                                                                      .value!
+                                                                      .uid));
+                                                        });
+                                                  } else {
+                                                    return IconButton(
+                                                        icon: Icon(
+                                                          Icons.star_outline,
+                                                          color: Colors.amber,
+                                                        ),
+                                                        onPressed: () {
+                                                          likeRef
+                                                              .doc(
+                                                                  '${document.id}')
+                                                              .get()
+                                                              .then((value) {
+                                                            var like = value
+                                                                .get('like');
+                                                            print(like);
+                                                            likeRef
+                                                                .doc(
+                                                                    '${document.id}')
+                                                                .update({
+                                                              'like': like - 1
+                                                            });
+                                                          });
+                                                          likeRef
+                                                              .doc(
+                                                                  '${document.id}')
+                                                              .collection(
+                                                                  'likes')
+                                                              .doc(
+                                                                  '${authController.firebaseUser.value!.uid}')
+                                                              .delete();
+                                                        });
+                                                  }
+                                                },
+                                              ),
+                                              FutureBuilder(
+                                                  future:
+                                                      getSize('${document.id}'),
+                                                  builder:
+                                                      (BuildContext context,
+                                                          AsyncSnapshot<int>
+                                                              snapshot) {
+                                                    if (snapshot.hasData) {
+                                                      return Text(snapshot.data
+                                                          .toString());
+                                                    }
+                                                    return Text('0');
+                                                  }),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )));
+                        }).toList(),
+                      );
+                    })),
+            // BottomBar()
+          ],
+        ),
+      ),
+    );
     return new Container(
       decoration: new BoxDecoration(
         color: Colors.black26,
@@ -223,71 +369,27 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<DataModel> loadData() async {
+  Future<bool> checkIfDocExists(String docId) async {
     try {
-      setState(() {
-        isLoading = true;
-      });
-      await new Future.delayed(const Duration(seconds: 1));
-      var url = Uri.https("$_baseUrl", '/user');
-      final res = await http.get(url);
-      if (res.statusCode == 200) {
-        List<dynamic> dataBody = jsonDecode(res.body);
-        data = data +
-            dataBody.map((dynamic e) => ContentModel.fromJson(e)).toList();
-      }
-      setState(() {
-        isLoading = false;
-      });
-    } catch (err) {
-      print(err);
+      // Get reference to Firestore collection
+      var doc = await likeRef
+          .doc(docId)
+          .collection('likes')
+          .doc('${authController.firebaseUser.value!.uid}')
+          .get();
+      return doc.exists;
+    } catch (e) {
+      throw e;
     }
   }
 
-  @override
-  Widget DisplayCardItem(ContentModel data) {
-    return Container(
-        child: GestureDetector(
-      onTap: () => {
-        Navigator.pushNamed(
-          context,
-          '/status',
-        )
-      },
-      child: Card(
-        color: Colors.grey[50],
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: [
-            ListTile(
-              leading: Image.network(data.image),
-              title: Text(data.parentName),
-              subtitle: Text(data.createdAt),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(data.content),
-            ),
-            ButtonBar(
-              alignment: MainAxisAlignment.start,
-              children: [
-                FlatButton(
-                  textColor: Colors.black,
-                  onPressed: () {},
-                  child: Text('Yorum Yap'),
-                ),
-                FlatButton(
-                  textColor: Colors.blue,
-                  onPressed: () {},
-                  child: Text('Yorumlar'),
-                ),
-                IconButton(icon: Icon(Icons.star_outline), onPressed: () {}),
-                Text(data.id.toString()),
-              ],
-            )
-          ],
-        ),
-      ),
-    ));
+  Future<int> getSize(String documentId) async {
+    var size = 0;
+    await likeRef
+        .doc(documentId)
+        .collection('likes')
+        .get()
+        .then((value) => size = value.size);
+    return size;
   }
 }

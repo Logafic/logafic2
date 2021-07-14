@@ -1,14 +1,16 @@
-import 'dart:html';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/widgets/menubaraction.dart';
-import 'package:logafic/widgets/comment_widget.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/menubaraction.dart';
 
 class StatusScreen extends StatelessWidget {
   final String id;
+  AuthController authController = AuthController.to;
+  CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
+  StatusScreen({Key? key, required this.id}) : super(key: key);
+  CollectionReference posts = FirebaseFirestore.instance.collection('posts');
 
-  StatusScreen({Key key, @required this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,66 +41,167 @@ class StatusScreen extends StatelessWidget {
           ),
           actions: <Widget>[MenuActionBar()],
         ),
-        body: Scrollbar(
-            child: ListView(
-          children: [
-            Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Card(
-                      color: Colors.grey[150],
-                      clipBehavior: Clip.antiAlias,
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: Image.network('https://picsum.photos/150'),
-                            title: const Text(
-                              'Lee-Walsh, Natalie',
+        body: Scrollbar(child: getData));
+  }
+
+  Widget get getData {
+    return FutureBuilder(
+      future: posts.doc(id).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Center(
+            child: Text('Birşeyler yanlış gidiyor.'),
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data =
+              snapshot.data!.data() as Map<String, dynamic>;
+          return Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: Card(
+                  child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(10),
+                      child: ListTile(
+                        leading: Image.network(data['userProfile']),
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextButton(
+                              child: Text(
+                                (data['userName']),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, ProfileRoute,
+                                    arguments: {'userId': data['userId']});
+                              },
                             ),
-                            subtitle: Text('1 dk önce yayınlandı.'),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum ac nisi id placerat. Praesent nec ante et lorem semper venenatis eget id mauris. Aenean auctor efficitur cursus. In vitae pharetra urna. Pellentesque faucibus massa diam. In sit amet mauris suscipit, volutpat tortor id, rutrum risus. Phasellus nec justo urna. Donec vitae lectus dignissim, venenatis ligula ut, scelerisque justo. Nullam auctor blandit hendrerit. Pellentesque vitae feugiat arcu. Duis sit amet tincidunt nulla, eget morbi. '),
-                          ),
-                          ButtonBar(
-                            alignment: MainAxisAlignment.start,
-                            children: [
-                              FlatButton(
-                                textColor: Colors.black,
-                                onPressed: () {},
-                                child: Text('Yorum Yap'),
-                              ),
-                              FlatButton(
-                                textColor: Colors.blue,
-                                onPressed: () {},
-                                child: Text('Yorumlar'),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            'Yorumlar',
-                            style: TextStyle(fontSize: 25),
-                          ),
-                          Divider(),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              for (int i = 0; i < 2; i++) CommentWidget()
-                            ],
-                          )
-                        ],
+                          ],
+                        ),
+                        subtitle: Text(
+                          data['created_at'],
+                          style: TextStyle(fontSize: 17),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        )));
+                    Divider(),
+                    Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        data['content'],
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Yorum Yap',
+                              style: TextStyle(
+                                  color: Colors.black54, fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Yorumlar',
+                              style: TextStyle(
+                                  color: Colors.black54, fontSize: 15),
+                            ),
+                          ),
+                        ),
+                        FutureBuilder(
+                          future: checkIfDocExists('$id'),
+                          builder:
+                              (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.data == false) {
+                              return IconButton(
+                                  icon: Icon(
+                                    Icons.star_outline,
+                                    color: Colors.green,
+                                  ),
+                                  onPressed: () {
+                                    likeRef
+                                        .doc('$id')
+                                        .collection('likes')
+                                        .doc(
+                                            '${authController.firebaseUser.value!.uid}')
+                                        .set({'like': true});
+                                  });
+                            } else {
+                              return IconButton(
+                                  icon: Icon(
+                                    Icons.star_outline,
+                                    color: Colors.amber,
+                                  ),
+                                  onPressed: () {
+                                    likeRef
+                                        .doc('$id')
+                                        .collection('likes')
+                                        .doc(
+                                            '${authController.firebaseUser.value!.uid}')
+                                        .delete();
+                                  });
+                            }
+                          },
+                        ),
+                        FutureBuilder(
+                            future: getSize('$id'),
+                            builder: (BuildContext context,
+                                AsyncSnapshot<int> snapshot) {
+                              if (snapshot.hasData) {
+                                return Text(snapshot.data.toString());
+                              }
+                              return Text('0');
+                            }),
+                      ],
+                    ),
+                  ],
+                ),
+              )),
+            ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+  Future<bool> checkIfDocExists(String docId) async {
+    try {
+      // Get reference to Firestore collection
+      var doc = await likeRef
+          .doc(docId)
+          .collection('likes')
+          .doc('${authController.firebaseUser.value!.uid}')
+          .get();
+      return doc.exists;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<int> getSize(String documentId) async {
+    var size = 0;
+    await likeRef
+        .doc(documentId)
+        .collection('likes')
+        .get()
+        .then((value) => size = value.size);
+    return size;
   }
 }

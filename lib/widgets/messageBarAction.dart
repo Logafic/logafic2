@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
 class MessageBarAction extends StatelessWidget {
-  const MessageBarAction({Key key}) : super(key: key);
+  const MessageBarAction({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Row(
         children: [
-          FlatButton(
+          TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, HomeRoute);
               },

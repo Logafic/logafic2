@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 
 class NotificationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
-    var ScreenW = MediaQuery.of(context).size.width;
     return Container(
         child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: ScreenW * 0.7,
+          width: MediaQuery.of(context).size.width * 0.4,
           child: ListTile(
             title: Text('Lee-Walsh, Natalie'),
             isThreeLine: true,

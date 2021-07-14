@@ -34,7 +34,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
-            child: FlatButton(
+            child: TextButton(
               child: Text(
                 'Giriş Yap',
                 style: TextStyle(
@@ -66,7 +66,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                           children: [
                             Icon(
                               Icons.chevron_right,
-                              color: Colors.grey[400].withOpacity(0.6),
+                              color: Colors.grey[400]!.withOpacity(0.6),
                             ),
                             Text(
                               ' Karşılaştığın sorunları bizlerle paylaş.',
@@ -81,7 +81,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                           children: [
                             Icon(
                               Icons.chevron_right,
-                              color: Colors.grey[400].withOpacity(0.6),
+                              color: Colors.grey[400]!.withOpacity(0.6),
                             ),
                             Text(
                               ' Başkalarının hayatlarına dokun.',
@@ -96,7 +96,7 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                           children: [
                             Icon(
                               Icons.chevron_right,
-                              color: Colors.grey[400].withOpacity(0.6),
+                              color: Colors.grey[400]!.withOpacity(0.6),
                             ),
                             Text(
                               ' Senin gibi düşünen arkadaşlar edin.',
@@ -149,8 +149,11 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                           child: SizedBox(
                             width: 200,
                             height: 50,
-                            child: FlatButton(
-                              color: Colors.grey[300],
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.black12)),
                               child: Text(
                                 'Giriş Yap',
                                 style: TextStyle(
@@ -172,8 +175,11 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
                           child: SizedBox(
                             width: 200,
                             height: 50,
-                            child: FlatButton(
-                              color: Colors.blue[300],
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.blue)),
                               child: Text(
                                 'Kayıt Ol',
                                 style: TextStyle(

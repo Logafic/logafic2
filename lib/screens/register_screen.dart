@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
-import 'package:logafic/utils/authentication.dart';
-import 'package:toast/toast.dart';
+import 'package:logafic/helpers/validate.dart';
+import 'package:logafic/widgets/FormInputFieldWithIcon.dart';
 import 'package:logafic/widgets/background.dart';
+import 'package:logafic/widgets/formVerticalSpacing.dart';
+import 'package:logafic/widgets/primaryButton.dart';
 
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController;
-  TextEditingController _passController;
-  TextEditingController _passConfirmationController;
-  TextEditingController _eduMailController;
+  TextEditingController? _emailController;
+  TextEditingController? _passController;
+  TextEditingController? _passConfirmationController;
+  TextEditingController? _eduMailController;
 //Validation
-  final FocusNode _emailFocusNode = FocusNode();
   bool _agree = false;
 
   void initState() {
@@ -27,15 +30,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void dispose() {
-    _emailController.dispose();
-    _passController.dispose();
-    _passConfirmationController.dispose();
-    _eduMailController.dispose();
+    _emailController!.dispose();
+    _passController!.dispose();
+    _passConfirmationController!.dispose();
+    _eduMailController!.dispose();
     super.dispose();
-  }
-
-  void showToast(String msg, int duration, {int gravity}) {
-    Toast.show(msg, context, duration: duration, gravity: gravity);
   }
 
   @override
@@ -49,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           title: Text(
             'LOGAFIC',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 20,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
@@ -61,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               return IconButton(
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -72,11 +71,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
           actions: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: FlatButton(
+              child: TextButton(
                 child: Text(
                   'Giriş Yap',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.w500),
                 ),
@@ -93,9 +92,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             alignment: Alignment.center,
             child: SizedBox(
               width: 500,
-              height: 800,
               child: Card(
-                color: Colors.white,
                 clipBehavior: Clip.antiAlias,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -103,112 +100,69 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        child: Text(
-                          "Logafic'e kayıt ol",
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 23,
-                              fontFamily: 'Montserrat'),
-                        ),
+                      child: Text(
+                        "Logafic'e kayıt ol",
+                        style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 23,
+                            fontFamily: 'Montserrat'),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.mail),
-                              hintText: ('Geçerli bir mail adresi giriniz.'),
-                              labelText: ('*Email')),
-                          autofocus: true,
-                          validator: _validateEmail,
-                          focusNode: _emailFocusNode,
-                        ),
-                      ),
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: FormInputFieldWithIcon(
+                          controller: authController.emailController,
+                          iconPrefix: Icons.email,
+                          labelText: 'Email adresi',
+                          validator: HelpersValidate().validateEmail,
+                          obscureText: false,
+                          onChanged: (value) => null,
+                          onSaved: (value) {
+                            authController.emailController.text = value!;
+                          }),
                     ),
+                    FormVerticalSpace(),
                     Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _passController,
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: FormInputFieldWithIcon(
+                          controller: authController.passwordController,
+                          iconPrefix: Icons.password,
+                          labelText: 'Şifre',
+                          validator: HelpersValidate().validatePassword,
                           obscureText: true,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.vpn_key),
-                              hintText: ('Geçerli bir şifre giriniz.'),
-                              labelText: ('*Şifre')),
-                          validator: _validatePassword,
-                        ),
-                      ),
+                          maxLines: 1,
+                          onChanged: (value) => null,
+                          onSaved: (value) {
+                            authController.emailController.text = value!;
+                          }),
                     ),
+                    FormVerticalSpace(),
                     Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _passConfirmationController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.vpn_key_outlined),
-                              hintText: ('Şifreyi tekrar giriniz.'),
-                              labelText: ('*Tekrar Şifre')),
-                          validator: _validatePasswordConfirmation,
-                        ),
-                      ),
+                      padding: EdgeInsets.only(left: 20, right: 20),
+                      child: FormInputFieldWithIcon(
+                          controller: _eduMailController!,
+                          iconPrefix: Icons.cast_for_education,
+                          labelText: 'Okul email',
+                          validator: HelpersValidate().validateEmail,
+                          obscureText: false,
+                          onChanged: (value) => null,
+                          onSaved: (value) {}),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                        width: 400,
-                        child: TextFormField(
-                          controller: _eduMailController,
-                          decoration: const InputDecoration(
-                              icon: Icon(Icons.mail_outline),
-                              hintText: ('Email adresi .edu uzantılı'),
-                              labelText: ('*Okul mail adresi')),
-                          validator: _validateEmail,
-                        ),
-                      ),
-                    ),
+                    FormVerticalSpace(),
                     _buildAgreeToTermsField,
-                    Padding(
-                        padding: EdgeInsets.all(8),
-                        child: SizedBox(
-                          width: 200,
-                          height: 50,
-                          child: FlatButton(
-                            color: Colors.lightGreen[300],
-                            child: Text(
-                              'Kayıt Ol',
-                              style: TextStyle(
-                                  fontSize: 25,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            onPressed: () {
-                              try {
-                                if (_formKey.currentState.validate()) {
-                                  registerWithEmailPassword(
-                                          _emailController.text,
-                                          _passController.text)
-                                      .whenComplete(() => {
-                                            showToast(
-                                                "Logafic'e hoşgeldiniz :)", 1),
-                                            Navigator.pushNamed(
-                                                context, UserInformationRoute),
-                                          });
-                                } else {
-                                  print('Hata var!');
-                                }
-                              } catch (e) {
-                                print(e);
-                              }
-                            },
-                          ),
-                        ))
+                    PrimaryButton(
+                        labelText: 'Kayıt Ol',
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            try {
+                              authController.newUser = true;
+                              authController
+                                  .registerWithEmailAndPassword(context);
+                            } catch (err) {
+                              print(err);
+                            }
+                          }
+                        }),
                   ],
                 ),
               ),
@@ -231,11 +185,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   Widget get _buildAgreeToTermsField {
-    // TODO 8: Wrap the Column with a FormField<bool>
     return FormField<bool>(
       // 1
       initialValue: _agree,
-      builder: (FormFieldState<bool> state) {
+      builder: (FormFieldState<bool>? state) {
         // 2
         return Column(
           children: <Widget>[
@@ -243,10 +196,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: <Widget>[
                 Checkbox(
                   // 3
-                  value: state.value,
-                  onChanged: (bool val) => setState(() {
+                  value: state!.value,
+                  onChanged: (bool? val) => setState(() {
                     // 4
-                    _agree = val;
+                    _agree = val!;
                     // 5
                     state.didChange(val);
                   }),
@@ -257,56 +210,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
             // 6
             state.errorText == null
                 ? Text("")
-                : Text(state.errorText, style: TextStyle(color: Colors.red)),
+                : Text(state.errorText!, style: TextStyle(color: Colors.red)),
           ],
         );
       },
       // 7
-      validator: (val) => _validateTerms(_agree),
+      validator: (val) => HelpersValidate().validateTerms(_agree),
     );
-  }
-
-  String _validateEmail(String email) {
-    // 1
-    RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    // Add the following line to set focus to the email field
-    if (email.isEmpty || !regex.hasMatch(email)) _emailFocusNode.requestFocus();
-    // 2
-    if (email.isEmpty)
-      return 'Bir e-posta adresine ihtiyacımız var';
-    else if (!regex.hasMatch(email))
-      // 3
-      return "Bu bir e-posta adresine benzemiyor";
-    else
-      // 4
-      return null;
-  }
-
-  String _validatePassword(String pass1) {
-    RegExp hasUpper = RegExp(r'[A-Z]');
-    RegExp hasLower = RegExp(r'[a-z]');
-    RegExp hasDigit = RegExp(r'\d');
-    if (!RegExp(r'.{8,}').hasMatch(pass1))
-      return 'Şifreler en az 8 karakter içermelidir';
-    if (!hasUpper.hasMatch(pass1))
-      return 'Parolalar en az bir büyük harf içermelidir';
-    if (!hasLower.hasMatch(pass1))
-      return 'Parolalar en az bir küçük harf içermelidir';
-    if (!hasDigit.hasMatch(pass1))
-      return 'Parolalar en az bir rakam içermelidir';
-    return null;
-  }
-
-  String _validatePasswordConfirmation(String pass2) {
-    return (_passController.value.text ==
-            _passConfirmationController.value.text)
-        ? null
-        : "İki şifre eşleşmelidir";
-    // Note that _pass1 is populated when a password is entered
-  }
-
-  String _validateTerms(bool agree) {
-    return agree ? null : "Kullanıcı şözleşmesini kabul etmelisiniz !";
-    // It's invalid if the user hasn't opted in by checking the box
   }
 }
