@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/widgets/deleteMessegaScreenWidget.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 import 'messageScreenWidget.dart';
 
@@ -69,14 +70,20 @@ class MessageScreenUserMessagesWidget extends StatelessWidget {
                             new Text(
                               data['messageSentUser'],
                               style: new TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 15
+                                          : 22,
                                   color: Colors.black87,
                                   fontWeight: FontWeight.bold),
                             ),
                             new Text(
                               data['message'],
                               style: new TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize:
+                                      ResponsiveWidget.isSmallScreen(context)
+                                          ? 14
+                                          : 20,
                                   color: Colors.black54,
                                   fontWeight: FontWeight.normal),
                             )

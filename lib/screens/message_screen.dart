@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
+import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/userMessageScreenWidget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -167,7 +168,9 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.transparent,
       body: Center(
         child: new Container(
-          width: MediaQuery.of(context).size.width * 0.7,
+          width: ResponsiveWidget.isSmallScreen(context)
+              ? MediaQuery.of(context).size.width * 0.9
+              : MediaQuery.of(context).size.width * 0.7,
           child: new Stack(
             children: <Widget>[
               new Padding(
@@ -193,7 +196,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: EdgeInsets.all(22),
                       child: new Text(
                         'Son Mesajlar',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(
+                            fontSize: ResponsiveWidget.isLargeScreen(context)
+                                ? 20
+                                : 30),
                       ),
                     ),
                     new Expanded(child: MessageScreenUserMessagesWidget())

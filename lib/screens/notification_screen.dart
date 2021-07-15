@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 // ignore: must_be_immutable
 class NotificationScreen extends StatelessWidget {
@@ -128,7 +129,11 @@ class NotificationScreen extends StatelessWidget {
                         return Center(
                           child: Text(
                             'Henüz bir bildiriminiz bulunmamaktadır.',
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                                fontSize:
+                                    ResponsiveWidget.isLargeScreen(context)
+                                        ? 10
+                                        : 20),
                           ),
                         );
                       }
@@ -149,8 +154,9 @@ class NotificationScreen extends StatelessWidget {
                             children: [
                               Card(
                                 child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
+                                  width: ResponsiveWidget.isSmallScreen(context)
+                                      ? MediaQuery.of(context).size.width * 0.8
+                                      : MediaQuery.of(context).size.width * 0.5,
                                   child: ListTile(
                                     title: Column(
                                       crossAxisAlignment:

@@ -243,19 +243,49 @@ class ProfileScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(16),
-                                  child: Image(
-                                      image: NetworkImage(
-                                          snapshot.data['userProfileImage'] ??
+                                    padding: EdgeInsets.all(16),
+                                    child: Container(
+                                      width: 100,
+                                      height: 100,
+                                      child: Image(
+                                          image: NetworkImage(snapshot
+                                                  .data['userProfileImage'] ??
                                               'https://picsum.photos/200')),
-                                ),
+                                    )),
                                 Padding(
-                                  padding: EdgeInsets.only(bottom: 16),
+                                  padding: EdgeInsets.only(bottom: 8),
                                   child: Text(
-                                    snapshot.data['userName'] ?? 'name',
+                                    snapshot.data['userName'] ??
+                                        'Kullanıcı Adı',
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: screenSizeW > 400 ? 20 : 15,
+                                      fontSize: screenSizeW > 400 ? 20 : 12,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 3,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 15),
+                                  child: Text(
+                                    snapshot.data['department'] ?? 'Bölüm',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: screenSizeW > 400 ? 20 : 12,
+                                      fontFamily: 'Montserrat',
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 3,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Text(
+                                    'Gönderiler',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: screenSizeW > 400 ? 20 : 20,
                                       fontFamily: 'Montserrat',
                                       fontWeight: FontWeight.w400,
                                       letterSpacing: 3,
@@ -263,7 +293,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                 )
                               ]),
-                          for (int i = 0; i < 2; i++) ProfileSmallWidgetTwo(),
+                          streamPosts(userId),
                         ],
                       ),
                     );
@@ -304,7 +334,9 @@ class ProfileScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Center(
                     child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.7,
+                        width: ResponsiveWidget.isSmallScreen(context)
+                            ? MediaQuery.of(context).size.width * 0.9
+                            : MediaQuery.of(context).size.width * 0.7,
                         child: GestureDetector(
                           onTap: () {
                             print(snapshot.data.id);

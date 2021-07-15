@@ -120,14 +120,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     PrimaryButton(
                         labelText: 'Giriş Yap',
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            try {
-                              authController
-                                  .signInWithEmailAndPassword(context);
-                            } catch (err) {
-                              print(err);
-                            }
-                          }
+                          // if (_formKey.currentState!.validate()) {
+                          //   try {
+                          //     authController
+                          //         .signInWithEmailAndPassword(context);
+                          //   } catch (err) {
+                          //     print(err);
+                          //   }
+                          // }
+                          authController.emailController.text =
+                              'yunus@gmail.com';
+                          authController.passwordController.text = 'Merhaba98';
+                          authController.signInWithEmailAndPassword(context);
                         }),
                     FormVerticalSpace(),
                     LabelButton(

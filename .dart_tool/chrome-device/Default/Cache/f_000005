@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "Tks2eSWznniqc65tsXXsYw==";
+    window.$dartAppId = "e8rd0Q7bDLlj25TMyWFsLw==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:52847/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:56334/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:52849/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:56336/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -716,16 +716,19 @@ let modulePaths = {
  "packages/logafic/widgets/userMessageScreenWidget.dart": "packages/logafic/widgets/userMessageScreenWidget.dart.lib",
  "packages/logafic/widgets/messageScreenWidget.dart": "packages/logafic/widgets/messageScreenWidget.dart.lib",
  "packages/logafic/services/messageService.dart": "packages/logafic/services/messageService.dart.lib",
- "packages/logafic/data_model/ChatMessageModel.dart": "packages/logafic/data_model/ChatMessageModel.dart.lib",
+ "packages/logafic/widgets/deleteMessegaScreenWidget.dart": "packages/logafic/widgets/deleteMessegaScreenWidget.dart.lib",
  "packages/logafic/screens/login_screen.dart": "packages/logafic/screens/login_screen.dart.lib",
  "packages/logafic/screens/home_page.dart": "packages/logafic/screens/home_page.dart.lib",
  "packages/logafic/widgets/top_bar_contents.dart": "packages/logafic/widgets/top_bar_contents.dart.lib",
  "packages/logafic/widgets/floating_quick_access_bar.dart": "packages/logafic/widgets/floating_quick_access_bar.dart.lib",
+ "packages/logafic/widgets/explore_drawer.dart": "packages/logafic/widgets/explore_drawer.dart.lib",
  "packages/logafic/widgets/appBarHomePageWidget.dart": "packages/logafic/widgets/appBarHomePageWidget.dart.lib",
  "packages/logafic/services/notificationService.dart": "packages/logafic/services/notificationService.dart.lib",
  "packages/logafic/services/database.dart": "packages/logafic/services/database.dart.lib",
  "packages/logafic/data_model/post_data_model.dart": "packages/logafic/data_model/post_data_model.dart.lib",
  "packages/logafic/data_model/content_model.dart": "packages/logafic/data_model/content_model.dart.lib",
+ "packages/lazy_load_scrollview/lazy_load_scrollview.dart": "packages/lazy_load_scrollview/lazy_load_scrollview.dart.lib",
+ "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart": "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart.lib",
  "packages/logafic/screens/status_screen.dart": "packages/logafic/screens/status_screen.dart.lib",
  "packages/logafic/widgets/menubaraction.dart": "packages/logafic/widgets/menubaraction.dart.lib",
  "packages/get_storage/get_storage.dart": "packages/get_storage/get_storage.dart.lib",
@@ -1400,16 +1403,19 @@ let moduleNames = {
  "packages/logafic/widgets/userMessageScreenWidget.dart.lib": "packages/logafic/widgets/userMessageScreenWidget.dart",
  "packages/logafic/widgets/messageScreenWidget.dart.lib": "packages/logafic/widgets/messageScreenWidget.dart",
  "packages/logafic/services/messageService.dart.lib": "packages/logafic/services/messageService.dart",
- "packages/logafic/data_model/ChatMessageModel.dart.lib": "packages/logafic/data_model/ChatMessageModel.dart",
+ "packages/logafic/widgets/deleteMessegaScreenWidget.dart.lib": "packages/logafic/widgets/deleteMessegaScreenWidget.dart",
  "packages/logafic/screens/login_screen.dart.lib": "packages/logafic/screens/login_screen.dart",
  "packages/logafic/screens/home_page.dart.lib": "packages/logafic/screens/home_page.dart",
  "packages/logafic/widgets/top_bar_contents.dart.lib": "packages/logafic/widgets/top_bar_contents.dart",
  "packages/logafic/widgets/floating_quick_access_bar.dart.lib": "packages/logafic/widgets/floating_quick_access_bar.dart",
+ "packages/logafic/widgets/explore_drawer.dart.lib": "packages/logafic/widgets/explore_drawer.dart",
  "packages/logafic/widgets/appBarHomePageWidget.dart.lib": "packages/logafic/widgets/appBarHomePageWidget.dart",
  "packages/logafic/services/notificationService.dart.lib": "packages/logafic/services/notificationService.dart",
  "packages/logafic/services/database.dart.lib": "packages/logafic/services/database.dart",
  "packages/logafic/data_model/post_data_model.dart.lib": "packages/logafic/data_model/post_data_model.dart",
  "packages/logafic/data_model/content_model.dart.lib": "packages/logafic/data_model/content_model.dart",
+ "packages/lazy_load_scrollview/lazy_load_scrollview.dart.lib": "packages/lazy_load_scrollview/lazy_load_scrollview.dart",
+ "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart.lib": "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart",
  "packages/logafic/screens/status_screen.dart.lib": "packages/logafic/screens/status_screen.dart",
  "packages/logafic/widgets/menubaraction.dart.lib": "packages/logafic/widgets/menubaraction.dart",
  "packages/get_storage/get_storage.dart.lib": "packages/get_storage/get_storage.dart",

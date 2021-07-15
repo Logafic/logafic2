@@ -1,800 +1,837 @@
-define(['dart_sdk'], (function load__packages__get__get_rx__src__rx_stream__rx_stream_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter__src__material__checkbox_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var rx_stream = Object.create(dart.library);
-  var $remove = dartx.remove;
-  var $add = dartx.add;
-  var $length = dartx.length;
-  var $isNotEmpty = dartx.isNotEmpty;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
+  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var checkbox = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var $noSuchMethod = dartx.noSuchMethod;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))()
+  var T = {
+    ColorN: () => (T.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    SetOfMaterialState: () => (T.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
+    SetOfMaterialStateToColorN: () => (T.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T.ColorN(), [T.SetOfMaterialState()])))(),
+    SetOfMaterialStateToColor: () => (T.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T.SetOfMaterialState()])))(),
+    MouseCursorN: () => (T.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
+    SetOfMaterialStateToMouseCursor: () => (T.SetOfMaterialStateToMouseCursor = dart.constFn(dart.fnType(mouse_cursor.MouseCursor, [T.SetOfMaterialState()])))(),
+    ListenableN: () => (T.ListenableN = dart.constFn(dart.nullable(change_notifier.Listenable)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 48,
+        [OffsetBase__dx]: 48
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.padded",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 40,
+        [OffsetBase__dx]: 40
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.shrinkWrap",
+        index: 1
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: borders.BorderStyle.prototype,
+        [_name$]: "BorderStyle.none",
+        index: 0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[7] || CT.C7,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[8] || CT.C8
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 1,
+        [Radius_x]: 1
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[10] || CT.C10,
+        [BorderRadius_bottomLeft]: C[10] || CT.C10,
+        [BorderRadius_topRight]: C[10] || CT.C10,
+        [BorderRadius_topLeft]: C[10] || CT.C10
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: rounded_rectangle_border.RoundedRectangleBorder.prototype,
+        [OutlinedBorder_side]: C[6] || CT.C6,
+        [RoundedRectangleBorder_borderRadius]: C[9] || CT.C9
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "checked",
+        [_Location_column]: 7,
+        [_Location_line]: 453,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 454,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 452,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/checkbox.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 8.1,
+        [OffsetBase__dx]: 2.6999999999999997
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 12.6,
+        [OffsetBase__dx]: 7.2
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 4.5,
+        [OffsetBase__dx]: 15.299999999999999
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 9,
+        [OffsetBase__dx]: 3.6
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 9,
+        [OffsetBase__dx]: 9
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 9,
+        [OffsetBase__dx]: 14.4
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 18,
+        [OffsetBase__dx]: 18
+      });
+    },
+    get C22() {
+      return C[22] = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
+    }
+  }, false);
+  var C = Array(23).fill(void 0);
   var I = [
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_rx/src/rx_stream/get_stream.dart",
-    "package:get/get_rx/src/rx_stream/rx_stream.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/checkbox.dart",
+    "package:flutter/src/material/checkbox.dart"
   ];
-  var onListen$ = dart.privateName(rx_stream, "GetStream.onListen");
-  var onPause$ = dart.privateName(rx_stream, "GetStream.onPause");
-  var onResume$ = dart.privateName(rx_stream, "GetStream.onResume");
-  var onCancel$ = dart.privateName(rx_stream, "GetStream.onCancel");
-  var _onData = dart.privateName(rx_stream, "_onData");
-  var _isBusy = dart.privateName(rx_stream, "_isBusy");
-  var _value = dart.privateName(rx_stream, "_value");
-  var _data = dart.privateName(rx_stream, "_data");
-  var _notifyData = dart.privateName(rx_stream, "_notifyData");
-  var _onError = dart.privateName(rx_stream, "_onError");
-  var _onDone = dart.privateName(rx_stream, "_onDone");
-  var _notifyError = dart.privateName(rx_stream, "_notifyError");
-  var _notifyDone = dart.privateName(rx_stream, "_notifyDone");
-  const _is_GetStream_default = Symbol('_is_GetStream_default');
-  rx_stream.GetStream$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    var JSArrayOfLightSubscriptionOfT = () => (JSArrayOfLightSubscriptionOfT = dart.constFn(_interceptors.JSArray$(LightSubscriptionOfT())))();
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var TToNvoid = () => (TToNvoid = dart.constFn(dart.nullable(TTovoid())))();
-    var GetStreamTransformationOfT = () => (GetStreamTransformationOfT = dart.constFn(rx_stream.GetStreamTransformation$(T)))();
-    class GetStream extends core.Object {
-      get onListen() {
-        return this[onListen$];
+  var value$ = dart.privateName(checkbox, "Checkbox.value");
+  var onChanged$ = dart.privateName(checkbox, "Checkbox.onChanged");
+  var mouseCursor$ = dart.privateName(checkbox, "Checkbox.mouseCursor");
+  var activeColor$ = dart.privateName(checkbox, "Checkbox.activeColor");
+  var fillColor$ = dart.privateName(checkbox, "Checkbox.fillColor");
+  var checkColor$ = dart.privateName(checkbox, "Checkbox.checkColor");
+  var tristate$ = dart.privateName(checkbox, "Checkbox.tristate");
+  var materialTapTargetSize$ = dart.privateName(checkbox, "Checkbox.materialTapTargetSize");
+  var visualDensity$ = dart.privateName(checkbox, "Checkbox.visualDensity");
+  var focusColor$ = dart.privateName(checkbox, "Checkbox.focusColor");
+  var hoverColor$ = dart.privateName(checkbox, "Checkbox.hoverColor");
+  var overlayColor$ = dart.privateName(checkbox, "Checkbox.overlayColor");
+  var splashRadius$ = dart.privateName(checkbox, "Checkbox.splashRadius");
+  var focusNode$ = dart.privateName(checkbox, "Checkbox.focusNode");
+  var autofocus$ = dart.privateName(checkbox, "Checkbox.autofocus");
+  var shape$ = dart.privateName(checkbox, "Checkbox.shape");
+  var side$ = dart.privateName(checkbox, "Checkbox.side");
+  checkbox.Checkbox = class Checkbox extends framework.StatefulWidget {
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get onChanged() {
+      return this[onChanged$];
+    }
+    set onChanged(value) {
+      super.onChanged = value;
+    }
+    get mouseCursor() {
+      return this[mouseCursor$];
+    }
+    set mouseCursor(value) {
+      super.mouseCursor = value;
+    }
+    get activeColor() {
+      return this[activeColor$];
+    }
+    set activeColor(value) {
+      super.activeColor = value;
+    }
+    get fillColor() {
+      return this[fillColor$];
+    }
+    set fillColor(value) {
+      super.fillColor = value;
+    }
+    get checkColor() {
+      return this[checkColor$];
+    }
+    set checkColor(value) {
+      super.checkColor = value;
+    }
+    get tristate() {
+      return this[tristate$];
+    }
+    set tristate(value) {
+      super.tristate = value;
+    }
+    get materialTapTargetSize() {
+      return this[materialTapTargetSize$];
+    }
+    set materialTapTargetSize(value) {
+      super.materialTapTargetSize = value;
+    }
+    get visualDensity() {
+      return this[visualDensity$];
+    }
+    set visualDensity(value) {
+      super.visualDensity = value;
+    }
+    get focusColor() {
+      return this[focusColor$];
+    }
+    set focusColor(value) {
+      super.focusColor = value;
+    }
+    get hoverColor() {
+      return this[hoverColor$];
+    }
+    set hoverColor(value) {
+      super.hoverColor = value;
+    }
+    get overlayColor() {
+      return this[overlayColor$];
+    }
+    set overlayColor(value) {
+      super.overlayColor = value;
+    }
+    get splashRadius() {
+      return this[splashRadius$];
+    }
+    set splashRadius(value) {
+      super.splashRadius = value;
+    }
+    get focusNode() {
+      return this[focusNode$];
+    }
+    set focusNode(value) {
+      super.focusNode = value;
+    }
+    get autofocus() {
+      return this[autofocus$];
+    }
+    set autofocus(value) {
+      super.autofocus = value;
+    }
+    get shape() {
+      return this[shape$];
+    }
+    set shape(value) {
+      super.shape = value;
+    }
+    get side() {
+      return this[side$];
+    }
+    set side(value) {
+      super.side = value;
+    }
+    createState() {
+      return new checkbox._CheckboxState.new();
+    }
+  };
+  (checkbox.Checkbox.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    let tristate = opts && 'tristate' in opts ? opts.tristate : false;
+    let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+    let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let fillColor = opts && 'fillColor' in opts ? opts.fillColor : null;
+    let checkColor = opts && 'checkColor' in opts ? opts.checkColor : null;
+    let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+    let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+    let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+    let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+    let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+    let visualDensity = opts && 'visualDensity' in opts ? opts.visualDensity : null;
+    let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+    let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+    let shape = opts && 'shape' in opts ? opts.shape : null;
+    let side = opts && 'side' in opts ? opts.side : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    this[tristate$] = tristate;
+    this[onChanged$] = onChanged;
+    this[mouseCursor$] = mouseCursor;
+    this[activeColor$] = activeColor;
+    this[fillColor$] = fillColor;
+    this[checkColor$] = checkColor;
+    this[focusColor$] = focusColor;
+    this[hoverColor$] = hoverColor;
+    this[overlayColor$] = overlayColor;
+    this[splashRadius$] = splashRadius;
+    this[materialTapTargetSize$] = materialTapTargetSize;
+    this[visualDensity$] = visualDensity;
+    this[focusNode$] = focusNode;
+    this[autofocus$] = autofocus;
+    this[shape$] = shape;
+    this[side$] = side;
+    if (!(tristate !== null)) dart.assertFailed(null, I[0], 111, 15, "tristate != null");
+    if (!(tristate || value != null)) dart.assertFailed(null, I[0], 112, 15, "tristate || value != null");
+    if (!(autofocus !== null)) dart.assertFailed(null, I[0], 113, 15, "autofocus != null");
+    checkbox.Checkbox.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = checkbox.Checkbox.prototype;
+  dart.addTypeTests(checkbox.Checkbox);
+  dart.addTypeCaches(checkbox.Checkbox);
+  dart.setMethodSignature(checkbox.Checkbox, () => ({
+    __proto__: dart.getMethods(checkbox.Checkbox.__proto__),
+    createState: dart.fnType(checkbox._CheckboxState, [])
+  }));
+  dart.setLibraryUri(checkbox.Checkbox, I[1]);
+  dart.setFieldSignature(checkbox.Checkbox, () => ({
+    __proto__: dart.getFields(checkbox.Checkbox.__proto__),
+    value: dart.finalFieldType(dart.nullable(core.bool)),
+    onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)]))),
+    mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+    activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    fillColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    checkColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    tristate: dart.finalFieldType(core.bool),
+    materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+    visualDensity: dart.finalFieldType(dart.nullable(theme_data.VisualDensity)),
+    focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+    splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+    focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+    autofocus: dart.finalFieldType(core.bool),
+    shape: dart.finalFieldType(dart.nullable(borders.OutlinedBorder)),
+    side: dart.finalFieldType(dart.nullable(borders.BorderSide))
+  }));
+  dart.defineLazy(checkbox.Checkbox, {
+    /*checkbox.Checkbox.width*/get width() {
+      return 18;
+    }
+  }, false);
+  var _painter = dart.privateName(checkbox, "_painter");
+  var _previousValue = dart.privateName(checkbox, "_previousValue");
+  var _widgetFillColor = dart.privateName(checkbox, "_widgetFillColor");
+  var _defaultFillColor = dart.privateName(checkbox, "_defaultFillColor");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name = dart.privateName(theme_data, "_name");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var _name$ = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  var RoundedRectangleBorder_borderRadius = dart.privateName(rounded_rectangle_border, "RoundedRectangleBorder.borderRadius");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(checkbox.Checkbox) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(checkbox.Checkbox)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(checkbox.Checkbox));
+  const State_ToggleableStateMixin$36 = class State_ToggleableStateMixin extends State_TickerProviderStateMixin$36 {};
+  (State_ToggleableStateMixin$36.new = function() {
+    toggleable.ToggleableStateMixin$(checkbox.Checkbox)[dart.mixinNew].call(this);
+    State_ToggleableStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_ToggleableStateMixin$36.prototype;
+  dart.applyMixin(State_ToggleableStateMixin$36, toggleable.ToggleableStateMixin$(checkbox.Checkbox));
+  checkbox._CheckboxState = class _CheckboxState extends State_ToggleableStateMixin$36 {
+    initState() {
+      super.initState();
+      this[_previousValue] = this.widget.value;
+    }
+    didUpdateWidget(oldWidget) {
+      checkbox.Checkbox.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (oldWidget.value != this.widget.value) {
+        this[_previousValue] = oldWidget.value;
+        this.animateToValue();
       }
-      set onListen(value) {
-        this[onListen$] = value;
-      }
-      get onPause() {
-        return this[onPause$];
-      }
-      set onPause(value) {
-        this[onPause$] = value;
-      }
-      get onResume() {
-        return this[onResume$];
-      }
-      set onResume(value) {
-        this[onResume$] = value;
-      }
-      get onCancel() {
-        return this[onCancel$];
-      }
-      set onCancel(value) {
-        this[onCancel$] = value;
-      }
-      removeSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(T$.boolN(), (function* removeSubscription() {
-          let t0;
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$remove](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            t0 = this[_onData];
-            return t0 == null ? null : t0[$remove](subs);
-          }
-        }).bind(this));
-      }
-      addSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(dart.void, (function* addSubscription() {
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$add](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            return dart.nullCheck(this[_onData])[$add](subs);
-          }
-        }).bind(this));
-      }
-      get length() {
-        let t0;
-        t0 = this[_onData];
-        return t0 == null ? null : t0[$length];
-      }
-      get hasListeners() {
-        return dart.nullCheck(this[_onData])[$isNotEmpty];
-      }
-      [_notifyData](data) {
-        let t0;
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = TToNvoid().as(item[_data]);
-            t0 == null ? null : t0(data);
-          }
+    }
+    dispose() {
+      this[_painter].dispose();
+      super.dispose();
+    }
+    get onChanged() {
+      return this.widget.onChanged;
+    }
+    get tristate() {
+      return this.widget.tristate;
+    }
+    get value() {
+      return this.widget.value;
+    }
+    get [_widgetFillColor]() {
+      return material_state.MaterialStateProperty.resolveWith(T.ColorN(), dart.fn(states => {
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return null;
         }
-        this[_isBusy] = false;
-      }
-      [_notifyError](error, stackTrace = null) {
-        let t0, t0$, t0$0;
-        if (!!this.isClosed) dart.assertFailed("You cannot add errors to a closed stream.", I[0], 54, 12, "!isClosed");
-        this[_isBusy] = true;
-        let itemsToRemove = JSArrayOfLightSubscriptionOfT().of([]);
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            if (stackTrace != null) {
-              t0 = item[_onError];
-              t0 == null ? null : dart.dcall(t0, [error, stackTrace]);
-            } else {
-              t0$ = item[_onError];
-              t0$ == null ? null : dart.dcall(t0$, [error]);
-            }
-            if (dart.nullCheck(item.cancelOnError)) {
-              itemsToRemove[$add](item);
-              item.pause();
-              t0$0 = item[_onDone];
-              t0$0 == null ? null : t0$0();
-            }
-          }
+        if (states.contains(material_state.MaterialState.selected)) {
+          return this.widget.activeColor;
         }
-        for (let item of itemsToRemove) {
-          dart.nullCheck(this[_onData])[$remove](item);
+        return null;
+      }, T.SetOfMaterialStateToColorN()));
+    }
+    get [_defaultFillColor]() {
+      let themeData = theme.Theme.of(this.context);
+      return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+        if (states.contains(material_state.MaterialState.disabled)) {
+          return themeData.disabledColor;
         }
-        this[_isBusy] = false;
-      }
-      [_notifyDone]() {
-        let t0;
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed stream.", I[0], 80, 12, "!isClosed");
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = item[_onDone];
-            t0 == null ? null : t0();
-          }
+        if (states.contains(material_state.MaterialState.selected)) {
+          return themeData.toggleableActiveColor;
         }
-        this[_isBusy] = false;
+        return themeData.unselectedWidgetColor;
+      }, T.SetOfMaterialStateToColor()));
+    }
+    build(context) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t1, t0$6, t0$7, t0$8, t0$9, t1$, t0$10, t0$11, t0$12, t0$13, t0$14, t1$0, t0$15, t0$16, t0$17, t0$18, t0$19, t1$1, t0$20, t0$21, t0$22, t0$23, t1$2, t0$24, t0$25, t0$26, t0$27, t1$3, t0$28, t0$29, t1$4, t0$30, t0$31, t1$5, t1$6, t1$7, t1$8, t1$9, t0$32;
+      if (!debug.debugCheckHasMaterial(context)) dart.assertFailed(null, I[0], 388, 12, "debugCheckHasMaterial(context)");
+      let themeData = theme.Theme.of(context);
+      let effectiveMaterialTapTargetSize = (t0$ = (t0 = this.widget.materialTapTargetSize, t0 == null ? themeData.checkboxTheme.materialTapTargetSize : t0), t0$ == null ? themeData.materialTapTargetSize : t0$);
+      let effectiveVisualDensity = (t0$1 = (t0$0 = this.widget.visualDensity, t0$0 == null ? themeData.checkboxTheme.visualDensity : t0$0), t0$1 == null ? themeData.visualDensity : t0$1);
+      let size = null;
+      switch (effectiveMaterialTapTargetSize) {
+        case C[1] || CT.C1:
+        {
+          size = C[0] || CT.C0;
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          size = C[2] || CT.C2;
+          break;
+        }
       }
-      get value() {
-        return this[_value];
+      size = size['+'](effectiveVisualDensity.baseSizeAdjustment);
+      let effectiveMouseCursor = material_state.MaterialStateProperty.resolveWith(mouse_cursor.MouseCursor, dart.fn(states => {
+        let t1, t0, t0$;
+        t0$ = (t0 = material_state.MaterialStateProperty.resolveAs(T.MouseCursorN(), this.widget.mouseCursor, states), t0 == null ? (t1 = themeData.checkboxTheme.mouseCursor, t1 == null ? null : t1.resolve(states)) : t0);
+        return t0$ == null ? material_state.MaterialStateMouseCursor.clickable.resolve(states) : t0$;
+      }, T.SetOfMaterialStateToMouseCursor()));
+      let activeStates = (t0$2 = this.states, (() => {
+        t0$2.add(material_state.MaterialState.selected);
+        return t0$2;
+      })());
+      let inactiveStates = (t0$3 = this.states, (() => {
+        t0$3.remove(material_state.MaterialState.selected);
+        return t0$3;
+      })());
+      let effectiveActiveColor = (t0$7 = (t0$6 = (t0$5 = (t0$4 = this.widget.fillColor, t0$4 == null ? null : t0$4.resolve(activeStates)), t0$5 == null ? this[_widgetFillColor].resolve(activeStates) : t0$5), t0$6 == null ? (t1 = themeData.checkboxTheme.fillColor, t1 == null ? null : t1.resolve(activeStates)) : t0$6), t0$7 == null ? this[_defaultFillColor].resolve(activeStates) : t0$7);
+      let effectiveInactiveColor = (t0$11 = (t0$10 = (t0$9 = (t0$8 = this.widget.fillColor, t0$8 == null ? null : t0$8.resolve(inactiveStates)), t0$9 == null ? this[_widgetFillColor].resolve(inactiveStates) : t0$9), t0$10 == null ? (t1$ = themeData.checkboxTheme.fillColor, t1$ == null ? null : t1$.resolve(inactiveStates)) : t0$10), t0$11 == null ? this[_defaultFillColor].resolve(inactiveStates) : t0$11);
+      let focusedStates = (t0$12 = this.states, (() => {
+        t0$12.add(material_state.MaterialState.focused);
+        return t0$12;
+      })());
+      let effectiveFocusOverlayColor = (t0$16 = (t0$15 = (t0$14 = (t0$13 = this.widget.overlayColor, t0$13 == null ? null : t0$13.resolve(focusedStates)), t0$14 == null ? this.widget.focusColor : t0$14), t0$15 == null ? (t1$0 = themeData.checkboxTheme.overlayColor, t1$0 == null ? null : t1$0.resolve(focusedStates)) : t0$15), t0$16 == null ? themeData.focusColor : t0$16);
+      let hoveredStates = (t0$17 = this.states, (() => {
+        t0$17.add(material_state.MaterialState.hovered);
+        return t0$17;
+      })());
+      let effectiveHoverOverlayColor = (t0$21 = (t0$20 = (t0$19 = (t0$18 = this.widget.overlayColor, t0$18 == null ? null : t0$18.resolve(hoveredStates)), t0$19 == null ? this.widget.hoverColor : t0$19), t0$20 == null ? (t1$1 = themeData.checkboxTheme.overlayColor, t1$1 == null ? null : t1$1.resolve(hoveredStates)) : t0$20), t0$21 == null ? themeData.hoverColor : t0$21);
+      let activePressedStates = (t0$22 = activeStates, (() => {
+        t0$22.add(material_state.MaterialState.pressed);
+        return t0$22;
+      })());
+      let effectiveActivePressedOverlayColor = (t0$25 = (t0$24 = (t0$23 = this.widget.overlayColor, t0$23 == null ? null : t0$23.resolve(activePressedStates)), t0$24 == null ? (t1$2 = themeData.checkboxTheme.overlayColor, t1$2 == null ? null : t1$2.resolve(activePressedStates)) : t0$24), t0$25 == null ? effectiveActiveColor.withAlpha(31) : t0$25);
+      let inactivePressedStates = (t0$26 = inactiveStates, (() => {
+        t0$26.add(material_state.MaterialState.pressed);
+        return t0$26;
+      })());
+      let effectiveInactivePressedOverlayColor = (t0$29 = (t0$28 = (t0$27 = this.widget.overlayColor, t0$27 == null ? null : t0$27.resolve(inactivePressedStates)), t0$28 == null ? (t1$3 = themeData.checkboxTheme.overlayColor, t1$3 == null ? null : t1$3.resolve(inactivePressedStates)) : t0$28), t0$29 == null ? effectiveActiveColor.withAlpha(31) : t0$29);
+      let effectiveCheckColor = (t0$31 = (t0$30 = this.widget.checkColor, t0$30 == null ? (t1$4 = themeData.checkboxTheme.checkColor, t1$4 == null ? null : t1$4.resolve(this.states)) : t0$30), t0$31 == null ? C[4] || CT.C4 : t0$31);
+      return new basic.Semantics.new({checked: this.widget.value === true, child: this.buildToggleable({mouseCursor: effectiveMouseCursor, focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, size: size, painter: (t0$32 = this[_painter], (() => {
+            t0$32.position = this.position;
+            t0$32.reaction = this.reaction;
+            t0$32.reactionFocusFade = this.reactionFocusFade;
+            t0$32.reactionHoverFade = this.reactionHoverFade;
+            t0$32.inactiveReactionColor = effectiveInactivePressedOverlayColor;
+            t0$32.reactionColor = effectiveActivePressedOverlayColor;
+            t0$32.hoverColor = effectiveHoverOverlayColor;
+            t0$32.focusColor = effectiveFocusOverlayColor;
+            t0$32.splashRadius = (t1$6 = (t1$5 = this.widget.splashRadius, t1$5 == null ? themeData.checkboxTheme.splashRadius : t1$5), t1$6 == null ? 20 : t1$6);
+            t0$32.downPosition = this.downPosition;
+            t0$32.isFocused = this.states.contains(material_state.MaterialState.focused);
+            t0$32.isHovered = this.states.contains(material_state.MaterialState.hovered);
+            t0$32.activeColor = effectiveActiveColor;
+            t0$32.inactiveColor = effectiveInactiveColor;
+            t0$32.checkColor = effectiveCheckColor;
+            t0$32.value = this.value;
+            t0$32.previousValue = this[_previousValue];
+            t0$32.shape = (t1$8 = (t1$7 = this.widget.shape, t1$7 == null ? themeData.checkboxTheme.shape : t1$7), t1$8 == null ? C[5] || CT.C5 : t1$8);
+            t0$32.side = (t1$9 = this.widget.side, t1$9 == null ? themeData.checkboxTheme.side : t1$9);
+            return t0$32;
+          })())}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11});
+    }
+  };
+  (checkbox._CheckboxState.new = function() {
+    this[_painter] = new checkbox._CheckboxPainter.new();
+    this[_previousValue] = null;
+    checkbox._CheckboxState.__proto__.new.call(this);
+    ;
+  }).prototype = checkbox._CheckboxState.prototype;
+  dart.addTypeTests(checkbox._CheckboxState);
+  dart.addTypeCaches(checkbox._CheckboxState);
+  dart.setMethodSignature(checkbox._CheckboxState, () => ({
+    __proto__: dart.getMethods(checkbox._CheckboxState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(checkbox._CheckboxState, () => ({
+    __proto__: dart.getGetters(checkbox._CheckboxState.__proto__),
+    onChanged: dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)])),
+    tristate: core.bool,
+    value: dart.nullable(core.bool),
+    [_widgetFillColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+    [_defaultFillColor]: material_state.MaterialStateProperty$(ui.Color)
+  }));
+  dart.setLibraryUri(checkbox._CheckboxState, I[1]);
+  dart.setFieldSignature(checkbox._CheckboxState, () => ({
+    __proto__: dart.getFields(checkbox._CheckboxState.__proto__),
+    [_painter]: dart.finalFieldType(checkbox._CheckboxPainter),
+    [_previousValue]: dart.fieldType(dart.nullable(core.bool))
+  }));
+  var _checkColor = dart.privateName(checkbox, "_checkColor");
+  var _value = dart.privateName(checkbox, "_value");
+  var _shape = dart.privateName(checkbox, "_shape");
+  var _side = dart.privateName(checkbox, "_side");
+  var _outerRectAt = dart.privateName(checkbox, "_outerRectAt");
+  var _colorAt = dart.privateName(checkbox, "_colorAt");
+  var _createStrokePaint = dart.privateName(checkbox, "_createStrokePaint");
+  var _drawBorder = dart.privateName(checkbox, "_drawBorder");
+  var _drawCheck = dart.privateName(checkbox, "_drawCheck");
+  var _drawDash = dart.privateName(checkbox, "_drawDash");
+  var _repaint = dart.privateName(checkbox, "_repaint");
+  var _repaint$ = dart.privateName(custom_paint, "_repaint");
+  checkbox._CheckboxPainter = class _CheckboxPainter extends toggleable.ToggleablePainter {
+    get checkColor() {
+      return dart.nullCheck(this[_checkColor]);
+    }
+    set checkColor(value) {
+      if (dart.equals(this[_checkColor], value)) {
+        return;
       }
-      add(event) {
-        T.as(event);
-        if (!!this.isClosed) dart.assertFailed("You cannot add event to closed Stream", I[0], 95, 12, "!isClosed");
-        this[_value] = event;
-        this[_notifyData](event);
+      this[_checkColor] = value;
+      this.notifyListeners();
+    }
+    get value() {
+      return this[_value];
+    }
+    set value(value) {
+      if (this[_value] == value) {
+        return;
       }
-      get isClosed() {
-        return this[_onData] == null;
+      this[_value] = value;
+      this.notifyListeners();
+    }
+    get previousValue() {
+      return this[_previousValue];
+    }
+    set previousValue(value) {
+      if (this[_previousValue] == value) {
+        return;
       }
-      addError(error, stackTrace = null) {
-        if (!!this.isClosed) dart.assertFailed("You cannot add error to closed Stream", I[0], 103, 12, "!isClosed");
-        this[_notifyError](error, stackTrace);
+      this[_previousValue] = value;
+      this.notifyListeners();
+    }
+    get shape() {
+      return dart.nullCheck(this[_shape]);
+    }
+    set shape(value) {
+      if (dart.equals(this[_shape], value)) {
+        return;
       }
-      close() {
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed Stream", I[0], 108, 12, "!isClosed");
-        this[_notifyDone]();
-        this[_onData] = null;
-        this[_isBusy] = null;
-        this[_value] = null;
+      this[_shape] = value;
+      this.notifyListeners();
+    }
+    get side() {
+      return this[_side];
+    }
+    set side(value) {
+      if (dart.equals(this[_side], value)) {
+        return;
       }
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(dart.bind(this, 'removeSubscription'), {onPause: this.onPause, onResume: this.onResume, onCancel: this.onCancel}), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          t0.cancelOnError = cancelOnError;
+      this[_side] = value;
+      this.notifyListeners();
+    }
+    [_outerRectAt](origin, t) {
+      let inset = 1.0 - (t - 0.5)[$abs]() * 2.0;
+      let size = 18 - inset * 2;
+      let rect = new ui.Rect.fromLTWH(origin.dx + inset, origin.dy + inset, size, size);
+      return rect;
+    }
+    [_colorAt](t) {
+      return t >= 0.25 ? this.activeColor : dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, t * 4.0));
+    }
+    [_createStrokePaint]() {
+      let t0;
+      t0 = ui.Paint.new();
+      return (() => {
+        t0.color = this.checkColor;
+        t0.style = ui.PaintingStyle.stroke;
+        t0.strokeWidth = 2;
+        return t0;
+      })();
+    }
+    [_drawBorder](canvas, outer, t, paint) {
+      if (!(t >= 0.0 && t <= 0.5)) dart.assertFailed(null, I[0], 567, 12, "t >= 0.0 && t <= 0.5");
+      let resolvedShape = this.shape;
+      if (this.side == null) {
+        resolvedShape = resolvedShape.copyWith({side: new borders.BorderSide.new({width: 2.0, color: paint.color})});
+      }
+      resolvedShape.copyWith({side: this.side}).paint(canvas, outer);
+    }
+    [_drawCheck](canvas, origin, t, paint) {
+      if (!(t >= 0.0 && t <= 1.0)) dart.assertFailed(null, I[0], 576, 12, "t >= 0.0 && t <= 1.0");
+      let path = ui.Path.new();
+      let start = C[15] || CT.C15;
+      let mid = C[16] || CT.C16;
+      let end = C[17] || CT.C17;
+      if (t < 0.5) {
+        let strokeT = t * 2.0;
+        let drawMid = dart.nullCheck(ui.Offset.lerp(start, mid, strokeT));
+        path.moveTo(origin.dx + start.dx, origin.dy + start.dy);
+        path.lineTo(origin.dx + drawMid.dx, origin.dy + drawMid.dy);
+      } else {
+        let strokeT = (t - 0.5) * 2.0;
+        let drawEnd = dart.nullCheck(ui.Offset.lerp(mid, end, strokeT));
+        path.moveTo(origin.dx + start.dx, origin.dy + start.dy);
+        path.lineTo(origin.dx + mid.dx, origin.dy + mid.dy);
+        path.lineTo(origin.dx + drawEnd.dx, origin.dy + drawEnd.dy);
+      }
+      canvas.drawPath(path, paint);
+    }
+    [_drawDash](canvas, origin, t, paint) {
+      if (!(t >= 0.0 && t <= 1.0)) dart.assertFailed(null, I[0], 599, 12, "t >= 0.0 && t <= 1.0");
+      let start = C[18] || CT.C18;
+      let mid = C[19] || CT.C19;
+      let end = C[20] || CT.C20;
+      let drawStart = dart.nullCheck(ui.Offset.lerp(start, mid, 1.0 - t));
+      let drawEnd = dart.nullCheck(ui.Offset.lerp(mid, end, t));
+      canvas.drawLine(origin['+'](drawStart), origin['+'](drawEnd), paint);
+    }
+    paint(canvas, size) {
+      let t0, t0$;
+      this.paintRadialReaction({canvas: canvas, origin: size.center(ui.Offset.zero)});
+      let strokePaint = this[_createStrokePaint]();
+      let origin = ui.Offset.as(size['/'](2.0)['-']((C[21] || CT.C21)['/'](2.0)));
+      let status = this.position.status;
+      let tNormalized = status === animation.AnimationStatus.forward || status === animation.AnimationStatus.completed ? this.position.value : 1.0 - this.position.value;
+      if (this.previousValue === false || this.value === false) {
+        let t = this.value === false ? 1.0 - tNormalized : tNormalized;
+        let outer = this[_outerRectAt](origin, t);
+        let emptyCheckboxPath = this.shape.copyWith({side: this.side}).getOuterPath(outer);
+        let paint = (t0 = ui.Paint.new(), (() => {
+          t0.color = this[_colorAt](t);
           return t0;
         })());
-        this.addSubscription(subs);
-        t0$ = this.onListen;
-        t0$ == null ? null : t0$();
-        return subs;
-      }
-      get stream() {
-        return new (GetStreamTransformationOfT()).new(dart.bind(this, 'addSubscription'), dart.bind(this, 'removeSubscription'));
-      }
-    }
-    (GetStream.new = function(opts) {
-      let onListen = opts && 'onListen' in opts ? opts.onListen : null;
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[_onData] = JSArrayOfLightSubscriptionOfT().of([]);
-      this[_isBusy] = false;
-      this[_value] = null;
-      this[onListen$] = onListen;
-      this[onPause$] = onPause;
-      this[onResume$] = onResume;
-      this[onCancel$] = onCancel;
-      ;
-    }).prototype = GetStream.prototype;
-    dart.addTypeTests(GetStream);
-    GetStream.prototype[_is_GetStream_default] = true;
-    dart.addTypeCaches(GetStream);
-    dart.setMethodSignature(GetStream, () => ({
-      __proto__: dart.getMethods(GetStream.__proto__),
-      removeSubscription: dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [dart.nullable(core.Object)]),
-      addSubscription: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyData]: dart.fnType(dart.void, [T]),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      close: dart.fnType(dart.void, []),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setGetterSignature(GetStream, () => ({
-      __proto__: dart.getGetters(GetStream.__proto__),
-      length: dart.nullable(core.int),
-      hasListeners: core.bool,
-      value: dart.nullable(T),
-      isClosed: core.bool,
-      stream: async.Stream$(T)
-    }));
-    dart.setLibraryUri(GetStream, I[1]);
-    dart.setFieldSignature(GetStream, () => ({
-      __proto__: dart.getFields(GetStream.__proto__),
-      onListen: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onPause: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_onData]: dart.fieldType(dart.nullable(core.List$(rx_stream.LightSubscription$(T)))),
-      [_isBusy]: dart.fieldType(dart.nullable(core.bool)),
-      [_value]: dart.fieldType(dart.nullable(T))
-    }));
-    return GetStream;
-  });
-  rx_stream.GetStream = rx_stream.GetStream$();
-  dart.addTypeTests(rx_stream.GetStream, _is_GetStream_default);
-  var onPause$0 = dart.privateName(rx_stream, "LightSubscription.onPause");
-  var onResume$0 = dart.privateName(rx_stream, "LightSubscription.onResume");
-  var onCancel$0 = dart.privateName(rx_stream, "LightSubscription.onCancel");
-  var cancelOnError = dart.privateName(rx_stream, "LightSubscription.cancelOnError");
-  var _isPaused = dart.privateName(rx_stream, "_isPaused");
-  var _removeSubscription$ = dart.privateName(rx_stream, "_removeSubscription");
-  const _is_LightSubscription_default = Symbol('_is_LightSubscription_default');
-  rx_stream.LightSubscription$ = dart.generic(T => {
-    class LightSubscription extends async.StreamSubscription$(T) {
-      get onPause() {
-        return this[onPause$0];
-      }
-      set onPause(value) {
-        super.onPause = value;
-      }
-      get onResume() {
-        return this[onResume$0];
-      }
-      set onResume(value) {
-        super.onResume = value;
-      }
-      get onCancel() {
-        return this[onCancel$0];
-      }
-      set onCancel(value) {
-        super.onCancel = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError];
-      }
-      set cancelOnError(value) {
-        this[cancelOnError] = value;
-      }
-      cancel() {
-        let t0;
-        this[_removeSubscription$](this);
-        t0 = this.onCancel;
-        t0 == null ? null : t0();
-        return T$.FutureOfvoid().value();
-      }
-      onData(handleData) {
-        return this[_data] = handleData;
-      }
-      onError(handleError) {
-        return this[_onError] = handleError;
-      }
-      onDone(handleDone) {
-        return this[_onDone] = handleDone;
-      }
-      pause(resumeSignal = null) {
-        let t0;
-        this[_isPaused] = true;
-        t0 = this.onPause;
-        t0 == null ? null : t0();
-      }
-      resume() {
-        let t0;
-        this[_isPaused] = false;
-        t0 = this.onResume;
-        t0 == null ? null : t0();
-      }
-      get isPaused() {
-        return this[_isPaused];
-      }
-      asFuture(E, futureValue = null) {
-        return async.Future$(E).value(futureValue);
-      }
-    }
-    (LightSubscription.new = function(_removeSubscription, opts) {
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[cancelOnError] = false;
-      this[_data] = null;
-      this[_onError] = null;
-      this[_onDone] = null;
-      this[_isPaused] = false;
-      this[_removeSubscription$] = _removeSubscription;
-      this[onPause$0] = onPause;
-      this[onResume$0] = onResume;
-      this[onCancel$0] = onCancel;
-      ;
-    }).prototype = LightSubscription.prototype;
-    dart.addTypeTests(LightSubscription);
-    LightSubscription.prototype[_is_LightSubscription_default] = true;
-    dart.addTypeCaches(LightSubscription);
-    dart.setMethodSignature(LightSubscription, () => ({
-      __proto__: dart.getMethods(LightSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), []),
-      onData: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [T]))]),
-      onError: dart.fnType(dart.void, [dart.nullable(core.Function)]),
-      onDone: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, []))]),
-      pause: dart.fnType(dart.void, [], [dart.nullable(async.Future$(dart.void))]),
-      resume: dart.fnType(dart.void, []),
-      asFuture: dart.gFnType(E => [async.Future$(E), [], [dart.nullable(E)]], E => [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(LightSubscription, () => ({
-      __proto__: dart.getGetters(LightSubscription.__proto__),
-      isPaused: core.bool
-    }));
-    dart.setLibraryUri(LightSubscription, I[1]);
-    dart.setFieldSignature(LightSubscription, () => ({
-      __proto__: dart.getFields(LightSubscription.__proto__),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)])),
-      onPause: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.fieldType(dart.nullable(core.bool)),
-      [_data]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [T]))),
-      [_onError]: dart.fieldType(dart.nullable(core.Function)),
-      [_onDone]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_isPaused]: dart.fieldType(core.bool)
-    }));
-    return LightSubscription;
-  });
-  rx_stream.LightSubscription = rx_stream.LightSubscription$();
-  dart.addTypeTests(rx_stream.LightSubscription, _is_LightSubscription_default);
-  var _addSubscription$ = dart.privateName(rx_stream, "_addSubscription");
-  const _is_GetStreamTransformation_default = Symbol('_is_GetStreamTransformation_default');
-  rx_stream.GetStreamTransformation$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    class GetStreamTransformation extends async.Stream$(T) {
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(this[_removeSubscription$]), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          return t0;
+        if (t <= 0.5) {
+          this[_drawBorder](canvas, outer, t, paint);
+        } else {
+          canvas.drawPath(emptyCheckboxPath, paint);
+          let tShrink = (t - 0.5) * 2.0;
+          if (this.previousValue == null || this.value == null)
+            this[_drawDash](canvas, origin, tShrink, strokePaint);
+          else
+            this[_drawCheck](canvas, origin, tShrink, strokePaint);
+        }
+      } else {
+        let outer = this[_outerRectAt](origin, 1.0);
+        let paint = (t0$ = ui.Paint.new(), (() => {
+          t0$.color = this[_colorAt](1.0);
+          return t0$;
         })());
-        t0$ = subs;
-        this[_addSubscription$](t0$);
-        return subs;
-      }
-    }
-    (GetStreamTransformation.new = function(_addSubscription, _removeSubscription) {
-      this[_addSubscription$] = _addSubscription;
-      this[_removeSubscription$] = _removeSubscription;
-      GetStreamTransformation.__proto__.new.call(this);
-      ;
-    }).prototype = GetStreamTransformation.prototype;
-    dart.addTypeTests(GetStreamTransformation);
-    GetStreamTransformation.prototype[_is_GetStreamTransformation_default] = true;
-    dart.addTypeCaches(GetStreamTransformation);
-    dart.setMethodSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getMethods(GetStreamTransformation.__proto__),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.nullable(dart.fnType(dart.void, [T]))], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setLibraryUri(GetStreamTransformation, I[1]);
-    dart.setFieldSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getFields(GetStreamTransformation.__proto__),
-      [_addSubscription$]: dart.finalFieldType(dart.fnType(dart.void, [rx_stream.LightSubscription$(T)])),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)]))
-    }));
-    return GetStreamTransformation;
-  });
-  rx_stream.GetStreamTransformation = rx_stream.GetStreamTransformation$();
-  dart.addTypeTests(rx_stream.GetStreamTransformation, _is_GetStreamTransformation_default);
-  var data$ = dart.privateName(rx_stream, "Node.data");
-  var next$ = dart.privateName(rx_stream, "Node.next");
-  const _is_Node_default = Symbol('_is_Node_default');
-  rx_stream.Node$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var NodeOfT = () => (NodeOfT = dart.constFn(rx_stream.Node$(T)))();
-    var NodeNOfT = () => (NodeNOfT = dart.constFn(dart.nullable(NodeOfT())))();
-    class Node extends core.Object {
-      get data() {
-        return this[data$];
-      }
-      set data(value) {
-        this[data$] = TN().as(value);
-      }
-      get next() {
-        return this[next$];
-      }
-      set next(value) {
-        this[next$] = NodeNOfT().as(value);
-      }
-    }
-    (Node.new = function(opts) {
-      let data = opts && 'data' in opts ? opts.data : null;
-      let next = opts && 'next' in opts ? opts.next : null;
-      this[data$] = data;
-      this[next$] = next;
-      ;
-    }).prototype = Node.prototype;
-    dart.addTypeTests(Node);
-    Node.prototype[_is_Node_default] = true;
-    dart.addTypeCaches(Node);
-    dart.setLibraryUri(Node, I[1]);
-    dart.setFieldSignature(Node, () => ({
-      __proto__: dart.getFields(Node.__proto__),
-      data: dart.fieldType(dart.nullable(T)),
-      next: dart.fieldType(dart.nullable(rx_stream.Node$(T)))
-    }));
-    return Node;
-  });
-  rx_stream.Node = rx_stream.Node$();
-  dart.addTypeTests(rx_stream.Node, _is_Node_default);
-  var data$0 = dart.privateName(rx_stream, "MiniSubscription.data");
-  var onError$ = dart.privateName(rx_stream, "MiniSubscription.onError");
-  var onDone$ = dart.privateName(rx_stream, "MiniSubscription.onDone");
-  var cancelOnError$ = dart.privateName(rx_stream, "MiniSubscription.cancelOnError");
-  var listener$ = dart.privateName(rx_stream, "MiniSubscription.listener");
-  const _is_MiniSubscription_default = Symbol('_is_MiniSubscription_default');
-  rx_stream.MiniSubscription$ = dart.generic(T => {
-    class MiniSubscription extends core.Object {
-      get data() {
-        return this[data$0];
-      }
-      set data(value) {
-        super.data = value;
-      }
-      get onError() {
-        return this[onError$];
-      }
-      set onError(value) {
-        super.onError = value;
-      }
-      get onDone() {
-        return this[onDone$];
-      }
-      set onDone(value) {
-        super.onDone = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError$];
-      }
-      set cancelOnError(value) {
-        super.cancelOnError = value;
-      }
-      get listener() {
-        return this[listener$];
-      }
-      set listener(value) {
-        super.listener = value;
-      }
-      cancel() {
-        return async.async(dart.void, (function* cancel() {
-          return this.listener.removeListener(this);
-        }).bind(this));
-      }
-    }
-    (MiniSubscription.new = function(data, onError, onDone, cancelOnError, listener) {
-      this[data$0] = data;
-      this[onError$] = onError;
-      this[onDone$] = onDone;
-      this[cancelOnError$] = cancelOnError;
-      this[listener$] = listener;
-      ;
-    }).prototype = MiniSubscription.prototype;
-    dart.addTypeTests(MiniSubscription);
-    MiniSubscription.prototype[_is_MiniSubscription_default] = true;
-    dart.addTypeCaches(MiniSubscription);
-    dart.setMethodSignature(MiniSubscription, () => ({
-      __proto__: dart.getMethods(MiniSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), [])
-    }));
-    dart.setLibraryUri(MiniSubscription, I[1]);
-    dart.setFieldSignature(MiniSubscription, () => ({
-      __proto__: dart.getFields(MiniSubscription.__proto__),
-      data: dart.finalFieldType(dart.fnType(dart.void, [T])),
-      onError: dart.finalFieldType(dart.nullable(core.Function)),
-      onDone: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.finalFieldType(core.bool),
-      listener: dart.finalFieldType(rx_stream.FastList$(T))
-    }));
-    return MiniSubscription;
-  });
-  rx_stream.MiniSubscription = rx_stream.MiniSubscription$();
-  dart.addTypeTests(rx_stream.MiniSubscription, _is_MiniSubscription_default);
-  var listenable = dart.privateName(rx_stream, "MiniStream.listenable");
-  var __MiniStream__value = dart.privateName(rx_stream, "_#MiniStream#_value");
-  var __MiniStream__value_isSet = dart.privateName(rx_stream, "_#MiniStream#_value#isSet");
-  var _isClosed = dart.privateName(rx_stream, "_isClosed");
-  const _is_MiniStream_default = Symbol('_is_MiniStream_default');
-  rx_stream.MiniStream$ = dart.generic(T => {
-    var FastListOfT = () => (FastListOfT = dart.constFn(rx_stream.FastList$(T)))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    class MiniStream extends core.Object {
-      get listenable() {
-        return this[listenable];
-      }
-      set listenable(value) {
-        this[listenable] = FastListOfT().as(value);
-      }
-      get [_value]() {
-        let t0;
-        return this[__MiniStream__value_isSet] ? (t0 = this[__MiniStream__value], t0) : dart.throw(new _internal.LateError.fieldNI("_value"));
-      }
-      set [_value](t0) {
-        this[__MiniStream__value_isSet] = true;
-        this[__MiniStream__value] = t0;
-      }
-      get value() {
-        return this[_value];
-      }
-      set value(val) {
-        T.as(val);
-        this.add(val);
-      }
-      add(event) {
-        T.as(event);
-        this[_value] = event;
-        this.listenable[_notifyData](event);
-      }
-      addError(error, stackTrace = null) {
-        this.listenable[_notifyError](error, stackTrace);
-      }
-      get length() {
-        return this.listenable.length;
-      }
-      get hasListeners() {
-        return this.listenable.isNotEmpty;
-      }
-      get isClosed() {
-        return this[_isClosed];
-      }
-      listen(onData, opts) {
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : false;
-        let subs = new (MiniSubscriptionOfT()).new(onData, onError, onDone, cancelOnError, this.listenable);
-        this.listenable.addListener(subs);
-        return subs;
-      }
-      close() {
-        if (this[_isClosed]) {
-          dart.throw("You can not close a closed Stream");
-        }
-        this.listenable[_notifyDone]();
-        this.listenable.clear();
-        this[_isClosed] = true;
-      }
-    }
-    (MiniStream.new = function() {
-      this[listenable] = new (FastListOfT()).new();
-      this[__MiniStream__value] = null;
-      this[__MiniStream__value_isSet] = false;
-      this[_isClosed] = false;
-      ;
-    }).prototype = MiniStream.prototype;
-    dart.addTypeTests(MiniStream);
-    MiniStream.prototype[_is_MiniStream_default] = true;
-    dart.addTypeCaches(MiniStream);
-    dart.setMethodSignature(MiniStream, () => ({
-      __proto__: dart.getMethods(MiniStream.__proto__),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      listen: dart.fnType(rx_stream.MiniSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: core.bool, onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {}),
-      close: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(MiniStream, () => ({
-      __proto__: dart.getGetters(MiniStream.__proto__),
-      [_value]: T,
-      value: T,
-      length: core.int,
-      hasListeners: core.bool,
-      isClosed: core.bool
-    }));
-    dart.setSetterSignature(MiniStream, () => ({
-      __proto__: dart.getSetters(MiniStream.__proto__),
-      [_value]: T,
-      value: dart.nullable(core.Object)
-    }));
-    dart.setLibraryUri(MiniStream, I[1]);
-    dart.setFieldSignature(MiniStream, () => ({
-      __proto__: dart.getFields(MiniStream.__proto__),
-      listenable: dart.fieldType(rx_stream.FastList$(T)),
-      [__MiniStream__value]: dart.fieldType(dart.nullable(T)),
-      [__MiniStream__value_isSet]: dart.fieldType(core.bool),
-      [_isClosed]: dart.fieldType(core.bool)
-    }));
-    return MiniStream;
-  });
-  rx_stream.MiniStream = rx_stream.MiniStream$();
-  dart.addTypeTests(rx_stream.MiniStream, _is_MiniStream_default);
-  var _head = dart.privateName(rx_stream, "_head");
-  var _elementAt = dart.privateName(rx_stream, "_elementAt");
-  var _removeAt = dart.privateName(rx_stream, "_removeAt");
-  const _is_FastList_default = Symbol('_is_FastList_default');
-  rx_stream.FastList$ = dart.generic(T => {
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    var NodeOfMiniSubscriptionOfT = () => (NodeOfMiniSubscriptionOfT = dart.constFn(rx_stream.Node$(MiniSubscriptionOfT())))();
-    class FastList extends core.Object {
-      [_notifyData](data) {
-        let t4, t3, t2, t1, t1$;
-        T.as(data);
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2, t4 = data, TTovoid().as(t3.data)(t4)));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
-      }
-      [_notifyDone]() {
-        let t3, t2, t1, t1$;
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2.onDone, t3 == null ? null : t3()));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
-      }
-      [_notifyError](error, stackTrace = null) {
-        let t1;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          t1 = dart.nullCheck(currentNode.data).onError;
-          t1 == null ? null : dart.dcall(t1, [error, stackTrace]);
-          currentNode = currentNode.next;
-        }
-      }
-      get isEmpty() {
-        return this[_head] == null;
-      }
-      get isNotEmpty() {
-        return !this.isEmpty;
-      }
-      get length() {
-        let length = 0;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          currentNode = currentNode.next;
-          length = length + 1;
-        }
-        return length;
-      }
-      [_elementAt](position) {
-        if (this.isEmpty || this.length < position || position < 0) return null;
-        let node = this[_head];
-        let current = 0;
-        while (current !== position) {
-          node = dart.nullCheck(node).next;
-          current = current + 1;
-        }
-        return dart.nullCheck(node).data;
-      }
-      addListener(data) {
-        MiniSubscriptionOfT().as(data);
-        let newNode = new (NodeOfMiniSubscriptionOfT()).new({data: data});
-        if (this.isEmpty) {
-          this[_head] = newNode;
+        canvas.drawPath(this.shape.copyWith({side: this.side}).getOuterPath(outer), paint);
+        if (tNormalized <= 0.5) {
+          let tShrink = 1.0 - tNormalized * 2.0;
+          if (this.previousValue === true)
+            this[_drawCheck](canvas, origin, tShrink, strokePaint);
+          else
+            this[_drawDash](canvas, origin, tShrink, strokePaint);
         } else {
-          let currentNode = dart.nullCheck(this[_head]);
-          while (currentNode.next != null) {
-            currentNode = dart.nullCheck(currentNode.next);
-          }
-          currentNode.next = newNode;
+          let tExpand = (tNormalized - 0.5) * 2.0;
+          if (this.value === true)
+            this[_drawCheck](canvas, origin, tExpand, strokePaint);
+          else
+            this[_drawDash](canvas, origin, tExpand, strokePaint);
         }
-      }
-      contains(element) {
-        T.as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) return true;
-          if (length !== this.length) {
-            dart.throw(new core.ConcurrentModificationError.new(this));
-          }
-        }
-        return false;
-      }
-      removeListener(element) {
-        MiniSubscriptionOfT().as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) {
-            this[_removeAt](i);
-            break;
-          }
-        }
-      }
-      clear() {
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          this[_removeAt](i);
-        }
-      }
-      [_removeAt](position) {
-        let index = 0;
-        let currentNode = this[_head];
-        let previousNode = null;
-        if (this.isEmpty || this.length < position || position < 0) {
-          dart.throw(core.Exception.new("Invalid position"));
-        } else if (position === 0) {
-          this[_head] = dart.nullCheck(this[_head]).next;
-        } else {
-          while (index !== position) {
-            previousNode = currentNode;
-            currentNode = dart.nullCheck(currentNode).next;
-            index = index + 1;
-          }
-          if (previousNode == null) {
-            this[_head] = null;
-          } else {
-            previousNode.next = dart.nullCheck(currentNode).next;
-          }
-          dart.nullCheck(currentNode).next = null;
-        }
-        return dart.nullCheck(currentNode).data;
       }
     }
-    (FastList.new = function() {
-      this[_head] = null;
-      ;
-    }).prototype = FastList.prototype;
-    dart.addTypeTests(FastList);
-    FastList.prototype[_is_FastList_default] = true;
-    dart.addTypeCaches(FastList);
-    dart.setMethodSignature(FastList, () => ({
-      __proto__: dart.getMethods(FastList.__proto__),
-      [_notifyData]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_elementAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int]),
-      addListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      removeListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      [_removeAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int])
-    }));
-    dart.setGetterSignature(FastList, () => ({
-      __proto__: dart.getGetters(FastList.__proto__),
-      isEmpty: core.bool,
-      isNotEmpty: core.bool,
-      length: core.int
-    }));
-    dart.setLibraryUri(FastList, I[1]);
-    dart.setFieldSignature(FastList, () => ({
-      __proto__: dart.getFields(FastList.__proto__),
-      [_head]: dart.fieldType(dart.nullable(rx_stream.Node$(rx_stream.MiniSubscription$(T))))
-    }));
-    return FastList;
-  });
-  rx_stream.FastList = rx_stream.FastList$();
-  dart.addTypeTests(rx_stream.FastList, _is_FastList_default);
-  dart.trackLibraries("packages/get/get_rx/src/rx_stream/rx_stream.dart", {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": rx_stream
+    get [_repaint$]() {
+      return T.ListenableN().as(this[$noSuchMethod](new core._Invocation.getter(C[22] || CT.C22)));
+    }
+  };
+  (checkbox._CheckboxPainter.new = function() {
+    this[_checkColor] = null;
+    this[_value] = null;
+    this[_previousValue] = null;
+    this[_shape] = null;
+    this[_side] = null;
+    checkbox._CheckboxPainter.__proto__.new.call(this);
+    ;
+  }).prototype = checkbox._CheckboxPainter.prototype;
+  dart.addTypeTests(checkbox._CheckboxPainter);
+  dart.addTypeCaches(checkbox._CheckboxPainter);
+  dart.setMethodSignature(checkbox._CheckboxPainter, () => ({
+    __proto__: dart.getMethods(checkbox._CheckboxPainter.__proto__),
+    [_outerRectAt]: dart.fnType(ui.Rect, [ui.Offset, core.double]),
+    [_colorAt]: dart.fnType(ui.Color, [core.double]),
+    [_createStrokePaint]: dart.fnType(ui.Paint, []),
+    [_drawBorder]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, core.double, ui.Paint]),
+    [_drawCheck]: dart.fnType(dart.void, [ui.Canvas, ui.Offset, core.double, ui.Paint]),
+    [_drawDash]: dart.fnType(dart.void, [ui.Canvas, ui.Offset, core.double, ui.Paint]),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size])
+  }));
+  dart.setGetterSignature(checkbox._CheckboxPainter, () => ({
+    __proto__: dart.getGetters(checkbox._CheckboxPainter.__proto__),
+    checkColor: ui.Color,
+    value: dart.nullable(core.bool),
+    previousValue: dart.nullable(core.bool),
+    shape: borders.OutlinedBorder,
+    side: dart.nullable(borders.BorderSide),
+    [_repaint$]: dart.nullable(change_notifier.Listenable)
+  }));
+  dart.setSetterSignature(checkbox._CheckboxPainter, () => ({
+    __proto__: dart.getSetters(checkbox._CheckboxPainter.__proto__),
+    checkColor: ui.Color,
+    value: dart.nullable(core.bool),
+    previousValue: dart.nullable(core.bool),
+    shape: borders.OutlinedBorder,
+    side: dart.nullable(borders.BorderSide)
+  }));
+  dart.setLibraryUri(checkbox._CheckboxPainter, I[1]);
+  dart.setFieldSignature(checkbox._CheckboxPainter, () => ({
+    __proto__: dart.getFields(checkbox._CheckboxPainter.__proto__),
+    [_checkColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_value]: dart.fieldType(dart.nullable(core.bool)),
+    [_previousValue]: dart.fieldType(dart.nullable(core.bool)),
+    [_shape]: dart.fieldType(dart.nullable(borders.OutlinedBorder)),
+    [_side]: dart.fieldType(dart.nullable(borders.BorderSide))
+  }));
+  dart.defineLazy(checkbox, {
+    /*checkbox._kEdgeSize*/get _kEdgeSize() {
+      return 18;
+    },
+    /*checkbox._kStrokeWidth*/get _kStrokeWidth() {
+      return 2;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/checkbox.dart", {
+    "package:flutter/src/material/checkbox.dart": checkbox
   }, {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": ["get_stream.dart", "mini_stream.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["get_stream.dart","mini_stream.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/get/get_rx/src/rx_stream/rx_stream.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["checkbox.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/material/checkbox.dart.lib.js"}');
   // Exports:
   return {
-    get_rx__src__rx_stream__rx_stream: rx_stream
+    src__material__checkbox: checkbox
   };
 }));
 
-//# sourceMappingURL=rx_stream.dart.lib.js.map
+//# sourceMappingURL=checkbox.dart.lib.js.map

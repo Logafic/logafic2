@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/services/messageService.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 TextEditingController messageController = TextEditingController();
 
@@ -25,7 +26,9 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
                 var width = MediaQuery.of(context).size.width;
                 return Container(
                     height: height,
-                    width: width * 0.3,
+                    width: ResponsiveWidget.isSmallScreen(context)
+                        ? width * 0.9
+                        : width * 0.3,
                     child: StreamBuilder<QuerySnapshot>(
                         stream: messageStream,
                         builder: (BuildContext context,
