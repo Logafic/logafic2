@@ -6,7 +6,6 @@ import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/deletePostProfileScreenWidget.dart';
 import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
-import 'package:logafic/widgets/profile_widget_small.dart';
 import 'package:logafic/widgets/updatePostWidget.dart';
 
 // ignore: must_be_immutable

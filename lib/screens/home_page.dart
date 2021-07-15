@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:logafic/controllers/authController.dart';
 
-import 'package:logafic/data_model/content_model.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/database.dart';
 import 'package:logafic/services/notificationService.dart';

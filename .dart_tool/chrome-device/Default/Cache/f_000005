@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "e8rd0Q7bDLlj25TMyWFsLw==";
+    window.$dartAppId = "mLxMF3owcB3fGYhLYVaTbA==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:56334/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:51788/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:56336/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:51790/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -708,7 +708,6 @@ let modulePaths = {
  "packages/logafic/helpers/validate.dart": "packages/logafic/helpers/validate.dart.lib",
  "packages/logafic/screens/profile_screen.dart": "packages/logafic/screens/profile_screen.dart.lib",
  "packages/logafic/widgets/updatePostWidget.dart": "packages/logafic/widgets/updatePostWidget.dart.lib",
- "packages/logafic/widgets/profile_widget_small.dart": "packages/logafic/widgets/profile_widget_small.dart.lib",
  "packages/logafic/widgets/profileBarAction.dart": "packages/logafic/widgets/profileBarAction.dart.lib",
  "packages/logafic/widgets/deletePostProfileScreenWidget.dart": "packages/logafic/widgets/deletePostProfileScreenWidget.dart.lib",
  "packages/logafic/screens/notification_screen.dart": "packages/logafic/screens/notification_screen.dart.lib",
@@ -726,7 +725,6 @@ let modulePaths = {
  "packages/logafic/services/notificationService.dart": "packages/logafic/services/notificationService.dart.lib",
  "packages/logafic/services/database.dart": "packages/logafic/services/database.dart.lib",
  "packages/logafic/data_model/post_data_model.dart": "packages/logafic/data_model/post_data_model.dart.lib",
- "packages/logafic/data_model/content_model.dart": "packages/logafic/data_model/content_model.dart.lib",
  "packages/lazy_load_scrollview/lazy_load_scrollview.dart": "packages/lazy_load_scrollview/lazy_load_scrollview.dart.lib",
  "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart": "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart.lib",
  "packages/logafic/screens/status_screen.dart": "packages/logafic/screens/status_screen.dart.lib",
@@ -1395,7 +1393,6 @@ let moduleNames = {
  "packages/logafic/helpers/validate.dart.lib": "packages/logafic/helpers/validate.dart",
  "packages/logafic/screens/profile_screen.dart.lib": "packages/logafic/screens/profile_screen.dart",
  "packages/logafic/widgets/updatePostWidget.dart.lib": "packages/logafic/widgets/updatePostWidget.dart",
- "packages/logafic/widgets/profile_widget_small.dart.lib": "packages/logafic/widgets/profile_widget_small.dart",
  "packages/logafic/widgets/profileBarAction.dart.lib": "packages/logafic/widgets/profileBarAction.dart",
  "packages/logafic/widgets/deletePostProfileScreenWidget.dart.lib": "packages/logafic/widgets/deletePostProfileScreenWidget.dart",
  "packages/logafic/screens/notification_screen.dart.lib": "packages/logafic/screens/notification_screen.dart",
@@ -1413,7 +1410,6 @@ let moduleNames = {
  "packages/logafic/services/notificationService.dart.lib": "packages/logafic/services/notificationService.dart",
  "packages/logafic/services/database.dart.lib": "packages/logafic/services/database.dart",
  "packages/logafic/data_model/post_data_model.dart.lib": "packages/logafic/data_model/post_data_model.dart",
- "packages/logafic/data_model/content_model.dart.lib": "packages/logafic/data_model/content_model.dart",
  "packages/lazy_load_scrollview/lazy_load_scrollview.dart.lib": "packages/lazy_load_scrollview/lazy_load_scrollview.dart",
  "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart.lib": "packages/lazy_load_scrollview/src/lazy_load_scrollview.dart",
  "packages/logafic/screens/status_screen.dart.lib": "packages/logafic/screens/status_screen.dart",
