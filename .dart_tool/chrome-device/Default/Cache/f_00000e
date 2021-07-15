@@ -52,6 +52,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   var firebaseUser = dart.privateName(authController, "AuthController.firebaseUser");
   var firestoreUser = dart.privateName(authController, "AuthController.firestoreUser");
   var newUser = dart.privateName(authController, "AuthController.newUser");
+  var isRank = dart.privateName(authController, "AuthController.isRank");
   var _auth = dart.privateName(authController, "_auth");
   var _db = dart.privateName(authController, "_db");
   var _updateUserFirestore = dart.privateName(authController, "_updateUserFirestore");
@@ -91,6 +92,12 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
     }
     set newUser(value) {
       this[newUser] = value;
+    }
+    get isRank() {
+      return this[isRank];
+    }
+    set isRank(value) {
+      this[isRank] = value;
     }
     onReady() {
       rx_workers.ever(T.UserN(), this.firebaseUser, dart.bind(this, 'handleAuthChanged'));
@@ -255,6 +262,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
     this[firebaseUser] = new (T.RxnOfUser()).new();
     this[firestoreUser] = new (T.RxnOfUserModel()).new();
     this[newUser] = false;
+    this[isRank] = false;
     authController.AuthController.__proto__.new.call(this);
     ;
   }).prototype = authController.AuthController.prototype;
@@ -288,7 +296,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
     [_db]: dart.finalFieldType(cloud_firestore.FirebaseFirestore),
     firebaseUser: dart.fieldType(rx_types.Rxn$(firebase_auth.User)),
     firestoreUser: dart.fieldType(rx_types.Rxn$(user_model.UserModel)),
-    newUser: dart.fieldType(core.bool)
+    newUser: dart.fieldType(core.bool),
+    isRank: dart.fieldType(core.bool)
   }));
   dart.defineLazy(authController.AuthController, {
     /*authController.AuthController.to*/get to() {
@@ -299,7 +308,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   dart.trackLibraries("packages/logafic/controllers/authController.dart", {
     "package:logafic/controllers/authController.dart": authController
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["authController.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/controllers/authController.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["authController.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/controllers/authController.dart.lib.js"}');
   // Exports:
   return {
     controllers__authController: authController

@@ -58,7 +58,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 ],
               ),
               SizedBox(height: 20),
-              authController.firebaseUser.value!.uid != null
+              authController.firebaseUser.value!.uid != ''
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -104,7 +104,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       ),
                     )
                   : Container(),
-              authController.firebaseUser.value!.uid != null
+              authController.firebaseUser.value!.uid != ''
                   ? SizedBox(height: 20)
                   : Container(),
               InkWell(

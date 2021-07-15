@@ -1,3 +1,5 @@
+import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,7 @@ class FloatingQuickAccessBar extends StatefulWidget {
 class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
   List _isHovering = [false, false];
   List<Widget> rowElements = [];
-
+  AuthController authController = AuthController.to;
   List<String> items = ['Akış Zamanı', 'Trend Gönderiler'];
   List<IconData> icons = [
     Icons.timeline,
@@ -35,7 +37,13 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           });
         },
         onTap: () {
-          i % 2 == 0 ? print('Çift') : print('Tek');
+          if (i % 2 == 0) {
+            authController.isRank = true;
+            Navigator.pushNamed(context, HomeRoute);
+          } else {
+            authController.isRank = false;
+            Navigator.pushNamed(context, HomeRoute);
+          }
         },
         child: Text(
           items[i],

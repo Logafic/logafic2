@@ -18,6 +18,7 @@ class AuthController extends GetxController {
   Rxn<User> firebaseUser = Rxn<User>();
   Rxn<UserModel> firestoreUser = Rxn<UserModel>();
   bool newUser = false;
+  bool isRank = false;
 
   @override
   void onReady() {

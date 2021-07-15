@@ -20,9 +20,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isRank = false;
-  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+  final Stream<QuerySnapshot> _usersStreamCreatedAt = FirebaseFirestore.instance
       .collection('posts')
       .orderBy('created_at', descending: true)
+      .snapshots();
+  final Stream<QuerySnapshot> _usersStreamRanked = FirebaseFirestore.instance
+      .collection('posts')
+      .orderBy('like', descending: true)
       .snapshots();
 
   CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
@@ -161,7 +165,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Expanded(
                       child: StreamBuilder(
-                          stream: _usersStream,
+                          stream: authController.isRank == true
+                              ? _usersStreamCreatedAt
+                              : _usersStreamRanked,
                           builder:
                               (BuildContext context, AsyncSnapshot snapshot) {
                             if (snapshot.hasError) {

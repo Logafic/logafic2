@@ -1,564 +1,702 @@
-define(['dart_sdk', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__image_cache_dart(dart_sdk, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/collection/src/algorithms.dart', 'packages/collection/src/utils.dart'], (function load__packages__collection__src__iterable_extensions_dart(dart_sdk, packages__collection__src__algorithms$46dart, packages__collection__src__utils$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const developer = dart_sdk.developer;
   const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const math = dart_sdk.math;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var image_cache = Object.create(dart.library);
-  var $length = dartx.length;
-  var $values = dartx.values;
-  var $clear = dartx.clear;
-  var $remove = dartx.remove;
+  const algorithms = packages__collection__src__algorithms$46dart.src__algorithms;
+  const utils = packages__collection__src__utils$46dart.src__utils;
+  var iterable_extensions = Object.create(dart.library);
+  var $iterator = dartx.iterator;
+  var $add = dartx.add;
   var $_set = dartx._set;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $toString = dartx.toString;
+  var $where = dartx.where;
+  var $sort = dartx.sort;
+  var $compareTo = dartx.compareTo;
+  var $isEmpty = dartx.isEmpty;
+  var $last = dartx.last;
   var $_get = dartx._get;
-  var $containsKey = dartx.containsKey;
-  var $first = dartx.first;
-  var $keys = dartx.keys;
-  var $runtimeType = dartx.runtimeType;
+  var $truncate = dartx.truncate;
+  var $remainder = dartx.remainder;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    LinkedMapOfObject$_PendingImage: () => (T.LinkedMapOfObject$_PendingImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._PendingImage)))(),
-    LinkedMapOfObject$_CachedImage: () => (T.LinkedMapOfObject$_CachedImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._CachedImage)))(),
-    LinkedMapOfObject$_LiveImage: () => (T.LinkedMapOfObject$_LiveImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._LiveImage)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidTo_LiveImage: () => (T.VoidTo_LiveImage = dart.constFn(dart.fnType(image_cache._LiveImage, [])))(),
-    ImageInfoN: () => (T.ImageInfoN = dart.constFn(dart.nullable(image_stream.ImageInfo)))(),
-    ImageInfoNAndboolTovoid: () => (T.ImageInfoNAndboolTovoid = dart.constFn(dart.fnType(dart.void, [T.ImageInfoN(), core.bool])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))()
+  var T$ = {
+    RandomN: () => (T$.RandomN = dart.constFn(dart.nullable(math.Random)))(),
+    TAndTToint: () => (T$.TAndTToint = dart.constFn(dart.gFnType(T => [core.int, [T, T]], T => [core.Comparable$(T)])))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = [
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/painting/image_cache.dart",
-    "package:flutter/src/painting/image_cache.dart"
-  ];
-  var _pendingImages = dart.privateName(image_cache, "_pendingImages");
-  var _cache = dart.privateName(image_cache, "_cache");
-  var _liveImages = dart.privateName(image_cache, "_liveImages");
-  var _maximumSize = dart.privateName(image_cache, "_maximumSize");
-  var _maximumSizeBytes = dart.privateName(image_cache, "_maximumSizeBytes");
-  var _currentSizeBytes = dart.privateName(image_cache, "_currentSizeBytes");
-  var _checkCacheSize = dart.privateName(image_cache, "_checkCacheSize");
-  var _touch = dart.privateName(image_cache, "_touch");
-  var _trackLiveImage = dart.privateName(image_cache, "_trackLiveImage");
-  image_cache.ImageCache = class ImageCache extends core.Object {
-    get maximumSize() {
-      return this[_maximumSize];
-    }
-    set maximumSize(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 103, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 104, 12, "value >= 0");
-      if (value === this.maximumSize) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSize", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
-      }
-      this[_maximumSize] = value;
-      if (this.maximumSize === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
-      }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
-      }
-    }
-    get currentSize() {
-      return this[_cache][$length];
-    }
-    get maximumSizeBytes() {
-      return this[_maximumSizeBytes];
-    }
-    set maximumSizeBytes(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 142, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 143, 12, "value >= 0");
-      if (value === this[_maximumSizeBytes]) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSizeBytes", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
-      }
-      this[_maximumSizeBytes] = value;
-      if (this[_maximumSizeBytes] === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
-      }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
-      }
-    }
-    get currentSizeBytes() {
-      return this[_currentSizeBytes];
-    }
-    clear() {
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.clear", {arguments: new (T.IdentityMapOfString$dynamic()).from(["pendingImages", this[_pendingImages][$length], "keepAliveImages", this[_cache][$length], "liveImages", this[_liveImages][$length], "currentSizeInBytes", this[_currentSizeBytes]])});
-      }
-      for (let image of this[_cache][$values]) {
-        image.dispose();
-      }
-      this[_cache][$clear]();
-      this[_pendingImages][$clear]();
-      this[_currentSizeBytes] = 0;
-    }
-    evict(key, opts) {
-      let t0;
-      let includeLive = opts && 'includeLive' in opts ? opts.includeLive : true;
-      if (!(includeLive !== null)) dart.assertFailed(null, I[0], 239, 12, "includeLive != null");
-      if (includeLive) {
-        let image = this[_liveImages][$remove](key);
-        t0 = image;
-        t0 == null ? null : t0.dispose();
-      }
-      let pendingImage = this[_pendingImages][$remove](key);
-      if (pendingImage != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "pending"])});
-        }
-        pendingImage.removeListener();
-        return true;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "keepAlive", "sizeInBytes", image.sizeBytes])});
-        }
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        return true;
-      }
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "miss"])});
-      }
-      return false;
-    }
-    [_touch](key, image, timelineTask) {
-      if (!(timelineTask != null)) dart.assertFailed(null, I[0], 285, 12, "timelineTask != null");
-      if (image.sizeBytes != null && dart.nullCheck(image.sizeBytes) <= this.maximumSizeBytes && this.maximumSize > 0) {
-        this[_currentSizeBytes] = this[_currentSizeBytes] + dart.nullCheck(image.sizeBytes);
-        this[_cache][$_set](key, image);
-        this[_checkCacheSize](timelineTask);
-      } else {
-        image.dispose();
-      }
-    }
-    [_trackLiveImage](key, completer, sizeBytes) {
-      let t0;
-      t0 = this[_liveImages][$putIfAbsent](key, dart.fn(() => new image_cache._LiveImage.new(completer, dart.fn(() => {
-        this[_liveImages][$remove](key);
-      }, T.VoidTovoid())), T.VoidTo_LiveImage()));
-      t0.sizeBytes == null ? t0.sizeBytes = sizeBytes : null;
-    }
-    putIfAbsent(key, loader, opts) {
-      let t0, t0$, t1;
-      let onError = opts && 'onError' in opts ? opts.onError : null;
-      if (!(key !== null)) dart.assertFailed(null, I[0], 323, 12, "key != null");
-      if (!(loader !== null)) dart.assertFailed(null, I[0], 324, 12, "loader != null");
-      let timelineTask = null;
-      let listenerTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.putIfAbsent", {arguments: new (T.IdentityMapOfString$dynamic()).from(["key", key[$toString]()])});
-          return t0;
-        })());
-      }
-      let result = (t0$ = this[_pendingImages][$_get](key), t0$ == null ? null : t0$.completer);
-      if (result != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "pending"])});
-        }
-        return result;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        this[_trackLiveImage](key, image.completer, image.sizeBytes);
-        this[_cache][$_set](key, image);
-        return image.completer;
-      }
-      let liveImage = this[_liveImages][$_get](key);
-      if (liveImage != null) {
-        this[_touch](key, new image_cache._CachedImage.new(liveImage.completer, {sizeBytes: liveImage.sizeBytes}), timelineTask);
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        return liveImage.completer;
-      }
-      try {
-        result = loader();
-        this[_trackLiveImage](key, result, null);
-      } catch (e) {
-        let error = dart.getThrown(e);
-        let stackTrace = dart.stackTrace(e);
-        if (core.Object.is(error)) {
-          if (!false) {
-            dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "error", "error", error[$toString](), "stackTrace", stackTrace.toString()])});
-          }
-          if (onError != null) {
-            onError(error, stackTrace);
-            return null;
-          } else {
-            dart.rethrow(e);
-          }
-        } else
-          throw e;
-      }
-      if (!false) {
-        listenerTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("listener");
-          return t1;
-        })());
-      }
-      let listenedOnce = false;
-      let untrackedPendingImage = null;
-      const listener = (info, syncCall) => {
-        let t1;
-        let sizeBytes = null;
-        if (info != null) {
-          sizeBytes = info.image.height * info.image.width * 4;
-          info.dispose();
-        }
-        let image = new image_cache._CachedImage.new(dart.nullCheck(result), {sizeBytes: sizeBytes});
-        this[_trackLiveImage](key, result, sizeBytes);
-        if (untrackedPendingImage == null) {
-          this[_touch](key, image, listenerTask);
-        } else {
-          image.dispose();
-        }
-        let pendingImage = (t1 = untrackedPendingImage, t1 == null ? this[_pendingImages][$remove](key) : t1);
-        if (pendingImage != null) {
-          pendingImage.removeListener();
-        }
-        if (!false && !listenedOnce) {
-          dart.nullCheck(listenerTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["syncCall", syncCall, "sizeInBytes", sizeBytes])});
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["currentSizeBytes", this.currentSizeBytes, "currentSize", this.currentSize])});
-        }
-        listenedOnce = true;
-      };
-      dart.fn(listener, T.ImageInfoNAndboolTovoid());
-      let streamListener = new image_stream.ImageStreamListener.new(listener);
-      if (this.maximumSize > 0 && this.maximumSizeBytes > 0) {
-        this[_pendingImages][$_set](key, new image_cache._PendingImage.new(result, streamListener));
-      } else {
-        untrackedPendingImage = new image_cache._PendingImage.new(result, streamListener);
-      }
-      result.addListener(streamListener);
-      return result;
-    }
-    statusForKey(key) {
-      return new image_cache.ImageCacheStatus.__({pending: this[_pendingImages][$containsKey](key), keepAlive: this[_cache][$containsKey](key), live: this[_liveImages][$containsKey](key)});
-    }
-    containsKey(key) {
-      return this[_pendingImages][$_get](key) != null || this[_cache][$_get](key) != null;
-    }
-    get liveImageCount() {
-      return this[_liveImages][$length];
-    }
-    get pendingImageCount() {
-      return this[_pendingImages][$length];
-    }
-    clearLiveImages() {
-      for (let image of this[_liveImages][$values]) {
-        image.dispose();
-      }
-      this[_liveImages][$clear]();
-    }
-    [_checkCacheSize](timelineTask) {
-      let t1;
-      let finishArgs = new (T.IdentityMapOfString$dynamic()).new();
-      let checkCacheTask = null;
-      if (!false) {
-        checkCacheTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("checkCacheSize");
-          return t1;
-        })());
-        finishArgs[$_set]("evictedKeys", T.JSArrayOfString().of([]));
-        finishArgs[$_set]("currentSize", this.currentSize);
-        finishArgs[$_set]("currentSizeBytes", this.currentSizeBytes);
-      }
-      while (this[_currentSizeBytes] > this[_maximumSizeBytes] || this[_cache][$length] > this[_maximumSize]) {
-        let key = this[_cache][$keys][$first];
-        let image = dart.nullCheck(this[_cache][$_get](key));
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        this[_cache][$remove](key);
-        if (!false) {
-          dart.dsend(finishArgs[$_get]("evictedKeys"), 'add', [key[$toString]()]);
-        }
-      }
-      if (!false) {
-        finishArgs[$_set]("endSize", this.currentSize);
-        finishArgs[$_set]("endSizeBytes", this.currentSizeBytes);
-        dart.nullCheck(checkCacheTask).finish({arguments: finishArgs});
-      }
-      if (!(this[_currentSizeBytes] >= 0)) dart.assertFailed(null, I[0], 528, 12, "_currentSizeBytes >= 0");
-      if (!(this[_cache][$length] <= this.maximumSize)) dart.assertFailed(null, I[0], 529, 12, "_cache.length <= maximumSize");
-      if (!(this[_currentSizeBytes] <= this.maximumSizeBytes)) dart.assertFailed(null, I[0], 530, 12, "_currentSizeBytes <= maximumSizeBytes");
-    }
-  };
-  (image_cache.ImageCache.new = function() {
-    this[_pendingImages] = new (T.LinkedMapOfObject$_PendingImage()).new();
-    this[_cache] = new (T.LinkedMapOfObject$_CachedImage()).new();
-    this[_liveImages] = new (T.LinkedMapOfObject$_LiveImage()).new();
-    this[_maximumSize] = 1000;
-    this[_maximumSizeBytes] = 104857600;
-    this[_currentSizeBytes] = 0;
-    ;
-  }).prototype = image_cache.ImageCache.prototype;
-  dart.addTypeTests(image_cache.ImageCache);
-  dart.addTypeCaches(image_cache.ImageCache);
-  dart.setMethodSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getMethods(image_cache.ImageCache.__proto__),
-    clear: dart.fnType(dart.void, []),
-    evict: dart.fnType(core.bool, [core.Object], {includeLive: core.bool}, {}),
-    [_touch]: dart.fnType(dart.void, [core.Object, image_cache._CachedImage, dart.nullable(developer.TimelineTask)]),
-    [_trackLiveImage]: dart.fnType(dart.void, [core.Object, image_stream.ImageStreamCompleter, dart.nullable(core.int)]),
-    putIfAbsent: dart.fnType(dart.nullable(image_stream.ImageStreamCompleter), [core.Object, dart.fnType(image_stream.ImageStreamCompleter, [])], {onError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {}),
-    statusForKey: dart.fnType(image_cache.ImageCacheStatus, [core.Object]),
-    containsKey: dart.fnType(core.bool, [core.Object]),
-    clearLiveImages: dart.fnType(dart.void, []),
-    [_checkCacheSize]: dart.fnType(dart.void, [dart.nullable(developer.TimelineTask)])
-  }));
-  dart.setGetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    currentSize: core.int,
-    maximumSizeBytes: core.int,
-    currentSizeBytes: core.int,
-    liveImageCount: core.int,
-    pendingImageCount: core.int
-  }));
-  dart.setSetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getSetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    maximumSizeBytes: core.int
-  }));
-  dart.setLibraryUri(image_cache.ImageCache, I[1]);
-  dart.setFieldSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getFields(image_cache.ImageCache.__proto__),
-    [_pendingImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._PendingImage)),
-    [_cache]: dart.finalFieldType(core.Map$(core.Object, image_cache._CachedImage)),
-    [_liveImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._LiveImage)),
-    [_maximumSize]: dart.fieldType(core.int),
-    [_maximumSizeBytes]: dart.fieldType(core.int),
-    [_currentSizeBytes]: dart.fieldType(core.int)
-  }));
-  var pending$ = dart.privateName(image_cache, "ImageCacheStatus.pending");
-  var keepAlive$ = dart.privateName(image_cache, "ImageCacheStatus.keepAlive");
-  var live$ = dart.privateName(image_cache, "ImageCacheStatus.live");
-  image_cache.ImageCacheStatus = class ImageCacheStatus extends core.Object {
-    get pending() {
-      return this[pending$];
-    }
-    set pending(value) {
-      super.pending = value;
-    }
-    get keepAlive() {
-      return this[keepAlive$];
-    }
-    set keepAlive(value) {
-      super.keepAlive = value;
-    }
-    get live() {
-      return this[live$];
-    }
-    set live(value) {
-      super.live = value;
-    }
-    get tracked() {
-      return this.pending || this.keepAlive || this.live;
-    }
-    get untracked() {
-      return !this.pending && !this.keepAlive && !this.live;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) {
-        return false;
-      }
-      return image_cache.ImageCacheStatus.is(other) && other.pending === this.pending && other.keepAlive === this.keepAlive && other.live === this.live;
-    }
-    get hashCode() {
-      return ui.hashValues(this.pending, this.keepAlive, this.live);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "ImageCacheStatus") + "(pending: " + dart.str(this.pending) + ", live: " + dart.str(this.live) + ", keepAlive: " + dart.str(this.keepAlive) + ")";
-    }
-  };
-  (image_cache.ImageCacheStatus.__ = function(opts) {
-    let pending = opts && 'pending' in opts ? opts.pending : false;
-    let keepAlive = opts && 'keepAlive' in opts ? opts.keepAlive : false;
-    let live = opts && 'live' in opts ? opts.live : false;
-    this[pending$] = pending;
-    this[keepAlive$] = keepAlive;
-    this[live$] = live;
-    if (!(!pending || !keepAlive)) dart.assertFailed(null, I[0], 557, 15, "!pending || !keepAlive");
-    ;
-  }).prototype = image_cache.ImageCacheStatus.prototype;
-  dart.addTypeTests(image_cache.ImageCacheStatus);
-  dart.addTypeCaches(image_cache.ImageCacheStatus);
-  dart.setGetterSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCacheStatus.__proto__),
-    tracked: core.bool,
-    untracked: core.bool
-  }));
-  dart.setLibraryUri(image_cache.ImageCacheStatus, I[1]);
-  dart.setFieldSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getFields(image_cache.ImageCacheStatus.__proto__),
-    pending: dart.finalFieldType(core.bool),
-    keepAlive: dart.finalFieldType(core.bool),
-    live: dart.finalFieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(image_cache.ImageCacheStatus, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_cache.ImageCacheStatus, ['hashCode']);
-  image_cache._CachedImageBase = class _CachedImageBase extends core.Object {
-    dispose() {
-      if (!(this.handle != null)) dart.assertFailed(null, I[0], 622, 12, "handle != null");
-      dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
-        let t1;
-        if (!(this.handle != null)) dart.assertFailed(null, I[0], 626, 14, "handle != null");
-        t1 = this.handle;
-        t1 == null ? null : t1.dispose();
-        this.handle = null;
-      }, T.DurationTovoid()));
-    }
-  };
-  (image_cache._CachedImageBase.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this.completer = completer;
-    this.sizeBytes = sizeBytes;
-    if (!(completer !== null)) dart.assertFailed(null, I[0], 613, 15, "completer != null");
-    this.handle = completer.keepAlive();
-    ;
-  }).prototype = image_cache._CachedImageBase.prototype;
-  dart.addTypeTests(image_cache._CachedImageBase);
-  dart.addTypeCaches(image_cache._CachedImageBase);
-  dart.setMethodSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getMethods(image_cache._CachedImageBase.__proto__),
-    dispose: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._CachedImageBase, I[1]);
-  dart.setFieldSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getFields(image_cache._CachedImageBase.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    sizeBytes: dart.fieldType(dart.nullable(core.int)),
-    handle: dart.fieldType(dart.nullable(image_stream.ImageStreamCompleterHandle))
-  }));
-  image_cache._CachedImage = class _CachedImage extends image_cache._CachedImageBase {};
-  (image_cache._CachedImage.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    image_cache._CachedImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    ;
-  }).prototype = image_cache._CachedImage.prototype;
-  dart.addTypeTests(image_cache._CachedImage);
-  dart.addTypeCaches(image_cache._CachedImage);
-  dart.setLibraryUri(image_cache._CachedImage, I[1]);
-  var ___LiveImage__handleRemove = dart.privateName(image_cache, "_#_LiveImage#_handleRemove");
-  var _handleRemove = dart.privateName(image_cache, "_handleRemove");
-  image_cache._LiveImage = class _LiveImage extends image_cache._CachedImageBase {
-    get [_handleRemove]() {
-      let t1;
-      t1 = this[___LiveImage__handleRemove];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_handleRemove")) : t1;
-    }
-    set [_handleRemove](t1) {
-      this[___LiveImage__handleRemove] = t1;
-    }
-    dispose() {
-      this.completer.removeOnLastListenerRemovedCallback(this[_handleRemove]);
-      super.dispose();
-    }
-    toString() {
-      return diagnostics.describeIdentity(this);
-    }
-  };
-  (image_cache._LiveImage.new = function(completer, handleRemove, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this[___LiveImage__handleRemove] = null;
-    image_cache._LiveImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    this[_handleRemove] = dart.fn(() => {
-      handleRemove();
-      this.dispose();
-    }, T.VoidTovoid());
-    completer.addOnLastListenerRemovedCallback(this[_handleRemove]);
-  }).prototype = image_cache._LiveImage.prototype;
-  dart.addTypeTests(image_cache._LiveImage);
-  dart.addTypeCaches(image_cache._LiveImage);
-  dart.setGetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getGetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setSetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getSetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._LiveImage, I[1]);
-  dart.setFieldSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getFields(image_cache._LiveImage.__proto__),
-    [___LiveImage__handleRemove]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
-  }));
-  dart.defineExtensionMethods(image_cache._LiveImage, ['toString']);
-  image_cache._PendingImage = class _PendingImage extends core.Object {
-    removeListener() {
-      this.completer.removeListener(this.listener);
-    }
-  };
-  (image_cache._PendingImage.new = function(completer, listener) {
-    this.completer = completer;
-    this.listener = listener;
-    ;
-  }).prototype = image_cache._PendingImage.prototype;
-  dart.addTypeTests(image_cache._PendingImage);
-  dart.addTypeCaches(image_cache._PendingImage);
-  dart.setMethodSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getMethods(image_cache._PendingImage.__proto__),
-    removeListener: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._PendingImage, I[1]);
-  dart.setFieldSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getFields(image_cache._PendingImage.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    listener: dart.finalFieldType(image_stream.ImageStreamListener)
-  }));
-  dart.defineLazy(image_cache, {
-    /*image_cache._kDefaultSize*/get _kDefaultSize() {
-      return 1000;
-    },
-    /*image_cache._kDefaultSizeBytes*/get _kDefaultSizeBytes() {
-      return 104857600;
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(utils.compareComparable, T$.TAndTToint());
     }
   }, false);
-  dart.trackLibraries("packages/flutter/src/painting/image_cache.dart", {
-    "package:flutter/src/painting/image_cache.dart": image_cache
+  var C = [void 0];
+  iterable_extensions['IterableExtension|sample'] = function IterableExtension$124sample(T, $this, count, random = null) {
+    core.RangeError.checkNotNegative(count, "count");
+    let iterator = $this[$iterator];
+    let chosen = _interceptors.JSArray$(T).of([]);
+    for (let i = 0; i < count; i = i + 1) {
+      if (iterator.moveNext()) {
+        chosen[$add](iterator.current);
+      } else {
+        return chosen;
+      }
+    }
+    let index = count;
+    random == null ? random = math.Random.new() : null;
+    while (iterator.moveNext()) {
+      index = index + 1;
+      let position = random.nextInt(index);
+      if (position < count) chosen[$_set](position, iterator.current);
+    }
+    return chosen;
+  };
+  iterable_extensions['IterableExtension|get#sample'] = function IterableExtension$124get$35sample(T, $this) {
+    return dart.fn((count, random = null) => iterable_extensions['IterableExtension|sample'](T, $this, count, random), dart.fnType(core.List$(T), [core.int], [T$.RandomN()]));
+  };
+  iterable_extensions['IterableExtension|whereNot'] = function IterableExtension$124whereNot(T, $this, test) {
+    return $this[$where](dart.fn(element => !test(element), dart.fnType(core.bool, [T])));
+  };
+  iterable_extensions['IterableExtension|get#whereNot'] = function IterableExtension$124get$35whereNot(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|whereNot'](T, $this, test), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|sorted'] = function IterableExtension$124sorted(T, $this, compare) {
+    let t6;
+    t6 = (() => {
+      let t5 = core.List$(T).of($this);
+      return t5;
+    })();
+    return (() => {
+      t6[$sort](compare);
+      return t6;
+    })();
+  };
+  iterable_extensions['IterableExtension|get#sorted'] = function IterableExtension$124get$35sorted(T, $this) {
+    return dart.fn(compare => iterable_extensions['IterableExtension|sorted'](T, $this, compare), dart.fnType(core.List$(T), [dart.fnType(core.int, [T, T])]));
+  };
+  iterable_extensions['IterableExtension|sortedBy'] = function IterableExtension$124sortedBy(T, K, $this, keyOf) {
+    let elements = (() => {
+      let t8 = core.List$(T).of($this);
+      return t8;
+    })();
+    algorithms.quickSortBy(T, K, elements, keyOf, dart.gbind(C[0] || CT.C0, K));
+    return elements;
+  };
+  iterable_extensions['IterableExtension|get#sortedBy'] = function IterableExtension$124get$35sortedBy(T, $this) {
+    return dart.fn((K, keyOf) => iterable_extensions['IterableExtension|sortedBy'](T, K, $this, keyOf), dart.gFnType(K => [core.List$(T), [dart.fnType(K, [T])]], K => {
+      var ComparableOfK = () => (ComparableOfK = dart.constFn(core.Comparable$(K)))();
+      return [ComparableOfK()];
+    }));
+  };
+  iterable_extensions['IterableExtension|sortedByCompare'] = function IterableExtension$124sortedByCompare(T, K, $this, keyOf, compare) {
+    let elements = (() => {
+      let t11 = core.List$(T).of($this);
+      return t11;
+    })();
+    algorithms.quickSortBy(T, K, elements, keyOf, compare);
+    return elements;
+  };
+  iterable_extensions['IterableExtension|get#sortedByCompare'] = function IterableExtension$124get$35sortedByCompare(T, $this) {
+    return dart.fn((K, keyOf, compare) => iterable_extensions['IterableExtension|sortedByCompare'](T, K, $this, keyOf, compare), dart.gFnType(K => {
+      var KAndKToint = () => (KAndKToint = dart.constFn(dart.fnType(core.int, [K, K])))();
+      return [core.List$(T), [dart.fnType(K, [T]), KAndKToint()]];
+    }, K => {
+      var KAndKToint = () => (KAndKToint = dart.constFn(dart.fnType(core.int, [K, K])))();
+      return [T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['IterableExtension|isSorted'] = function IterableExtension$124isSorted(T, $this, compare) {
+    let iterator = $this[$iterator];
+    if (!iterator.moveNext()) return true;
+    let previousElement = iterator.current;
+    while (iterator.moveNext()) {
+      let element = iterator.current;
+      if (compare(previousElement, element) > 0) return false;
+      previousElement = element;
+    }
+    return true;
+  };
+  iterable_extensions['IterableExtension|get#isSorted'] = function IterableExtension$124get$35isSorted(T, $this) {
+    return dart.fn(compare => iterable_extensions['IterableExtension|isSorted'](T, $this, compare), dart.fnType(core.bool, [dart.fnType(core.int, [T, T])]));
+  };
+  iterable_extensions['IterableExtension|isSortedBy'] = function IterableExtension$124isSortedBy(T, K, $this, keyOf) {
+    let iterator = $this[$iterator];
+    if (!iterator.moveNext()) return true;
+    let previousKey = keyOf(iterator.current);
+    while (iterator.moveNext()) {
+      let key = keyOf(iterator.current);
+      if (previousKey[$compareTo](key) > 0) return false;
+      previousKey = key;
+    }
+    return true;
+  };
+  iterable_extensions['IterableExtension|get#isSortedBy'] = function IterableExtension$124get$35isSortedBy(T, $this) {
+    return dart.fn((K, keyOf) => iterable_extensions['IterableExtension|isSortedBy'](T, K, $this, keyOf), dart.gFnType(K => [core.bool, [dart.fnType(K, [T])]], K => {
+      var ComparableOfK = () => (ComparableOfK = dart.constFn(core.Comparable$(K)))();
+      return [ComparableOfK()];
+    }));
+  };
+  iterable_extensions['IterableExtension|isSortedByCompare'] = function IterableExtension$124isSortedByCompare(T, K, $this, keyOf, compare) {
+    let iterator = $this[$iterator];
+    if (!iterator.moveNext()) return true;
+    let previousKey = keyOf(iterator.current);
+    while (iterator.moveNext()) {
+      let key = keyOf(iterator.current);
+      if (compare(previousKey, key) > 0) return false;
+      previousKey = key;
+    }
+    return true;
+  };
+  iterable_extensions['IterableExtension|get#isSortedByCompare'] = function IterableExtension$124get$35isSortedByCompare(T, $this) {
+    return dart.fn((K, keyOf, compare) => iterable_extensions['IterableExtension|isSortedByCompare'](T, K, $this, keyOf, compare), dart.gFnType(K => {
+      var KAndKToint = () => (KAndKToint = dart.constFn(dart.fnType(core.int, [K, K])))();
+      return [core.bool, [dart.fnType(K, [T]), KAndKToint()]];
+    }, K => {
+      var KAndKToint = () => (KAndKToint = dart.constFn(dart.fnType(core.int, [K, K])))();
+      return [T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['IterableExtension|forEachIndexed'] = function IterableExtension$124forEachIndexed(T, $this, action) {
+    let t20;
+    let index = 0;
+    for (let element of $this) {
+      action((t20 = index, index = t20 + 1, t20), element);
+    }
+  };
+  iterable_extensions['IterableExtension|get#forEachIndexed'] = function IterableExtension$124get$35forEachIndexed(T, $this) {
+    return dart.fn(action => iterable_extensions['IterableExtension|forEachIndexed'](T, $this, action), dart.fnType(dart.void, [dart.fnType(dart.void, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|forEachWhile'] = function IterableExtension$124forEachWhile(T, $this, action) {
+    for (let element of $this) {
+      if (!action(element)) break;
+    }
+  };
+  iterable_extensions['IterableExtension|get#forEachWhile'] = function IterableExtension$124get$35forEachWhile(T, $this) {
+    return dart.fn(action => iterable_extensions['IterableExtension|forEachWhile'](T, $this, action), dart.fnType(dart.void, [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|forEachIndexedWhile'] = function IterableExtension$124forEachIndexedWhile(T, $this, action) {
+    let t24;
+    let index = 0;
+    for (let element of $this) {
+      if (!action((t24 = index, index = t24 + 1, t24), element)) break;
+    }
+  };
+  iterable_extensions['IterableExtension|get#forEachIndexedWhile'] = function IterableExtension$124get$35forEachIndexedWhile(T, $this) {
+    return dart.fn(action => iterable_extensions['IterableExtension|forEachIndexedWhile'](T, $this, action), dart.fnType(dart.void, [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|mapIndexed'] = function IterableExtension$124mapIndexed(T, R, $this, convert) {
+    return new (_js_helper.SyncIterable$(R)).new(function* IterableExtension$124mapIndexed() {
+      let t26;
+      let index = 0;
+      for (let element of $this) {
+        yield convert((t26 = index, index = t26 + 1, t26), element);
+      }
+    });
+  };
+  iterable_extensions['IterableExtension|get#mapIndexed'] = function IterableExtension$124get$35mapIndexed(T, $this) {
+    return dart.fn((R, convert) => iterable_extensions['IterableExtension|mapIndexed'](T, R, $this, convert), dart.gFnType(R => {
+      var IterableOfR = () => (IterableOfR = dart.constFn(core.Iterable$(R)))();
+      return [IterableOfR(), [dart.fnType(R, [core.int, T])]];
+    }, R => {
+      var IterableOfR = () => (IterableOfR = dart.constFn(core.Iterable$(R)))();
+      return [T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['IterableExtension|whereIndexed'] = function IterableExtension$124whereIndexed(T, $this, test) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableExtension$124whereIndexed() {
+      let t28;
+      let index = 0;
+      for (let element of $this) {
+        if (test((t28 = index, index = t28 + 1, t28), element)) yield element;
+      }
+    });
+  };
+  iterable_extensions['IterableExtension|get#whereIndexed'] = function IterableExtension$124get$35whereIndexed(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|whereIndexed'](T, $this, test), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|whereNotIndexed'] = function IterableExtension$124whereNotIndexed(T, $this, test) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableExtension$124whereNotIndexed() {
+      let t30;
+      let index = 0;
+      for (let element of $this) {
+        if (!test((t30 = index, index = t30 + 1, t30), element)) yield element;
+      }
+    });
+  };
+  iterable_extensions['IterableExtension|get#whereNotIndexed'] = function IterableExtension$124get$35whereNotIndexed(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|whereNotIndexed'](T, $this, test), dart.fnType(core.Iterable$(T), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|get#expandIndexed'] = function IterableExtension$124get$35expandIndexed(T, $this) {
+    return dart.fn((R, expend) => iterable_extensions['IterableExtension|expandIndexed'](T, R, $this, expend), dart.gFnType(R => {
+      var IterableOfR = () => (IterableOfR = dart.constFn(core.Iterable$(R)))();
+      return [IterableOfR(), [dart.fnType(IterableOfR(), [core.int, T])]];
+    }, R => {
+      var IterableOfR = () => (IterableOfR = dart.constFn(core.Iterable$(R)))();
+      return [T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['IterableExtension|expandIndexed'] = function IterableExtension$124expandIndexed(T, R, $this, expend) {
+    return new (_js_helper.SyncIterable$(R)).new(function* IterableExtension$124expandIndexed() {
+      let t33;
+      let index = 0;
+      for (let element of $this) {
+        yield* expend((t33 = index, index = t33 + 1, t33), element);
+      }
+    });
+  };
+  iterable_extensions['IterableExtension|reduceIndexed'] = function IterableExtension$124reduceIndexed(T, $this, combine) {
+    let t34;
+    let iterator = $this[$iterator];
+    if (!iterator.moveNext()) {
+      dart.throw(new core.StateError.new("no elements"));
+    }
+    let index = 1;
+    let result = iterator.current;
+    while (iterator.moveNext()) {
+      result = combine((t34 = index, index = t34 + 1, t34), result, iterator.current);
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#reduceIndexed'] = function IterableExtension$124get$35reduceIndexed(T, $this) {
+    return dart.fn(combine => iterable_extensions['IterableExtension|reduceIndexed'](T, $this, combine), dart.fnType(T, [dart.fnType(T, [core.int, T, T])]));
+  };
+  iterable_extensions['IterableExtension|foldIndexed'] = function IterableExtension$124foldIndexed(T, R, $this, initialValue, combine) {
+    let t36;
+    let result = initialValue;
+    let index = 0;
+    for (let element of $this) {
+      result = combine((t36 = index, index = t36 + 1, t36), result, element);
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#foldIndexed'] = function IterableExtension$124get$35foldIndexed(T, $this) {
+    return dart.fn((R, initialValue, combine) => iterable_extensions['IterableExtension|foldIndexed'](T, R, $this, initialValue, combine), dart.gFnType(R => [R, [R, dart.fnType(R, [core.int, R, T])]], R => [T$.ObjectN()]));
+  };
+  iterable_extensions['IterableExtension|firstWhereOrNull'] = function IterableExtension$124firstWhereOrNull(T, $this, test) {
+    for (let element of $this) {
+      if (test(element)) return element;
+    }
+    return null;
+  };
+  iterable_extensions['IterableExtension|get#firstWhereOrNull'] = function IterableExtension$124get$35firstWhereOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|firstWhereOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|firstWhereIndexedOrNull'] = function IterableExtension$124firstWhereIndexedOrNull(T, $this, test) {
+    let t40;
+    let index = 0;
+    for (let element of $this) {
+      if (test((t40 = index, index = t40 + 1, t40), element)) return element;
+    }
+    return null;
+  };
+  iterable_extensions['IterableExtension|get#firstWhereIndexedOrNull'] = function IterableExtension$124get$35firstWhereIndexedOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|firstWhereIndexedOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|get#firstOrNull'] = function IterableExtension$124get$35firstOrNull(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) return iterator.current;
+    return null;
+  };
+  iterable_extensions['IterableExtension|lastWhereOrNull'] = function IterableExtension$124lastWhereOrNull(T, $this, test) {
+    let result = null;
+    for (let element of $this) {
+      if (test(element)) result = element;
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#lastWhereOrNull'] = function IterableExtension$124get$35lastWhereOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|lastWhereOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|lastWhereIndexedOrNull'] = function IterableExtension$124lastWhereIndexedOrNull(T, $this, test) {
+    let t45;
+    let result = null;
+    let index = 0;
+    for (let element of $this) {
+      if (test((t45 = index, index = t45 + 1, t45), element)) result = element;
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#lastWhereIndexedOrNull'] = function IterableExtension$124get$35lastWhereIndexedOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|lastWhereIndexedOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|get#lastOrNull'] = function IterableExtension$124get$35lastOrNull(T, $this) {
+    if ($this[$isEmpty]) return null;
+    return $this[$last];
+  };
+  iterable_extensions['IterableExtension|singleWhereOrNull'] = function IterableExtension$124singleWhereOrNull(T, $this, test) {
+    let result = null;
+    let found = false;
+    for (let element of $this) {
+      if (test(element)) {
+        if (!found) {
+          result = element;
+          found = true;
+        } else {
+          return null;
+        }
+      }
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#singleWhereOrNull'] = function IterableExtension$124get$35singleWhereOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|singleWhereOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|singleWhereIndexedOrNull'] = function IterableExtension$124singleWhereIndexedOrNull(T, $this, test) {
+    let t50;
+    let result = null;
+    let found = false;
+    let index = 0;
+    for (let element of $this) {
+      if (test((t50 = index, index = t50 + 1, t50), element)) {
+        if (!found) {
+          result = element;
+          found = true;
+        } else {
+          return null;
+        }
+      }
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#singleWhereIndexedOrNull'] = function IterableExtension$124get$35singleWhereIndexedOrNull(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|singleWhereIndexedOrNull'](T, $this, test), dart.fnType(dart.nullable(T), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|get#singleOrNull'] = function IterableExtension$124get$35singleOrNull(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) {
+      let result = iterator.current;
+      if (!iterator.moveNext()) {
+        return result;
+      }
+    }
+    return null;
+  };
+  iterable_extensions['IterableExtension|groupFoldBy'] = function IterableExtension$124groupFoldBy(T, K, G, $this, keyOf, combine) {
+    let result = new (_js_helper.LinkedMap$(K, G)).new();
+    for (let element of $this) {
+      let key = keyOf(element);
+      result[$_set](key, combine(result[$_get](key), element));
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#groupFoldBy'] = function IterableExtension$124get$35groupFoldBy(T, $this) {
+    return dart.fn((K, G, keyOf, combine) => iterable_extensions['IterableExtension|groupFoldBy'](T, K, G, $this, keyOf, combine), dart.gFnType((K, G) => {
+      var MapOfK$G = () => (MapOfK$G = dart.constFn(core.Map$(K, G)))();
+      var GN = () => (GN = dart.constFn(dart.nullable(G)))();
+      return [MapOfK$G(), [dart.fnType(K, [T]), dart.fnType(G, [GN(), T])]];
+    }, (K, G) => {
+      var MapOfK$G = () => (MapOfK$G = dart.constFn(core.Map$(K, G)))();
+      var GN = () => (GN = dart.constFn(dart.nullable(G)))();
+      return [T$.ObjectN(), T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['IterableExtension|groupSetsBy'] = function IterableExtension$124groupSetsBy(T, K, $this, keyOf) {
+    let t58, t57, t56, t55, t55$;
+    let result = new (_js_helper.LinkedMap$(K, core.Set$(T))).new();
+    for (let element of $this) {
+      t55$ = (t55 = result, t56 = keyOf(element), t57 = t55[$_get](t56), t57 == null ? (t58 = collection.LinkedHashSet$(T).new(), t55[$_set](t56, t58), t58) : t57);
+      (() => {
+        t55$.add(element);
+        return t55$;
+      })();
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#groupSetsBy'] = function IterableExtension$124get$35groupSetsBy(T, $this) {
+    return dart.fn((K, keyOf) => iterable_extensions['IterableExtension|groupSetsBy'](T, K, $this, keyOf), dart.gFnType(K => [core.Map$(K, core.Set$(T)), [dart.fnType(K, [T])]], K => [T$.ObjectN()]));
+  };
+  iterable_extensions['IterableExtension|groupListsBy'] = function IterableExtension$124groupListsBy(T, K, $this, keyOf) {
+    let t60, t59, t58, t57, t57$;
+    let result = new (_js_helper.LinkedMap$(K, core.List$(T))).new();
+    for (let element of $this) {
+      t57$ = (t57 = result, t58 = keyOf(element), t59 = t57[$_get](t58), t59 == null ? (t60 = _interceptors.JSArray$(T).of([]), t57[$_set](t58, t60), t60) : t59);
+      (() => {
+        t57$[$add](element);
+        return t57$;
+      })();
+    }
+    return result;
+  };
+  iterable_extensions['IterableExtension|get#groupListsBy'] = function IterableExtension$124get$35groupListsBy(T, $this) {
+    return dart.fn((K, keyOf) => iterable_extensions['IterableExtension|groupListsBy'](T, K, $this, keyOf), dart.gFnType(K => [core.Map$(K, core.List$(T)), [dart.fnType(K, [T])]], K => [T$.ObjectN()]));
+  };
+  iterable_extensions['IterableExtension|splitBefore'] = function IterableExtension$124splitBefore(T, $this, test) {
+    return iterable_extensions['IterableExtension|splitBeforeIndexed'](T, $this, dart.fn((_, element) => test(element), dart.fnType(core.bool, [core.int, T])));
+  };
+  iterable_extensions['IterableExtension|get#splitBefore'] = function IterableExtension$124get$35splitBefore(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitBefore'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|splitAfter'] = function IterableExtension$124splitAfter(T, $this, test) {
+    return iterable_extensions['IterableExtension|splitAfterIndexed'](T, $this, dart.fn((_, element) => test(element), dart.fnType(core.bool, [core.int, T])));
+  };
+  iterable_extensions['IterableExtension|get#splitAfter'] = function IterableExtension$124get$35splitAfter(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitAfter'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableExtension|get#splitBetween'] = function IterableExtension$124get$35splitBetween(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitBetween'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [T, T])]));
+  };
+  iterable_extensions['IterableExtension|splitBetween'] = function IterableExtension$124splitBetween(T, $this, test) {
+    return iterable_extensions['IterableExtension|splitBetweenIndexed'](T, $this, dart.fn((_, first, second) => test(first, second), dart.fnType(core.bool, [core.int, T, T])));
+  };
+  iterable_extensions['IterableExtension|splitBeforeIndexed'] = function IterableExtension$124splitBeforeIndexed(T, $this, test) {
+    return new (_js_helper.SyncIterable$(core.List$(T))).new(function* IterableExtension$124splitBeforeIndexed() {
+      let t65;
+      let iterator = $this[$iterator];
+      if (!iterator.moveNext()) {
+        return;
+      }
+      let index = 1;
+      let chunk = _interceptors.JSArray$(T).of([iterator.current]);
+      while (iterator.moveNext()) {
+        let element = iterator.current;
+        if (test((t65 = index, index = t65 + 1, t65), element)) {
+          yield chunk;
+          chunk = _interceptors.JSArray$(T).of([]);
+        }
+        chunk[$add](element);
+      }
+      yield chunk;
+    });
+  };
+  iterable_extensions['IterableExtension|get#splitBeforeIndexed'] = function IterableExtension$124get$35splitBeforeIndexed(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitBeforeIndexed'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|splitAfterIndexed'] = function IterableExtension$124splitAfterIndexed(T, $this, test) {
+    return new (_js_helper.SyncIterable$(core.List$(T))).new(function* IterableExtension$124splitAfterIndexed() {
+      let t67, t67$;
+      let index = 0;
+      let chunk = null;
+      for (let element of $this) {
+        (t67 = chunk, t67 == null ? chunk = _interceptors.JSArray$(T).of([]) : t67)[$add](element);
+        if (test((t67$ = index, index = t67$ + 1, t67$), element)) {
+          yield chunk;
+          chunk = null;
+        }
+      }
+      if (chunk != null) yield chunk;
+    });
+  };
+  iterable_extensions['IterableExtension|get#splitAfterIndexed'] = function IterableExtension$124get$35splitAfterIndexed(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitAfterIndexed'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [core.int, T])]));
+  };
+  iterable_extensions['IterableExtension|splitBetweenIndexed'] = function IterableExtension$124splitBetweenIndexed(T, $this, test) {
+    return new (_js_helper.SyncIterable$(core.List$(T))).new(function* IterableExtension$124splitBetweenIndexed() {
+      let t69;
+      let iterator = $this[$iterator];
+      if (!iterator.moveNext()) return;
+      let previous = iterator.current;
+      let chunk = _interceptors.JSArray$(T).of([previous]);
+      let index = 1;
+      while (iterator.moveNext()) {
+        let element = iterator.current;
+        if (test((t69 = index, index = t69 + 1, t69), previous, element)) {
+          yield chunk;
+          chunk = _interceptors.JSArray$(T).of([]);
+        }
+        chunk[$add](element);
+        previous = element;
+      }
+      yield chunk;
+    });
+  };
+  iterable_extensions['IterableExtension|get#splitBetweenIndexed'] = function IterableExtension$124get$35splitBetweenIndexed(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|splitBetweenIndexed'](T, $this, test), dart.fnType(core.Iterable$(core.List$(T)), [dart.fnType(core.bool, [core.int, T, T])]));
+  };
+  iterable_extensions['IterableExtension|none'] = function IterableExtension$124none(T, $this, test) {
+    for (let element of $this) {
+      if (test(element)) return false;
+    }
+    return true;
+  };
+  iterable_extensions['IterableExtension|get#none'] = function IterableExtension$124get$35none(T, $this) {
+    return dart.fn(test => iterable_extensions['IterableExtension|none'](T, $this, test), dart.fnType(core.bool, [dart.fnType(core.bool, [T])]));
+  };
+  iterable_extensions['IterableNullableExtension|whereNotNull'] = function IterableNullableExtension$124whereNotNull(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableNullableExtension$124whereNotNull() {
+      for (let element of $this) {
+        if (element != null) yield element;
+      }
+    });
+  };
+  iterable_extensions['IterableNullableExtension|get#whereNotNull'] = function IterableNullableExtension$124get$35whereNotNull(T, $this) {
+    return dart.fn(() => iterable_extensions['IterableNullableExtension|whereNotNull'](T, $this), dart.fnType(core.Iterable$(T), []));
+  };
+  iterable_extensions['IterableNumberExtension|get#sum'] = function IterableNumberExtension$124get$35sum($this) {
+    let result = 0;
+    for (let value of $this) {
+      result = result + value;
+    }
+    return result;
+  };
+  iterable_extensions['IterableNumberExtension|get#average'] = function IterableNumberExtension$124get$35average($this) {
+    let result = 0.0;
+    let count = 0;
+    for (let value of $this) {
+      count = count + 1;
+      result = result + (value - result) / count;
+    }
+    if (count === 0) dart.throw(new core.StateError.new("No elements"));
+    return result;
+  };
+  iterable_extensions['IterableIntegerExtension|get#sum'] = function IterableIntegerExtension$124get$35sum($this) {
+    let result = 0;
+    for (let value of $this) {
+      result = result + value;
+    }
+    return result;
+  };
+  iterable_extensions['IterableIntegerExtension|get#average'] = function IterableIntegerExtension$124get$35average($this) {
+    let average = 0;
+    let remainder = 0;
+    let count = 0;
+    for (let value of $this) {
+      count = count + 1;
+      let delta = value - average + remainder;
+      average = average + (delta / count)[$truncate]();
+      remainder = delta[$remainder](count);
+    }
+    if (count === 0) dart.throw(new core.StateError.new("No elements"));
+    return average + remainder / count;
+  };
+  iterable_extensions['IterableDoubleExtension|get#sum'] = function IterableDoubleExtension$124get$35sum($this) {
+    let result = 0.0;
+    for (let value of $this) {
+      result = result + value;
+    }
+    return result;
+  };
+  iterable_extensions['IterableIterableExtension|get#flattened'] = function IterableIterableExtension$124get$35flattened(T, $this) {
+    return new (_js_helper.SyncIterable$(T)).new(function* IterableIterableExtension$124get$35flattened() {
+      for (let elements of $this) {
+        yield* elements;
+      }
+    });
+  };
+  iterable_extensions['IterableComparableExtension|get#minOrNull'] = function IterableComparableExtension$124get$35minOrNull(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) {
+      let value = iterator.current;
+      while (iterator.moveNext()) {
+        let newValue = iterator.current;
+        if (value[$compareTo](newValue) > 0) {
+          value = newValue;
+        }
+      }
+      return value;
+    }
+    return null;
+  };
+  iterable_extensions['IterableComparableExtension|get#min'] = function IterableComparableExtension$124get$35min(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) {
+      let value = iterator.current;
+      while (iterator.moveNext()) {
+        let newValue = iterator.current;
+        if (value[$compareTo](newValue) > 0) {
+          value = newValue;
+        }
+      }
+      return value;
+    }
+    dart.throw(new core.StateError.new("No element"));
+  };
+  iterable_extensions['IterableComparableExtension|get#maxOrNull'] = function IterableComparableExtension$124get$35maxOrNull(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) {
+      let value = iterator.current;
+      while (iterator.moveNext()) {
+        let newValue = iterator.current;
+        if (value[$compareTo](newValue) < 0) {
+          value = newValue;
+        }
+      }
+      return value;
+    }
+    return null;
+  };
+  iterable_extensions['IterableComparableExtension|get#max'] = function IterableComparableExtension$124get$35max(T, $this) {
+    let iterator = $this[$iterator];
+    if (iterator.moveNext()) {
+      let value = iterator.current;
+      while (iterator.moveNext()) {
+        let newValue = iterator.current;
+        if (value[$compareTo](newValue) < 0) {
+          value = newValue;
+        }
+      }
+      return value;
+    }
+    dart.throw(new core.StateError.new("No element"));
+  };
+  iterable_extensions['IterableComparableExtension|sorted'] = function IterableComparableExtension$124sorted(T, $this, compare = null) {
+    let t86;
+    t86 = (() => {
+      let t85 = core.List$(T).of($this);
+      return t85;
+    })();
+    return (() => {
+      t86[$sort](compare);
+      return t86;
+    })();
+  };
+  iterable_extensions['IterableComparableExtension|get#sorted'] = function IterableComparableExtension$124get$35sorted(T, $this) {
+    return dart.fn((compare = null) => iterable_extensions['IterableComparableExtension|sorted'](T, $this, compare), dart.fnType(core.List$(T), [], [dart.nullable(dart.fnType(core.int, [T, T]))]));
+  };
+  iterable_extensions['IterableComparableExtension|isSorted'] = function IterableComparableExtension$124isSorted(T, $this, compare = null) {
+    if (compare != null) {
+      return iterable_extensions['IterableExtension|isSorted'](T, $this, compare);
+    }
+    let iterator = $this[$iterator];
+    if (!iterator.moveNext()) return true;
+    let previousElement = iterator.current;
+    while (iterator.moveNext()) {
+      let element = iterator.current;
+      if (previousElement[$compareTo](element) > 0) return false;
+      previousElement = element;
+    }
+    return true;
+  };
+  iterable_extensions['IterableComparableExtension|get#isSorted'] = function IterableComparableExtension$124get$35isSorted(T, $this) {
+    return dart.fn((compare = null) => iterable_extensions['IterableComparableExtension|isSorted'](T, $this, compare), dart.fnType(core.bool, [], [dart.nullable(dart.fnType(core.int, [T, T]))]));
+  };
+  iterable_extensions['ComparatorExtension|get#inverse'] = function ComparatorExtension$124get$35inverse(T, $this) {
+    return dart.fn((a, b) => $this(b, a), dart.fnType(core.int, [T, T]));
+  };
+  iterable_extensions['ComparatorExtension|compareBy'] = function ComparatorExtension$124compareBy(T, R, $this, keyOf) {
+    return dart.fn((a, b) => $this(keyOf(a), keyOf(b)), dart.fnType(core.int, [R, R]));
+  };
+  iterable_extensions['ComparatorExtension|get#compareBy'] = function ComparatorExtension$124get$35compareBy(T, $this) {
+    return dart.fn((R, keyOf) => iterable_extensions['ComparatorExtension|compareBy'](T, R, $this, keyOf), dart.gFnType(R => {
+      var RAndRToint = () => (RAndRToint = dart.constFn(dart.fnType(core.int, [R, R])))();
+      return [RAndRToint(), [dart.fnType(T, [R])]];
+    }, R => {
+      var RAndRToint = () => (RAndRToint = dart.constFn(dart.fnType(core.int, [R, R])))();
+      return [T$.ObjectN()];
+    }));
+  };
+  iterable_extensions['ComparatorExtension|then'] = function ComparatorExtension$124then(T, $this, tieBreaker) {
+    return dart.fn((a, b) => {
+      let result = $this(a, b);
+      if (result === 0) result = tieBreaker(a, b);
+      return result;
+    }, dart.fnType(core.int, [T, T]));
+  };
+  iterable_extensions['ComparatorExtension|get#then'] = function ComparatorExtension$124get$35then(T, $this) {
+    return dart.fn(tieBreaker => iterable_extensions['ComparatorExtension|then'](T, $this, tieBreaker), dart.fnType(dart.fnType(core.int, [T, T]), [dart.fnType(core.int, [T, T])]));
+  };
+  dart.trackLibraries("packages/collection/src/iterable_extensions.dart", {
+    "package:collection/src/iterable_extensions.dart": iterable_extensions
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["image_cache.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/painting/image_cache.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["iterable_extensions.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/collection/src/iterable_extensions.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__image_cache: image_cache
+    src__iterable_extensions: iterable_extensions
   };
 }));
 
-//# sourceMappingURL=image_cache.dart.lib.js.map
+//# sourceMappingURL=iterable_extensions.dart.lib.js.map

@@ -1,850 +1,1157 @@
-define(['dart_sdk', 'packages/firebase_core_web/src/interop/utils/js.dart', 'packages/firebase_core_web/src/interop/utils/utils.dart', 'packages/firebase_auth_web/src/interop/utils/utils.dart', 'packages/http_parser/src/http_date.dart', 'packages/firebase_core_web/src/interop/app.dart'], (function load__packages__firebase_auth_web__src__interop__auth_dart(dart_sdk, packages__firebase_core_web__src__interop__utils__js$46dart, packages__firebase_core_web__src__interop__utils__utils$46dart, packages__firebase_auth_web__src__interop__utils__utils$46dart, packages__http_parser__src__http_date$46dart, packages__firebase_core_web__src__interop__app$46dart) {
+define(['dart_sdk', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/firebase_storage_platform_interface/src/full_metadata.dart', 'packages/firebase_storage_platform_interface/src/task_state.dart', 'packages/firebase_storage_platform_interface/src/internal/pointer.dart', 'packages/firebase_storage_platform_interface/src/list_options.dart', 'packages/firebase_storage_platform_interface/src/settable_metadata.dart', 'packages/firebase_storage_platform_interface/src/put_string_format.dart', 'packages/firebase_storage_platform_interface/src/method_channel/utils/exception.dart', 'packages/firebase_core_platform_interface/firebase_core_platform_interface.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/firebase_core/firebase_core.dart'], (function load__packages__firebase_storage_platform_interface__src__platform_interface__platform_interface_task_snapshot_dart(dart_sdk, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__firebase_storage_platform_interface__src__full_metadata$46dart, packages__firebase_storage_platform_interface__src__task_state$46dart, packages__firebase_storage_platform_interface__src__internal__pointer$46dart, packages__firebase_storage_platform_interface__src__list_options$46dart, packages__firebase_storage_platform_interface__src__settable_metadata$46dart, packages__firebase_storage_platform_interface__src__put_string_format$46dart, packages__firebase_storage_platform_interface__src__method_channel__utils__exception$46dart, packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart, packages__flutter__src__services__system_channels$46dart, packages__firebase_core__firebase_core$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const collection = dart_sdk.collection;
   const async = dart_sdk.async;
-  const js = dart_sdk.js;
+  const typed_data = dart_sdk.typed_data;
+  const io = dart_sdk.io;
+  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const js$ = packages__firebase_core_web__src__interop__utils__js$46dart.src__interop__utils__js;
-  const utils = packages__firebase_core_web__src__interop__utils__utils$46dart.src__interop__utils__utils;
-  const utils$ = packages__firebase_auth_web__src__interop__utils__utils$46dart.src__interop__utils__utils;
-  const http_date = packages__http_parser__src__http_date$46dart.src__http_date;
-  const app = packages__firebase_core_web__src__interop__app$46dart.src__interop__app;
-  var auth$ = Object.create(dart.library);
+  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
+  const full_metadata = packages__firebase_storage_platform_interface__src__full_metadata$46dart.src__full_metadata;
+  const task_state = packages__firebase_storage_platform_interface__src__task_state$46dart.src__task_state;
+  const pointer = packages__firebase_storage_platform_interface__src__internal__pointer$46dart.src__internal__pointer;
+  const list_options = packages__firebase_storage_platform_interface__src__list_options$46dart.src__list_options;
+  const settable_metadata = packages__firebase_storage_platform_interface__src__settable_metadata$46dart.src__settable_metadata;
+  const put_string_format = packages__firebase_storage_platform_interface__src__put_string_format$46dart.src__put_string_format;
+  const exception = packages__firebase_storage_platform_interface__src__method_channel__utils__exception$46dart.src__method_channel__utils__exception;
+  const firebase_core_platform_interface = packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart.firebase_core_platform_interface;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const message_codecs = packages__flutter__src__services__system_channels$46dart.src__services__message_codecs;
+  const firebase_core = packages__firebase_core__firebase_core$46dart.firebase_core;
+  var platform_interface_task_snapshot = Object.create(dart.library);
+  var platform_interface_task = Object.create(dart.library);
+  var platform_interface_reference = Object.create(dart.library);
+  var platform_interface_list_result = Object.create(dart.library);
+  var method_channel_task_snapshot = Object.create(dart.library);
+  var method_channel_task = Object.create(dart.library);
+  var method_channel_list_result = Object.create(dart.library);
+  var method_channel_reference = Object.create(dart.library);
+  var method_channel_firebase_storage = Object.create(dart.library);
+  var platform_interface_firebase_storage = Object.create(dart.library);
+  var firebase_storage_platform_interface = Object.create(dart.library);
+  var $_get = dartx._get;
   var $map = dartx.map;
   var $toList = dartx.toList;
+  var $_set = dartx._set;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    UserInfoOfUserInfoJsImpl: () => (T.UserInfoOfUserInfoJsImpl = dart.constFn(auth$.UserInfo$(dart.anonymousJSType("UserInfoJsImpl"))))(),
-    dynamicToUserInfoOfUserInfoJsImpl: () => (T.dynamicToUserInfoOfUserInfoJsImpl = dart.constFn(dart.fnType(T.UserInfoOfUserInfoJsImpl(), [dart.dynamic])))(),
-    UserCredentialJsImplToUserCredential: () => (T.UserCredentialJsImplToUserCredential = dart.constFn(dart.fnType(auth$.UserCredential, [dart.anonymousJSType("UserCredentialJsImpl")])))(),
-    ConfirmationResultJsImplToConfirmationResult: () => (T.ConfirmationResultJsImplToConfirmationResult = dart.constFn(dart.fnType(auth$.ConfirmationResult, [dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult")])))(),
-    UserN: () => (T.UserN = dart.constFn(dart.nullable(auth$.User)))(),
-    UserJsImplNToUserN: () => (T.UserJsImplNToUserN = dart.constFn(dart.fnType(T.UserN(), [dart.nullable(dart.anonymousJSType("UserJsImpl"))])))(),
-    FutureOrOfUser: () => (T.FutureOrOfUser = dart.constFn(async.FutureOr$(auth$.User)))(),
-    UserJsImplToFutureOrOfUser: () => (T.UserJsImplToFutureOrOfUser = dart.constFn(dart.fnType(T.FutureOrOfUser(), [dart.anonymousJSType("UserJsImpl")])))(),
-    IdTokenResultImplToIdTokenResult: () => (T.IdTokenResultImplToIdTokenResult = dart.constFn(dart.fnType(auth$.IdTokenResult, [dart.anonymousJSType("IdTokenResultImpl")])))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    ExpandoOfUser: () => (T.ExpandoOfUser = dart.constFn(core.Expando$(auth$.User)))(),
-    MapNOfString$dynamic: () => (T.MapNOfString$dynamic = dart.constFn(dart.nullable(T.MapOfString$dynamic())))(),
-    UserJsImplNToNull: () => (T.UserJsImplNToNull = dart.constFn(dart.fnType(core.Null, [dart.nullable(dart.anonymousJSType("UserJsImpl"))])))(),
-    dynamicTovoid: () => (T.dynamicTovoid = dart.constFn(dart.fnType(dart.void, [dart.dynamic])))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    StreamControllerOfUserN: () => (T.StreamControllerOfUserN = dart.constFn(async.StreamController$(T.UserN())))(),
+    LinkedHashMapOfString$dynamic: () => (T.LinkedHashMapOfString$dynamic = dart.constFn(collection.LinkedHashMap$(core.String, dart.dynamic)))(),
+    Uint8ListN: () => (T.Uint8ListN = dart.constFn(dart.nullable(typed_data.Uint8List)))(),
+    CompleterOfvoid: () => (T.CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    voidToNull: () => (T.voidToNull = dart.constFn(dart.fnType(core.Null, [dart.void])))(),
+    ObjectAndStackTraceToNull: () => (T.ObjectAndStackTraceToNull = dart.constFn(dart.fnType(core.Null, [core.Object, core.StackTrace])))(),
+    StreamOfTaskSnapshotPlatform: () => (T.StreamOfTaskSnapshotPlatform = dart.constFn(async.Stream$(platform_interface_task_snapshot.TaskSnapshotPlatform)))(),
+    VoidToStreamSubscription: () => (T.VoidToStreamSubscription = dart.constFn(dart.fnType(async.StreamSubscription, [])))(),
+    StreamSubscriptionTodynamic: () => (T.StreamSubscriptionTodynamic = dart.constFn(dart.fnType(dart.dynamic, [async.StreamSubscription])))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    TaskSnapshotPlatformToFutureOfvoid: () => (T.TaskSnapshotPlatformToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [platform_interface_task_snapshot.TaskSnapshotPlatform])))(),
+    FutureOfTaskSnapshotPlatform: () => (T.FutureOfTaskSnapshotPlatform = dart.constFn(async.Future$(platform_interface_task_snapshot.TaskSnapshotPlatform)))(),
+    CompleterOfTaskSnapshotPlatform: () => (T.CompleterOfTaskSnapshotPlatform = dart.constFn(async.Completer$(platform_interface_task_snapshot.TaskSnapshotPlatform)))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    StringToMethodChannelReference: () => (T.StringToMethodChannelReference = dart.constFn(dart.fnType(method_channel_reference.MethodChannelReference, [core.String])))(),
+    FutureOrOfString: () => (T.FutureOrOfString = dart.constFn(async.FutureOr$(core.String)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
     ListOfString: () => (T.ListOfString = dart.constFn(core.List$(core.String)))(),
-    ListToListOfString: () => (T.ListToListOfString = dart.constFn(dart.fnType(T.ListOfString(), [core.List])))(),
-    ExpandoOfAuth: () => (T.ExpandoOfAuth = dart.constFn(core.Expando$(auth$.Auth)))()
+    StreamControllerOfTaskSnapshotPlatform: () => (T.StreamControllerOfTaskSnapshotPlatform = dart.constFn(async.StreamController$(platform_interface_task_snapshot.TaskSnapshotPlatform)))(),
+    MethodCallToFutureOfvoid: () => (T.MethodCallToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [message_codec.MethodCall])))(),
+    IdentityMapOfString$MethodChannelFirebaseStorage: () => (T.IdentityMapOfString$MethodChannelFirebaseStorage = dart.constFn(_js_helper.IdentityMap$(core.String, method_channel_firebase_storage.MethodChannelFirebaseStorage)))(),
+    IdentityMapOfint$StreamControllerOfTaskSnapshotPlatform: () => (T.IdentityMapOfint$StreamControllerOfTaskSnapshotPlatform = dart.constFn(_js_helper.IdentityMap$(core.int, T.StreamControllerOfTaskSnapshotPlatform())))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(auth$.User.getInstance, T.UserJsImplNToUserN());
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 120000000
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 600000000
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: message_codecs.StandardMessageCodec.prototype
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: message_codecs.StandardMethodCodec.prototype,
+        [StandardMethodCodec_messageCodec]: C[4] || CT.C4
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [MethodChannel__binaryMessenger]: null,
+        [MethodChannel_codec]: C[3] || CT.C3,
+        [MethodChannel_name]: "plugins.flutter.io/firebase_storage"
+      });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(5).fill(void 0);
   var I = [
-    "package:firebase_auth_web/src/interop/auth.dart",
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-1.3.1/lib/src/interop/auth.dart"
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart",
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_task.dart",
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_reference.dart",
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_list_result.dart",
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_task_snapshot.dart",
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_task.dart",
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_list_result.dart",
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_reference.dart",
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_firebase_storage.dart",
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_firebase_storage.dart"
   ];
-  const _is_UserInfo_default = Symbol('_is_UserInfo_default');
-  auth$.UserInfo$ = dart.generic(T => {
-    class UserInfo extends js$.JsObjectWrapper$(T) {
-      get displayName() {
-        return this.jsObject.displayName;
-      }
-      get email() {
-        return this.jsObject.email;
-      }
-      get phoneNumber() {
-        return this.jsObject.phoneNumber;
-      }
-      get photoURL() {
-        return this.jsObject.photoURL;
-      }
-      get providerId() {
-        return this.jsObject.providerId;
-      }
-      get uid() {
-        return this.jsObject.uid;
-      }
+  var _state$ = dart.privateName(platform_interface_task_snapshot, "_state");
+  var _data$ = dart.privateName(platform_interface_task_snapshot, "_data");
+  platform_interface_task_snapshot.TaskSnapshotPlatform = class TaskSnapshotPlatform extends plugin_platform_interface.PlatformInterface {
+    static verifyExtends(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, platform_interface_task_snapshot.TaskSnapshotPlatform._token);
     }
-    (UserInfo._fromJsObject = function(jsObject) {
-      UserInfo.__proto__.fromJsObject.call(this, T.as(jsObject));
-      ;
-    }).prototype = UserInfo.prototype;
-    dart.addTypeTests(UserInfo);
-    UserInfo.prototype[_is_UserInfo_default] = true;
-    dart.addTypeCaches(UserInfo);
-    dart.setGetterSignature(UserInfo, () => ({
-      __proto__: dart.getGetters(UserInfo.__proto__),
-      displayName: dart.nullable(core.String),
-      email: dart.nullable(core.String),
-      phoneNumber: dart.nullable(core.String),
-      photoURL: dart.nullable(core.String),
-      providerId: core.String,
-      uid: core.String
-    }));
-    dart.setLibraryUri(UserInfo, I[0]);
-    return UserInfo;
-  });
-  auth$.UserInfo = auth$.UserInfo$();
-  dart.addTypeTests(auth$.UserInfo, _is_UserInfo_default);
-  auth$.User = class User extends auth$.UserInfo$(dart.anonymousJSType("UserJsImpl")) {
-    get uid() {
-      return this.jsObject.uid;
-    }
-    get emailVerified() {
-      return this.jsObject.emailVerified;
-    }
-    get isAnonymous() {
-      return this.jsObject.isAnonymous;
-    }
-    get tenantId() {
-      return this.jsObject.tenantId;
+    get bytesTransferred() {
+      return core.int.as(this[_data$][$_get]("bytesTransferred"));
     }
     get metadata() {
-      return this.jsObject.metadata;
+      return this[_data$][$_get]("metadata") == null ? null : new full_metadata.FullMetadata.new(T.LinkedHashMapOfString$dynamic().from(core.Map.as(this[_data$][$_get]("metadata"))));
     }
-    get providerData() {
-      return this.jsObject.providerData[$map](T.UserInfoOfUserInfoJsImpl(), dart.fn(data => new (T.UserInfoOfUserInfoJsImpl())._fromJsObject(dart.anonymousJSType("UserInfoJsImpl").as(data)), T.dynamicToUserInfoOfUserInfoJsImpl()))[$toList]();
+    get ref() {
+      dart.throw(new core.UnimplementedError.new("ref is not implemented"));
     }
-    get refreshToken() {
-      return this.jsObject.refreshToken;
+    get state() {
+      return this[_state$];
     }
-    static getInstance(jsObject) {
-      let t3, t2, t1, t0;
-      if (jsObject == null) {
+    get totalBytes() {
+      return core.int.as(this[_data$][$_get]("totalBytes"));
+    }
+  };
+  (platform_interface_task_snapshot.TaskSnapshotPlatform.new = function(_state, _data) {
+    this[_state$] = _state;
+    this[_data$] = _data;
+    platform_interface_task_snapshot.TaskSnapshotPlatform.__proto__.new.call(this, {token: platform_interface_task_snapshot.TaskSnapshotPlatform._token});
+    ;
+  }).prototype = platform_interface_task_snapshot.TaskSnapshotPlatform.prototype;
+  dart.addTypeTests(platform_interface_task_snapshot.TaskSnapshotPlatform);
+  dart.addTypeCaches(platform_interface_task_snapshot.TaskSnapshotPlatform);
+  dart.setGetterSignature(platform_interface_task_snapshot.TaskSnapshotPlatform, () => ({
+    __proto__: dart.getGetters(platform_interface_task_snapshot.TaskSnapshotPlatform.__proto__),
+    bytesTransferred: core.int,
+    metadata: dart.nullable(full_metadata.FullMetadata),
+    ref: platform_interface_reference.ReferencePlatform,
+    state: task_state.TaskState,
+    totalBytes: core.int
+  }));
+  dart.setLibraryUri(platform_interface_task_snapshot.TaskSnapshotPlatform, I[0]);
+  dart.setFieldSignature(platform_interface_task_snapshot.TaskSnapshotPlatform, () => ({
+    __proto__: dart.getFields(platform_interface_task_snapshot.TaskSnapshotPlatform.__proto__),
+    [_state$]: dart.finalFieldType(task_state.TaskState),
+    [_data$]: dart.finalFieldType(core.Map$(core.String, dart.dynamic))
+  }));
+  dart.defineLazy(platform_interface_task_snapshot.TaskSnapshotPlatform, {
+    /*platform_interface_task_snapshot.TaskSnapshotPlatform._token*/get _token() {
+      return new core.Object.new();
+    }
+  }, false);
+  platform_interface_task.TaskPlatform = class TaskPlatform extends plugin_platform_interface.PlatformInterface {
+    static verifyExtends(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, platform_interface_task.TaskPlatform._token);
+    }
+    get snapshotEvents() {
+      dart.throw(new core.UnimplementedError.new("snapshotEvents is not implemented"));
+    }
+    get snapshot() {
+      dart.throw(new core.UnimplementedError.new("snapshot is not implemented"));
+    }
+    get onComplete() {
+      dart.throw(new core.UnimplementedError.new("onComplete is not implemented"));
+    }
+    pause() {
+      dart.throw(new core.UnimplementedError.new("pause() is not implemented"));
+    }
+    resume() {
+      dart.throw(new core.UnimplementedError.new("resume() is not implemented"));
+    }
+    cancel() {
+      dart.throw(new core.UnimplementedError.new("cancel() is not implemented"));
+    }
+  };
+  (platform_interface_task.TaskPlatform.new = function() {
+    platform_interface_task.TaskPlatform.__proto__.new.call(this, {token: platform_interface_task.TaskPlatform._token});
+    ;
+  }).prototype = platform_interface_task.TaskPlatform.prototype;
+  dart.addTypeTests(platform_interface_task.TaskPlatform);
+  dart.addTypeCaches(platform_interface_task.TaskPlatform);
+  dart.setMethodSignature(platform_interface_task.TaskPlatform, () => ({
+    __proto__: dart.getMethods(platform_interface_task.TaskPlatform.__proto__),
+    pause: dart.fnType(async.Future$(core.bool), []),
+    resume: dart.fnType(async.Future$(core.bool), []),
+    cancel: dart.fnType(async.Future$(core.bool), [])
+  }));
+  dart.setGetterSignature(platform_interface_task.TaskPlatform, () => ({
+    __proto__: dart.getGetters(platform_interface_task.TaskPlatform.__proto__),
+    snapshotEvents: async.Stream$(platform_interface_task_snapshot.TaskSnapshotPlatform),
+    snapshot: platform_interface_task_snapshot.TaskSnapshotPlatform,
+    onComplete: async.Future$(platform_interface_task_snapshot.TaskSnapshotPlatform)
+  }));
+  dart.setLibraryUri(platform_interface_task.TaskPlatform, I[1]);
+  dart.defineLazy(platform_interface_task.TaskPlatform, {
+    /*platform_interface_task.TaskPlatform._token*/get _token() {
+      return new core.Object.new();
+    }
+  }, false);
+  var storage$ = dart.privateName(platform_interface_reference, "ReferencePlatform.storage");
+  var _pointer = dart.privateName(platform_interface_reference, "_pointer");
+  platform_interface_reference.ReferencePlatform = class ReferencePlatform extends plugin_platform_interface.PlatformInterface {
+    get storage() {
+      return this[storage$];
+    }
+    set storage(value) {
+      super.storage = value;
+    }
+    static verifyExtends(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, platform_interface_reference.ReferencePlatform._token);
+    }
+    get bucket() {
+      return this.storage.bucket;
+    }
+    get fullPath() {
+      return this[_pointer].path;
+    }
+    get name() {
+      return this[_pointer].name;
+    }
+    get parent() {
+      let parentPath = this[_pointer].parent;
+      if (parentPath == null) {
         return null;
       }
-      t0 = auth$.User._expando;
-      t1 = jsObject;
-      t2 = t0._get(t1);
-      return t2 == null ? (t3 = new auth$.User._fromJsObject(jsObject), t0._set(t1, t3), t3) : t2;
+      return this.storage.ref(parentPath);
+    }
+    get root() {
+      return this.storage.ref("/");
+    }
+    child(path) {
+      return this.storage.ref(this[_pointer].child(path));
     }
     delete() {
-      return utils.handleThenable(dart.void, this.jsObject.delete());
+      dart.throw(new core.UnimplementedError.new("delete() is not implemented"));
     }
-    getIdToken(forceRefresh = false) {
-      return utils.handleThenable(core.String, this.jsObject.getIdToken(forceRefresh));
+    getDownloadURL() {
+      dart.throw(new core.UnimplementedError.new("getDownloadURL() is not implemented"));
     }
-    linkWithCredential(credential) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.linkWithCredential(credential)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
+    getMetadata() {
+      dart.throw(new core.UnimplementedError.new("getMetadata() is not implemented"));
     }
-    linkWithPhoneNumber(phoneNumber, applicationVerifier) {
-      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.linkWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(auth$.ConfirmationResult, dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), T.ConfirmationResultJsImplToConfirmationResult()));
+    list(options = null) {
+      dart.throw(new core.UnimplementedError.new("list() is not implemented"));
     }
-    linkWithPopup(provider) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.linkWithPopup(provider.jsObject)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
+    listAll() {
+      dart.throw(new core.UnimplementedError.new("listAll() is not implemented"));
     }
-    linkWithRedirect(provider) {
-      return utils.handleThenable(dart.void, this.jsObject.linkWithRedirect(provider.jsObject));
+    getData(maxSize) {
+      return async.async(T.Uint8ListN(), function* getData() {
+        dart.throw(new core.UnimplementedError.new("getData() is not implemented"));
+      });
     }
-    reauthenticateWithCredential(credential) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.reauthenticateWithCredential(credential)).then(auth$.UserCredential, dart.fn(o => new auth$.UserCredential.fromJsObject(o), T.UserCredentialJsImplToUserCredential()));
+    putData(data, metadata = null) {
+      dart.throw(new core.UnimplementedError.new("putData() is not implemented"));
     }
-    reauthenticateWithPhoneNumber(phoneNumber, applicationVerifier) {
-      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.reauthenticateWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(auth$.ConfirmationResult, dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), T.ConfirmationResultJsImplToConfirmationResult()));
+    putBlob(data, metadata = null) {
+      dart.throw(new core.UnimplementedError.new("putBlob() is not implemented"));
     }
-    reauthenticateWithPopup(provider) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.reauthenticateWithPopup(provider.jsObject)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
+    putFile(file, metadata = null) {
+      dart.throw(new core.UnimplementedError.new("putFile() is not implemented"));
     }
-    reauthenticateWithRedirect(provider) {
-      return utils.handleThenable(dart.void, this.jsObject.reauthenticateWithRedirect(provider.jsObject));
+    putString(data, format, metadata = null) {
+      dart.throw(new core.UnimplementedError.new("putString() is not implemented"));
     }
-    reload() {
-      return utils.handleThenable(dart.void, this.jsObject.reload());
+    updateMetadata(metadata) {
+      dart.throw(new core.UnimplementedError.new("updateMetadata() is not implemented"));
     }
-    sendEmailVerification(actionCodeSettings = null) {
-      return utils.handleThenable(dart.void, this.jsObject.sendEmailVerification(actionCodeSettings));
-    }
-    verifyBeforeUpdateEmail(newEmail, actionCodeSettings = null) {
-      return utils.handleThenable(dart.void, this.jsObject.verifyBeforeUpdateEmail(newEmail, actionCodeSettings));
-    }
-    unlink(providerId) {
-      return utils.handleThenable(dart.anonymousJSType("UserJsImpl"), this.jsObject.unlink(providerId)).then(auth$.User, T.UserJsImplToFutureOrOfUser().as(C[0] || CT.C0));
-    }
-    updateEmail(newEmail) {
-      return utils.handleThenable(dart.void, this.jsObject.updateEmail(newEmail));
-    }
-    updatePassword(newPassword) {
-      return utils.handleThenable(dart.void, this.jsObject.updatePassword(newPassword));
-    }
-    updatePhoneNumber(phoneCredential) {
-      return utils.handleThenable(dart.void, this.jsObject.updatePhoneNumber(phoneCredential));
-    }
-    updateProfile(profile) {
-      return utils.handleThenable(dart.void, this.jsObject.updateProfile(profile));
-    }
-    getIdTokenResult(forceRefresh = null) {
-      let promise = forceRefresh == null ? this.jsObject.getIdTokenResult() : this.jsObject.getIdTokenResult(forceRefresh);
-      return utils.handleThenable(dart.anonymousJSType("IdTokenResultImpl"), promise).then(auth$.IdTokenResult, dart.fn(object => new auth$.IdTokenResult._fromJsObject(object), T.IdTokenResultImplToIdTokenResult()));
-    }
-    toJson() {
-      return T.MapOfString$dynamic().as(utils$.dartify(this.jsObject.toJSON()));
-    }
-    toString() {
-      return "User: " + this.uid;
+    writeToFile(file) {
+      dart.throw(new core.UnimplementedError.new("writeToFile() is not implemented"));
     }
   };
-  (auth$.User._fromJsObject = function(jsObject) {
-    auth$.User.__proto__._fromJsObject.call(this, jsObject);
+  (platform_interface_reference.ReferencePlatform.new = function(storage, path) {
+    this[storage$] = storage;
+    this[_pointer] = new pointer.Pointer.new(path);
+    platform_interface_reference.ReferencePlatform.__proto__.new.call(this, {token: platform_interface_reference.ReferencePlatform._token});
     ;
-  }).prototype = auth$.User.prototype;
-  dart.addTypeTests(auth$.User);
-  dart.addTypeCaches(auth$.User);
-  dart.setMethodSignature(auth$.User, () => ({
-    __proto__: dart.getMethods(auth$.User.__proto__),
+  }).prototype = platform_interface_reference.ReferencePlatform.prototype;
+  dart.addTypeTests(platform_interface_reference.ReferencePlatform);
+  dart.addTypeCaches(platform_interface_reference.ReferencePlatform);
+  dart.setMethodSignature(platform_interface_reference.ReferencePlatform, () => ({
+    __proto__: dart.getMethods(platform_interface_reference.ReferencePlatform.__proto__),
+    child: dart.fnType(platform_interface_reference.ReferencePlatform, [core.String]),
     delete: dart.fnType(async.Future$(dart.void), []),
-    getIdToken: dart.fnType(async.Future$(core.String), [], [core.bool]),
-    linkWithCredential: dart.fnType(async.Future$(auth$.UserCredential), [dart.nullable(dart.anonymousJSType("OAuthCredential"))]),
-    linkWithPhoneNumber: dart.fnType(async.Future$(auth$.ConfirmationResult), [core.String, auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier"))]),
-    linkWithPopup: dart.fnType(async.Future$(auth$.UserCredential), [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    linkWithRedirect: dart.fnType(async.Future$(dart.void), [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    reauthenticateWithCredential: dart.fnType(async.Future$(auth$.UserCredential), [dart.anonymousJSType("OAuthCredential")]),
-    reauthenticateWithPhoneNumber: dart.fnType(async.Future$(auth$.ConfirmationResult), [core.String, auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier"))]),
-    reauthenticateWithPopup: dart.fnType(async.Future$(auth$.UserCredential), [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    reauthenticateWithRedirect: dart.fnType(async.Future$(dart.void), [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    reload: dart.fnType(async.Future$(dart.void), []),
-    sendEmailVerification: dart.fnType(async.Future$(dart.void), [], [dart.nullable(dart.anonymousJSType("ActionCodeSettings"))]),
-    verifyBeforeUpdateEmail: dart.fnType(async.Future$(dart.void), [core.String], [dart.nullable(dart.anonymousJSType("ActionCodeSettings"))]),
-    unlink: dart.fnType(async.Future$(auth$.User), [core.String]),
-    updateEmail: dart.fnType(async.Future$(dart.void), [core.String]),
-    updatePassword: dart.fnType(async.Future$(dart.void), [core.String]),
-    updatePhoneNumber: dart.fnType(async.Future$(dart.void), [dart.nullable(dart.anonymousJSType("OAuthCredential"))]),
-    updateProfile: dart.fnType(async.Future$(dart.void), [dart.anonymousJSType("UserProfile")]),
-    getIdTokenResult: dart.fnType(async.Future$(auth$.IdTokenResult), [], [dart.nullable(core.bool)]),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+    getDownloadURL: dart.fnType(async.Future$(core.String), []),
+    getMetadata: dart.fnType(async.Future$(full_metadata.FullMetadata), []),
+    list: dart.fnType(async.Future$(platform_interface_list_result.ListResultPlatform), [], [dart.nullable(list_options.ListOptions)]),
+    listAll: dart.fnType(async.Future$(platform_interface_list_result.ListResultPlatform), []),
+    getData: dart.fnType(async.Future$(dart.nullable(typed_data.Uint8List)), [core.int]),
+    putData: dart.fnType(platform_interface_task.TaskPlatform, [typed_data.Uint8List], [dart.nullable(settable_metadata.SettableMetadata)]),
+    putBlob: dart.fnType(platform_interface_task.TaskPlatform, [dart.dynamic], [dart.nullable(settable_metadata.SettableMetadata)]),
+    putFile: dart.fnType(platform_interface_task.TaskPlatform, [io.File], [dart.nullable(settable_metadata.SettableMetadata)]),
+    putString: dart.fnType(platform_interface_task.TaskPlatform, [core.String, put_string_format.PutStringFormat], [dart.nullable(settable_metadata.SettableMetadata)]),
+    updateMetadata: dart.fnType(async.Future$(full_metadata.FullMetadata), [settable_metadata.SettableMetadata]),
+    writeToFile: dart.fnType(platform_interface_task.TaskPlatform, [io.File])
   }));
-  dart.setGetterSignature(auth$.User, () => ({
-    __proto__: dart.getGetters(auth$.User.__proto__),
-    emailVerified: core.bool,
-    isAnonymous: core.bool,
-    tenantId: dart.nullable(core.String),
-    metadata: dart.lazyJSType(() => dart.global.firebase.auth.UserMetadata, "firebase.auth.UserMetadata"),
-    providerData: core.List$(auth$.UserInfo$(dart.anonymousJSType("UserInfoJsImpl"))),
-    refreshToken: core.String
+  dart.setGetterSignature(platform_interface_reference.ReferencePlatform, () => ({
+    __proto__: dart.getGetters(platform_interface_reference.ReferencePlatform.__proto__),
+    bucket: core.String,
+    fullPath: core.String,
+    name: core.String,
+    parent: dart.nullable(platform_interface_reference.ReferencePlatform),
+    root: platform_interface_reference.ReferencePlatform
   }));
-  dart.setLibraryUri(auth$.User, I[0]);
-  dart.defineExtensionMethods(auth$.User, ['toString']);
-  dart.defineLazy(auth$.User, {
-    /*auth$.User._expando*/get _expando() {
-      return new (T.ExpandoOfUser()).new();
+  dart.setLibraryUri(platform_interface_reference.ReferencePlatform, I[2]);
+  dart.setFieldSignature(platform_interface_reference.ReferencePlatform, () => ({
+    __proto__: dart.getFields(platform_interface_reference.ReferencePlatform.__proto__),
+    [_pointer]: dart.fieldType(pointer.Pointer),
+    storage: dart.finalFieldType(platform_interface_firebase_storage.FirebaseStoragePlatform)
+  }));
+  dart.defineLazy(platform_interface_reference.ReferencePlatform, {
+    /*platform_interface_reference.ReferencePlatform._token*/get _token() {
+      return new core.Object.new();
     }
   }, false);
-  auth$.IdTokenResult = class IdTokenResult extends js$.JsObjectWrapper$(dart.anonymousJSType("IdTokenResultImpl")) {
-    get authTime() {
-      return http_date.parseHttpDate(this.jsObject.authTime);
+  var storage$0 = dart.privateName(platform_interface_list_result, "ListResultPlatform.storage");
+  var nextPageToken$ = dart.privateName(platform_interface_list_result, "ListResultPlatform.nextPageToken");
+  platform_interface_list_result.ListResultPlatform = class ListResultPlatform extends plugin_platform_interface.PlatformInterface {
+    get storage() {
+      return this[storage$0];
     }
-    get claims() {
-      return T.MapNOfString$dynamic().as(utils$.dartify(this.jsObject.claims));
+    set storage(value) {
+      super.storage = value;
     }
-    get expirationTime() {
-      return http_date.parseHttpDate(this.jsObject.expirationTime);
+    get nextPageToken() {
+      return this[nextPageToken$];
     }
-    get issuedAtTime() {
-      return http_date.parseHttpDate(this.jsObject.issuedAtTime);
+    set nextPageToken(value) {
+      super.nextPageToken = value;
     }
-    get signInProvider() {
-      return this.jsObject.signInProvider;
+    static verifyExtends(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, platform_interface_list_result.ListResultPlatform._token);
     }
-    get token() {
-      return this.jsObject.token;
+    get items() {
+      dart.throw(new core.UnimplementedError.new("items is not implemented"));
+    }
+    get prefixes() {
+      dart.throw(new core.UnimplementedError.new("prefixes is not implemented"));
     }
   };
-  (auth$.IdTokenResult._fromJsObject = function(jsObject) {
-    auth$.IdTokenResult.__proto__.fromJsObject.call(this, jsObject);
+  (platform_interface_list_result.ListResultPlatform.new = function(storage, nextPageToken) {
+    this[storage$0] = storage;
+    this[nextPageToken$] = nextPageToken;
+    platform_interface_list_result.ListResultPlatform.__proto__.new.call(this, {token: platform_interface_list_result.ListResultPlatform._token});
     ;
-  }).prototype = auth$.IdTokenResult.prototype;
-  dart.addTypeTests(auth$.IdTokenResult);
-  dart.addTypeCaches(auth$.IdTokenResult);
-  dart.setGetterSignature(auth$.IdTokenResult, () => ({
-    __proto__: dart.getGetters(auth$.IdTokenResult.__proto__),
-    authTime: core.DateTime,
-    claims: dart.nullable(core.Map$(core.String, dart.dynamic)),
-    expirationTime: core.DateTime,
-    issuedAtTime: core.DateTime,
-    signInProvider: core.String,
-    token: core.String
+  }).prototype = platform_interface_list_result.ListResultPlatform.prototype;
+  dart.addTypeTests(platform_interface_list_result.ListResultPlatform);
+  dart.addTypeCaches(platform_interface_list_result.ListResultPlatform);
+  dart.setGetterSignature(platform_interface_list_result.ListResultPlatform, () => ({
+    __proto__: dart.getGetters(platform_interface_list_result.ListResultPlatform.__proto__),
+    items: core.List$(platform_interface_reference.ReferencePlatform),
+    prefixes: core.List$(platform_interface_reference.ReferencePlatform)
   }));
-  dart.setLibraryUri(auth$.IdTokenResult, I[0]);
-  var _onAuthUnsubscribe = dart.privateName(auth$, "_onAuthUnsubscribe");
-  var _changeController = dart.privateName(auth$, "_changeController");
-  var _onIdTokenChangedUnsubscribe = dart.privateName(auth$, "_onIdTokenChangedUnsubscribe");
-  var _idTokenChangedController = dart.privateName(auth$, "_idTokenChangedController");
-  auth$.Auth = class Auth extends js$.JsObjectWrapper$(dart.lazyJSType(() => dart.global.firebase.auth.Auth, "firebase.auth.Auth")) {
-    get app() {
-      return app.App.getInstance(this.jsObject.app);
+  dart.setLibraryUri(platform_interface_list_result.ListResultPlatform, I[3]);
+  dart.setFieldSignature(platform_interface_list_result.ListResultPlatform, () => ({
+    __proto__: dart.getFields(platform_interface_list_result.ListResultPlatform.__proto__),
+    storage: dart.finalFieldType(dart.nullable(platform_interface_firebase_storage.FirebaseStoragePlatform)),
+    nextPageToken: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  dart.defineLazy(platform_interface_list_result.ListResultPlatform, {
+    /*platform_interface_list_result.ListResultPlatform._token*/get _token() {
+      return new core.Object.new();
     }
-    get currentUser() {
-      return auth$.User.getInstance(this.jsObject.currentUser);
+  }, false);
+  var storage$1 = dart.privateName(method_channel_task_snapshot, "MethodChannelTaskSnapshot.storage");
+  var _data$0 = dart.privateName(method_channel_task_snapshot, "_data");
+  method_channel_task_snapshot.MethodChannelTaskSnapshot = class MethodChannelTaskSnapshot extends platform_interface_task_snapshot.TaskSnapshotPlatform {
+    get storage() {
+      return this[storage$1];
     }
-    get tenantId() {
-      return this.jsObject.tenantId;
+    set storage(value) {
+      super.storage = value;
     }
-    set tenantId(tenantId) {
-      this.jsObject.tenantId = tenantId;
+    get ref() {
+      return new method_channel_reference.MethodChannelReference.new(this.storage, core.String.as(this[_data$0][$_get]("path")));
     }
-    get languageCode() {
-      return this.jsObject.languageCode;
+  };
+  (method_channel_task_snapshot.MethodChannelTaskSnapshot.new = function(storage, state, _data) {
+    this[storage$1] = storage;
+    this[_data$0] = _data;
+    method_channel_task_snapshot.MethodChannelTaskSnapshot.__proto__.new.call(this, state, _data);
+    ;
+  }).prototype = method_channel_task_snapshot.MethodChannelTaskSnapshot.prototype;
+  dart.addTypeTests(method_channel_task_snapshot.MethodChannelTaskSnapshot);
+  dart.addTypeCaches(method_channel_task_snapshot.MethodChannelTaskSnapshot);
+  dart.setLibraryUri(method_channel_task_snapshot.MethodChannelTaskSnapshot, I[4]);
+  dart.setFieldSignature(method_channel_task_snapshot.MethodChannelTaskSnapshot, () => ({
+    __proto__: dart.getFields(method_channel_task_snapshot.MethodChannelTaskSnapshot.__proto__),
+    storage: dart.finalFieldType(platform_interface_firebase_storage.FirebaseStoragePlatform),
+    [_data$0]: dart.finalFieldType(core.Map$(core.String, dart.dynamic))
+  }));
+  var storage$2 = dart.privateName(method_channel_task, "MethodChannelTask.storage");
+  var _exception = dart.privateName(method_channel_task, "_exception");
+  var _stackTrace = dart.privateName(method_channel_task, "_stackTrace");
+  var _didComplete = dart.privateName(method_channel_task, "_didComplete");
+  var _completer = dart.privateName(method_channel_task, "_completer");
+  var __MethodChannelTask__stream = dart.privateName(method_channel_task, "_#MethodChannelTask#_stream");
+  var __MethodChannelTask__initialTaskCompleter = dart.privateName(method_channel_task, "_#MethodChannelTask#_initialTaskCompleter");
+  var __MethodChannelTask__snapshot = dart.privateName(method_channel_task, "_#MethodChannelTask#_snapshot");
+  var _handle$ = dart.privateName(method_channel_task, "_handle");
+  var _initialTask$ = dart.privateName(method_channel_task, "_initialTask");
+  var _initialTaskCompleter = dart.privateName(method_channel_task, "_initialTaskCompleter");
+  var _snapshot = dart.privateName(method_channel_task, "_snapshot");
+  var _stream = dart.privateName(method_channel_task, "_stream");
+  method_channel_task.MethodChannelTask = class MethodChannelTask extends platform_interface_task.TaskPlatform {
+    get storage() {
+      return this[storage$2];
     }
-    set languageCode(s) {
-      this.jsObject.languageCode = s;
+    set storage(value) {
+      super.storage = value;
     }
-    get settings() {
-      return this.jsObject.settings;
+    get [_stream]() {
+      let t4;
+      t4 = this[__MethodChannelTask__stream];
+      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_stream")) : t4;
     }
-    get onAuthStateChanged() {
-      if (this[_changeController] == null) {
-        let nextWrapper = js.allowInterop(T.UserJsImplNToNull(), dart.fn(user => {
-          dart.nullCheck(this[_changeController]).add(auth$.User.getInstance(user));
-        }, T.UserJsImplNToNull()));
-        let errorWrapper = js.allowInterop(T.dynamicTovoid(), dart.fn(e => dart.nullCheck(this[_changeController]).addError(core.Object.as(e)), T.dynamicTovoid()));
-        const startListen = () => {
-          if (!(this[_onAuthUnsubscribe] == null)) dart.assertFailed(null, I[1], 346, 16, "_onAuthUnsubscribe == null");
-          this[_onAuthUnsubscribe] = this.jsObject.onAuthStateChanged(dart.assertInterop(nextWrapper), dart.assertInterop(errorWrapper));
-        };
-        dart.fn(startListen, T.VoidTovoid());
-        const stopListen = () => {
-          dart.nullCheck(this[_onAuthUnsubscribe])();
-          this[_onAuthUnsubscribe] = null;
-        };
-        dart.fn(stopListen, T.VoidTovoid());
-        this[_changeController] = T.StreamControllerOfUserN().broadcast({onListen: startListen, onCancel: stopListen, sync: true});
-      }
-      return dart.nullCheck(this[_changeController]).stream;
+    set [_stream](t4) {
+      this[__MethodChannelTask__stream] = t4;
     }
-    get onIdTokenChanged() {
-      if (this[_idTokenChangedController] == null) {
-        let nextWrapper = js.allowInterop(T.UserJsImplNToNull(), dart.fn(user => {
-          dart.nullCheck(this[_idTokenChangedController]).add(auth$.User.getInstance(user));
-        }, T.UserJsImplNToNull()));
-        let errorWrapper = js.allowInterop(T.dynamicTovoid(), dart.fn(e => dart.nullCheck(this[_idTokenChangedController]).addError(core.Object.as(e)), T.dynamicTovoid()));
-        const startListen = () => {
-          if (!(this[_onIdTokenChangedUnsubscribe] == null)) dart.assertFailed(null, I[1], 386, 16, "_onIdTokenChangedUnsubscribe == null");
-          this[_onIdTokenChangedUnsubscribe] = this.jsObject.onIdTokenChanged(dart.assertInterop(nextWrapper), dart.assertInterop(errorWrapper));
-        };
-        dart.fn(startListen, T.VoidTovoid());
-        const stopListen = () => {
-          dart.nullCheck(this[_onIdTokenChangedUnsubscribe])();
-          this[_onIdTokenChangedUnsubscribe] = null;
-        };
-        dart.fn(stopListen, T.VoidTovoid());
-        this[_idTokenChangedController] = T.StreamControllerOfUserN().broadcast({onListen: startListen, onCancel: stopListen, sync: true});
-      }
-      return dart.nullCheck(this[_idTokenChangedController]).stream;
+    get [_initialTaskCompleter]() {
+      let t5;
+      t5 = this[__MethodChannelTask__initialTaskCompleter];
+      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_initialTaskCompleter")) : t5;
     }
-    static getInstance(jsObject) {
-      let t3, t2, t1, t0;
-      t0 = auth$.Auth._expando;
-      t1 = jsObject;
-      t2 = t0._get(t1);
-      return t2 == null ? (t3 = new auth$.Auth._fromJsObject(jsObject), t0._set(t1, t3), t3) : t2;
+    set [_initialTaskCompleter](t5) {
+      this[__MethodChannelTask__initialTaskCompleter] = t5;
     }
-    applyActionCode(code) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.applyActionCode(code));
+    get [_snapshot]() {
+      let t6;
+      t6 = this[__MethodChannelTask__snapshot];
+      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_snapshot")) : t6;
     }
-    checkActionCode(code) {
-      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ActionCodeInfo, "firebase.auth.ActionCodeInfo"), this.jsObject.checkActionCode(code));
+    set [_snapshot](t6) {
+      this[__MethodChannelTask__snapshot] = t6;
     }
-    confirmPasswordReset(code, newPassword) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.confirmPasswordReset(code, newPassword));
+    get snapshotEvents() {
+      return T.StreamOfTaskSnapshotPlatform().as(dart.nullCheck(method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_get](this[_handle$])).stream);
     }
-    createUserWithEmailAndPassword(email, password) {
-      return async.async(auth$.UserCredential, (function* createUserWithEmailAndPassword() {
-        let u = (yield utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.createUserWithEmailAndPassword(email, password)));
-        return new auth$.UserCredential.fromJsObject(u);
+    get snapshot() {
+      return this[_snapshot];
+    }
+    get onComplete() {
+      return async.async(platform_interface_task_snapshot.TaskSnapshotPlatform, (function* onComplete() {
+        if (this[_didComplete] && this[_exception] == null) {
+          return T.FutureOfTaskSnapshotPlatform().value(this.snapshot);
+        } else if (this[_didComplete] && this[_exception] != null) {
+          return exception.catchFuturePlatformException(platform_interface_task_snapshot.TaskSnapshotPlatform, dart.nullCheck(this[_exception]), this[_stackTrace]);
+        } else {
+          this[_completer] == null ? this[_completer] = T.CompleterOfTaskSnapshotPlatform().new() : null;
+          return dart.nullCheck(this[_completer]).future;
+        }
       }).bind(this));
     }
-    fetchSignInMethodsForEmail(email) {
-      return utils.handleThenable(core.List, this.jsObject.fetchSignInMethodsForEmail(email)).then(T.ListOfString(), dart.fn(list => T.ListOfString().from(list), T.ListToListOfString()));
+    pause() {
+      return async.async(core.bool, (function* pause() {
+        try {
+          if (!this[_initialTaskCompleter].isCompleted) {
+            yield this[_initialTaskCompleter].future;
+          }
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Task#pause", new (T.IdentityMapOfString$dynamic()).from(["handle", this[_handle$]])));
+          let success = core.bool.as(dart.nullCheck(data)[$_get]("status"));
+          if (success) {
+            this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.paused, T.LinkedHashMapOfString$dynamic().from(core.Map.as(data[$_get]("snapshot"))));
+          }
+          return success;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            return exception.catchFuturePlatformException(core.bool, e);
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
-    isSignInWithEmailLink(emailLink) {
-      return this.jsObject.isSignInWithEmailLink(emailLink);
+    resume() {
+      return async.async(core.bool, (function* resume() {
+        try {
+          if (!this[_initialTaskCompleter].isCompleted) {
+            yield this[_initialTaskCompleter].future;
+          }
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Task#resume", new (T.IdentityMapOfString$dynamic()).from(["handle", this[_handle$]])));
+          let success = core.bool.as(dart.nullCheck(data)[$_get]("status"));
+          if (success) {
+            this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.running, T.LinkedHashMapOfString$dynamic().from(core.Map.as(data[$_get]("snapshot"))));
+          }
+          return success;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            return exception.catchFuturePlatformException(core.bool, e);
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
-    getRedirectResult() {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.getRedirectResult()).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    sendSignInLinkToEmail(email, actionCodeSettings = null) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.sendSignInLinkToEmail(email, actionCodeSettings));
-    }
-    sendPasswordResetEmail(email, actionCodeSettings = null) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.sendPasswordResetEmail(email, actionCodeSettings));
-    }
-    setPersistence(persistence) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.setPersistence(persistence));
-    }
-    signInWithCredential(credential) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithCredential(credential)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInAnonymously() {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInAnonymously()).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInWithCustomToken(token) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithCustomToken(token)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInAndRetrieveDataWithCustomToken(token) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInAndRetrieveDataWithCustomToken(token)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInWithEmailAndPassword(email, password) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithEmailAndPassword(email, password)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInWithEmailLink(email, emailLink) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithEmailLink(email, emailLink)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInWithPhoneNumber(phoneNumber, applicationVerifier) {
-      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.signInWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(auth$.ConfirmationResult, dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), T.ConfirmationResultJsImplToConfirmationResult()));
-    }
-    signInWithPopup(provider) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithPopup(provider.jsObject)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-    signInWithRedirect(provider) {
-      return utils.handleThenable(dart.dynamic, this.jsObject.signInWithRedirect(provider.jsObject));
-    }
-    signOut() {
-      return utils.handleThenable(dart.dynamic, this.jsObject.signOut());
-    }
-    useEmulator(origin) {
-      return this.jsObject.useEmulator(origin);
-    }
-    useDeviceLanguage() {
-      return this.jsObject.useDeviceLanguage();
-    }
-    verifyPasswordResetCode(code) {
-      return utils.handleThenable(core.String, this.jsObject.verifyPasswordResetCode(code));
+    cancel() {
+      return async.async(core.bool, (function* cancel() {
+        try {
+          if (!this[_initialTaskCompleter].isCompleted) {
+            yield this[_initialTaskCompleter].future;
+          }
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Task#cancel", new (T.IdentityMapOfString$dynamic()).from(["handle", this[_handle$]])));
+          let success = core.bool.as(dart.nullCheck(data)[$_get]("status"));
+          if (success) {
+            this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.canceled, T.LinkedHashMapOfString$dynamic().from(core.Map.as(data[$_get]("snapshot"))));
+          }
+          return success;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            return exception.catchFuturePlatformException(core.bool, e);
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
   };
-  (auth$.Auth._fromJsObject = function(jsObject) {
-    this[_onAuthUnsubscribe] = null;
-    this[_changeController] = null;
-    this[_onIdTokenChangedUnsubscribe] = null;
-    this[_idTokenChangedController] = null;
-    auth$.Auth.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.Auth.prototype;
-  dart.addTypeTests(auth$.Auth);
-  dart.addTypeCaches(auth$.Auth);
-  dart.setMethodSignature(auth$.Auth, () => ({
-    __proto__: dart.getMethods(auth$.Auth.__proto__),
-    applyActionCode: dart.fnType(async.Future, [core.String]),
-    checkActionCode: dart.fnType(async.Future$(dart.lazyJSType(() => dart.global.firebase.auth.ActionCodeInfo, "firebase.auth.ActionCodeInfo")), [core.String]),
-    confirmPasswordReset: dart.fnType(async.Future, [core.String, core.String]),
-    createUserWithEmailAndPassword: dart.fnType(async.Future$(auth$.UserCredential), [core.String, core.String]),
-    fetchSignInMethodsForEmail: dart.fnType(async.Future$(core.List$(core.String)), [core.String]),
-    isSignInWithEmailLink: dart.fnType(core.bool, [core.String]),
-    getRedirectResult: dart.fnType(async.Future$(auth$.UserCredential), []),
-    sendSignInLinkToEmail: dart.fnType(async.Future, [core.String], [dart.nullable(dart.anonymousJSType("ActionCodeSettings"))]),
-    sendPasswordResetEmail: dart.fnType(async.Future, [core.String], [dart.nullable(dart.anonymousJSType("ActionCodeSettings"))]),
-    setPersistence: dart.fnType(async.Future, [core.String]),
-    signInWithCredential: dart.fnType(async.Future$(auth$.UserCredential), [dart.anonymousJSType("OAuthCredential")]),
-    signInAnonymously: dart.fnType(async.Future$(auth$.UserCredential), []),
-    signInWithCustomToken: dart.fnType(async.Future$(auth$.UserCredential), [core.String]),
-    signInAndRetrieveDataWithCustomToken: dart.fnType(async.Future$(auth$.UserCredential), [core.String]),
-    signInWithEmailAndPassword: dart.fnType(async.Future$(auth$.UserCredential), [core.String, core.String]),
-    signInWithEmailLink: dart.fnType(async.Future$(auth$.UserCredential), [core.String, core.String]),
-    signInWithPhoneNumber: dart.fnType(async.Future$(auth$.ConfirmationResult), [core.String, auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier"))]),
-    signInWithPopup: dart.fnType(async.Future$(auth$.UserCredential), [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    signInWithRedirect: dart.fnType(async.Future, [auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl"))]),
-    signOut: dart.fnType(async.Future, []),
-    useEmulator: dart.fnType(dart.void, [core.String]),
-    useDeviceLanguage: dart.fnType(dart.void, []),
-    verifyPasswordResetCode: dart.fnType(async.Future$(core.String), [core.String])
-  }));
-  dart.setGetterSignature(auth$.Auth, () => ({
-    __proto__: dart.getGetters(auth$.Auth.__proto__),
-    app: app.App,
-    currentUser: dart.nullable(auth$.User),
-    tenantId: dart.nullable(core.String),
-    languageCode: core.String,
-    settings: dart.anonymousJSType("AuthSettings"),
-    onAuthStateChanged: async.Stream$(dart.nullable(auth$.User)),
-    onIdTokenChanged: async.Stream$(dart.nullable(auth$.User))
-  }));
-  dart.setSetterSignature(auth$.Auth, () => ({
-    __proto__: dart.getSetters(auth$.Auth.__proto__),
-    tenantId: dart.nullable(core.String),
-    languageCode: core.String
-  }));
-  dart.setLibraryUri(auth$.Auth, I[0]);
-  dart.setFieldSignature(auth$.Auth, () => ({
-    __proto__: dart.getFields(auth$.Auth.__proto__),
-    [_onAuthUnsubscribe]: dart.fieldType(dart.nullable(dart.fnType(dart.dynamic, []))),
-    [_changeController]: dart.fieldType(dart.nullable(async.StreamController$(dart.nullable(auth$.User)))),
-    [_onIdTokenChangedUnsubscribe]: dart.fieldType(dart.nullable(dart.fnType(dart.dynamic, []))),
-    [_idTokenChangedController]: dart.fieldType(dart.nullable(async.StreamController$(dart.nullable(auth$.User))))
-  }));
-  dart.defineLazy(auth$.Auth, {
-    /*auth$.Auth._expando*/get _expando() {
-      return new (T.ExpandoOfAuth()).new();
+  (method_channel_task.MethodChannelTask.new = function(_handle, storage, path, _initialTask) {
+    this[_exception] = null;
+    this[_stackTrace] = null;
+    this[_didComplete] = false;
+    this[_completer] = null;
+    this[__MethodChannelTask__stream] = null;
+    this[__MethodChannelTask__initialTaskCompleter] = null;
+    this[__MethodChannelTask__snapshot] = null;
+    this[_handle$] = _handle;
+    this[storage$2] = storage;
+    this[_initialTask$] = _initialTask;
+    method_channel_task.MethodChannelTask.__proto__.new.call(this);
+    this[_initialTaskCompleter] = T.CompleterOfvoid().new();
+    this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.running, new (T.IdentityMapOfString$dynamic()).from(["path", path, "bytesTransferred", 0, "totalBytes", 1]));
+    this[_initialTask$]().then(core.Null, dart.fn(_ => {
+      this[_initialTaskCompleter].complete();
+    }, T.voidToNull())).catchError(dart.fn((e, stackTrace) => {
+      this[_initialTaskCompleter].completeError(e, stackTrace);
+      this[_didComplete] = true;
+      this[_exception] = e;
+      this[_stackTrace] = stackTrace;
+      if (this[_completer] != null) {
+        exception.catchFuturePlatformException(dart.dynamic, e, stackTrace).catchError(dart.bind(dart.nullCheck(this[_completer]), 'completeError'));
+      }
+    }, T.ObjectAndStackTraceToNull()));
+    this[_stream] = T.StreamOfTaskSnapshotPlatform().as(dart.nullCheck(method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_get](this[_handle$])).stream);
+    let _subscription = null;
+    function _subscription$35get() {
+      let t1;
+      t1 = _subscription;
+      return t1 == null ? dart.throw(new _internal.LateError.localNI("_subscription")) : t1;
     }
-  }, false);
-  const _is_AuthProvider_default = Symbol('_is_AuthProvider_default');
-  auth$.AuthProvider$ = dart.generic(T => {
-    class AuthProvider extends js$.JsObjectWrapper$(T) {
-      get providerId() {
-        return this.jsObject.providerId;
+    dart.fn(_subscription$35get, T.VoidToStreamSubscription());
+    function _subscription$35set(t2) {
+      return _subscription = t2;
+    }
+    dart.fn(_subscription$35set, T.StreamSubscriptionTodynamic());
+    _subscription$35set(this[_stream].listen(dart.fn(snapshot => async.async(dart.void, (function*() {
+      let t4;
+      if (this[_snapshot].state !== task_state.TaskState.canceled) {
+        this[_snapshot] = snapshot;
+      }
+      if (snapshot.state === task_state.TaskState.success) {
+        this[_didComplete] = true;
+        t4 = this[_completer];
+        t4 == null ? null : t4.complete(snapshot);
+        yield _subscription$35get().cancel();
+      }
+    }).bind(this)), T.TaskSnapshotPlatformToFutureOfvoid()), {onError: dart.fn((e, stackTrace) => {
+        if (firebase_core_platform_interface.FirebaseException.is(e) && e.code === "canceled") {
+          this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.canceled, new (T.IdentityMapOfString$dynamic()).from(["path", path, "bytesTransferred", this[_snapshot].bytesTransferred, "totalBytes", this[_snapshot].totalBytes]));
+        } else {
+          this[_snapshot] = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(this.storage, task_state.TaskState.error, new (T.IdentityMapOfString$dynamic()).from(["path", path, "bytesTransferred", this[_snapshot].bytesTransferred, "totalBytes", this[_snapshot].totalBytes]));
+        }
+        this[_didComplete] = true;
+        this[_exception] = e;
+        this[_stackTrace] = stackTrace;
+        if (this[_completer] != null) {
+          exception.catchFuturePlatformException(dart.dynamic, e, stackTrace).catchError(dart.bind(dart.nullCheck(this[_completer]), 'completeError'));
+        }
+      }, T.ObjectAndStackTraceToNull()), cancelOnError: true}));
+  }).prototype = method_channel_task.MethodChannelTask.prototype;
+  dart.addTypeTests(method_channel_task.MethodChannelTask);
+  dart.addTypeCaches(method_channel_task.MethodChannelTask);
+  dart.setGetterSignature(method_channel_task.MethodChannelTask, () => ({
+    __proto__: dart.getGetters(method_channel_task.MethodChannelTask.__proto__),
+    [_stream]: async.Stream$(platform_interface_task_snapshot.TaskSnapshotPlatform),
+    [_initialTaskCompleter]: async.Completer$(dart.void),
+    [_snapshot]: platform_interface_task_snapshot.TaskSnapshotPlatform
+  }));
+  dart.setSetterSignature(method_channel_task.MethodChannelTask, () => ({
+    __proto__: dart.getSetters(method_channel_task.MethodChannelTask.__proto__),
+    [_stream]: async.Stream$(platform_interface_task_snapshot.TaskSnapshotPlatform),
+    [_initialTaskCompleter]: async.Completer$(dart.void),
+    [_snapshot]: platform_interface_task_snapshot.TaskSnapshotPlatform
+  }));
+  dart.setLibraryUri(method_channel_task.MethodChannelTask, I[5]);
+  dart.setFieldSignature(method_channel_task.MethodChannelTask, () => ({
+    __proto__: dart.getFields(method_channel_task.MethodChannelTask.__proto__),
+    [_exception]: dart.fieldType(dart.nullable(core.Object)),
+    [_stackTrace]: dart.fieldType(dart.nullable(core.StackTrace)),
+    [_didComplete]: dart.fieldType(core.bool),
+    [_completer]: dart.fieldType(dart.nullable(async.Completer$(platform_interface_task_snapshot.TaskSnapshotPlatform))),
+    [__MethodChannelTask__stream]: dart.fieldType(dart.nullable(async.Stream$(platform_interface_task_snapshot.TaskSnapshotPlatform))),
+    [__MethodChannelTask__initialTaskCompleter]: dart.fieldType(dart.nullable(async.Completer$(dart.void))),
+    [_initialTask$]: dart.fieldType(dart.fnType(async.Future$(dart.void), [])),
+    [_handle$]: dart.finalFieldType(core.int),
+    storage: dart.finalFieldType(platform_interface_firebase_storage.FirebaseStoragePlatform),
+    [__MethodChannelTask__snapshot]: dart.fieldType(dart.nullable(platform_interface_task_snapshot.TaskSnapshotPlatform))
+  }));
+  method_channel_task.MethodChannelPutFileTask = class MethodChannelPutFileTask extends method_channel_task.MethodChannelTask {
+    static _getTask(handle, storage, path, file, metadata) {
+      return dart.fn(() => {
+        let t10;
+        return method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.void, "Task#startPutFile", new (T.IdentityMapOfString$dynamic()).from(["appName", storage.app.name, "maxOperationRetryTime", storage.maxOperationRetryTime, "maxUploadRetryTime", storage.maxUploadRetryTime, "maxDownloadRetryTime", storage.maxDownloadRetryTime, "bucket", storage.bucket, "host", storage.emulatorHost, "port", storage.emulatorPort, "handle", handle, "path", path, "filePath", file.absolute.path, "metadata", (t10 = metadata, t10 == null ? null : t10.asMap())]));
+      }, T.VoidToFutureOfvoid());
+    }
+  };
+  (method_channel_task.MethodChannelPutFileTask.new = function(handle, storage, path, file, metadata) {
+    method_channel_task.MethodChannelPutFileTask.__proto__.new.call(this, handle, storage, path, method_channel_task.MethodChannelPutFileTask._getTask(handle, storage, path, file, metadata));
+    ;
+  }).prototype = method_channel_task.MethodChannelPutFileTask.prototype;
+  dart.addTypeTests(method_channel_task.MethodChannelPutFileTask);
+  dart.addTypeCaches(method_channel_task.MethodChannelPutFileTask);
+  dart.setLibraryUri(method_channel_task.MethodChannelPutFileTask, I[5]);
+  method_channel_task.MethodChannelPutStringTask = class MethodChannelPutStringTask extends method_channel_task.MethodChannelTask {
+    static _getTask(handle, storage, path, data, format, metadata) {
+      return dart.fn(() => {
+        let t10;
+        return method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.void, "Task#startPutString", new (T.IdentityMapOfString$dynamic()).from(["appName", storage.app.name, "bucket", storage.bucket, "maxOperationRetryTime", storage.maxOperationRetryTime, "maxUploadRetryTime", storage.maxUploadRetryTime, "maxDownloadRetryTime", storage.maxDownloadRetryTime, "host", storage.emulatorHost, "port", storage.emulatorPort, "handle", handle, "path", path, "data", data, "format", format.index, "metadata", (t10 = metadata, t10 == null ? null : t10.asMap())]));
+      }, T.VoidToFutureOfvoid());
+    }
+  };
+  (method_channel_task.MethodChannelPutStringTask.new = function(handle, storage, path, data, format, metadata) {
+    method_channel_task.MethodChannelPutStringTask.__proto__.new.call(this, handle, storage, path, method_channel_task.MethodChannelPutStringTask._getTask(handle, storage, path, data, format, metadata));
+    ;
+  }).prototype = method_channel_task.MethodChannelPutStringTask.prototype;
+  dart.addTypeTests(method_channel_task.MethodChannelPutStringTask);
+  dart.addTypeCaches(method_channel_task.MethodChannelPutStringTask);
+  dart.setLibraryUri(method_channel_task.MethodChannelPutStringTask, I[5]);
+  method_channel_task.MethodChannelPutTask = class MethodChannelPutTask extends method_channel_task.MethodChannelTask {
+    static _getTask(handle, storage, path, data, metadata) {
+      return dart.fn(() => {
+        let t10;
+        return method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.void, "Task#startPutData", new (T.IdentityMapOfString$dynamic()).from(["appName", storage.app.name, "bucket", storage.bucket, "maxOperationRetryTime", storage.maxOperationRetryTime, "maxUploadRetryTime", storage.maxUploadRetryTime, "maxDownloadRetryTime", storage.maxDownloadRetryTime, "host", storage.emulatorHost, "port", storage.emulatorPort, "handle", handle, "path", path, "data", data, "metadata", (t10 = metadata, t10 == null ? null : t10.asMap())]));
+      }, T.VoidToFutureOfvoid());
+    }
+  };
+  (method_channel_task.MethodChannelPutTask.new = function(handle, storage, path, data, metadata) {
+    method_channel_task.MethodChannelPutTask.__proto__.new.call(this, handle, storage, path, method_channel_task.MethodChannelPutTask._getTask(handle, storage, path, data, metadata));
+    ;
+  }).prototype = method_channel_task.MethodChannelPutTask.prototype;
+  dart.addTypeTests(method_channel_task.MethodChannelPutTask);
+  dart.addTypeCaches(method_channel_task.MethodChannelPutTask);
+  dart.setLibraryUri(method_channel_task.MethodChannelPutTask, I[5]);
+  method_channel_task.MethodChannelDownloadTask = class MethodChannelDownloadTask extends method_channel_task.MethodChannelTask {
+    static _getTask(handle, storage, path, file) {
+      return dart.fn(() => method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.void, "Task#writeToFile", new (T.IdentityMapOfString$dynamic()).from(["appName", storage.app.name, "maxOperationRetryTime", storage.maxOperationRetryTime, "maxUploadRetryTime", storage.maxUploadRetryTime, "maxDownloadRetryTime", storage.maxDownloadRetryTime, "host", storage.emulatorHost, "port", storage.emulatorPort, "bucket", storage.bucket, "handle", handle, "path", path, "filePath", file.path])), T.VoidToFutureOfvoid());
+    }
+  };
+  (method_channel_task.MethodChannelDownloadTask.new = function(handle, storage, path, file) {
+    method_channel_task.MethodChannelDownloadTask.__proto__.new.call(this, handle, storage, path, method_channel_task.MethodChannelDownloadTask._getTask(handle, storage, path, file));
+    ;
+  }).prototype = method_channel_task.MethodChannelDownloadTask.prototype;
+  dart.addTypeTests(method_channel_task.MethodChannelDownloadTask);
+  dart.addTypeCaches(method_channel_task.MethodChannelDownloadTask);
+  dart.setLibraryUri(method_channel_task.MethodChannelDownloadTask, I[5]);
+  var _items = dart.privateName(method_channel_list_result, "_items");
+  var _prefixes = dart.privateName(method_channel_list_result, "_prefixes");
+  method_channel_list_result.MethodChannelListResult = class MethodChannelListResult extends platform_interface_list_result.ListResultPlatform {
+    get items() {
+      return this[_items][$map](method_channel_reference.MethodChannelReference, dart.fn(path => new method_channel_reference.MethodChannelReference.new(dart.nullCheck(this.storage), path), T.StringToMethodChannelReference()))[$toList]();
+    }
+    get prefixes() {
+      return this[_prefixes][$map](method_channel_reference.MethodChannelReference, dart.fn(path => new method_channel_reference.MethodChannelReference.new(dart.nullCheck(this.storage), path), T.StringToMethodChannelReference()))[$toList]();
+    }
+  };
+  (method_channel_list_result.MethodChannelListResult.new = function(storage, opts) {
+    let t10, t10$;
+    let nextPageToken = opts && 'nextPageToken' in opts ? opts.nextPageToken : null;
+    let items = opts && 'items' in opts ? opts.items : null;
+    let prefixes = opts && 'prefixes' in opts ? opts.prefixes : null;
+    this[_items] = (t10 = items, t10 == null ? T.JSArrayOfString().of([]) : t10);
+    this[_prefixes] = (t10$ = prefixes, t10$ == null ? T.JSArrayOfString().of([]) : t10$);
+    method_channel_list_result.MethodChannelListResult.__proto__.new.call(this, storage, nextPageToken);
+    ;
+  }).prototype = method_channel_list_result.MethodChannelListResult.prototype;
+  dart.addTypeTests(method_channel_list_result.MethodChannelListResult);
+  dart.addTypeCaches(method_channel_list_result.MethodChannelListResult);
+  dart.setLibraryUri(method_channel_list_result.MethodChannelListResult, I[6]);
+  dart.setFieldSignature(method_channel_list_result.MethodChannelListResult, () => ({
+    __proto__: dart.getFields(method_channel_list_result.MethodChannelListResult.__proto__),
+    [_items]: dart.fieldType(core.List$(core.String)),
+    [_prefixes]: dart.fieldType(core.List$(core.String))
+  }));
+  method_channel_reference.MethodChannelReference = class MethodChannelReference extends platform_interface_reference.ReferencePlatform {
+    delete() {
+      return async.async(dart.void, (function* $delete() {
+        try {
+          yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.dynamic, "Reference#delete", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath]));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    getDownloadURL() {
+      return async.async(core.String, (function* getDownloadURL() {
+        try {
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Reference#getDownloadURL", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath])));
+          return T.FutureOrOfString().as(dart.nullCheck(data)[$_get]("downloadURL"));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    getMetadata() {
+      return async.async(full_metadata.FullMetadata, (function* getMetadata() {
+        try {
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Reference#getMetadata", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath])));
+          return new full_metadata.FullMetadata.new(dart.nullCheck(data));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    list(options = null) {
+      return async.async(platform_interface_list_result.ListResultPlatform, (function* list() {
+        let t13, t13$, t13$0;
+        try {
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Reference#list", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath, "options", new (T.IdentityMapOfString$dynamic()).from(["maxResults", (t13$ = (t13 = options, t13 == null ? null : t13.maxResults), t13$ == null ? 1000 : t13$), "pageToken", (t13$0 = options, t13$0 == null ? null : t13$0.pageToken)])])));
+          return new method_channel_list_result.MethodChannelListResult.new(this.storage, {nextPageToken: T.StringN().as(dart.nullCheck(data)[$_get]("nextPageToken")), items: T.ListOfString().from(core.Iterable.as(data[$_get]("items"))), prefixes: T.ListOfString().from(core.Iterable.as(data[$_get]("prefixes")))});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    listAll() {
+      return async.async(platform_interface_list_result.ListResultPlatform, (function* listAll() {
+        try {
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Reference#listAll", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath])));
+          return new method_channel_list_result.MethodChannelListResult.new(this.storage, {nextPageToken: T.StringN().as(dart.nullCheck(data)[$_get]("nextPageToken")), items: T.ListOfString().from(core.Iterable.as(data[$_get]("items"))), prefixes: T.ListOfString().from(core.Iterable.as(data[$_get]("prefixes")))});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    getData(maxSize) {
+      try {
+        return method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(typed_data.Uint8List, "Reference#getData", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath, "maxSize", maxSize]));
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (core.Object.is(e)) {
+          dart.throw(exception.convertPlatformException(e));
+        } else
+          throw e$;
       }
     }
-    (AuthProvider.fromJsObject = function(jsObject) {
-      AuthProvider.__proto__.fromJsObject.call(this, jsObject);
-      ;
-    }).prototype = AuthProvider.prototype;
-    dart.addTypeTests(AuthProvider);
-    AuthProvider.prototype[_is_AuthProvider_default] = true;
-    dart.addTypeCaches(AuthProvider);
-    dart.setGetterSignature(AuthProvider, () => ({
-      __proto__: dart.getGetters(AuthProvider.__proto__),
-      providerId: core.String
-    }));
-    dart.setLibraryUri(AuthProvider, I[0]);
-    return AuthProvider;
-  });
-  auth$.AuthProvider = auth$.AuthProvider$();
-  dart.addTypeTests(auth$.AuthProvider, _is_AuthProvider_default);
-  auth$.EmailAuthProvider = class EmailAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.EmailAuthProvider, "firebase.auth.EmailAuthProvider")) {
-    static new() {
-      return new auth$.EmailAuthProvider.fromJsObject(new dart.global.firebase.auth.EmailAuthProvider());
+    putData(data, metadata = null) {
+      let handle = method_channel_firebase_storage.MethodChannelFirebaseStorage.nextMethodChannelHandleId;
+      method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_set](handle, T.StreamControllerOfTaskSnapshotPlatform().broadcast());
+      return new method_channel_task.MethodChannelPutTask.new(handle, this.storage, this.fullPath, data, metadata);
     }
-    static credential(email, password) {
-      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.EmailAuthProvider.credential(email, password));
+    putBlob(data, metadata = null) {
+      dart.throw(new core.UnimplementedError.new("putBlob() is not supported on native platforms. Use [put], [putFile] or [putString] instead."));
     }
-    static credentialWithLink(email, emailLink) {
-      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.EmailAuthProvider.credentialWithLink(email, emailLink));
+    putFile(file, metadata = null) {
+      let handle = method_channel_firebase_storage.MethodChannelFirebaseStorage.nextMethodChannelHandleId;
+      method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_set](handle, T.StreamControllerOfTaskSnapshotPlatform().broadcast());
+      return new method_channel_task.MethodChannelPutFileTask.new(handle, this.storage, this.fullPath, file, metadata);
     }
-  };
-  (auth$.EmailAuthProvider.fromJsObject = function(jsObject) {
-    auth$.EmailAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.EmailAuthProvider.prototype;
-  dart.addTypeTests(auth$.EmailAuthProvider);
-  dart.addTypeCaches(auth$.EmailAuthProvider);
-  dart.setLibraryUri(auth$.EmailAuthProvider, I[0]);
-  dart.defineLazy(auth$.EmailAuthProvider, {
-    /*auth$.EmailAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
-      return dart.global.firebase.auth.EmailAuthProvider.PROVIDER_ID;
-    },
-    set PROVIDER_ID(_) {}
-  }, false);
-  auth$.FacebookAuthProvider = class FacebookAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.FacebookAuthProvider, "firebase.auth.FacebookAuthProvider")) {
-    static new() {
-      return new auth$.FacebookAuthProvider.fromJsObject(new dart.global.firebase.auth.FacebookAuthProvider());
+    putString(data, format, metadata = null) {
+      let handle = method_channel_firebase_storage.MethodChannelFirebaseStorage.nextMethodChannelHandleId;
+      method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_set](handle, T.StreamControllerOfTaskSnapshotPlatform().broadcast());
+      return new method_channel_task.MethodChannelPutStringTask.new(handle, this.storage, this.fullPath, data, format, metadata);
     }
-    addScope(scope) {
-      return new auth$.FacebookAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    updateMetadata(metadata) {
+      return async.async(full_metadata.FullMetadata, (function* updateMetadata() {
+        try {
+          let data = (yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMapMethod(core.String, dart.dynamic, "Reference#updateMetadata", new (T.IdentityMapOfString$dynamic()).from(["appName", this.storage.app.name, "maxOperationRetryTime", this.storage.maxOperationRetryTime, "maxUploadRetryTime", this.storage.maxUploadRetryTime, "maxDownloadRetryTime", this.storage.maxDownloadRetryTime, "bucket", this.storage.bucket, "host", this.storage.emulatorHost, "port", this.storage.emulatorPort, "path", this.fullPath, "metadata", metadata.asMap()])));
+          return new full_metadata.FullMetadata.new(dart.nullCheck(data));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e));
+          } else
+            throw e$;
+        }
+      }).bind(this));
     }
-    setCustomParameters(customOAuthParameters) {
-      return new auth$.FacebookAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
-    }
-    static credential(token) {
-      return dart.global.firebase.auth.FacebookAuthProvider.credential(token);
+    writeToFile(file) {
+      let handle = method_channel_firebase_storage.MethodChannelFirebaseStorage.nextMethodChannelHandleId;
+      method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_set](handle, T.StreamControllerOfTaskSnapshotPlatform().broadcast());
+      return new method_channel_task.MethodChannelDownloadTask.new(handle, this.storage, this.fullPath, file);
     }
   };
-  (auth$.FacebookAuthProvider.fromJsObject = function(jsObject) {
-    auth$.FacebookAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+  (method_channel_reference.MethodChannelReference.new = function(storage, path) {
+    method_channel_reference.MethodChannelReference.__proto__.new.call(this, storage, path);
     ;
-  }).prototype = auth$.FacebookAuthProvider.prototype;
-  dart.addTypeTests(auth$.FacebookAuthProvider);
-  dart.addTypeCaches(auth$.FacebookAuthProvider);
-  dart.setMethodSignature(auth$.FacebookAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.FacebookAuthProvider.__proto__),
-    addScope: dart.fnType(auth$.FacebookAuthProvider, [core.String]),
-    setCustomParameters: dart.fnType(auth$.FacebookAuthProvider, [core.Map$(dart.nullable(core.Object), dart.nullable(core.Object))])
-  }));
-  dart.setLibraryUri(auth$.FacebookAuthProvider, I[0]);
-  dart.defineLazy(auth$.FacebookAuthProvider, {
-    /*auth$.FacebookAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
-      return dart.global.firebase.auth.FacebookAuthProvider.PROVIDER_ID;
-    },
-    set PROVIDER_ID(_) {}
-  }, false);
-  auth$.GithubAuthProvider = class GithubAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.GithubAuthProvider, "firebase.auth.GithubAuthProvider")) {
-    static new() {
-      return new auth$.GithubAuthProvider.fromJsObject(new dart.global.firebase.auth.GithubAuthProvider());
+  }).prototype = method_channel_reference.MethodChannelReference.prototype;
+  dart.addTypeTests(method_channel_reference.MethodChannelReference);
+  dart.addTypeCaches(method_channel_reference.MethodChannelReference);
+  dart.setLibraryUri(method_channel_reference.MethodChannelReference, I[7]);
+  var maxOperationRetryTime = dart.privateName(method_channel_firebase_storage, "MethodChannelFirebaseStorage.maxOperationRetryTime");
+  var maxUploadRetryTime = dart.privateName(method_channel_firebase_storage, "MethodChannelFirebaseStorage.maxUploadRetryTime");
+  var maxDownloadRetryTime = dart.privateName(method_channel_firebase_storage, "MethodChannelFirebaseStorage.maxDownloadRetryTime");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _handleTaskStateChange = dart.privateName(method_channel_firebase_storage, "_handleTaskStateChange");
+  var _sendTaskException = dart.privateName(method_channel_firebase_storage, "_sendTaskException");
+  var appInstance$ = dart.privateName(platform_interface_firebase_storage, "FirebaseStoragePlatform.appInstance");
+  var bucket$ = dart.privateName(platform_interface_firebase_storage, "FirebaseStoragePlatform.bucket");
+  var emulatorHost = dart.privateName(platform_interface_firebase_storage, "FirebaseStoragePlatform.emulatorHost");
+  var emulatorPort = dart.privateName(platform_interface_firebase_storage, "FirebaseStoragePlatform.emulatorPort");
+  platform_interface_firebase_storage.FirebaseStoragePlatform = class FirebaseStoragePlatform extends plugin_platform_interface.PlatformInterface {
+    get appInstance() {
+      return this[appInstance$];
     }
-    addScope(scope) {
-      return new auth$.GithubAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    set appInstance(value) {
+      super.appInstance = value;
     }
-    setCustomParameters(customOAuthParameters) {
-      return new auth$.GithubAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    get bucket() {
+      return this[bucket$];
     }
-    static credential(token) {
-      return dart.global.firebase.auth.GithubAuthProvider.credential(token);
+    set bucket(value) {
+      super.bucket = value;
     }
-  };
-  (auth$.GithubAuthProvider.fromJsObject = function(jsObject) {
-    auth$.GithubAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.GithubAuthProvider.prototype;
-  dart.addTypeTests(auth$.GithubAuthProvider);
-  dart.addTypeCaches(auth$.GithubAuthProvider);
-  dart.setMethodSignature(auth$.GithubAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.GithubAuthProvider.__proto__),
-    addScope: dart.fnType(auth$.GithubAuthProvider, [core.String]),
-    setCustomParameters: dart.fnType(auth$.GithubAuthProvider, [core.Map$(dart.nullable(core.Object), dart.nullable(core.Object))])
-  }));
-  dart.setLibraryUri(auth$.GithubAuthProvider, I[0]);
-  dart.defineLazy(auth$.GithubAuthProvider, {
-    /*auth$.GithubAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
-      return dart.global.firebase.auth.GithubAuthProvider.PROVIDER_ID;
-    },
-    set PROVIDER_ID(_) {}
-  }, false);
-  auth$.GoogleAuthProvider = class GoogleAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.GoogleAuthProvider, "firebase.auth.GoogleAuthProvider")) {
-    static new() {
-      return new auth$.GoogleAuthProvider.fromJsObject(new dart.global.firebase.auth.GoogleAuthProvider());
+    get emulatorHost() {
+      return this[emulatorHost];
     }
-    addScope(scope) {
-      return new auth$.GoogleAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    set emulatorHost(value) {
+      this[emulatorHost] = value;
     }
-    setCustomParameters(customOAuthParameters) {
-      return new auth$.GoogleAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    get emulatorPort() {
+      return this[emulatorPort];
     }
-    static credential(idToken = null, accessToken = null) {
-      return dart.global.firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
+    set emulatorPort(value) {
+      this[emulatorPort] = value;
     }
-  };
-  (auth$.GoogleAuthProvider.fromJsObject = function(jsObject) {
-    auth$.GoogleAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.GoogleAuthProvider.prototype;
-  dart.addTypeTests(auth$.GoogleAuthProvider);
-  dart.addTypeCaches(auth$.GoogleAuthProvider);
-  dart.setMethodSignature(auth$.GoogleAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.GoogleAuthProvider.__proto__),
-    addScope: dart.fnType(auth$.GoogleAuthProvider, [core.String]),
-    setCustomParameters: dart.fnType(auth$.GoogleAuthProvider, [core.Map$(dart.nullable(core.Object), dart.nullable(core.Object))])
-  }));
-  dart.setLibraryUri(auth$.GoogleAuthProvider, I[0]);
-  dart.defineLazy(auth$.GoogleAuthProvider, {
-    /*auth$.GoogleAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
-      return dart.global.firebase.auth.GoogleAuthProvider.PROVIDER_ID;
-    },
-    set PROVIDER_ID(_) {}
-  }, false);
-  auth$.OAuthProvider = class OAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.OAuthProvider, "firebase.auth.OAuthProvider")) {
-    static new(providerId) {
-      return new auth$.OAuthProvider.fromJsObject(new dart.global.firebase.auth.OAuthProvider(providerId));
+    static instanceFor(opts) {
+      let app = opts && 'app' in opts ? opts.app : null;
+      let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+      return platform_interface_firebase_storage.FirebaseStoragePlatform.instance.delegateFor({app: app, bucket: bucket});
     }
-    addScope(scope) {
-      return new auth$.OAuthProvider.fromJsObject(this.jsObject.addScope(scope));
-    }
-    setCustomParameters(customOAuthParameters) {
-      return new auth$.OAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
-    }
-    credential(idToken = null, accessToken = null) {
-      return this.jsObject.credential(idToken, accessToken);
-    }
-  };
-  (auth$.OAuthProvider.fromJsObject = function(jsObject) {
-    auth$.OAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.OAuthProvider.prototype;
-  dart.addTypeTests(auth$.OAuthProvider);
-  dart.addTypeCaches(auth$.OAuthProvider);
-  dart.setMethodSignature(auth$.OAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.OAuthProvider.__proto__),
-    addScope: dart.fnType(auth$.OAuthProvider, [core.String]),
-    setCustomParameters: dart.fnType(auth$.OAuthProvider, [core.Map$(dart.nullable(core.Object), dart.nullable(core.Object))]),
-    credential: dart.fnType(dart.anonymousJSType("OAuthCredential"), [], [dart.nullable(core.String), dart.nullable(core.String)])
-  }));
-  dart.setLibraryUri(auth$.OAuthProvider, I[0]);
-  auth$.TwitterAuthProvider = class TwitterAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.TwitterAuthProvider, "firebase.auth.TwitterAuthProvider")) {
-    static new() {
-      return new auth$.TwitterAuthProvider.fromJsObject(new dart.global.firebase.auth.TwitterAuthProvider());
-    }
-    setCustomParameters(customOAuthParameters) {
-      return new auth$.TwitterAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
-    }
-    static credential(token, secret) {
-      return dart.global.firebase.auth.TwitterAuthProvider.credential(token, secret);
-    }
-  };
-  (auth$.TwitterAuthProvider.fromJsObject = function(jsObject) {
-    auth$.TwitterAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.TwitterAuthProvider.prototype;
-  dart.addTypeTests(auth$.TwitterAuthProvider);
-  dart.addTypeCaches(auth$.TwitterAuthProvider);
-  dart.setMethodSignature(auth$.TwitterAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.TwitterAuthProvider.__proto__),
-    setCustomParameters: dart.fnType(auth$.TwitterAuthProvider, [core.Map$(dart.nullable(core.Object), dart.nullable(core.Object))])
-  }));
-  dart.setLibraryUri(auth$.TwitterAuthProvider, I[0]);
-  dart.defineLazy(auth$.TwitterAuthProvider, {
-    /*auth$.TwitterAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
-      return dart.global.firebase.auth.TwitterAuthProvider.PROVIDER_ID;
-    },
-    set PROVIDER_ID(_) {}
-  }, false);
-  auth$.PhoneAuthProvider = class PhoneAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.PhoneAuthProvider, "firebase.auth.PhoneAuthProvider")) {
-    static get PROVIDER_ID() {
-      return dart.global.firebase.auth.PhoneAuthProvider.PROVIDER_ID;
-    }
-    static new(auth = null) {
-      return new auth$.PhoneAuthProvider.fromJsObject(auth != null ? new dart.global.firebase.auth.PhoneAuthProvider(auth.jsObject) : new dart.global.firebase.auth.PhoneAuthProvider());
-    }
-    verifyPhoneNumber(phoneNumber, applicationVerifier) {
-      return utils.handleThenable(core.String, this.jsObject.verifyPhoneNumber(phoneNumber, applicationVerifier.jsObject));
-    }
-    static credential(verificationId, verificationCode) {
-      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.PhoneAuthProvider.credential(verificationId, verificationCode));
-    }
-  };
-  (auth$.PhoneAuthProvider.fromJsObject = function(jsObject) {
-    auth$.PhoneAuthProvider.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.PhoneAuthProvider.prototype;
-  dart.addTypeTests(auth$.PhoneAuthProvider);
-  dart.addTypeCaches(auth$.PhoneAuthProvider);
-  dart.setMethodSignature(auth$.PhoneAuthProvider, () => ({
-    __proto__: dart.getMethods(auth$.PhoneAuthProvider.__proto__),
-    verifyPhoneNumber: dart.fnType(async.Future$(core.String), [core.String, auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier"))])
-  }));
-  dart.setLibraryUri(auth$.PhoneAuthProvider, I[0]);
-  const _is_ApplicationVerifier_default = Symbol('_is_ApplicationVerifier_default');
-  auth$.ApplicationVerifier$ = dart.generic(T => {
-    class ApplicationVerifier extends js$.JsObjectWrapper$(T) {
-      get type() {
-        return this.jsObject.type;
+    get app() {
+      if (this.appInstance == null) {
+        return firebase_core.Firebase.app();
       }
-      verify() {
-        return utils.handleThenable(core.String, this.jsObject.verify());
+      return dart.nullCheck(this.appInstance);
+    }
+    static get instance() {
+      let t18;
+      t18 = platform_interface_firebase_storage.FirebaseStoragePlatform._instance;
+      return t18 == null ? platform_interface_firebase_storage.FirebaseStoragePlatform._instance = method_channel_firebase_storage.MethodChannelFirebaseStorage.instance : t18;
+    }
+    static set instance(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, platform_interface_firebase_storage.FirebaseStoragePlatform._token);
+      platform_interface_firebase_storage.FirebaseStoragePlatform._instance = instance;
+    }
+    get maxOperationRetryTime() {
+      dart.throw(new core.UnimplementedError.new("get.maxOperationRetryTime is not implemented"));
+    }
+    get maxUploadRetryTime() {
+      dart.throw(new core.UnimplementedError.new("get.maxUploadRetryTime is not implemented"));
+    }
+    get maxDownloadRetryTime() {
+      dart.throw(new core.UnimplementedError.new("get.maxDownloadRetryTime is not implemented"));
+    }
+    delegateFor(opts) {
+      let app = opts && 'app' in opts ? opts.app : null;
+      let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+      dart.throw(new core.UnimplementedError.new("delegateFor() is not implemented"));
+    }
+    ref(path) {
+      dart.throw(new core.UnimplementedError.new("ref() is not implemented"));
+    }
+    useEmulator(host, port) {
+      dart.throw(new core.UnimplementedError.new("useEmulator() is not implemented"));
+    }
+    setMaxOperationRetryTime(time) {
+      dart.throw(new core.UnimplementedError.new("setMaxOperationRetryTime() is not implemented"));
+    }
+    setMaxUploadRetryTime(time) {
+      dart.throw(new core.UnimplementedError.new("setMaxUploadRetryTime() is not implemented"));
+    }
+    setMaxDownloadRetryTime(time) {
+      dart.throw(new core.UnimplementedError.new("setMaxDownloadRetryTime() is not implemented"));
+    }
+  };
+  (platform_interface_firebase_storage.FirebaseStoragePlatform.new = function(opts) {
+    let appInstance = opts && 'appInstance' in opts ? opts.appInstance : null;
+    let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+    this[emulatorHost] = null;
+    this[emulatorPort] = null;
+    this[appInstance$] = appInstance;
+    this[bucket$] = bucket;
+    platform_interface_firebase_storage.FirebaseStoragePlatform.__proto__.new.call(this, {token: platform_interface_firebase_storage.FirebaseStoragePlatform._token});
+    ;
+  }).prototype = platform_interface_firebase_storage.FirebaseStoragePlatform.prototype;
+  dart.addTypeTests(platform_interface_firebase_storage.FirebaseStoragePlatform);
+  dart.addTypeCaches(platform_interface_firebase_storage.FirebaseStoragePlatform);
+  dart.setMethodSignature(platform_interface_firebase_storage.FirebaseStoragePlatform, () => ({
+    __proto__: dart.getMethods(platform_interface_firebase_storage.FirebaseStoragePlatform.__proto__),
+    delegateFor: dart.fnType(platform_interface_firebase_storage.FirebaseStoragePlatform, [], {}, {app: firebase_core.FirebaseApp, bucket: core.String}),
+    ref: dart.fnType(platform_interface_reference.ReferencePlatform, [core.String]),
+    useEmulator: dart.fnType(async.Future$(dart.void), [core.String, core.int]),
+    setMaxOperationRetryTime: dart.fnType(dart.void, [core.int]),
+    setMaxUploadRetryTime: dart.fnType(dart.void, [core.int]),
+    setMaxDownloadRetryTime: dart.fnType(dart.void, [core.int])
+  }));
+  dart.setGetterSignature(platform_interface_firebase_storage.FirebaseStoragePlatform, () => ({
+    __proto__: dart.getGetters(platform_interface_firebase_storage.FirebaseStoragePlatform.__proto__),
+    app: firebase_core.FirebaseApp,
+    maxOperationRetryTime: core.int,
+    maxUploadRetryTime: core.int,
+    maxDownloadRetryTime: core.int
+  }));
+  dart.setLibraryUri(platform_interface_firebase_storage.FirebaseStoragePlatform, I[8]);
+  dart.setFieldSignature(platform_interface_firebase_storage.FirebaseStoragePlatform, () => ({
+    __proto__: dart.getFields(platform_interface_firebase_storage.FirebaseStoragePlatform.__proto__),
+    appInstance: dart.finalFieldType(dart.nullable(firebase_core.FirebaseApp)),
+    bucket: dart.finalFieldType(core.String),
+    emulatorHost: dart.fieldType(dart.nullable(core.String)),
+    emulatorPort: dart.fieldType(dart.nullable(core.int))
+  }));
+  dart.defineLazy(platform_interface_firebase_storage.FirebaseStoragePlatform, {
+    /*platform_interface_firebase_storage.FirebaseStoragePlatform._token*/get _token() {
+      return new core.Object.new();
+    },
+    /*platform_interface_firebase_storage.FirebaseStoragePlatform._instance*/get _instance() {
+      return null;
+    },
+    set _instance(_) {}
+  }, false);
+  var MethodChannel__binaryMessenger = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
+  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
+  var MethodChannel_codec = dart.privateName(platform_channel, "MethodChannel.codec");
+  var MethodChannel_name = dart.privateName(platform_channel, "MethodChannel.name");
+  method_channel_firebase_storage.MethodChannelFirebaseStorage = class MethodChannelFirebaseStorage extends platform_interface_firebase_storage.FirebaseStoragePlatform {
+    get maxOperationRetryTime() {
+      return this[maxOperationRetryTime];
+    }
+    set maxOperationRetryTime(value) {
+      this[maxOperationRetryTime] = value;
+    }
+    get maxUploadRetryTime() {
+      return this[maxUploadRetryTime];
+    }
+    set maxUploadRetryTime(value) {
+      this[maxUploadRetryTime] = value;
+    }
+    get maxDownloadRetryTime() {
+      return this[maxDownloadRetryTime];
+    }
+    set maxDownloadRetryTime(value) {
+      this[maxDownloadRetryTime] = value;
+    }
+    static _getInstanceKey(appName, bucket) {
+      return appName + "|" + bucket;
+    }
+    static get instance() {
+      return new method_channel_firebase_storage.MethodChannelFirebaseStorage.__();
+    }
+    static get nextMethodChannelHandleId() {
+      let t17;
+      t17 = method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelHandleId;
+      method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelHandleId = t17 + 1;
+      return t17;
+    }
+    [_handleTaskStateChange](taskState, $arguments) {
+      return async.async(dart.void, function* _handleTaskStateChange() {
+        let snapshotData = T.LinkedHashMapOfString$dynamic().from(core.Map.as($arguments[$_get]("snapshot")));
+        let storage = dart.nullCheck(method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelFirebaseStorageInstances[$_get](method_channel_firebase_storage.MethodChannelFirebaseStorage._getInstanceKey(core.String.as($arguments[$_get]("appName")), core.String.as($arguments[$_get]("bucket")))));
+        let snapshot = new method_channel_task_snapshot.MethodChannelTaskSnapshot.new(storage, taskState, snapshotData);
+        dart.nullCheck(method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_get]($arguments[$_get]("handle"))).add(snapshot);
+      });
+    }
+    [_sendTaskException](handle, exception) {
+      dart.nullCheck(method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers[$_get](handle)).addError(exception);
+    }
+    delegateFor(opts) {
+      let t20, t19, t18, t17;
+      let app = opts && 'app' in opts ? opts.app : null;
+      let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+      let key = method_channel_firebase_storage.MethodChannelFirebaseStorage._getInstanceKey(app.name, bucket);
+      t17 = method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelFirebaseStorageInstances;
+      t18 = key;
+      t19 = t17[$_get](t18);
+      return t19 == null ? (t20 = new method_channel_firebase_storage.MethodChannelFirebaseStorage.new({app: app, bucket: bucket}), t17[$_set](t18, t20), t20) : t19;
+    }
+    ref(path) {
+      return new method_channel_reference.MethodChannelReference.new(this, path);
+    }
+    useEmulator(host, port) {
+      return async.async(dart.void, (function* useEmulator() {
+        this.emulatorHost = host;
+        this.emulatorPort = port;
+        try {
+          yield method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.invokeMethod(dart.dynamic, "Storage#useEmulator", new (T.IdentityMapOfString$dynamic()).from(["appName", this.app.name, "maxOperationRetryTime", this.maxOperationRetryTime, "maxUploadRetryTime", this.maxUploadRetryTime, "maxDownloadRetryTime", this.maxDownloadRetryTime, "bucket", this.bucket, "host", this.emulatorHost, "port", this.emulatorPort]));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          let s = dart.stackTrace(e$);
+          if (core.Object.is(e)) {
+            dart.throw(exception.convertPlatformException(e, s));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    setMaxOperationRetryTime(time) {
+      this.maxOperationRetryTime = time;
+    }
+    setMaxUploadRetryTime(time) {
+      this.maxUploadRetryTime = time;
+    }
+    setMaxDownloadRetryTime(time) {
+      return async.async(dart.void, (function* setMaxDownloadRetryTime() {
+        this.maxDownloadRetryTime = time;
+      }).bind(this));
+    }
+  };
+  (method_channel_firebase_storage.MethodChannelFirebaseStorage.new = function(opts) {
+    let app = opts && 'app' in opts ? opts.app : null;
+    let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+    this[maxOperationRetryTime] = (C[0] || CT.C0).inMilliseconds;
+    this[maxUploadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    this[maxDownloadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    method_channel_firebase_storage.MethodChannelFirebaseStorage.__proto__.new.call(this, {appInstance: app, bucket: bucket});
+    if (method_channel_firebase_storage.MethodChannelFirebaseStorage._initialized) return;
+    method_channel_firebase_storage.MethodChannelFirebaseStorage.channel.setMethodCallHandler(dart.fn(call => async.async(dart.void, (function*() {
+      let $arguments = core.Map.as(call.arguments);
+      switch (call.method) {
+        case "Task#onProgress":
+        {
+          return this[_handleTaskStateChange](task_state.TaskState.running, $arguments);
+        }
+        case "Task#onPaused":
+        {
+          return this[_handleTaskStateChange](task_state.TaskState.paused, $arguments);
+        }
+        case "Task#onSuccess":
+        {
+          return this[_handleTaskStateChange](task_state.TaskState.success, $arguments);
+        }
+        case "Task#onCanceled":
+        {
+          return this[_sendTaskException](core.int.as($arguments[$_get]("handle")), new firebase_core_platform_interface.FirebaseException.new({plugin: "firebase_storage", code: "canceled", message: "User canceled the upload/download."}));
+        }
+        case "Task#onFailure":
+        {
+          let errorMap = T.LinkedHashMapOfString$dynamic().from(core.Map.as($arguments[$_get]("error")));
+          return this[_sendTaskException](core.int.as($arguments[$_get]("handle")), new firebase_core_platform_interface.FirebaseException.new({plugin: "firebase_storage", code: core.String.as(errorMap[$_get]("code")), message: T.StringN().as(errorMap[$_get]("message"))}));
+        }
       }
-    }
-    (ApplicationVerifier.fromJsObject = function(jsObject) {
-      ApplicationVerifier.__proto__.fromJsObject.call(this, jsObject);
-      ;
-    }).prototype = ApplicationVerifier.prototype;
-    dart.addTypeTests(ApplicationVerifier);
-    ApplicationVerifier.prototype[_is_ApplicationVerifier_default] = true;
-    dart.addTypeCaches(ApplicationVerifier);
-    dart.setMethodSignature(ApplicationVerifier, () => ({
-      __proto__: dart.getMethods(ApplicationVerifier.__proto__),
-      verify: dart.fnType(async.Future$(core.String), [])
-    }));
-    dart.setGetterSignature(ApplicationVerifier, () => ({
-      __proto__: dart.getGetters(ApplicationVerifier.__proto__),
-      type: core.String
-    }));
-    dart.setLibraryUri(ApplicationVerifier, I[0]);
-    return ApplicationVerifier;
-  });
-  auth$.ApplicationVerifier = auth$.ApplicationVerifier$();
-  dart.addTypeTests(auth$.ApplicationVerifier, _is_ApplicationVerifier_default);
-  auth$.RecaptchaVerifier = class RecaptchaVerifier extends auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.RecaptchaVerifier, "firebase.auth.RecaptchaVerifier")) {
-    static new(container, parameters = null, app = null) {
-      return parameters != null ? app != null ? new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container, utils$.jsify(parameters), app.jsObject)) : new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container, utils$.jsify(parameters))) : new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container));
-    }
-    clear() {
-      return this.jsObject.clear();
-    }
-    render() {
-      return utils.handleThenable(core.num, this.jsObject.render());
-    }
-  };
-  (auth$.RecaptchaVerifier.fromJsObject = function(jsObject) {
-    auth$.RecaptchaVerifier.__proto__.fromJsObject.call(this, jsObject);
+    }).bind(this)), T.MethodCallToFutureOfvoid()));
+    method_channel_firebase_storage.MethodChannelFirebaseStorage._initialized = true;
+  }).prototype = method_channel_firebase_storage.MethodChannelFirebaseStorage.prototype;
+  (method_channel_firebase_storage.MethodChannelFirebaseStorage.__ = function() {
+    this[maxOperationRetryTime] = (C[0] || CT.C0).inMilliseconds;
+    this[maxUploadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    this[maxDownloadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    method_channel_firebase_storage.MethodChannelFirebaseStorage.__proto__.new.call(this, {appInstance: null, bucket: ""});
     ;
-  }).prototype = auth$.RecaptchaVerifier.prototype;
-  dart.addTypeTests(auth$.RecaptchaVerifier);
-  dart.addTypeCaches(auth$.RecaptchaVerifier);
-  dart.setMethodSignature(auth$.RecaptchaVerifier, () => ({
-    __proto__: dart.getMethods(auth$.RecaptchaVerifier.__proto__),
-    clear: dart.fnType(dart.void, []),
-    render: dart.fnType(async.Future$(core.num), [])
+  }).prototype = method_channel_firebase_storage.MethodChannelFirebaseStorage.prototype;
+  dart.addTypeTests(method_channel_firebase_storage.MethodChannelFirebaseStorage);
+  dart.addTypeCaches(method_channel_firebase_storage.MethodChannelFirebaseStorage);
+  dart.setMethodSignature(method_channel_firebase_storage.MethodChannelFirebaseStorage, () => ({
+    __proto__: dart.getMethods(method_channel_firebase_storage.MethodChannelFirebaseStorage.__proto__),
+    [_handleTaskStateChange]: dart.fnType(async.Future$(dart.void), [task_state.TaskState, core.Map]),
+    [_sendTaskException]: dart.fnType(dart.void, [core.int, firebase_core_platform_interface.FirebaseException]),
+    setMaxDownloadRetryTime: dart.fnType(async.Future$(dart.void), [core.int])
   }));
-  dart.setLibraryUri(auth$.RecaptchaVerifier, I[0]);
-  auth$.ConfirmationResult = class ConfirmationResult extends js$.JsObjectWrapper$(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult")) {
-    get verificationId() {
-      return this.jsObject.verificationId;
-    }
-    confirm(verificationCode) {
-      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.confirm(verificationCode)).then(auth$.UserCredential, dart.fn(u => new auth$.UserCredential.fromJsObject(u), T.UserCredentialJsImplToUserCredential()));
-    }
-  };
-  (auth$.ConfirmationResult.fromJsObject = function(jsObject) {
-    auth$.ConfirmationResult.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.ConfirmationResult.prototype;
-  dart.addTypeTests(auth$.ConfirmationResult);
-  dart.addTypeCaches(auth$.ConfirmationResult);
-  dart.setMethodSignature(auth$.ConfirmationResult, () => ({
-    __proto__: dart.getMethods(auth$.ConfirmationResult.__proto__),
-    confirm: dart.fnType(async.Future$(auth$.UserCredential), [core.String])
+  dart.setLibraryUri(method_channel_firebase_storage.MethodChannelFirebaseStorage, I[9]);
+  dart.setFieldSignature(method_channel_firebase_storage.MethodChannelFirebaseStorage, () => ({
+    __proto__: dart.getFields(method_channel_firebase_storage.MethodChannelFirebaseStorage.__proto__),
+    maxOperationRetryTime: dart.fieldType(core.int),
+    maxUploadRetryTime: dart.fieldType(core.int),
+    maxDownloadRetryTime: dart.fieldType(core.int)
   }));
-  dart.setGetterSignature(auth$.ConfirmationResult, () => ({
-    __proto__: dart.getGetters(auth$.ConfirmationResult.__proto__),
-    verificationId: core.String
-  }));
-  dart.setLibraryUri(auth$.ConfirmationResult, I[0]);
-  auth$.UserCredential = class UserCredential extends js$.JsObjectWrapper$(dart.anonymousJSType("UserCredentialJsImpl")) {
-    get user() {
-      return auth$.User.getInstance(this.jsObject.user);
+  dart.defineLazy(method_channel_firebase_storage.MethodChannelFirebaseStorage, {
+    /*method_channel_firebase_storage.MethodChannelFirebaseStorage._initialized*/get _initialized() {
+      return false;
+    },
+    set _initialized(_) {},
+    /*method_channel_firebase_storage.MethodChannelFirebaseStorage.channel*/get channel() {
+      return C[2] || CT.C2;
+    },
+    /*method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelFirebaseStorageInstances*/get _methodChannelFirebaseStorageInstances() {
+      return new (T.IdentityMapOfString$MethodChannelFirebaseStorage()).new();
+    },
+    set _methodChannelFirebaseStorageInstances(_) {},
+    /*method_channel_firebase_storage.MethodChannelFirebaseStorage._methodChannelHandleId*/get _methodChannelHandleId() {
+      return 0;
+    },
+    set _methodChannelHandleId(_) {},
+    /*method_channel_firebase_storage.MethodChannelFirebaseStorage.taskObservers*/get taskObservers() {
+      return new (T.IdentityMapOfint$StreamControllerOfTaskSnapshotPlatform()).new();
     }
-    get credential() {
-      return this.jsObject.credential;
-    }
-    get operationType() {
-      return this.jsObject.operationType;
-    }
-    get additionalUserInfo() {
-      return new auth$.AdditionalUserInfo.fromJsObject(this.jsObject.additionalUserInfo);
-    }
-  };
-  (auth$.UserCredential.fromJsObject = function(jsObject) {
-    auth$.UserCredential.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.UserCredential.prototype;
-  dart.addTypeTests(auth$.UserCredential);
-  dart.addTypeCaches(auth$.UserCredential);
-  dart.setGetterSignature(auth$.UserCredential, () => ({
-    __proto__: dart.getGetters(auth$.UserCredential.__proto__),
-    user: dart.nullable(auth$.User),
-    credential: dart.anonymousJSType("OAuthCredential"),
-    operationType: core.String,
-    additionalUserInfo: auth$.AdditionalUserInfo
-  }));
-  dart.setLibraryUri(auth$.UserCredential, I[0]);
-  auth$.AdditionalUserInfo = class AdditionalUserInfo extends js$.JsObjectWrapper$(dart.anonymousJSType("AdditionalUserInfoJsImpl")) {
-    get providerId() {
-      return this.jsObject.providerId;
-    }
-    get profile() {
-      return T.MapNOfString$dynamic().as(utils$.dartify(this.jsObject.profile));
-    }
-    get username() {
-      return this.jsObject.username;
-    }
-    get isNewUser() {
-      return this.jsObject.isNewUser;
-    }
-  };
-  (auth$.AdditionalUserInfo.fromJsObject = function(jsObject) {
-    auth$.AdditionalUserInfo.__proto__.fromJsObject.call(this, jsObject);
-    ;
-  }).prototype = auth$.AdditionalUserInfo.prototype;
-  dart.addTypeTests(auth$.AdditionalUserInfo);
-  dart.addTypeCaches(auth$.AdditionalUserInfo);
-  dart.setGetterSignature(auth$.AdditionalUserInfo, () => ({
-    __proto__: dart.getGetters(auth$.AdditionalUserInfo.__proto__),
-    providerId: core.String,
-    profile: dart.nullable(core.Map$(core.String, dart.dynamic)),
-    username: core.String,
-    isNewUser: core.bool
-  }));
-  dart.setLibraryUri(auth$.AdditionalUserInfo, I[0]);
-  auth$.getAuthInstance = function getAuthInstance(app = null) {
-    return auth$.Auth.getInstance(app != null ? dart.global.firebase.auth(app.jsObject) : dart.global.firebase.auth());
-  };
-  dart.trackLibraries("packages/firebase_auth_web/src/interop/auth.dart", {
-    "package:firebase_auth_web/src/interop/auth.dart": auth$
+  }, false);
+  dart.trackLibraries("packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart", {
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart": platform_interface_task_snapshot,
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_task.dart": platform_interface_task,
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_reference.dart": platform_interface_reference,
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_list_result.dart": platform_interface_list_result,
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_task_snapshot.dart": method_channel_task_snapshot,
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_task.dart": method_channel_task,
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_list_result.dart": method_channel_list_result,
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_reference.dart": method_channel_reference,
+    "package:firebase_storage_platform_interface/src/method_channel/method_channel_firebase_storage.dart": method_channel_firebase_storage,
+    "package:firebase_storage_platform_interface/src/platform_interface/platform_interface_firebase_storage.dart": platform_interface_firebase_storage,
+    "package:firebase_storage_platform_interface/firebase_storage_platform_interface.dart": firebase_storage_platform_interface
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["auth.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/firebase_auth_web/src/interop/auth.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["platform_interface_task_snapshot.dart","platform_interface_task.dart","platform_interface_reference.dart","platform_interface_list_result.dart","../method_channel/method_channel_task_snapshot.dart","../method_channel/method_channel_task.dart","../method_channel/method_channel_list_result.dart","../method_channel/method_channel_reference.dart","platform_interface_firebase_storage.dart","../method_channel/method_channel_firebase_storage.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart.lib.js"}');
   // Exports:
   return {
-    src__interop__auth: auth$
+    src__platform_interface__platform_interface_task_snapshot: platform_interface_task_snapshot,
+    src__platform_interface__platform_interface_task: platform_interface_task,
+    src__platform_interface__platform_interface_reference: platform_interface_reference,
+    src__platform_interface__platform_interface_list_result: platform_interface_list_result,
+    src__method_channel__method_channel_task_snapshot: method_channel_task_snapshot,
+    src__method_channel__method_channel_task: method_channel_task,
+    src__method_channel__method_channel_list_result: method_channel_list_result,
+    src__method_channel__method_channel_reference: method_channel_reference,
+    src__method_channel__method_channel_firebase_storage: method_channel_firebase_storage,
+    src__platform_interface__platform_interface_firebase_storage: platform_interface_firebase_storage,
+    firebase_storage_platform_interface: firebase_storage_platform_interface
   };
 }));
 
-//# sourceMappingURL=auth.dart.lib.js.map
+//# sourceMappingURL=platform_interface_task_snapshot.dart.lib.js.map

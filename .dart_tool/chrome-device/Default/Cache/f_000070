@@ -1,204 +1,231 @@
-define(['dart_sdk', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart'], (function load__packages__flutter__src__rendering__sliver_list_dart(dart_sdk, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart'], (function load__packages__flutter__src__rendering__sliver_fixed_extent_list_dart(dart_sdk, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
   const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
   const sliver_multi_box_adaptor = packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart.src__rendering__sliver_multi_box_adaptor;
-  var sliver_list = Object.create(dart.library);
+  var sliver_fixed_extent_list = Object.create(dart.library);
+  var $round = dartx.round;
+  var $abs = dartx.abs;
+  var $floor = dartx.floor;
+  var $ceil = dartx.ceil;
+  var $isFinite = dartx.isFinite;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   var I = [
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/sliver_list.dart",
-    "package:flutter/src/rendering/sliver_list.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/sliver_fixed_extent_list.dart",
+    "package:flutter/src/rendering/sliver_fixed_extent_list.dart"
   ];
-  sliver_list.RenderSliverList = class RenderSliverList extends sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor {
+  var _calculateLeadingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateLeadingGarbage");
+  var _calculateTrailingGarbage = dart.privateName(sliver_fixed_extent_list, "_calculateTrailingGarbage");
+  sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor = class RenderSliverFixedExtentBoxAdaptor extends sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor {
+    indexToLayoutOffset(itemExtent, index) {
+      return itemExtent * index;
+    }
+    getMinChildIndexForScrollOffset(scrollOffset, itemExtent) {
+      if (itemExtent > 0.0) {
+        let actual = scrollOffset / itemExtent;
+        let round = actual[$round]();
+        if ((actual - round)[$abs]() < 1e-10) {
+          return round;
+        }
+        return actual[$floor]();
+      }
+      return 0;
+    }
+    getMaxChildIndexForScrollOffset(scrollOffset, itemExtent) {
+      if (itemExtent > 0.0) {
+        let actual = scrollOffset / itemExtent - 1;
+        let round = actual[$round]();
+        if (sliver_fixed_extent_list._isWithinPrecisionErrorTolerance(actual, round)) {
+          return math.max(core.int, 0, round);
+        }
+        return math.max(core.int, 0, actual[$ceil]());
+      }
+      return 0;
+    }
+    estimateMaxScrollOffset(constraints, opts) {
+      let firstIndex = opts && 'firstIndex' in opts ? opts.firstIndex : null;
+      let lastIndex = opts && 'lastIndex' in opts ? opts.lastIndex : null;
+      let leadingScrollOffset = opts && 'leadingScrollOffset' in opts ? opts.leadingScrollOffset : null;
+      let trailingScrollOffset = opts && 'trailingScrollOffset' in opts ? opts.trailingScrollOffset : null;
+      return this.childManager.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset});
+    }
+    computeMaxScrollOffset(constraints, itemExtent) {
+      return this.childManager.childCount * itemExtent;
+    }
+    [_calculateLeadingGarbage](firstIndex) {
+      let walker = this.firstChild;
+      let leadingGarbage = 0;
+      while (walker != null && this.indexOf(walker) < firstIndex) {
+        leadingGarbage = leadingGarbage + 1;
+        walker = this.childAfter(walker);
+      }
+      return leadingGarbage;
+    }
+    [_calculateTrailingGarbage](targetLastIndex) {
+      let walker = this.lastChild;
+      let trailingGarbage = 0;
+      while (walker != null && this.indexOf(walker) > targetLastIndex) {
+        trailingGarbage = trailingGarbage + 1;
+        walker = this.childBefore(walker);
+      }
+      return trailingGarbage;
+    }
     performLayout() {
       let constraints = this.constraints;
       this.childManager.didStartLayout();
       this.childManager.setDidUnderflow(false);
+      let itemExtent = this.itemExtent;
       let scrollOffset = constraints.scrollOffset + constraints.cacheOrigin;
-      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[0], 52, 12, "scrollOffset >= 0.0");
+      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[0], 182, 12, "scrollOffset >= 0.0");
       let remainingExtent = constraints.remainingCacheExtent;
-      if (!(remainingExtent >= 0.0)) dart.assertFailed(null, I[0], 54, 12, "remainingExtent >= 0.0");
+      if (!(remainingExtent >= 0.0)) dart.assertFailed(null, I[0], 184, 12, "remainingExtent >= 0.0");
       let targetEndScrollOffset = scrollOffset + remainingExtent;
-      let childConstraints = constraints.asBoxConstraints();
-      let leadingGarbage = 0;
-      let trailingGarbage = 0;
-      let reachedEnd = false;
+      let childConstraints = constraints.asBoxConstraints({minExtent: itemExtent, maxExtent: itemExtent});
+      let firstIndex = this.getMinChildIndexForScrollOffset(scrollOffset, itemExtent);
+      let targetLastIndex = targetEndScrollOffset[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffset, itemExtent) : null;
+      if (this.firstChild != null) {
+        let leadingGarbage = this[_calculateLeadingGarbage](firstIndex);
+        let trailingGarbage = targetLastIndex != null ? this[_calculateTrailingGarbage](targetLastIndex) : 0;
+        this.collectGarbage(leadingGarbage, trailingGarbage);
+      } else {
+        this.collectGarbage(0, 0);
+      }
       if (this.firstChild == null) {
-        if (!this.addInitialChild()) {
-          this.geometry = sliver.SliverGeometry.zero;
+        if (!this.addInitialChild({index: firstIndex, layoutOffset: this.indexToLayoutOffset(itemExtent, firstIndex)})) {
+          let max = null;
+          if (firstIndex <= 0) {
+            max = 0.0;
+          } else {
+            max = this.computeMaxScrollOffset(constraints, itemExtent);
+          }
+          this.geometry = new sliver.SliverGeometry.new({scrollExtent: max, maxPaintExtent: max});
           this.childManager.didFinishLayout();
           return;
         }
       }
-      let leadingChildWithLayout = null;
       let trailingChildWithLayout = null;
-      let earliestUsefulChild = this.firstChild;
-      if (this.childScrollOffset(dart.nullCheck(this.firstChild)) == null) {
-        let leadingChildrenWithoutLayoutOffset = 0;
-        while (earliestUsefulChild != null && this.childScrollOffset(earliestUsefulChild) == null) {
-          earliestUsefulChild = this.childAfter(earliestUsefulChild);
-          leadingChildrenWithoutLayoutOffset = leadingChildrenWithoutLayoutOffset + 1;
+      for (let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1; index >= firstIndex; index = index - 1) {
+        let child = this.insertAndLayoutLeadingChild(childConstraints);
+        if (child == null) {
+          this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: index * itemExtent});
+          return;
         }
-        this.collectGarbage(leadingChildrenWithoutLayoutOffset, 0);
-        if (this.firstChild == null) {
-          if (!this.addInitialChild()) {
-            this.geometry = sliver.SliverGeometry.zero;
-            this.childManager.didFinishLayout();
-            return;
-          }
-        }
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, index);
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 235, 14, "childParentData.index == index");
+        trailingChildWithLayout == null ? trailingChildWithLayout = child : null;
       }
-      earliestUsefulChild = this.firstChild;
-      for (let earliestScrollOffset = dart.nullCheck(this.childScrollOffset(dart.nullCheck(earliestUsefulChild))); earliestScrollOffset > scrollOffset; earliestScrollOffset = dart.nullCheck(this.childScrollOffset(earliestUsefulChild))) {
-        earliestUsefulChild = this.insertAndLayoutLeadingChild(childConstraints, {parentUsesSize: true});
-        if (earliestUsefulChild == null) {
-          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
-          childParentData.layoutOffset = 0.0;
-          if (scrollOffset === 0.0) {
-            dart.nullCheck(this.firstChild).layout(childConstraints, {parentUsesSize: true});
-            earliestUsefulChild = this.firstChild;
-            leadingChildWithLayout = earliestUsefulChild;
-            trailingChildWithLayout == null ? trailingChildWithLayout = earliestUsefulChild : null;
+      if (trailingChildWithLayout == null) {
+        dart.nullCheck(this.firstChild).layout(childConstraints);
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
+        trailingChildWithLayout = this.firstChild;
+      }
+      let estimatedMaxScrollOffset = 1 / 0;
+      for (let index = this.indexOf(dart.nullCheck(trailingChildWithLayout)) + 1; targetLastIndex == null || index <= dart.notNull(targetLastIndex); index = index + 1) {
+        let child = this.childAfter(dart.nullCheck(trailingChildWithLayout));
+        if (child == null || this.indexOf(child) !== index) {
+          child = this.insertAndLayoutChild(childConstraints, {after: trailingChildWithLayout});
+          if (child == null) {
+            estimatedMaxScrollOffset = index * itemExtent;
             break;
-          } else {
-            this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: -scrollOffset});
-            return;
           }
+        } else {
+          child.layout(childConstraints);
         }
-        let firstChildScrollOffset = earliestScrollOffset - this.paintExtentOf(dart.nullCheck(this.firstChild));
-        if (firstChildScrollOffset < -1e-10) {
-          this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: -firstChildScrollOffset});
-          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
-          childParentData.layoutOffset = 0.0;
-          return;
-        }
-        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(earliestUsefulChild.parentData));
-        childParentData.layoutOffset = firstChildScrollOffset;
-        if (!dart.equals(earliestUsefulChild, this.firstChild)) dart.assertFailed(null, I[0], 168, 14, "earliestUsefulChild == firstChild");
-        leadingChildWithLayout = earliestUsefulChild;
-        trailingChildWithLayout == null ? trailingChildWithLayout = earliestUsefulChild : null;
+        trailingChildWithLayout = child;
+        if (!(child != null)) dart.assertFailed(null, I[0], 260, 14, "child != null");
+        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 262, 14, "childParentData.index == index");
+        childParentData.layoutOffset = this.indexToLayoutOffset(itemExtent, dart.nullCheck(childParentData.index));
       }
-      if (!(dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))) > -1e-10)) dart.assertFailed(null, I[0], 173, 12, "childScrollOffset(firstChild!)! > -precisionErrorTolerance");
-      if (scrollOffset < 1e-10) {
-        while (this.indexOf(dart.nullCheck(this.firstChild)) > 0) {
-          let earliestScrollOffset = dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild)));
-          earliestUsefulChild = this.insertAndLayoutLeadingChild(childConstraints, {parentUsesSize: true});
-          if (!(earliestUsefulChild != null)) dart.assertFailed(null, I[0], 186, 16, "earliestUsefulChild != null");
-          let firstChildScrollOffset = earliestScrollOffset - this.paintExtentOf(dart.nullCheck(this.firstChild));
-          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
-          childParentData.layoutOffset = 0.0;
-          if (firstChildScrollOffset < -1e-10) {
-            this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: -firstChildScrollOffset});
-            return;
-          }
-        }
-      }
-      if (!dart.equals(earliestUsefulChild, this.firstChild)) dart.assertFailed(null, I[0], 208, 12, "earliestUsefulChild == firstChild");
-      if (!(dart.nullCheck(this.childScrollOffset(dart.nullCheck(earliestUsefulChild))) <= scrollOffset)) dart.assertFailed(null, I[0], 209, 12, "childScrollOffset(earliestUsefulChild!)! <= scrollOffset");
-      if (leadingChildWithLayout == null) {
-        dart.nullCheck(earliestUsefulChild).layout(childConstraints, {parentUsesSize: true});
-        leadingChildWithLayout = earliestUsefulChild;
-        trailingChildWithLayout = earliestUsefulChild;
-      }
-      let inLayoutRange = true;
-      let child = earliestUsefulChild;
-      let index = this.indexOf(dart.nullCheck(child));
-      let endScrollOffset = dart.nullCheck(this.childScrollOffset(child)) + this.paintExtentOf(child);
-      const advance = () => {
-        if (!(child != null)) dart.assertFailed(null, I[0], 229, 14, "child != null");
-        if (dart.equals(child, trailingChildWithLayout)) inLayoutRange = false;
-        child = this.childAfter(dart.nullCheck(child));
-        if (child == null) inLayoutRange = false;
-        index = index + 1;
-        if (!inLayoutRange) {
-          if (child == null || this.indexOf(dart.nullCheck(child)) !== index) {
-            child = this.insertAndLayoutChild(childConstraints, {after: trailingChildWithLayout, parentUsesSize: true});
-            if (child == null) {
-              return false;
-            }
-          } else {
-            dart.nullCheck(child).layout(childConstraints, {parentUsesSize: true});
-          }
-          trailingChildWithLayout = child;
-        }
-        if (!(child != null)) dart.assertFailed(null, I[0], 253, 14, "child != null");
-        let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(child).parentData));
-        childParentData.layoutOffset = endScrollOffset;
-        if (!(childParentData.index === index)) dart.assertFailed(null, I[0], 256, 14, "childParentData.index == index");
-        endScrollOffset = dart.nullCheck(this.childScrollOffset(dart.nullCheck(child))) + this.paintExtentOf(dart.nullCheck(child));
-        return true;
-      };
-      dart.fn(advance, T.VoidTobool());
-      while (endScrollOffset < scrollOffset) {
-        leadingGarbage = leadingGarbage + 1;
-        if (!advance()) {
-          if (!(leadingGarbage === this.childCount)) dart.assertFailed(null, I[0], 265, 16, "leadingGarbage == childCount");
-          if (!(child == null)) dart.assertFailed(null, I[0], 266, 16, "child == null");
-          this.collectGarbage(leadingGarbage - 1, 0);
-          if (!dart.equals(this.firstChild, this.lastChild)) dart.assertFailed(null, I[0], 269, 16, "firstChild == lastChild");
-          let extent = dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.lastChild))) + this.paintExtentOf(dart.nullCheck(this.lastChild));
-          this.geometry = new sliver.SliverGeometry.new({scrollExtent: extent, paintExtent: 0.0, maxPaintExtent: extent});
-          return;
-        }
-      }
-      while (endScrollOffset < targetEndScrollOffset) {
-        if (!advance()) {
-          reachedEnd = true;
-          break;
-        }
-      }
-      if (child != null) {
-        child = this.childAfter(dart.nullCheck(child));
-        while (child != null) {
-          trailingGarbage = trailingGarbage + 1;
-          child = this.childAfter(dart.nullCheck(child));
-        }
-      }
-      this.collectGarbage(leadingGarbage, trailingGarbage);
-      if (!this.debugAssertChildListIsNonEmptyAndContiguous()) dart.assertFailed(null, I[0], 302, 12, "debugAssertChildListIsNonEmptyAndContiguous()");
-      let estimatedMaxScrollOffset = null;
-      if (reachedEnd) {
-        estimatedMaxScrollOffset = endScrollOffset;
-      } else {
-        estimatedMaxScrollOffset = this.childManager.estimateMaxScrollOffset(constraints, {firstIndex: this.indexOf(dart.nullCheck(this.firstChild)), lastIndex: this.indexOf(dart.nullCheck(this.lastChild)), leadingScrollOffset: this.childScrollOffset(dart.nullCheck(this.firstChild)), trailingScrollOffset: endScrollOffset});
-        if (!(estimatedMaxScrollOffset >= endScrollOffset - dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))))) dart.assertFailed(null, I[0], 314, 14, "estimatedMaxScrollOffset >= endScrollOffset - childScrollOffset(firstChild!)!");
-      }
-      let paintExtent = this.calculatePaintOffset(constraints, {from: dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))), to: endScrollOffset});
-      let cacheExtent = this.calculateCacheOffset(constraints, {from: dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))), to: endScrollOffset});
+      let lastIndex = this.indexOf(dart.nullCheck(this.lastChild));
+      let leadingScrollOffset = this.indexToLayoutOffset(itemExtent, firstIndex);
+      let trailingScrollOffset = this.indexToLayoutOffset(itemExtent, lastIndex + 1);
+      if (!(firstIndex === 0 || dart.nullCheck(this.childScrollOffset(dart.nullCheck(this.firstChild))) - scrollOffset <= 1e-10)) dart.assertFailed(null, I[0], 270, 12, "firstIndex == 0 || childScrollOffset(firstChild!)! - scrollOffset <= precisionErrorTolerance");
+      if (!this.debugAssertChildListIsNonEmptyAndContiguous()) dart.assertFailed(null, I[0], 271, 12, "debugAssertChildListIsNonEmptyAndContiguous()");
+      if (!(this.indexOf(dart.nullCheck(this.firstChild)) === firstIndex)) dart.assertFailed(null, I[0], 272, 12, "indexOf(firstChild!) == firstIndex");
+      if (!(targetLastIndex == null || lastIndex <= dart.notNull(targetLastIndex))) dart.assertFailed(null, I[0], 273, 12, "targetLastIndex == null || lastIndex <= targetLastIndex");
+      estimatedMaxScrollOffset = math.min(core.double, estimatedMaxScrollOffset, this.estimateMaxScrollOffset(constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset}));
+      let paintExtent = this.calculatePaintOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      let cacheExtent = this.calculateCacheOffset(constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
       let targetEndScrollOffsetForPaint = constraints.scrollOffset + constraints.remainingPaintExtent;
-      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedMaxScrollOffset, paintExtent: paintExtent, cacheExtent: cacheExtent, maxPaintExtent: estimatedMaxScrollOffset, hasVisualOverflow: endScrollOffset > targetEndScrollOffsetForPaint || constraints.scrollOffset > 0.0});
-      if (estimatedMaxScrollOffset === endScrollOffset) this.childManager.setDidUnderflow(true);
+      let targetLastIndexForPaint = targetEndScrollOffsetForPaint[$isFinite] ? this.getMaxChildIndexForScrollOffset(targetEndScrollOffsetForPaint, itemExtent) : null;
+      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedMaxScrollOffset, paintExtent: paintExtent, cacheExtent: cacheExtent, maxPaintExtent: estimatedMaxScrollOffset, hasVisualOverflow: targetLastIndexForPaint != null && lastIndex >= dart.notNull(targetLastIndexForPaint) || constraints.scrollOffset > 0.0});
+      if (estimatedMaxScrollOffset === trailingScrollOffset) this.childManager.setDidUnderflow(true);
       this.childManager.didFinishLayout();
     }
   };
-  (sliver_list.RenderSliverList.new = function(opts) {
+  (sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.new = function(opts) {
     let childManager = opts && 'childManager' in opts ? opts.childManager : null;
-    sliver_list.RenderSliverList.__proto__.new.call(this, {childManager: childManager});
+    sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__.new.call(this, {childManager: childManager});
     ;
-  }).prototype = sliver_list.RenderSliverList.prototype;
-  dart.addTypeTests(sliver_list.RenderSliverList);
-  dart.addTypeCaches(sliver_list.RenderSliverList);
-  dart.setMethodSignature(sliver_list.RenderSliverList, () => ({
-    __proto__: dart.getMethods(sliver_list.RenderSliverList.__proto__),
+  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.prototype;
+  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
+  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor);
+  dart.setMethodSignature(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, () => ({
+    __proto__: dart.getMethods(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor.__proto__),
+    indexToLayoutOffset: dart.fnType(core.double, [core.double, core.int]),
+    getMinChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
+    getMaxChildIndexForScrollOffset: dart.fnType(core.int, [core.double, core.double]),
+    estimateMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints], {firstIndex: dart.nullable(core.int), lastIndex: dart.nullable(core.int), leadingScrollOffset: dart.nullable(core.double), trailingScrollOffset: dart.nullable(core.double)}, {}),
+    computeMaxScrollOffset: dart.fnType(core.double, [sliver.SliverConstraints, core.double]),
+    [_calculateLeadingGarbage]: dart.fnType(core.int, [core.int]),
+    [_calculateTrailingGarbage]: dart.fnType(core.int, [core.int]),
     performLayout: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(sliver_list.RenderSliverList, I[1]);
-  dart.trackLibraries("packages/flutter/src/rendering/sliver_list.dart", {
-    "package:flutter/src/rendering/sliver_list.dart": sliver_list
+  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor, I[1]);
+  var _itemExtent = dart.privateName(sliver_fixed_extent_list, "_itemExtent");
+  sliver_fixed_extent_list.RenderSliverFixedExtentList = class RenderSliverFixedExtentList extends sliver_fixed_extent_list.RenderSliverFixedExtentBoxAdaptor {
+    get itemExtent() {
+      return this[_itemExtent];
+    }
+    set itemExtent(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[0], 354, 12, "value != null");
+      if (this[_itemExtent] === value) return;
+      this[_itemExtent] = value;
+      this.markNeedsLayout();
+    }
+  };
+  (sliver_fixed_extent_list.RenderSliverFixedExtentList.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
+    this[_itemExtent] = itemExtent;
+    sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__.new.call(this, {childManager: childManager});
+    ;
+  }).prototype = sliver_fixed_extent_list.RenderSliverFixedExtentList.prototype;
+  dart.addTypeTests(sliver_fixed_extent_list.RenderSliverFixedExtentList);
+  dart.addTypeCaches(sliver_fixed_extent_list.RenderSliverFixedExtentList);
+  dart.setGetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getGetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    itemExtent: core.double
+  }));
+  dart.setSetterSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getSetters(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    itemExtent: core.double
+  }));
+  dart.setLibraryUri(sliver_fixed_extent_list.RenderSliverFixedExtentList, I[1]);
+  dart.setFieldSignature(sliver_fixed_extent_list.RenderSliverFixedExtentList, () => ({
+    __proto__: dart.getFields(sliver_fixed_extent_list.RenderSliverFixedExtentList.__proto__),
+    [_itemExtent]: dart.fieldType(core.double)
+  }));
+  sliver_fixed_extent_list._isWithinPrecisionErrorTolerance = function _isWithinPrecisionErrorTolerance(actual, round) {
+    return (actual - round)[$abs]() < 1e-10;
+  };
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_fixed_extent_list.dart", {
+    "package:flutter/src/rendering/sliver_fixed_extent_list.dart": sliver_fixed_extent_list
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["sliver_list.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/sliver_list.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_fixed_extent_list.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/sliver_fixed_extent_list.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__sliver_list: sliver_list
+    src__rendering__sliver_fixed_extent_list: sliver_fixed_extent_list
   };
 }));
 
-//# sourceMappingURL=sliver_list.dart.lib.js.map
+//# sourceMappingURL=sliver_fixed_extent_list.dart.lib.js.map
