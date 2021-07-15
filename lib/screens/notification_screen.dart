@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_widget_cache.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
@@ -15,7 +16,7 @@ class NotificationScreen extends StatelessWidget {
     final _height = MediaQuery.of(context).size.height;
     AuthController authController = AuthController.to;
     CollectionReference notiRef =
-        FirebaseFirestore.instance.collection('notification');
+        FirebaseFirestore.instance.collection('notifications');
     final Stream<QuerySnapshot> _notificationSteam = FirebaseFirestore.instance
         .collection('notifications')
         .doc('${authController.firebaseUser.value!.uid}')
@@ -44,13 +45,13 @@ class NotificationScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         actions: [
-          ElevatedButton(
+          TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, HomeRoute);
               },
               child: Text(
                 'Anasayfa',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               )),
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -150,43 +151,62 @@ class NotificationScreen extends StatelessWidget {
                           return new Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.6,
-                                child: ListTile(
-                                  title: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      TextButton(
-                                        child: Text(
-                                          ('${data['userName']} gönderinizi beğendi'),
+                              Card(
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.5,
+                                  child: ListTile(
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        TextButton(
+                                          child: Text(
+                                            ('${data['userName']} gönderinizi beğendi'),
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, ProfileRoute,
+                                                arguments: {
+                                                  'userId': data['userId']
+                                                });
+                                          },
                                         ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, ProfileRoute,
-                                              arguments: {
-                                                'userId': data['userId']
-                                              });
-                                        },
-                                      ),
-                                    ],
+                                      ],
+                                    ),
+                                    isThreeLine: true,
+                                    subtitle: Text('${data['created_at']}\n'),
+                                    leading:
+                                        Image.network('${data['userImage']}'),
                                   ),
-                                  isThreeLine: true,
-                                  subtitle: Text('${data['created_at']}\n'),
-                                  leading:
-                                      Image.network('${data['userImage']}'),
                                 ),
                               ),
                               IconButton(
-                                icon: Icon(Icons.delete_forever_outlined),
+                                icon: Icon(Icons.delete_outline_rounded),
                                 tooltip: 'Sil',
+                                color: Colors.black54,
                                 onPressed: () {
-                                  notiRef
-                                      .doc(
-                                          '${authController.firebaseUser.value!.uid}')
-                                      .collection('userNotification')
-                                      .doc('${document.id}')
-                                      .delete();
+                                  try {
+                                    notiRef
+                                        .doc(
+                                            '${authController.firebaseUser.value!.uid}')
+                                        .collection('userNotification')
+                                        .doc('${document.id}')
+                                        .delete()
+                                        .whenComplete(() {
+                                      Get.snackbar('Silindi',
+                                          'Bildirim başarıyla silindi.',
+                                          snackPosition: SnackPosition.BOTTOM,
+                                          duration: Duration(seconds: 7),
+                                          backgroundColor: Get.theme
+                                              .snackBarTheme.backgroundColor,
+                                          colorText: Get.theme.snackBarTheme
+                                              .actionTextColor);
+                                    });
+                                  } catch (err) {
+                                    print(err);
+                                  }
                                 },
                               ),
                               Divider()

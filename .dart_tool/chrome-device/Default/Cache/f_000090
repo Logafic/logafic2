@@ -81,7 +81,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 19,
         [_Location_line]: 14,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C8() {
@@ -104,7 +104,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 19,
         [_Location_line]: 31,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C11() {
@@ -137,7 +137,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 23,
         [_Location_line]: 39,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C15() {
@@ -170,7 +170,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 23,
         [_Location_line]: 46,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C19() {
@@ -213,7 +213,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 30,
         [_Location_line]: 35,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C24() {
@@ -236,7 +236,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 19,
         [_Location_line]: 34,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C27() {
@@ -259,7 +259,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 23,
         [_Location_line]: 56,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C30() {
@@ -302,7 +302,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 19,
         [_Location_line]: 55,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C35() {
@@ -335,7 +335,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 15,
         [_Location_line]: 11,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C38() {
@@ -348,7 +348,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 15,
         [_Location_line]: 62,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C41() {
@@ -371,7 +371,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 18,
         [_Location_line]: 9,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     },
     get C44() {
@@ -394,7 +394,7 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
         [_Location_name]: null,
         [_Location_column]: 16,
         [_Location_line]: 8,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/widgets/profile_widget_small.dart"
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/profile_widget_small.dart"
       });
     }
   }, false);

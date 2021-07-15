@@ -1,321 +1,366 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart'], (function load__packages__flutter__src__gestures__arena_dart(dart_sdk, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__cupertino__activity_indicator_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
-  const _js_helper = dart_sdk._js_helper;
-  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
-  var arena = Object.create(dart.library);
-  var $add = dartx.add;
-  var $isEmpty = dartx.isEmpty;
-  var $_equals = dartx._equals;
-  var $map = dartx.map;
-  var $join = dartx.join;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var activity_indicator = Object.create(dart.library);
   var $length = dartx.length;
-  var $contains = dartx.contains;
-  var $containsKey = dartx.containsKey;
-  var $toString = dartx.toString;
-  var $padRight = dartx.padRight;
+  var $floor = dartx.floor;
+  var $modulo = dartx['%'];
+  var $_get = dartx._get;
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    JSArrayOfGestureArenaMember: () => (T.JSArrayOfGestureArenaMember = dart.constFn(_interceptors.JSArray$(arena.GestureArenaMember)))(),
-    GestureArenaMemberToString: () => (T.GestureArenaMemberToString = dart.constFn(dart.fnType(core.String, [arena.GestureArenaMember])))(),
-    IdentityMapOfint$_GestureArena: () => (T.IdentityMapOfint$_GestureArena = dart.constFn(_js_helper.IdentityMap$(core.int, arena._GestureArena)))(),
-    VoidTo_GestureArena: () => (T.VoidTo_GestureArena = dart.constFn(dart.fnType(arena._GestureArena, [])))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: arena.GestureDisposition.prototype,
-        [_name$]: "GestureDisposition.accepted",
-        index: 0
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1000000
       });
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: arena.GestureDisposition.prototype,
-        [_name$]: "GestureDisposition.rejected",
-        index: 1
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 119,
+        [_Location_file]: null
       });
     },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], arena.GestureDisposition);
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293651445.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282137668.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_elevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_color]: C[11] || CT.C11,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C[11] || CT.C11
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([47, 47, 47, 47, 72, 97, 122, 147], core.int);
     }
   }, false);
-  var C = Array(3).fill(void 0);
+  var C = Array(13).fill(void 0);
   var I = [
-    "package:flutter/src/gestures/arena.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/gestures/arena.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart",
+    "package:flutter/src/cupertino/activity_indicator.dart"
   ];
-  var _name$ = dart.privateName(arena, "_name");
-  arena.GestureDisposition = class GestureDisposition extends core.Object {
-    toString() {
-      return this[_name$];
+  var animating$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.animating");
+  var radius$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.radius");
+  var progress$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.progress");
+  activity_indicator.CupertinoActivityIndicator = class CupertinoActivityIndicator extends framework.StatefulWidget {
+    get animating() {
+      return this[animating$];
+    }
+    set animating(value) {
+      super.animating = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get progress() {
+      return this[progress$];
+    }
+    set progress(value) {
+      super.progress = value;
+    }
+    createState() {
+      return new activity_indicator._CupertinoActivityIndicatorState.new();
     }
   };
-  (arena.GestureDisposition.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (activity_indicator.CupertinoActivityIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let animating = opts && 'animating' in opts ? opts.animating : true;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[animating$] = animating;
+    this[radius$] = radius;
+    if (!(animating !== null)) dart.assertFailed(null, I[0], 32, 16, "animating != null");
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 33, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 34, 16, "radius > 0.0");
+    this[progress$] = 1.0;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = arena.GestureDisposition.prototype;
-  dart.addTypeTests(arena.GestureDisposition);
-  dart.addTypeCaches(arena.GestureDisposition);
-  dart.setLibraryUri(arena.GestureDisposition, I[0]);
-  dart.setFieldSignature(arena.GestureDisposition, () => ({
-    __proto__: dart.getFields(arena.GestureDisposition.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(arena.GestureDisposition, ['toString']);
-  arena.GestureDisposition.accepted = C[0] || CT.C0;
-  arena.GestureDisposition.rejected = C[1] || CT.C1;
-  arena.GestureDisposition.values = C[2] || CT.C2;
-  arena.GestureArenaMember = class GestureArenaMember extends core.Object {};
-  (arena.GestureArenaMember.new = function() {
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  (activity_indicator.CupertinoActivityIndicator.partiallyRevealed = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let progress = opts && 'progress' in opts ? opts.progress : 1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[radius$] = radius;
+    this[progress$] = progress;
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 48, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 49, 16, "radius > 0.0");
+    if (!(progress !== null)) dart.assertFailed(null, I[0], 50, 16, "progress != null");
+    if (!(progress >= 0.0)) dart.assertFailed(null, I[0], 51, 16, "progress >= 0.0");
+    if (!(progress <= 1.0)) dart.assertFailed(null, I[0], 52, 16, "progress <= 1.0");
+    this[animating$] = false;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = arena.GestureArenaMember.prototype;
-  dart.addTypeTests(arena.GestureArenaMember);
-  dart.addTypeCaches(arena.GestureArenaMember);
-  dart.setLibraryUri(arena.GestureArenaMember, I[0]);
-  var _arena$ = dart.privateName(arena, "_arena");
-  var _pointer$ = dart.privateName(arena, "_pointer");
-  var _member$ = dart.privateName(arena, "_member");
-  var _resolve = dart.privateName(arena, "_resolve");
-  arena.GestureArenaEntry = class GestureArenaEntry extends core.Object {
-    resolve(disposition) {
-      this[_arena$][_resolve](this[_pointer$], this[_member$], disposition);
-    }
-  };
-  (arena.GestureArenaEntry.__ = function(_arena, _pointer, _member) {
-    this[_arena$] = _arena;
-    this[_pointer$] = _pointer;
-    this[_member$] = _member;
-    ;
-  }).prototype = arena.GestureArenaEntry.prototype;
-  dart.addTypeTests(arena.GestureArenaEntry);
-  dart.addTypeCaches(arena.GestureArenaEntry);
-  dart.setMethodSignature(arena.GestureArenaEntry, () => ({
-    __proto__: dart.getMethods(arena.GestureArenaEntry.__proto__),
-    resolve: dart.fnType(dart.void, [arena.GestureDisposition])
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  dart.addTypeTests(activity_indicator.CupertinoActivityIndicator);
+  dart.addTypeCaches(activity_indicator.CupertinoActivityIndicator);
+  dart.setMethodSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getMethods(activity_indicator.CupertinoActivityIndicator.__proto__),
+    createState: dart.fnType(activity_indicator._CupertinoActivityIndicatorState, [])
   }));
-  dart.setLibraryUri(arena.GestureArenaEntry, I[0]);
-  dart.setFieldSignature(arena.GestureArenaEntry, () => ({
-    __proto__: dart.getFields(arena.GestureArenaEntry.__proto__),
-    [_arena$]: dart.finalFieldType(arena.GestureArenaManager),
-    [_pointer$]: dart.finalFieldType(core.int),
-    [_member$]: dart.finalFieldType(arena.GestureArenaMember)
+  dart.setLibraryUri(activity_indicator.CupertinoActivityIndicator, I[1]);
+  dart.setFieldSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getFields(activity_indicator.CupertinoActivityIndicator.__proto__),
+    animating: dart.finalFieldType(core.bool),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double)
   }));
-  arena._GestureArena = class _GestureArena extends core.Object {
-    add(member) {
-      if (!this.isOpen) dart.assertFailed(null, I[1], 70, 12, "isOpen");
-      this.members[$add](member);
-    }
-    toString() {
-      let buffer = new core.StringBuffer.new();
-      if (this.members[$isEmpty]) {
-        buffer.write("<empty>");
-      } else {
-        buffer.write(this.members[$map](core.String, dart.fn(member => {
-          if (member[$_equals](this.eagerWinner)) return dart.str(member) + " (eager winner)";
-          return dart.str(member);
-        }, T.GestureArenaMemberToString()))[$join](", "));
-      }
-      if (this.isOpen) buffer.write(" [open]");
-      if (this.isHeld) buffer.write(" [held]");
-      if (this.hasPendingSweep) buffer.write(" [hasPendingSweep]");
-      return buffer.toString();
-    }
-  };
-  (arena._GestureArena.new = function() {
-    this.members = T.JSArrayOfGestureArenaMember().of([]);
-    this.isOpen = true;
-    this.isHeld = false;
-    this.hasPendingSweep = false;
-    this.eagerWinner = null;
-    ;
-  }).prototype = arena._GestureArena.prototype;
-  dart.addTypeTests(arena._GestureArena);
-  dart.addTypeCaches(arena._GestureArena);
-  dart.setMethodSignature(arena._GestureArena, () => ({
-    __proto__: dart.getMethods(arena._GestureArena.__proto__),
-    add: dart.fnType(dart.void, [arena.GestureArenaMember])
-  }));
-  dart.setLibraryUri(arena._GestureArena, I[0]);
-  dart.setFieldSignature(arena._GestureArena, () => ({
-    __proto__: dart.getFields(arena._GestureArena.__proto__),
-    members: dart.finalFieldType(core.List$(arena.GestureArenaMember)),
-    isOpen: dart.fieldType(core.bool),
-    isHeld: dart.fieldType(core.bool),
-    hasPendingSweep: dart.fieldType(core.bool),
-    eagerWinner: dart.fieldType(dart.nullable(arena.GestureArenaMember))
-  }));
-  dart.defineExtensionMethods(arena._GestureArena, ['toString']);
-  var _arenas = dart.privateName(arena, "_arenas");
-  var _debugLogDiagnostic = dart.privateName(arena, "_debugLogDiagnostic");
-  var _tryToResolveArena = dart.privateName(arena, "_tryToResolveArena");
-  var _resolveInFavorOf = dart.privateName(arena, "_resolveInFavorOf");
-  var _resolveByDefault = dart.privateName(arena, "_resolveByDefault");
-  arena.GestureArenaManager = class GestureArenaManager extends core.Object {
-    add(pointer, member) {
-      let state = this[_arenas][$putIfAbsent](pointer, dart.fn(() => {
-        if (!this[_debugLogDiagnostic](pointer, "★ Opening new gesture arena.")) dart.assertFailed(null, I[1], 109, 14, "_debugLogDiagnostic(pointer, '★ Opening new gesture arena.')");
-        return new arena._GestureArena.new();
-      }, T.VoidTo_GestureArena()));
-      state.add(member);
-      if (!this[_debugLogDiagnostic](pointer, "Adding: " + dart.str(member))) dart.assertFailed(null, I[1], 113, 12, "_debugLogDiagnostic(pointer, 'Adding: $member')");
-      return new arena.GestureArenaEntry.__(this, pointer, member);
-    }
-    close(pointer) {
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isOpen = false;
-      if (!this[_debugLogDiagnostic](pointer, "Closing", state)) dart.assertFailed(null, I[1], 125, 12, "_debugLogDiagnostic(pointer, 'Closing', state)");
-      this[_tryToResolveArena](pointer, state);
-    }
-    sweep(pointer) {
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      if (!!state.isOpen) dart.assertFailed(null, I[1], 146, 12, "!state.isOpen");
-      if (state.isHeld) {
-        state.hasPendingSweep = true;
-        if (!this[_debugLogDiagnostic](pointer, "Delaying sweep", state)) dart.assertFailed(null, I[1], 149, 14, "_debugLogDiagnostic(pointer, 'Delaying sweep', state)");
-        return;
-      }
-      if (!this[_debugLogDiagnostic](pointer, "Sweeping", state)) dart.assertFailed(null, I[1], 152, 12, "_debugLogDiagnostic(pointer, 'Sweeping', state)");
-      this[_arenas][$remove](pointer);
-      if (state.members[$isNotEmpty]) {
-        if (!this[_debugLogDiagnostic](pointer, "Winner: " + dart.str(state.members[$first]))) dart.assertFailed(null, I[1], 156, 14, "_debugLogDiagnostic(pointer, 'Winner: ${state.members.first}')");
-        state.members[$first].acceptGesture(pointer);
-        for (let i = 1; i < state.members[$length]; i = i + 1)
-          state.members[$_get](i).rejectGesture(pointer);
-      }
-    }
-    hold(pointer) {
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isHeld = true;
-      if (!this[_debugLogDiagnostic](pointer, "Holding", state)) dart.assertFailed(null, I[1], 181, 12, "_debugLogDiagnostic(pointer, 'Holding', state)");
-    }
-    release(pointer) {
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      state.isHeld = false;
-      if (!this[_debugLogDiagnostic](pointer, "Releasing", state)) dart.assertFailed(null, I[1], 198, 12, "_debugLogDiagnostic(pointer, 'Releasing', state)");
-      if (state.hasPendingSweep) this.sweep(pointer);
-    }
-    [_resolve](pointer, member, disposition) {
+  var ___CupertinoActivityIndicatorState__controller = dart.privateName(activity_indicator, "_#_CupertinoActivityIndicatorState#_controller");
+  var _controller = dart.privateName(activity_indicator, "_controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(activity_indicator.CupertinoActivityIndicator) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator));
+  activity_indicator._CupertinoActivityIndicatorState = class _CupertinoActivityIndicatorState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
       let t0;
-      let state = this[_arenas][$_get](pointer);
-      if (state == null) return;
-      if (!this[_debugLogDiagnostic](pointer, (disposition === arena.GestureDisposition.accepted ? "Accepting" : "Rejecting") + ": " + dart.str(member))) dart.assertFailed(null, I[1], 210, 12, "_debugLogDiagnostic(pointer, '${ disposition == GestureDisposition.accepted ? \"Accepting\" : \"Rejecting\" }: $member')");
-      if (!state.members[$contains](member)) dart.assertFailed(null, I[1], 211, 12, "state.members.contains(member)");
-      if (disposition === arena.GestureDisposition.rejected) {
-        state.members[$remove](member);
-        member.rejectGesture(pointer);
-        if (!state.isOpen) this[_tryToResolveArena](pointer, state);
-      } else {
-        if (!(disposition === arena.GestureDisposition.accepted)) dart.assertFailed(null, I[1], 218, 14, "disposition == GestureDisposition.accepted");
-        if (state.isOpen) {
-          t0 = state;
-          t0.eagerWinner == null ? t0.eagerWinner = member : null;
-        } else {
-          if (!this[_debugLogDiagnostic](pointer, "Self-declared winner: " + dart.str(member))) dart.assertFailed(null, I[1], 222, 16, "_debugLogDiagnostic(pointer, 'Self-declared winner: $member')");
-          this[_resolveInFavorOf](pointer, state, member);
-        }
+      t0 = this[___CupertinoActivityIndicatorState__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+    }
+    set [_controller](t0) {
+      this[___CupertinoActivityIndicatorState__controller] = t0;
+    }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[0] || CT.C0, vsync: this});
+      if (this.widget.animating) {
+        this[_controller].repeat();
       }
     }
-    [_tryToResolveArena](pointer, state) {
-      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, I[1], 229, 12, "_arenas[pointer] == state");
-      if (!!state.isOpen) dart.assertFailed(null, I[1], 230, 12, "!state.isOpen");
-      if (state.members[$length] === 1) {
-        async.scheduleMicrotask(dart.fn(() => this[_resolveByDefault](pointer, state), T.VoidTovoid()));
-      } else if (state.members[$isEmpty]) {
-        this[_arenas][$remove](pointer);
-        if (!this[_debugLogDiagnostic](pointer, "Arena empty.")) dart.assertFailed(null, I[1], 235, 14, "_debugLogDiagnostic(pointer, 'Arena empty.')");
-      } else if (state.eagerWinner != null) {
-        if (!this[_debugLogDiagnostic](pointer, "Eager winner: " + dart.str(state.eagerWinner))) dart.assertFailed(null, I[1], 237, 14, "_debugLogDiagnostic(pointer, 'Eager winner: ${state.eagerWinner}')");
-        this[_resolveInFavorOf](pointer, state, dart.nullCheck(state.eagerWinner));
+    didUpdateWidget(oldWidget) {
+      activity_indicator.CupertinoActivityIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.animating !== oldWidget.animating) {
+        if (this.widget.animating)
+          this[_controller].repeat();
+        else
+          this[_controller].stop();
       }
     }
-    [_resolveByDefault](pointer, state) {
-      if (!this[_arenas][$containsKey](pointer)) return;
-      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, I[1], 245, 12, "_arenas[pointer] == state");
-      if (!!state.isOpen) dart.assertFailed(null, I[1], 246, 12, "!state.isOpen");
-      let members = state.members;
-      if (!(members[$length] === 1)) dart.assertFailed(null, I[1], 248, 12, "members.length == 1");
-      this[_arenas][$remove](pointer);
-      if (!this[_debugLogDiagnostic](pointer, "Default winner: " + dart.str(state.members[$first]))) dart.assertFailed(null, I[1], 250, 12, "_debugLogDiagnostic(pointer, 'Default winner: ${state.members.first}')");
-      state.members[$first].acceptGesture(pointer);
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
     }
-    [_resolveInFavorOf](pointer, state, member) {
-      if (!state[$_equals](this[_arenas][$_get](pointer))) dart.assertFailed(null, I[1], 255, 12, "state == _arenas[pointer]");
-      if (!(state !== null)) dart.assertFailed(null, I[1], 256, 12, "state != null");
-      if (!(state.eagerWinner == null || dart.equals(state.eagerWinner, member))) dart.assertFailed(null, I[1], 257, 12, "state.eagerWinner == null || state.eagerWinner == member");
-      if (!!state.isOpen) dart.assertFailed(null, I[1], 258, 12, "!state.isOpen");
-      this[_arenas][$remove](pointer);
-      for (let rejectedMember of state.members) {
-        if (!rejectedMember[$_equals](member)) rejectedMember.rejectGesture(pointer);
-      }
-      member.acceptGesture(pointer);
-    }
-    [_debugLogDiagnostic](pointer, message, state = null) {
-      if (!dart.fn(() => {
-        let t0;
-        if (debug.debugPrintGestureArenaDiagnostics) {
-          let count = (t0 = state, t0 == null ? null : t0.members[$length]);
-          let s = count !== 1 ? "s" : "";
-          print.debugPrint("Gesture arena " + pointer[$toString]()[$padRight](4) + " ❙ " + message + (count != null ? " with " + dart.str(count) + " member" + s + "." : ""));
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 268, 12, "() {\r\n      if (debugPrintGestureArenaDiagnostics) {\r\n        final int? count = state?.members.length;\r\n        final String s = count != 1 ? 's' : '';\r\n        debugPrint('Gesture arena ${pointer.toString().padRight(4)} ❙ $message${ count != null ? \" with $count member$s.\" : \"\"}');\r\n      }\r\n      return true;\r\n    }()");
-      return true;
+    build(context) {
+      return new basic.SizedBox.new({height: this.widget.radius * 2, width: this.widget.radius * 2, child: new basic.CustomPaint.new({painter: new activity_indicator._CupertinoActivityIndicatorPainter.new({position: this[_controller], activeColor: colors.CupertinoDynamicColor.resolve(activity_indicator._kActiveTickColor, context), radius: this.widget.radius, progress: this.widget.progress}), $creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
     }
   };
-  (arena.GestureArenaManager.new = function() {
-    this[_arenas] = new (T.IdentityMapOfint$_GestureArena()).new();
+  (activity_indicator._CupertinoActivityIndicatorState.new = function() {
+    this[___CupertinoActivityIndicatorState__controller] = null;
+    activity_indicator._CupertinoActivityIndicatorState.__proto__.new.call(this);
     ;
-  }).prototype = arena.GestureArenaManager.prototype;
-  dart.addTypeTests(arena.GestureArenaManager);
-  dart.addTypeCaches(arena.GestureArenaManager);
-  dart.setMethodSignature(arena.GestureArenaManager, () => ({
-    __proto__: dart.getMethods(arena.GestureArenaManager.__proto__),
-    add: dart.fnType(arena.GestureArenaEntry, [core.int, arena.GestureArenaMember]),
-    close: dart.fnType(dart.void, [core.int]),
-    sweep: dart.fnType(dart.void, [core.int]),
-    hold: dart.fnType(dart.void, [core.int]),
-    release: dart.fnType(dart.void, [core.int]),
-    [_resolve]: dart.fnType(dart.void, [core.int, arena.GestureArenaMember, arena.GestureDisposition]),
-    [_tryToResolveArena]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
-    [_resolveByDefault]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
-    [_resolveInFavorOf]: dart.fnType(dart.void, [core.int, arena._GestureArena, arena.GestureArenaMember]),
-    [_debugLogDiagnostic]: dart.fnType(core.bool, [core.int, core.String], [dart.nullable(arena._GestureArena)])
+  }).prototype = activity_indicator._CupertinoActivityIndicatorState.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorState);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorState);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(arena.GestureArenaManager, I[0]);
-  dart.setFieldSignature(arena.GestureArenaManager, () => ({
-    __proto__: dart.getFields(arena.GestureArenaManager.__proto__),
-    [_arenas]: dart.finalFieldType(core.Map$(core.int, arena._GestureArena))
+  dart.setGetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getGetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
   }));
-  dart.trackLibraries("packages/flutter/src/gestures/arena.dart", {
-    "package:flutter/src/gestures/arena.dart": arena
+  dart.setSetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getSetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorState, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [___CupertinoActivityIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  activity_indicator._CupertinoActivityIndicatorPainter = class _CupertinoActivityIndicatorPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let paint = ui.Paint.new();
+      let tickCount = activity_indicator._kAlphaValues[$length];
+      canvas.save();
+      canvas.translate(size.width / 2.0, size.height / 2.0);
+      let activeTick = (tickCount * this.position.value)[$floor]();
+      for (let i = 0; i < tickCount * this.progress; i = i + 1) {
+        let t = (i - activeTick)[$modulo](tickCount);
+        paint.color = this.activeColor.withAlpha(this.progress < 1 ? 147 : activity_indicator._kAlphaValues[$_get](t));
+        canvas.drawRRect(this.tickFundamentalRRect, paint);
+        canvas.rotate(6.283185307179586 / tickCount);
+      }
+      canvas.restore();
+    }
+    shouldRepaint(oldPainter) {
+      activity_indicator._CupertinoActivityIndicatorPainter.as(oldPainter);
+      return !oldPainter.position[$_equals](this.position) || !oldPainter.activeColor._equals(this.activeColor) || oldPainter.progress !== this.progress;
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorPainter.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let progress = opts && 'progress' in opts ? opts.progress : null;
+    this.position = position;
+    this.activeColor = activeColor;
+    this.radius = radius;
+    this.progress = progress;
+    this.tickFundamentalRRect = new ui.RRect.fromLTRBXY(-radius / 10, -radius / 3.0, radius / 10, -radius, radius / 10, radius / 10);
+    activity_indicator._CupertinoActivityIndicatorPainter.__proto__.new.call(this, {repaint: position});
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorPainter.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorPainter, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    position: dart.finalFieldType(animation.Animation$(core.double)),
+    activeColor: dart.finalFieldType(ui.Color),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double),
+    tickFundamentalRRect: dart.finalFieldType(ui.RRect)
+  }));
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  dart.defineLazy(activity_indicator, {
+    /*activity_indicator._kDefaultIndicatorRadius*/get _kDefaultIndicatorRadius() {
+      return 10;
+    },
+    /*activity_indicator._kActiveTickColor*/get _kActiveTickColor() {
+      return C[9] || CT.C9;
+    },
+    /*activity_indicator._kTwoPI*/get _kTwoPI() {
+      return 6.283185307179586;
+    },
+    /*activity_indicator._kAlphaValues*/get _kAlphaValues() {
+      return C[12] || CT.C12;
+    },
+    /*activity_indicator._partiallyRevealedAlpha*/get _partiallyRevealedAlpha() {
+      return 147;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/cupertino/activity_indicator.dart", {
+    "package:flutter/src/cupertino/activity_indicator.dart": activity_indicator
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["arena.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/gestures/arena.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["activity_indicator.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA0Da;;;;;;IAKE;;;;;;IAQA;;;;;;;AAIT;IAAkC;;;QA/C/B;QACA;QACA;;IADA;IACA;UACM,AAAU,SAAD;UACT,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;IACP,kBAAE;AACX,iFAAW,GAAG;;EAAC;;QASd;QACA;QACA;;IADA;IACA;UACM,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;UACT,AAAS,QAAD;UACR,AAAS,QAAD,IAAI;UACZ,AAAS,QAAD,IAAI;IACT,mBAAE;AACZ,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA2BI;;IAAW;;AAAX;IAAW;;AAIjB,MAAX;AAIL,MAHD,oBAAc,kFAEL;AAGT,UAAI,AAAO;AACW,QAApB,AAAY;;IAEhB;;uDAGgD;AACd,MAA1B,sBAAgB,SAAS;AAC/B,UAAI,AAAO,0BAAa,AAAU,SAAD;AAC/B,YAAI,AAAO;AACW,UAApB,AAAY;;AAEM,UAAlB,AAAY;;IAElB;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;AACxB,YAAO,iCACG,AAAO,AAAO,qBAAE,UACjB,AAAO,AAAO,qBAAE,UAChB,oCACI,yEACG,gCAEgB,qCAAQ,sCAAmB,OAAO,WACpD,AAAO,8BACL,AAAO;IAIzB;;;2DA/CyB;;;EAgD3B;;;;;;;;;;;;;;;;;;;;;UA4CoB,QAAa;AACjB,kBAAQ;AACV,sBAAY,AAAc;AAEvB,MAAb,AAAO,MAAD;AAC+C,MAArD,AAAO,MAAD,WAAW,AAAK,AAAM,IAAP,SAAS,KAAK,AAAK,AAAO,IAAR,UAAU;AAEvC,uBAA0C,CAA5B,AAAU,SAAD,GAAG,AAAS;AAE7C,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAU,SAAD,GAAG,eAAY,IAAF,AAAE,CAAC,GAAH;AAC9B,gBAAqB,CAAhB,AAAE,CAAD,GAAG,UAAU,WAAI,SAAS;AAE+B,QADzE,AAAM,KAAD,SAAS,AACT,2BAAU,AAAS,gBAAE,UAA8B,AAAa,wCAAC,CAAC;AAC1B,QAA7C,AAAO,MAAD,WAAW,2BAAsB,KAAK;AACV,QAAlC,AAAO,MAAD,QAAgB,oBAAE,SAAS;;AAGnB,MAAhB,AAAO,MAAD;IACR;;+DAGsD;AACpD,YAC0C,EADnC,AAAW,UAAD,oBAAa,mBAC1B,AAAW,UAAD,qBAAgB,qBAC1B,AAAW,UAAD,cAAa;IAC7B;;;QA/CgB;QACA;QACA;QACA;IAHA;IACA;IACA;IACA;IACW,4BAAQ,wBAC3B,AAAQ,CAAP,MAAM,OACP,AAAQ,CAAP,MAAM,GAAG,KACV,AAAO,MAAD,OACN,CAAC,MAAM,EACP,AAAO,MAAD,OACN,AAAO,MAAD;AAER,6FAAe,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAxJnB,2CAAwB;;;MAGzB,oCAAiB;;;MAqHhB,0BAAO;;;MAIJ,gCAAa;;;MAYnB,0CAAuB","file":"../../../../../../../../packages/flutter/src/cupertino/activity_indicator.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__arena: arena
+    src__cupertino__activity_indicator: activity_indicator
   };
 }));
 
-//# sourceMappingURL=arena.dart.lib.js.map
+//# sourceMappingURL=activity_indicator.dart.lib.js.map

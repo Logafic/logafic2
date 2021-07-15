@@ -1,108 +1,97 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:logafic/widgets/messageScreenWidget.dart';
+import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/widgets/deleteMessegaScreenWidget.dart';
+
+import 'messageScreenWidget.dart';
 
 class MessageScreenUserMessagesWidget extends StatelessWidget {
   MessageScreenUserMessagesWidget({Key? key}) : super(key: key);
-  final Stream<QuerySnapshot> messaegScreenUserMessagesStream =
-      FirebaseFirestore.instance.collection('messages').snapshots();
   @override
   Widget build(BuildContext context) {
+    AuthController authController = AuthController.to;
+    Stream<QuerySnapshot> messageStream = FirebaseFirestore.instance
+        .collection('users')
+        .doc('${authController.firebaseUser.value!.uid}')
+        .collection('lastMessages')
+        .snapshots();
     return Container(
-      child: StreamBuilder(
-        stream: messaegScreenUserMessagesStream,
-        initialData: Text('Henüz bir mesajınız bulunmamaktadır'),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            Center(child: CircularProgressIndicator());
-          }
-          return Container(
-            child: ListView(children: [
-              new Align(
-                alignment: Alignment.centerLeft,
-                child: new Padding(
-                    padding: new EdgeInsets.only(left: 14.0, bottom: 8),
-                    child: new Text(
-                      'Mesajlar',
-                      style: new TextStyle(color: Colors.black, fontSize: 25),
-                    )),
-              ),
-              new ListTile(
-                onTap: () {
-                  messageShowDialogWidget(context, 'yunus', '', '');
-                },
-                title: new Column(
-                  children: <Widget>[
-                    new Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Container(
+        child: StreamBuilder<QuerySnapshot>(
+            stream: messageStream,
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong');
+              }
+              if (snapshot.connectionState == ConnectionState.waiting ||
+                  snapshot.connectionState == ConnectionState.none) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return new ListView(
+                children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                  Map<String, dynamic> data =
+                      document.data() as Map<String, dynamic>;
+                  return new Padding(
+                      padding: EdgeInsets.all(12),
+                      child: ListTile(
+                        onTap: () {
+                          messageShowDialogWidget(
+                              context,
+                              data['messageSentUser'],
+                              data['profileImage'],
+                              data['sender']);
+                        },
+                        leading: new Container(
                           height: 72.0,
                           width: 72.0,
                           decoration: new BoxDecoration(
                               color: Colors.black12,
                               boxShadow: [
                                 new BoxShadow(
-                                    color: Colors.black.withAlpha(70),
+                                    color: Colors.black.withAlpha(50),
                                     offset: const Offset(2.0, 2.0),
                                     blurRadius: 2.0)
                               ],
                               borderRadius: new BorderRadius.all(
                                   new Radius.circular(12.0)),
                               image: new DecorationImage(
-                                image: NetworkImage(
-                                    'https://picsum.photos/200/300'),
+                                image: NetworkImage(data['profileImage']),
                               )),
                         ),
-                        new SizedBox(
-                          width: 10.0,
-                        ),
-                        new Expanded(
+                        title: new Expanded(
                             child: new Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             new Text(
-                              'My item header',
+                              data['messageSentUser'],
                               style: new TextStyle(
-                                  fontSize: 14.0,
+                                  fontSize: 22.0,
                                   color: Colors.black87,
                                   fontWeight: FontWeight.bold),
                             ),
                             new Text(
-                              'Item Subheader goes here\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+                              data['message'],
                               style: new TextStyle(
-                                  fontSize: 12.0,
+                                  fontSize: 20.0,
                                   color: Colors.black54,
                                   fontWeight: FontWeight.normal),
                             )
                           ],
                         )),
-                        new IconButton(
-                          icon: Icon(Icons.reply),
-                          tooltip: 'Yanıtla',
+                        subtitle: new Text(data['created_at']),
+                        trailing: IconButton(
+                          icon: Icon(Icons.delete_forever_outlined),
                           onPressed: () {
-                            messageShowDialogWidget(context, 'yunus', '', '');
+                            showDeleteMessegaScreenWidget(context, document.id);
                           },
                         ),
-                        new IconButton(
-                          icon: const Icon(
-                            Icons.delete,
-                          ),
-                          tooltip: 'Sil',
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
-                    new Divider(),
-                  ],
-                ),
-              )
-            ]),
-          );
-        },
-      ),
-    );
+                      ));
+                }).toList(),
+              );
+            }));
   }
 }

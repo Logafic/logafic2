@@ -1,1502 +1,641 @@
-define(['dart_sdk', 'packages/logafic/controllers/authController.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/logafic/widgets/menubaraction.dart', 'packages/flutter/src/material/scrollbar.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/progress_indicator.dart'], (function load__packages__logafic__screens__status_screen_dart(dart_sdk, packages__logafic__controllers__authController$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__strut_style$46dart, packages__logafic__widgets__menubaraction$46dart, packages__flutter__src__material__scrollbar$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__progress_indicator$46dart) {
+define(['dart_sdk', 'packages/firebase_auth_platform_interface/src/types.dart', 'packages/firebase_core/firebase_core.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/firebase_core_platform_interface/firebase_core_platform_interface.dart', 'packages/firebase_auth_platform_interface/src/action_code_info.dart', 'packages/firebase_auth_platform_interface/src/action_code_settings.dart', 'packages/firebase_auth_platform_interface/src/auth_credential.dart', 'packages/firebase_auth_platform_interface/src/auth_provider.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/firebase_auth_platform_interface/src/additional_user_info.dart', 'packages/firebase_auth_platform_interface/src/user_metadata.dart', 'packages/firebase_auth_platform_interface/src/user_info.dart', 'packages/firebase_auth_platform_interface/src/id_token_result.dart'], (function load__packages__firebase_auth__firebase_auth_dart(dart_sdk, packages__firebase_auth_platform_interface__src__types$46dart, packages__firebase_core__firebase_core$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart, packages__firebase_auth_platform_interface__src__action_code_info$46dart, packages__firebase_auth_platform_interface__src__action_code_settings$46dart, packages__firebase_auth_platform_interface__src__auth_credential$46dart, packages__firebase_auth_platform_interface__src__auth_provider$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__firebase_auth_platform_interface__src__additional_user_info$46dart, packages__firebase_auth_platform_interface__src__user_metadata$46dart, packages__firebase_auth_platform_interface__src__user_info$46dart, packages__firebase_auth_platform_interface__src__id_token_result$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
-  const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const authController = packages__logafic__controllers__authController$46dart.controllers__authController;
-  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
-  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
-  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
-  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
-  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
-  const text_button = packages__flutter__src__material__icon_button$46dart.src__material__text_button;
-  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const menubaraction = packages__logafic__widgets__menubaraction$46dart.widgets__menubaraction;
-  const scrollbar = packages__flutter__src__material__scrollbar$46dart.src__material__scrollbar;
-  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
-  const card = packages__flutter__src__material__card$46dart.src__material__card;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
-  var status_screen = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $toString = dartx.toString;
+  const platform_interface_firebase_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_firebase_auth;
+  const platform_interface_user = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user;
+  const types = packages__firebase_auth_platform_interface__src__types$46dart.src__types;
+  const phone_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__phone_auth;
+  const platform_interface_user_credential = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_user_credential;
+  const platform_interface_confirmation_result = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_confirmation_result;
+  const platform_interface_recaptcha_verifier_factory = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_recaptcha_verifier_factory;
+  const firebase_core = packages__firebase_core__firebase_core$46dart.firebase_core;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const firebase_core_platform_interface = packages__firebase_core_platform_interface__firebase_core_platform_interface$46dart.firebase_core_platform_interface;
+  const action_code_info = packages__firebase_auth_platform_interface__src__action_code_info$46dart.src__action_code_info;
+  const action_code_settings = packages__firebase_auth_platform_interface__src__action_code_settings$46dart.src__action_code_settings;
+  const auth_credential = packages__firebase_auth_platform_interface__src__auth_credential$46dart.src__auth_credential;
+  const auth_provider = packages__firebase_auth_platform_interface__src__auth_provider$46dart.src__auth_provider;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const additional_user_info = packages__firebase_auth_platform_interface__src__additional_user_info$46dart.src__additional_user_info;
+  const user_metadata = packages__firebase_auth_platform_interface__src__user_metadata$46dart.src__user_metadata;
+  const user_info = packages__firebase_auth_platform_interface__src__user_info$46dart.src__user_info;
+  const id_token_result = packages__firebase_auth_platform_interface__src__id_token_result$46dart.src__id_token_result;
+  var firebase_auth = Object.create(dart.library);
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $startsWith = dartx.startsWith;
+  var $replaceFirst = dartx.replaceFirst;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    BuildContextToIconButton: () => (T.BuildContextToIconButton = dart.constFn(dart.fnType(icon_button.IconButton, [framework.BuildContext])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    DocumentSnapshotOfObjectN: () => (T.DocumentSnapshotOfObjectN = dart.constFn(cloud_firestore.DocumentSnapshot$(T.ObjectN())))(),
-    FutureBuilderOfDocumentSnapshotOfObjectN: () => (T.FutureBuilderOfDocumentSnapshotOfObjectN = dart.constFn(async$.FutureBuilder$(T.DocumentSnapshotOfObjectN())))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    FutureBuilderOfbool: () => (T.FutureBuilderOfbool = dart.constFn(async$.FutureBuilder$(core.bool)))(),
-    BuildContextAndAsyncSnapshotToIconButton: () => (T.BuildContextAndAsyncSnapshotToIconButton = dart.constFn(dart.fnType(icon_button.IconButton, [framework.BuildContext, async$.AsyncSnapshot])))(),
-    FutureBuilderOfint: () => (T.FutureBuilderOfint = dart.constFn(async$.FutureBuilder$(core.int)))(),
-    AsyncSnapshotOfint: () => (T.AsyncSnapshotOfint = dart.constFn(async$.AsyncSnapshot$(core.int)))(),
-    BuildContextAndAsyncSnapshotOfintToText: () => (T.BuildContextAndAsyncSnapshotOfintToText = dart.constFn(dart.fnType(text.Text, [framework.BuildContext, T.AsyncSnapshotOfint()])))(),
-    AsyncSnapshotOfDocumentSnapshotOfObjectN: () => (T.AsyncSnapshotOfDocumentSnapshotOfObjectN = dart.constFn(async$.AsyncSnapshot$(T.DocumentSnapshotOfObjectN())))(),
-    BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter: () => (T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter = dart.constFn(dart.fnType(basic.Center, [framework.BuildContext, T.AsyncSnapshotOfDocumentSnapshotOfObjectN()])))(),
-    QuerySnapshotOfMapOfString$dynamic: () => (T.QuerySnapshotOfMapOfString$dynamic = dart.constFn(cloud_firestore.QuerySnapshot$(T.MapOfString$dynamic())))(),
-    QuerySnapshotOfMapOfString$dynamicToint: () => (T.QuerySnapshotOfMapOfString$dynamicToint = dart.constFn(dart.fnType(core.int, [T.QuerySnapshotOfMapOfString$dynamic()])))()
+    VoidToFirebaseAuth: () => (T.VoidToFirebaseAuth = dart.constFn(dart.fnType(firebase_auth.FirebaseAuth, [])))(),
+    UserN: () => (T.UserN = dart.constFn(dart.nullable(firebase_auth.User)))(),
+    UserPlatformN: () => (T.UserPlatformN = dart.constFn(dart.nullable(platform_interface_user.UserPlatform)))(),
+    UserPlatformNToUserN: () => (T.UserPlatformNToUserN = dart.constFn(dart.fnType(T.UserN(), [T.UserPlatformN()])))(),
+    StreamSubscriptionOfUserN: () => (T.StreamSubscriptionOfUserN = dart.constFn(async.StreamSubscription$(T.UserN())))(),
+    StreamSubscriptionOfUserNTovoid: () => (T.StreamSubscriptionOfUserNTovoid = dart.constFn(dart.fnType(dart.void, [T.StreamSubscriptionOfUserN()])))(),
+    IdentityMapOfString$FirebaseAuth: () => (T.IdentityMapOfString$FirebaseAuth = dart.constFn(_js_helper.IdentityMap$(core.String, firebase_auth.FirebaseAuth)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    IdentityMapOfString$StringN: () => (T.IdentityMapOfString$StringN = dart.constFn(_js_helper.IdentityMap$(core.String, T.StringN())))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 25,
-        [_Location_line]: 23,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 30000000
       });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 19,
-        [_Location_line]: 24,
-        [_Location_file]: null
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 29,
-        [_Location_line]: 22,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: icon_data.IconData.prototype,
-        [IconData_matchTextDirection]: true,
-        [IconData_fontPackage]: null,
-        [IconData_fontFamily]: "MaterialIcons",
-        [IconData_codePoint]: 57490
-      });
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: icon.Icon.prototype,
-        [Widget__location]: C[1] || CT.C1,
-        [Widget_key]: null,
-        [Icon_textDirection]: null,
-        [Icon_semanticLabel]: null,
-        [Icon_color]: C[5] || CT.C5,
-        [Icon_size]: null,
-        [Icon_icon]: C[6] || CT.C6
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 17,
-        [_Location_line]: 22,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 17,
-        [_Location_line]: 26,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[8] || CT.C8,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 21,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 13,
-        [_Location_line]: 20,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13], widget_inspector._Location);
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[12] || CT.C12,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 19,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 13,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[15] || CT.C15,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 32,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C19() {
-      return C[19] = dart.constList([], widget_inspector._Location);
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 29,
-        [_Location_line]: 42,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "backgroundColor",
-        [_Location_column]: 11,
-        [_Location_line]: 18,
-        [_Location_file]: null
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "leading",
-        [_Location_column]: 11,
-        [_Location_line]: 19,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 11,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "actions",
-        [_Location_column]: 11,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[21] || CT.C21,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 17,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 25,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28], widget_inspector._Location);
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 44,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "appBar",
-        [_Location_column]: 9,
-        [_Location_line]: 17,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "body",
-        [_Location_column]: 9,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[30] || CT.C30,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 16,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 25,
-        [_Location_line]: 54,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.constList([C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[34] || CT.C34,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 54,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 54,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38], widget_inspector._Location);
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 53,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "src",
-        [_Location_column]: 52,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C40() {
-      return C[40] = dart.constList([C[41] || CT.C41], widget_inspector._Location);
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[40] || CT.C40,
-        [_Location_name]: null,
-        [_Location_column]: 40,
-        [_Location_line]: 71,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 38,
-        [_Location_line]: 77,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 33,
-        [_Location_line]: 78,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[43] || CT.C43,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 76,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 31,
-        [_Location_line]: 76,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 31,
-        [_Location_line]: 80,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[47] || CT.C47,
-        [_Location_name]: null,
-        [_Location_column]: 29,
-        [_Location_line]: 75,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 27,
-        [_Location_line]: 73,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 27,
-        [_Location_line]: 74,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[51] || CT.C51,
-        [_Location_name]: null,
-        [_Location_column]: 32,
-        [_Location_line]: 72,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 31,
-        [_Location_line]: 88,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 27,
-        [_Location_line]: 89,
-        [_Location_file]: null
-      });
-    },
-    get C55() {
-      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[55] || CT.C55,
-        [_Location_name]: null,
-        [_Location_column]: 35,
-        [_Location_line]: 87,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "leading",
-        [_Location_column]: 25,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 25,
-        [_Location_line]: 72,
-        [_Location_file]: null
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "subtitle",
-        [_Location_column]: 25,
-        [_Location_line]: 87,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62], widget_inspector._Location);
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[59] || CT.C59,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 70,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 23,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 23,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[64] || CT.C64,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 68,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 93,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 29,
-        [_Location_line]: 97,
-        [_Location_file]: null
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 25,
-        [_Location_line]: 98,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[69] || CT.C69,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 96,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 23,
-        [_Location_line]: 95,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 23,
-        [_Location_line]: 96,
-        [_Location_file]: null
-      });
-    },
-    get C73() {
-      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75], widget_inspector._Location);
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[73] || CT.C73,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 94,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 31,
-        [_Location_line]: 108,
-        [_Location_file]: null
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 31,
-        [_Location_line]: 109,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.constList([C[78] || CT.C78, C[79] || CT.C79], widget_inspector._Location);
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[77] || CT.C77,
-        [_Location_name]: null,
-        [_Location_column]: 36,
-        [_Location_line]: 107,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 29,
-        [_Location_line]: 106,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 29,
-        [_Location_line]: 107,
-        [_Location_file]: null
-      });
-    },
-    get C81() {
-      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83], widget_inspector._Location);
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[81] || CT.C81,
-        [_Location_name]: null,
-        [_Location_column]: 34,
-        [_Location_line]: 105,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 27,
-        [_Location_line]: 104,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 27,
-        [_Location_line]: 105,
-        [_Location_file]: null
-      });
-    },
-    get C85() {
-      return C[85] = dart.constList([C[86] || CT.C86, C[87] || CT.C87], widget_inspector._Location);
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[85] || CT.C85,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 103,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 31,
-        [_Location_line]: 119,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 31,
-        [_Location_line]: 120,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91], widget_inspector._Location);
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[89] || CT.C89,
-        [_Location_name]: null,
-        [_Location_column]: 36,
-        [_Location_line]: 118,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 29,
-        [_Location_line]: 117,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 29,
-        [_Location_line]: 118,
-        [_Location_file]: null
-      });
-    },
-    get C93() {
-      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95], widget_inspector._Location);
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[93] || CT.C93,
-        [_Location_name]: null,
-        [_Location_column]: 34,
-        [_Location_line]: 116,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 27,
-        [_Location_line]: 115,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 27,
-        [_Location_line]: 116,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99], widget_inspector._Location);
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[97] || CT.C97,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 114,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 43,
-        [_Location_line]: 132,
-        [_Location_file]: null
-      });
-    },
-    get C103() {
-      return C[103] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 37,
-        [_Location_line]: 133,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103], widget_inspector._Location);
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[101] || CT.C101,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 131,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 35,
-        [_Location_line]: 131,
-        [_Location_file]: null
-      });
-    },
-    get C107() {
-      return C[107] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 35,
-        [_Location_line]: 135,
-        [_Location_file]: null
-      });
-    },
-    get C105() {
-      return C[105] = dart.constList([C[106] || CT.C106, C[107] || CT.C107], widget_inspector._Location);
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[105] || CT.C105,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 130,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 43,
-        [_Location_line]: 146,
-        [_Location_file]: null
-      });
-    },
-    get C111() {
-      return C[111] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 37,
-        [_Location_line]: 147,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C[109] = dart.constList([C[110] || CT.C110, C[111] || CT.C111], widget_inspector._Location);
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[109] || CT.C109,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 145,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 35,
-        [_Location_line]: 145,
-        [_Location_file]: null
-      });
-    },
-    get C115() {
-      return C[115] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 35,
-        [_Location_line]: 149,
-        [_Location_file]: null
-      });
-    },
-    get C113() {
-      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115], widget_inspector._Location);
-    },
-    get C112() {
-      return C[112] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[113] || CT.C113,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 144,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "future",
-        [_Location_column]: 27,
-        [_Location_line]: 126,
-        [_Location_file]: null
-      });
-    },
-    get C119() {
-      return C[119] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 27,
-        [_Location_line]: 127,
-        [_Location_file]: null
-      });
-    },
-    get C117() {
-      return C[117] = dart.constList([C[118] || CT.C118, C[119] || CT.C119], widget_inspector._Location);
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[117] || CT.C117,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 125,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C122() {
-      return C[122] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 59,
-        [_Location_line]: 165,
-        [_Location_file]: null
-      });
-    },
-    get C121() {
-      return C[121] = dart.constList([C[122] || CT.C122], widget_inspector._Location);
-    },
-    get C120() {
-      return C[120] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[121] || CT.C121,
-        [_Location_name]: null,
-        [_Location_column]: 40,
-        [_Location_line]: 165,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 43,
-        [_Location_line]: 167,
-        [_Location_file]: null
-      });
-    },
-    get C124() {
-      return C[124] = dart.constList([C[125] || CT.C125], widget_inspector._Location);
-    },
-    get C123() {
-      return C[123] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[124] || CT.C124,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 167,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C128() {
-      return C[128] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "future",
-        [_Location_column]: 29,
-        [_Location_line]: 161,
-        [_Location_file]: null
-      });
-    },
-    get C129() {
-      return C[129] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 29,
-        [_Location_line]: 162,
-        [_Location_file]: null
-      });
-    },
-    get C127() {
-      return C[127] = dart.constList([C[128] || CT.C128, C[129] || CT.C129], widget_inspector._Location);
-    },
-    get C126() {
-      return C[126] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[127] || CT.C127,
-        [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 160,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C132() {
-      return C[132] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 23,
-        [_Location_line]: 102,
-        [_Location_file]: null
-      });
-    },
-    get C131() {
-      return C[131] = dart.constList([C[132] || CT.C132], widget_inspector._Location);
-    },
-    get C130() {
-      return C[130] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[131] || CT.C131,
-        [_Location_name]: null,
-        [_Location_column]: 21,
-        [_Location_line]: 101,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C135() {
-      return C[135] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 19,
-        [_Location_line]: 67,
-        [_Location_file]: null
-      });
-    },
-    get C134() {
-      return C[134] = dart.constList([C[135] || CT.C135], widget_inspector._Location);
-    },
-    get C133() {
-      return C[133] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[134] || CT.C134,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 66,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C138() {
-      return C[138] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C139() {
-      return C[139] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 66,
-        [_Location_file]: null
-      });
-    },
-    get C137() {
-      return C[137] = dart.constList([C[138] || CT.C138, C[139] || CT.C139], widget_inspector._Location);
-    },
-    get C136() {
-      return C[136] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[137] || CT.C137,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C142() {
-      return C[142] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C141() {
-      return C[141] = dart.constList([C[142] || CT.C142], widget_inspector._Location);
-    },
-    get C140() {
-      return C[140] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[141] || CT.C141,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 63,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C145() {
-      return C[145] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 15,
-        [_Location_line]: 62,
-        [_Location_file]: null
-      });
-    },
-    get C146() {
-      return C[146] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C144() {
-      return C[144] = dart.constList([C[145] || CT.C145, C[146] || CT.C146], widget_inspector._Location);
-    },
-    get C143() {
-      return C[143] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[144] || CT.C144,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 61,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C149() {
-      return C[149] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C148() {
-      return C[148] = dart.constList([C[149] || CT.C149], widget_inspector._Location);
-    },
-    get C147() {
-      return C[147] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[148] || CT.C148,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 60,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C150() {
-      return C[150] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[19] || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 178,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C153() {
-      return C[153] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 178,
-        [_Location_file]: null
-      });
-    },
-    get C152() {
-      return C[152] = dart.constList([C[153] || CT.C153], widget_inspector._Location);
-    },
-    get C151() {
-      return C[151] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[152] || CT.C152,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 177,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
-      });
-    },
-    get C156() {
-      return C[156] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "future",
-        [_Location_column]: 7,
-        [_Location_line]: 49,
-        [_Location_file]: null
-      });
-    },
-    get C157() {
-      return C[157] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 7,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C155() {
-      return C[155] = dart.constList([C[156] || CT.C156, C[157] || CT.C157], widget_inspector._Location);
-    },
-    get C154() {
-      return C[154] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[155] || CT.C155,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 48,
-        [_Location_file]: "file:///C:/Users/yunus/Desktop/New%20folder/logafic2/lib/screens/status_screen.dart"
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierSize.prototype,
+        [_name]: "RecaptchaVerifierSize.normal",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierTheme.prototype,
+        [_name]: "RecaptchaVerifierTheme.light",
+        index: 0
       });
     }
   }, false);
-  var C = Array(158).fill(void 0);
-  var I = ["package:logafic/screens/status_screen.dart"];
-  var id$ = dart.privateName(status_screen, "StatusScreen.id");
-  var authController$ = dart.privateName(status_screen, "StatusScreen.authController");
-  var likeRef = dart.privateName(status_screen, "StatusScreen.likeRef");
-  var posts = dart.privateName(status_screen, "StatusScreen.posts");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var Widget__location = dart.privateName(framework, "Widget._location");
-  var Widget_key = dart.privateName(framework, "Widget.key");
-  var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
-  var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var Icon_color = dart.privateName(icon, "Icon.color");
-  var Icon_size = dart.privateName(icon, "Icon.size");
-  var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
-  var IconData_fontPackage = dart.privateName(icon_data, "IconData.fontPackage");
-  var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
-  var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
-  var Icon_icon = dart.privateName(icon, "Icon.icon");
-  status_screen.StatusScreen = class StatusScreen extends framework.StatelessWidget {
-    get id() {
-      return this[id$];
+  var C = Array(3).fill(void 0);
+  var I = [
+    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-1.4.1/lib/src/firebase_auth.dart",
+    "package:firebase_auth/firebase_auth.dart",
+    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-1.4.1/lib/src/user.dart"
+  ];
+  var app$ = dart.privateName(firebase_auth, "FirebaseAuth.app");
+  var _delegatePackingProperty = dart.privateName(firebase_auth, "_delegatePackingProperty");
+  var _delegate$ = dart.privateName(firebase_auth, "_delegate");
+  var _pipeStreamChanges = dart.privateName(firebase_auth, "_pipeStreamChanges");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  firebase_auth.FirebaseAuth = class FirebaseAuth extends firebase_core_platform_interface.FirebasePluginPlatform {
+    get app() {
+      return this[app$];
     }
-    set id(value) {
-      super.id = value;
+    set app(value) {
+      this[app$] = value;
     }
-    get authController() {
-      return this[authController$];
+    get [_delegate$]() {
+      this[_delegatePackingProperty] == null ? this[_delegatePackingProperty] = platform_interface_firebase_auth.FirebaseAuthPlatform.instanceFor({app: this.app, pluginConstants: this.pluginConstants}) : null;
+      return dart.nullCheck(this[_delegatePackingProperty]);
     }
-    set authController(value) {
-      this[authController$] = value;
+    static get instance() {
+      let defaultAppInstance = firebase_core.Firebase.app();
+      return firebase_auth.FirebaseAuth.instanceFor({app: defaultAppInstance});
     }
-    get likeRef() {
-      return this[likeRef];
+    static instanceFor(opts) {
+      let app = opts && 'app' in opts ? opts.app : null;
+      return firebase_auth.FirebaseAuth._firebaseAuthInstances[$putIfAbsent](app.name, dart.fn(() => new firebase_auth.FirebaseAuth.__({app: app}), T.VoidToFirebaseAuth()));
     }
-    set likeRef(value) {
-      this[likeRef] = value;
+    get currentUser() {
+      if (this[_delegate$].currentUser != null) {
+        return new firebase_auth.User.__(this, dart.nullCheck(this[_delegate$].currentUser));
+      }
+      return null;
     }
-    get posts() {
-      return this[posts];
+    get languageCode() {
+      if (this[_delegate$].languageCode != null) {
+        return this[_delegate$].languageCode;
+      }
+      return null;
     }
-    set posts(value) {
-      this[posts] = value;
-    }
-    build(context) {
-      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({backgroundColor: colors.Colors.white, leading: new basic.Builder.new({builder: dart.fn(context => new icon_button.IconButton.new({icon: C[0] || CT.C0, onPressed: dart.fn(() => {
-                navigator.Navigator.pop(T.ObjectN(), context);
-              }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), T.BuildContextToIconButton()), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), title: new text.Text.new("Gönderi", {style: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 20.0, fontFamily: "Montserrat", fontWeight: ui.FontWeight.w400, letterSpacing: 3.0}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), actions: T.JSArrayOfWidget().of([new menubaraction.MenuActionBar.new({$creationLocationd_0dea112b090073317d4: C[18] || CT.C18})]), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), body: new scrollbar.Scrollbar.new({child: this.getData, $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29});
-    }
-    get getData() {
-      return new (T.FutureBuilderOfDocumentSnapshotOfObjectN()).new({future: this.posts.doc(this.id).get(), builder: dart.fn((context, snapshot) => {
-          if (snapshot.hasError) {
-            return new basic.Center.new({child: new text.Text.new("Birşeyler yanlış gidiyor.", {$creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36});
+    useEmulator(origin) {
+      return async.async(dart.void, (function* useEmulator() {
+        if (!origin[$isNotEmpty]) dart.assertFailed(null, I[0], 84, 12, "origin.isNotEmpty");
+        let mappedOrigin = origin;
+        if (platform.defaultTargetPlatform === platform.TargetPlatform.android && !true) {
+          if (mappedOrigin[$startsWith]("http://localhost")) {
+            mappedOrigin = mappedOrigin[$replaceFirst]("http://localhost", "http://10.0.2.2");
+          } else if (mappedOrigin[$startsWith]("http://127.0.0.1")) {
+            mappedOrigin = mappedOrigin[$replaceFirst]("http://127.0.0.1", "http://10.0.2.2");
           }
-          if (snapshot.connectionState === async$.ConnectionState.done) {
-            let data = T.MapOfString$dynamic().as(dart.nullCheck(snapshot.data).data());
-            return new basic.Center.new({child: new basic.SizedBox.new({width: media_query.MediaQuery.of(context).size.width * 0.6, child: new card.Card.new({child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new list_tile.ListTile.new({leading: new image.Image.network(core.String.as(data[$_get]("userProfile")), {$creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), title: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new text_button.TextButton.new({child: new text.Text.new(core.String.as(data[$_get]("userName")), {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), onPressed: dart.fn(() => {
-                                    navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$dynamic()).from(["userId", data[$_get]("userId")])});
-                                  }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46})]), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), subtitle: new text.Text.new(core.String.as(data[$_get]("created_at")), {style: new text_style.TextStyle.new({fontSize: 17.0}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[67] || CT.C67}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new text.Text.new(core.String.as(data[$_get]("content")), {style: new text_style.TextStyle.new({fontSize: 18.0}), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), $creationLocationd_0dea112b090073317d4: C[72] || CT.C72}), new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new text_button.TextButton.new({onPressed: dart.fn(() => {
-                                }, T.VoidTovoid()), child: new text.Text.new("Yorum Yap", {style: new text_style.TextStyle.new({color: colors.Colors.black54, fontSize: 15.0}), $creationLocationd_0dea112b090073317d4: C[76] || CT.C76}), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80}), $creationLocationd_0dea112b090073317d4: C[84] || CT.C84}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new text_button.TextButton.new({onPressed: dart.fn(() => {
-                                }, T.VoidTovoid()), child: new text.Text.new("Yorumlar", {style: new text_style.TextStyle.new({color: colors.Colors.black54, fontSize: 15.0}), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88}), $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}), $creationLocationd_0dea112b090073317d4: C[96] || CT.C96}), new (T.FutureBuilderOfbool()).new({future: this.checkIfDocExists(this.id), builder: dart.fn((context, snapshot) => {
-                                if (dart.equals(snapshot.data, false)) {
-                                  return new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.star_outline, {color: colors.Colors.green, $creationLocationd_0dea112b090073317d4: C[100] || CT.C100}), onPressed: dart.fn(() => {
-                                      this.likeRef.doc(this.id).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).set(new (T.IdentityMapOfString$dynamic()).from(["like", true]));
-                                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[104] || CT.C104});
-                                } else {
-                                  return new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.star_outline, {color: colors.Colors.amber, $creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), onPressed: dart.fn(() => {
-                                      this.likeRef.doc(this.id).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).delete();
-                                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112});
-                                }
-                              }, T.BuildContextAndAsyncSnapshotToIconButton()), $creationLocationd_0dea112b090073317d4: C[116] || CT.C116}), new (T.FutureBuilderOfint()).new({future: this.getSize(this.id), builder: dart.fn((context, snapshot) => {
-                                if (snapshot.hasData) {
-                                  return new text.Text.new(dart.toString(snapshot.data), {$creationLocationd_0dea112b090073317d4: C[120] || CT.C120});
-                                }
-                                return new text.Text.new("0", {$creationLocationd_0dea112b090073317d4: C[123] || CT.C123});
-                              }, T.BuildContextAndAsyncSnapshotOfintToText()), $creationLocationd_0dea112b090073317d4: C[126] || CT.C126})]), $creationLocationd_0dea112b090073317d4: C[130] || CT.C130})]), $creationLocationd_0dea112b090073317d4: C[133] || CT.C133}), $creationLocationd_0dea112b090073317d4: C[136] || CT.C136}), $creationLocationd_0dea112b090073317d4: C[140] || CT.C140}), $creationLocationd_0dea112b090073317d4: C[143] || CT.C143}), $creationLocationd_0dea112b090073317d4: C[147] || CT.C147});
-          }
-          return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[150] || CT.C150}), $creationLocationd_0dea112b090073317d4: C[151] || CT.C151});
-        }, T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter()), $creationLocationd_0dea112b090073317d4: C[154] || CT.C154});
-    }
-    checkIfDocExists(docId) {
-      return async.async(core.bool, (function* checkIfDocExists() {
-        try {
-          let doc = (yield this.likeRef.doc(docId).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).get());
-          return doc.exists;
-        } catch (e$) {
-          let e = dart.getThrown(e$);
-          if (core.Object.is(e)) {
-            dart.throw(e);
-          } else
-            throw e$;
         }
+        let hostPortRegex = core.RegExp.new("^http:\\/\\/([\\w\\d.]+):(\\d+)$");
+        let match = hostPortRegex.firstMatch(mappedOrigin);
+        if (match == null) {
+          dart.throw(new core.ArgumentError.new("firebase.auth().useEmulator() origin format error"));
+        }
+        let host = dart.nullCheck(match.group(1));
+        let port = core.int.parse(dart.nullCheck(match.group(2)));
+        yield this[_delegate$].useEmulator(host, port);
       }).bind(this));
     }
-    getSize(documentId) {
-      return async.async(core.int, (function* getSize() {
-        let size = 0;
-        yield this.likeRef.doc(documentId).collection("likes").get().then(core.int, dart.fn(value => size = value.size, T.QuerySnapshotOfMapOfString$dynamicToint()));
-        return size;
+    get tenantId() {
+      return this[_delegate$].tenantId;
+    }
+    set tenantId(tenantId) {
+      this[_delegate$].tenantId = tenantId;
+    }
+    applyActionCode(code) {
+      return async.async(dart.void, (function* applyActionCode() {
+        yield this[_delegate$].applyActionCode(code);
+      }).bind(this));
+    }
+    checkActionCode(code) {
+      return this[_delegate$].checkActionCode(code);
+    }
+    confirmPasswordReset(opts) {
+      let code = opts && 'code' in opts ? opts.code : null;
+      let newPassword = opts && 'newPassword' in opts ? opts.newPassword : null;
+      return async.async(dart.void, (function* confirmPasswordReset() {
+        yield this[_delegate$].confirmPasswordReset(code, newPassword);
+      }).bind(this));
+    }
+    createUserWithEmailAndPassword(opts) {
+      let email = opts && 'email' in opts ? opts.email : null;
+      let password = opts && 'password' in opts ? opts.password : null;
+      return async.async(firebase_auth.UserCredential, (function* createUserWithEmailAndPassword() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].createUserWithEmailAndPassword(email, password));
+      }).bind(this));
+    }
+    fetchSignInMethodsForEmail(email) {
+      return this[_delegate$].fetchSignInMethodsForEmail(email);
+    }
+    getRedirectResult() {
+      return async.async(firebase_auth.UserCredential, (function* getRedirectResult() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].getRedirectResult());
+      }).bind(this));
+    }
+    isSignInWithEmailLink(emailLink) {
+      return this[_delegate$].isSignInWithEmailLink(emailLink);
+    }
+    [_pipeStreamChanges](stream) {
+      return stream.map(T.UserN(), dart.fn(delegateUser => {
+        if (delegateUser == null) {
+          return null;
+        }
+        return new firebase_auth.User.__(this, delegateUser);
+      }, T.UserPlatformNToUserN())).asBroadcastStream({onCancel: dart.fn(sub => sub.cancel(), T.StreamSubscriptionOfUserNTovoid())});
+    }
+    authStateChanges() {
+      return this[_pipeStreamChanges](this[_delegate$].authStateChanges());
+    }
+    idTokenChanges() {
+      return this[_pipeStreamChanges](this[_delegate$].idTokenChanges());
+    }
+    userChanges() {
+      return this[_pipeStreamChanges](this[_delegate$].userChanges());
+    }
+    sendPasswordResetEmail(opts) {
+      let email = opts && 'email' in opts ? opts.email : null;
+      let actionCodeSettings = opts && 'actionCodeSettings' in opts ? opts.actionCodeSettings : null;
+      return this[_delegate$].sendPasswordResetEmail(email, actionCodeSettings);
+    }
+    sendSignInLinkToEmail(opts) {
+      let email = opts && 'email' in opts ? opts.email : null;
+      let actionCodeSettings = opts && 'actionCodeSettings' in opts ? opts.actionCodeSettings : null;
+      return async.async(dart.void, (function* sendSignInLinkToEmail() {
+        if (actionCodeSettings.handleCodeInApp !== true) {
+          dart.throw(new core.ArgumentError.new("The [handleCodeInApp] value of [ActionCodeSettings] must be `true`."));
+        }
+        yield this[_delegate$].sendSignInLinkToEmail(email, actionCodeSettings);
+      }).bind(this));
+    }
+    setLanguageCode(languageCode) {
+      return this[_delegate$].setLanguageCode(languageCode);
+    }
+    setSettings(opts) {
+      let appVerificationDisabledForTesting = opts && 'appVerificationDisabledForTesting' in opts ? opts.appVerificationDisabledForTesting : null;
+      let userAccessGroup = opts && 'userAccessGroup' in opts ? opts.userAccessGroup : null;
+      return this[_delegate$].setSettings({appVerificationDisabledForTesting: appVerificationDisabledForTesting, userAccessGroup: userAccessGroup});
+    }
+    setPersistence(persistence) {
+      return async.async(dart.void, (function* setPersistence() {
+        return this[_delegate$].setPersistence(persistence);
+      }).bind(this));
+    }
+    signInAnonymously() {
+      return async.async(firebase_auth.UserCredential, (function* signInAnonymously() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInAnonymously());
+      }).bind(this));
+    }
+    signInWithCredential(credential) {
+      return async.async(firebase_auth.UserCredential, (function* signInWithCredential() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithCredential(credential));
+      }).bind(this));
+    }
+    signInWithCustomToken(token) {
+      return async.async(firebase_auth.UserCredential, (function* signInWithCustomToken() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithCustomToken(token));
+      }).bind(this));
+    }
+    signInWithEmailAndPassword(opts) {
+      let email = opts && 'email' in opts ? opts.email : null;
+      let password = opts && 'password' in opts ? opts.password : null;
+      return async.async(firebase_auth.UserCredential, (function* signInWithEmailAndPassword() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithEmailAndPassword(email, password));
+      }).bind(this));
+    }
+    signInWithEmailLink(opts) {
+      let email = opts && 'email' in opts ? opts.email : null;
+      let emailLink = opts && 'emailLink' in opts ? opts.emailLink : null;
+      return async.async(firebase_auth.UserCredential, (function* signInWithEmailLink() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithEmailLink(email, emailLink));
+      }).bind(this));
+    }
+    signInWithPhoneNumber(phoneNumber, verifier = null) {
+      return async.async(firebase_auth.ConfirmationResult, (function* signInWithPhoneNumber() {
+        if (!phoneNumber[$isNotEmpty]) dart.assertFailed(null, I[0], 560, 12, "phoneNumber.isNotEmpty");
+        verifier == null ? verifier = firebase_auth.RecaptchaVerifier.new() : null;
+        return new firebase_auth.ConfirmationResult.__(this, yield this[_delegate$].signInWithPhoneNumber(phoneNumber, verifier.delegate));
+      }).bind(this));
+    }
+    signInWithPopup(provider) {
+      return async.async(firebase_auth.UserCredential, (function* signInWithPopup() {
+        return new firebase_auth.UserCredential.__(this, yield this[_delegate$].signInWithPopup(provider));
+      }).bind(this));
+    }
+    signInWithRedirect(provider) {
+      return this[_delegate$].signInWithRedirect(provider);
+    }
+    signOut() {
+      return async.async(dart.void, (function* signOut() {
+        yield this[_delegate$].signOut();
+      }).bind(this));
+    }
+    verifyPasswordResetCode(code) {
+      return this[_delegate$].verifyPasswordResetCode(code);
+    }
+    verifyPhoneNumber(opts) {
+      let phoneNumber = opts && 'phoneNumber' in opts ? opts.phoneNumber : null;
+      let verificationCompleted = opts && 'verificationCompleted' in opts ? opts.verificationCompleted : null;
+      let verificationFailed = opts && 'verificationFailed' in opts ? opts.verificationFailed : null;
+      let codeSent = opts && 'codeSent' in opts ? opts.codeSent : null;
+      let codeAutoRetrievalTimeout = opts && 'codeAutoRetrievalTimeout' in opts ? opts.codeAutoRetrievalTimeout : null;
+      let autoRetrievedSmsCodeForTesting = opts && 'autoRetrievedSmsCodeForTesting' in opts ? opts.autoRetrievedSmsCodeForTesting : null;
+      let timeout = opts && 'timeout' in opts ? opts.timeout : C[0] || CT.C0;
+      let forceResendingToken = opts && 'forceResendingToken' in opts ? opts.forceResendingToken : null;
+      return this[_delegate$].verifyPhoneNumber({phoneNumber: phoneNumber, timeout: timeout, forceResendingToken: forceResendingToken, verificationCompleted: verificationCompleted, verificationFailed: verificationFailed, codeSent: codeSent, codeAutoRetrievalTimeout: codeAutoRetrievalTimeout, autoRetrievedSmsCodeForTesting: autoRetrievedSmsCodeForTesting});
+    }
+    toString() {
+      return "FirebaseAuth(app: " + this.app.name + ")";
+    }
+  };
+  (firebase_auth.FirebaseAuth.__ = function(opts) {
+    let app = opts && 'app' in opts ? opts.app : null;
+    this[_delegatePackingProperty] = null;
+    this[app$] = app;
+    firebase_auth.FirebaseAuth.__proto__.new.call(this, app.name, "plugins.flutter.io/firebase_auth");
+    ;
+  }).prototype = firebase_auth.FirebaseAuth.prototype;
+  dart.addTypeTests(firebase_auth.FirebaseAuth);
+  dart.addTypeCaches(firebase_auth.FirebaseAuth);
+  dart.setMethodSignature(firebase_auth.FirebaseAuth, () => ({
+    __proto__: dart.getMethods(firebase_auth.FirebaseAuth.__proto__),
+    useEmulator: dart.fnType(async.Future$(dart.void), [core.String]),
+    applyActionCode: dart.fnType(async.Future$(dart.void), [core.String]),
+    checkActionCode: dart.fnType(async.Future$(action_code_info.ActionCodeInfo), [core.String]),
+    confirmPasswordReset: dart.fnType(async.Future$(dart.void), [], {}, {code: core.String, newPassword: core.String}),
+    createUserWithEmailAndPassword: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, password: core.String}),
+    fetchSignInMethodsForEmail: dart.fnType(async.Future$(core.List$(core.String)), [core.String]),
+    getRedirectResult: dart.fnType(async.Future$(firebase_auth.UserCredential), []),
+    isSignInWithEmailLink: dart.fnType(core.bool, [core.String]),
+    [_pipeStreamChanges]: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), [async.Stream$(dart.nullable(platform_interface_user.UserPlatform))]),
+    authStateChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
+    idTokenChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
+    userChanges: dart.fnType(async.Stream$(dart.nullable(firebase_auth.User)), []),
+    sendPasswordResetEmail: dart.fnType(async.Future$(dart.void), [], {actionCodeSettings: dart.nullable(action_code_settings.ActionCodeSettings)}, {email: core.String}),
+    sendSignInLinkToEmail: dart.fnType(async.Future$(dart.void), [], {}, {actionCodeSettings: action_code_settings.ActionCodeSettings, email: core.String}),
+    setLanguageCode: dart.fnType(async.Future$(dart.void), [core.String]),
+    setSettings: dart.fnType(async.Future$(dart.void), [], {appVerificationDisabledForTesting: dart.nullable(core.bool), userAccessGroup: dart.nullable(core.String)}, {}),
+    setPersistence: dart.fnType(async.Future$(dart.void), [types.Persistence]),
+    signInAnonymously: dart.fnType(async.Future$(firebase_auth.UserCredential), []),
+    signInWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
+    signInWithCustomToken: dart.fnType(async.Future$(firebase_auth.UserCredential), [core.String]),
+    signInWithEmailAndPassword: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, password: core.String}),
+    signInWithEmailLink: dart.fnType(async.Future$(firebase_auth.UserCredential), [], {}, {email: core.String, emailLink: core.String}),
+    signInWithPhoneNumber: dart.fnType(async.Future$(firebase_auth.ConfirmationResult), [core.String], [dart.nullable(firebase_auth.RecaptchaVerifier)]),
+    signInWithPopup: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_provider.AuthProvider]),
+    signInWithRedirect: dart.fnType(async.Future$(dart.void), [auth_provider.AuthProvider]),
+    signOut: dart.fnType(async.Future$(dart.void), []),
+    verifyPasswordResetCode: dart.fnType(async.Future$(core.String), [core.String]),
+    verifyPhoneNumber: dart.fnType(async.Future$(dart.void), [], {autoRetrievedSmsCodeForTesting: dart.nullable(core.String), forceResendingToken: dart.nullable(core.int), timeout: core.Duration}, {codeAutoRetrievalTimeout: dart.fnType(dart.void, [core.String]), codeSent: dart.fnType(dart.void, [core.String, dart.nullable(core.int)]), phoneNumber: core.String, verificationCompleted: dart.fnType(dart.void, [phone_auth.PhoneAuthCredential]), verificationFailed: dart.fnType(dart.void, [firebase_auth_exception.FirebaseAuthException])})
+  }));
+  dart.setGetterSignature(firebase_auth.FirebaseAuth, () => ({
+    __proto__: dart.getGetters(firebase_auth.FirebaseAuth.__proto__),
+    [_delegate$]: platform_interface_firebase_auth.FirebaseAuthPlatform,
+    currentUser: dart.nullable(firebase_auth.User),
+    languageCode: dart.nullable(core.String),
+    tenantId: dart.nullable(core.String)
+  }));
+  dart.setSetterSignature(firebase_auth.FirebaseAuth, () => ({
+    __proto__: dart.getSetters(firebase_auth.FirebaseAuth.__proto__),
+    tenantId: dart.nullable(core.String)
+  }));
+  dart.setLibraryUri(firebase_auth.FirebaseAuth, I[1]);
+  dart.setFieldSignature(firebase_auth.FirebaseAuth, () => ({
+    __proto__: dart.getFields(firebase_auth.FirebaseAuth.__proto__),
+    [_delegatePackingProperty]: dart.fieldType(dart.nullable(platform_interface_firebase_auth.FirebaseAuthPlatform)),
+    app: dart.fieldType(firebase_core.FirebaseApp)
+  }));
+  dart.defineExtensionMethods(firebase_auth.FirebaseAuth, ['toString']);
+  dart.defineLazy(firebase_auth.FirebaseAuth, {
+    /*firebase_auth.FirebaseAuth._firebaseAuthInstances*/get _firebaseAuthInstances() {
+      return new (T.IdentityMapOfString$FirebaseAuth()).new();
+    },
+    set _firebaseAuthInstances(_) {}
+  }, false);
+  var _auth$ = dart.privateName(firebase_auth, "_auth");
+  firebase_auth.UserCredential = class UserCredential extends core.Object {
+    get additionalUserInfo() {
+      return this[_delegate$].additionalUserInfo;
+    }
+    get credential() {
+      return this[_delegate$].credential;
+    }
+    get user() {
+      return this[_delegate$].user == null ? null : new firebase_auth.User.__(this[_auth$], dart.nullCheck(this[_delegate$].user));
+    }
+    toString() {
+      return "UserCredential(" + "additionalUserInfo: " + dart.str(this.additionalUserInfo) + ", " + "credential: " + dart.str(this.credential) + ", " + "user: " + dart.str(this.user) + ")";
+    }
+  };
+  (firebase_auth.UserCredential.__ = function(_auth, _delegate) {
+    this[_auth$] = _auth;
+    this[_delegate$] = _delegate;
+    platform_interface_user_credential.UserCredentialPlatform.verifyExtends(this[_delegate$]);
+  }).prototype = firebase_auth.UserCredential.prototype;
+  dart.addTypeTests(firebase_auth.UserCredential);
+  dart.addTypeCaches(firebase_auth.UserCredential);
+  dart.setGetterSignature(firebase_auth.UserCredential, () => ({
+    __proto__: dart.getGetters(firebase_auth.UserCredential.__proto__),
+    additionalUserInfo: dart.nullable(additional_user_info.AdditionalUserInfo),
+    credential: dart.nullable(auth_credential.AuthCredential),
+    user: dart.nullable(firebase_auth.User)
+  }));
+  dart.setLibraryUri(firebase_auth.UserCredential, I[1]);
+  dart.setFieldSignature(firebase_auth.UserCredential, () => ({
+    __proto__: dart.getFields(firebase_auth.UserCredential.__proto__),
+    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth),
+    [_delegate$]: dart.finalFieldType(platform_interface_user_credential.UserCredentialPlatform)
+  }));
+  dart.defineExtensionMethods(firebase_auth.UserCredential, ['toString']);
+  firebase_auth.User = class User extends core.Object {
+    get displayName() {
+      return this[_delegate$].displayName;
+    }
+    get email() {
+      return this[_delegate$].email;
+    }
+    get emailVerified() {
+      return this[_delegate$].emailVerified;
+    }
+    get isAnonymous() {
+      return this[_delegate$].isAnonymous;
+    }
+    get metadata() {
+      return this[_delegate$].metadata;
+    }
+    get phoneNumber() {
+      return this[_delegate$].phoneNumber;
+    }
+    get photoURL() {
+      return this[_delegate$].photoURL;
+    }
+    get providerData() {
+      return this[_delegate$].providerData;
+    }
+    get refreshToken() {
+      return this[_delegate$].refreshToken;
+    }
+    get tenantId() {
+      return this[_delegate$].tenantId;
+    }
+    get uid() {
+      return this[_delegate$].uid;
+    }
+    delete() {
+      return async.async(dart.void, (function* $delete() {
+        return this[_delegate$].delete();
+      }).bind(this));
+    }
+    getIdToken(forceRefresh = false) {
+      return this[_delegate$].getIdToken(forceRefresh);
+    }
+    getIdTokenResult(forceRefresh = false) {
+      return this[_delegate$].getIdTokenResult(forceRefresh);
+    }
+    linkWithCredential(credential) {
+      return async.async(firebase_auth.UserCredential, (function* linkWithCredential() {
+        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].linkWithCredential(credential));
+      }).bind(this));
+    }
+    linkWithPhoneNumber(phoneNumber, verifier = null) {
+      return async.async(firebase_auth.ConfirmationResult, (function* linkWithPhoneNumber() {
+        if (!phoneNumber[$isNotEmpty]) dart.assertFailed(null, I[2], 215, 12, "phoneNumber.isNotEmpty");
+        verifier == null ? verifier = firebase_auth.RecaptchaVerifier.new() : null;
+        return new firebase_auth.ConfirmationResult.__(this[_auth$], yield this[_delegate$].linkWithPhoneNumber(phoneNumber, verifier.delegate));
+      }).bind(this));
+    }
+    reauthenticateWithCredential(credential) {
+      return async.async(firebase_auth.UserCredential, (function* reauthenticateWithCredential() {
+        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].reauthenticateWithCredential(credential));
+      }).bind(this));
+    }
+    reload() {
+      return async.async(dart.void, (function* reload() {
+        yield this[_delegate$].reload();
+      }).bind(this));
+    }
+    sendEmailVerification(actionCodeSettings = null) {
+      return async.async(dart.void, (function* sendEmailVerification() {
+        yield this[_delegate$].sendEmailVerification(actionCodeSettings);
+      }).bind(this));
+    }
+    unlink(providerId) {
+      return async.async(firebase_auth.User, (function* unlink() {
+        return new firebase_auth.User.__(this[_auth$], yield this[_delegate$].unlink(providerId));
+      }).bind(this));
+    }
+    updateEmail(newEmail) {
+      return async.async(dart.void, (function* updateEmail() {
+        yield this[_delegate$].updateEmail(newEmail);
+      }).bind(this));
+    }
+    updatePassword(newPassword) {
+      return async.async(dart.void, (function* updatePassword() {
+        yield this[_delegate$].updatePassword(newPassword);
+      }).bind(this));
+    }
+    updatePhoneNumber(phoneCredential) {
+      return async.async(dart.void, (function* updatePhoneNumber() {
+        yield this[_delegate$].updatePhoneNumber(phoneCredential);
+      }).bind(this));
+    }
+    updateDisplayName(displayName) {
+      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["displayName", displayName]));
+    }
+    updatePhotoURL(photoURL) {
+      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["photoURL", photoURL]));
+    }
+    updateProfile(opts) {
+      let displayName = opts && 'displayName' in opts ? opts.displayName : null;
+      let photoURL = opts && 'photoURL' in opts ? opts.photoURL : null;
+      return this[_delegate$].updateProfile(new (T.IdentityMapOfString$StringN()).from(["displayName", displayName, "photoURL", photoURL]));
+    }
+    verifyBeforeUpdateEmail(newEmail, actionCodeSettings = null) {
+      return async.async(dart.void, (function* verifyBeforeUpdateEmail() {
+        yield this[_delegate$].verifyBeforeUpdateEmail(newEmail, actionCodeSettings);
+      }).bind(this));
+    }
+    toString() {
+      return dart.str(dart.wrapType(firebase_auth.User)) + "(" + "displayName: " + dart.str(this.displayName) + ", " + "email: " + dart.str(this.email) + ", " + "emailVerified: " + dart.str(this.emailVerified) + ", " + "isAnonymous: " + dart.str(this.isAnonymous) + ", " + "metadata: " + dart.str(this.metadata) + ", " + "phoneNumber: " + dart.str(this.phoneNumber) + ", " + "photoURL: " + dart.str(this.photoURL) + ", " + "providerData, " + dart.str(this.providerData) + ", " + "refreshToken: " + dart.str(this.refreshToken) + ", " + "tenantId: " + dart.str(this.tenantId) + ", " + "uid: " + this.uid + ")";
+    }
+  };
+  (firebase_auth.User.__ = function(_auth, _delegate) {
+    this[_auth$] = _auth;
+    this[_delegate$] = _delegate;
+    platform_interface_user.UserPlatform.verifyExtends(this[_delegate$]);
+  }).prototype = firebase_auth.User.prototype;
+  dart.addTypeTests(firebase_auth.User);
+  dart.addTypeCaches(firebase_auth.User);
+  dart.setMethodSignature(firebase_auth.User, () => ({
+    __proto__: dart.getMethods(firebase_auth.User.__proto__),
+    delete: dart.fnType(async.Future$(dart.void), []),
+    getIdToken: dart.fnType(async.Future$(core.String), [], [core.bool]),
+    getIdTokenResult: dart.fnType(async.Future$(id_token_result.IdTokenResult), [], [core.bool]),
+    linkWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
+    linkWithPhoneNumber: dart.fnType(async.Future$(firebase_auth.ConfirmationResult), [core.String], [dart.nullable(firebase_auth.RecaptchaVerifier)]),
+    reauthenticateWithCredential: dart.fnType(async.Future$(firebase_auth.UserCredential), [auth_credential.AuthCredential]),
+    reload: dart.fnType(async.Future$(dart.void), []),
+    sendEmailVerification: dart.fnType(async.Future$(dart.void), [], [dart.nullable(action_code_settings.ActionCodeSettings)]),
+    unlink: dart.fnType(async.Future$(firebase_auth.User), [core.String]),
+    updateEmail: dart.fnType(async.Future$(dart.void), [core.String]),
+    updatePassword: dart.fnType(async.Future$(dart.void), [core.String]),
+    updatePhoneNumber: dart.fnType(async.Future$(dart.void), [phone_auth.PhoneAuthCredential]),
+    updateDisplayName: dart.fnType(async.Future$(dart.void), [dart.nullable(core.String)]),
+    updatePhotoURL: dart.fnType(async.Future$(dart.void), [dart.nullable(core.String)]),
+    updateProfile: dart.fnType(async.Future$(dart.void), [], {displayName: dart.nullable(core.String), photoURL: dart.nullable(core.String)}, {}),
+    verifyBeforeUpdateEmail: dart.fnType(async.Future$(dart.void), [core.String], [dart.nullable(action_code_settings.ActionCodeSettings)])
+  }));
+  dart.setGetterSignature(firebase_auth.User, () => ({
+    __proto__: dart.getGetters(firebase_auth.User.__proto__),
+    displayName: dart.nullable(core.String),
+    email: dart.nullable(core.String),
+    emailVerified: core.bool,
+    isAnonymous: core.bool,
+    metadata: user_metadata.UserMetadata,
+    phoneNumber: dart.nullable(core.String),
+    photoURL: dart.nullable(core.String),
+    providerData: core.List$(user_info.UserInfo),
+    refreshToken: dart.nullable(core.String),
+    tenantId: dart.nullable(core.String),
+    uid: core.String
+  }));
+  dart.setLibraryUri(firebase_auth.User, I[1]);
+  dart.setFieldSignature(firebase_auth.User, () => ({
+    __proto__: dart.getFields(firebase_auth.User.__proto__),
+    [_delegate$]: dart.fieldType(platform_interface_user.UserPlatform),
+    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth)
+  }));
+  dart.defineExtensionMethods(firebase_auth.User, ['toString']);
+  firebase_auth.ConfirmationResult = class ConfirmationResult extends core.Object {
+    get verificationId() {
+      return this[_delegate$].verificationId;
+    }
+    confirm(verificationCode) {
+      return async.async(firebase_auth.UserCredential, (function* confirm() {
+        return new firebase_auth.UserCredential.__(this[_auth$], yield this[_delegate$].confirm(verificationCode));
       }).bind(this));
     }
   };
-  (status_screen.StatusScreen.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let id = opts && 'id' in opts ? opts.id : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[authController$] = authController.AuthController.to;
-    this[likeRef] = cloud_firestore.FirebaseFirestore.instance.collection("posts");
-    this[posts] = cloud_firestore.FirebaseFirestore.instance.collection("posts");
-    this[id$] = id;
-    status_screen.StatusScreen.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (firebase_auth.ConfirmationResult.__ = function(_auth, _delegate) {
+    this[_auth$] = _auth;
+    this[_delegate$] = _delegate;
+    platform_interface_confirmation_result.ConfirmationResultPlatform.verifyExtends(this[_delegate$]);
+  }).prototype = firebase_auth.ConfirmationResult.prototype;
+  dart.addTypeTests(firebase_auth.ConfirmationResult);
+  dart.addTypeCaches(firebase_auth.ConfirmationResult);
+  dart.setMethodSignature(firebase_auth.ConfirmationResult, () => ({
+    __proto__: dart.getMethods(firebase_auth.ConfirmationResult.__proto__),
+    confirm: dart.fnType(async.Future$(firebase_auth.UserCredential), [core.String])
+  }));
+  dart.setGetterSignature(firebase_auth.ConfirmationResult, () => ({
+    __proto__: dart.getGetters(firebase_auth.ConfirmationResult.__proto__),
+    verificationId: core.String
+  }));
+  dart.setLibraryUri(firebase_auth.ConfirmationResult, I[1]);
+  dart.setFieldSignature(firebase_auth.ConfirmationResult, () => ({
+    __proto__: dart.getFields(firebase_auth.ConfirmationResult.__proto__),
+    [_delegate$]: dart.fieldType(platform_interface_confirmation_result.ConfirmationResultPlatform),
+    [_auth$]: dart.finalFieldType(firebase_auth.FirebaseAuth)
+  }));
+  var _name = dart.privateName(platform_interface_recaptcha_verifier_factory, "_name");
+  firebase_auth.RecaptchaVerifier = class RecaptchaVerifier extends core.Object {
+    static new(opts) {
+      let container = opts && 'container' in opts ? opts.container : null;
+      let size = opts && 'size' in opts ? opts.size : C[1] || CT.C1;
+      let theme = opts && 'theme' in opts ? opts.theme : C[2] || CT.C2;
+      let onSuccess = opts && 'onSuccess' in opts ? opts.onSuccess : null;
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      let onExpired = opts && 'onExpired' in opts ? opts.onExpired : null;
+      return new firebase_auth.RecaptchaVerifier.__(firebase_auth.RecaptchaVerifier._factory.delegateFor({container: container, size: size, theme: theme, onSuccess: onSuccess, onError: onError, onExpired: onExpired}));
+    }
+    get delegate() {
+      return this[_delegate$];
+    }
+    get type() {
+      return this[_delegate$].type;
+    }
+    clear() {
+      return this[_delegate$].clear();
+    }
+    render() {
+      return async.async(core.int, (function* render() {
+        return this[_delegate$].render();
+      }).bind(this));
+    }
+    verify() {
+      return async.async(core.String, (function* verify() {
+        return this[_delegate$].verify();
+      }).bind(this));
+    }
+  };
+  (firebase_auth.RecaptchaVerifier.__ = function(_delegate) {
+    this[_delegate$] = _delegate;
     ;
-  }).prototype = status_screen.StatusScreen.prototype;
-  dart.addTypeTests(status_screen.StatusScreen);
-  dart.addTypeCaches(status_screen.StatusScreen);
-  dart.setMethodSignature(status_screen.StatusScreen, () => ({
-    __proto__: dart.getMethods(status_screen.StatusScreen.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext]),
-    checkIfDocExists: dart.fnType(async.Future$(core.bool), [core.String]),
-    getSize: dart.fnType(async.Future$(core.int), [core.String])
+  }).prototype = firebase_auth.RecaptchaVerifier.prototype;
+  dart.addTypeTests(firebase_auth.RecaptchaVerifier);
+  dart.addTypeCaches(firebase_auth.RecaptchaVerifier);
+  dart.setMethodSignature(firebase_auth.RecaptchaVerifier, () => ({
+    __proto__: dart.getMethods(firebase_auth.RecaptchaVerifier.__proto__),
+    clear: dart.fnType(dart.void, []),
+    render: dart.fnType(async.Future$(core.int), []),
+    verify: dart.fnType(async.Future$(core.String), [])
   }));
-  dart.setGetterSignature(status_screen.StatusScreen, () => ({
-    __proto__: dart.getGetters(status_screen.StatusScreen.__proto__),
-    getData: framework.Widget
+  dart.setGetterSignature(firebase_auth.RecaptchaVerifier, () => ({
+    __proto__: dart.getGetters(firebase_auth.RecaptchaVerifier.__proto__),
+    delegate: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform,
+    type: core.String
   }));
-  dart.setLibraryUri(status_screen.StatusScreen, I[0]);
-  dart.setFieldSignature(status_screen.StatusScreen, () => ({
-    __proto__: dart.getFields(status_screen.StatusScreen.__proto__),
-    id: dart.finalFieldType(core.String),
-    authController: dart.fieldType(authController.AuthController),
-    likeRef: dart.fieldType(cloud_firestore.CollectionReference$(dart.nullable(core.Object))),
-    posts: dart.fieldType(cloud_firestore.CollectionReference$(dart.nullable(core.Object)))
+  dart.setLibraryUri(firebase_auth.RecaptchaVerifier, I[1]);
+  dart.setFieldSignature(firebase_auth.RecaptchaVerifier, () => ({
+    __proto__: dart.getFields(firebase_auth.RecaptchaVerifier.__proto__),
+    [_delegate$]: dart.fieldType(platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform)
   }));
-  dart.trackLibraries("packages/logafic/screens/status_screen.dart", {
-    "package:logafic/screens/status_screen.dart": status_screen
+  dart.defineLazy(firebase_auth.RecaptchaVerifier, {
+    /*firebase_auth.RecaptchaVerifier._factory*/get _factory() {
+      return platform_interface_recaptcha_verifier_factory.RecaptchaVerifierFactoryPlatform.instance;
+    }
+  }, false);
+  dart.trackLibraries("packages/firebase_auth/firebase_auth.dart", {
+    "package:firebase_auth/firebase_auth.dart": firebase_auth
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["status_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAOe;;;;;;IACE;;;;;;IACK;;;;;;IAEA;;;;;;UAGM;AACxB,YAAO,oCACK,yCACkB,8BACf,gCACE,QAAc,WACd,gEAKM;AACa,gBAAZ,qCAAI,OAAO;4LAKtB,kBACL,mBACO,qCACS,+BACJ,kBACE,0BACW,mCACR,2EAGF,wBAAC,mKAEd,oCAAiB;IAC7B;;AAGE,YAAO,iEACG,AAAM,AAAQ,eAAJ,yBAEd,SAAc,SAAyC;AACzD,cAAI,AAAS,QAAD;AACV,kBAAO,8BACE,kBAAK;;AAGhB,cAAI,AAAS,AAAgB,QAAjB,qBAAoC;AACzB,uBACK,2BAAT,AAAE,eAAf,AAAS,QAAD;AACZ,kBAAO,8BACE,+BACa,AAAY,AAAK,AAAM,0BAApB,OAAO,eAAe,YACpC,0BACI,gCACW,+BAAI,cACjB,gCACK,wBACR,gCACsB,+BAAI,cACjB,qCACU,uCAAQ,AAAI,IAAA,QAAC,oFACrB,0CACkC,yCAC7B,wBACR,uCACS,iCACJ,AAAI,IAAA,QAAC,sBACC,wCAAoB,8EAElB;AAEiC,oCADhC,2CAAU,OAAO,0BACZ,4CAAC,UAAU,AAAI,IAAA,QAAC;wLAK7B,iCACR,AAAI,IAAA,QAAC,wBACE,wCAAoB,yLAIjC,oFACA,gCACsB,+BAAI,cACjB,iCACL,AAAI,IAAA,QAAC,qBACE,wCAAoB,8HAG/B,6BACY,wBACR,gCACsB,+BAAI,cACjB,2CACM;2DACJ,kBACL,qBACO,qCACW,iCAAmB,yLAI3C,gCACsB,+BAAI,cACjB,2CACM;2DACJ,kBACL,oBACO,qCACW,iCAAmB,yLAI3C,2CACU,sBAAmB,mBAEvB,SAAc,SAAuB;AACvC,oCAAkB,YAAd,AAAS,QAAD,OAAS;AACnB,wCAAO,uCACG,kBACE,kCACQ,6FAEL;AAMe,sCALxB,AACK,AACA,AACA,AAEA,iBAJM,oBACK,aAE4B,AAAE,eAAnC,AAAe,AAAa,iDAC9B,4CAAC,QAAQ;;;AAGxB,wCAAO,uCACG,kBACE,kCACQ,6FAEL;AAMI,sCALb,AACK,AACA,AACA,AAEA,iBAJM,oBACK,aAE4B,AAAE,eAAnC,AAAe,AAAa;;;6IAMnD,0CACY,aAAU,mBACT,SAAc,SACA;AACrB,oCAAI,AAAS,QAAD;AACV,wCAAO,mBAAmB,cAAd,AAAS,QAAD;;AAEtB,sCAAO,mBAAK;;;AAUlC,gBAAO,8BACE;;IAIf;qBAEqC;AAAR;AAC3B;AAEM,qBAAM,MAAM,AACX,AACA,AACA,AACA,iBAHI,KAAK,aACE,aAC6B,AAAE,eAAnC,AAAe,AAAa;AAExC,gBAAO,AAAI,IAAD;;cACH;AAAP;AACO,YAAP,WAAM,CAAC;;;;MAEX;;YAE2B;AAAR;AACb,mBAAO;AAK4B,QAJvC,MAAM,AACD,AACA,AACA,AACA,iBAHI,UAAU,aACH,8BAEN,QAAC,SAAU,OAAO,AAAM,KAAD;AACjC,cAAO,KAAI;MACb;;;;QAnMmB;QAAmB;;IAFvB,wBAAgC;IAC3B,gBAA4B,AAAS,sDAAW;IAEhD,cAA0B,AAAS,sDAAW;IAD5B;AAAO,8DAAW,GAAG;;EAAC","file":"../../../../../../../packages/logafic/screens/status_screen.dart.lib.js"}');
+    "package:firebase_auth/firebase_auth.dart": ["src/firebase_auth.dart", "src/user_credential.dart", "src/user.dart", "src/confirmation_result.dart", "src/recaptcha_verifier.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["src/firebase_auth.dart","src/user_credential.dart","src/user.dart","src/confirmation_result.dart","src/recaptcha_verifier.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA6Bc;;;;;;;AALT,MAHwB,yCAAzB,iCAAkD,wEAC3C,2BACY,yBAFM;AAIzB,YAA+B,gBAAxB;IACT;;AAUc,+BAA8B;AAE1C,YAAoB,8CAAiB,kBAAkB;IACzD;;UAGuD;AACrD,YAAO,AAAuB,iEAAY,AAAI,GAAD,OAAO,cAC9B,wCAAO,GAAG;IAElC;;AASE,UAAI,AAAU;AACZ,cAAY,2BAAE,MAA2B,eAArB,AAAU;;AAGhC,YAAO;IACT;;AAME,UAAI,AAAU;AACZ,cAAO,AAAU;;AAGnB,YAAO;IACT;gBAWgC;AAAR;AACtB,aAAO,AAAO,MAAD;AACN,2BAAe,MAAM;AAG5B,YAAI,AAAsB,mCAAkB;AAC1C,cAAI,AAAa,YAAD,cAAY;AAE0C,YADpE,eACI,AAAa,YAAD,gBAAc,oBAAoB;gBAC7C,KAAI,AAAa,YAAD,cAAY;AAEmC,YADpE,eACI,AAAa,YAAD,gBAAc,oBAAoB;;;AAKhD,4BAAgB,gBAAO;AACV,oBAAQ,AAAc,aAAD,YAAY,YAAY;AAChE,YAAI,AAAM,KAAD;AACiE,UAAxE,WAAM,2BAAc;;AAGT,mBAAqB,eAAd,AAAM,KAAD,OAAO;AACtB,mBAAW,eAAoB,eAAd,AAAM,KAAD,OAAO;AACA,QAAvC,MAAM,AAAU,6BAAY,IAAI,EAAE,IAAI;MACxC;;;AAIE,YAAO,AAAU;IACnB;iBAQqB;AACU,MAA7B,AAAU,4BAAW,QAAQ;IAC/B;oBAkBoC;AAAR;AACW,QAArC,MAAM,AAAU,iCAAgB,IAAI;MACtC;;oBAoB8C;AAC5C,YAAO,AAAU,kCAAgB,IAAI;IACvC;;UAqBkB;UACA;AAFe;AAIwB,QAAvD,MAAM,AAAU,sCAAqB,IAAI,EAAE,WAAW;MACxD;;;UAgBkB;UACA;AAFmC;AAInD,cAAsB,qCACpB,MACA,MAAM,AAAU,gDAA+B,KAAK,EAAE,QAAQ;MAElE;;+BAauD;AACrD,YAAO,AAAU,6CAA2B,KAAK;IACnD;;AASwC;AACtC,cAAsB,qCAAE,MAAM,MAAM,AAAU;MAChD;;0BAGkC;AAChC,YAAO,AAAU,wCAAsB,SAAS;IAClD;yBAIuD;AACrD,YAAO,AAAO,AAMX,OANU,gBAAK,QAAC;AACjB,YAAI,AAAa,YAAD;AACd,gBAAO;;AAGT,cAAY,2BAAE,MAAM,YAAY;iEACH,QAAC,OAAQ,AAAI,GAAD;IAC7C;;AAKI,sCAAmB,AAAU;IAAmB;;AAKhD,sCAAmB,AAAU;IAAiB;;AAWnB,sCAAmB,AAAU;IAAc;;UAwBxD;UACI;AAEpB,YAAO,AAAU,yCAAuB,KAAK,EAAE,kBAAkB;IACnE;;UAekB;UACY;AAFI;AAIhC,YAAI,AAAmB,kBAAD,qBAAoB;AAGvC,UAFD,WAAM,2BACJ;;AAI4D,QAAhE,MAAM,AAAU,uCAAsB,KAAK,EAAE,kBAAkB;MACjE;;oBAcoC;AAClC,YAAO,AAAU,kCAAgB,YAAY;IAC/C;;UA2BQ;UACE;AAER,YAAO,AAAU,kEACoB,iCAAiC,mBACnD,eAAe;IAEpC;mBAiBwC;AAAb;AACzB,cAAO,AAAU,iCAAe,WAAW;MAC7C;;;AAewC;AACtC,cAAsB,qCAAE,MAAM,MAAM,AAAU;MAChD;;yBA8C2D;AAAhB;AACzC,cAAsB,qCACpB,MACA,MAAM,AAAU,sCAAqB,UAAU;MAEnD;;0BAsBoD;AAAR;AAC1C,cAAsB,qCAAE,MAAM,MAAM,AAAU,uCAAsB,KAAK;MAC3E;;;UAsBkB;UACA;AAF+B;AAI/C,cAAsB,qCACpB,MACA,MAAM,AAAU,4CAA2B,KAAK,EAAE,QAAQ;MAE9D;;;UAkBkB;UACA;AAFwB;AAIxC,cAAsB,qCACpB,MACA,MAAM,AAAU,qCAAoB,KAAK,EAAE,SAAS;MAExD;;0BAYS,aACY;AAF2B;AAI9C,aAAO,AAAY,WAAD;AAEc,QAAhC,AAAS,QAAD,WAAR,WAAa,wCAAJ;AACT,cAA0B,yCACxB,MACA,MAAM,AAAU,uCAAsB,WAAW,EAAE,AAAS,QAAD;MAE/D;;oBASoD;AAAd;AACpC,cAAsB,qCAAE,MAAM,MAAM,AAAU,iCAAgB,QAAQ;MACxE;;uBAM6C;AAC3C,YAAO,AAAU,qCAAmB,QAAQ;IAC9C;;AAOoB;AACO,QAAzB,MAAM,AAAU;MAClB;;4BAmB8C;AAC5C,YAAO,AAAU,0CAAwB,IAAI;IAC/C;;UA4CkB;UACoB;UACH;UACV;UACgB;UACZ;UAClB;UACJ;AAEL,YAAO,AAAU,kDACF,WAAW,WACf,OAAO,uBACK,mBAAmB,yBACjB,qBAAqB,sBACxB,kBAAkB,YAC5B,QAAQ,4BACQ,wBAAwB,kCAElB,8BAA8B;IAElE;;AAIE,YAAO,AAAgC,wBAAX,AAAI,gBAAK;IACvC;;;QA7oB8B;IAjBR;IAiBQ;AACxB,wDAAM,AAAI,GAAD,OAAO;;EAAmC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAvBxB,iDAAsB;YAAG;;;;;;;ACSZ,YAAA,AAAU;IAAkB;;AAGxC,YAAA,AAAU;IAAU;;AAMpD,YAAO,AAAU,AAAK,iCAAU,OAAY,0BAAE,cAAqB,eAAd,AAAU;IACjE;;AAIE,YAAO,qBACH,kCAAsB,2BAAkB,OACxC,0BAAc,mBAAU,OACxB,oBAAQ,aAAI;IAClB;;8CA3BsB,OAAY;IAAZ;IAAY;AACe,IAAxB,wEAAc;EACvC;;;;;;;;;;;;;;;;;;ACSE,YAAO,AAAU;IACnB;;AAME,YAAO,AAAU;IACnB;;AASE,YAAO,AAAU;IACnB;;AAIE,YAAO,AAAU;IACnB;;AAIE,YAAO,AAAU;IACnB;;AAOE,YAAO,AAAU;IACnB;;AAOE,YAAO,AAAU;IACnB;;AAIE,YAAO,AAAU;IACnB;;AAOE,YAAO,AAAU;IACnB;;AAQE,YAAO,AAAU;IACnB;;AAIE,YAAO,AAAU;IACnB;;AAamB;AACjB,cAAO,AAAU;MACnB;;eAUgC;AAC9B,YAAO,AAAU,6BAAW,YAAY;IAC1C;qBAO6C;AAC3C,YAAO,AAAU,mCAAiB,YAAY;IAChD;uBAkDyD;AAAhB;AACvC,cAAsB,qCACpB,cACA,MAAM,AAAU,oCAAmB,UAAU;MAEjD;;wBA6BS,aACY;AAFyB;AAI5C,aAAO,AAAY,WAAD;AACc,QAAhC,AAAS,QAAD,WAAR,WAAa,wCAAJ;AACT,cAA0B,yCACxB,cACA,MAAM,AAAU,qCAAoB,WAAW,EAAE,AAAS,QAAD;MAE7D;;iCAgCiB;AADkC;AAGjD,cAAsB,qCACpB,cACA,MAAM,AAAU,8CAA6B,UAAU;MAE3D;;;AAGmB;AACO,QAAxB,MAAM,AAAU;MAClB;;0BAMsB;AADY;AAGyB,QAAzD,MAAM,AAAU,uCAAsB,kBAAkB;MAC1D;;WAQ2B;AAAR;AACjB,cAAY,2BAAE,cAAO,MAAM,AAAU,wBAAO,UAAU;MACxD;;gBAqBgC;AAAR;AACe,QAArC,MAAM,AAAU,6BAAY,QAAQ;MACtC;;mBAemC;AAAR;AACkB,QAA3C,MAAM,AAAU,gCAAe,WAAW;MAC5C;;sBAWmD;AAArB;AACsB,QAAlD,MAAM,AAAU,mCAAkB,eAAe;MACnD;;sBAGuC;AACrC,YAAO,AACF,gCAA+B,4CAAC,eAAe,WAAW;IACjE;mBAGoC;AAClC,YAAO,AAAU,gCAA+B,4CAAC,YAAY,QAAQ;IACvE;;UAOoC;UAAqB;AACvD,YAAO,AAAU,gCAA+B,4CAC9C,eAAe,WAAW,EAC1B,YAAY,QAAQ;IAExB;4BAQS,UACa;AAFc;AAImC,QAArE,MAAM,AAAU,yCAAwB,QAAQ,EAAE,kBAAkB;MACtE;;;AAIE,2DAAa,MACT,2BAAe,oBAAW,OAC1B,qBAAS,cAAK,OACd,6BAAiB,sBAAa,OAC9B,2BAAe,oBAAW,OAC1B,wBAAY,iBAAQ,OACpB,2BAAe,oBAAW,OAC1B,wBAAY,iBAAQ,OACpB,4BAAgB,qBAAY,OAC5B,4BAAgB,qBAAY,OAC5B,wBAAY,iBAAQ,OACpB,UAAO,WAAG;IAChB;;oCAtXY,OAAY;IAAZ;IAAY;AACe,IAAxB,mDAAc;EAC7B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ACSE,YAAO,AAAU;IACnB;YAIsC;AAAR;AAC5B,cAAsB,qCACpB,cACA,MAAM,AAAU,yBAAQ,gBAAgB;MAE5C;;;kDAnB0B,OAAY;IAAZ;IAAY;AACe,IAAxB,gFAAc;EAC3C;;;;;;;;;;;;;;;;;;;;UC+BU;UACc;UACC;UACK;UACF;UACE;AAE5B,YAAyB,wCACvB,AAAS,iEACI,SAAS,QACd,IAAI,SACH,KAAK,aACD,SAAS,WACX,OAAO,aACL,SAAS;IAG1B;;AAKE,YAAO;IACT;;AAKE,YAAO,AAAU;IACnB;;AAKE,YAAO,AAAU;IACnB;;AAKkB;AAChB,cAAO,AAAU;MACnB;;;AAIqB;AACnB,cAAO,AAAU;MACnB;;;;IAnFyB;;EAAU;;;;;;;;;;;;;;;;;;;;MAHW,wCAAQ;YACjB","file":"../../../../../../../../packages/firebase_auth/firebase_auth.dart.lib.js"}');
   // Exports:
   return {
-    screens__status_screen: status_screen
+    firebase_auth: firebase_auth
   };
 }));
 
-//# sourceMappingURL=status_screen.dart.lib.js.map
+//# sourceMappingURL=firebase_auth.dart.lib.js.map

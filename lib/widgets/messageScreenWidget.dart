@@ -1,20 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
-import 'package:logafic/data_model/ChatMessageModel.dart';
 import 'package:logafic/services/messageService.dart';
-
-List<ChatMessage> messages = [
-  ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
-  ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
-  ChatMessage(
-      messageContent: "Hey Kriss, I am doing fine dude. wbu?",
-      messageType: "sender"),
-  ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
-  ChatMessage(
-      messageContent: "Is there any thing wrong?", messageType: "sender"),
-];
 
 TextEditingController messageController = TextEditingController();
 
@@ -25,6 +12,7 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
       .collection('messages')
       .doc(authController.firebaseUser.value!.uid)
       .collection(messageSentUserId)
+      .orderBy('created_at', descending: false)
       .snapshots();
   return showDialog(
       context: context,
@@ -194,9 +182,15 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
                                           ),
                                           FloatingActionButton(
                                             onPressed: () {
-                                              sendMessage(messageSentUserId,
-                                                  messageController.text);
-                                              messageController.text = '';
+                                              if (messageController.text !=
+                                                  '') {
+                                                sendMessage(
+                                                    messageSentUserId,
+                                                    userProfile,
+                                                    userName,
+                                                    messageController.text);
+                                                messageController.text = '';
+                                              }
                                             },
                                             child: Icon(
                                               Icons.send,

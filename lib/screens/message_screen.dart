@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         }
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return Text('Bir hatayla karşılaştık..');
         }
         return new ListView(
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
@@ -189,6 +189,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     new Container(
                         height: 300.0, width: _width, child: headerList),
+                    Padding(
+                      padding: EdgeInsets.all(22),
+                      child: new Text(
+                        'Son Mesajlar',
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    ),
                     new Expanded(child: MessageScreenUserMessagesWidget())
                   ],
                 ),
