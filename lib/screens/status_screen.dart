@@ -4,6 +4,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/menubaraction.dart';
 
+// ignore: must_be_immutable
 class StatusScreen extends StatelessWidget {
   final String id;
   AuthController authController = AuthController.to;

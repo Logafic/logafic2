@@ -24,6 +24,12 @@ enum UploadType {
 }
 
 class _UserInformationState extends State<UserInformation> {
+  final String defaultProfileImage =
+      'https://firebasestorage.googleapis.com/v0/b/logafic-7911f.appspot.com/o/defaultProfile%2FdefaultProfileImage.png?alt=media&token=a52d30db-14ed-4d68-a94b-e518c893f5a5';
+
+  final String defaultBannerImage =
+      'https://firebasestorage.googleapis.com/v0/b/logafic-7911f.appspot.com/o/defaultProfile%2FdefaultBannerImage.jpg?alt=media&token=ca4a7d8c-7f89-4929-b541-3096073c0470';
+
   AuthController authController = AuthController.to;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -89,19 +95,6 @@ class _UserInformationState extends State<UserInformation> {
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.transparent,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              );
-            },
-          ),
         ),
         body: _userInfoForm);
     return new Container(
@@ -250,19 +243,19 @@ class _UserInformationState extends State<UserInformation> {
                 padding: EdgeInsets.all(3),
                 child: TextFormField(
                   controller: _userName,
-                  decoration: InputDecoration(labelText: 'Kullanıcı Adınız'),
+                  decoration: InputDecoration(labelText: 'Kullanıcı Adınız *'),
                   validator: _validateEmptyString,
                   focusNode: _emailFocusNode,
                 ),
               ),
               TextFormField(
                 controller: _university,
-                decoration: InputDecoration(labelText: 'Üniversite'),
+                decoration: InputDecoration(labelText: 'Üniversite *'),
                 validator: _validateEmptyString,
               ),
               TextFormField(
                 controller: _department,
-                decoration: InputDecoration(labelText: 'Bölüm'),
+                decoration: InputDecoration(labelText: 'Bölüm *'),
                 validator: _validateEmptyString,
               ),
               _dropdownGender,
@@ -286,7 +279,7 @@ class _UserInformationState extends State<UserInformation> {
               TextFormField(
                 controller: dateCtl,
                 decoration: InputDecoration(
-                  labelText: "Doğum tarihi",
+                  labelText: "Doğum tarihi *",
                 ),
                 validator: _validateEmptyString,
                 onTap: () async {
@@ -320,31 +313,65 @@ class _UserInformationState extends State<UserInformation> {
                   label: Text("KAYDET"),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
+                      String profileRef = '';
+                      String bannerRef = '';
                       if (authController.firebaseUser.value!.uid.isNotEmpty) {
-                        String profileRef =
-                            await uploadFile(_fileProfileImage!, 'profile');
+                        _fileProfileImage != null
+                            ? profileRef =
+                                await uploadFile(_fileProfileImage!, 'profile')
+                            // ignore: unnecessary_statements
+                            : '';
                         Duration(seconds: 1);
-                        String bannerRef =
-                            await uploadFile(_fileBannerImage!, 'banner');
+                        _fileBannerImage != null
+                            ? bannerRef =
+                                await uploadFile(_fileBannerImage!, 'banner')
+                            // ignore: unnecessary_statements
+                            : '';
                         Duration(seconds: 1);
                         UserProfile? userProfile = UserProfile();
                         userProfile.userEmail =
                             authController.firebaseUser.value!.email;
                         userProfile.userId =
                             authController.firebaseUser.value!.uid;
-                        userProfile.userName = _userName!.value.text;
-                        userProfile.universty = _university!.value.text;
-                        userProfile.department = _department!.value.text;
+                        userProfile.userName = _userName!.value.text != ''
+                            ? _userName!.value.text
+                            : '';
+                        userProfile.universty = _university!.value.text != ''
+                            ? _university!.value.text
+                            : '';
+
+                        userProfile.department = _department!.value.text != ''
+                            ? _department!.value.text
+                            : '';
+
                         userProfile.gender = dropdownGender;
                         userProfile.city = dropdownCity;
-                        userProfile.webSite = _webSite!.value.text;
-                        userProfile.linkedin = _linkedin!.value.text;
-                        userProfile.twitter = _twitter!.value.text;
-                        userProfile.instagram = _instagram!.value.text;
-                        userProfile.birtday = _birthday;
-                        userProfile.biograpfy = _biography!.value.text;
-                        userProfile.userProfileImage = profileRef;
-                        userProfile.userBackImage = bannerRef;
+                        userProfile.webSite = _webSite!.value.text != ''
+                            ? _webSite!.value.text
+                            : '';
+
+                        userProfile.linkedin = _linkedin!.value.text != ''
+                            ? _linkedin!.value.text
+                            : '';
+
+                        userProfile.twitter = _twitter!.value.text != ''
+                            ? _twitter!.value.text
+                            : '';
+
+                        userProfile.instagram = _instagram!.value.text != ''
+                            ? _instagram!.value.text
+                            : '';
+
+                        userProfile.birtday = _birthday = _birthday!;
+                        userProfile.biograpfy = _biography!.value.text != ''
+                            ? _biography!.value.text
+                            : '';
+
+                        userProfile.userProfileImage =
+                            profileRef != '' ? profileRef : defaultProfileImage;
+
+                        userProfile.userBackImage =
+                            bannerRef != '' ? bannerRef : defaultBannerImage;
                         authController.createUserFirestore(
                             userProfile, authController.firebaseUser.value!);
                         authController.newUser = false;

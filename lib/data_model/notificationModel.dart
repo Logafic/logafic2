@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class NotificationModel {
   NotificationModel(
       {required this.userName, required this.userId, required this.date});

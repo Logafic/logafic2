@@ -176,7 +176,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                       value ? _isHovering[3] = true : _isHovering[3] = false;
                     });
                   },
-                  onTap: '' == null ? () {} : null,
+                  onTap: () {},
                   child: PopupMenuButton(
                     icon: Icon(
                       Icons.person,

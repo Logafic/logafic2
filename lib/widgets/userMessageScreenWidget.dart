@@ -42,7 +42,7 @@ class MessageScreenUserMessagesWidget extends StatelessWidget {
                               context,
                               data['messageSentUser'],
                               data['profileImage'],
-                              data['sender']);
+                              document.id);
                         },
                         leading: new Container(
                           height: 72.0,

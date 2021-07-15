@@ -23,11 +23,6 @@ class _HomePageState extends State<HomePage> {
       .collection('posts')
       .orderBy('created_at', descending: true)
       .snapshots();
-  final Stream<QuerySnapshot> _usersStreamLike = FirebaseFirestore.instance
-      .collection('posts')
-      .orderBy('like', descending: true)
-      .snapshots();
-
   Color colors = Colors.white;
 
   CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');

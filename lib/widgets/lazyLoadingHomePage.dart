@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
-import 'package:logafic/data_model/post_data_model.dart';
 import 'package:logafic/services/database.dart';
-import 'package:logafic/widgets/DisplayCardItem.dart';
 import 'package:logafic/widgets/bottom_bar.dart';
 import 'package:logafic/widgets/floating_quick_access_bar.dart';
 import 'package:logafic/services/load_data_home_page.dart';

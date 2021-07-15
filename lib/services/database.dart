@@ -34,7 +34,9 @@ class Database {
               .collection('likes')
               .add({'created_at': DateTime.now().toString()});
           Get.snackbar('Post gönderildi', value.id);
-        }).catchError((err) => Get.snackbar('Hata', err.toString()));
+        }).catchError((err) {
+          Get.snackbar('Hata', err.toString());
+        });
       }
     } on FirebaseException catch (err) {
       print(err);

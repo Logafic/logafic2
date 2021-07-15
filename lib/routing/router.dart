@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:logafic/data_model/user_model.dart';
 import 'package:logafic/routing/router_names.dart';
 //Screens
 import 'package:logafic/screens/status_screen.dart';

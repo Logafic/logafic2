@@ -9,6 +9,7 @@ import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/profile_widget_small.dart';
 import 'package:logafic/widgets/updatePostWidget.dart';
 
+// ignore: must_be_immutable
 class ProfileScreen extends StatelessWidget {
   AuthController authController = AuthController.to;
   final String userId;
@@ -207,8 +208,7 @@ class ProfileScreen extends StatelessWidget {
                                                     left: 100, top: 5),
                                                 child: new Row(
                                                   children: [
-                                                    new FlatButton(
-                                                        color: Colors.lightBlue,
+                                                    TextButton(
                                                         onPressed: () {
                                                           Navigator.pushNamed(
                                                               context,
@@ -220,8 +220,9 @@ class ProfileScreen extends StatelessWidget {
                                                         child: Text(
                                                           'Profili Düzenle',
                                                           style: TextStyle(
-                                                              color:
-                                                                  Colors.white),
+                                                              color: Colors
+                                                                      .lightBlue[
+                                                                  100]),
                                                         ))
                                                   ],
                                                 ))

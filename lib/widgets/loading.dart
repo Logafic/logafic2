@@ -7,7 +7,6 @@ import 'package:flutter/cupertino.dart';
 final _tKey = GlobalKey(debugLabel: 'overlay_parent');
 
 /// Updates with the latest [OverlayEntry] child
-late OverlayEntry _loaderEntry;
 
 /// is dark theme
 bool isDarkTheme = false;
@@ -114,7 +113,6 @@ Future<void> _showOverlay({Widget? child}) async {
     );
 
     overlay?.insert(overlayEntry);
-    _loaderEntry = overlayEntry;
     _loaderShown = true;
   } catch (err) {
     debugPrint('Exception inserting loading overlay\n${err.toString()}');
