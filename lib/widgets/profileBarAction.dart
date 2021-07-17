@@ -5,7 +5,8 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 
 class ProfileActionBar extends StatelessWidget {
-  const ProfileActionBar({Key? key}) : super(key: key);
+  final String userProfileId;
+  ProfileActionBar({Key? key, required this.userProfileId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,16 @@ class ProfileActionBar extends StatelessWidget {
           ),
           tooltip: 'Bildir',
           onPressed: () {}),
+      IconButton(
+          icon: const Icon(
+            Icons.visibility,
+            color: Colors.black,
+          ),
+          tooltip: 'Görüntüle',
+          onPressed: () {
+            Navigator.pushNamed(context, FullProfileRoute,
+                arguments: {'userId': userProfileId});
+          }),
       Padding(
         padding: EdgeInsets.only(right: 16),
         child: InkWell(

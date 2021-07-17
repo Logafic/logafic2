@@ -1,34 +1,33 @@
-define(['dart_sdk', 'packages/image_picker_platform_interface/src/types/camera_device.dart', 'packages/image_picker_platform_interface/src/types/picked_file/html.dart', 'packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart', 'packages/image_picker_platform_interface/src/types/retrieve_type.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/image_picker_platform_interface/src/types/image_source.dart'], (function load__packages__image_picker_platform_interface__src__method_channel__method_channel_image_picker_dart(dart_sdk, packages__image_picker_platform_interface__src__types__camera_device$46dart, packages__image_picker_platform_interface__src__types__picked_file__html$46dart, packages__image_picker_platform_interface__src__types__picked_file__lost_data$46dart, packages__image_picker_platform_interface__src__types__retrieve_type$46dart, packages__flutter__src__services__system_channels$46dart, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__image_picker_platform_interface__src__types__image_source$46dart) {
+define(['dart_sdk', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/firebase_auth_platform_interface/src/action_code_info.dart', 'packages/firebase_auth_platform_interface/src/additional_user_info.dart', 'packages/firebase_auth_platform_interface/src/id_token_result.dart', 'packages/firebase_auth_platform_interface/src/types.dart', 'packages/firebase_auth_web/src/interop/auth.dart', 'packages/firebase_auth_platform_interface/src/auth_credential.dart'], (function load__packages__firebase_auth_web__src__utils__web_utils_dart(dart_sdk, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__firebase_auth_platform_interface__src__action_code_info$46dart, packages__firebase_auth_platform_interface__src__additional_user_info$46dart, packages__firebase_auth_platform_interface__src__id_token_result$46dart, packages__firebase_auth_platform_interface__src__types$46dart, packages__firebase_auth_web__src__interop__auth$46dart, packages__firebase_auth_platform_interface__src__auth_credential$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
-  const _interceptors = dart_sdk._interceptors;
   const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const camera_device = packages__image_picker_platform_interface__src__types__camera_device$46dart.src__types__camera_device;
-  const html = packages__image_picker_platform_interface__src__types__picked_file__html$46dart.src__types__picked_file__html;
-  const lost_data = packages__image_picker_platform_interface__src__types__picked_file__lost_data$46dart.src__types__picked_file__lost_data;
-  const retrieve_type = packages__image_picker_platform_interface__src__types__retrieve_type$46dart.src__types__retrieve_type;
-  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
-  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
-  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
-  const image_source = packages__image_picker_platform_interface__src__types__image_source$46dart.src__types__image_source;
-  var method_channel_image_picker = Object.create(dart.library);
-  var image_picker_platform = Object.create(dart.library);
-  var image_picker_platform_interface = Object.create(dart.library);
-  var $add = dartx.add;
-  var $containsKey = dartx.containsKey;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const action_code_info = packages__firebase_auth_platform_interface__src__action_code_info$46dart.src__action_code_info;
+  const additional_user_info = packages__firebase_auth_platform_interface__src__additional_user_info$46dart.src__additional_user_info;
+  const id_token_result = packages__firebase_auth_platform_interface__src__id_token_result$46dart.src__id_token_result;
+  const types = packages__firebase_auth_platform_interface__src__types$46dart.src__types;
+  const email_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__email_auth;
+  const facebook_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__facebook_auth;
+  const github_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__github_auth;
+  const google_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__google_auth;
+  const twitter_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__twitter_auth;
+  const phone_auth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__phone_auth;
+  const oauth = packages__firebase_auth_platform_interface__src__types$46dart.src__providers__oauth;
+  const platform_interface_recaptcha_verifier_factory = packages__firebase_auth_platform_interface__src__types$46dart.src__platform_interface__platform_interface_recaptcha_verifier_factory;
+  const auth = packages__firebase_auth_web__src__interop__auth$46dart.src__interop__auth;
+  const auth_credential = packages__firebase_auth_platform_interface__src__auth_credential$46dart.src__auth_credential;
+  var web_utils = Object.create(dart.library);
+  var $replaceFirst = dartx.replaceFirst;
   var $_get = dartx._get;
+  var $forEach = dartx.forEach;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    PickedFileN: () => (T.PickedFileN = dart.constFn(dart.nullable(html.PickedFile)))(),
-    JSArrayOfPickedFile: () => (T.JSArrayOfPickedFile = dart.constFn(_interceptors.JSArray$(html.PickedFile)))(),
-    ListOfPickedFile: () => (T.ListOfPickedFile = dart.constFn(core.List$(html.PickedFile)))(),
-    ListNOfPickedFile: () => (T.ListNOfPickedFile = dart.constFn(dart.nullable(T.ListOfPickedFile())))(),
-    ListN: () => (T.ListN = dart.constFn(dart.nullable(core.List)))(),
     IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))()
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -36,212 +35,226 @@ define(['dart_sdk', 'packages/image_picker_platform_interface/src/types/camera_d
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: camera_device.CameraDevice.prototype,
-        [_name]: "CameraDevice.rear",
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.SESSION",
+        index: 2
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.NONE",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: types.Persistence.prototype,
+        [_name]: "Persistence.LOCAL",
+        index: 0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierSize.prototype,
+        [_name$]: "RecaptchaVerifierSize.compact",
+        index: 1
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierSize.prototype,
+        [_name$]: "RecaptchaVerifierSize.normal",
+        index: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierTheme.prototype,
+        [_name$]: "RecaptchaVerifierTheme.dark",
+        index: 1
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: platform_interface_recaptcha_verifier_factory.RecaptchaVerifierTheme.prototype,
+        [_name$]: "RecaptchaVerifierTheme.light",
         index: 0
       });
     }
   }, false);
-  var C = [void 0];
-  var I = [
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_platform_interface-2.1.0/lib/src/method_channel/method_channel_image_picker.dart",
-    "package:image_picker_platform_interface/src/platform_interface/image_picker_platform.dart",
-    "package:image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart"
-  ];
-  var _name = dart.privateName(camera_device, "_name");
-  var _pickImagePath = dart.privateName(method_channel_image_picker, "_pickImagePath");
-  var _pickMultiImagePath = dart.privateName(method_channel_image_picker, "_pickMultiImagePath");
-  var _pickVideoPath = dart.privateName(method_channel_image_picker, "_pickVideoPath");
-  image_picker_platform.ImagePickerPlatform = class ImagePickerPlatform extends plugin_platform_interface.PlatformInterface {
-    static get instance() {
-      return image_picker_platform.ImagePickerPlatform._instance;
+  var C = Array(7).fill(void 0);
+  var _name = dart.privateName(types, "_name");
+  var _name$ = dart.privateName(platform_interface_recaptcha_verifier_factory, "_name");
+  web_utils.getFirebaseAuthException = function getFirebaseAuthException(exception) {
+    if (!dart.anonymousJSType("FirebaseError").is(exception)) {
+      return new firebase_auth_exception.FirebaseAuthException.new({code: "unknown", message: "An unknown error occurred: " + dart.str(exception)});
     }
-    static set instance(instance) {
-      plugin_platform_interface.PlatformInterface.verifyToken(instance, image_picker_platform.ImagePickerPlatform._token);
-      image_picker_platform.ImagePickerPlatform._instance = instance;
+    let firebaseError = dart.lazyJSType(() => dart.global.firebase.auth.Error, "firebase.auth.Error").as(exception);
+    let code = firebaseError.code[$replaceFirst]("auth/", "");
+    let message = firebaseError.message[$replaceFirst]("(" + firebaseError.code + ")", "");
+    return new firebase_auth_exception.FirebaseAuthException.new({code: code, message: message, email: firebaseError.email, credential: web_utils.convertWebAuthCredential(firebaseError.credential), phoneNumber: firebaseError.phoneNumber, tenantId: firebaseError.tenantId});
+  };
+  web_utils.convertWebActionCodeInfo = function convertWebActionCodeInfo(webActionCodeInfo) {
+    if (webActionCodeInfo == null) {
+      return null;
     }
-    pickImage(opts) {
-      let source = opts && 'source' in opts ? opts.source : null;
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      dart.throw(new core.UnimplementedError.new("pickImage() has not been implemented."));
+    return new action_code_info.ActionCodeInfo.new({operation: 0, data: new (T.IdentityMapOfString$dynamic()).from(["email", webActionCodeInfo.data.email, "previousEmail", webActionCodeInfo.data.previousEmail])});
+  };
+  web_utils.convertWebAdditionalUserInfo = function convertWebAdditionalUserInfo(webAdditionalUserInfo) {
+    if (webAdditionalUserInfo == null) {
+      return null;
     }
-    pickMultiImage(opts) {
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      dart.throw(new core.UnimplementedError.new("pickMultiImage() has not been implemented."));
+    return new additional_user_info.AdditionalUserInfo.new({isNewUser: webAdditionalUserInfo.isNewUser, profile: webAdditionalUserInfo.profile, providerId: webAdditionalUserInfo.providerId, username: webAdditionalUserInfo.username});
+  };
+  web_utils.convertWebIdTokenResult = function convertWebIdTokenResult(webIdTokenResult) {
+    return new id_token_result.IdTokenResult.new(new (T.IdentityMapOfString$dynamic()).from(["claims", webIdTokenResult.claims, "expirationTimestamp", webIdTokenResult.expirationTime.millisecondsSinceEpoch, "issuedAtTimestamp", webIdTokenResult.issuedAtTime.millisecondsSinceEpoch, "authTimestamp", webIdTokenResult.authTime.millisecondsSinceEpoch, "signInProvider", webIdTokenResult.signInProvider, "signInSecondFactor", null, "token", webIdTokenResult.token]));
+  };
+  web_utils.convertPlatformActionCodeSettings = function convertPlatformActionCodeSettings(actionCodeSettings) {
+    if (actionCodeSettings == null) {
+      return null;
     }
-    pickVideo(opts) {
-      let source = opts && 'source' in opts ? opts.source : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
-      dart.throw(new core.UnimplementedError.new("pickVideo() has not been implemented."));
+    let actionCodeSettingsMap = actionCodeSettings.asMap();
+    let webActionCodeSettings = {url: actionCodeSettings.url, handleCodeInApp: actionCodeSettings.handleCodeInApp};
+    if (actionCodeSettingsMap[$_get]("android") != null) {
+      webActionCodeSettings.android = {packageName: T.StringN().as(dart.dsend(actionCodeSettingsMap[$_get]("android"), '_get', ["packageName"])), minimumVersion: T.StringN().as(dart.dsend(actionCodeSettingsMap[$_get]("android"), '_get', ["minimumVersion"])), installApp: T.boolN().as(dart.dsend(actionCodeSettingsMap[$_get]("android"), '_get', ["installApp"]))};
     }
-    retrieveLostData() {
-      dart.throw(new core.UnimplementedError.new("retrieveLostData() has not been implemented."));
+    if (actionCodeSettingsMap[$_get]("iOS") != null) {
+      webActionCodeSettings.iOS = {bundleId: T.StringN().as(dart.dsend(actionCodeSettingsMap[$_get]("iOS"), '_get', ["bundleId"]))};
+    }
+    return webActionCodeSettings;
+  };
+  web_utils.convertPlatformPersistence = function convertPlatformPersistence(persistence) {
+    switch (persistence) {
+      case C[0] || CT.C0:
+      {
+        return "session";
+      }
+      case C[1] || CT.C1:
+      {
+        return "none";
+      }
+      case C[2] || CT.C2:
+      default:
+      {
+        return "local";
+      }
     }
   };
-  (image_picker_platform.ImagePickerPlatform.new = function() {
-    image_picker_platform.ImagePickerPlatform.__proto__.new.call(this, {token: image_picker_platform.ImagePickerPlatform._token});
-    ;
-  }).prototype = image_picker_platform.ImagePickerPlatform.prototype;
-  dart.addTypeTests(image_picker_platform.ImagePickerPlatform);
-  dart.addTypeCaches(image_picker_platform.ImagePickerPlatform);
-  dart.setMethodSignature(image_picker_platform.ImagePickerPlatform, () => ({
-    __proto__: dart.getMethods(image_picker_platform.ImagePickerPlatform.__proto__),
-    pickImage: dart.fnType(async.Future$(dart.nullable(html.PickedFile)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
-    pickMultiImage: dart.fnType(async.Future$(dart.nullable(core.List$(html.PickedFile))), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double)}, {}),
-    pickVideo: dart.fnType(async.Future$(dart.nullable(html.PickedFile)), [], {maxDuration: dart.nullable(core.Duration), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
-    retrieveLostData: dart.fnType(async.Future$(lost_data.LostData), [])
-  }));
-  dart.setLibraryUri(image_picker_platform.ImagePickerPlatform, I[1]);
-  dart.defineLazy(image_picker_platform.ImagePickerPlatform, {
-    /*image_picker_platform.ImagePickerPlatform._token*/get _token() {
-      return new core.Object.new();
-    },
-    /*image_picker_platform.ImagePickerPlatform._instance*/get _instance() {
-      return new method_channel_image_picker.MethodChannelImagePicker.new();
-    },
-    set _instance(_) {}
-  }, false);
-  method_channel_image_picker.MethodChannelImagePicker = class MethodChannelImagePicker extends image_picker_platform.ImagePickerPlatform {
-    get channel() {
-      return method_channel_image_picker._channel;
+  web_utils.convertPlatformAuthProvider = function convertPlatformAuthProvider(authProvider) {
+    if (email_auth.EmailAuthProvider.is(authProvider)) {
+      return auth.EmailAuthProvider.new();
     }
-    pickImage(opts) {
-      let source = opts && 'source' in opts ? opts.source : null;
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      return async.async(T.PickedFileN(), (function* pickImage() {
-        let path = (yield this[_pickImagePath]({source: source, maxWidth: maxWidth, maxHeight: maxHeight, imageQuality: imageQuality, preferredCameraDevice: preferredCameraDevice}));
-        return path != null ? new html.PickedFile.new(path) : null;
-      }).bind(this));
+    if (facebook_auth.FacebookAuthProvider.is(authProvider)) {
+      let facebookAuthProvider = auth.FacebookAuthProvider.new();
+      authProvider.scopes[$forEach](dart.bind(facebookAuthProvider, 'addScope'));
+      facebookAuthProvider.setCustomParameters(authProvider.parameters);
+      return facebookAuthProvider;
     }
-    pickMultiImage(opts) {
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      return async.async(T.ListNOfPickedFile(), (function* pickMultiImage() {
-        let paths = (yield this[_pickMultiImagePath]({maxWidth: maxWidth, maxHeight: maxHeight, imageQuality: imageQuality}));
-        if (paths == null) return null;
-        let files = T.JSArrayOfPickedFile().of([]);
-        for (let path of paths) {
-          files[$add](new html.PickedFile.new(core.String.as(path)));
-        }
-        return files;
-      }).bind(this));
+    if (github_auth.GithubAuthProvider.is(authProvider)) {
+      let githubAuthProvider = auth.GithubAuthProvider.new();
+      authProvider.scopes[$forEach](dart.bind(githubAuthProvider, 'addScope'));
+      githubAuthProvider.setCustomParameters(authProvider.parameters);
+      return githubAuthProvider;
     }
-    [_pickMultiImagePath](opts) {
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      if (imageQuality != null && (dart.notNull(imageQuality) < 0 || dart.notNull(imageQuality) > 100)) {
-        dart.throw(new core.ArgumentError.value(imageQuality, "imageQuality", "must be between 0 and 100"));
+    if (google_auth.GoogleAuthProvider.is(authProvider)) {
+      let googleAuthProvider = auth.GoogleAuthProvider.new();
+      authProvider.scopes[$forEach](dart.bind(googleAuthProvider, 'addScope'));
+      googleAuthProvider.setCustomParameters(authProvider.parameters);
+      return googleAuthProvider;
+    }
+    if (twitter_auth.TwitterAuthProvider.is(authProvider)) {
+      let twitterAuthProvider = auth.TwitterAuthProvider.new();
+      twitterAuthProvider.setCustomParameters(authProvider.parameters);
+      return twitterAuthProvider;
+    }
+    if (phone_auth.PhoneAuthProvider.is(authProvider)) {
+      return auth.PhoneAuthProvider.new();
+    }
+    if (oauth.OAuthProvider.is(authProvider)) {
+      let oAuthProvider = auth.OAuthProvider.new(authProvider.providerId);
+      authProvider.scopes[$forEach](dart.bind(oAuthProvider, 'addScope'));
+      oAuthProvider.setCustomParameters(authProvider.parameters);
+      return oAuthProvider;
+    }
+    dart.throw(new core.FallThroughError.new());
+  };
+  web_utils.convertWebAuthCredential = function convertWebAuthCredential(authCredential) {
+    if (authCredential == null) {
+      return null;
+    }
+    return new auth_credential.AuthCredential.new({providerId: authCredential.providerId, signInMethod: authCredential.signInMethod});
+  };
+  web_utils.convertWebOAuthCredential = function convertWebOAuthCredential(oAuthCredential) {
+    if (oAuthCredential == null) {
+      return null;
+    }
+    return new oauth.OAuthProvider.new(oAuthCredential.providerId).credential({accessToken: oAuthCredential.accessToken, idToken: oAuthCredential.idToken});
+  };
+  web_utils.convertPlatformCredential = function convertPlatformCredential(credential) {
+    if (email_auth.EmailAuthCredential.is(credential)) {
+      if (credential.emailLink != null) {
+        return auth.EmailAuthProvider.credentialWithLink(credential.email, dart.nullCheck(credential.emailLink));
       }
-      if (maxWidth != null && dart.notNull(maxWidth) < 0) {
-        dart.throw(new core.ArgumentError.value(maxWidth, "maxWidth", "cannot be negative"));
-      }
-      if (maxHeight != null && dart.notNull(maxHeight) < 0) {
-        dart.throw(new core.ArgumentError.value(maxHeight, "maxHeight", "cannot be negative"));
-      }
-      return method_channel_image_picker._channel.invokeMethod(T.ListN(), "pickMultiImage", new (T.IdentityMapOfString$dynamic()).from(["maxWidth", maxWidth, "maxHeight", maxHeight, "imageQuality", imageQuality]));
+      return auth.EmailAuthProvider.credential(credential.email, dart.nullCheck(credential.password));
     }
-    [_pickImagePath](opts) {
-      let source = opts && 'source' in opts ? opts.source : null;
-      let maxWidth = opts && 'maxWidth' in opts ? opts.maxWidth : null;
-      let maxHeight = opts && 'maxHeight' in opts ? opts.maxHeight : null;
-      let imageQuality = opts && 'imageQuality' in opts ? opts.imageQuality : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      if (imageQuality != null && (dart.notNull(imageQuality) < 0 || dart.notNull(imageQuality) > 100)) {
-        dart.throw(new core.ArgumentError.value(imageQuality, "imageQuality", "must be between 0 and 100"));
-      }
-      if (maxWidth != null && dart.notNull(maxWidth) < 0) {
-        dart.throw(new core.ArgumentError.value(maxWidth, "maxWidth", "cannot be negative"));
-      }
-      if (maxHeight != null && dart.notNull(maxHeight) < 0) {
-        dart.throw(new core.ArgumentError.value(maxHeight, "maxHeight", "cannot be negative"));
-      }
-      return method_channel_image_picker._channel.invokeMethod(core.String, "pickImage", new (T.IdentityMapOfString$dynamic()).from(["source", source.index, "maxWidth", maxWidth, "maxHeight", maxHeight, "imageQuality", imageQuality, "cameraDevice", preferredCameraDevice.index]));
+    if (facebook_auth.FacebookAuthCredential.is(credential)) {
+      return auth.FacebookAuthProvider.credential(dart.nullCheck(credential.accessToken));
     }
-    pickVideo(opts) {
-      let source = opts && 'source' in opts ? opts.source : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
-      return async.async(T.PickedFileN(), (function* pickVideo() {
-        let path = (yield this[_pickVideoPath]({source: source, maxDuration: maxDuration, preferredCameraDevice: preferredCameraDevice}));
-        return path != null ? new html.PickedFile.new(path) : null;
-      }).bind(this));
+    if (github_auth.GithubAuthCredential.is(credential)) {
+      return auth.GithubAuthProvider.credential(dart.nullCheck(credential.accessToken));
     }
-    [_pickVideoPath](opts) {
-      let t0;
-      let source = opts && 'source' in opts ? opts.source : null;
-      let preferredCameraDevice = opts && 'preferredCameraDevice' in opts ? opts.preferredCameraDevice : C[0] || CT.C0;
-      let maxDuration = opts && 'maxDuration' in opts ? opts.maxDuration : null;
-      return method_channel_image_picker._channel.invokeMethod(core.String, "pickVideo", new (T.IdentityMapOfString$dynamic()).from(["source", source.index, "maxDuration", (t0 = maxDuration, t0 == null ? null : t0.inSeconds), "cameraDevice", preferredCameraDevice.index]));
+    if (google_auth.GoogleAuthCredential.is(credential)) {
+      return auth.GoogleAuthProvider.credential(credential.idToken, credential.accessToken);
     }
-    retrieveLostData() {
-      return async.async(lost_data.LostData, function* retrieveLostData() {
-        let result = (yield method_channel_image_picker._channel.invokeMapMethod(core.String, dart.dynamic, "retrieve"));
-        if (result == null) {
-          return new lost_data.LostData.empty();
-        }
-        if (!(result[$containsKey]("path") !== result[$containsKey]("errorCode"))) dart.assertFailed(null, I[0], 157, 12, "result.containsKey('path') ^ result.containsKey('errorCode')");
-        let type = T.StringN().as(result[$_get]("type"));
-        if (!(type === "image" || type === "video")) dart.assertFailed(null, I[0], 160, 12, "type == kTypeImage || type == kTypeVideo");
-        let retrieveType = null;
-        if (type === "image") {
-          retrieveType = retrieve_type.RetrieveType.image;
-        } else if (type === "video") {
-          retrieveType = retrieve_type.RetrieveType.video;
-        }
-        let exception = null;
-        if (result[$containsKey]("errorCode")) {
-          exception = new message_codec.PlatformException.new({code: core.String.as(result[$_get]("errorCode")), message: T.StringN().as(result[$_get]("errorMessage"))});
-        }
-        let path = T.StringN().as(result[$_get]("path"));
-        return new lost_data.LostData.new({file: path != null ? new html.PickedFile.new(path) : null, exception: exception, type: retrieveType});
-      });
+    if (oauth.OAuthCredential.is(credential)) {
+      return auth.OAuthProvider.new(credential.providerId).credential(credential.idToken, credential.accessToken);
+    }
+    if (twitter_auth.TwitterAuthCredential.is(credential)) {
+      return auth.TwitterAuthProvider.credential(dart.nullCheck(credential.accessToken), dart.nullCheck(credential.secret));
+    }
+    if (phone_auth.PhoneAuthCredential.is(credential)) {
+      return auth.PhoneAuthProvider.credential(dart.nullCheck(credential.verificationId), dart.nullCheck(credential.smsCode));
+    }
+    if (oauth.OAuthCredential.is(credential)) {
+      return auth.OAuthProvider.new(credential.providerId).credential(credential.idToken, credential.accessToken);
+    }
+    return null;
+  };
+  web_utils.convertRecaptchaVerifierSize = function convertRecaptchaVerifierSize(size) {
+    switch (size) {
+      case C[3] || CT.C3:
+      {
+        return "compact";
+      }
+      case C[4] || CT.C4:
+      default:
+      {
+        return "normal";
+      }
     }
   };
-  (method_channel_image_picker.MethodChannelImagePicker.new = function() {
-    method_channel_image_picker.MethodChannelImagePicker.__proto__.new.call(this);
-    ;
-  }).prototype = method_channel_image_picker.MethodChannelImagePicker.prototype;
-  dart.addTypeTests(method_channel_image_picker.MethodChannelImagePicker);
-  dart.addTypeCaches(method_channel_image_picker.MethodChannelImagePicker);
-  dart.setMethodSignature(method_channel_image_picker.MethodChannelImagePicker, () => ({
-    __proto__: dart.getMethods(method_channel_image_picker.MethodChannelImagePicker.__proto__),
-    [_pickMultiImagePath]: dart.fnType(async.Future$(dart.nullable(core.List)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double)}, {}),
-    [_pickImagePath]: dart.fnType(async.Future$(dart.nullable(core.String)), [], {imageQuality: dart.nullable(core.int), maxHeight: dart.nullable(core.double), maxWidth: dart.nullable(core.double), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource}),
-    [_pickVideoPath]: dart.fnType(async.Future$(dart.nullable(core.String)), [], {maxDuration: dart.nullable(core.Duration), preferredCameraDevice: camera_device.CameraDevice}, {source: image_source.ImageSource})
-  }));
-  dart.setGetterSignature(method_channel_image_picker.MethodChannelImagePicker, () => ({
-    __proto__: dart.getGetters(method_channel_image_picker.MethodChannelImagePicker.__proto__),
-    channel: platform_channel.MethodChannel
-  }));
-  dart.setLibraryUri(method_channel_image_picker.MethodChannelImagePicker, I[2]);
-  dart.defineLazy(method_channel_image_picker, {
-    /*method_channel_image_picker._channel*/get _channel() {
-      return new platform_channel.MethodChannel.new("plugins.flutter.io/image_picker");
+  web_utils.convertRecaptchaVerifierTheme = function convertRecaptchaVerifierTheme(theme) {
+    switch (theme) {
+      case C[5] || CT.C5:
+      {
+        return "dark";
+      }
+      case C[6] || CT.C6:
+      default:
+      {
+        return "light";
+      }
     }
-  }, false);
-  dart.trackLibraries("packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart", {
-    "package:image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart": method_channel_image_picker,
-    "package:image_picker_platform_interface/src/platform_interface/image_picker_platform.dart": image_picker_platform,
-    "package:image_picker_platform_interface/image_picker_platform_interface.dart": image_picker_platform_interface
+  };
+  dart.trackLibraries("packages/firebase_auth_web/src/utils/web_utils.dart", {
+    "package:firebase_auth_web/src/utils/web_utils.dart": web_utils
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["../platform_interface/image_picker_platform.dart","method_channel_image_picker.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["web_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/firebase_auth_web/src/utils/web_utils.dart.lib.js"}');
   // Exports:
   return {
-    src__method_channel__method_channel_image_picker: method_channel_image_picker,
-    src__platform_interface__image_picker_platform: image_picker_platform,
-    image_picker_platform_interface: image_picker_platform_interface
+    src__utils__web_utils: web_utils
   };
 }));
 
-//# sourceMappingURL=method_channel_image_picker.dart.lib.js.map
+//# sourceMappingURL=web_utils.dart.lib.js.map

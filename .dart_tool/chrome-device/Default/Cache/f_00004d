@@ -1,379 +1,581 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__foundation__binding_dart(dart_sdk, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/foundation/collections.dart'], (function load__packages__flutter__src__painting__borders_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__foundation__collections$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const developer = dart_sdk.developer;
-  const _js_helper = dart_sdk._js_helper;
   const ui = dart_sdk.ui;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
-  const convert = dart_sdk.convert;
-  const io = dart_sdk.io;
+  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  const debug = packages__flutter__src__foundation__debug$46dart.src__foundation__debug;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
   const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var binding = Object.create(dart.library);
-  var $containsKey = dartx.containsKey;
-  var $_get = dartx._get;
-  var $substring = dartx.substring;
-  var $toString = dartx.toString;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  var borders$ = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $length = dartx.length;
+  var $any = dartx.any;
+  var $fold = dartx.fold;
+  var $last = dartx.last;
+  var $first = dartx.first;
   var $_set = dartx._set;
+  var $addAll = dartx.addAll;
+  var $add = dartx.add;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $_get = dartx._get;
+  var $reversed = dartx.reversed;
+  var $join = dartx.join;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
-    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    FutureOfMapOfString$dynamic: () => (T.FutureOfMapOfString$dynamic = dart.constFn(async.Future$(T.MapOfString$dynamic())))(),
-    MapOfString$String: () => (T.MapOfString$String = dart.constFn(core.Map$(core.String, core.String)))(),
-    MapOfString$StringToFutureOfMapOfString$dynamic: () => (T.MapOfString$StringToFutureOfMapOfString$dynamic = dart.constFn(dart.fnType(T.FutureOfMapOfString$dynamic(), [T.MapOfString$String()])))(),
-    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
-    VoidToFutureOfString: () => (T.VoidToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [])))(),
-    StringToFutureOfvoid: () => (T.StringToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [core.String])))(),
-    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
-    VoidToMapOfString$dynamic: () => (T.VoidToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [])))(),
-    MapOfString$dynamicTodynamic: () => (T.MapOfString$dynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [T.MapOfString$dynamic()])))(),
-    FutureOfServiceExtensionResponse: () => (T.FutureOfServiceExtensionResponse = dart.constFn(async.Future$(developer.ServiceExtensionResponse)))(),
-    StringAndMapOfString$StringToFutureOfServiceExtensionResponse: () => (T.StringAndMapOfString$StringToFutureOfServiceExtensionResponse = dart.constFn(dart.fnType(T.FutureOfServiceExtensionResponse(), [core.String, T.MapOfString$String()])))()
+    JSArrayOfShapeBorder: () => (T.JSArrayOfShapeBorder = dart.constFn(_interceptors.JSArray$(borders$.ShapeBorder)))(),
+    ShapeBorderTobool: () => (T.ShapeBorderTobool = dart.constFn(dart.fnType(core.bool, [borders$.ShapeBorder])))(),
+    EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry: () => (T.EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry = dart.constFn(dart.fnType(edge_insets.EdgeInsetsGeometry, [edge_insets.EdgeInsetsGeometry, borders$.ShapeBorder])))(),
+    ListOfShapeBorder: () => (T.ListOfShapeBorder = dart.constFn(core.List$(borders$.ShapeBorder)))(),
+    ShapeBorderToShapeBorder: () => (T.ShapeBorderToShapeBorder = dart.constFn(dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder])))(),
+    ShapeBorderN: () => (T.ShapeBorderN = dart.constFn(dart.nullable(borders$.ShapeBorder)))(),
+    JSArrayOfShapeBorderN: () => (T.JSArrayOfShapeBorderN = dart.constFn(_interceptors.JSArray$(T.ShapeBorderN())))(),
+    ShapeBorderToString: () => (T.ShapeBorderToString = dart.constFn(dart.fnType(core.String, [borders$.ShapeBorder])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(binding._exitApplication, T.VoidToFutureOfvoid());
+      return C[0] = dart.const({
+        __proto__: borders$.BorderStyle.prototype,
+        [_name$]: "BorderStyle.none",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: borders$.BorderStyle.prototype,
+        [_name$]: "BorderStyle.solid",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], borders$.BorderStyle);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: borders$.BorderSide.prototype,
+        [style$]: C[0] || CT.C0,
+        [width$]: 0,
+        [color$]: C[3] || CT.C3
+      });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(6).fill(void 0);
   var I = [
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/foundation/binding.dart",
-    "package:flutter/src/foundation/binding.dart"
+    "package:flutter/src/painting/borders.dart",
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/painting/borders.dart"
   ];
-  var _lockCount = dart.privateName(binding, "_lockCount");
-  var _postExtensionStateChangedEvent = dart.privateName(binding, "_postExtensionStateChangedEvent");
-  binding.BindingBase = class BindingBase extends core.Object {
-    get window() {
-      return ui.window;
+  var _name$ = dart.privateName(borders$, "_name");
+  borders$.BorderStyle = class BorderStyle extends core.Object {
+    toString() {
+      return this[_name$];
     }
-    get platformDispatcher() {
-      return ui.PlatformDispatcher.instance;
+  };
+  (borders$.BorderStyle.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = borders$.BorderStyle.prototype;
+  dart.addTypeTests(borders$.BorderStyle);
+  dart.addTypeCaches(borders$.BorderStyle);
+  dart.setLibraryUri(borders$.BorderStyle, I[0]);
+  dart.setFieldSignature(borders$.BorderStyle, () => ({
+    __proto__: dart.getFields(borders$.BorderStyle.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(borders$.BorderStyle, ['toString']);
+  borders$.BorderStyle.none = C[0] || CT.C0;
+  borders$.BorderStyle.solid = C[1] || CT.C1;
+  borders$.BorderStyle.values = C[2] || CT.C2;
+  var color$ = dart.privateName(borders$, "BorderSide.color");
+  var width$ = dart.privateName(borders$, "BorderSide.width");
+  var style$ = dart.privateName(borders$, "BorderSide.style");
+  var Color_value = dart.privateName(ui, "Color.value");
+  borders$.BorderSide = class BorderSide extends core.Object {
+    get color() {
+      return this[color$];
     }
-    initInstances() {
-      if (!!binding.BindingBase._debugInitialized) dart.assertFailed(null, I[0], 134, 12, "!_debugInitialized");
-      if (!dart.fn(() => {
-        binding.BindingBase._debugInitialized = true;
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 135, 12, "() {\r\n      _debugInitialized = true;\r\n      return true;\r\n    }()");
+    set color(value) {
+      super.color = value;
     }
-    initServiceExtensions() {
-      if (!!binding.BindingBase._debugServiceExtensionsRegistered) dart.assertFailed(null, I[0], 162, 12, "!_debugServiceExtensionsRegistered");
-      if (!dart.fn(() => {
-        this.registerSignalServiceExtension({name: "reassemble", callback: dart.bind(this, 'reassembleApplication')});
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 164, 12, "() {\r\n      registerSignalServiceExtension(\r\n        name: 'reassemble',\r\n        callback: reassembleApplication,\r\n      );\r\n      return true;\r\n    }()");
-      if (!false && !true) {
-        this.registerSignalServiceExtension({name: "exit", callback: C[0] || CT.C0});
+    get width() {
+      return this[width$];
+    }
+    set width(value) {
+      super.width = value;
+    }
+    get style() {
+      return this[style$];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    static merge(a, b) {
+      if (!(a !== null)) dart.assertFailed(null, I[1], 86, 12, "a != null");
+      if (!(b !== null)) dart.assertFailed(null, I[1], 87, 12, "b != null");
+      if (!borders$.BorderSide.canMerge(a, b)) dart.assertFailed(null, I[1], 88, 12, "canMerge(a, b)");
+      let aIsNone = a.style === borders$.BorderStyle.none && a.width === 0.0;
+      let bIsNone = b.style === borders$.BorderStyle.none && b.width === 0.0;
+      if (aIsNone && bIsNone) return borders$.BorderSide.none;
+      if (aIsNone) return b;
+      if (bIsNone) return a;
+      if (!a.color._equals(b.color)) dart.assertFailed(null, I[1], 97, 12, "a.color == b.color");
+      if (!(a.style === b.style)) dart.assertFailed(null, I[1], 98, 12, "a.style == b.style");
+      return new borders$.BorderSide.new({color: a.color, width: a.width + b.width, style: a.style});
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0;
+      let color = opts && 'color' in opts ? opts.color : null;
+      let width = opts && 'width' in opts ? opts.width : null;
+      let style = opts && 'style' in opts ? opts.style : null;
+      if (!(width == null || dart.notNull(width) >= 0.0)) dart.assertFailed(null, I[1], 135, 12, "width == null || width >= 0.0");
+      return new borders$.BorderSide.new({color: (t0 = color, t0 == null ? this.color : t0), width: (t0$ = width, t0$ == null ? this.width : t0$), style: (t0$0 = style, t0$0 == null ? this.style : t0$0)});
+    }
+    scale(t) {
+      if (!(t !== null)) dart.assertFailed(null, I[1], 160, 12, "t != null");
+      return new borders$.BorderSide.new({color: this.color, width: math.max(core.double, 0.0, this.width * t), style: t <= 0.0 ? borders$.BorderStyle.none : this.style});
+    }
+    toPaint() {
+      let t0, t0$;
+      switch (this.style) {
+        case C[1] || CT.C1:
+        {
+          t0 = ui.Paint.new();
+          return (() => {
+            t0.color = this.color;
+            t0.strokeWidth = this.width;
+            t0.style = ui.PaintingStyle.stroke;
+            return t0;
+          })();
+        }
+        case C[0] || CT.C0:
+        {
+          t0$ = ui.Paint.new();
+          return (() => {
+            t0$.color = C[4] || CT.C4;
+            t0$.strokeWidth = 0.0;
+            t0$.style = ui.PaintingStyle.stroke;
+            return t0$;
+          })();
+        }
       }
-      if (!dart.fn(() => {
-        this.registerServiceExtension({name: "platformOverride", callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), (function*() {
-            if (parameters[$containsKey]("value")) {
-              switch (parameters[$_get]("value")) {
-                case "android":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.android;
-                  break;
-                }
-                case "fuchsia":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.fuchsia;
-                  break;
-                }
-                case "iOS":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.iOS;
-                  break;
-                }
-                case "linux":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.linux;
-                  break;
-                }
-                case "macOS":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.macOS;
-                  break;
-                }
-                case "windows":
-                {
-                  platform.debugDefaultTargetPlatformOverride = platform.TargetPlatform.windows;
-                  break;
-                }
-                case "default":
-                default:
-                {
-                  platform.debugDefaultTargetPlatformOverride = null;
-                }
-              }
-              this[_postExtensionStateChangedEvent]("platformOverride", platform.defaultTargetPlatform.toString()[$substring]((dart.str(dart.wrapType(platform.TargetPlatform)) + ".").length));
-              yield this.reassembleApplication();
-            }
-            return new (T.IdentityMapOfString$dynamic()).from(["value", platform.defaultTargetPlatform.toString()[$substring]((dart.str(dart.wrapType(platform.TargetPlatform)) + ".").length)]);
-          }).bind(this)), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-        this.registerServiceExtension({name: "brightnessOverride", callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), (function*() {
-            let t0, t0$;
-            if (parameters[$containsKey]("value")) {
-              switch (parameters[$_get]("value")) {
-                case "Brightness.light":
-                {
-                  debug.debugBrightnessOverride = ui.Brightness.light;
-                  break;
-                }
-                case "Brightness.dark":
-                {
-                  debug.debugBrightnessOverride = ui.Brightness.dark;
-                  break;
-                }
-                default:
-                {
-                  debug.debugBrightnessOverride = null;
-                }
-              }
-              this[_postExtensionStateChangedEvent]("brightnessOverride", dart.toString((t0 = debug.debugBrightnessOverride, t0 == null ? this.window.platformBrightness : t0)));
-              yield this.reassembleApplication();
-            }
-            return new (T.IdentityMapOfString$dynamic()).from(["value", dart.toString((t0$ = debug.debugBrightnessOverride, t0$ == null ? this.window.platformBrightness : t0$))]);
-          }).bind(this)), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-        this.registerStringServiceExtension({name: "connectedVmServiceUri", getter: dart.fn(() => async.async(core.String, function*() {
-            let t0;
-            t0 = debug.connectedVmServiceUri;
-            return t0 == null ? "" : t0;
-          }), T.VoidToFutureOfString()), setter: dart.fn(uri => async.async(dart.void, function*() {
-            debug.connectedVmServiceUri = uri;
-          }), T.StringToFutureOfvoid())});
-        this.registerStringServiceExtension({name: "activeDevToolsServerAddress", getter: dart.fn(() => async.async(core.String, function*() {
-            let t0;
-            t0 = debug.activeDevToolsServerAddress;
-            return t0 == null ? "" : t0;
-          }), T.VoidToFutureOfString()), setter: dart.fn(serverAddress => async.async(dart.void, function*() {
-            debug.activeDevToolsServerAddress = serverAddress;
-          }), T.StringToFutureOfvoid())});
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 179, 12, "() {\r\n      const String platformOverrideExtensionName = 'platformOverride';\r\n      registerServiceExtension(\r\n        name: platformOverrideExtensionName,\r\n        callback: (Map<String, String> parameters) async {\r\n          if (parameters.containsKey('value')) {\r\n            switch (parameters['value']) {\r\n              case 'android':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.android;\r\n                break;\r\n              case 'fuchsia':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;\r\n                break;\r\n              case 'iOS':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.iOS;\r\n                break;\r\n              case 'linux':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.linux;\r\n                break;\r\n              case 'macOS':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.macOS;\r\n                break;\r\n              case 'windows':\r\n                debugDefaultTargetPlatformOverride = TargetPlatform.windows;\r\n                break;\r\n              case 'default':\r\n              default:\r\n                debugDefaultTargetPlatformOverride = null;\r\n            }\r\n            _postExtensionStateChangedEvent(\r\n              platformOverrideExtensionName,\r\n              defaultTargetPlatform.toString().substring('$TargetPlatform.'.length),\r\n            );\r\n            await reassembleApplication();\r\n          }\r\n          return <String, dynamic>{\r\n            'value': defaultTargetPlatform\r\n                     .toString()\r\n                     .substring('$TargetPlatform.'.length),\r\n          };\r\n        },\r\n      );\r\n\r\n      const String brightnessOverrideExtensionName = 'brightnessOverride';\r\n      registerServiceExtension(\r\n        name: brightnessOverrideExtensionName,\r\n        callback: (Map<String, String> parameters) async {\r\n          if (parameters.containsKey('value')) {\r\n            switch (parameters['value']) {\r\n              case 'Brightness.light':\r\n                debugBrightnessOverride = ui.Brightness.light;\r\n                break;\r\n              case 'Brightness.dark':\r\n                debugBrightnessOverride = ui.Brightness.dark;\r\n                break;\r\n              default:\r\n                debugBrightnessOverride = null;\r\n            }\r\n            _postExtensionStateChangedEvent(\r\n              brightnessOverrideExtensionName,\r\n              (debugBrightnessOverride ?? window.platformBrightness).toString(),\r\n            );\r\n            await reassembleApplication();\r\n          }\r\n          return <String, dynamic>{\r\n            'value': (debugBrightnessOverride ?? window.platformBrightness).toString(),\r\n          };\r\n        },\r\n      );\r\n\r\n      registerStringServiceExtension(\r\n        name: 'connectedVmServiceUri',\r\n        getter: () async => connectedVmServiceUri ?? '',\r\n        setter: (String uri) async {\r\n          connectedVmServiceUri = uri;\r\n        },\r\n      );\r\n\r\n      registerStringServiceExtension(\r\n        name: 'activeDevToolsServerAddress',\r\n        getter: () async => activeDevToolsServerAddress ?? '',\r\n        setter: (String serverAddress) async {\r\n          activeDevToolsServerAddress = serverAddress;\r\n        },\r\n      );\r\n\r\n      return true;\r\n    }()");
-      if (!dart.fn(() => {
-        binding.BindingBase._debugServiceExtensionsRegistered = true;
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 267, 12, "() {\r\n      _debugServiceExtensionsRegistered = true;\r\n      return true;\r\n    }()");
     }
-    get locked() {
-      return this[_lockCount] > 0;
+    static canMerge(a, b) {
+      if (!(a !== null)) dart.assertFailed(null, I[1], 197, 12, "a != null");
+      if (!(b !== null)) dart.assertFailed(null, I[1], 198, 12, "b != null");
+      if (a.style === borders$.BorderStyle.none && a.width === 0.0 || b.style === borders$.BorderStyle.none && b.width === 0.0) return true;
+      return a.style === b.style && a.color._equals(b.color);
     }
-    lockEvents(callback) {
-      developer.Timeline.startSync("Lock events");
-      if (!(callback !== null)) dart.assertFailed(null, I[0], 296, 12, "callback != null");
-      this[_lockCount] = this[_lockCount] + 1;
-      let future = callback();
-      if (!(future !== null)) dart.assertFailed("The lockEvents() callback returned null; it should return a Future<void> that completes when the lock is to expire.", I[0], 299, 12, "future != null");
-      future.whenComplete(dart.fn(() => {
-        this[_lockCount] = this[_lockCount] - 1;
-        if (!this.locked) {
-          developer.Timeline.finishSync();
-          this.unlocked();
+    static lerp(a, b, t) {
+      if (!(a !== null)) dart.assertFailed(null, I[1], 212, 12, "a != null");
+      if (!(b !== null)) dart.assertFailed(null, I[1], 213, 12, "b != null");
+      if (!(t !== null)) dart.assertFailed(null, I[1], 214, 12, "t != null");
+      if (t === 0.0) return a;
+      if (t === 1.0) return b;
+      let width = dart.nullCheck(ui.lerpDouble(a.width, b.width, t));
+      if (width < 0.0) return borders$.BorderSide.none;
+      if (a.style === b.style) {
+        return new borders$.BorderSide.new({color: dart.nullCheck(ui.Color.lerp(a.color, b.color, t)), width: width, style: a.style});
+      }
+      let colorA = null;
+      let colorB = null;
+      switch (a.style) {
+        case C[1] || CT.C1:
+        {
+          colorA = a.color;
+          break;
         }
-      }, T.VoidToNull()));
-      return future;
-    }
-    unlocked() {
-      if (!!this.locked) dart.assertFailed(null, I[0], 316, 12, "!locked");
-    }
-    reassembleApplication() {
-      return this.lockEvents(dart.bind(this, 'performReassemble'));
-    }
-    performReassemble() {
-      assertions.FlutterError.resetErrorCount();
-      return T.FutureOfvoid().value();
-    }
-    registerSignalServiceExtension(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let callback = opts && 'callback' in opts ? opts.callback : null;
-      if (!(name !== null)) dart.assertFailed(null, I[0], 370, 12, "name != null");
-      if (!(callback !== null)) dart.assertFailed(null, I[0], 371, 12, "callback != null");
-      this.registerServiceExtension({name: name, callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), function*() {
-          yield callback();
-          return new (T.IdentityMapOfString$dynamic()).new();
-        }), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-    }
-    registerBoolServiceExtension(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let getter = opts && 'getter' in opts ? opts.getter : null;
-      let setter = opts && 'setter' in opts ? opts.setter : null;
-      if (!(name !== null)) dart.assertFailed(null, I[0], 401, 12, "name != null");
-      if (!(getter !== null)) dart.assertFailed(null, I[0], 402, 12, "getter != null");
-      if (!(setter !== null)) dart.assertFailed(null, I[0], 403, 12, "setter != null");
-      this.registerServiceExtension({name: name, callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), (function*() {
-          if (parameters[$containsKey]("enabled")) {
-            yield setter(parameters[$_get]("enabled") === "true");
-            this[_postExtensionStateChangedEvent](name, (yield getter()) ? "true" : "false");
-          }
-          return new (T.IdentityMapOfString$dynamic()).from(["enabled", (yield getter()) ? "true" : "false"]);
-        }).bind(this)), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-    }
-    registerNumericServiceExtension(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let getter = opts && 'getter' in opts ? opts.getter : null;
-      let setter = opts && 'setter' in opts ? opts.setter : null;
-      if (!(name !== null)) dart.assertFailed(null, I[0], 435, 12, "name != null");
-      if (!(getter !== null)) dart.assertFailed(null, I[0], 436, 12, "getter != null");
-      if (!(setter !== null)) dart.assertFailed(null, I[0], 437, 12, "setter != null");
-      this.registerServiceExtension({name: name, callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), (function*() {
-          if (parameters[$containsKey](name)) {
-            yield setter(core.double.parse(dart.nullCheck(parameters[$_get](name))));
-            this[_postExtensionStateChangedEvent](name, (yield getter())[$toString]());
-          }
-          return new (T.IdentityMapOfString$dynamic()).from([name, (yield getter())[$toString]()]);
-        }).bind(this)), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-    }
-    [_postExtensionStateChangedEvent](name, value) {
-      this.postEvent("Flutter.ServiceExtensionStateChanged", new (T.IdentityMapOfString$dynamic()).from(["extension", "ext.flutter." + name, "value", value]));
-    }
-    postEvent(eventKind, eventData) {
-      developer.postEvent(eventKind, eventData);
-    }
-    registerStringServiceExtension(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let getter = opts && 'getter' in opts ? opts.getter : null;
-      let setter = opts && 'setter' in opts ? opts.setter : null;
-      if (!(name !== null)) dart.assertFailed(null, I[0], 497, 12, "name != null");
-      if (!(getter !== null)) dart.assertFailed(null, I[0], 498, 12, "getter != null");
-      if (!(setter !== null)) dart.assertFailed(null, I[0], 499, 12, "setter != null");
-      this.registerServiceExtension({name: name, callback: dart.fn(parameters => async.async(T.MapOfString$dynamic(), (function*() {
-          if (parameters[$containsKey]("value")) {
-            yield setter(dart.nullCheck(parameters[$_get]("value")));
-            this[_postExtensionStateChangedEvent](name, yield getter());
-          }
-          return new (T.IdentityMapOfString$dynamic()).from(["value", (yield getter())]);
-        }).bind(this)), T.MapOfString$StringToFutureOfMapOfString$dynamic())});
-    }
-    registerServiceExtension(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let callback = opts && 'callback' in opts ? opts.callback : null;
-      if (!(name !== null)) dart.assertFailed(null, I[0], 568, 12, "name != null");
-      if (!(callback !== null)) dart.assertFailed(null, I[0], 569, 12, "callback != null");
-      let methodName = "ext.flutter." + name;
-      developer.registerExtension(methodName, dart.fn((method, parameters) => async.async(developer.ServiceExtensionResponse, function*() {
-        if (!(method === methodName)) dart.assertFailed(null, I[0], 572, 14, "method == methodName");
-        if (!dart.fn(() => {
-          if (debug.debugInstrumentationEnabled) print.debugPrint("service extension method received: " + method + "(" + dart.str(parameters) + ")");
-          return true;
-        }, T.VoidTobool())()) dart.assertFailed(null, I[0], 573, 14, "() {\r\n        if (debugInstrumentationEnabled)\r\n          debugPrint('service extension method received: $method($parameters)');\r\n        return true;\r\n      }()");
-        yield debug.debugInstrumentAction(dart.void, "Wait for outer event loop", dart.fn(() => T.FutureOfvoid().delayed(core.Duration.zero), T.VoidToFutureOfvoid()));
-        let caughtException = null;
-        let caughtStack = null;
-        let result = null;
-        function result$35get() {
-          let t1;
-          t1 = result;
-          return t1 == null ? dart.throw(new _internal.LateError.localNI("result")) : t1;
+        case C[0] || CT.C0:
+        {
+          colorA = a.color.withAlpha(0);
+          break;
         }
-        dart.fn(result$35get, T.VoidToMapOfString$dynamic());
-        function result$35set(t2) {
-          return result = t2;
+      }
+      switch (b.style) {
+        case C[1] || CT.C1:
+        {
+          colorB = b.color;
+          break;
         }
-        dart.fn(result$35set, T.MapOfString$dynamicTodynamic());
-        try {
-          result$35set(yield callback(parameters));
-        } catch (e) {
-          let exception = dart.getThrown(e);
-          let stack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            caughtException = exception;
-            caughtStack = stack;
-          } else
-            throw e;
+        case C[0] || CT.C0:
+        {
+          colorB = b.color.withAlpha(0);
+          break;
         }
-        if (caughtException == null) {
-          result$35get()[$_set]("type", "_extensionType");
-          result$35get()[$_set]("method", method);
-          return new developer.ServiceExtensionResponse.result(convert.json.encode(result$35get()));
-        } else {
-          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: caughtException, stack: caughtStack, context: new assertions.ErrorDescription.new("during a service extension callback for \"" + method + "\"")}));
-          return new developer.ServiceExtensionResponse.error(-32000, convert.json.encode(new (T.IdentityMapOfString$String()).from(["exception", dart.toString(caughtException), "stack", dart.toString(caughtStack), "method", method])));
-        }
-      }), T.StringAndMapOfString$StringToFutureOfServiceExtensionResponse()));
+      }
+      return new borders$.BorderSide.new({color: dart.nullCheck(ui.Color.lerp(colorA, colorB, t)), width: width, style: borders$.BorderStyle.solid});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return borders$.BorderSide.is(other) && other.color._equals(this.color) && other.width === this.width && other.style === this.style;
+    }
+    get hashCode() {
+      return ui.hashValues(this.color, this.width, this.style);
     }
     toString() {
-      return "<" + object.objectRuntimeType(this, "BindingBase") + ">";
+      return object.objectRuntimeType(this, "BorderSide") + "(" + dart.str(this.color) + ", " + this.width[$toStringAsFixed](1) + ", " + dart.str(this.style) + ")";
     }
   };
-  (binding.BindingBase.new = function() {
-    this[_lockCount] = 0;
-    developer.Timeline.startSync("Framework initialization");
-    if (!!binding.BindingBase._debugInitialized) dart.assertFailed(null, I[0], 55, 12, "!_debugInitialized");
-    this.initInstances();
-    if (!binding.BindingBase._debugInitialized) dart.assertFailed(null, I[0], 57, 12, "_debugInitialized");
-    if (!!binding.BindingBase._debugServiceExtensionsRegistered) dart.assertFailed(null, I[0], 59, 12, "!_debugServiceExtensionsRegistered");
-    this.initServiceExtensions();
-    if (!binding.BindingBase._debugServiceExtensionsRegistered) dart.assertFailed(null, I[0], 61, 12, "_debugServiceExtensionsRegistered");
-    developer.postEvent("Flutter.FrameworkInitialization", new (T.IdentityMapOfString$String()).new());
-    developer.Timeline.finishSync();
-  }).prototype = binding.BindingBase.prototype;
-  dart.addTypeTests(binding.BindingBase);
-  dart.addTypeCaches(binding.BindingBase);
-  dart.setMethodSignature(binding.BindingBase, () => ({
-    __proto__: dart.getMethods(binding.BindingBase.__proto__),
-    initInstances: dart.fnType(dart.void, []),
-    initServiceExtensions: dart.fnType(dart.void, []),
-    lockEvents: dart.fnType(async.Future$(dart.void), [dart.fnType(async.Future$(dart.void), [])]),
-    unlocked: dart.fnType(dart.void, []),
-    reassembleApplication: dart.fnType(async.Future$(dart.void), []),
-    performReassemble: dart.fnType(async.Future$(dart.void), []),
-    registerSignalServiceExtension: dart.fnType(dart.void, [], {}, {callback: dart.fnType(async.Future$(dart.void), []), name: core.String}),
-    registerBoolServiceExtension: dart.fnType(dart.void, [], {}, {getter: dart.fnType(async.Future$(core.bool), []), name: core.String, setter: dart.fnType(async.Future$(dart.void), [core.bool])}),
-    registerNumericServiceExtension: dart.fnType(dart.void, [], {}, {getter: dart.fnType(async.Future$(core.double), []), name: core.String, setter: dart.fnType(async.Future$(dart.void), [core.double])}),
-    [_postExtensionStateChangedEvent]: dart.fnType(dart.void, [core.String, dart.dynamic]),
-    postEvent: dart.fnType(dart.void, [core.String, core.Map$(core.String, dart.dynamic)]),
-    registerStringServiceExtension: dart.fnType(dart.void, [], {}, {getter: dart.fnType(async.Future$(core.String), []), name: core.String, setter: dart.fnType(async.Future$(dart.void), [core.String])}),
-    registerServiceExtension: dart.fnType(dart.void, [], {}, {callback: dart.fnType(async.Future$(core.Map$(core.String, dart.dynamic)), [core.Map$(core.String, core.String)]), name: core.String})
+  (borders$.BorderSide.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : C[3] || CT.C3;
+    let width = opts && 'width' in opts ? opts.width : 1;
+    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
+    this[color$] = color;
+    this[width$] = width;
+    this[style$] = style;
+    if (!(color !== null)) dart.assertFailed(null, I[1], 69, 15, "color != null");
+    if (!(width !== null)) dart.assertFailed(null, I[1], 70, 15, "width != null");
+    if (!(width >= 0.0)) dart.assertFailed(null, I[1], 71, 15, "width >= 0.0");
+    if (!(style !== null)) dart.assertFailed(null, I[1], 72, 15, "style != null");
+    ;
+  }).prototype = borders$.BorderSide.prototype;
+  dart.addTypeTests(borders$.BorderSide);
+  dart.addTypeCaches(borders$.BorderSide);
+  dart.setMethodSignature(borders$.BorderSide, () => ({
+    __proto__: dart.getMethods(borders$.BorderSide.__proto__),
+    copyWith: dart.fnType(borders$.BorderSide, [], {color: dart.nullable(ui.Color), style: dart.nullable(borders$.BorderStyle), width: dart.nullable(core.double)}, {}),
+    scale: dart.fnType(borders$.BorderSide, [core.double]),
+    toPaint: dart.fnType(ui.Paint, [])
   }));
-  dart.setGetterSignature(binding.BindingBase, () => ({
-    __proto__: dart.getGetters(binding.BindingBase.__proto__),
-    window: ui.SingletonFlutterWindow,
-    platformDispatcher: ui.PlatformDispatcher,
-    locked: core.bool
+  dart.setLibraryUri(borders$.BorderSide, I[0]);
+  dart.setFieldSignature(borders$.BorderSide, () => ({
+    __proto__: dart.getFields(borders$.BorderSide.__proto__),
+    color: dart.finalFieldType(ui.Color),
+    width: dart.finalFieldType(core.double),
+    style: dart.finalFieldType(borders$.BorderStyle)
   }));
-  dart.setLibraryUri(binding.BindingBase, I[1]);
-  dart.setFieldSignature(binding.BindingBase, () => ({
-    __proto__: dart.getFields(binding.BindingBase.__proto__),
-    [_lockCount]: dart.fieldType(core.int)
-  }));
-  dart.defineExtensionMethods(binding.BindingBase, ['toString']);
-  dart.defineLazy(binding.BindingBase, {
-    /*binding.BindingBase._debugInitialized*/get _debugInitialized() {
-      return false;
-    },
-    set _debugInitialized(_) {},
-    /*binding.BindingBase._debugServiceExtensionsRegistered*/get _debugServiceExtensionsRegistered() {
-      return false;
-    },
-    set _debugServiceExtensionsRegistered(_) {}
+  dart.defineExtensionMethods(borders$.BorderSide, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(borders$.BorderSide, ['hashCode']);
+  dart.defineLazy(borders$.BorderSide, {
+    /*borders$.BorderSide.none*/get none() {
+      return C[5] || CT.C5;
+    }
   }, false);
-  binding._exitApplication = function _exitApplication() {
-    return async.async(dart.void, function* _exitApplication() {
-      io.exit(0);
-    });
+  borders$.ShapeBorder = class ShapeBorder extends core.Object {
+    add(other, opts) {
+      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
+      return null;
+    }
+    ['+'](other) {
+      let t0, t0$;
+      t0$ = (t0 = this.add(other), t0 == null ? other.add(this, {reversed: true}) : t0);
+      return t0$ == null ? new borders$._CompoundBorder.new(T.JSArrayOfShapeBorder().of([other, this])) : t0$;
+    }
+    lerpFrom(a, t) {
+      if (a == null) return this.scale(t);
+      return null;
+    }
+    lerpTo(b, t) {
+      if (b == null) return this.scale(1.0 - t);
+      return null;
+    }
+    static lerp(a, b, t) {
+      let t0;
+      if (!(t !== null)) dart.assertFailed(null, I[1], 429, 12, "t != null");
+      let result = null;
+      if (b != null) result = b.lerpFrom(a, t);
+      if (result == null && a != null) result = a.lerpTo(b, t);
+      t0 = result;
+      return t0 == null ? t < 0.5 ? a : b : t0;
+    }
+    toString() {
+      return object.objectRuntimeType(this, "ShapeBorder") + "()";
+    }
   };
-  dart.trackLibraries("packages/flutter/src/foundation/binding.dart", {
-    "package:flutter/src/foundation/binding.dart": binding
+  (borders$.ShapeBorder.new = function() {
+    ;
+  }).prototype = borders$.ShapeBorder.prototype;
+  dart.addTypeTests(borders$.ShapeBorder);
+  dart.addTypeCaches(borders$.ShapeBorder);
+  dart.setMethodSignature(borders$.ShapeBorder, () => ({
+    __proto__: dart.getMethods(borders$.ShapeBorder.__proto__),
+    add: dart.fnType(dart.nullable(borders$.ShapeBorder), [borders$.ShapeBorder], {reversed: core.bool}, {}),
+    '+': dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder]),
+    lerpFrom: dart.fnType(dart.nullable(borders$.ShapeBorder), [dart.nullable(borders$.ShapeBorder), core.double]),
+    lerpTo: dart.fnType(dart.nullable(borders$.ShapeBorder), [dart.nullable(borders$.ShapeBorder), core.double])
+  }));
+  dart.setLibraryUri(borders$.ShapeBorder, I[0]);
+  dart.defineExtensionMethods(borders$.ShapeBorder, ['toString']);
+  var side$ = dart.privateName(borders$, "OutlinedBorder.side");
+  borders$.OutlinedBorder = class OutlinedBorder extends borders$.ShapeBorder {
+    get side() {
+      return this[side$];
+    }
+    set side(value) {
+      super.side = value;
+    }
+  };
+  (borders$.OutlinedBorder.new = function(opts) {
+    let side = opts && 'side' in opts ? opts.side : C[5] || CT.C5;
+    this[side$] = side;
+    if (!(side !== null)) dart.assertFailed(null, I[1], 502, 66, "side != null");
+    borders$.OutlinedBorder.__proto__.new.call(this);
+    ;
+  }).prototype = borders$.OutlinedBorder.prototype;
+  dart.addTypeTests(borders$.OutlinedBorder);
+  dart.addTypeCaches(borders$.OutlinedBorder);
+  dart.setLibraryUri(borders$.OutlinedBorder, I[0]);
+  dart.setFieldSignature(borders$.OutlinedBorder, () => ({
+    __proto__: dart.getFields(borders$.OutlinedBorder.__proto__),
+    side: dart.finalFieldType(borders$.BorderSide)
+  }));
+  borders$._CompoundBorder = class _CompoundBorder extends borders$.ShapeBorder {
+    get dimensions() {
+      return this.borders[$fold](edge_insets.EdgeInsetsGeometry, edge_insets.EdgeInsets.zero, dart.fn((previousValue, border) => previousValue.add(border.dimensions), T.EdgeInsetsGeometryAndShapeBorderToEdgeInsetsGeometry()));
+    }
+    add(other, opts) {
+      let t0;
+      let reversed = opts && 'reversed' in opts ? opts.reversed : false;
+      if (!borders$._CompoundBorder.is(other)) {
+        let ours = reversed ? this.borders[$last] : this.borders[$first];
+        let merged = (t0 = ours.add(other, {reversed: reversed}), t0 == null ? other.add(ours, {reversed: !reversed}) : t0);
+        if (merged != null) {
+          let result = (() => {
+            let t0 = T.ListOfShapeBorder().of(this.borders);
+            return t0;
+          })();
+          result[$_set](reversed ? result[$length] - 1 : 0, merged);
+          return new borders$._CompoundBorder.new(result);
+        }
+      }
+      let mergedBorders = (() => {
+        let t1 = T.JSArrayOfShapeBorder().of([]);
+        if (reversed) t1[$addAll](this.borders);
+        if (borders$._CompoundBorder.is(other))
+          t1[$addAll](other.borders);
+        else
+          t1[$add](other);
+        if (!reversed) t1[$addAll](this.borders);
+        return t1;
+      })();
+      return new borders$._CompoundBorder.new(mergedBorders);
+    }
+    scale(t) {
+      return new borders$._CompoundBorder.new(this.borders[$map](borders$.ShapeBorder, dart.fn(border => border.scale(t), T.ShapeBorderToShapeBorder()))[$toList]());
+    }
+    lerpFrom(a, t) {
+      return borders$._CompoundBorder.lerp(a, this, t);
+    }
+    lerpTo(b, t) {
+      return borders$._CompoundBorder.lerp(this, b, t);
+    }
+    static lerp(a, b, t) {
+      let t2;
+      if (!(t !== null)) dart.assertFailed(null, I[1], 584, 12, "t != null");
+      if (!(borders$._CompoundBorder.is(a) || borders$._CompoundBorder.is(b))) dart.assertFailed(null, I[1], 585, 12, "a is _CompoundBorder || b is _CompoundBorder");
+      let aList = borders$._CompoundBorder.is(a) ? a.borders : T.JSArrayOfShapeBorderN().of([a]);
+      let bList = borders$._CompoundBorder.is(b) ? b.borders : T.JSArrayOfShapeBorderN().of([b]);
+      let results = T.JSArrayOfShapeBorder().of([]);
+      let length = math.max(core.int, aList[$length], bList[$length]);
+      for (let index = 0; index < length; index = index + 1) {
+        let localA = index < aList[$length] ? aList[$_get](index) : null;
+        let localB = index < bList[$length] ? bList[$_get](index) : null;
+        if (localA != null && localB != null) {
+          let localResult = (t2 = localA.lerpTo(localB, t), t2 == null ? localB.lerpFrom(localA, t) : t2);
+          if (localResult != null) {
+            results[$add](localResult);
+            continue;
+          }
+        }
+        if (localB != null) results[$add](localB.scale(t));
+        if (localA != null) results[$add](localA.scale(1.0 - t));
+      }
+      return new borders$._CompoundBorder.new(results);
+    }
+    getInnerPath(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      for (let index = 0; index < this.borders[$length] - 1; index = index + 1)
+        rect = this.borders[$_get](index).dimensions.resolve(textDirection).deflateRect(rect);
+      return this.borders[$last].getInnerPath(rect, {textDirection: textDirection});
+    }
+    getOuterPath(rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return this.borders[$first].getOuterPath(rect, {textDirection: textDirection});
+    }
+    paint(canvas, rect, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      for (let border of this.borders) {
+        border.paint(canvas, rect, {textDirection: textDirection});
+        rect = border.dimensions.resolve(textDirection).deflateRect(rect);
+      }
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return borders$._CompoundBorder.is(other) && collections.listEquals(borders$.ShapeBorder, other.borders, this.borders);
+    }
+    get hashCode() {
+      return ui.hashList(this.borders);
+    }
+    toString() {
+      return this.borders[$reversed][$map](core.String, dart.fn(border => border.toString(), T.ShapeBorderToString()))[$join](" + ");
+    }
+  };
+  (borders$._CompoundBorder.new = function(borders) {
+    this.borders = borders;
+    if (!(borders !== null)) dart.assertFailed(null, I[1], 520, 14, "borders != null");
+    if (!(borders[$length] >= 2)) dart.assertFailed(null, I[1], 521, 14, "borders.length >= 2");
+    if (!!borders[$any](dart.fn(border => borders$._CompoundBorder.is(border), T.ShapeBorderTobool()))) dart.assertFailed(null, I[1], 522, 14, "!borders.any((ShapeBorder border) => border is _CompoundBorder)");
+    borders$._CompoundBorder.__proto__.new.call(this);
+    ;
+  }).prototype = borders$._CompoundBorder.prototype;
+  dart.addTypeTests(borders$._CompoundBorder);
+  dart.addTypeCaches(borders$._CompoundBorder);
+  dart.setMethodSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getMethods(borders$._CompoundBorder.__proto__),
+    add: dart.fnType(borders$.ShapeBorder, [borders$.ShapeBorder], {reversed: core.bool}, {}),
+    scale: dart.fnType(borders$.ShapeBorder, [core.double]),
+    getInnerPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    getOuterPath: dart.fnType(ui.Path, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }));
+  dart.setGetterSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getGetters(borders$._CompoundBorder.__proto__),
+    dimensions: edge_insets.EdgeInsetsGeometry
+  }));
+  dart.setLibraryUri(borders$._CompoundBorder, I[0]);
+  dart.setFieldSignature(borders$._CompoundBorder, () => ({
+    __proto__: dart.getFields(borders$._CompoundBorder.__proto__),
+    borders: dart.finalFieldType(core.List$(borders$.ShapeBorder))
+  }));
+  dart.defineExtensionMethods(borders$._CompoundBorder, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(borders$._CompoundBorder, ['hashCode']);
+  borders$.paintBorder = function paintBorder(canvas, rect, opts) {
+    let t2;
+    let top = opts && 'top' in opts ? opts.top : C[5] || CT.C5;
+    let right = opts && 'right' in opts ? opts.right : C[5] || CT.C5;
+    let bottom = opts && 'bottom' in opts ? opts.bottom : C[5] || CT.C5;
+    let left = opts && 'left' in opts ? opts.left : C[5] || CT.C5;
+    if (!(canvas !== null)) dart.assertFailed(null, I[1], 680, 10, "canvas != null");
+    if (!(rect !== null)) dart.assertFailed(null, I[1], 681, 10, "rect != null");
+    if (!(top !== null)) dart.assertFailed(null, I[1], 682, 10, "top != null");
+    if (!(right !== null)) dart.assertFailed(null, I[1], 683, 10, "right != null");
+    if (!(bottom !== null)) dart.assertFailed(null, I[1], 684, 10, "bottom != null");
+    if (!(left !== null)) dart.assertFailed(null, I[1], 685, 10, "left != null");
+    let paint = (t2 = ui.Paint.new(), (() => {
+      t2.strokeWidth = 0.0;
+      return t2;
+    })());
+    let path = ui.Path.new();
+    switch (top.style) {
+      case C[1] || CT.C1:
+      {
+        paint.color = top.color;
+        path.reset();
+        path.moveTo(rect.left, rect.top);
+        path.lineTo(rect.right, rect.top);
+        if (top.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(rect.right - right.width, rect.top + top.width);
+          path.lineTo(rect.left + left.width, rect.top + top.width);
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C[0] || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (right.style) {
+      case C[1] || CT.C1:
+      {
+        paint.color = right.color;
+        path.reset();
+        path.moveTo(rect.right, rect.top);
+        path.lineTo(rect.right, rect.bottom);
+        if (right.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(rect.right - right.width, rect.bottom - bottom.width);
+          path.lineTo(rect.right - right.width, rect.top + top.width);
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C[0] || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (bottom.style) {
+      case C[1] || CT.C1:
+      {
+        paint.color = bottom.color;
+        path.reset();
+        path.moveTo(rect.right, rect.bottom);
+        path.lineTo(rect.left, rect.bottom);
+        if (bottom.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(rect.left + left.width, rect.bottom - bottom.width);
+          path.lineTo(rect.right - right.width, rect.bottom - bottom.width);
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C[0] || CT.C0:
+      {
+        break;
+      }
+    }
+    switch (left.style) {
+      case C[1] || CT.C1:
+      {
+        paint.color = left.color;
+        path.reset();
+        path.moveTo(rect.left, rect.bottom);
+        path.lineTo(rect.left, rect.top);
+        if (left.width === 0.0) {
+          paint.style = ui.PaintingStyle.stroke;
+        } else {
+          paint.style = ui.PaintingStyle.fill;
+          path.lineTo(rect.left + left.width, rect.top + top.width);
+          path.lineTo(rect.left + left.width, rect.bottom - bottom.width);
+        }
+        canvas.drawPath(path, paint);
+        break;
+      }
+      case C[0] || CT.C0:
+      {
+        break;
+      }
+    }
+  };
+  dart.trackLibraries("packages/flutter/src/painting/borders.dart", {
+    "package:flutter/src/painting/borders.dart": borders$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAmG0C,YAAG;IAAM;;AAqBD,YAAsB;IAAQ;;AAa5E,WAAO,CAAC;AACR,WAAO,AAGN;AAFyB,QAAxB,wCAAoB;AACpB,cAAO;;IAEX;;AAuBE,WAAO,CAAC;AAER,WAAO,AAMN;AAFE,QAHD,2CACQ,kCACI;AAEZ,cAAO;;AAGT;AAIG,QAHD,2CACQ;;AAKV,WAAO,AAuFN;AA9CE,QAvCD,mEAEY,QAAqB;AAC7B,gBAAI,AAAW,UAAD,eAAa;AACzB,sBAAQ,AAAU,UAAA,QAAC;;;AAE4C,kBAA3D,8CAAoD;AACpD;;;;AAE2D,kBAA3D,8CAAoD;AACpD;;;;AAEuD,kBAAvD,8CAAoD;AACpD;;;;AAEyD,kBAAzD,8CAAoD;AACpD;;;;AAEyD,kBAAzD,8CAAoD;AACpD;;;;AAE2D,kBAA3D,8CAAoD;AACpD;;;;;AAGyC,kBAAzC,8CAAqC;;;AAKxC,cAHD,0DAEE,AAAsB,AAAW,sDAA6B,CAAD,mDAAF;AAEhC,cAA7B,MAAM;;AAER,kBAAwB,6CACtB,SAAS,AACC,AACA,sDAA6B,CAAD,mDAAF;UAEvC;AA4BF,QAxBD,qEAEY,QAAqB;;AAC7B,gBAAI,AAAW,UAAD,eAAa;AACzB,sBAAQ,AAAU,UAAA,QAAC;;;AAE8B,kBAA7C,gCAAwC;AACxC;;;;AAE4C,kBAA5C,gCAAwC;AACxC;;;;AAE8B,kBAA9B,gCAA0B;;;AAK7B,cAHD,4DAEyD,eAA9B,oCAAxB,aAA2B,AAAO;AAER,cAA7B,MAAM;;AAER,kBAAwB,6CACtB,SAAgE,eAA9B,qCAAxB,cAA2B,AAAO;UAE/C;AASF,QAND,2CACQ,iCACE;;AAAY;gCAAyB;UAAE,uCACvC,QAAQ;AACa,YAA3B,8BAAwB,GAAG;UAC5B;AASF,QAND,2CACQ,uCACE;;AAAY;gCAA+B;UAAE,uCAC7C,QAAQ;AAC6B,YAA3C,oCAA8B,aAAa;UAC5C;AAGH,cAAO;;AAET,WAAO,AAGN;AAFyC,QAAxC,wDAAoC;AACpC,cAAO;;IAEX;;AASmB,YAAA,AAAW,oBAAE;IAAC;eAae;AACH,MAAxB,6BAAU;AAE7B,YAAO,AAAS,QAAD;AACA,MAAf,mBAAA,AAAW,mBAAG;AACK,mBAAS,AAAQ,QAAA;AACpC,YAAO,AAAO,MAAD,8BAAU;AAOrB,MANF,AAAO,MAAD,cAAc;AACH,QAAf,mBAAA,AAAW,mBAAG;AACd,aAAK;AAC4B,UAAZ;AACT,UAAV;;;AAGJ,YAAO,OAAM;IACf;;AAQE,WAAO,CAAC;IACV;;AAqBE,YAAO,2BAAW;IACpB;;AAegC,MAAjB;AACb,YAAO;IACT;;UAWkB;UACO;AAEvB,YAAO,AAAK,IAAD;AACX,YAAO,AAAS,QAAD;AAOd,MAND,qCACQ,IAAI,YACA,QAAqB;AACb,UAAhB,MAAM,AAAQ,QAAA;AACd,gBAAwB;QACzB;IAEL;;UAkBkB;UACgB;UACA;AAEhC,YAAO,AAAK,IAAD;AACX,YAAO,AAAO,MAAD;AACb,YAAO,AAAO,MAAD;AAUZ,MATD,qCACQ,IAAI,YACA,QAAqB;AAC7B,cAAI,AAAW,UAAD,eAAa;AACoB,YAA7C,MAAM,AAAM,MAAA,CAAC,AAAU,AAAY,UAAZ,QAAC,eAAc;AACkC,YAAxE,sCAAgC,IAAI,GAAE,MAAM,AAAM,MAAA,MAAK,SAAS;;AAElE,gBAAwB,6CAAC,YAAW,MAAM,AAAM,MAAA,MAAK,SAAS;QAC/D;IAEL;;UAiBkB;UACkB;UACA;AAElC,YAAO,AAAK,IAAD;AACX,YAAO,AAAO,MAAD;AACb,YAAO,AAAO,MAAD;AAUZ,MATD,qCACQ,IAAI,YACA,QAAqB;AAC7B,cAAI,AAAW,UAAD,eAAa,IAAI;AACgB,YAA7C,MAAM,AAAM,MAAA,CAAQ,kBAAsB,eAAhB,AAAU,UAAA,QAAC,IAAI;AACyB,YAAlE,sCAAgC,IAAI,EAAmB,CAAhB,MAAM,AAAM,MAAA;;AAErD,gBAAwB,6CAAC,IAAI,EAAmB,CAAhB,MAAM,AAAM,MAAA;QAC7C;IAEL;sCAa4C,MAAc;AAOvD,MAND,eACE,wCACiB,4CACf,aAAa,AAAmB,iBAAL,IAAI,EAC/B,SAAS,KAAK;IAGpB;cAMsB,WAAgC;AACX,MAAzC,oBAAoB,SAAS,EAAE,SAAS;IAC1C;;UAgBkB;UACkB;UACA;AAElC,YAAO,AAAK,IAAD;AACX,YAAO,AAAO,MAAD;AACb,YAAO,AAAO,MAAD;AAUZ,MATD,qCACQ,IAAI,YACA,QAAqB;AAC7B,cAAI,AAAW,UAAD,eAAa;AACS,YAAlC,MAAM,AAAM,MAAA,CAAoB,eAAnB,AAAU,UAAA,QAAC;AAC6B,YAArD,sCAAgC,IAAI,EAAE,MAAM,AAAM,MAAA;;AAEpD,gBAAwB,6CAAC,UAAS,MAAM,AAAM,MAAA;QAC/C;IAEL;;UAuDkB;UACkB;AAElC,YAAO,AAAK,IAAD;AACX,YAAO,AAAS,QAAD;AACF,uBAAa,AAAmB,iBAAL,IAAI;AAmD1C,MAlDF,4BAA4B,UAAU,EAAE,SAAQ,QAA4B;AAC1E,cAAO,AAAO,MAAD,KAAI,UAAU;AAC3B,aAAO,AAIN;AAHC,cAAI,mCACF,AAAU,AAA2D,iBAA1D,AAAyD,wCAApB,MAAM,kBAAE,UAAU;AACpE,gBAAO;;AAeP,QAFF,MAAM,uCAA4B,6BAA6B,cACtD,yBAA8B;AAG/B;AACI;AACc;;;;;;;;;;;AAC1B;AACqC,UAAnC,aAAS,MAAM,AAAQ,QAAA,CAAC,UAAU;;cAC3B;cAAW;AAAlB;AAC2B,YAA3B,kBAAkB,SAAS;AACR,YAAnB,cAAc,KAAK;;;;AAErB,YAAI,AAAgB,eAAD;AACgB,UAAjC,AAAM,sBAAC,QAAU;AACQ,UAAzB,AAAM,sBAAC,UAAY,MAAM;AACzB,gBAA0C,+CAAO,AAAK,oBAAO;;AAM3D,UAJW,oCAAY,mDACZ,eAAe,SACnB,WAAW,WACT,oCAAiB,AAAmD,+CAAR,MAAM;AAE7E,gBAA0C,sDAExC,AAAK,oBAAuB,2CAC1B,aAA6B,cAAhB,eAAe,GAC5B,SAAqB,cAAZ,WAAW,GACpB,UAAU,MAAM;;MAIvB;IACH;;AAGqB,YAAA,AAA6C,OAAzC,yBAAkB,MAAM,iBAAe;IAAE;;;IAxV9D,mBAAa;AApOyC,IAArC,6BAAU;AAE7B,SAAO,CAAC;AACO,IAAf;AACA,SAAO;AAEP,SAAO,CAAC;AACe,IAAvB;AACA,SAAO;AAEmE,IAA1E,oBAAoB,mCAAmD;AAExC,IAAZ;EACrB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAEY,qCAAiB;YAAG;;;MACpB,qDAAiC;YAAG;;;;;AAgjBrB;AACpB,MAAP,QAAK;IACP","file":"../../../../../../../../packages/flutter/src/foundation/binding.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["borders.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/painting/borders.dart.lib.js"}');
   // Exports:
   return {
-    src__foundation__binding: binding
+    src__painting__borders: borders$
   };
 }));
 
-//# sourceMappingURL=binding.dart.lib.js.map
+//# sourceMappingURL=borders.dart.lib.js.map

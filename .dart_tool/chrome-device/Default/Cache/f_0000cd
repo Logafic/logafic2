@@ -1,1 +1,427 @@
-{"web_entrypoint.dart":"969301552","packages/logafic/generated_plugin_registrant.dart":"943825172","packages/flutter_web_plugins/flutter_web_plugins.dart":"112538295","packages/flutter_web_plugins/src/plugin_registry.dart":"1062068145","packages/flutter/services.dart":"614538535","packages/flutter/src/services/text_input.dart":"755080002","packages/flutter/src/services/text_editing.dart":"485702564","packages/flutter/foundation.dart":"674037736","packages/flutter/src/foundation/unicode.dart":"869233608","packages/flutter/src/foundation/synchronous_future.dart":"411442909","packages/flutter/src/foundation/stack_frame.dart":"765622607","packages/flutter/src/foundation/object.dart":"205183414","packages/flutter/src/foundation/constants.dart":"991121900","packages/meta/meta.dart":"717274417","packages/meta/meta_meta.dart":"364677199","packages/flutter/src/foundation/serialization.dart":"551059307","packages/typed_data/typed_buffers.dart":"618704249","packages/typed_data/src/typed_buffer.dart":"216794945","packages/flutter/src/foundation/print.dart":"854413965","packages/flutter/src/foundation/_platform_web.dart":"468311935","packages/flutter/src/foundation/observer_list.dart":"283136844","packages/flutter/src/foundation/node.dart":"100609469","packages/flutter/src/foundation/licenses.dart":"209900473","packages/flutter/src/foundation/key.dart":"10902728","packages/flutter/src/foundation/_isolates_web.dart":"937093104","packages/flutter/src/foundation/debug.dart":"253359462","packages/flutter/src/foundation/basic_types.dart":"496127738","packages/flutter/src/foundation/consolidate_response.dart":"255994229","packages/flutter/src/foundation/collections.dart":"668904398","packages/flutter/src/foundation/change_notifier.dart":"1051696635","packages/flutter/src/foundation/_bitfield_web.dart":"807461578","packages/flutter/src/foundation/binding.dart":"78131499","packages/flutter/src/foundation/annotations.dart":"918014705","packages/flutter/src/services/system_chrome.dart":"356225310","packages/flutter/src/services/system_channels.dart":"270622204","packages/flutter/scheduler.dart":"759602185","packages/flutter/src/scheduler/ticker.dart":"675818283","packages/flutter/src/scheduler/binding.dart":"791599822","packages/flutter/src/scheduler/priority.dart":"230553284","packages/flutter/src/scheduler/debug.dart":"266901442","packages/collection/src/union_set_controller.dart":"409255200","packages/collection/src/queue_list.dart":"47604607","packages/collection/src/priority_queue.dart":"953108917","packages/collection/src/utils.dart":"827837319","packages/collection/src/list_extensions.dart":"37321166","packages/collection/src/equality.dart":"151004427","packages/collection/src/comparators.dart":"648815717","packages/collection/src/algorithms.dart":"128854874","packages/collection/src/iterable_zip.dart":"831386227","packages/collection/src/iterable_extensions.dart":"525500257","packages/collection/src/functions.dart":"457295334","packages/collection/src/combined_wrappers/combined_map.dart":"447248820","packages/collection/src/combined_wrappers/combined_iterable.dart":"287459818","packages/collection/src/combined_wrappers/combined_iterator.dart":"139558613","packages/collection/src/combined_wrappers/combined_list.dart":"417858525","packages/collection/src/canonicalized_map.dart":"226169314","packages/vector_math/vector_math_64.dart":"370996898","packages/vector_math/hash.dart":"1027354458","packages/flutter/src/services/text_formatter.dart":"999729423","packages/characters/characters.dart":"640129634","packages/characters/src/extensions.dart":"100204511","packages/characters/src/characters_impl.dart":"199824094","packages/characters/src/grapheme_clusters/breaks.dart":"920575292","packages/characters/src/grapheme_clusters/table.dart":"863083765","packages/characters/src/grapheme_clusters/constants.dart":"430341797","packages/flutter/src/services/system_sound.dart":"403923525","packages/flutter/src/services/system_navigator.dart":"307265011","packages/flutter/src/services/raw_keyboard_windows.dart":"839940066","packages/flutter/src/services/keyboard_maps.dart":"555434643","packages/flutter/src/services/keyboard_key.dart":"546677698","packages/flutter/src/services/platform_views.dart":"156421890","packages/flutter/gestures.dart":"652913924","packages/flutter/src/gestures/velocity_tracker.dart":"439176566","packages/flutter/src/gestures/lsq_solver.dart":"85786123","packages/flutter/src/gestures/events.dart":"845469988","packages/flutter/src/gestures/constants.dart":"30407386","packages/flutter/src/gestures/team.dart":"943630689","packages/flutter/src/gestures/binding.dart":"397245317","packages/flutter/src/gestures/resampler.dart":"850611107","packages/flutter/src/gestures/pointer_signal_resolver.dart":"1038371164","packages/flutter/src/gestures/pointer_router.dart":"736151164","packages/flutter/src/gestures/hit_test.dart":"255978549","packages/flutter/src/gestures/debug.dart":"964223569","packages/flutter/src/gestures/converter.dart":"881404282","packages/flutter/src/gestures/arena.dart":"899979507","packages/flutter/src/gestures/tap.dart":"605583427","packages/flutter/src/gestures/recognizer.dart":"794832014","packages/flutter/src/gestures/scale.dart":"156274124","packages/flutter/src/gestures/multitap.dart":"563865535","packages/flutter/src/gestures/multidrag.dart":"419454141","packages/flutter/src/gestures/drag_details.dart":"631897874","packages/flutter/src/gestures/drag.dart":"648698810","packages/flutter/src/gestures/monodrag.dart":"569236085","packages/flutter/src/gestures/long_press.dart":"845191492","packages/flutter/src/gestures/force_press.dart":"445303955","packages/flutter/src/gestures/eager.dart":"28179229","packages/flutter/src/services/mouse_tracking.dart":"990962827","packages/flutter/src/services/mouse_cursor.dart":"188591545","packages/flutter/src/services/haptic_feedback.dart":"118478788","packages/flutter/src/services/font_loader.dart":"631722618","packages/flutter/src/services/deferred_component.dart":"277661133","packages/flutter/src/services/clipboard.dart":"790944393","packages/flutter_web_plugins/src/plugin_event_channel.dart":"820452308","packages/flutter_web_plugins/src/navigation/utils.dart":"323735159","packages/flutter_web_plugins/src/navigation/url_strategy.dart":"98055609","packages/js/js.dart":"637940877","packages/image_picker_for_web/image_picker_for_web.dart":"187764133","packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart":"708669496","packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart":"128941647","packages/image_picker_platform_interface/src/types/picked_file/html.dart":"805295449","packages/image_picker_platform_interface/src/types/picked_file/base.dart":"1003275548","packages/http/src/multipart_request.dart":"4158177","packages/http/src/utils.dart":"37858735","packages/http/src/byte_stream.dart":"231472160","packages/http_parser/http_parser.dart":"877081627","packages/http_parser/src/media_type.dart":"68204454","packages/http_parser/src/utils.dart":"1002869327","packages/source_span/source_span.dart":"1015079523","packages/source_span/src/location_mixin.dart":"1035930872","packages/source_span/src/colors.dart":"712090888","packages/source_span/src/charcode.dart":"461961461","packages/term_glyph/src/generated/top_level.dart":"993761866","packages/term_glyph/src/generated/unicode_glyph_set.dart":"266817608","packages/term_glyph/src/generated/glyph_set.dart":"644606573","packages/term_glyph/src/generated/ascii_glyph_set.dart":"267184391","packages/path/src/path_set.dart":"819547552","packages/path/src/utils.dart":"722930319","packages/path/src/characters.dart":"735011570","packages/path/src/path_exception.dart":"701752355","packages/source_span/src/span_exception.dart":"107185227","packages/http_parser/src/scan.dart":"672955847","packages/string_scanner/string_scanner.dart":"172392078","packages/string_scanner/src/utils.dart":"737661320","packages/charcode/charcode.dart":"198706920","packages/charcode/html_entity.dart":"200933055","packages/charcode/ascii.dart":"427739798","packages/string_scanner/src/relative_span_scanner.dart":"969887747","packages/string_scanner/src/line_scanner.dart":"897031544","packages/http_parser/src/case_insensitive_map.dart":"80303171","packages/http_parser/src/http_date.dart":"682172336","packages/http_parser/src/chunked_coding.dart":"30610596","packages/http_parser/src/chunked_coding/encoder.dart":"615571270","packages/http_parser/src/chunked_coding/decoder.dart":"505956825","packages/typed_data/typed_data.dart":"557423597","packages/typed_data/src/typed_queue.dart":"510319848","packages/http_parser/src/authentication_challenge.dart":"275055661","packages/http/src/exception.dart":"831058047","packages/pedantic/pedantic.dart":"248906483","packages/http/src/boundary_characters.dart":"970290385","packages/image_picker_platform_interface/src/types/retrieve_type.dart":"273129266","packages/image_picker_platform_interface/src/types/image_source.dart":"1033652603","packages/image_picker_platform_interface/src/types/camera_device.dart":"25339417","packages/plugin_platform_interface/plugin_platform_interface.dart":"714940278","packages/firebase_storage_web/firebase_storage_web.dart":"517864249","packages/firebase_storage_web/src/reference_web.dart":"32717652","packages/firebase_storage_web/src/utils/errors.dart":"730057397","packages/firebase_core/src/internals.dart":"616171981","packages/firebase_core_web/firebase_core_web_interop.dart":"822611767","packages/firebase_core_web/src/interop/utils/utils.dart":"350788612","packages/firebase_core_web/src/interop/utils/js_interop.dart":"226512978","packages/js/js_util.dart":"142160494","packages/firebase_core_web/src/interop/utils/func.dart":"261194487","packages/firebase_core_web/src/interop/utils/es6_interop.dart":"1021460539","packages/firebase_core_web/src/interop/utils/js.dart":"488231977","packages/firebase_core_web/src/interop/core.dart":"25889910","packages/firebase_core_web/src/interop/core_interop.dart":"1030871119","packages/firebase_core_web/src/interop/app.dart":"201404471","packages/firebase_core_platform_interface/firebase_core_platform_interface.dart":"341436450","packages/flutter/cupertino.dart":"846054962","packages/flutter/widgets.dart":"266123978","packages/flutter/src/widgets/will_pop_scope.dart":"950437228","packages/flutter/src/widgets/widget_span.dart":"245021670","packages/flutter/rendering.dart":"816193787","packages/flutter/src/rendering/wrap.dart":"730770331","packages/flutter/src/rendering/layer.dart":"315446003","packages/flutter/painting.dart":"1016525414","packages/flutter/src/painting/strut_style.dart":"168494043","packages/flutter/src/painting/basic_types.dart":"84462737","packages/flutter/src/painting/colors.dart":"204477093","packages/flutter/src/painting/placeholder_span.dart":"491724081","packages/flutter/src/painting/stadium_border.dart":"335696155","packages/flutter/src/painting/rounded_rectangle_border.dart":"954124345","packages/flutter/src/painting/edge_insets.dart":"166897778","packages/flutter/src/painting/circle_border.dart":"343642229","packages/flutter/src/painting/borders.dart":"10766501","packages/flutter/src/painting/border_radius.dart":"716176865","packages/flutter/src/painting/shape_decoration.dart":"230586133","packages/flutter/src/painting/_network_image_web.dart":"1052048386","packages/flutter/src/painting/image_stream.dart":"492642406","packages/flutter/src/painting/image_cache.dart":"948318728","packages/flutter/src/painting/binding.dart":"518958706","packages/flutter/src/painting/shader_warm_up.dart":"549931527","packages/flutter/src/painting/gradient.dart":"119437691","packages/flutter/src/painting/alignment.dart":"1063982632","packages/flutter/src/painting/decoration_image.dart":"310104517","packages/flutter/src/painting/debug.dart":"500114020","packages/flutter/src/painting/box_fit.dart":"756175579","packages/flutter/src/painting/decoration.dart":"12634342","packages/flutter/src/painting/box_shadow.dart":"479687608","packages/flutter/src/painting/box_decoration.dart":"890149725","packages/flutter/src/painting/box_border.dart":"321896991","packages/flutter/src/painting/paint_utilities.dart":"268573922","packages/flutter/src/painting/notched_shapes.dart":"12724656","packages/flutter/src/painting/matrix_utils.dart":"849808387","packages/flutter/src/painting/image_resolution.dart":"675245934","packages/flutter/src/painting/image_decoder.dart":"819426262","packages/flutter/src/painting/geometry.dart":"601686760","packages/flutter/src/painting/fractional_offset.dart":"730667446","packages/flutter/src/painting/flutter_logo.dart":"653121107","packages/flutter/src/painting/continuous_rectangle_border.dart":"631442054","packages/flutter/src/painting/clip.dart":"1037295615","packages/flutter/src/painting/beveled_rectangle_border.dart":"657970045","packages/flutter/semantics.dart":"231469142","packages/flutter/src/semantics/semantics_service.dart":"643636181","packages/flutter/src/semantics/semantics_event.dart":"65354946","packages/flutter/src/semantics/semantics.dart":"904157599","packages/flutter/src/semantics/binding.dart":"639221556","packages/flutter/src/semantics/debug.dart":"40345199","packages/flutter/animation.dart":"170161050","packages/flutter/src/animation/tween_sequence.dart":"950405559","packages/flutter/src/animation/listener_helpers.dart":"635914127","packages/flutter/src/animation/curves.dart":"849519520","packages/flutter/src/animation/animation_controller.dart":"1058929788","packages/flutter/physics.dart":"29607741","packages/flutter/src/physics/utils.dart":"738087776","packages/flutter/src/physics/tolerance.dart":"101019085","packages/flutter/src/physics/spring_simulation.dart":"856948219","packages/flutter/src/physics/simulation.dart":"450102334","packages/flutter/src/physics/gravity_simulation.dart":"363390706","packages/flutter/src/physics/friction_simulation.dart":"993693710","packages/flutter/src/physics/clamped_simulation.dart":"674980243","packages/flutter/src/rendering/layout_helper.dart":"678491886","packages/flutter/src/rendering/viewport_offset.dart":"422691899","packages/flutter/src/rendering/sliver.dart":"192529715","packages/flutter/src/rendering/tweens.dart":"13399326","packages/flutter/src/rendering/texture.dart":"912818881","packages/flutter/src/rendering/table_border.dart":"458710604","packages/flutter/src/rendering/table.dart":"553787437","packages/flutter/src/rendering/stack.dart":"521365477","packages/flutter/src/rendering/sliver_persistent_header.dart":"988725813","packages/flutter/src/rendering/sliver_padding.dart":"264151025","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"446114040","packages/flutter/src/rendering/sliver_list.dart":"441319058","packages/flutter/src/rendering/sliver_grid.dart":"427918337","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"1050151783","packages/flutter/src/rendering/sliver_fill.dart":"533282150","packages/flutter/src/rendering/shifted_box.dart":"117959807","packages/flutter/src/rendering/debug_overflow_indicator.dart":"673581849","packages/flutter/src/rendering/rotated_box.dart":"1004816930","packages/flutter/src/rendering/proxy_sliver.dart":"920178956","packages/flutter/src/rendering/proxy_box.dart":"292809421","packages/flutter/src/rendering/platform_view.dart":"4777427","packages/flutter/src/rendering/performance_overlay.dart":"121280632","packages/flutter/src/rendering/paragraph.dart":"709262107","packages/flutter/src/rendering/list_wheel_viewport.dart":"441737141","packages/flutter/src/rendering/list_body.dart":"670587064","packages/flutter/src/rendering/image.dart":"461319764","packages/flutter/src/rendering/flow.dart":"363443991","packages/flutter/src/rendering/flex.dart":"1056698424","packages/flutter/src/rendering/error.dart":"80767580","packages/flutter/src/rendering/editable.dart":"927452246","packages/flutter/src/rendering/custom_paint.dart":"897835882","packages/flutter/src/rendering/custom_layout.dart":"602235487","packages/flutter/src/rendering/animated_size.dart":"987717808","packages/flutter/src/widgets/constants.dart":"754267505","packages/flutter/src/widgets/scroll_simulation.dart":"871855398","packages/flutter/src/widgets/scroll_metrics.dart":"34903998","packages/flutter/src/widgets/value_listenable_builder.dart":"890581437","packages/flutter/src/widgets/unique_widget.dart":"633071928","packages/flutter/src/widgets/tween_animation_builder.dart":"941118884","packages/flutter/src/widgets/implicit_animations.dart":"294278271","packages/flutter/src/widgets/texture.dart":"1061617309","packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart":"594969483","packages/flutter/src/widgets/status_transitions.dart":"379750433","packages/flutter/src/widgets/spacer.dart":"743726536","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"179647267","packages/flutter/src/widgets/sliver_persistent_header.dart":"811669990","packages/flutter/src/widgets/sliver_layout_builder.dart":"446318696","packages/flutter/src/widgets/layout_builder.dart":"332361142","packages/flutter/src/widgets/sliver_fill.dart":"889401931","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"670475340","packages/flutter/src/widgets/single_child_scroll_view.dart":"627275906","packages/flutter/src/widgets/scroll_view.dart":"491825739","packages/flutter/src/widgets/safe_area.dart":"807504434","packages/flutter/src/widgets/reorderable_list.dart":"842445522","packages/flutter/src/widgets/raw_keyboard_listener.dart":"86194844","packages/flutter/src/widgets/preferred_size.dart":"172693521","packages/flutter/src/widgets/platform_view.dart":"757397600","packages/flutter/src/widgets/page_view.dart":"720916799","packages/flutter/src/widgets/overflow_bar.dart":"44767627","packages/flutter/src/widgets/orientation_builder.dart":"532831112","packages/flutter/src/widgets/nested_scroll_view.dart":"717074130","packages/flutter/src/widgets/navigation_toolbar.dart":"854063662","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"775892912","packages/flutter/src/widgets/interactive_viewer.dart":"439274970","packages/flutter/src/widgets/image_icon.dart":"707131107","packages/flutter/src/widgets/icon_theme_data.dart":"798020010","packages/flutter/src/widgets/icon_theme.dart":"6262987","packages/flutter/src/widgets/icon.dart":"116148698","packages/flutter/src/widgets/icon_data.dart":"928642275","packages/flutter/src/widgets/image_filter.dart":"570463675","packages/flutter/src/widgets/grid_paper.dart":"75570699","packages/flutter/src/widgets/form.dart":"1055564103","packages/flutter/src/widgets/fade_in_image.dart":"36003751","packages/flutter/src/widgets/dual_transition_builder.dart":"889067313","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"598015055","packages/flutter/src/widgets/drag_target.dart":"105252684","packages/flutter/src/widgets/dismissible.dart":"208497333","packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart":"537048744","packages/flutter/src/widgets/color_filter.dart":"558139681","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"1014475935","packages/flutter/src/widgets/autocomplete.dart":"879694622","packages/flutter/src/widgets/async.dart":"246691808","packages/flutter/src/widgets/annotated_region.dart":"162430440","packages/flutter/src/widgets/animated_switcher.dart":"1054895229","packages/flutter/src/widgets/animated_size.dart":"748524215","packages/flutter/src/widgets/animated_list.dart":"438592656","packages/flutter/src/widgets/animated_cross_fade.dart":"415261998","packages/flutter/src/cupertino/thumb_painter.dart":"630923228","packages/flutter/src/cupertino/text_theme.dart":"948578070","packages/flutter/src/cupertino/interface_level.dart":"936571225","packages/flutter/src/cupertino/text_selection_toolbar_button.dart":"404568731","packages/flutter/src/cupertino/button.dart":"583083093","packages/flutter/src/cupertino/constants.dart":"396519774","packages/flutter/src/cupertino/text_selection_toolbar.dart":"420414393","packages/flutter/src/cupertino/text_selection.dart":"10667083","packages/flutter/src/cupertino/debug.dart":"346493141","packages/flutter/src/cupertino/text_form_field_row.dart":"927100094","packages/flutter/src/cupertino/text_field.dart":"695085864","packages/flutter/src/cupertino/icons.dart":"89119076","packages/flutter/src/cupertino/desktop_text_selection.dart":"771063166","packages/flutter/src/cupertino/form_row.dart":"134546765","packages/flutter/src/cupertino/tab_view.dart":"885124402","packages/flutter/src/cupertino/route.dart":"605151612","packages/flutter/src/cupertino/app.dart":"1060567267","packages/flutter/src/cupertino/scrollbar.dart":"418929570","packages/flutter/src/cupertino/tab_scaffold.dart":"581335953","packages/flutter/src/cupertino/bottom_tab_bar.dart":"171413005","packages/flutter/src/cupertino/switch.dart":"737263748","packages/flutter/src/cupertino/sliding_segmented_control.dart":"607916677","packages/flutter/src/cupertino/slider.dart":"877512010","packages/flutter/src/cupertino/segmented_control.dart":"751568990","packages/flutter/src/cupertino/search_field.dart":"262437940","packages/flutter/src/cupertino/refresh.dart":"200808519","packages/flutter/src/cupertino/activity_indicator.dart":"126551671","packages/flutter/src/cupertino/picker.dart":"957923239","packages/flutter/src/cupertino/page_scaffold.dart":"206184017","packages/flutter/src/cupertino/nav_bar.dart":"886545268","packages/flutter/src/cupertino/form_section.dart":"272176578","packages/flutter/src/cupertino/dialog.dart":"217434373","packages/flutter/src/cupertino/date_picker.dart":"725244899","packages/flutter/src/cupertino/context_menu_action.dart":"354204306","packages/flutter/src/cupertino/context_menu.dart":"179304119","packages/flutter/src/cupertino/action_sheet.dart":"1001208597","packages/firebase_core/firebase_core.dart":"185990595","packages/firebase_storage_web/src/utils/metadata_cache.dart":"664830908","packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart":"964805123","packages/firebase_storage_platform_interface/src/task_state.dart":"611183665","packages/firebase_storage_platform_interface/src/settable_metadata.dart":"322295590","packages/firebase_storage_platform_interface/src/put_string_format.dart":"886561359","packages/firebase_storage_platform_interface/src/internal/pointer.dart":"270888705","packages/firebase_storage_platform_interface/src/method_channel/utils/exception.dart":"159209394","packages/flutter/material.dart":"984296679","packages/flutter/src/material/user_accounts_drawer_header.dart":"881946971","packages/flutter/src/material/icon_button.dart":"492494361","packages/flutter/src/material/typography.dart":"84632668","packages/flutter/src/material/colors.dart":"493581260","packages/flutter/src/material/input_border.dart":"561847520","packages/flutter/src/material/constants.dart":"32585922","packages/flutter/src/material/material_state.dart":"25079589","packages/flutter/src/material/floating_action_button_theme.dart":"99437262","packages/flutter/src/material/curves.dart":"303416576","packages/flutter/src/material/bottom_sheet_theme.dart":"550897133","packages/flutter/src/material/tab_indicator.dart":"102163683","packages/flutter/src/material/tab_controller.dart":"95528585","packages/flutter/src/material/icons.dart":"615527076","packages/flutter/src/material/drawer_header.dart":"668061127","packages/flutter/src/material/toggleable.dart":"949165931","packages/flutter/src/material/toggle_buttons.dart":"770795380","packages/flutter/src/material/time_picker.dart":"340397008","packages/flutter/src/material/text_form_field.dart":"144829955","packages/flutter/src/material/text_field.dart":"1073166941","packages/flutter/src/material/text_selection.dart":"131441084","packages/flutter/src/material/text_selection_toolbar_text_button.dart":"549590545","packages/flutter/src/material/text_selection_toolbar.dart":"471305956","packages/flutter/src/material/selectable_text.dart":"835347417","packages/flutter/src/material/desktop_text_selection.dart":"140346710","packages/flutter/src/material/button_bar.dart":"358032492","packages/flutter/src/material/switch_list_tile.dart":"17119990","packages/flutter/src/material/switch.dart":"654422151","packages/flutter/src/material/shadows.dart":"89810302","packages/flutter/src/material/stepper.dart":"11817029","packages/flutter/src/material/slider.dart":"787819320","packages/flutter/src/material/search.dart":"842038162","packages/flutter/src/material/scrollbar.dart":"1027856294","packages/flutter/src/material/reorderable_list.dart":"96472084","packages/flutter/src/material/refresh_indicator.dart":"783907302","packages/flutter/src/material/progress_indicator.dart":"514669506","packages/flutter/src/material/range_slider.dart":"205042374","packages/flutter/src/material/radio_list_tile.dart":"352684155","packages/flutter/src/material/radio.dart":"1054223912","packages/flutter/src/material/popup_menu.dart":"173245287","packages/flutter/src/material/paginated_data_table.dart":"653989011","packages/flutter/src/material/dropdown.dart":"814721133","packages/flutter/src/material/data_table_source.dart":"729564105","packages/flutter/src/material/data_table.dart":"349891680","packages/flutter/src/material/checkbox.dart":"76393257","packages/flutter/src/material/card.dart":"711261387","packages/flutter/src/material/page.dart":"63026173","packages/flutter/src/material/outlined_button.dart":"608746022","packages/flutter/src/material/no_splash.dart":"181804591","packages/flutter/src/material/mergeable_material.dart":"289633997","packages/flutter/src/material/input_date_picker_form_field.dart":"919480536","packages/flutter/src/material/date.dart":"311384557","packages/flutter/src/material/grid_tile_bar.dart":"54793346","packages/flutter/src/material/grid_tile.dart":"763805395","packages/flutter/src/material/flutter_logo.dart":"1026907157","packages/flutter/src/material/expansion_tile.dart":"93542838","packages/flutter/src/material/expansion_panel.dart":"139468384","packages/flutter/src/material/expand_icon.dart":"38827951","packages/flutter/src/material/elevated_button.dart":"832565334","packages/flutter/src/material/date_picker_deprecated.dart":"871468007","packages/flutter/src/material/date_picker.dart":"890533977","packages/flutter/src/material/calendar_date_picker.dart":"1009738156","packages/flutter/src/material/circle_avatar.dart":"180922161","packages/flutter/src/material/chip.dart":"391659312","packages/flutter/src/material/checkbox_list_tile.dart":"421622499","packages/flutter/src/material/bottom_app_bar.dart":"375088247","packages/flutter/src/material/banner.dart":"693714020","packages/flutter/src/material/autocomplete.dart":"606665286","packages/flutter/src/material/arc.dart":"309136091","packages/flutter/src/material/app.dart":"570573216","packages/flutter/src/material/animated_icons.dart":"478403295","packages/flutter/src/material/about.dart":"856808040","packages/firebase_storage_platform_interface/src/list_options.dart":"662348233","packages/firebase_storage_platform_interface/src/full_metadata.dart":"170320156","packages/firebase_storage_web/src/utils/list.dart":"878600278","packages/firebase_storage_web/src/list_result_web.dart":"175665817","packages/firebase_storage_web/src/interop/storage.dart":"466465484","packages/firebase_storage_web/src/interop/storage_interop.dart":"595132220","packages/firebase_storage_web/src/interop/firebase_interop.dart":"114436995","packages/firebase_storage_web/src/task_web.dart":"262218725","packages/firebase_storage_web/src/task_snapshot_web.dart":"744455702","packages/firebase_storage_web/src/utils/metadata.dart":"9476928","packages/async/src/chunked_stream_reader.dart":"432678671","packages/async/src/utils.dart":"185016479","packages/async/src/typed_stream_transformer.dart":"336473546","packages/async/src/subscription_stream.dart":"887692289","packages/async/src/delegate/stream_subscription.dart":"646023809","packages/async/src/typed/stream_subscription.dart":"915438275","packages/async/src/stream_zip.dart":"589242184","packages/async/src/stream_subscription_transformer.dart":"635967489","packages/async/src/async_memoizer.dart":"921274865","packages/async/src/stream_splitter.dart":"722858803","packages/async/src/result/release_transformer.dart":"636013970","packages/async/src/stream_sink_transformer/typed.dart":"1054970563","packages/async/src/delegate/stream_sink.dart":"37859618","packages/async/src/future_group.dart":"560408396","packages/async/src/stream_sink_extensions.dart":"520948409","packages/async/src/stream_sink_transformer/reject_errors.dart":"145666296","packages/async/src/stream_sink_completer.dart":"932692795","packages/async/src/null_stream_sink.dart":"437732453","packages/async/src/stream_completer.dart":"906931381","packages/async/src/stream_group.dart":"1005296307","packages/async/src/stream_closer.dart":"28154970","packages/async/src/single_subscription_transformer.dart":"847396518","packages/async/src/result/future.dart":"131573565","packages/async/src/delegate/future.dart":"234112704","packages/async/src/restartable_timer.dart":"629167244","packages/async/src/lazy_stream.dart":"891912979","packages/async/src/delegate/stream_consumer.dart":"499824866","packages/async/src/delegate/stream.dart":"423573656","packages/async/src/delegate/sink.dart":"777147296","packages/async/src/delegate/event_sink.dart":"959176757","packages/firebase_core_web/firebase_core_web.dart":"1032441001","packages/firebase_auth_web/firebase_auth_web.dart":"1073471758","packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart":"197817726","packages/firebase_auth_web/src/utils/web_utils.dart":"62995425","packages/firebase_auth_web/src/interop/auth.dart":"924254244","packages/firebase_auth_web/src/interop/auth_interop.dart":"590478477","packages/firebase_auth_web/src/interop/utils/utils.dart":"951480305","packages/firebase_auth_web/src/interop/firebase_interop.dart":"137511706","packages/firebase_auth_platform_interface/src/types.dart":"877726462","packages/firebase_auth_platform_interface/src/user_metadata.dart":"879277906","packages/firebase_auth_platform_interface/src/user_info.dart":"11958497","packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart":"918853315","packages/firebase_auth_platform_interface/src/auth_credential.dart":"468487038","packages/firebase_auth_platform_interface/src/auth_provider.dart":"674425930","packages/firebase_auth_platform_interface/src/providers/saml_auth.dart":"311459177","packages/firebase_auth_platform_interface/src/action_code_settings.dart":"392033462","packages/firebase_auth_platform_interface/src/id_token_result.dart":"586935940","packages/firebase_auth_platform_interface/src/additional_user_info.dart":"85954332","packages/firebase_auth_platform_interface/src/action_code_info.dart":"557477031","packages/intl/intl.dart":"789303394","packages/intl/src/intl/text_direction.dart":"369534898","packages/intl/src/intl/number_parser.dart":"180079039","packages/intl/src/intl/number_format_parser.dart":"134716934","packages/intl/src/intl/string_iterator.dart":"621234708","packages/intl/number_symbols_data.dart":"602366384","packages/intl/number_symbols.dart":"920103208","packages/intl/src/intl/intl_stream.dart":"29212660","packages/intl/src/intl/regexp.dart":"408426828","packages/intl/src/intl/constants.dart":"643158313","packages/intl/src/intl_helpers.dart":"961621879","packages/intl/src/global_state.dart":"153854107","packages/intl/src/intl/micro_money.dart":"1016942055","packages/intl/src/intl/date_format.dart":"228356503","packages/intl/src/intl/date_computation.dart":"54364225","packages/intl/src/intl/date_builder.dart":"868947174","packages/clock/src/stopwatch.dart":"91959447","packages/clock/src/utils.dart":"628113311","packages/intl/src/date_format_internal.dart":"13295262","packages/intl/date_symbols.dart":"754563368","packages/intl/src/intl/bidi_formatter.dart":"127876800","packages/intl/src/intl/bidi.dart":"993469005","packages/intl/src/plural_rules.dart":"601328400","packages/firebase_auth_web/src/firebase_auth_web_recaptcha_verifier_factory.dart":"340518475","packages/cloud_firestore_web/src/write_batch_web.dart":"343695468","packages/cloud_firestore_web/src/interop/utils/utils.dart":"28289737","packages/cloud_firestore_platform_interface/src/platform_interface/utils/load_bundle_task_state.dart":"380565830","packages/cloud_firestore_platform_interface/src/load_bundle_task_state.dart":"1030775491","packages/cloud_firestore_platform_interface/src/persistence_settings.dart":"12906827","packages/cloud_firestore_platform_interface/src/set_options.dart":"42410446","packages/cloud_firestore_platform_interface/src/field_path.dart":"1016283247","packages/cloud_firestore_platform_interface/src/internal/field_path_type.dart":"646589443","packages/cloud_firestore_platform_interface/src/get_options.dart":"606098716","packages/cloud_firestore_platform_interface/src/source.dart":"727581337","packages/cloud_firestore_platform_interface/src/settings.dart":"290600494","packages/cloud_firestore_platform_interface/src/timestamp.dart":"67754159","packages/cloud_firestore_platform_interface/src/snapshot_metadata.dart":"393554891","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_load_bundle_task.dart":"875861595","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_field_value.dart":"331415065","packages/cloud_firestore_platform_interface/src/internal/pointer.dart":"743094985","packages/cloud_firestore_platform_interface/src/method_channel/utils/exception.dart":"177544474","packages/cloud_firestore_platform_interface/src/method_channel/utils/source.dart":"41947711","packages/cloud_firestore_platform_interface/src/method_channel/utils/auto_id_generator.dart":"1061566182","packages/cloud_firestore_platform_interface/src/geo_point.dart":"93986408","packages/cloud_firestore_platform_interface/src/blob.dart":"304768525","packages/cloud_firestore_web/src/field_value_web.dart":"975063195","packages/cloud_firestore_web/src/internals.dart":"808665010","packages/cloud_firestore_web/src/load_bundle_task_web.dart":"818894923","packages/logafic/main.dart":"209462513","packages/logafic/controllers/authController.dart":"831888186","packages/logafic/widgets/loading.dart":"673367999","packages/logafic/data_model/user_model.dart":"729093732","packages/logafic/routing/router_names.dart":"924948850","packages/logafic/data_model/user_profile_model.dart":"159490233","packages/cloud_firestore/cloud_firestore.dart":"945919818","packages/get/get_navigation/src/routes/route_middleware.dart":"816564357","packages/get/get_utils/src/platform/platform_web.dart":"40778781","packages/get/get_utils/src/queue/get_queue.dart":"343105250","packages/get/get_utils/src/get_utils/get_utils.dart":"847699731","packages/get/get_core/get_core.dart":"170880148","packages/get/get_core/src/typedefs.dart":"68697907","packages/get/get_core/src/smart_management.dart":"1047165887","packages/get/get_core/src/get_main.dart":"552096568","packages/get/get_utils/src/extensions/widget_extensions.dart":"729058145","packages/get/get_utils/src/extensions/string_extensions.dart":"775476641","packages/get/get_utils/src/extensions/num_extensions.dart":"629636362","packages/get/get_utils/src/extensions/internacionalization.dart":"564368177","packages/get/get_utils/src/extensions/event_loop_extensions.dart":"203419299","packages/get/get_utils/src/extensions/dynamic_extensions.dart":"521774815","packages/get/get_utils/src/extensions/duration_extensions.dart":"318695209","packages/get/get_utils/src/extensions/double_extensions.dart":"828821514","packages/get/get_state_manager/src/simple/list_notifier.dart":"271903730","packages/get/instance_manager.dart":"48329894","packages/get/get_instance/get_instance.dart":"664487091","packages/get/get_instance/src/lifecycle.dart":"63277529","packages/get/get_instance/src/get_instance.dart":"311939880","packages/get/get_instance/src/extension_instance.dart":"1017978902","packages/get/get_instance/src/bindings_interface.dart":"78806069","packages/get/get_state_manager/src/simple/get_view.dart":"992886300","packages/get/get_state_manager/src/simple/get_widget_cache.dart":"104747415","packages/get/utils.dart":"797143426","packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart":"14673056","packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart":"639837090","packages/get/get_rx/src/rx_types/rx_types.dart":"354059034","packages/get/get_rx/src/rx_typedefs/rx_typedefs.dart":"793264825","packages/get/get_rx/src/rx_stream/rx_stream.dart":"322415562","packages/get/get_rx/get_rx.dart":"556136438","packages/get/get_rx/src/rx_workers/rx_workers.dart":"257727811","packages/get/get_rx/src/rx_workers/utils/debouncer.dart":"659335015","packages/get/get_navigation/src/routes/transitions_type.dart":"143748981","packages/get/get_navigation/src/routes/default_transitions.dart":"842941068","packages/get/get_navigation/src/routes/custom_transition.dart":"933762254","packages/get/get_navigation/src/dialog/dialog_route.dart":"954981225","packages/get/get_navigation/src/root/internacionalization.dart":"1017976387","packages/get/get_navigation/src/bottomsheet/bottomsheet.dart":"207108225","packages/get/get_connect/connect.dart":"326169205","packages/get/get_connect/sockets/sockets.dart":"1044762941","packages/get/get_connect/sockets/src/sockets_html.dart":"646733893","packages/get/get_connect/sockets/src/socket_notifier.dart":"18978123","packages/get/get_connect/http/src/interceptors/get_modifiers.dart":"946038201","packages/get/get_connect/http/src/status/http_status.dart":"562317219","packages/get/get_connect/http/src/http/html/file_decoder_html.dart":"39632022","packages/get/get_connect/http/src/utils/utils.dart":"789377814","packages/get/get_connect/http/src/exceptions/exceptions.dart":"740617673","packages/get/get_connect/http/src/certificates/certificates.dart":"946058405","packages/firebase_auth/firebase_auth.dart":"202622892","packages/logafic/services/navigation_service.dart":"877682201","packages/logafic/routing/router.dart":"217704333","packages/logafic/screens/user_information_screen.dart":"907450810","packages/image_picker/image_picker.dart":"581470329","packages/firebase_storage/firebase_storage.dart":"937632270","packages/firebase_storage/src/utils.dart":"3301873","packages/logafic/widgets/background.dart":"529327877","packages/logafic/screens/update_user_information.dart":"664915014","packages/logafic/extensions/string_extensions.dart":"182511598","packages/logafic/data_model/routing_data.dart":"697689767","packages/logafic/screens/reset_password_screen.dart":"259915636","packages/logafic/widgets/formInputFieldWithIcon.dart":"799003714","packages/logafic/widgets/primaryButton.dart":"560904299","packages/logafic/widgets/labelButton.dart":"863705331","packages/logafic/widgets/formVerticalSpacing.dart":"254041281","packages/logafic/screens/first_screen.dart":"98631194","packages/logafic/widgets/firstScreenColumnSecond.dart":"160373749","packages/logafic/widgets/smallFirstScreen.dart":"1014989375","packages/logafic/widgets/firstScreenColumnThird.dart":"192136467","packages/logafic/widgets/firstSccreenColumnFirst.dart":"427230648","packages/logafic/widgets/textFirstScreen.dart":"592448810","packages/logafic/widgets/appBarSingleAction.dart":"412236388","packages/logafic/widgets/responsive.dart":"410810540","packages/logafic/screens/register_screen.dart":"436086717","packages/logafic/widgets/FormInputFieldWithIcon.dart":"948351208","packages/logafic/helpers/validate.dart":"337972342","packages/logafic/screens/profile_screen.dart":"1055945679","packages/logafic/widgets/updatePostWidget.dart":"651576100","packages/logafic/widgets/profileBarAction.dart":"451358943","packages/logafic/widgets/deletePostProfileScreenWidget.dart":"834522090","packages/logafic/screens/notification_screen.dart":"632569781","packages/logafic/screens/message_screen.dart":"547735978","packages/logafic/widgets/userMessageScreenWidget.dart":"571745920","packages/logafic/widgets/messageScreenWidget.dart":"285660284","packages/logafic/services/messageService.dart":"769400103","packages/logafic/widgets/deleteMessegaScreenWidget.dart":"791633413","packages/logafic/screens/login_screen.dart":"1038147592","packages/logafic/screens/home_page.dart":"248524375","packages/logafic/widgets/top_bar_contents.dart":"1033209509","packages/logafic/widgets/floating_quick_access_bar.dart":"1069899417","packages/logafic/widgets/explore_drawer.dart":"314360733","packages/logafic/widgets/appBarHomePageWidget.dart":"662220096","packages/logafic/services/notificationService.dart":"382939860","packages/logafic/services/database.dart":"191121441","packages/logafic/data_model/post_data_model.dart":"1073464872","packages/lazy_load_scrollview/lazy_load_scrollview.dart":"131269970","packages/lazy_load_scrollview/src/lazy_load_scrollview.dart":"756693104","packages/logafic/screens/status_screen.dart":"239687555","packages/logafic/widgets/menubaraction.dart":"609224090","packages/get_storage/get_storage.dart":"368323351","packages/path_provider/path_provider.dart":"887029742","packages/path_provider_platform_interface/src/method_channel_path_provider.dart":"904533340","packages/path_provider_platform_interface/src/enums.dart":"680865328","packages/platform/platform.dart":"198329468","packages/platform/src/testing/fake_platform.dart":"730966322","packages/platform/src/interface/platform.dart":"735036114","packages/platform/src/interface/local_platform.dart":"967878359","packages/path_provider_windows/path_provider_windows.dart":"812817882","packages/path_provider_windows/src/path_provider_windows_stub.dart":"418590571","packages/path_provider_windows/src/folders_stub.dart":"27149729","packages/path_provider_linux/path_provider_linux.dart":"696508794","packages/xdg_directories/xdg_directories.dart":"1040687562","packages/process/src/interface/local_process_manager.dart":"1046942479","packages/process/src/interface/process_wrapper.dart":"286043494","packages/process/src/interface/process_manager.dart":"225191915","packages/process/src/interface/exceptions.dart":"990577691","packages/process/src/interface/common.dart":"691806643","packages/file/local.dart":"587972112","packages/file/src/backends/local.dart":"562077315","packages/file/src/backends/local/local_file_system.dart":"15984131","packages/file/src/backends/local/local_link.dart":"240464846","packages/file/src/forwarding/forwarding_link.dart":"279551116","packages/file/src/interface.dart":"1049957359","packages/file/src/io.dart":"165257579","packages/file/src/interface/link.dart":"178492482","packages/file/src/interface/error_codes.dart":"158027311","packages/file/src/interface/error_codes_internal.dart":"753180970","packages/file/src/forwarding/forwarding_random_access_file.dart":"258870188","packages/file/src/common.dart":"764726244","packages/get_storage/src/value.dart":"148478270","packages/get/state_manager.dart":"630097557","packages/get_storage/src/storage_impl.dart":"926876199","packages/get_storage/src/storage/html.dart":"24625088","packages/get_storage/src/read_write_value.dart":"837489956"}
+define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/scheduler/ticker.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__rendering__animated_size_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__scheduler__ticker$46dart, packages__flutter__src__rendering__layer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
+  const ticker = packages__flutter__src__scheduler__ticker$46dart.src__scheduler__ticker;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
+  var animated_size = Object.create(dart.library);
+  var $_equals = dartx._equals;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.start",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.stable",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.changed",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.unstable",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], animated_size.RenderAnimatedSizeState);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: curves._Linear.prototype
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
+      });
+    }
+  }, false);
+  var C = Array(8).fill(void 0);
+  var I = [
+    "package:flutter/src/rendering/animated_size.dart",
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/animated_size.dart"
+  ];
+  var _name$ = dart.privateName(animated_size, "_name");
+  animated_size.RenderAnimatedSizeState = class RenderAnimatedSizeState extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (animated_size.RenderAnimatedSizeState.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = animated_size.RenderAnimatedSizeState.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSizeState);
+  dart.addTypeCaches(animated_size.RenderAnimatedSizeState);
+  dart.setLibraryUri(animated_size.RenderAnimatedSizeState, I[0]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSizeState, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSizeState.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(animated_size.RenderAnimatedSizeState, ['toString']);
+  animated_size.RenderAnimatedSizeState.start = C[0] || CT.C0;
+  animated_size.RenderAnimatedSizeState.stable = C[1] || CT.C1;
+  animated_size.RenderAnimatedSizeState.changed = C[2] || CT.C2;
+  animated_size.RenderAnimatedSizeState.unstable = C[3] || CT.C3;
+  animated_size.RenderAnimatedSizeState.values = C[4] || CT.C4;
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _name = dart.privateName(ui, "_name");
+  var __RenderAnimatedSize__controller = dart.privateName(animated_size, "_#RenderAnimatedSize#_controller");
+  var __RenderAnimatedSize__animation = dart.privateName(animated_size, "_#RenderAnimatedSize#_animation");
+  var _sizeTween = dart.privateName(animated_size, "_sizeTween");
+  var __RenderAnimatedSize__hasVisualOverflow = dart.privateName(animated_size, "_#RenderAnimatedSize#_hasVisualOverflow");
+  var _lastValue = dart.privateName(animated_size, "_lastValue");
+  var _state = dart.privateName(animated_size, "_state");
+  var _clipBehavior = dart.privateName(animated_size, "_clipBehavior");
+  var _clipRectLayer = dart.privateName(animated_size, "_clipRectLayer");
+  var _vsync = dart.privateName(animated_size, "_vsync");
+  var _controller = dart.privateName(animated_size, "_controller");
+  var _animation = dart.privateName(animated_size, "_animation");
+  var _hasVisualOverflow = dart.privateName(animated_size, "_hasVisualOverflow");
+  var _animatedSize = dart.privateName(animated_size, "_animatedSize");
+  var _layoutStart = dart.privateName(animated_size, "_layoutStart");
+  var _layoutStable = dart.privateName(animated_size, "_layoutStable");
+  var _layoutChanged = dart.privateName(animated_size, "_layoutChanged");
+  var _layoutUnstable = dart.privateName(animated_size, "_layoutUnstable");
+  var _restartAnimation = dart.privateName(animated_size, "_restartAnimation");
+  animated_size.RenderAnimatedSize = class RenderAnimatedSize extends shifted_box.RenderAligningShiftedBox {
+    get [_controller]() {
+      let t0;
+      t0 = this[__RenderAnimatedSize__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+    }
+    set [_controller](t0) {
+      if (this[__RenderAnimatedSize__controller] == null)
+        this[__RenderAnimatedSize__controller] = t0;
+      else
+        dart.throw(new _internal.LateError.fieldAI("_controller"));
+    }
+    get [_animation]() {
+      let t1;
+      t1 = this[__RenderAnimatedSize__animation];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_animation")) : t1;
+    }
+    set [_animation](t1) {
+      if (this[__RenderAnimatedSize__animation] == null)
+        this[__RenderAnimatedSize__animation] = t1;
+      else
+        dart.throw(new _internal.LateError.fieldAI("_animation"));
+    }
+    get [_hasVisualOverflow]() {
+      let t2;
+      t2 = this[__RenderAnimatedSize__hasVisualOverflow];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_hasVisualOverflow")) : t2;
+    }
+    set [_hasVisualOverflow](t2) {
+      this[__RenderAnimatedSize__hasVisualOverflow] = t2;
+    }
+    get state() {
+      return this[_state];
+    }
+    get duration() {
+      return dart.nullCheck(this[_controller].duration);
+    }
+    set duration(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 123, 12, "value != null");
+      if (value._equals(this[_controller].duration)) return;
+      this[_controller].duration = value;
+    }
+    get reverseDuration() {
+      return this[_controller].reverseDuration;
+    }
+    set reverseDuration(value) {
+      if (dart.equals(value, this[_controller].reverseDuration)) return;
+      this[_controller].reverseDuration = value;
+    }
+    get curve() {
+      return this[_animation].curve;
+    }
+    set curve(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 140, 12, "value != null");
+      if (value[$_equals](this[_animation].curve)) return;
+      this[_animation].curve = value;
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 152, 12, "value != null");
+      if (value !== this[_clipBehavior]) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    get isAnimating() {
+      return this[_controller].isAnimating;
+    }
+    get vsync() {
+      return this[_vsync];
+    }
+    set vsync(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 170, 12, "value != null");
+      if (value[$_equals](this[_vsync])) return;
+      this[_vsync] = value;
+      this[_controller].resync(this.vsync);
+    }
+    detach() {
+      this[_controller].stop();
+      super.detach();
+    }
+    get [_animatedSize]() {
+      return this[_sizeTween].evaluate(this[_animation]);
+    }
+    performLayout() {
+      let t3;
+      this[_lastValue] = this[_controller].value;
+      this[_hasVisualOverflow] = false;
+      let constraints = this.constraints;
+      if (this.child == null || constraints.isTight) {
+        this[_controller].stop();
+        this.size = this[_sizeTween].begin = this[_sizeTween].end = constraints.smallest;
+        this[_state] = animated_size.RenderAnimatedSizeState.start;
+        t3 = this.child;
+        t3 == null ? null : t3.layout(constraints);
+        return;
+      }
+      dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
+      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 202, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          this[_layoutStart]();
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          this[_layoutStable]();
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          this[_layoutChanged]();
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          this[_layoutUnstable]();
+          break;
+        }
+      }
+      this.size = constraints.constrain(dart.nullCheck(this[_animatedSize]));
+      this.alignChild();
+      if (this.size.width < dart.nullCheck(this[_sizeTween].end).width || this.size.height < dart.nullCheck(this[_sizeTween].end).height) this[_hasVisualOverflow] = true;
+    }
+    computeDryLayout(constraints) {
+      if (this.child == null || constraints.isTight) {
+        return constraints.smallest;
+      }
+      let childSize = dart.nullCheck(this.child).getDryLayout(constraints);
+      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 236, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          return constraints.constrain(childSize);
+        }
+        case C[1] || CT.C1:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(this.size);
+          } else if (this[_controller].value === this[_controller].upperBound) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+        case C[3] || CT.C3:
+        case C[2] || CT.C2:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+      }
+      return constraints.constrain(dart.nullCheck(this[_animatedSize]));
+    }
+    [_restartAnimation]() {
+      this[_lastValue] = 0.0;
+      this[_controller].forward({from: 0.0});
+    }
+    [_layoutStart]() {
+      this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      this[_state] = animated_size.RenderAnimatedSizeState.stable;
+    }
+    [_layoutStable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this.size;
+        this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.changed;
+      } else if (this[_controller].value === this[_controller].upperBound) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      } else if (!this[_controller].isAnimating) {
+        this[_controller].forward();
+      }
+    }
+    [_layoutChanged]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.unstable;
+      } else {
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+        if (!this[_controller].isAnimating) this[_controller].forward();
+      }
+    }
+    [_layoutUnstable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+      } else {
+        this[_controller].stop();
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+      }
+    }
+    paint(context, offset) {
+      if (this.child != null && this[_hasVisualOverflow] && this.clipBehavior !== ui.Clip.none) {
+        let rect = ui.Offset.zero['&'](this.size);
+        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, rect, dart.bind(this, 'paint', super.paint), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+      } else {
+        this[_clipRectLayer] = null;
+        super.paint(context, offset);
+      }
+    }
+  };
+  (animated_size.RenderAnimatedSize.new = function(opts) {
+    let t0;
+    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let reverseDuration = opts && 'reverseDuration' in opts ? opts.reverseDuration : null;
+    let curve = opts && 'curve' in opts ? opts.curve : C[5] || CT.C5;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[6] || CT.C6;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[7] || CT.C7;
+    this[__RenderAnimatedSize__controller] = null;
+    this[__RenderAnimatedSize__animation] = null;
+    this[_sizeTween] = new tween.SizeTween.new();
+    this[__RenderAnimatedSize__hasVisualOverflow] = null;
+    this[_lastValue] = null;
+    this[_state] = animated_size.RenderAnimatedSizeState.start;
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    this[_clipRectLayer] = null;
+    if (!(vsync !== null)) dart.assertFailed(null, I[1], 86, 15, "vsync != null");
+    if (!(duration !== null)) dart.assertFailed(null, I[1], 87, 15, "duration != null");
+    if (!(curve !== null)) dart.assertFailed(null, I[1], 88, 15, "curve != null");
+    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 89, 15, "clipBehavior != null");
+    this[_vsync] = vsync;
+    this[_clipBehavior] = clipBehavior;
+    animated_size.RenderAnimatedSize.__proto__.new.call(this, {child: child, alignment: alignment, textDirection: textDirection});
+    this[_controller] = (t0 = new animation_controller.AnimationController.new({vsync: vsync, duration: duration, reverseDuration: reverseDuration}), (() => {
+      t0.addListener(dart.fn(() => {
+        if (this[_controller].value !== this[_lastValue]) this.markNeedsLayout();
+      }, T.VoidTovoid()));
+      return t0;
+    })());
+    this[_animation] = new animations.CurvedAnimation.new({parent: this[_controller], curve: curve});
+  }).prototype = animated_size.RenderAnimatedSize.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSize);
+  dart.addTypeCaches(animated_size.RenderAnimatedSize);
+  dart.setMethodSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getMethods(animated_size.RenderAnimatedSize.__proto__),
+    [_restartAnimation]: dart.fnType(dart.void, []),
+    [_layoutStart]: dart.fnType(dart.void, []),
+    [_layoutStable]: dart.fnType(dart.void, []),
+    [_layoutChanged]: dart.fnType(dart.void, []),
+    [_layoutUnstable]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getGetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    state: animated_size.RenderAnimatedSizeState,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    isAnimating: core.bool,
+    vsync: ticker.TickerProvider,
+    [_animatedSize]: dart.nullable(ui.Size)
+  }));
+  dart.setSetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getSetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    vsync: ticker.TickerProvider
+  }));
+  dart.setLibraryUri(animated_size.RenderAnimatedSize, I[0]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSize.__proto__),
+    [__RenderAnimatedSize__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [__RenderAnimatedSize__animation]: dart.fieldType(dart.nullable(animations.CurvedAnimation)),
+    [_sizeTween]: dart.finalFieldType(tween.SizeTween),
+    [__RenderAnimatedSize__hasVisualOverflow]: dart.fieldType(dart.nullable(core.bool)),
+    [_lastValue]: dart.fieldType(dart.nullable(core.double)),
+    [_state]: dart.fieldType(animated_size.RenderAnimatedSizeState),
+    [_clipBehavior]: dart.fieldType(ui.Clip),
+    [_vsync]: dart.fieldType(ticker.TickerProvider),
+    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/animated_size.dart", {
+    "package:flutter/src/rendering/animated_size.dart": animated_size
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["animated_size.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/animated_size.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__animated_size: animated_size
+  };
+}));
+
+//# sourceMappingURL=animated_size.dart.lib.js.map

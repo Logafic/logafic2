@@ -1,318 +1,295 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/firebase_auth/firebase_auth.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/get/get_rx/src/rx_types/rx_types.dart', 'packages/logafic/data_model/user_model.dart', 'packages/get/get_rx/src/rx_workers/rx_workers.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart', 'packages/logafic/widgets/loading.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/get/get_utils/src/extensions/internacionalization.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/logafic/data_model/user_profile_model.dart', 'packages/get/get_instance/src/extension_instance.dart'], (function load__packages__logafic__controllers__authController_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__firebase_auth__firebase_auth$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__get__get_rx__src__rx_types__rx_types$46dart, packages__logafic__data_model__user_model$46dart, packages__get__get_rx__src__rx_workers__rx_workers$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart, packages__logafic__widgets__loading$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__get__get_utils__src__extensions__internacionalization$46dart, packages__flutter__src__services__system_channels$46dart, packages__logafic__data_model__user_profile_model$46dart, packages__get__get_instance__src__extension_instance$46dart) {
+define(['dart_sdk', 'packages/firebase_storage_web/src/utils/metadata_cache.dart', 'packages/firebase_storage_web/src/utils/errors.dart', 'packages/firebase_storage_platform_interface/src/full_metadata.dart', 'packages/firebase_storage_web/src/utils/metadata.dart', 'packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart', 'packages/firebase_storage_web/src/utils/list.dart', 'packages/firebase_storage_web/src/list_result_web.dart', 'packages/http/src/multipart_request.dart', 'packages/firebase_storage_web/src/task_web.dart', 'packages/firebase_storage_web/src/interop/storage.dart', 'packages/firebase_core_web/src/interop/core.dart', 'packages/firebase_core/firebase_core.dart'], (function load__packages__firebase_storage_web__src__reference_web_dart(dart_sdk, packages__firebase_storage_web__src__utils__metadata_cache$46dart, packages__firebase_storage_web__src__utils__errors$46dart, packages__firebase_storage_platform_interface__src__full_metadata$46dart, packages__firebase_storage_web__src__utils__metadata$46dart, packages__firebase_storage_platform_interface__src__platform_interface__platform_interface_task_snapshot$46dart, packages__firebase_storage_web__src__utils__list$46dart, packages__firebase_storage_web__src__list_result_web$46dart, packages__http__src__multipart_request$46dart, packages__firebase_storage_web__src__task_web$46dart, packages__firebase_storage_web__src__interop__storage$46dart, packages__firebase_core_web__src__interop__core$46dart, packages__firebase_core__firebase_core$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const _internal = dart_sdk._internal;
   const async = dart_sdk.async;
+  const typed_data = dart_sdk.typed_data;
+  const html = dart_sdk.html;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
-  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
-  const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
-  const user_model = packages__logafic__data_model__user_model$46dart.data_model__user_model;
-  const rx_workers = packages__get__get_rx__src__rx_workers__rx_workers$46dart.get_rx__src__rx_workers__rx_workers;
-  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
-  const snack = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__snackbar__snack;
-  const get_controllers = packages__get__get_navigation__src__routes__route_middleware$46dart.get_state_manager__src__simple__get_controllers;
-  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
-  const loading = packages__logafic__widgets__loading$46dart.widgets__loading;
-  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
-  const internacionalization = packages__get__get_utils__src__extensions__internacionalization$46dart.get_utils__src__extensions__internacionalization;
-  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
-  const user_profile_model = packages__logafic__data_model__user_profile_model$46dart.data_model__user_profile_model;
-  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
-  var authController = Object.create(dart.library);
-  var $trim = dartx.trim;
-  var $toString = dartx.toString;
-  var $_equals = dartx._equals;
+  const metadata_cache = packages__firebase_storage_web__src__utils__metadata_cache$46dart.src__utils__metadata_cache;
+  const errors = packages__firebase_storage_web__src__utils__errors$46dart.src__utils__errors;
+  const full_metadata = packages__firebase_storage_platform_interface__src__full_metadata$46dart.src__full_metadata;
+  const metadata$ = packages__firebase_storage_web__src__utils__metadata$46dart.src__utils__metadata;
+  const platform_interface_list_result = packages__firebase_storage_platform_interface__src__platform_interface__platform_interface_task_snapshot$46dart.src__platform_interface__platform_interface_list_result;
+  const platform_interface_reference = packages__firebase_storage_platform_interface__src__platform_interface__platform_interface_task_snapshot$46dart.src__platform_interface__platform_interface_reference;
+  const platform_interface_firebase_storage = packages__firebase_storage_platform_interface__src__platform_interface__platform_interface_task_snapshot$46dart.src__platform_interface__platform_interface_firebase_storage;
+  const list = packages__firebase_storage_web__src__utils__list$46dart.src__utils__list;
+  const list_result_web = packages__firebase_storage_web__src__list_result_web$46dart.src__list_result_web;
+  const http = packages__http__src__multipart_request$46dart.http;
+  const task_web = packages__firebase_storage_web__src__task_web$46dart.src__task_web;
+  const storage = packages__firebase_storage_web__src__interop__storage$46dart.src__interop__storage;
+  const core$ = packages__firebase_core_web__src__interop__core$46dart.src__interop__core;
+  const firebase_core = packages__firebase_core__firebase_core$46dart.firebase_core;
+  var reference_web = Object.create(dart.library);
+  var firebase_storage_web = Object.create(dart.library);
+  var $startsWith = dartx.startsWith;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    RxnOfUser: () => (T.RxnOfUser = dart.constFn(rx_types.Rxn$(firebase_auth.User)))(),
-    RxnOfUserModel: () => (T.RxnOfUserModel = dart.constFn(rx_types.Rxn$(user_model.UserModel)))(),
-    UserN: () => (T.UserN = dart.constFn(dart.nullable(firebase_auth.User)))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    DocumentSnapshotOfMapOfString$dynamic: () => (T.DocumentSnapshotOfMapOfString$dynamic = dart.constFn(cloud_firestore.DocumentSnapshot$(T.MapOfString$dynamic())))(),
-    DocumentSnapshotOfMapOfString$dynamicToUserModel: () => (T.DocumentSnapshotOfMapOfString$dynamicToUserModel = dart.constFn(dart.fnType(user_model.UserModel, [T.DocumentSnapshotOfMapOfString$dynamic()])))(),
-    UserCredentialTovoid: () => (T.UserCredentialTovoid = dart.constFn(dart.fnType(dart.void, [firebase_auth.UserCredential])))(),
-    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
-    UserCredentialToFutureOfNull: () => (T.UserCredentialToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [firebase_auth.UserCredential])))(),
-    voidTovoid: () => (T.voidTovoid = dart.constFn(dart.fnType(dart.void, [dart.void])))(),
-    UserCredentialToNull: () => (T.UserCredentialToNull = dart.constFn(dart.fnType(core.Null, [firebase_auth.UserCredential])))(),
     FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
-    FutureNOfvoid: () => (T.FutureNOfvoid = dart.constFn(dart.nullable(T.FutureOfvoid())))(),
-    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))()
+    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
+    VoidToFutureOfString: () => (T.VoidToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [])))(),
+    FutureOfFullMetadata: () => (T.FutureOfFullMetadata = dart.constFn(async.Future$(full_metadata.FullMetadata)))(),
+    VoidToFutureOfFullMetadata: () => (T.VoidToFutureOfFullMetadata = dart.constFn(dart.fnType(T.FutureOfFullMetadata(), [])))(),
+    FutureOrOfListResultPlatform: () => (T.FutureOrOfListResultPlatform = dart.constFn(async.FutureOr$(platform_interface_list_result.ListResultPlatform)))(),
+    FutureOfListResultWeb: () => (T.FutureOfListResultWeb = dart.constFn(async.Future$(list_result_web.ListResultWeb)))(),
+    VoidToFutureOfListResultWeb: () => (T.VoidToFutureOfListResultWeb = dart.constFn(dart.fnType(T.FutureOfListResultWeb(), [])))(),
+    FutureOfListResultPlatform: () => (T.FutureOfListResultPlatform = dart.constFn(async.Future$(platform_interface_list_result.ListResultPlatform)))(),
+    FutureOfUint8List: () => (T.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
+    MapOfString$String: () => (T.MapOfString$String = dart.constFn(core.Map$(core.String, core.String)))(),
+    MapNOfString$String: () => (T.MapNOfString$String = dart.constFn(dart.nullable(T.MapOfString$String())))(),
+    Uri__ToFutureOfUint8List: () => (T.Uri__ToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [core.Uri], {headers: T.MapNOfString$String()}, {})))(),
+    Uint8ListN: () => (T.Uint8ListN = dart.constFn(dart.nullable(typed_data.Uint8List)))(),
+    FutureOrOfUint8ListN: () => (T.FutureOrOfUint8ListN = dart.constFn(async.FutureOr$(T.Uint8ListN())))(),
+    VoidToFutureOfUint8List: () => (T.VoidToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [])))(),
+    VoidToReferencePlatform: () => (T.VoidToReferencePlatform = dart.constFn(dart.fnType(platform_interface_reference.ReferencePlatform, [])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  var I = ["package:logafic/controllers/authController.dart"];
-  var nameController = dart.privateName(authController, "AuthController.nameController");
-  var emailController = dart.privateName(authController, "AuthController.emailController");
-  var passwordController = dart.privateName(authController, "AuthController.passwordController");
-  var firebaseUser = dart.privateName(authController, "AuthController.firebaseUser");
-  var firestoreUser = dart.privateName(authController, "AuthController.firestoreUser");
-  var newUser = dart.privateName(authController, "AuthController.newUser");
-  var isRank = dart.privateName(authController, "AuthController.isRank");
-  var _auth = dart.privateName(authController, "_auth");
-  var _db = dart.privateName(authController, "_db");
-  var _updateUserFirestore = dart.privateName(authController, "_updateUserFirestore");
-  authController.AuthController = class AuthController extends get_controllers.GetxController {
-    get nameController() {
-      return this[nameController];
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(http.readBytes, T.Uri__ToFutureOfUint8List());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 600000000
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 120000000
+      });
     }
-    set nameController(value) {
-      this[nameController] = value;
-    }
-    get emailController() {
-      return this[emailController];
-    }
-    set emailController(value) {
-      this[emailController] = value;
-    }
-    get passwordController() {
-      return this[passwordController];
-    }
-    set passwordController(value) {
-      this[passwordController] = value;
-    }
-    get firebaseUser() {
-      return this[firebaseUser];
-    }
-    set firebaseUser(value) {
-      this[firebaseUser] = value;
-    }
-    get firestoreUser() {
-      return this[firestoreUser];
-    }
-    set firestoreUser(value) {
-      this[firestoreUser] = value;
-    }
-    get newUser() {
-      return this[newUser];
-    }
-    set newUser(value) {
-      this[newUser] = value;
-    }
-    get isRank() {
-      return this[isRank];
-    }
-    set isRank(value) {
-      this[isRank] = value;
-    }
-    onReady() {
-      rx_workers.ever(T.UserN(), this.firebaseUser, dart.bind(this, 'handleAuthChanged'));
-      this.firebaseUser.bindStream(this.user);
-      super.onReady();
-    }
-    onClose() {
-      this.nameController.dispose();
-      this.emailController.dispose();
-      this.passwordController.dispose();
-      super.onClose();
-    }
-    handleAuthChanged(_firebaseUser) {
+  }, false);
+  var C = Array(3).fill(void 0);
+  var I = [
+    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_web-1.1.2/lib/src/reference_web.dart",
+    "package:firebase_storage_web/src/reference_web.dart",
+    "package:firebase_storage_web/src/firebase_storage_web.dart"
+  ];
+  var __ReferenceWeb__ref = dart.privateName(reference_web, "_#ReferenceWeb#_ref");
+  var _cache = dart.privateName(reference_web, "_cache");
+  var _path = dart.privateName(reference_web, "_path");
+  var _ref = dart.privateName(reference_web, "_ref");
+  reference_web.ReferenceWeb = class ReferenceWeb extends platform_interface_reference.ReferencePlatform {
+    get [_ref]() {
       let t0;
-      if ((t0 = _firebaseUser, t0 == null ? null : dart.dload(t0, 'uid')) != null) {
-        core.print(dart.dload(dart.nullCheck(_firebaseUser), 'uid'));
-        this.firestoreUser.bindStream(this.streamFirestoreUser());
-      }
-      if (_firebaseUser == null) {
-        core.print("Giris sayfasınına yönlendiriliyor.");
-        extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/");
-      } else {
-        this.newUser === false ? extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/home") : extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/save");
-      }
+      t0 = this[__ReferenceWeb__ref];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_ref")) : t0;
     }
-    get getUser() {
-      return async.async(T.UserN(), (function* getUser() {
-        return dart.nullCheck(this[_auth].currentUser);
+    set [_ref](t0) {
+      this[__ReferenceWeb__ref] = t0;
+    }
+    delete() {
+      return errors.guard(T.FutureOfvoid(), dart.bind(this[_ref], 'delete'));
+    }
+    getDownloadURL() {
+      return errors.guard(T.FutureOfString(), dart.fn(() => async.async(core.String, (function*() {
+        let uri = (yield this[_ref].getDownloadURL());
+        return uri.toString();
+      }).bind(this)), T.VoidToFutureOfString()));
+    }
+    getMetadata() {
+      return errors.guard(T.FutureOfFullMetadata(), dart.fn(() => async.async(full_metadata.FullMetadata, (function*() {
+        let fullMetadata = (yield this[_ref].getMetadata());
+        return metadata$.fbFullMetadataToFullMetadata(fullMetadata);
+      }).bind(this)), T.VoidToFutureOfFullMetadata()));
+    }
+    list(options = null) {
+      return async.async(platform_interface_list_result.ListResultPlatform, (function* list$() {
+        return errors.guard(T.FutureOrOfListResultPlatform(), dart.fn(() => async.async(list_result_web.ListResultWeb, (function*() {
+          let listResult = (yield this[_ref].list(list.listOptionsToFbListOptions(options)));
+          return list.fbListResultToListResultWeb(this.storage, listResult);
+        }).bind(this)), T.VoidToFutureOfListResultWeb()));
       }).bind(this));
     }
-    get user() {
-      return this[_auth].authStateChanges();
+    listAll() {
+      return errors.guard(T.FutureOfListResultPlatform(), dart.fn(() => async.async(list_result_web.ListResultWeb, (function*() {
+        let listResult = (yield this[_ref].listAll());
+        return list.fbListResultToListResultWeb(this.storage, listResult);
+      }).bind(this)), T.VoidToFutureOfListResultWeb()));
     }
-    streamFirestoreUser() {
-      core.print("Stream FirestoreUser");
-      return this[_db].doc("/users/" + dart.nullCheck(this.firebaseUser.value).uid).snapshots().map(user_model.UserModel, dart.fn(snapshot => user_model.UserModel.fromMap(dart.nullCheck(snapshot.data())), T.DocumentSnapshotOfMapOfString$dynamicToUserModel()));
-    }
-    getFirestoreUser() {
-      return this[_db].doc("/users/" + dart.nullCheck(this.firebaseUser.value).uid).get().then(user_model.UserModel, dart.fn(snapshot => user_model.UserModel.fromMap(dart.nullCheck(snapshot.data())), T.DocumentSnapshotOfMapOfString$dynamicToUserModel()));
-    }
-    signInWithEmailAndPassword(context) {
-      return async.async(dart.dynamic, (function* signInWithEmailAndPassword() {
-        loading.showLoadingIndicator();
-        try {
-          yield this[_auth].signInWithEmailAndPassword({email: this.emailController.text[$trim](), password: this.passwordController.text[$trim]()}).then(dart.void, dart.fn(value => core.print(dart.nullCheck(value.user).uid[$toString]()), T.UserCredentialTovoid()));
-          this.emailController.clear();
-          this.passwordController.clear();
-          loading.hideLoadingIndicator();
-        } catch (e) {
-          let err = dart.getThrown(e);
-          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
-            loading.hideLoadingIndicator();
-            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, "Giriş hatası", err.toString(), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 7}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-          } else
-            throw e;
-        }
-      }).bind(this));
-    }
-    registerWithEmailAndPassword(context) {
-      return async.async(dart.dynamic, (function* registerWithEmailAndPassword() {
-        try {
-          loading.showLoadingIndicator();
-          yield this[_auth].createUserWithEmailAndPassword({email: this.emailController.text, password: this.passwordController.text}).then(core.Null, dart.fn(result => async.async(core.Null, function*() {
-            loading.hideLoadingIndicator();
-          }), T.UserCredentialToFutureOfNull()));
-        } catch (e) {
-          let err = dart.getThrown(e);
-          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
-            loading.hideLoadingIndicator();
-            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, "Kayıt işleminde hata oluştu.", dart.nullCheck(err.message), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-          } else
-            throw e;
-        }
-      }).bind(this));
-    }
-    updateUser(context, user, oldEmail, password) {
-      return async.async(dart.void, (function* updateUser() {
-        let _authUpdateUserNoticeTitle = internacionalization['Trans|get#tr']("auth.updateUserSuccessNoticeTitle");
-        let _authUpdateUserNotice = internacionalization['Trans|get#tr']("auth.updateUserSuccessNotice");
-        try {
-          loading.showLoadingIndicator();
-          try {
-            yield this[_auth].signInWithEmailAndPassword({email: oldEmail, password: password}).then(core.Null, dart.fn(_firebaseUser => {
-              dart.nullCheck(_firebaseUser.user).updateEmail(dart.nullCheck(user.userEmail)).then(dart.void, dart.fn(value => this[_updateUserFirestore](user, dart.nullCheck(_firebaseUser.user)), T.voidTovoid()));
-            }, T.UserCredentialToNull()));
-          } catch (e) {
-            let err = dart.getThrown(e);
-            if (core.Object.is(err)) {
-              core.print("Caught error: " + dart.str(err));
-              if (err[$_equals]("Error: [firebase_auth/email-already-in-use] The email address is already in use by another account.")) {
-                _authUpdateUserNoticeTitle = internacionalization['Trans|get#tr']("auth.updateUserEmailInUse");
-                _authUpdateUserNotice = internacionalization['Trans|get#tr']("auth.updateUserEmailInUse");
-              } else {
-                _authUpdateUserNoticeTitle = internacionalization['Trans|get#tr']("auth.wrongPasswordNotice");
-                _authUpdateUserNotice = internacionalization['Trans|get#tr']("auth.wrongPasswordNotice");
-              }
-            } else
-              throw e;
+    getData(maxSize, opts) {
+      let readBytes = opts && 'readBytes' in opts ? opts.readBytes : C[0] || CT.C0;
+      return async.async(T.Uint8ListN(), (function* getData() {
+        if (maxSize > 0) {
+          let metadata = (yield this.getMetadata());
+          if (dart.nullCheck(metadata.size) > maxSize) {
+            return null;
           }
-          loading.hideLoadingIndicator();
-          extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, _authUpdateUserNoticeTitle, _authUpdateUserNotice, {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 5}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-        } catch (e$) {
-          let error = dart.getThrown(e$);
-          if (message_codec.PlatformException.is(error)) {
-            loading.hideLoadingIndicator();
-            core.print(error.code);
-            let authError = null;
-            switch (error.code) {
-              case "ERROR_WRONG_PASSWORD":
-              {
-                authError = "Hatalı email veya şifre ";
-                break;
-              }
-              default:
-              {
-                authError = internacionalization['Trans|get#tr']("Kullanıcı bulunumadı");
-                break;
-              }
-            }
-            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Hatalı email veya şifre"), authError, {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-          } else
-            throw e$;
         }
+        return errors.guard(T.FutureOrOfUint8ListN(), dart.fn(() => async.async(typed_data.Uint8List, (function*() {
+          let url = (yield this.getDownloadURL());
+          return readBytes(core.Uri.parse(url));
+        }).bind(this)), T.VoidToFutureOfUint8List()));
       }).bind(this));
     }
-    [_updateUserFirestore](user, _firebaseUser) {
-      this[_db].doc("/users/" + _firebaseUser.uid).update(user.toJson());
+    putData(data, metadata = null) {
+      return new task_web.TaskWeb.new(this, this[_ref].put(data, metadata$.settableMetadataToFbUploadMetadata(this[_cache].store(metadata))));
     }
-    createUserFirestore(user, _firebaseUser) {
-      this[_db].doc("/users/" + _firebaseUser.uid).set(user.toJson()).whenComplete(dart.fn(() => extension_navigation['GetNavigation|offAllNamed'](dart.void, get_main.Get, "/home"), T.VoidToFutureNOfvoid()));
+    putBlob(data, metadata = null) {
+      if (!html.Blob.is(data)) dart.assertFailed("data must be a dart:html Blob object.", I[0], 157, 12, "data is html.Blob");
+      return new task_web.TaskWeb.new(this, this[_ref].put(data, metadata$.settableMetadataToFbUploadMetadata(this[_cache].store(metadata))));
     }
-    sendPasswordResetEmail(context) {
-      return async.async(dart.void, (function* sendPasswordResetEmail() {
-        loading.showLoadingIndicator();
-        try {
-          yield this[_auth].sendPasswordResetEmail({email: this.emailController.text});
-          loading.hideLoadingIndicator();
-          extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Şifreme yenileme bağlantı"), internacionalization['Trans|get#tr']("Şifrenizi yenilemeniz için bağlantı email adresinize gönderildi."), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 5}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-        } catch (e) {
-          let err = dart.getThrown(e);
-          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
-            loading.hideLoadingIndicator();
-            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Şifre yenileme hatası"), dart.nullCheck(err.message), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
-          } else
-            throw e;
-        }
-      }).bind(this));
+    putString(data, format, metadata = null) {
+      return new task_web.TaskWeb.new(this, this[_ref].putString(data, metadata$.putStringFormatToString(format), metadata$.settableMetadataToFbUploadMetadata(this[_cache].store(metadata))));
     }
-    signOut() {
-      this.nameController.clear();
-      this.emailController.clear();
-      this.passwordController.clear();
-      return this[_auth].signOut();
+    updateMetadata(metadata) {
+      return errors.guard(T.FutureOfFullMetadata(), dart.fn(() => async.async(full_metadata.FullMetadata, (function*() {
+        let fullMetadata = (yield this[_ref].updateMetadata(metadata$.settableMetadataToFbSettableMetadata(this[_cache].store(metadata))));
+        return metadata$.fbFullMetadataToFullMetadata(fullMetadata);
+      }).bind(this)), T.VoidToFutureOfFullMetadata()));
     }
   };
-  (authController.AuthController.new = function() {
-    this[nameController] = new editable_text.TextEditingController.new();
-    this[emailController] = new editable_text.TextEditingController.new();
-    this[passwordController] = new editable_text.TextEditingController.new();
-    this[_auth] = firebase_auth.FirebaseAuth.instance;
-    this[_db] = cloud_firestore.FirebaseFirestore.instance;
-    this[firebaseUser] = new (T.RxnOfUser()).new();
-    this[firestoreUser] = new (T.RxnOfUserModel()).new();
-    this[newUser] = false;
-    this[isRank] = false;
-    authController.AuthController.__proto__.new.call(this);
-    ;
-  }).prototype = authController.AuthController.prototype;
-  dart.addTypeTests(authController.AuthController);
-  dart.addTypeCaches(authController.AuthController);
-  dart.setMethodSignature(authController.AuthController, () => ({
-    __proto__: dart.getMethods(authController.AuthController.__proto__),
-    handleAuthChanged: dart.fnType(dart.dynamic, [dart.dynamic]),
-    streamFirestoreUser: dart.fnType(async.Stream$(user_model.UserModel), []),
-    getFirestoreUser: dart.fnType(async.Future$(user_model.UserModel), []),
-    signInWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
-    registerWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
-    updateUser: dart.fnType(async.Future$(dart.void), [framework.BuildContext, user_model.UserModel, core.String, core.String]),
-    [_updateUserFirestore]: dart.fnType(dart.void, [user_model.UserModel, firebase_auth.User]),
-    createUserFirestore: dart.fnType(dart.void, [user_profile_model.UserProfile, firebase_auth.User]),
-    sendPasswordResetEmail: dart.fnType(async.Future$(dart.void), [framework.BuildContext]),
-    signOut: dart.fnType(async.Future$(dart.void), [])
+  (reference_web.ReferenceWeb.new = function(storage, path) {
+    this[__ReferenceWeb__ref] = null;
+    this[_cache] = new metadata_cache.SettableMetadataCache.new();
+    this[_path] = path;
+    reference_web.ReferenceWeb.__proto__.new.call(this, storage, path);
+    if (this[_path][$startsWith](reference_web._storageUrlPrefix)) {
+      this[_ref] = dart.nullCheck(storage.webStorage).refFromURL(this[_path]);
+    } else {
+      this[_ref] = dart.nullCheck(storage.webStorage).ref(this[_path]);
+    }
+  }).prototype = reference_web.ReferenceWeb.prototype;
+  dart.addTypeTests(reference_web.ReferenceWeb);
+  dart.addTypeCaches(reference_web.ReferenceWeb);
+  dart.setMethodSignature(reference_web.ReferenceWeb, () => ({
+    __proto__: dart.getMethods(reference_web.ReferenceWeb.__proto__),
+    getData: dart.fnType(async.Future$(dart.nullable(typed_data.Uint8List)), [core.int], {readBytes: dart.fnType(async.Future$(typed_data.Uint8List), [core.Uri])}, {})
   }));
-  dart.setGetterSignature(authController.AuthController, () => ({
-    __proto__: dart.getGetters(authController.AuthController.__proto__),
-    getUser: async.Future$(dart.nullable(firebase_auth.User)),
-    user: async.Stream$(dart.nullable(firebase_auth.User))
+  dart.setGetterSignature(reference_web.ReferenceWeb, () => ({
+    __proto__: dart.getGetters(reference_web.ReferenceWeb.__proto__),
+    [_ref]: storage.StorageReference
   }));
-  dart.setLibraryUri(authController.AuthController, I[0]);
-  dart.setFieldSignature(authController.AuthController, () => ({
-    __proto__: dart.getFields(authController.AuthController.__proto__),
-    nameController: dart.fieldType(editable_text.TextEditingController),
-    emailController: dart.fieldType(editable_text.TextEditingController),
-    passwordController: dart.fieldType(editable_text.TextEditingController),
-    [_auth]: dart.finalFieldType(firebase_auth.FirebaseAuth),
-    [_db]: dart.finalFieldType(cloud_firestore.FirebaseFirestore),
-    firebaseUser: dart.fieldType(rx_types.Rxn$(firebase_auth.User)),
-    firestoreUser: dart.fieldType(rx_types.Rxn$(user_model.UserModel)),
-    newUser: dart.fieldType(core.bool),
-    isRank: dart.fieldType(core.bool)
+  dart.setSetterSignature(reference_web.ReferenceWeb, () => ({
+    __proto__: dart.getSetters(reference_web.ReferenceWeb.__proto__),
+    [_ref]: storage.StorageReference
   }));
-  dart.defineLazy(authController.AuthController, {
-    /*authController.AuthController.to*/get to() {
-      return extension_instance['Inst|find'](authController.AuthController, get_main.Get);
-    },
-    set to(_) {}
+  dart.setLibraryUri(reference_web.ReferenceWeb, I[1]);
+  dart.setFieldSignature(reference_web.ReferenceWeb, () => ({
+    __proto__: dart.getFields(reference_web.ReferenceWeb.__proto__),
+    [__ReferenceWeb__ref]: dart.fieldType(dart.nullable(storage.StorageReference)),
+    [_cache]: dart.finalFieldType(metadata_cache.SettableMetadataCache),
+    [_path]: dart.finalFieldType(core.String)
+  }));
+  dart.defineLazy(reference_web, {
+    /*reference_web._storageUrlPrefix*/get _storageUrlPrefix() {
+      return core.RegExp.new("^(?:gs|https?):\\//");
+    }
   }, false);
-  dart.trackLibraries("packages/logafic/controllers/authController.dart", {
-    "package:logafic/controllers/authController.dart": authController
+  var webStorage$ = dart.privateName(firebase_storage_web, "FirebaseStorageWeb.webStorage");
+  var _maxDownloadRetryTime = dart.privateName(firebase_storage_web, "_maxDownloadRetryTime");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _maxOperationRetryTime = dart.privateName(firebase_storage_web, "_maxOperationRetryTime");
+  var _createReference = dart.privateName(firebase_storage_web, "_createReference");
+  firebase_storage_web.FirebaseStorageWeb = class FirebaseStorageWeb extends platform_interface_firebase_storage.FirebaseStoragePlatform {
+    get webStorage() {
+      return this[webStorage$];
+    }
+    set webStorage(value) {
+      super.webStorage = value;
+    }
+    static registerWith(registrar) {
+      platform_interface_firebase_storage.FirebaseStoragePlatform.instance = new firebase_storage_web.FirebaseStorageWeb._nullInstance();
+    }
+    delegateFor(opts) {
+      let app = opts && 'app' in opts ? opts.app : null;
+      let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+      return new firebase_storage_web.FirebaseStorageWeb.new({app: app, bucket: bucket});
+    }
+    get maxOperationRetryTime() {
+      return this[_maxOperationRetryTime];
+    }
+    get maxUploadRetryTime() {
+      return dart.nullCheck(this.webStorage).maxUploadRetryTime;
+    }
+    get maxDownloadRetryTime() {
+      return this[_maxDownloadRetryTime];
+    }
+    ref(path, opts) {
+      let refBuilder = opts && 'refBuilder' in opts ? opts.refBuilder : null;
+      return errors.guard(platform_interface_reference.ReferencePlatform, dart.fn(() => {
+        let t1;
+        let refBuilderFunction = (t1 = refBuilder, t1 == null ? dart.bind(this, _createReference) : t1);
+        let ref = refBuilderFunction(this, path);
+        return ref;
+      }, T.VoidToReferencePlatform()));
+    }
+    [_createReference](storage, path) {
+      return new reference_web.ReferenceWeb.new(storage, path);
+    }
+    setMaxOperationRetryTime(time) {
+      this[_maxOperationRetryTime] = time;
+      dart.nullCheck(this.webStorage).setMaxOperationRetryTime(time);
+    }
+    setMaxUploadRetryTime(time) {
+      dart.nullCheck(this.webStorage).setMaxUploadRetryTime(time);
+    }
+    setMaxDownloadRetryTime(time) {
+      this[_maxDownloadRetryTime] = time;
+    }
+    useEmulator(host, port) {
+      return async.async(dart.void, (function* useEmulator() {
+        errors.guard(dart.void, dart.fn(() => dart.nullCheck(this.webStorage).useEmulator(host, port), T.VoidTovoid()));
+      }).bind(this));
+    }
+  };
+  (firebase_storage_web.FirebaseStorageWeb.new = function(opts) {
+    let t1;
+    let app = opts && 'app' in opts ? opts.app : null;
+    let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+    this[_maxDownloadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    this[_maxOperationRetryTime] = (C[2] || CT.C2).inMilliseconds;
+    this[webStorage$] = storage.getStorageInstance(core$.app((t1 = app, t1 == null ? null : t1.name)), bucket);
+    firebase_storage_web.FirebaseStorageWeb.__proto__.new.call(this, {appInstance: app, bucket: bucket});
+    ;
+  }).prototype = firebase_storage_web.FirebaseStorageWeb.prototype;
+  (firebase_storage_web.FirebaseStorageWeb._nullInstance = function() {
+    this[_maxDownloadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    this[_maxOperationRetryTime] = (C[2] || CT.C2).inMilliseconds;
+    this[webStorage$] = null;
+    firebase_storage_web.FirebaseStorageWeb.__proto__.new.call(this, {bucket: ""});
+    ;
+  }).prototype = firebase_storage_web.FirebaseStorageWeb.prototype;
+  (firebase_storage_web.FirebaseStorageWeb.forMock = function(webStorage, opts) {
+    let bucket = opts && 'bucket' in opts ? opts.bucket : null;
+    let app = opts && 'app' in opts ? opts.app : null;
+    this[_maxDownloadRetryTime] = (C[1] || CT.C1).inMilliseconds;
+    this[_maxOperationRetryTime] = (C[2] || CT.C2).inMilliseconds;
+    this[webStorage$] = webStorage;
+    firebase_storage_web.FirebaseStorageWeb.__proto__.new.call(this, {appInstance: app, bucket: bucket});
+    ;
+  }).prototype = firebase_storage_web.FirebaseStorageWeb.prototype;
+  dart.addTypeTests(firebase_storage_web.FirebaseStorageWeb);
+  dart.addTypeCaches(firebase_storage_web.FirebaseStorageWeb);
+  dart.setMethodSignature(firebase_storage_web.FirebaseStorageWeb, () => ({
+    __proto__: dart.getMethods(firebase_storage_web.FirebaseStorageWeb.__proto__),
+    delegateFor: dart.fnType(platform_interface_firebase_storage.FirebaseStoragePlatform, [], {app: dart.nullable(firebase_core.FirebaseApp)}, {bucket: core.String}),
+    ref: dart.fnType(platform_interface_reference.ReferencePlatform, [core.String], {refBuilder: dart.nullable(dart.fnType(platform_interface_reference.ReferencePlatform, [firebase_storage_web.FirebaseStorageWeb, core.String]))}, {}),
+    [_createReference]: dart.fnType(platform_interface_reference.ReferencePlatform, [firebase_storage_web.FirebaseStorageWeb, core.String])
+  }));
+  dart.setLibraryUri(firebase_storage_web.FirebaseStorageWeb, I[2]);
+  dart.setFieldSignature(firebase_storage_web.FirebaseStorageWeb, () => ({
+    __proto__: dart.getFields(firebase_storage_web.FirebaseStorageWeb.__proto__),
+    webStorage: dart.finalFieldType(dart.nullable(storage.Storage)),
+    [_maxDownloadRetryTime]: dart.fieldType(core.int),
+    [_maxOperationRetryTime]: dart.fieldType(core.int)
+  }));
+  dart.trackLibraries("packages/firebase_storage_web/src/reference_web.dart", {
+    "package:firebase_storage_web/src/reference_web.dart": reference_web,
+    "package:firebase_storage_web/src/firebase_storage_web.dart": firebase_storage_web
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["authController.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/controllers/authController.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["reference_web.dart","firebase_storage_web.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/firebase_storage_web/src/reference_web.dart.lib.js"}');
   // Exports:
   return {
-    controllers__authController: authController
+    src__reference_web: reference_web,
+    src__firebase_storage_web: firebase_storage_web
   };
 }));
 
-//# sourceMappingURL=authController.dart.lib.js.map
+//# sourceMappingURL=reference_web.dart.lib.js.map

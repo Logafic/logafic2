@@ -49,7 +49,11 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           backgroundColor: Colors.transparent,
-          actions: <Widget>[ProfileActionBar()],
+          actions: <Widget>[
+            ProfileActionBar(
+              userProfileId: userId,
+            )
+          ],
         ),
         body: FutureBuilder<Map>(
             future: getUser(),
