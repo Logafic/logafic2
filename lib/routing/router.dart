@@ -25,9 +25,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case FirstRoute:
       return _getPageRoute(FirstScreenTopBarContents(), settings);
     case HomeRoute:
-      return authController.firebaseUser.value!.uid == ''
-          ? _getPageRoute(FirstScreenTopBarContents(), settings)
-          : _getPageRoute(HomePage(), settings);
+      return _getPageRoute(HomePage(), settings);
     case MessageRoute:
       return authController.firebaseUser.value!.uid == ''
           ? _getPageRoute(FirstScreenTopBarContents(), settings)

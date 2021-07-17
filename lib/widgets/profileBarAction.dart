@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 
 class ProfileActionBar extends StatelessWidget {
@@ -7,15 +9,9 @@ class ProfileActionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = AuthController.to;
     return Container(
         child: Row(children: [
-      IconButton(
-          icon: const Icon(
-            Icons.edit,
-            color: Colors.black,
-          ),
-          tooltip: 'Düzenle',
-          onPressed: () {}),
       IconButton(
           icon: const Icon(
             Icons.message_rounded,
@@ -67,7 +63,16 @@ class ProfileActionBar extends StatelessWidget {
               ),
             ),
             const PopupMenuDivider(),
-            PopupMenuItem(child: Text('Çıkış Yap')),
+            PopupMenuItem(
+              child: ListTile(
+                onTap: () async {
+                  await authController
+                      .signOut()
+                      .whenComplete(() => Get.offAllNamed(FirstRoute));
+                },
+                title: Text('Çıkış Yap'),
+              ),
+            ),
           ],
         )),
       ),

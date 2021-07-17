@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
@@ -14,6 +16,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final Stream<QuerySnapshot> _usersMessageStream =
       FirebaseFirestore.instance.collection('users').snapshots();
+
+  AuthController authController = AuthController.to;
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +163,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 const PopupMenuDivider(),
-                PopupMenuItem(child: Text('Çıkış Yap')),
+                PopupMenuItem(
+                  child: ListTile(
+                    onTap: () async {
+                      await authController
+                          .signOut()
+                          .whenComplete(() => Get.offAllNamed(FirstRoute));
+                    },
+                    title: Text('Çıkış Yap'),
+                  ),
+                ),
               ],
             )),
           ),

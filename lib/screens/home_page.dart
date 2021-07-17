@@ -9,6 +9,7 @@ import 'package:logafic/widgets/appBarHomePageWidget.dart';
 import 'package:logafic/widgets/explore_drawer.dart';
 import 'package:logafic/widgets/floating_quick_access_bar.dart';
 import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/showDialogPostImageUploadWidget.dart';
 import 'package:logafic/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/background.dart';
@@ -19,7 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isRank = false;
   final Stream<QuerySnapshot> _usersStreamCreatedAt = FirebaseFirestore.instance
       .collection('posts')
       .orderBy('created_at', descending: true)
@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
   AuthController authController = AuthController.to;
 
   final postController = TextEditingController();
-  bool isLoading = false;
   ScrollController? _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -95,66 +94,90 @@ class _HomePageState extends State<HomePage> {
                             width: MediaQuery.of(context).size.width * 6 / 10,
                             margin: EdgeInsets.only(top: 100),
                             child: Card(
-                              clipBehavior: Clip.antiAlias,
-                              color: Colors.white60,
-                              child: Column(
-                                children: [
-                                  ListTile(
-                                    leading: Icon(Icons.memory_rounded),
-                                    title: const Text(
-                                      'Bizimle bişeyler paylaş',
-                                      style: TextStyle(color: Colors.black),
+                                clipBehavior: Clip.antiAlias,
+                                color: Colors.white60,
+                                child: Column(
+                                  children: [
+                                    ListTile(
+                                      leading: Icon(Icons.memory_rounded),
+                                      title: const Text(
+                                        'Bizimle bişeyler paylaş',
+                                        style: TextStyle(color: Colors.black),
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Form(
-                                      child: Column(
+                                    Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: Row(
                                         children: <Widget>[
-                                          TextFormField(
-                                            controller: postController,
-                                            decoration: const InputDecoration(
-                                              icon: Icon(Icons.message),
-                                              hintText:
-                                                  'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
-                                            ),
-                                            minLines: 2,
-                                            maxLines: 4,
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return 'Lütfen boş bırakma null kalmasın.';
+                                          Expanded(
+                                            child: Form(
+                                                child: TextFormField(
+                                              controller: postController,
+                                              decoration: const InputDecoration(
+                                                icon: Icon(Icons.message),
+                                                hintText:
+                                                    'Bu textbox nasıl kullanman gerektiğini biliyorsun.',
+                                              ),
+                                              minLines: 2,
+                                              maxLines: 4,
+                                              keyboardType:
+                                                  TextInputType.multiline,
+                                              validator: (value) {
+                                                if (value!.isEmpty) {
+                                                  return 'Lütfen boş bırakma null kalmasın.';
+                                                }
+                                                return null;
+                                              },
+                                            )),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              try {
+                                                uploadImageShowDialog(context);
+
+                                                postController.clear();
+                                              } catch (Err) {
+                                                print(Err);
                                               }
-                                              return null;
                                             },
-                                          )
+                                            child: Container(
+                                              height: 40,
+                                              width: 40,
+                                              decoration: BoxDecoration(
+                                                color: Colors.blueAccent[100],
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              ),
+                                              child: Icon(
+                                                Icons.photo_library_outlined,
+                                                color: Colors.white,
+                                                size: 20,
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
-                                      autovalidateMode: AutovalidateMode.always,
                                     ),
-                                  ),
-                                  ButtonBar(
-                                    alignment: MainAxisAlignment.start,
-                                    children: [
-                                      ElevatedButton(
-                                        child: Text(
-                                          'Gönder',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16),
+                                    ButtonBar(
+                                      alignment: MainAxisAlignment.start,
+                                      children: [
+                                        ElevatedButton(
+                                          child: Text(
+                                            'Gönder',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16),
+                                          ),
+                                          onPressed: () async {
+                                            await Database()
+                                                .addPost(postController.text);
+                                            postController.clear();
+                                          },
                                         ),
-                                        onPressed: () async {
-                                          await Database()
-                                              .addPost(postController.text);
-                                          postController.clear();
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
+                                      ],
+                                    ),
+                                  ],
+                                )),
                           ),
                         ),
                       ],
@@ -201,180 +224,206 @@ class _HomePageState extends State<HomePage> {
                                                 arguments: {'id': document.id});
                                           },
                                           child: Card(
-                                            color: Colors.grey[50],
-                                            clipBehavior: Clip.antiAlias,
-                                            child: Column(
-                                              children: [
-                                                ListTile(
-                                                  leading: Image.network(
-                                                      data['userProfile']),
-                                                  title: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                              color: Colors.grey[50],
+                                              clipBehavior: Clip.antiAlias,
+                                              child: Column(
+                                                children: [
+                                                  ListTile(
+                                                    leading: Image.network(
+                                                        data['userProfile']),
+                                                    title: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextButton(
+                                                          child: Text(
+                                                            (data['userName']),
+                                                          ),
+                                                          onPressed: () {
+                                                            Navigator.pushNamed(
+                                                                context,
+                                                                ProfileRoute,
+                                                                arguments: {
+                                                                  'userId': data[
+                                                                      'userId']
+                                                                });
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    subtitle: Text(
+                                                        data['created_at']
+                                                            .toString()),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child:
+                                                        data['urlImage'] == ''
+                                                            ? Text(
+                                                                data['content'])
+                                                            : Column(children: [
+                                                                SizedBox(
+                                                                  height: MediaQuery.of(
+                                                                              context)
+                                                                          .size
+                                                                          .height *
+                                                                      0.3,
+                                                                  child: Image
+                                                                      .network(data[
+                                                                          'urlImage']),
+                                                                ),
+                                                                data['content'] !=
+                                                                        ''
+                                                                    ? Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.only(top: 20.0),
+                                                                        child: Text(
+                                                                            data['content']),
+                                                                      )
+                                                                    : Text('')
+                                                              ]),
+                                                  ),
+                                                  ButtonBar(
+                                                    alignment:
+                                                        MainAxisAlignment.start,
                                                     children: [
                                                       TextButton(
+                                                        onPressed: () {},
                                                         child: Text(
-                                                          (data['userName']),
+                                                          'Yorum Yap',
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .black54),
                                                         ),
-                                                        onPressed: () {
-                                                          Navigator.pushNamed(
-                                                              context,
-                                                              ProfileRoute,
-                                                              arguments: {
-                                                                'userId': data[
-                                                                    'userId']
-                                                              });
-                                                        },
                                                       ),
-                                                    ],
-                                                  ),
-                                                  subtitle: Text(
-                                                      data['created_at']
-                                                          .toString()),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(data['content']),
-                                                ),
-                                                ButtonBar(
-                                                  alignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: Text(
-                                                        'Yorum Yap',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black54),
+                                                      TextButton(
+                                                        onPressed: () {},
+                                                        child: Text(
+                                                          'Yorumlar',
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .black54),
+                                                        ),
                                                       ),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () {},
-                                                      child: Text(
-                                                        'Yorumlar',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black54),
-                                                      ),
-                                                    ),
-                                                    FutureBuilder(
-                                                      future: checkIfDocExists(
-                                                          '${document.id}'),
-                                                      builder:
-                                                          (BuildContext context,
-                                                              AsyncSnapshot
-                                                                  snapshot) {
-                                                        if (snapshot.data ==
-                                                            false) {
-                                                          return IconButton(
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .star_outline,
-                                                                color: Colors
-                                                                    .green,
-                                                              ),
-                                                              onPressed: () {
-                                                                likeRef
-                                                                    .doc(
-                                                                        '${document.id}')
-                                                                    .get()
-                                                                    .then(
-                                                                        (value) {
-                                                                  var like =
-                                                                      value.get(
-                                                                          'like');
-                                                                  print(like);
-                                                                  likeRef
-                                                                      .doc(
-                                                                          '${document.id}')
-                                                                      .update({
-                                                                    'like':
-                                                                        like + 1
-                                                                  });
-                                                                });
-
-                                                                likeRef
-                                                                    .doc(
-                                                                        '${document.id}')
-                                                                    .collection(
-                                                                        'likes')
-                                                                    .doc(
-                                                                        '${authController.firebaseUser.value!.uid}')
-                                                                    .set({
-                                                                  'like': true
-                                                                }).then((value) => addNotification(
-                                                                        data[
-                                                                            'userProfile'],
-                                                                        '${authController.firestoreUser.value!.userName}',
-                                                                        data[
-                                                                            'userId'],
-                                                                        authController
-                                                                            .firebaseUser
-                                                                            .value!
-                                                                            .uid));
-                                                              });
-                                                        } else {
-                                                          return IconButton(
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .star_outline,
-                                                                color: Colors
-                                                                    .amber,
-                                                              ),
-                                                              onPressed: () {
-                                                                likeRef
-                                                                    .doc(
-                                                                        '${document.id}')
-                                                                    .get()
-                                                                    .then(
-                                                                        (value) {
-                                                                  var like =
-                                                                      value.get(
-                                                                          'like');
-                                                                  print(like);
-                                                                  likeRef
-                                                                      .doc(
-                                                                          '${document.id}')
-                                                                      .update({
-                                                                    'like':
-                                                                        like - 1
-                                                                  });
-                                                                });
-                                                                likeRef
-                                                                    .doc(
-                                                                        '${document.id}')
-                                                                    .collection(
-                                                                        'likes')
-                                                                    .doc(
-                                                                        '${authController.firebaseUser.value!.uid}')
-                                                                    .delete();
-                                                              });
-                                                        }
-                                                      },
-                                                    ),
-                                                    FutureBuilder(
-                                                        future: getSize(
+                                                      FutureBuilder(
+                                                        future: checkIfDocExists(
                                                             '${document.id}'),
                                                         builder: (BuildContext
                                                                 context,
-                                                            AsyncSnapshot<int>
+                                                            AsyncSnapshot
                                                                 snapshot) {
-                                                          if (snapshot
-                                                              .hasData) {
-                                                            return Text(snapshot
-                                                                .data
-                                                                .toString());
+                                                          if (snapshot.data ==
+                                                              false) {
+                                                            return IconButton(
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .star_outline,
+                                                                  color: Colors
+                                                                      .green,
+                                                                ),
+                                                                onPressed: () {
+                                                                  likeRef
+                                                                      .doc(
+                                                                          '${document.id}')
+                                                                      .get()
+                                                                      .then(
+                                                                          (value) {
+                                                                    var like =
+                                                                        value.get(
+                                                                            'like');
+                                                                    print(like);
+                                                                    likeRef
+                                                                        .doc(
+                                                                            '${document.id}')
+                                                                        .update({
+                                                                      'like':
+                                                                          like +
+                                                                              1
+                                                                    });
+                                                                  });
+
+                                                                  likeRef
+                                                                      .doc(
+                                                                          '${document.id}')
+                                                                      .collection(
+                                                                          'likes')
+                                                                      .doc(
+                                                                          '${authController.firebaseUser.value!.uid}')
+                                                                      .set({
+                                                                    'like': true
+                                                                  }).then((value) => addNotification(
+                                                                          data[
+                                                                              'userProfile'],
+                                                                          '${authController.firestoreUser.value!.userName}',
+                                                                          data[
+                                                                              'userId'],
+                                                                          authController
+                                                                              .firebaseUser
+                                                                              .value!
+                                                                              .uid));
+                                                                });
+                                                          } else {
+                                                            return IconButton(
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .star_outline,
+                                                                  color: Colors
+                                                                      .amber,
+                                                                ),
+                                                                onPressed: () {
+                                                                  likeRef
+                                                                      .doc(
+                                                                          '${document.id}')
+                                                                      .get()
+                                                                      .then(
+                                                                          (value) {
+                                                                    var like =
+                                                                        value.get(
+                                                                            'like');
+                                                                    print(like);
+                                                                    likeRef
+                                                                        .doc(
+                                                                            '${document.id}')
+                                                                        .update({
+                                                                      'like':
+                                                                          like -
+                                                                              1
+                                                                    });
+                                                                  });
+                                                                  likeRef
+                                                                      .doc(
+                                                                          '${document.id}')
+                                                                      .collection(
+                                                                          'likes')
+                                                                      .doc(
+                                                                          '${authController.firebaseUser.value!.uid}')
+                                                                      .delete();
+                                                                });
                                                           }
-                                                          return Text('0');
-                                                        }),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ),
+                                                        },
+                                                      ),
+                                                      FutureBuilder(
+                                                          future: getSize(
+                                                              '${document.id}'),
+                                                          builder: (BuildContext
+                                                                  context,
+                                                              AsyncSnapshot<int>
+                                                                  snapshot) {
+                                                            if (snapshot
+                                                                .hasData) {
+                                                              return Text(snapshot
+                                                                  .data
+                                                                  .toString());
+                                                            }
+                                                            return Text('0');
+                                                          }),
+                                                    ],
+                                                  )
+                                                ],
+                                              )),
                                         )));
                               }).toList(),
                             );

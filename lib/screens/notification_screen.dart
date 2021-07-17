@@ -62,7 +62,9 @@ class NotificationScreen extends StatelessWidget {
                 PopupMenuItem(
                   child: ListTile(
                     onTap: () {
-                      Navigator.pushNamed(context, ProfileRoute);
+                      Navigator.pushNamed(context, ProfileRoute, arguments: {
+                        'userId': authController.firebaseUser.value!.uid
+                      });
                     },
                     leading: Icon(Icons.reorder),
                     title: Text('Profilim'),
@@ -87,7 +89,16 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
                 const PopupMenuDivider(),
-                PopupMenuItem(child: Text('Çıkış Yap')),
+                PopupMenuItem(
+                  child: ListTile(
+                    onTap: () async {
+                      await authController
+                          .signOut()
+                          .whenComplete(() => Get.offAllNamed(FirstRoute));
+                    },
+                    title: Text('Çıkış Yap'),
+                  ),
+                ),
               ],
             )),
           ),

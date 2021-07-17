@@ -28,24 +28,22 @@ enum UploadType {
 class _UpdateUserInformationState extends State<UpdateUserInformation> {
   AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   TextEditingController dateCtl = TextEditingController();
-
-  final FocusNode _emailFocusNode = FocusNode();
-
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-
   DateTime? dateTime;
   PickedFile? _fileProfileImage;
   PickedFile? _fileBannerImage;
+  bool isLoading = false;
 
   /// Enum representing the upload task types the example app supports.
 
   final ImagePicker _picker = ImagePicker();
 
-  String dropdownCity = 'Şehir';
-  String dropdownGender = 'Cinsiyet';
-  String _birthday = '';
+  String? dropdownCity;
+  String? dropdownGender;
+  String? _birthday;
+  String? urlProfileImage;
+  String? urlBannerImage;
   TextEditingController _userName = TextEditingController();
   TextEditingController _university = TextEditingController();
   TextEditingController _department = TextEditingController();
@@ -57,6 +55,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
 
   void dispose() {
     _userName.dispose();
+
     _university.dispose();
     _department.dispose();
     _webSite.dispose();
@@ -86,6 +85,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                   color: Colors.white,
                 ),
                 onPressed: () {
+                  // ÇIkmak istediğinize emin misiniz diye sorsun.
                   Navigator.pop(context);
                 },
               );
@@ -160,13 +160,16 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
-            _userName.text = data['userName'] ?? '';
-            _university.text = data['universty'] ?? '';
-            _department.text = data['department'] ?? '';
-            _biography.text = data['biograpfy'] ?? '';
-            _birthday = data['birtday'] ?? '';
-            dropdownCity = data['city'] ?? '';
-            dropdownGender = data['gender'] ?? '';
+            urlProfileImage = data['userProfileImage'];
+            urlBannerImage = data['userBackImage'];
+            _userName.text = data['userName'];
+            _university.text = data['universty'];
+            _department.text = data['department'];
+            _biography.text = data['biograpfy'];
+            _birthday = data['birtday'];
+            dropdownCity = data['city'];
+            dropdownGender = data['gender'];
+            dateCtl.text = data['birtday'];
 
             return Form(
               key: _formKey,
@@ -193,8 +196,11 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 _fileProfileImage == null
-                                    ? Text(
-                                        'Profile fotoğrafını değiştirmek ister misin?..')
+                                    ? SizedBox(
+                                        width: 200,
+                                        height: 200,
+                                        child: Image.network(urlProfileImage!),
+                                      )
                                     : Center(
                                         child: SizedBox(
                                             height: MediaQuery.of(context)
@@ -234,8 +240,11 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   _fileBannerImage == null
-                                      ? Text(
-                                          'Arka plan fotoğrafını değiştirmek ister misin?')
+                                      ? SizedBox(
+                                          width: 200,
+                                          height: 200,
+                                          child: Image.network(urlBannerImage!),
+                                        )
                                       : Center(
                                           child: SizedBox(
                                               height: MediaQuery.of(context)
@@ -260,22 +269,19 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                       Padding(
                         padding: EdgeInsets.all(3),
                         child: TextFormField(
+                          enabled: false,
                           controller: _userName,
                           decoration:
                               InputDecoration(labelText: 'Kullanıcı Adınız'),
-                          validator: _validateEmptyString,
-                          focusNode: _emailFocusNode,
                         ),
                       ),
                       TextFormField(
                         controller: _university,
                         decoration: InputDecoration(labelText: 'Üniversite'),
-                        validator: _validateEmptyString,
                       ),
                       TextFormField(
                         controller: _department,
                         decoration: InputDecoration(labelText: 'Bölüm'),
-                        validator: _validateEmptyString,
                       ),
                       _dropdownGender,
                       _dropdownCity,
@@ -300,13 +306,11 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                         decoration: InputDecoration(
                           labelText: "Doğum tarihi",
                         ),
-                        validator: _validateEmptyString,
                         onTap: () async {
                           try {
                             DateTime? date = DateTime(1900);
                             FocusScope.of(context)
                                 .requestFocus(new FocusNode());
-
                             date = await showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
@@ -331,19 +335,30 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                       Padding(
                         padding: EdgeInsets.only(top: 25, bottom: 25),
                         child: ElevatedButton.icon(
-                          icon: Icon(Icons.save_alt_outlined, size: 18),
-                          label: Text("GÜNCELLE"),
-                          onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
+                            icon: Icon(Icons.save_alt_outlined, size: 18),
+                            label: Text("GÜNCELLE"),
+                            onPressed: () async {
                               if (authController
                                   .firebaseUser.value!.uid.isNotEmpty) {
-                                // String profileRef = await uploadFile(
-                                //     _fileProfileImage!, 'profile');
-                                // Duration(seconds: 1);
-                                // String bannerRef = await uploadFile(
-                                //     _fileBannerImage!, 'banner');
-                                // Duration(seconds: 1);
                                 UserProfile? userProfile = UserProfile();
+                                if (_fileProfileImage != null) {
+                                  String profileRef = await uploadFile(
+                                      _fileProfileImage!, 'profile');
+                                  userProfile.userProfileImage = profileRef;
+                                } else {
+                                  userProfile.userProfileImage = urlBannerImage;
+                                }
+                                Duration(seconds: 1);
+                                if (_fileBannerImage != null) {
+                                  String bannerRef = await uploadFile(
+                                      _fileBannerImage!, 'banner');
+                                  userProfile.userBackImage = bannerRef;
+                                } else {
+                                  userProfile.userBackImage = urlBannerImage;
+                                }
+                                Duration(seconds: 1);
+                                userProfile.userEmail = data['email'];
+                                userProfile.userId = data['userId'];
                                 userProfile.userName = _userName.value.text;
                                 userProfile.universty = _university.value.text;
                                 userProfile.department = _department.value.text;
@@ -355,21 +370,27 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                 userProfile.instagram = _instagram.value.text;
                                 userProfile.birtday = _birthday;
                                 userProfile.biograpfy = _biography.value.text;
+                                isLoading = true;
 
                                 firestore
                                     .collection('users')
                                     .doc(widget.userId)
-                                    .update(userProfile.toJson());
-                                Navigator.pushNamed(context, ProfileRoute,
-                                    arguments: {'userId': widget.userId});
+                                    .update(userProfile.toJson())
+                                    .then((value) {
+                                  isLoading
+                                      ? Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : Navigator.pushNamed(
+                                          context, ProfileRoute,
+                                          arguments: {'userId': widget.userId});
+                                });
                               } else {
                                 Center(
                                   child: CircularProgressIndicator(),
                                 );
                               }
-                            }
-                          },
-                        ),
+                            }),
                       ),
                     ],
                   ),
@@ -382,13 +403,6 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
             );
           }
         });
-  }
-
-  String? _validateEmptyString(String? email) {
-    RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    if (email!.isEmpty || !regex.hasMatch(email))
-      _emailFocusNode.requestFocus();
-    if (email.isEmpty) return 'Bu alanı boş bırakamazsınız.';
   }
 
   Future<String> uploadFile(PickedFile file, String imageName) async {

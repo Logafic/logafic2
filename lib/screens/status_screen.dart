@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/menubaraction.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 // ignore: must_be_immutable
 class StatusScreen extends StatelessWidget {
@@ -60,7 +61,9 @@ class StatusScreen extends StatelessWidget {
               snapshot.data!.data() as Map<String, dynamic>;
           return Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.6,
+              width: ResponsiveWidget.isSmallScreen(context)
+                  ? MediaQuery.of(context).size.width * 0.8
+                  : MediaQuery.of(context).size.width * 0.6,
               child: Card(
                   child: Padding(
                 padding: EdgeInsets.all(20),

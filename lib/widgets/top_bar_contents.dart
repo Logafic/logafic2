@@ -186,7 +186,10 @@ class _TopBarContentsState extends State<TopBarContents> {
                       PopupMenuItem(
                         child: ListTile(
                           onTap: () {
-                            Navigator.pushNamed(context, ProfileRoute);
+                            Navigator.pushNamed(
+                                context, ProfileRoute, arguments: {
+                              'userId': authController.firebaseUser.value!.uid
+                            });
                           },
                           leading: Icon(Icons.reorder),
                           title: Text('Profilim'),

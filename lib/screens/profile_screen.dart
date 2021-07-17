@@ -75,8 +75,7 @@ class ProfileScreen extends StatelessWidget {
                                     width: 200,
                                     height: 200,
                                     child: Image.network(
-                                        snapshot.data['userBackImage'] ??
-                                            'https://picsum.photos/600'),
+                                        snapshot.data['userBackImage']),
                                   )),
                             ],
                           ),
@@ -114,8 +113,7 @@ class ProfileScreen extends StatelessWidget {
                                           child: Card(
                                             color: Colors.grey,
                                             child: Image.network(snapshot
-                                                    .data['userProfileImage'] ??
-                                                'https://picsum.photos/600/200'),
+                                                .data['userProfileImage']),
                                           ),
                                         ),
                                         Padding(
@@ -248,8 +246,7 @@ class ProfileScreen extends StatelessWidget {
                                       height: 100,
                                       child: Image(
                                           image: NetworkImage(snapshot
-                                                  .data['userProfileImage'] ??
-                                              'https://picsum.photos/200')),
+                                              .data['userProfileImage'])),
                                     )),
                                 Padding(
                                   padding: EdgeInsets.only(bottom: 8),
@@ -405,8 +402,32 @@ class ProfileScreen extends StatelessWidget {
                                         : Text('')),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                      snapshot.data.docs[index]['content']),
+                                  child: snapshot.data.docs[index]
+                                              ['urlImage'] ==
+                                          ''
+                                      ? Text(
+                                          snapshot.data.docs[index]['content'])
+                                      : Column(children: [
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.3,
+                                            child: Image.network(snapshot
+                                                .data.docs[index]['urlImage']),
+                                          ),
+                                          snapshot.data.docs[index]
+                                                      ['content'] !=
+                                                  ''
+                                              ? Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 20.0),
+                                                  child: Text(snapshot.data
+                                                      .docs[index]['content']),
+                                                )
+                                              : Text('')
+                                        ]),
                                 ),
                                 ButtonBar(
                                   alignment: MainAxisAlignment.start,
