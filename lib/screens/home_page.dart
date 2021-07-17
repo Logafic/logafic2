@@ -218,7 +218,6 @@ class _HomePageState extends State<HomePage> {
                                                 0.7,
                                         child: GestureDetector(
                                           onTap: () {
-                                            print(document.id);
                                             Navigator.pushNamed(
                                                 context, StatusRoute,
                                                 arguments: {'id': document.id});

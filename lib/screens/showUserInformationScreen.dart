@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// ignore: must_be_immutable
 class ShowFullUserInformationScreen extends StatelessWidget {
   final String userId;
   ShowFullUserInformationScreen({Key? key, required this.userId})

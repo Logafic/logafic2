@@ -1,295 +1,357 @@
-define(['dart_sdk', 'packages/collection/src/utils.dart'], (function load__packages__collection__src__algorithms_dart(dart_sdk, packages__collection__src__utils$46dart) {
+define(['dart_sdk', 'packages/clock/src/utils.dart'], (function load__packages__clock__src__stopwatch_dart(dart_sdk, packages__clock__src__utils$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const utils = packages__collection__src__utils$46dart.src__utils;
-  var algorithms = Object.create(dart.library);
-  var $length = dartx.length;
-  var $rightShift = dartx['>>'];
-  var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $setRange = dartx.setRange;
+  const utils = packages__clock__src__utils$46dart.src__utils;
+  var stopwatch = Object.create(dart.library);
+  var clock = Object.create(dart.library);
+  var $default = Object.create(dart.library);
+  var clock$ = Object.create(dart.library);
+  var $truncate = dartx.truncate;
+  var $noSuchMethod = dartx.noSuchMethod;
+  var $modulo = dartx['%'];
   dart._checkModuleNullSafetyMode(true);
   var T$ = {
+    intN: () => (T$.intN = dart.constFn(dart.nullable(core.int)))(),
+    VoidToDateTime: () => (T$.VoidToDateTime = dart.constFn(dart.fnType(core.DateTime, [])))(),
     ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    ObjectNAndObjectNToint: () => (T$.ObjectNAndObjectNToint = dart.constFn(dart.fnType(core.int, [T$.ObjectN(), T$.ObjectN()])))(),
-    TToT: () => (T$.TToT = dart.constFn(dart.gFnType(T => [T, [T]], T => [T$.ObjectN()])))()
+    LinkedMapOfObjectN$ObjectN: () => (T$.LinkedMapOfObjectN$ObjectN = dart.constFn(_js_helper.LinkedMap$(T$.ObjectN(), T$.ObjectN())))(),
+    ClockN: () => (T$.ClockN = dart.constFn(dart.nullable(clock.Clock)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(utils.defaultCompare, T$.ObjectNAndObjectNToint());
+      return C[0] = dart.const(new _js_helper.PrivateSymbol.new('_stop', _stop));
     },
     get C1() {
-      return C[1] = dart.fn(utils.identity, T$.TToT());
+      return C[1] = dart.const(new _js_helper.PrivateSymbol.new('_start', _start$));
+    },
+    get C2() {
+      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_stop=', _stop_));
+    },
+    get C3() {
+      return C[3] = dart.const(new _js_helper.PrivateSymbol.new('_start=', _start_));
+    },
+    get C4() {
+      return C[4] = dart.fn(clock$.systemTime, T$.VoidToDateTime());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: clock.Clock.prototype,
+        [_time]: C[4] || CT.C4
+      });
     }
   }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/src/algorithms.dart"];
-  algorithms.binarySearch = function binarySearch(E, sortedList, value, opts) {
-    let compare = opts && 'compare' in opts ? opts.compare : null;
-    compare == null ? compare = C[0] || CT.C0 : null;
-    return algorithms.binarySearchBy(E, E, sortedList, dart.gbind(C[1] || CT.C1, E), compare, value);
-  };
-  algorithms.binarySearchBy = function binarySearchBy(E, K, sortedList, keyOf, compare, value, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, sortedList[$length]);
-    let min = start;
-    let max = end;
-    let key = keyOf(value);
-    while (min < max) {
-      let mid = min + (max - min)[$rightShift](1);
-      let element = sortedList[$_get](mid);
-      let comp = compare(keyOf(element), key);
-      if (comp === 0) return mid;
-      if (comp < 0) {
-        min = mid + 1;
-      } else {
-        max = mid;
-      }
+  var C = Array(6).fill(void 0);
+  var I = [
+    "package:clock/src/stopwatch.dart",
+    "package:clock/src/clock.dart"
+  ];
+  var _start = dart.privateName(stopwatch, "ClockStopwatch._start");
+  var _elapsed = dart.privateName(stopwatch, "_elapsed");
+  var _clock$ = dart.privateName(stopwatch, "_clock");
+  var _start$ = dart.privateName(stopwatch, "_start");
+  var _stop = dart.privateName(stopwatch, "_stop");
+  var _stop$ = dart.privateName(core, "_stop");
+  var _start$0 = dart.privateName(core, "_start");
+  var _stop_ = dart.privateName(stopwatch, "_stop=");
+  var _start_ = dart.privateName(stopwatch, "_start=");
+  stopwatch.ClockStopwatch = class ClockStopwatch extends core.Object {
+    get [_start$]() {
+      return this[_start];
     }
-    return -1;
-  };
-  algorithms.lowerBound = function lowerBound(E, sortedList, value, opts) {
-    let compare = opts && 'compare' in opts ? opts.compare : null;
-    compare == null ? compare = C[0] || CT.C0 : null;
-    return algorithms.lowerBoundBy(E, E, sortedList, dart.gbind(C[1] || CT.C1, E), compare, value);
-  };
-  algorithms.lowerBoundBy = function lowerBoundBy(E, K, sortedList, keyOf, compare, value, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, sortedList[$length]);
-    let min = start;
-    let max = end;
-    let key = keyOf(value);
-    while (min < max) {
-      let mid = min + (max - min)[$rightShift](1);
-      let element = sortedList[$_get](mid);
-      let comp = compare(keyOf(element), key);
-      if (comp < 0) {
-        min = mid + 1;
-      } else {
-        max = mid;
-      }
+    set [_start$](value) {
+      this[_start] = value;
     }
-    return min;
-  };
-  algorithms.shuffle = function shuffle(elements, start = 0, end = null, random = null) {
-    random == null ? random = math.Random.new() : null;
-    end == null ? end = elements[$length] : null;
-    let length = dart.notNull(end) - start;
-    while (length > 1) {
-      let pos = random.nextInt(length);
-      length = length - 1;
-      let tmp1 = elements[$_get](start + pos);
-      elements[$_set](start + pos, elements[$_get](start + length));
-      elements[$_set](start + length, tmp1);
+    get frequency() {
+      return stopwatch._frequency;
     }
-  };
-  algorithms.reverse = function reverse(E, elements, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, elements[$length]);
-    algorithms._reverse(E, elements, start, end);
-  };
-  algorithms._reverse = function _reverse(E, elements, start, end) {
-    for (let i = start, j = end - 1; i < j; i = i + 1, j = j - 1) {
-      let tmp = elements[$_get](i);
-      elements[$_set](i, elements[$_get](j));
-      elements[$_set](j, tmp);
+    get elapsedTicks() {
+      return (this.elapsedMicroseconds * this.frequency / 1000000)[$truncate]();
+    }
+    get elapsed() {
+      return new core.Duration.new({microseconds: this.elapsedMicroseconds});
+    }
+    get elapsedMilliseconds() {
+      return (this.elapsedMicroseconds / 1000)[$truncate]();
+    }
+    get isRunning() {
+      return this[_start$] != null;
+    }
+    get elapsedMicroseconds() {
+      return this[_elapsed] + (this[_start$] == null ? 0 : this[_clock$].now().difference(dart.nullCheck(this[_start$])).inMicroseconds);
+    }
+    start() {
+      this[_start$] == null ? this[_start$] = this[_clock$].now() : null;
+    }
+    stop() {
+      this[_elapsed] = this.elapsedMicroseconds;
+      this[_start$] = null;
+    }
+    reset() {
+      this[_elapsed] = 0;
+      if (this[_start$] != null) this[_start$] = this[_clock$].now();
+    }
+    get [_stop$]() {
+      return T$.intN().as(this[$noSuchMethod](new core._Invocation.getter(C[0] || CT.C0)));
+    }
+    get [_start$0]() {
+      return core.int.as(this[$noSuchMethod](new core._Invocation.getter(C[1] || CT.C1)));
+    }
+    set [_stop$](value) {
+      return this[$noSuchMethod](new core._Invocation.setter(C[2] || CT.C2, value));
+    }
+    set [_start$0](value) {
+      return this[$noSuchMethod](new core._Invocation.setter(C[3] || CT.C3, value));
     }
   };
-  algorithms.insertionSort = function insertionSort(E, elements, opts) {
-    let compare = opts && 'compare' in opts ? opts.compare : null;
-    let start = opts && 'start' in opts ? opts.start : 0;
-    let end = opts && 'end' in opts ? opts.end : null;
-    compare == null ? compare = C[0] || CT.C0 : null;
-    end == null ? end = elements[$length] : null;
-    for (let pos = start + 1; pos < dart.notNull(end); pos = pos + 1) {
-      let min = start;
-      let max = pos;
-      let element = elements[$_get](pos);
-      while (min < max) {
-        let mid = min + (max - min)[$rightShift](1);
-        let comparison = compare(element, elements[$_get](mid));
-        if (comparison < 0) {
-          max = mid;
-        } else {
-          min = mid + 1;
-        }
-      }
-      elements[$setRange](min + 1, pos + 1, elements, min);
-      elements[$_set](min, element);
-    }
-  };
-  algorithms.insertionSortBy = function insertionSortBy(E, K, elements, keyOf, compare, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, elements[$length]);
-    algorithms._movingInsertionSort(E, K, elements, keyOf, compare, start, end, elements, start);
-  };
-  algorithms.mergeSort = function mergeSort(E, elements, opts) {
-    let start = opts && 'start' in opts ? opts.start : 0;
-    let end = opts && 'end' in opts ? opts.end : null;
-    let compare = opts && 'compare' in opts ? opts.compare : null;
-    end = core.RangeError.checkValidRange(start, end, elements[$length]);
-    compare == null ? compare = C[0] || CT.C0 : null;
-    let length = dart.notNull(end) - start;
-    if (length < 2) return;
-    if (length < 32) {
-      algorithms.insertionSort(E, elements, {compare: compare, start: start, end: end});
-      return;
-    }
-    let firstLength = (dart.notNull(end) - start)[$rightShift](1);
-    let middle = start + firstLength;
-    let secondLength = dart.notNull(end) - middle;
-    let scratchSpace = core.List$(E).filled(secondLength, elements[$_get](start));
-    let id = dart.gbind(C[1] || CT.C1, E);
-    algorithms._mergeSort(E, E, elements, id, compare, middle, end, scratchSpace, 0);
-    let firstTarget = dart.notNull(end) - firstLength;
-    algorithms._mergeSort(E, E, elements, id, compare, start, middle, elements, firstTarget);
-    algorithms._merge(E, E, id, compare, elements, firstTarget, end, scratchSpace, 0, secondLength, elements, start);
-  };
-  algorithms.mergeSortBy = function mergeSortBy(E, K, elements, keyOf, compare, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, elements[$length]);
-    let length = dart.notNull(end) - start;
-    if (length < 2) return;
-    if (length < 32) {
-      algorithms._movingInsertionSort(E, K, elements, keyOf, compare, start, end, elements, start);
-      return;
-    }
-    let middle = start + length[$rightShift](1);
-    let firstLength = middle - start;
-    let secondLength = dart.notNull(end) - middle;
-    let scratchSpace = core.List$(E).filled(secondLength, elements[$_get](start));
-    algorithms._mergeSort(E, K, elements, keyOf, compare, middle, end, scratchSpace, 0);
-    let firstTarget = dart.notNull(end) - firstLength;
-    algorithms._mergeSort(E, K, elements, keyOf, compare, start, middle, elements, firstTarget);
-    algorithms._merge(E, K, keyOf, compare, elements, firstTarget, end, scratchSpace, 0, secondLength, elements, start);
-  };
-  algorithms._movingInsertionSort = function _movingInsertionSort(E, K, list, keyOf, compare, start, end, target, targetOffset) {
-    let length = end - start;
-    if (length === 0) return;
-    target[$_set](targetOffset, list[$_get](start));
-    for (let i = 1; i < length; i = i + 1) {
-      let element = list[$_get](start + i);
-      let elementKey = keyOf(element);
-      let min = targetOffset;
-      let max = targetOffset + i;
-      while (min < max) {
-        let mid = min + (max - min)[$rightShift](1);
-        if (compare(elementKey, keyOf(target[$_get](mid))) < 0) {
-          max = mid;
-        } else {
-          min = mid + 1;
-        }
-      }
-      target[$setRange](min + 1, targetOffset + i + 1, target, min);
-      target[$_set](min, element);
-    }
-  };
-  algorithms._mergeSort = function _mergeSort(E, K, elements, keyOf, compare, start, end, target, targetOffset) {
-    let length = end - start;
-    if (length < 32) {
-      algorithms._movingInsertionSort(E, K, elements, keyOf, compare, start, end, target, targetOffset);
-      return;
-    }
-    let middle = start + length[$rightShift](1);
-    let firstLength = middle - start;
-    let secondLength = end - middle;
-    let targetMiddle = targetOffset + firstLength;
-    algorithms._mergeSort(E, K, elements, keyOf, compare, middle, end, target, targetMiddle);
-    algorithms._mergeSort(E, K, elements, keyOf, compare, start, middle, elements, middle);
-    algorithms._merge(E, K, keyOf, compare, elements, middle, middle + firstLength, target, targetMiddle, targetMiddle + secondLength, target, targetOffset);
-  };
-  algorithms._merge = function _merge(E, K, keyOf, compare, firstList, firstStart, firstEnd, secondList, secondStart, secondEnd, target, targetOffset) {
-    let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5;
-    if (!(firstStart < firstEnd)) dart.assertFailed(null, I[0], 363, 10, "firstStart < firstEnd");
-    if (!(secondStart < secondEnd)) dart.assertFailed(null, I[0], 364, 10, "secondStart < secondEnd");
-    let cursor1 = firstStart;
-    let cursor2 = secondStart;
-    let firstElement = firstList[$_get]((t0 = cursor1, cursor1 = t0 + 1, t0));
-    let firstKey = keyOf(firstElement);
-    let secondElement = secondList[$_get]((t0$ = cursor2, cursor2 = t0$ + 1, t0$));
-    let secondKey = keyOf(secondElement);
-    while (true) {
-      if (compare(firstKey, secondKey) <= 0) {
-        target[$_set]((t0$0 = targetOffset, targetOffset = t0$0 + 1, t0$0), firstElement);
-        if (cursor1 === firstEnd) break;
-        firstElement = firstList[$_get]((t0$1 = cursor1, cursor1 = t0$1 + 1, t0$1));
-        firstKey = keyOf(firstElement);
-      } else {
-        target[$_set]((t0$2 = targetOffset, targetOffset = t0$2 + 1, t0$2), secondElement);
-        if (cursor2 !== secondEnd) {
-          secondElement = secondList[$_get]((t0$3 = cursor2, cursor2 = t0$3 + 1, t0$3));
-          secondKey = keyOf(secondElement);
-          continue;
-        }
-        target[$_set]((t0$4 = targetOffset, targetOffset = t0$4 + 1, t0$4), firstElement);
-        target[$setRange](targetOffset, targetOffset + (firstEnd - cursor1), firstList, cursor1);
-        return;
-      }
-    }
-    target[$_set]((t0$5 = targetOffset, targetOffset = t0$5 + 1, t0$5), secondElement);
-    target[$setRange](targetOffset, targetOffset + (secondEnd - cursor2), secondList, cursor2);
-  };
-  algorithms.quickSort = function quickSort(E, elements, compare, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, elements[$length]);
-    algorithms._quickSort(E, E, elements, dart.gbind(C[1] || CT.C1, E), compare, math.Random.new(), start, end);
-  };
-  algorithms.quickSortBy = function quickSortBy(E, K, list, keyOf, compare, start = 0, end = null) {
-    end = core.RangeError.checkValidRange(start, end, list[$length]);
-    algorithms._quickSort(E, K, list, keyOf, compare, math.Random.new(), start, end);
-  };
-  algorithms._quickSort = function _quickSort(E, K, list, keyOf, compare, random, start, end) {
-    let length = end - start;
-    while (length >= 24) {
-      let pivotIndex = random.nextInt(length) + start;
-      let pivot = list[$_get](pivotIndex);
-      let pivotKey = keyOf(pivot);
-      let endSmaller = start;
-      let startGreater = end;
-      let startPivots = end - 1;
-      list[$_set](pivotIndex, list[$_get](startPivots));
-      list[$_set](startPivots, pivot);
-      while (endSmaller < startPivots) {
-        let current = list[$_get](endSmaller);
-        let relation = compare(keyOf(current), pivotKey);
-        if (relation < 0) {
-          endSmaller = endSmaller + 1;
-        } else {
-          startPivots = startPivots - 1;
-          let currentTarget = startPivots;
-          list[$_set](endSmaller, list[$_get](startPivots));
-          if (relation > 0) {
-            startGreater = startGreater - 1;
-            currentTarget = startGreater;
-            list[$_set](startPivots, list[$_get](startGreater));
-          }
-          list[$_set](currentTarget, current);
-        }
-      }
-      if (endSmaller - start < end - startGreater) {
-        algorithms._quickSort(E, K, list, keyOf, compare, random, start, endSmaller);
-        start = startGreater;
-      } else {
-        algorithms._quickSort(E, K, list, keyOf, compare, random, startGreater, end);
-        end = endSmaller;
-      }
-      length = end - start;
-    }
-    algorithms._movingInsertionSort(E, K, list, keyOf, compare, start, end, list, start);
-  };
-  dart.defineLazy(algorithms, {
-    /*algorithms._mergeSortLimit*/get _mergeSortLimit() {
-      return 32;
+  (stopwatch.ClockStopwatch.new = function(_clock) {
+    this[_elapsed] = 0;
+    this[_start] = null;
+    this[_clock$] = _clock;
+    ;
+  }).prototype = stopwatch.ClockStopwatch.prototype;
+  dart.addTypeTests(stopwatch.ClockStopwatch);
+  dart.addTypeCaches(stopwatch.ClockStopwatch);
+  stopwatch.ClockStopwatch[dart.implements] = () => [core.Stopwatch];
+  dart.setMethodSignature(stopwatch.ClockStopwatch, () => ({
+    __proto__: dart.getMethods(stopwatch.ClockStopwatch.__proto__),
+    start: dart.fnType(dart.void, []),
+    stop: dart.fnType(dart.void, []),
+    reset: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(stopwatch.ClockStopwatch, () => ({
+    __proto__: dart.getGetters(stopwatch.ClockStopwatch.__proto__),
+    frequency: core.int,
+    elapsedTicks: core.int,
+    elapsed: core.Duration,
+    elapsedMilliseconds: core.int,
+    isRunning: core.bool,
+    elapsedMicroseconds: core.int,
+    [_stop$]: dart.nullable(core.int),
+    [_start$0]: core.int
+  }));
+  dart.setSetterSignature(stopwatch.ClockStopwatch, () => ({
+    __proto__: dart.getSetters(stopwatch.ClockStopwatch.__proto__),
+    [_stop$]: dart.nullable(core.int),
+    [_start$0]: core.int
+  }));
+  dart.setLibraryUri(stopwatch.ClockStopwatch, I[0]);
+  dart.setFieldSignature(stopwatch.ClockStopwatch, () => ({
+    __proto__: dart.getFields(stopwatch.ClockStopwatch.__proto__),
+    [_clock$]: dart.finalFieldType(clock.Clock),
+    [_elapsed]: dart.fieldType(core.int),
+    [_start$]: dart.fieldType(dart.nullable(core.DateTime))
+  }));
+  dart.defineLazy(stopwatch, {
+    /*stopwatch._frequency*/get _frequency() {
+      return new core.Stopwatch.new().frequency;
     }
   }, false);
-  dart.trackLibraries("packages/collection/src/algorithms.dart", {
-    "package:collection/src/algorithms.dart": algorithms
+  var _time = dart.privateName(clock, "Clock._time");
+  var _time$ = dart.privateName(clock, "_time");
+  clock.Clock = class Clock extends core.Object {
+    get [_time$]() {
+      return this[_time];
+    }
+    set [_time$](value) {
+      super[_time$] = value;
+    }
+    now() {
+      return this[_time$]();
+    }
+    agoBy(duration) {
+      return this.now().subtract(duration);
+    }
+    fromNowBy(duration) {
+      return this.now().add(duration);
+    }
+    ago(opts) {
+      let days = opts && 'days' in opts ? opts.days : 0;
+      let hours = opts && 'hours' in opts ? opts.hours : 0;
+      let minutes = opts && 'minutes' in opts ? opts.minutes : 0;
+      let seconds = opts && 'seconds' in opts ? opts.seconds : 0;
+      let milliseconds = opts && 'milliseconds' in opts ? opts.milliseconds : 0;
+      let microseconds = opts && 'microseconds' in opts ? opts.microseconds : 0;
+      return this.agoBy(new core.Duration.new({days: days, hours: hours, minutes: minutes, seconds: seconds, milliseconds: milliseconds, microseconds: microseconds}));
+    }
+    fromNow(opts) {
+      let days = opts && 'days' in opts ? opts.days : 0;
+      let hours = opts && 'hours' in opts ? opts.hours : 0;
+      let minutes = opts && 'minutes' in opts ? opts.minutes : 0;
+      let seconds = opts && 'seconds' in opts ? opts.seconds : 0;
+      let milliseconds = opts && 'milliseconds' in opts ? opts.milliseconds : 0;
+      let microseconds = opts && 'microseconds' in opts ? opts.microseconds : 0;
+      return this.fromNowBy(new core.Duration.new({days: days, hours: hours, minutes: minutes, seconds: seconds, milliseconds: milliseconds, microseconds: microseconds}));
+    }
+    microsAgo(microseconds) {
+      return this.ago({microseconds: microseconds});
+    }
+    microsFromNow(microseconds) {
+      return this.fromNow({microseconds: microseconds});
+    }
+    millisAgo(milliseconds) {
+      return this.ago({milliseconds: milliseconds});
+    }
+    millisFromNow(milliseconds) {
+      return this.fromNow({milliseconds: milliseconds});
+    }
+    secondsAgo(seconds) {
+      return this.ago({seconds: seconds});
+    }
+    secondsFromNow(seconds) {
+      return this.fromNow({seconds: seconds});
+    }
+    minutesAgo(minutes) {
+      return this.ago({minutes: minutes});
+    }
+    minutesFromNow(minutes) {
+      return this.fromNow({minutes: minutes});
+    }
+    hoursAgo(hours) {
+      return this.ago({hours: hours});
+    }
+    hoursFromNow(hours) {
+      return this.fromNow({hours: hours});
+    }
+    daysAgo(days) {
+      return this.ago({days: days});
+    }
+    daysFromNow(days) {
+      return this.fromNow({days: days});
+    }
+    weeksAgo(weeks) {
+      return this.ago({days: 7 * weeks});
+    }
+    weeksFromNow(weeks) {
+      return this.fromNow({days: 7 * weeks});
+    }
+    monthsAgo(months) {
+      let time = this.now();
+      let month = (time.month - months - 1)[$modulo](12) + 1;
+      let year = time.year - ((months + 12 - time.month) / 12)[$truncate]();
+      let day = utils.clampDayOfMonth({year: year, month: month, day: time.day});
+      return new core.DateTime.new(year, month, day, time.hour, time.minute, time.second, time.millisecond);
+    }
+    monthsFromNow(months) {
+      let time = this.now();
+      let month = (time.month + months - 1)[$modulo](12) + 1;
+      let year = time.year + ((months + time.month - 1) / 12)[$truncate]();
+      let day = utils.clampDayOfMonth({year: year, month: month, day: time.day});
+      return new core.DateTime.new(year, month, day, time.hour, time.minute, time.second, time.millisecond);
+    }
+    yearsAgo(years) {
+      let time = this.now();
+      let year = time.year - years;
+      let day = utils.clampDayOfMonth({year: year, month: time.month, day: time.day});
+      return new core.DateTime.new(year, time.month, day, time.hour, time.minute, time.second, time.millisecond);
+    }
+    yearsFromNow(years) {
+      return this.yearsAgo(-years);
+    }
+    stopwatch() {
+      return new stopwatch.ClockStopwatch.new(this);
+    }
+    getStopwatch() {
+      return this.stopwatch();
+    }
+  };
+  (clock.Clock.new = function(currentTime = C[4] || CT.C4) {
+    this[_time] = currentTime;
+    ;
+  }).prototype = clock.Clock.prototype;
+  (clock.Clock.fixed = function(time) {
+    this[_time] = dart.fn(() => time, T$.VoidToDateTime());
+    ;
+  }).prototype = clock.Clock.prototype;
+  dart.addTypeTests(clock.Clock);
+  dart.addTypeCaches(clock.Clock);
+  dart.setMethodSignature(clock.Clock, () => ({
+    __proto__: dart.getMethods(clock.Clock.__proto__),
+    now: dart.fnType(core.DateTime, []),
+    agoBy: dart.fnType(core.DateTime, [core.Duration]),
+    fromNowBy: dart.fnType(core.DateTime, [core.Duration]),
+    ago: dart.fnType(core.DateTime, [], {days: core.int, hours: core.int, microseconds: core.int, milliseconds: core.int, minutes: core.int, seconds: core.int}, {}),
+    fromNow: dart.fnType(core.DateTime, [], {days: core.int, hours: core.int, microseconds: core.int, milliseconds: core.int, minutes: core.int, seconds: core.int}, {}),
+    microsAgo: dart.fnType(core.DateTime, [core.int]),
+    microsFromNow: dart.fnType(core.DateTime, [core.int]),
+    millisAgo: dart.fnType(core.DateTime, [core.int]),
+    millisFromNow: dart.fnType(core.DateTime, [core.int]),
+    secondsAgo: dart.fnType(core.DateTime, [core.int]),
+    secondsFromNow: dart.fnType(core.DateTime, [core.int]),
+    minutesAgo: dart.fnType(core.DateTime, [core.int]),
+    minutesFromNow: dart.fnType(core.DateTime, [core.int]),
+    hoursAgo: dart.fnType(core.DateTime, [core.int]),
+    hoursFromNow: dart.fnType(core.DateTime, [core.int]),
+    daysAgo: dart.fnType(core.DateTime, [core.int]),
+    daysFromNow: dart.fnType(core.DateTime, [core.int]),
+    weeksAgo: dart.fnType(core.DateTime, [core.int]),
+    weeksFromNow: dart.fnType(core.DateTime, [core.int]),
+    monthsAgo: dart.fnType(core.DateTime, [core.int]),
+    monthsFromNow: dart.fnType(core.DateTime, [core.int]),
+    yearsAgo: dart.fnType(core.DateTime, [core.int]),
+    yearsFromNow: dart.fnType(core.DateTime, [core.int]),
+    stopwatch: dart.fnType(core.Stopwatch, []),
+    getStopwatch: dart.fnType(core.Stopwatch, [])
+  }));
+  dart.setLibraryUri(clock.Clock, I[1]);
+  dart.setFieldSignature(clock.Clock, () => ({
+    __proto__: dart.getFields(clock.Clock.__proto__),
+    [_time$]: dart.finalFieldType(dart.fnType(core.DateTime, []))
+  }));
+  $default.withClock = function withClock(T, clock, callback, opts) {
+    let t0;
+    let isFinal = opts && 'isFinal' in opts ? opts.isFinal : false;
+    if (dart.equals((t0 = async.Zone.current._get($default._isFinalKey), t0 == null ? false : t0), true)) {
+      dart.throw(new core.StateError.new("Cannot call withClock() within a call to withClock(isFinal = true)."));
+    }
+    return async.runZoned(T, callback, {zoneValues: new (T$.LinkedMapOfObjectN$ObjectN()).from([$default._clockKey, clock, $default._isFinalKey, isFinal])});
+  };
+  dart.copyProperties($default, {
+    get clock() {
+      let t0;
+      t0 = T$.ClockN().as(async.Zone.current._get($default._clockKey));
+      return t0 == null ? C[5] || CT.C5 : t0;
+    }
+  });
+  dart.defineLazy($default, {
+    /*$default._clockKey*/get _clockKey() {
+      return new core.Object.new();
+    },
+    /*$default._isFinalKey*/get _isFinalKey() {
+      return new core.Object.new();
+    }
+  }, false);
+  clock$.systemTime = function systemTime() {
+    return new core.DateTime.now();
+  };
+  clock$.getStopwatch = function getStopwatch() {
+    return $default.clock.stopwatch();
+  };
+  dart.copyProperties(clock$, {
+    get now() {
+      return $default.clock.now();
+    }
+  });
+  dart.trackLibraries("packages/clock/src/stopwatch.dart", {
+    "package:clock/src/stopwatch.dart": stopwatch,
+    "package:clock/src/clock.dart": clock,
+    "package:clock/src/default.dart": $default,
+    "package:clock/clock.dart": clock$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["algorithms.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/collection/src/algorithms.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["stopwatch.dart","clock.dart","default.dart","../clock.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoCY;;;;;;;AAKW;IAAU;;AAEP,YAAkC,EAAjC,AAAoB,2BAAE,iBAAc;IAAO;;AAE5C,kDAAuB;IAAoB;;AAEpC,YAAoB,EAApB,2BAAuB;IAAI;;AAEpC,YAAA,AAAO;IAAO;;AAIhC,YAAA,AAAS,mBACR,AAAO,wBAAU,IAAI,AAAO,AAAM,AAAoB,+BAAH,eAAN;IAAwB;;AAIjD,MAAhB,wBAAP,gBAAW,AAAO,sBAAX;IACT;;AAIgC,MAA9B,iBAAW;AACE,MAAb,gBAAS;IACX;;AAIc,MAAZ,iBAAW;AACX,UAAI,uBAAgB,AAAqB,gBAAZ,AAAO;IACtC;;;;;;;;;;;;;;2CAjCoB;IANhB,iBAAW;IAIL;IAEU;;EAAO;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAjBvB,oBAAU;YAAG,AAAY;;;;;;ICUH;;;;;;;AAYR,YAAA,AAAK;IAAE;UAGD;AAAa,YAAA,AAAM,qBAAS,QAAQ;IAAC;cAGjC;AAAa,YAAA,AAAM,gBAAI,QAAQ;IAAC;;UAM/C;UACD;UACA;UACA;UACA;UACA;AACR,wBAAM,6BACI,IAAI,SACH,KAAK,WACH,OAAO,WACP,OAAO,gBACF,YAAY,gBACZ,YAAY;IAAE;;UAMvB;UACD;UACA;UACA;UACA;UACA;AACR,4BAAU,6BACA,IAAI,SACH,KAAK,WACH,OAAO,WACP,OAAO,gBACF,YAAY,gBACZ,YAAY;IAAE;cAGb;AAAiB,qCAAkB,YAAY;IAAC;kBAG5C;AACvB,yCAAsB,YAAY;IAAC;cAGhB;AAAiB,qCAAkB,YAAY;IAAC;kBAG5C;AACvB,yCAAsB,YAAY;IAAC;eAGf;AAAY,gCAAa,OAAO;IAAC;mBAG7B;AAAY,oCAAiB,OAAO;IAAC;eAGzC;AAAY,gCAAa,OAAO;IAAC;mBAG7B;AAAY,oCAAiB,OAAO;IAAC;aAG3C;AAAU,8BAAW,KAAK;IAAC;iBAGvB;AAAU,kCAAe,KAAK;IAAC;YAGpC;AAAS,6BAAU,IAAI;IAAC;gBAGpB;AAAS,iCAAc,IAAI;IAAC;aAG/B;AAAU,6BAAU,AAAE,IAAE,KAAK;IAAC;iBAG1B;AAAU,iCAAc,AAAE,IAAE,KAAK;IAAC;cAMrC;AACjB,iBAAO;AACP,kBAAkC,AAAK,CAA9B,AAAK,AAAM,AAAS,IAAhB,SAAS,MAAM,GAAG,YAAK,MAAK;AACzC,iBAAO,AAAK,AAAK,IAAN,QAAmC,EAA1B,AAAO,AAAK,MAAN,GAAG,KAAK,AAAK,IAAD,UAAW;AACjD,gBAAM,6BAAsB,IAAI,SAAS,KAAK,OAAO,AAAK,IAAD;AAC7D,YAAO,uBAAS,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,AAAK,IAAD,OAAO,AAAK,IAAD,SAAS,AAAK,IAAD,SAC1D,AAAK,IAAD;IACV;kBAM2B;AACrB,iBAAO;AACP,kBAAkC,AAAK,CAA9B,AAAK,AAAM,AAAS,IAAhB,SAAS,MAAM,GAAG,YAAK,MAAK;AACzC,iBAAO,AAAK,AAAK,IAAN,QAAkC,EAAzB,AAAO,AAAa,MAAd,GAAG,AAAK,IAAD,SAAS,KAAM;AAChD,gBAAM,6BAAsB,IAAI,SAAS,KAAK,OAAO,AAAK,IAAD;AAC7D,YAAO,uBAAS,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,AAAK,IAAD,OAAO,AAAK,IAAD,SAAS,AAAK,IAAD,SAC1D,AAAK,IAAD;IACV;aAMsB;AAChB,iBAAO;AACP,iBAAO,AAAK,AAAK,IAAN,QAAQ,KAAK;AACxB,gBAAM,6BAAsB,IAAI,SAAS,AAAK,IAAD,aAAa,AAAK,IAAD;AAClE,YAAO,uBAAS,IAAI,EAAE,AAAK,IAAD,QAAQ,GAAG,EAAE,AAAK,IAAD,OAAO,AAAK,IAAD,SAAS,AAAK,IAAD,SAC/D,AAAK,IAAD;IACV;iBAM0B;AAAU,2BAAS,CAAC,KAAK;IAAC;;AAG3B,8CAAe;IAAK;;AAIjB;IAAW;;8BAhJN;IACrB,cAAE,WAAW;;;gCAGJ;IAAc,cAAG,cAAM,IAAI;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;6CCA9B,OAAoB;;QACnB;AACpB,QAAyC,aAAV,KAArB,AAAO,wBAAC,uBAAD,aAAiB,aAAU;AAEgC,MAD1E,WAAM,wBACF;;AAGN,UAAO,mBAAS,QAAQ,eACR,4CAAC,oBAAW,KAAK,EAAE,sBAAa,OAAO;EACzD;;;;AAnBmB,WAAwB,eAAnB,AAAO,wBAAC;YAAW;IAA0B;;;MAV/D,kBAAS;YAAG;;MAIZ,oBAAW;YAAG;;;;ACCK,UAAS;EAAK;;AAQX,UAAA,AAAM;EAAW;;;AAJzB,YAAA,AAAM;IAAK","file":"../../../../../../../../../packages/clock/src/stopwatch.dart.lib.js"}');
   // Exports:
   return {
-    src__algorithms: algorithms
+    src__stopwatch: stopwatch,
+    src__clock: clock,
+    src__default: $default,
+    clock: clock$
   };
 }));
 
-//# sourceMappingURL=algorithms.dart.lib.js.map
+//# sourceMappingURL=stopwatch.dart.lib.js.map

@@ -1,9 +1,8 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/data_model/jobs_model.dart';
 import 'package:logafic/data_model/post_data_model.dart';
 
 class Database {
@@ -112,5 +111,20 @@ class Database {
       });
       return retVal;
     });
+  }
+
+  Future<void> addJob(JobsModel jobsModel) async {
+    try {
+      if (authController.firebaseUser.value!.uid.isNotEmpty) {
+        await _firebaseFirestore
+            .collection('jobs')
+            .add(jobsModel.toJson())
+            .catchError((err) {
+          Get.snackbar('Hata', err.toString());
+        });
+      }
+    } on FirebaseException catch (err) {
+      print(err);
+    }
   }
 }

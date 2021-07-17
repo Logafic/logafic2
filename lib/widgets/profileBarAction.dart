@@ -1,12 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/showAddedJobsDialogWidget.dart';
 
+// ignore: must_be_immutable
 class ProfileActionBar extends StatelessWidget {
   final String userProfileId;
   ProfileActionBar({Key? key, required this.userProfileId}) : super(key: key);
+  CollectionReference isAdminRef =
+      FirebaseFirestore.instance.collection('Admin');
+  bool isAdmin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +26,18 @@ class ProfileActionBar extends StatelessWidget {
           ),
           tooltip: 'Message Gönder',
           onPressed: () {}),
-      IconButton(
-          icon: const Icon(
-            Icons.notification_important,
-            color: Colors.black,
-          ),
-          tooltip: 'Bildir',
-          onPressed: () {}),
+      authController.firestoreUser.value!.isAdmin == true &&
+              authController.firebaseUser.value!.uid == userProfileId
+          ? IconButton(
+              icon: const Icon(
+                Icons.add_business_outlined,
+                color: Colors.black,
+              ),
+              tooltip: 'İş ilanı ver',
+              onPressed: () {
+                showAddedJobsDialogWidget(context);
+              })
+          : Text(''),
       IconButton(
           icon: const Icon(
             Icons.visibility,

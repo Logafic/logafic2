@@ -1,579 +1,329 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/elevated_button.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/material_state.dart'], (function load__packages__logafic__widgets__firstScreenColumnThird_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__elevated_button$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__material_state$46dart) {
+define(['dart_sdk', 'packages/collection/src/iterable_extensions.dart'], (function load__packages__async__src__stream_group_dart(dart_sdk, packages__collection__src__iterable_extensions$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const card = packages__flutter__src__material__card$46dart.src__material__card;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const elevated_button = packages__flutter__src__material__elevated_button$46dart.src__material__elevated_button;
-  const button_style = packages__flutter__src__material__icon_button$46dart.src__material__button_style;
-  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
-  var firstScreenColumnThird = Object.create(dart.library);
+  const iterable_extensions = packages__collection__src__iterable_extensions$46dart.src__iterable_extensions;
+  var stream_group = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
+  var $forEach = dartx.forEach;
+  var $_equals = dartx._equals;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $remove = dartx.remove;
+  var $entries = dartx.entries;
+  var $toList = dartx.toList;
+  var $_set = dartx._set;
+  var $values = dartx.values;
+  var $map = dartx.map;
+  var $clear = dartx.clear;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+  var T$ = {
+    StreamControllerOfNull: () => (T$.StreamControllerOfNull = dart.constFn(async.StreamController$(core.Null)))(),
+    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    dynamicToNull: () => (T$.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureNOfvoid: () => (T$.FutureNOfvoid = dart.constFn(dart.nullable(T$.FutureOfvoid())))(),
+    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "dormant"
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "listening"
+      });
+    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 19,
-        [_Location_line]: 20,
-        [_Location_file]: null
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "paused"
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 19,
-        [_Location_line]: 21,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 19,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 18,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 19,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], widget_inspector._Location);
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 17,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 23,
-        [_Location_line]: 37,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 23,
-        [_Location_line]: 38,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 36,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 21,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 21,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 21,
-        [_Location_line]: 43,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], widget_inspector._Location);
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[13] || CT.C13,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 32,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 19,
-        [_Location_line]: 30,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 19,
-        [_Location_line]: 31,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[18] || CT.C18,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 29,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 28,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C23() {
-      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[23] || CT.C23,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 27,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 23,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 23,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 58,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 21,
-        [_Location_line]: 55,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 21,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 21,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], widget_inspector._Location);
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[31] || CT.C31,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 54,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 19,
-        [_Location_line]: 52,
-        [_Location_file]: null
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 19,
-        [_Location_line]: 53,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 54,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39], widget_inspector._Location);
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[36] || CT.C36,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 51,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 17,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 51,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[41] || CT.C41,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 49,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 13,
-        [_Location_line]: 14,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 13,
-        [_Location_line]: 15,
-        [_Location_file]: null
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 13,
-        [_Location_line]: 16,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48], widget_inspector._Location);
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[45] || CT.C45,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 13,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 11,
-        [_Location_line]: 11,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipBehavior",
-        [_Location_column]: 11,
-        [_Location_line]: 12,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 13,
-        [_Location_file]: null
-      });
-    },
-    get C50() {
-      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[50] || CT.C50,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 10,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 9,
-        [_Location_line]: 8,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 9,
-        [_Location_line]: 9,
-        [_Location_file]: null
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 10,
-        [_Location_file]: null
-      });
-    },
-    get C55() {
-      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58], widget_inspector._Location);
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[55] || CT.C55,
-        [_Location_name]: null,
-        [_Location_column]: 7,
-        [_Location_line]: 7,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 5,
-        [_Location_line]: 6,
-        [_Location_file]: null
-      });
-    },
-    get C60() {
-      return C[60] = dart.constList([C[61] || CT.C61], widget_inspector._Location);
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[60] || CT.C60,
-        [_Location_name]: null,
-        [_Location_column]: 10,
-        [_Location_line]: 5,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/firstScreenColumnThird.dart"
+        __proto__: stream_group._StreamGroupState.prototype,
+        [name$]: "canceled"
       });
     }
   }, false);
-  var C = Array(62).fill(void 0);
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  firstScreenColumnThird.firstScreenColumnThird = function firstScreenColumnThird$(context) {
-    return new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: media_query.MediaQuery.of(context).size.width * 4 / 10, height: media_query.MediaQuery.of(context).size.height * 9 / 10, child: new card.Card.new({color: colors.Colors.white, clipBehavior: ui.Clip.antiAlias, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(16.0), child: new text.Text.new("İçerikleri görüntülemek için Giriş yap veya Kayıt ol.", {style: new text_style.TextStyle.new({fontSize: 25.0, color: colors.Colors.grey._get(400), fontWeight: ui.FontWeight.w400}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new basic.SizedBox.new({width: 200.0, height: 50.0, child: new elevated_button.ElevatedButton.new({style: new button_style.ButtonStyle.new({backgroundColor: material_state.MaterialStateProperty.all(ui.Color, colors.Colors.black26)}), child: new text.Text.new("Giriş Yap", {style: new text_style.TextStyle.new({fontSize: 25.0, color: colors.Colors.black, fontWeight: ui.FontWeight.w400}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), onPressed: dart.fn(() => {
-                        navigator.Navigator.pushNamed(T.ObjectN(), context, "/login");
-                      }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new basic.SizedBox.new({width: 200.0, height: 50.0, child: new elevated_button.ElevatedButton.new({style: new button_style.ButtonStyle.new({backgroundColor: material_state.MaterialStateProperty.all(ui.Color, colors.Colors.blue)}), child: new text.Text.new("Kayıt Ol", {style: new text_style.TextStyle.new({fontSize: 25.0, color: colors.Colors.black, fontWeight: ui.FontWeight.w400}), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), onPressed: dart.fn(() => {
-                        navigator.Navigator.pushNamed(T.ObjectN(), context, "/register");
-                      }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40})]), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54})]), $creationLocationd_0dea112b090073317d4: C[59] || CT.C59});
+  var C = Array(4).fill(void 0);
+  var I = ["package:async/src/stream_group.dart"];
+  var __StreamGroup__controller = dart.privateName(stream_group, "_#StreamGroup#_controller");
+  var _closed = dart.privateName(stream_group, "_closed");
+  var _state = dart.privateName(stream_group, "_state");
+  var _onIdleController = dart.privateName(stream_group, "_onIdleController");
+  var _subscriptions = dart.privateName(stream_group, "_subscriptions");
+  var _controller = dart.privateName(stream_group, "_controller");
+  var _onListen = dart.privateName(stream_group, "_onListen");
+  var _onPause = dart.privateName(stream_group, "_onPause");
+  var _onResume = dart.privateName(stream_group, "_onResume");
+  var _onCancel = dart.privateName(stream_group, "_onCancel");
+  var _onCancelBroadcast = dart.privateName(stream_group, "_onCancelBroadcast");
+  var _listenToStream = dart.privateName(stream_group, "_listenToStream");
+  const _is_StreamGroup_default = Symbol('_is_StreamGroup_default');
+  stream_group.StreamGroup$ = dart.generic(T => {
+    var StreamOfT = () => (StreamOfT = dart.constFn(async.Stream$(T)))();
+    var StreamSubscriptionOfT = () => (StreamSubscriptionOfT = dart.constFn(async.StreamSubscription$(T)))();
+    var StreamSubscriptionNOfT = () => (StreamSubscriptionNOfT = dart.constFn(dart.nullable(StreamSubscriptionOfT())))();
+    var LinkedMapOfStreamOfT$StreamSubscriptionNOfT = () => (LinkedMapOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(_js_helper.LinkedMap$(StreamOfT(), StreamSubscriptionNOfT())))();
+    var StreamControllerOfT = () => (StreamControllerOfT = dart.constFn(async.StreamController$(T)))();
+    var VoidToStreamSubscriptionOfT = () => (VoidToStreamSubscriptionOfT = dart.constFn(dart.fnType(StreamSubscriptionOfT(), [])))();
+    var MapEntryOfStreamOfT$StreamSubscriptionNOfT = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(core.MapEntry$(StreamOfT(), StreamSubscriptionNOfT())))();
+    var MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = dart.constFn(dart.fnType(T$.FutureNOfvoid(), [MapEntryOfStreamOfT$StreamSubscriptionNOfT()])))();
+    var StreamOfTAndStreamSubscriptionNOfTTovoid = () => (StreamOfTAndStreamSubscriptionNOfTTovoid = dart.constFn(dart.fnType(dart.void, [StreamOfT(), StreamSubscriptionNOfT()])))();
+    class StreamGroup extends core.Object {
+      get stream() {
+        return this[_controller].stream;
+      }
+      get [_controller]() {
+        let t0;
+        t0 = this[__StreamGroup__controller];
+        return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+      }
+      set [_controller](t0) {
+        this[__StreamGroup__controller] = t0;
+      }
+      get isClosed() {
+        return this[_closed];
+      }
+      get isIdle() {
+        return this[_subscriptions][$isEmpty];
+      }
+      get onIdle() {
+        let t1;
+        return (t1 = this[_onIdleController], t1 == null ? this[_onIdleController] = T$.StreamControllerOfNull().broadcast() : t1).stream;
+      }
+      static merge(T, streams) {
+        let group = new (stream_group.StreamGroup$(T)).new();
+        streams[$forEach](dart.bind(group, 'add'));
+        group.close();
+        return group.stream;
+      }
+      static mergeBroadcast(T, streams) {
+        let group = new (stream_group.StreamGroup$(T)).broadcast();
+        streams[$forEach](dart.bind(group, 'add'));
+        group.close();
+        return group.stream;
+      }
+      add(stream) {
+        StreamOfT().as(stream);
+        if (this[_closed]) {
+          dart.throw(new core.StateError.new("Can't add a Stream to a closed StreamGroup."));
+        }
+        if (this[_state][$_equals](stream_group._StreamGroupState.dormant)) {
+          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => null, T$.VoidToNull()));
+        } else if (this[_state][$_equals](stream_group._StreamGroupState.canceled)) {
+          return stream.listen(null).cancel();
+        } else {
+          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => this[_listenToStream](stream), VoidToStreamSubscriptionOfT()));
+        }
+        return null;
+      }
+      remove(stream) {
+        let t1, t1$;
+        StreamOfT().as(stream);
+        let subscription = this[_subscriptions][$remove](stream);
+        let future = subscription == null ? null : subscription.cancel();
+        if (this[_subscriptions][$isEmpty]) {
+          t1 = this[_onIdleController];
+          t1 == null ? null : t1.add(null);
+          if (this[_closed]) {
+            t1$ = this[_onIdleController];
+            t1$ == null ? null : t1$.close();
+            async.scheduleMicrotask(dart.bind(this[_controller], 'close'));
+          }
+        }
+        return future;
+      }
+      [_onListen]() {
+        let t2;
+        this[_state] = stream_group._StreamGroupState.listening;
+        for (let entry of this[_subscriptions][$entries][$toList]()) {
+          if (entry.value != null) return;
+          let stream = entry.key;
+          try {
+            this[_subscriptions][$_set](stream, this[_listenToStream](stream));
+          } catch (e) {
+            let error = dart.getThrown(e);
+            if (core.Object.is(error)) {
+              t2 = this[_onCancel]();
+              t2 == null ? null : t2.catchError(dart.fn(_ => {
+              }, T$.dynamicToNull()));
+              dart.rethrow(e);
+            } else
+              throw e;
+          }
+        }
+      }
+      [_onPause]() {
+        this[_state] = stream_group._StreamGroupState.paused;
+        for (let subscription of this[_subscriptions][$values]) {
+          dart.nullCheck(subscription).pause();
+        }
+      }
+      [_onResume]() {
+        this[_state] = stream_group._StreamGroupState.listening;
+        for (let subscription of this[_subscriptions][$values]) {
+          dart.nullCheck(subscription).resume();
+        }
+      }
+      [_onCancel]() {
+        this[_state] = stream_group._StreamGroupState.canceled;
+        let futures = iterable_extensions['IterableNullableExtension|whereNotNull'](T$.FutureOfvoid(), this[_subscriptions][$entries][$map](T$.FutureNOfvoid(), dart.fn(entry => {
+          let subscription = entry.value;
+          if (subscription != null) return subscription.cancel();
+          try {
+            return entry.key.listen(null).cancel();
+          } catch (e) {
+            let _ = dart.getThrown(e);
+            if (core.Object.is(_)) {
+              return null;
+            } else
+              throw e;
+          }
+        }, MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid())))[$toList]();
+        this[_subscriptions][$clear]();
+        let onIdleController = this[_onIdleController];
+        if (onIdleController != null && !onIdleController.isClosed) {
+          onIdleController.add(null);
+          onIdleController.close();
+        }
+        return futures[$isEmpty] ? null : async.Future.wait(dart.void, futures);
+      }
+      [_onCancelBroadcast]() {
+        this[_state] = stream_group._StreamGroupState.dormant;
+        this[_subscriptions][$forEach](dart.fn((stream, subscription) => {
+          if (!stream.isBroadcast) return;
+          dart.nullCheck(subscription).cancel();
+          this[_subscriptions][$_set](stream, null);
+        }, StreamOfTAndStreamSubscriptionNOfTTovoid()));
+      }
+      [_listenToStream](stream) {
+        let subscription = stream.listen(dart.bind(this[_controller], 'add'), {onError: dart.bind(this[_controller], 'addError'), onDone: dart.fn(() => this.remove(stream), T$.VoidTovoid())});
+        if (this[_state][$_equals](stream_group._StreamGroupState.paused)) subscription.pause();
+        return subscription;
+      }
+      close() {
+        if (this[_closed]) return this[_controller].done;
+        this[_closed] = true;
+        if (this[_subscriptions][$isEmpty]) this[_controller].close();
+        return this[_controller].done;
+      }
+    }
+    (StreamGroup.new = function() {
+      this[__StreamGroup__controller] = null;
+      this[_closed] = false;
+      this[_state] = stream_group._StreamGroupState.dormant;
+      this[_onIdleController] = null;
+      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
+      this[_controller] = StreamControllerOfT().new({onListen: dart.bind(this, _onListen), onPause: dart.bind(this, _onPause), onResume: dart.bind(this, _onResume), onCancel: dart.bind(this, _onCancel), sync: true});
+    }).prototype = StreamGroup.prototype;
+    (StreamGroup.broadcast = function() {
+      this[__StreamGroup__controller] = null;
+      this[_closed] = false;
+      this[_state] = stream_group._StreamGroupState.dormant;
+      this[_onIdleController] = null;
+      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
+      this[_controller] = StreamControllerOfT().broadcast({onListen: dart.bind(this, _onListen), onCancel: dart.bind(this, _onCancelBroadcast), sync: true});
+    }).prototype = StreamGroup.prototype;
+    dart.addTypeTests(StreamGroup);
+    StreamGroup.prototype[_is_StreamGroup_default] = true;
+    dart.addTypeCaches(StreamGroup);
+    StreamGroup[dart.implements] = () => [core.Sink$(async.Stream$(T))];
+    dart.setMethodSignature(StreamGroup, () => ({
+      __proto__: dart.getMethods(StreamGroup.__proto__),
+      add: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
+      remove: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
+      [_onListen]: dart.fnType(dart.void, []),
+      [_onPause]: dart.fnType(dart.void, []),
+      [_onResume]: dart.fnType(dart.void, []),
+      [_onCancel]: dart.fnType(dart.nullable(async.Future), []),
+      [_onCancelBroadcast]: dart.fnType(dart.void, []),
+      [_listenToStream]: dart.fnType(async.StreamSubscription$(T), [async.Stream$(T)]),
+      close: dart.fnType(async.Future, [])
+    }));
+    dart.setGetterSignature(StreamGroup, () => ({
+      __proto__: dart.getGetters(StreamGroup.__proto__),
+      stream: async.Stream$(T),
+      [_controller]: async.StreamController$(T),
+      isClosed: core.bool,
+      isIdle: core.bool,
+      onIdle: async.Stream$(dart.void)
+    }));
+    dart.setSetterSignature(StreamGroup, () => ({
+      __proto__: dart.getSetters(StreamGroup.__proto__),
+      [_controller]: async.StreamController$(T)
+    }));
+    dart.setLibraryUri(StreamGroup, I[0]);
+    dart.setFieldSignature(StreamGroup, () => ({
+      __proto__: dart.getFields(StreamGroup.__proto__),
+      [__StreamGroup__controller]: dart.fieldType(dart.nullable(async.StreamController$(T))),
+      [_closed]: dart.fieldType(core.bool),
+      [_state]: dart.fieldType(stream_group._StreamGroupState),
+      [_onIdleController]: dart.fieldType(dart.nullable(async.StreamController$(core.Null))),
+      [_subscriptions]: dart.finalFieldType(core.Map$(async.Stream$(T), dart.nullable(async.StreamSubscription$(T))))
+    }));
+    return StreamGroup;
+  });
+  stream_group.StreamGroup = stream_group.StreamGroup$();
+  dart.addTypeTests(stream_group.StreamGroup, _is_StreamGroup_default);
+  var name$ = dart.privateName(stream_group, "_StreamGroupState.name");
+  stream_group._StreamGroupState = class _StreamGroupState extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    toString() {
+      return this.name;
+    }
   };
-  dart.trackLibraries("packages/logafic/widgets/firstScreenColumnThird.dart", {
-    "package:logafic/widgets/firstScreenColumnThird.dart": firstScreenColumnThird
+  (stream_group._StreamGroupState.new = function(name) {
+    this[name$] = name;
+    ;
+  }).prototype = stream_group._StreamGroupState.prototype;
+  dart.addTypeTests(stream_group._StreamGroupState);
+  dart.addTypeCaches(stream_group._StreamGroupState);
+  dart.setLibraryUri(stream_group._StreamGroupState, I[0]);
+  dart.setFieldSignature(stream_group._StreamGroupState, () => ({
+    __proto__: dart.getFields(stream_group._StreamGroupState.__proto__),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(stream_group._StreamGroupState, ['toString']);
+  dart.defineLazy(stream_group._StreamGroupState, {
+    /*stream_group._StreamGroupState.dormant*/get dormant() {
+      return C[0] || CT.C0;
+    },
+    /*stream_group._StreamGroupState.listening*/get listening() {
+      return C[1] || CT.C1;
+    },
+    /*stream_group._StreamGroupState.paused*/get paused() {
+      return C[2] || CT.C2;
+    },
+    /*stream_group._StreamGroupState.canceled*/get canceled() {
+      return C[3] || CT.C3;
+    }
+  }, false);
+  dart.trackLibraries("packages/async/src/stream_group.dart", {
+    "package:async/src/stream_group.dart": stream_group
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["firstScreenColumnThird.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;mFAG2C;AACzC,UAAO,iCACK,wBACR,+BACoB,AAAY,AAAK,AAAM,AAAI,0BAAxB,OAAO,eAAe,IAAI,YAC5B,AAAY,AAAK,AAAO,AAAI,0BAAzB,OAAO,gBAAgB,IAAI,WAC1C,0BACS,mCACK,0BACZ,yCACgC,mDACE,0CAC7B,wBACR,gCACsB,+BAAI,cACjB,kBACL,iEACO,wCACO,aACI,AAAI,wBAAC,kBACI,wIAG/B,gCACsB,+BAAI,aACjB,+BACE,eACC,aACD,+CACE,mDAEuB,mDAAkB,iCACzC,kBACL,qBACO,wCACO,aACI,iCACS,0FAElB;AAC+B,wBAA9B,2CAAU,OAAO;2NAKnC,gCACsB,+BAAI,aACjB,+BACE,eACC,aACD,+CACE,mDAEuB,mDAAkB,8BACzC,kBACL,oBACO,wCACO,aACI,iCACS,4FAElB;AACkC,wBAAjC,2CAAU,OAAO;;EAWjD","file":"../../../../../../../packages/logafic/widgets/firstScreenColumnThird.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["stream_group.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAgC0B,cAAA,AAAY;MAAM;;;AACjB;;MAAW;;AAAX;MAAW;;AAGf;MAAO;;AAiBT,cAAA,AAAe;MAAO;;;AAqBrC,cAAqD,EAAlC,KAAlB,yBAAkB,aAAlB,0BAAuC;MAAmB;sBAkBjB;AACxC,oBAAQ;AACc,QAA1B,AAAQ,OAAD,WAAe,UAAN,KAAK;AACR,QAAb,AAAM,KAAD;AACL,cAAO,AAAM,MAAD;MACd;+BAMuD;AACjD,oBAAQ;AACc,QAA1B,AAAQ,OAAD,WAAe,UAAN,KAAK;AACR,QAAb,AAAM,KAAD;AACL,cAAO,AAAM,MAAD;MACd;;uBA+BsB;AACpB,YAAI;AAC6D,UAA/D,WAAM,wBAAW;;AAGnB,YAAI,AAAO,uBAAqB;AACgB,UAA9C,AAAe,mCAAY,MAAM,EAAE,cAAM;cACpC,KAAI,AAAO,uBAAqB;AAIrC,gBAAO,AAAO,AAAa,OAAd,QAAQ;;AAE4C,UAAjE,AAAe,mCAAY,MAAM,EAAE,cAAM,sBAAgB,MAAM;;AAGjE,cAAO;MACT;aAayB;;;AACnB,2BAAe,AAAe,8BAAO,MAAM;AAC3C,qBAAS,AAAa,YAAD,WAAW,OAAO,AAAa,YAAD;AAEvD,YAAI,AAAe;AACW,eAA5B;8BAAmB,OAAI;AACvB,cAAI;AACwB,kBAA1B;iCAAmB;AACiB,YAApC,wBAA8B,UAAZ;;;AAItB,cAAO,OAAM;MACf;;;AAMsC,QAApC,eAA2B;AAE3B,iBAAS,QAAS,AAAe,AAAQ;AAIvC,cAAI,AAAM,KAAD,gBAAgB;AAErB,uBAAS,AAAM,KAAD;AAClB;AACkD,YAAhD,AAAc,4BAAC,MAAM,EAAI,sBAAgB,MAAM;;gBACxC;AAAP;AAI+B,mBAA/B;kCAAa,cAAW,QAAC;;AAClB,cAAP;;;;;MAGN;;AAImC,QAAjC,eAA2B;AAC3B,iBAAS,eAAgB,AAAe;AACjB,UAAT,AAAE,eAAd,YAAY;;MAEhB;;AAIsC,QAApC,eAA2B;AAC3B,iBAAS,eAAgB,AAAe;AAChB,UAAV,AAAE,eAAd,YAAY;;MAEhB;;AAMqC,QAAnC,eAA2B;AAEvB,sBAUC,AACA,iFAXS,AAAe,AACxB,yDAAI,QAAC;AACA,6BAAe,AAAM,KAAD;AACxB,cAAI,YAAY,UAAU,MAAO,AAAa,aAAD;AAC7C;AACE,kBAAO,AAAM,AAAI,AAAa,MAAlB,YAAY;;gBACjB;AAAP;AACA,oBAAO;;;;;AAMO,QAAtB,AAAe;AAEX,+BAAmB;AACvB,YAAI,gBAAgB,aAAa,AAAiB,gBAAD;AACrB,UAA1B,AAAiB,gBAAD,KAAK;AACG,UAAxB,AAAiB,gBAAD;;AAGlB,cAAO,AAAQ,QAAD,aAAW,OAAc,6BAAK,OAAO;MACrD;;AAMoC,QAAlC,eAA2B;AAUzB,QARF,AAAe,+BAAQ,SAAC,QAAQ;AAK9B,eAAK,AAAO,MAAD,cAAc;AACH,UAAV,AAAE,eAAd,YAAY;AACiB,UAA7B,AAAc,4BAAC,MAAM,EAAI;;MAE7B;wBAKgD;AAC1C,2BAAe,AAAO,MAAD,QAAoB,UAAZ,qCACR,UAAZ,wCAA8B,cAAM,YAAO,MAAM;AAC9D,YAAI,AAAO,uBAAqB,wCAAQ,AAAa,AAAO,YAAR;AACpD,cAAO,aAAY;MACrB;;AAUE,YAAI,eAAS,MAAO,AAAY;AAElB,QAAd,gBAAU;AACV,YAAI,AAAe,gCAAS,AAAY,AAAO;AAE/C,cAAO,AAAY;MACrB;;;wCAvQyB;MAKrB,gBAAU;MAKV,eAA2B;MAiCP;MAUlB,uBAAoD;AA+BzC,MALf,oBAAc,+CACA,qCACD,qCACC,sCACA,wBACJ;IACZ;;wCArFyB;MAKrB,gBAAU;MAKV,eAA2B;MAiCP;MAUlB,uBAAoD;AAqCU,MADlE,oBAAc,qDACA,sCAAqB,iCAA0B;IAC/D;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA+Ma;;;;;;;AAKQ;IAAI;;;IAHI;;EAAK;;;;;;;;;;MA5BrB,sCAAO;;;MAKP,wCAAS;;;MAQT,qCAAM;;;MAQN,uCAAQ","file":"../../../../../../../../../packages/async/src/stream_group.dart.lib.js"}');
   // Exports:
   return {
-    widgets__firstScreenColumnThird: firstScreenColumnThird
+    src__stream_group: stream_group
   };
 }));
 
-//# sourceMappingURL=firstScreenColumnThird.dart.lib.js.map
+//# sourceMappingURL=stream_group.dart.lib.js.map

@@ -109,7 +109,15 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                               InkWell(
                                 splashColor: Colors.transparent,
                                 hoverColor: Colors.transparent,
-                                onTap: () {},
+                                onTap: () {
+                                  if (pageIndex % 2 == 0) {
+                                    authController.isRank = true;
+                                    Navigator.pushNamed(context, HomeRoute);
+                                  } else {
+                                    authController.isRank = false;
+                                    Navigator.pushNamed(context, HomeRoute);
+                                  }
+                                },
                                 child: Text(
                                   items[pageIndex],
                                   style: TextStyle(

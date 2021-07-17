@@ -146,6 +146,20 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  'İş ilanları',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,

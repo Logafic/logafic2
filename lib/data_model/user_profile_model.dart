@@ -14,6 +14,7 @@ class UserProfile {
   String? instagram;
   String? birtday;
   String? biograpfy;
+  bool? isAdmin;
 
   UserProfile(
       {this.userEmail,
@@ -30,7 +31,8 @@ class UserProfile {
       this.twitter,
       this.instagram,
       this.birtday,
-      this.biograpfy});
+      this.biograpfy,
+      this.isAdmin});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -49,6 +51,29 @@ class UserProfile {
     data['birtday'] = this.birtday;
     data['biograpfy'] = this.biograpfy;
     data['email'] = this.userEmail;
+    data['isAdmin'] = this.isAdmin;
+
     return data;
+  }
+
+  factory UserProfile.fromMap(Map data) {
+    return UserProfile(
+      userId: data['userId'],
+      userName: data['userName'],
+      department: data['department'],
+      city: data['city'],
+      gender: data['gender'],
+      webSite: data['website'],
+      linkedin: data['linkedin'],
+      twitter: data['twitter'],
+      instagram: data['instagram'],
+      birtday: data['birtday'],
+      biograpfy: data['biograpfy'],
+      userEmail: data['email'],
+      userBackImage: data['userBackImage'],
+      userProfileImage: data['userProfileImage'],
+      isAdmin: data['isAdmin'],
+      universty: data['universty'],
+    );
   }
 }

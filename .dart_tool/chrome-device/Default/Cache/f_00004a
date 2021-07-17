@@ -1,403 +1,257 @@
-define(['dart_sdk', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__scheduler__ticker_dart(dart_sdk, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/get/get_utils/src/get_utils/get_utils.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart'], (function load__packages__get__get_utils__src__platform__platform_web_dart(dart_sdk, packages__get__get_utils__src__get_utils__get_utils$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
-  const _internal = dart_sdk._internal;
-  const async = dart_sdk.async;
+  const html = dart_sdk.html;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var ticker$ = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $trimRight = dartx.trimRight;
-  var $split = dartx.split;
-  var $forEach = dartx.forEach;
-  var $toString = dartx.toString;
+  const get_utils = packages__get__get_utils__src__get_utils__get_utils$46dart.get_utils__src__get_utils__get_utils;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  var platform_web = Object.create(dart.library);
+  var platform = Object.create(dart.library);
+  var context_extensions = Object.create(dart.library);
+  var $export = Object.create(dart.library);
+  var get_utils$ = Object.create(dart.library);
+  var $appVersion = dartx.appVersion;
+  var $contains = dartx.contains;
+  var $navigator = dartx.navigator;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    DiagnosticsPropertyOfTicker: () => (T.DiagnosticsPropertyOfTicker = dart.constFn(diagnostics.DiagnosticsProperty$(ticker$.Ticker)))(),
-    CompleterOfvoid: () => (T.CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))(),
-    dynamicTovoid: () => (T.dynamicTovoid = dart.constFn(dart.fnType(dart.void, [dart.dynamic])))(),
-    VoidToFutureOrOfvoid: () => (T.VoidToFutureOrOfvoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidToNFutureOrOfvoid: () => (T.VoidToNFutureOrOfvoid = dart.constFn(dart.nullable(T.VoidToFutureOrOfvoid())))()
+  var T$ = {
+    __Todouble: () => (T$.__Todouble = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedBy: core.double}, {})))(),
+    __Todouble$1: () => (T$.__Todouble$1 = dart.constFn(dart.fnType(core.double, [], {dividedBy: core.double, reducedByH: core.double, reducedByW: core.double}, {})))(),
+    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    __ToTN: () => (T$.__ToTN = dart.constFn(dart.gFnType(T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [TN(), [], {desktop: TN(), mobile: TN(), tablet: TN(), watch: TN()}, {}];
+    }, T => {
+      var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+      return [T$.ObjectN()];
+    })))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: ticker$.TickerCanceled.prototype,
-        [TickerCanceled_ticker]: null
-      });
-    }
-  }, false);
-  var C = [void 0];
   var I = [
-    "package:flutter/src/scheduler/ticker.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/scheduler/ticker.dart"
+    "package:get/get_utils/src/platform/platform_web.dart",
+    "package:get/get_utils/src/platform/platform.dart"
   ];
-  ticker$.TickerProvider = class TickerProvider extends core.Object {};
-  (ticker$.TickerProvider.new = function() {
-    ;
-  }).prototype = ticker$.TickerProvider.prototype;
-  dart.addTypeTests(ticker$.TickerProvider);
-  dart.addTypeCaches(ticker$.TickerProvider);
-  dart.setLibraryUri(ticker$.TickerProvider, I[0]);
-  var debugLabel$ = dart.privateName(ticker$, "Ticker.debugLabel");
-  var _future = dart.privateName(ticker$, "_future");
-  var _muted = dart.privateName(ticker$, "_muted");
-  var _startTime = dart.privateName(ticker$, "_startTime");
-  var _animationId = dart.privateName(ticker$, "_animationId");
-  var __Ticker__debugCreationStack = dart.privateName(ticker$, "_#Ticker#_debugCreationStack");
-  var _onTick$ = dart.privateName(ticker$, "_onTick");
-  var _debugCreationStack = dart.privateName(ticker$, "_debugCreationStack");
-  var _cancel = dart.privateName(ticker$, "_cancel");
-  var _complete = dart.privateName(ticker$, "_complete");
-  var _tick = dart.privateName(ticker$, "_tick");
-  ticker$.Ticker = class Ticker extends core.Object {
-    get debugLabel() {
-      return this[debugLabel$];
+  platform_web.GeneralPlatform = class GeneralPlatform extends core.Object {
+    static get isWeb() {
+      return true;
     }
-    set debugLabel(value) {
-      super.debugLabel = value;
+    static get isMacOS() {
+      return platform_web._navigator[$appVersion][$contains]("Mac OS") && !platform_web.GeneralPlatform.isIOS;
     }
-    get muted() {
-      return this[_muted];
+    static get isWindows() {
+      return platform_web._navigator[$appVersion][$contains]("Win");
     }
-    set muted(value) {
-      if (value === this.muted) return;
-      this[_muted] = value;
-      if (value) {
-        this.unscheduleTick();
-      } else if (this.shouldScheduleTick) {
-        this.scheduleTick();
-      }
+    static get isLinux() {
+      return (platform_web._navigator[$appVersion][$contains]("Linux") || platform_web._navigator[$appVersion][$contains]("x11")) && !platform_web.GeneralPlatform.isAndroid;
     }
-    get isTicking() {
-      if (this[_future] == null) return false;
-      if (this.muted) return false;
-      if (dart.nullCheck(binding.SchedulerBinding.instance).framesEnabled) return true;
-      if (dart.nullCheck(binding.SchedulerBinding.instance).schedulerPhase !== binding.SchedulerPhase.idle) return true;
+    static get isAndroid() {
+      return platform_web._navigator[$appVersion][$contains]("Android ");
+    }
+    static get isIOS() {
+      return get_utils.GetUtils.hasMatch(platform_web._navigator.platform, "/iPad|iPhone|iPod/") || platform_web._navigator.platform === "MacIntel" && dart.nullCheck(platform_web._navigator.maxTouchPoints) > 1;
+    }
+    static get isFuchsia() {
       return false;
     }
-    get isActive() {
-      return this[_future] != null;
-    }
-    start() {
-      if (!dart.fn(() => {
-        if (this.isActive) {
-          dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("A ticker was started twice."), new assertions.ErrorDescription.new("A ticker that is already active cannot be started again without first stopping it."), this.describeForError("The affected ticker was")])));
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 149, 12, "() {\r\n      if (isActive) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('A ticker was started twice.'),\r\n          ErrorDescription('A ticker that is already active cannot be started again without first stopping it.'),\r\n          describeForError('The affected ticker was'),\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
-      if (!(this[_startTime] == null)) dart.assertFailed(null, I[1], 159, 12, "_startTime == null");
-      this[_future] = new ticker$.TickerFuture.__();
-      if (this.shouldScheduleTick) {
-        this.scheduleTick();
-      }
-      if (dart.nullCheck(binding.SchedulerBinding.instance).schedulerPhase.index > binding.SchedulerPhase.idle.index && dart.nullCheck(binding.SchedulerBinding.instance).schedulerPhase.index < binding.SchedulerPhase.postFrameCallbacks.index) this[_startTime] = dart.nullCheck(binding.SchedulerBinding.instance).currentFrameTimeStamp;
-      return dart.nullCheck(this[_future]);
-    }
-    describeForError(name) {
-      return new (T.DiagnosticsPropertyOfTicker()).new(name, this, {description: this.toString({debugIncludeStack: true})});
-    }
-    stop(opts) {
-      let canceled = opts && 'canceled' in opts ? opts.canceled : false;
-      if (!this.isActive) return;
-      let localFuture = dart.nullCheck(this[_future]);
-      this[_future] = null;
-      this[_startTime] = null;
-      if (!!this.isActive) dart.assertFailed(null, I[1], 201, 12, "!isActive");
-      this.unscheduleTick();
-      if (canceled) {
-        localFuture[_cancel](this);
-      } else {
-        localFuture[_complete]();
-      }
-    }
-    get scheduled() {
-      return this[_animationId] != null;
-    }
-    get shouldScheduleTick() {
-      return !this.muted && this.isActive && !this.scheduled;
-    }
-    [_tick](timeStamp) {
-      let t0;
-      if (!this.isTicking) dart.assertFailed(null, I[1], 233, 12, "isTicking");
-      if (!this.scheduled) dart.assertFailed(null, I[1], 234, 12, "scheduled");
-      this[_animationId] = null;
-      this[_startTime] == null ? this[_startTime] = timeStamp : null;
-      t0 = timeStamp['-'](dart.nullCheck(this[_startTime]));
-      this[_onTick$](t0);
-      if (this.shouldScheduleTick) this.scheduleTick({rescheduling: true});
-    }
-    scheduleTick(opts) {
-      let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
-      if (!!this.scheduled) dart.assertFailed(null, I[1], 251, 12, "!scheduled");
-      if (!this.shouldScheduleTick) dart.assertFailed(null, I[1], 252, 12, "shouldScheduleTick");
-      this[_animationId] = dart.nullCheck(binding.SchedulerBinding.instance).scheduleFrameCallback(dart.bind(this, _tick), {rescheduling: rescheduling});
-    }
-    unscheduleTick() {
-      if (this.scheduled) {
-        dart.nullCheck(binding.SchedulerBinding.instance).cancelFrameCallbackWithId(dart.nullCheck(this[_animationId]));
-        this[_animationId] = null;
-      }
-      if (!!this.shouldScheduleTick) dart.assertFailed(null, I[1], 268, 12, "!shouldScheduleTick");
-    }
-    absorbTicker(originalTicker) {
-      if (!!this.isActive) dart.assertFailed(null, I[1], 281, 12, "!isActive");
-      if (!(this[_future] == null)) dart.assertFailed(null, I[1], 282, 12, "_future == null");
-      if (!(this[_startTime] == null)) dart.assertFailed(null, I[1], 283, 12, "_startTime == null");
-      if (!(this[_animationId] == null)) dart.assertFailed(null, I[1], 284, 12, "_animationId == null");
-      if (!(originalTicker[_future] == null === (originalTicker[_startTime] == null))) dart.assertFailed("Cannot absorb Ticker after it has been disposed.", I[1], 285, 12, "(originalTicker._future == null) == (originalTicker._startTime == null)");
-      if (originalTicker[_future] != null) {
-        this[_future] = originalTicker[_future];
-        this[_startTime] = originalTicker[_startTime];
-        if (this.shouldScheduleTick) this.scheduleTick();
-        originalTicker[_future] = null;
-        originalTicker.unscheduleTick();
-      }
-      originalTicker.dispose();
-    }
-    dispose() {
-      if (this[_future] != null) {
-        let localFuture = dart.nullCheck(this[_future]);
-        this[_future] = null;
-        if (!!this.isActive) dart.assertFailed(null, I[1], 312, 14, "!isActive");
-        this.unscheduleTick();
-        localFuture[_cancel](this);
-      }
-      if (!dart.fn(() => {
-        this[_startTime] = core.Duration.zero;
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 316, 12, "() {\r\n      // We intentionally don't null out _startTime. This means that if start()\r\n      // was ever called, the object is now in a bogus state. This weakly helps\r\n      // catch cases of use-after-dispose.\r\n      _startTime = Duration.zero;\r\n      return true;\r\n    }()");
-    }
-    get [_debugCreationStack]() {
-      let t0;
-      t0 = this[__Ticker__debugCreationStack];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_debugCreationStack")) : t0;
-    }
-    set [_debugCreationStack](t0) {
-      this[__Ticker__debugCreationStack] = t0;
-    }
-    toString(opts) {
-      let debugIncludeStack = opts && 'debugIncludeStack' in opts ? opts.debugIncludeStack : false;
-      let buffer = new core.StringBuffer.new();
-      buffer.write(object.objectRuntimeType(this, "Ticker") + "(");
-      if (!dart.fn(() => {
-        let t1;
-        buffer.write((t1 = this.debugLabel, t1 == null ? "" : t1));
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 335, 12, "() {\r\n      buffer.write(debugLabel ?? '');\r\n      return true;\r\n    }()");
-      buffer.write(")");
-      if (!dart.fn(() => {
-        if (debugIncludeStack) {
-          buffer.writeln();
-          buffer.writeln("The stack trace when the " + dart.str(this[$runtimeType]) + " was actually created was:");
-          assertions.FlutterError.defaultStackFilter(this[_debugCreationStack].toString()[$trimRight]()[$split]("\n"))[$forEach](dart.bind(buffer, 'writeln'));
-        }
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 340, 12, "() {\r\n      if (debugIncludeStack) {\r\n        buffer.writeln();\r\n        buffer.writeln('The stack trace when the $runtimeType was actually created was:');\r\n        FlutterError.defaultStackFilter(_debugCreationStack.toString().trimRight().split('\\n')).forEach(buffer.writeln);\r\n      }\r\n      return true;\r\n    }()");
-      return buffer.toString();
+    static get isDesktop() {
+      return platform_web.GeneralPlatform.isMacOS || platform_web.GeneralPlatform.isWindows || platform_web.GeneralPlatform.isLinux;
     }
   };
-  (ticker$.Ticker.new = function(_onTick, opts) {
-    let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
-    this[_future] = null;
-    this[_muted] = false;
-    this[_startTime] = null;
-    this[_animationId] = null;
-    this[__Ticker__debugCreationStack] = null;
-    this[_onTick$] = _onTick;
-    this[debugLabel$] = debugLabel;
-    if (!dart.fn(() => {
-      this[_debugCreationStack] = core.StackTrace.current;
-      return true;
-    }, T.VoidTobool())()) dart.assertFailed(null, I[1], 66, 12, "() {\r\n      _debugCreationStack = StackTrace.current;\r\n      return true;\r\n    }()");
-  }).prototype = ticker$.Ticker.prototype;
-  dart.addTypeTests(ticker$.Ticker);
-  dart.addTypeCaches(ticker$.Ticker);
-  dart.setMethodSignature(ticker$.Ticker, () => ({
-    __proto__: dart.getMethods(ticker$.Ticker.__proto__),
-    start: dart.fnType(ticker$.TickerFuture, []),
-    describeForError: dart.fnType(diagnostics.DiagnosticsNode, [core.String]),
-    stop: dart.fnType(dart.void, [], {canceled: core.bool}, {}),
-    [_tick]: dart.fnType(dart.void, [core.Duration]),
-    scheduleTick: dart.fnType(dart.void, [], {rescheduling: core.bool}, {}),
-    unscheduleTick: dart.fnType(dart.void, []),
-    absorbTicker: dart.fnType(dart.void, [ticker$.Ticker]),
-    dispose: dart.fnType(dart.void, []),
-    toString: dart.fnType(core.String, [], {debugIncludeStack: core.bool}, {}),
-    [$toString]: dart.fnType(core.String, [], {debugIncludeStack: core.bool}, {})
-  }));
-  dart.setGetterSignature(ticker$.Ticker, () => ({
-    __proto__: dart.getGetters(ticker$.Ticker.__proto__),
-    muted: core.bool,
-    isTicking: core.bool,
-    isActive: core.bool,
-    scheduled: core.bool,
-    shouldScheduleTick: core.bool,
-    [_debugCreationStack]: core.StackTrace
-  }));
-  dart.setSetterSignature(ticker$.Ticker, () => ({
-    __proto__: dart.getSetters(ticker$.Ticker.__proto__),
-    muted: core.bool,
-    [_debugCreationStack]: core.StackTrace
-  }));
-  dart.setLibraryUri(ticker$.Ticker, I[0]);
-  dart.setFieldSignature(ticker$.Ticker, () => ({
-    __proto__: dart.getFields(ticker$.Ticker.__proto__),
-    [_future]: dart.fieldType(dart.nullable(ticker$.TickerFuture)),
-    [_muted]: dart.fieldType(core.bool),
-    [_startTime]: dart.fieldType(dart.nullable(core.Duration)),
-    [_onTick$]: dart.finalFieldType(dart.fnType(dart.void, [core.Duration])),
-    [_animationId]: dart.fieldType(dart.nullable(core.int)),
-    debugLabel: dart.finalFieldType(dart.nullable(core.String)),
-    [__Ticker__debugCreationStack]: dart.fieldType(dart.nullable(core.StackTrace))
-  }));
-  dart.defineExtensionMethods(ticker$.Ticker, ['toString']);
-  var _primaryCompleter = dart.privateName(ticker$, "_primaryCompleter");
-  var _secondaryCompleter = dart.privateName(ticker$, "_secondaryCompleter");
-  var _completed = dart.privateName(ticker$, "_completed");
-  var TickerCanceled_ticker = dart.privateName(ticker$, "TickerCanceled.ticker");
-  ticker$.TickerFuture = class TickerFuture extends core.Object {
-    [_complete]() {
-      let t1;
-      if (!(this[_completed] == null)) dart.assertFailed(null, I[1], 387, 12, "_completed == null");
-      this[_completed] = true;
-      this[_primaryCompleter].complete();
-      t1 = this[_secondaryCompleter];
-      t1 == null ? null : t1.complete();
-    }
-    [_cancel](ticker) {
-      let t1;
-      if (!(this[_completed] == null)) dart.assertFailed(null, I[1], 394, 12, "_completed == null");
-      this[_completed] = false;
-      t1 = this[_secondaryCompleter];
-      t1 == null ? null : t1.completeError(new ticker$.TickerCanceled.new(ticker));
-    }
-    whenCompleteOrCancel(callback) {
-      function thunk(value) {
-        callback();
-      }
-      dart.fn(thunk, T.dynamicTovoid());
-      this.orCancel.then(dart.void, thunk, {onError: thunk});
-    }
-    get orCancel() {
-      if (this[_secondaryCompleter] == null) {
-        this[_secondaryCompleter] = T.CompleterOfvoid().new();
-        if (this[_completed] != null) {
-          if (dart.nullCheck(this[_completed])) {
-            dart.nullCheck(this[_secondaryCompleter]).complete();
-          } else {
-            dart.nullCheck(this[_secondaryCompleter]).completeError(C[0] || CT.C0);
-          }
-        }
-      }
-      return dart.nullCheck(this[_secondaryCompleter]).future;
-    }
-    asStream() {
-      return this[_primaryCompleter].future.asStream();
-    }
-    catchError(onError, opts) {
-      let test = opts && 'test' in opts ? opts.test : null;
-      return this[_primaryCompleter].future.catchError(onError, {test: test});
-    }
-    then(R, onValue, opts) {
-      let onError = opts && 'onError' in opts ? opts.onError : null;
-      return this[_primaryCompleter].future.then(R, onValue, {onError: onError});
-    }
-    timeout(timeLimit, opts) {
-      let onTimeout = opts && 'onTimeout' in opts ? opts.onTimeout : null;
-      T.VoidToNFutureOrOfvoid().as(onTimeout);
-      return this[_primaryCompleter].future.timeout(timeLimit, {onTimeout: onTimeout});
-    }
-    whenComplete(action) {
-      return this[_primaryCompleter].future.whenComplete(action);
-    }
-    toString() {
-      return diagnostics.describeIdentity(this) + "(" + (this[_completed] == null ? "active" : dart.nullCheck(this[_completed]) ? "complete" : "canceled") + ")";
-    }
-  };
-  (ticker$.TickerFuture.__ = function() {
-    this[_primaryCompleter] = T.CompleterOfvoid().new();
-    this[_secondaryCompleter] = null;
-    this[_completed] = null;
+  (platform_web.GeneralPlatform.new = function() {
     ;
-  }).prototype = ticker$.TickerFuture.prototype;
-  (ticker$.TickerFuture.complete = function() {
-    this[_primaryCompleter] = T.CompleterOfvoid().new();
-    this[_secondaryCompleter] = null;
-    this[_completed] = null;
-    this[_complete]();
-  }).prototype = ticker$.TickerFuture.prototype;
-  ticker$.TickerFuture.prototype[dart.isFuture] = true;
-  dart.addTypeTests(ticker$.TickerFuture);
-  dart.addTypeCaches(ticker$.TickerFuture);
-  ticker$.TickerFuture[dart.implements] = () => [async.Future$(dart.void)];
-  dart.setMethodSignature(ticker$.TickerFuture, () => ({
-    __proto__: dart.getMethods(ticker$.TickerFuture.__proto__),
-    [_complete]: dart.fnType(dart.void, []),
-    [_cancel]: dart.fnType(dart.void, [ticker$.Ticker]),
-    whenCompleteOrCancel: dart.fnType(dart.void, [dart.fnType(dart.void, [])]),
-    asStream: dart.fnType(async.Stream$(dart.void), []),
-    catchError: dart.fnType(async.Future$(dart.void), [core.Function], {test: dart.nullable(dart.fnType(core.bool, [core.Object]))}, {}),
-    then: dart.gFnType(R => [async.Future$(R), [dart.fnType(async.FutureOr$(R), [dart.void])], {onError: dart.nullable(core.Function)}, {}], R => [dart.nullable(core.Object)]),
-    timeout: dart.fnType(async.Future$(dart.void), [core.Duration], {onTimeout: dart.nullable(core.Object)}, {}),
-    whenComplete: dart.fnType(async.Future$(dart.void), [dart.fnType(dart.dynamic, [])])
-  }));
-  dart.setGetterSignature(ticker$.TickerFuture, () => ({
-    __proto__: dart.getGetters(ticker$.TickerFuture.__proto__),
-    orCancel: async.Future$(dart.void)
-  }));
-  dart.setLibraryUri(ticker$.TickerFuture, I[0]);
-  dart.setFieldSignature(ticker$.TickerFuture, () => ({
-    __proto__: dart.getFields(ticker$.TickerFuture.__proto__),
-    [_primaryCompleter]: dart.finalFieldType(async.Completer$(dart.void)),
-    [_secondaryCompleter]: dart.fieldType(dart.nullable(async.Completer$(dart.void))),
-    [_completed]: dart.fieldType(dart.nullable(core.bool))
-  }));
-  dart.defineExtensionMethods(ticker$.TickerFuture, ['toString']);
-  const ticker$0 = TickerCanceled_ticker;
-  ticker$.TickerCanceled = class TickerCanceled extends core.Object {
-    get ticker() {
-      return this[ticker$0];
+  }).prototype = platform_web.GeneralPlatform.prototype;
+  dart.addTypeTests(platform_web.GeneralPlatform);
+  dart.addTypeCaches(platform_web.GeneralPlatform);
+  dart.setLibraryUri(platform_web.GeneralPlatform, I[0]);
+  dart.defineLazy(platform_web, {
+    /*platform_web._navigator*/get _navigator() {
+      return html.window[$navigator];
+    },
+    set _navigator(_) {}
+  }, false);
+  platform.GetPlatform = class GetPlatform extends core.Object {
+    static get isWeb() {
+      return platform_web.GeneralPlatform.isWeb;
     }
-    set ticker(value) {
-      super.ticker = value;
+    static get isMacOS() {
+      return platform_web.GeneralPlatform.isMacOS;
     }
-    toString() {
-      if (this.ticker != null) return "This ticker was canceled: " + dart.str(this.ticker);
-      return "The ticker was canceled before the \"orCancel\" property was first used.";
+    static get isWindows() {
+      return platform_web.GeneralPlatform.isWindows;
+    }
+    static get isLinux() {
+      return platform_web.GeneralPlatform.isLinux;
+    }
+    static get isAndroid() {
+      return platform_web.GeneralPlatform.isAndroid;
+    }
+    static get isIOS() {
+      return platform_web.GeneralPlatform.isIOS;
+    }
+    static get isFuchsia() {
+      return platform_web.GeneralPlatform.isFuchsia;
+    }
+    static get isMobile() {
+      return platform.GetPlatform.isIOS || platform.GetPlatform.isAndroid;
+    }
+    static get isDesktop() {
+      return platform.GetPlatform.isMacOS || platform.GetPlatform.isWindows || platform.GetPlatform.isLinux;
     }
   };
-  (ticker$.TickerCanceled.new = function(ticker = null) {
-    this[ticker$0] = ticker;
+  (platform.GetPlatform.new = function() {
     ;
-  }).prototype = ticker$.TickerCanceled.prototype;
-  dart.addTypeTests(ticker$.TickerCanceled);
-  dart.addTypeCaches(ticker$.TickerCanceled);
-  ticker$.TickerCanceled[dart.implements] = () => [core.Exception];
-  dart.setLibraryUri(ticker$.TickerCanceled, I[0]);
-  dart.setFieldSignature(ticker$.TickerCanceled, () => ({
-    __proto__: dart.getFields(ticker$.TickerCanceled.__proto__),
-    ticker: dart.finalFieldType(dart.nullable(ticker$.Ticker))
-  }));
-  dart.defineExtensionMethods(ticker$.TickerCanceled, ['toString']);
-  dart.trackLibraries("packages/flutter/src/scheduler/ticker.dart", {
-    "package:flutter/src/scheduler/ticker.dart": ticker$
+  }).prototype = platform.GetPlatform.prototype;
+  dart.addTypeTests(platform.GetPlatform);
+  dart.addTypeCaches(platform.GetPlatform);
+  dart.setLibraryUri(platform.GetPlatform, I[1]);
+  context_extensions['ContextExtensionss|get#mediaQuerySize'] = function ContextExtensionss$124get$35mediaQuerySize($this) {
+    return media_query.MediaQuery.of($this).size;
+  };
+  context_extensions['ContextExtensionss|get#height'] = function ContextExtensionss$124get$35height($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height;
+  };
+  context_extensions['ContextExtensionss|get#width'] = function ContextExtensionss$124get$35width($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
+  };
+  context_extensions['ContextExtensionss|heightTransformer'] = function ContextExtensionss$124heightTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).height / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#heightTransformer'] = function ContextExtensionss$124get$35heightTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|widthTransformer'] = function ContextExtensionss$124widthTransformer($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+    return (context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width - context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width / 100 * reducedBy) / dividedBy;
+  };
+  context_extensions['ContextExtensionss|get#widthTransformer'] = function ContextExtensionss$124get$35widthTransformer($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedBy = opts && 'reducedBy' in opts ? opts.reducedBy : 0;
+      return context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedBy});
+    }, T$.__Todouble());
+  };
+  context_extensions['ContextExtensionss|ratio'] = function ContextExtensionss$124ratio($this, opts) {
+    let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+    let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+    let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+    return context_extensions['ContextExtensionss|heightTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByH}) / context_extensions['ContextExtensionss|widthTransformer']($this, {dividedBy: dividedBy, reducedBy: reducedByW});
+  };
+  context_extensions['ContextExtensionss|get#ratio'] = function ContextExtensionss$124get$35ratio($this) {
+    return dart.fn(opts => {
+      let dividedBy = opts && 'dividedBy' in opts ? opts.dividedBy : 1;
+      let reducedByW = opts && 'reducedByW' in opts ? opts.reducedByW : 0;
+      let reducedByH = opts && 'reducedByH' in opts ? opts.reducedByH : 0;
+      return context_extensions['ContextExtensionss|ratio']($this, {dividedBy: dividedBy, reducedByW: reducedByW, reducedByH: reducedByH});
+    }, T$.__Todouble$1());
+  };
+  context_extensions['ContextExtensionss|get#theme'] = function ContextExtensionss$124get$35theme($this) {
+    return theme.Theme.of($this);
+  };
+  context_extensions['ContextExtensionss|get#isDarkMode'] = function ContextExtensionss$124get$35isDarkMode($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).brightness === ui.Brightness.dark;
+  };
+  context_extensions['ContextExtensionss|get#iconColor'] = function ContextExtensionss$124get$35iconColor($this) {
+    return context_extensions['ContextExtensionss|get#theme']($this).iconTheme.color;
+  };
+  context_extensions['ContextExtensionss|get#textTheme'] = function ContextExtensionss$124get$35textTheme($this) {
+    return theme.Theme.of($this).textTheme;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryPadding'] = function ContextExtensionss$124get$35mediaQueryPadding($this) {
+    return media_query.MediaQuery.of($this).padding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQuery'] = function ContextExtensionss$124get$35mediaQuery($this) {
+    return media_query.MediaQuery.of($this);
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewPadding'] = function ContextExtensionss$124get$35mediaQueryViewPadding($this) {
+    return media_query.MediaQuery.of($this).viewPadding;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryViewInsets'] = function ContextExtensionss$124get$35mediaQueryViewInsets($this) {
+    return media_query.MediaQuery.of($this).viewInsets;
+  };
+  context_extensions['ContextExtensionss|get#orientation'] = function ContextExtensionss$124get$35orientation($this) {
+    return media_query.MediaQuery.of($this).orientation;
+  };
+  context_extensions['ContextExtensionss|get#isLandscape'] = function ContextExtensionss$124get$35isLandscape($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.landscape;
+  };
+  context_extensions['ContextExtensionss|get#isPortrait'] = function ContextExtensionss$124get$35isPortrait($this) {
+    return context_extensions['ContextExtensionss|get#orientation']($this) === media_query.Orientation.portrait;
+  };
+  context_extensions['ContextExtensionss|get#devicePixelRatio'] = function ContextExtensionss$124get$35devicePixelRatio($this) {
+    return media_query.MediaQuery.of($this).devicePixelRatio;
+  };
+  context_extensions['ContextExtensionss|get#textScaleFactor'] = function ContextExtensionss$124get$35textScaleFactor($this) {
+    return media_query.MediaQuery.of($this).textScaleFactor;
+  };
+  context_extensions['ContextExtensionss|get#mediaQueryShortestSide'] = function ContextExtensionss$124get$35mediaQueryShortestSide($this) {
+    return context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+  };
+  context_extensions['ContextExtensionss|get#showNavbar'] = function ContextExtensionss$124get$35showNavbar($this) {
+    return context_extensions['ContextExtensionss|get#width']($this) > 800;
+  };
+  context_extensions['ContextExtensionss|get#isPhone'] = function ContextExtensionss$124get$35isPhone($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) < 600;
+  };
+  context_extensions['ContextExtensionss|get#isSmallTablet'] = function ContextExtensionss$124get$35isSmallTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 600;
+  };
+  context_extensions['ContextExtensionss|get#isLargeTablet'] = function ContextExtensionss$124get$35isLargeTablet($this) {
+    return context_extensions['ContextExtensionss|get#mediaQueryShortestSide']($this) >= 720;
+  };
+  context_extensions['ContextExtensionss|get#isTablet'] = function ContextExtensionss$124get$35isTablet($this) {
+    return context_extensions['ContextExtensionss|get#isSmallTablet']($this) || context_extensions['ContextExtensionss|get#isLargeTablet']($this);
+  };
+  context_extensions['ContextExtensionss|responsiveValue'] = function ContextExtensionss$124responsiveValue(T, $this, opts) {
+    let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+    let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+    let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+    let watch = opts && 'watch' in opts ? opts.watch : null;
+    let deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).shortestSide;
+    if (platform.GetPlatform.isDesktop) {
+      deviceWidth = context_extensions['ContextExtensionss|get#mediaQuerySize']($this).width;
+    }
+    if (deviceWidth >= 1200 && desktop != null) return desktop;
+    if (deviceWidth >= 600 && tablet != null) return tablet;
+    if (deviceWidth < 300 && watch != null) return watch;
+    return mobile;
+  };
+  context_extensions['ContextExtensionss|get#responsiveValue'] = function ContextExtensionss$124get$35responsiveValue($this) {
+    return dart.fn((T, opts) => {
+      let mobile = opts && 'mobile' in opts ? opts.mobile : null;
+      let tablet = opts && 'tablet' in opts ? opts.tablet : null;
+      let desktop = opts && 'desktop' in opts ? opts.desktop : null;
+      let watch = opts && 'watch' in opts ? opts.watch : null;
+      return context_extensions['ContextExtensionss|responsiveValue'](T, $this, {mobile: mobile, tablet: tablet, desktop: desktop, watch: watch});
+    }, T$.__ToTN());
+  };
+  dart.trackLibraries("packages/get/get_utils/src/platform/platform_web.dart", {
+    "package:get/get_utils/src/platform/platform_web.dart": platform_web,
+    "package:get/get_utils/src/platform/platform.dart": platform,
+    "package:get/get_utils/src/extensions/context_extensions.dart": context_extensions,
+    "package:get/get_utils/src/extensions/export.dart": $export,
+    "package:get/get_utils/get_utils.dart": get_utils$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["ticker.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/scheduler/ticker.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["platform_web.dart","platform.dart","../extensions/context_extensions.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAU2B;IAAI;;AAGzB,YAAA,AAAW,AAAW,AAAmB,iDAAV,cAA8B;IAAK;;AAEzC,YAAA,AAAW,AAAW,iDAAS;IAAM;;AAG9D,YAC2C,EAD1C,AAAW,AAAW,gDAAS,YAC5B,AAAW,AAAW,gDAAS,YAClC;IAAS;;AAGe,YAAA,AAAW,AAAW,iDAAS;IAAW;;AAIrE,YAAgB,AAAqD,6BAA5C,AAAW,kCAAU,yBACzC,AAAW,AAAS,qCAAG,cAAuC,AAAE,eAA3B,AAAW,0CAAkB;IACzE;;AAE6B;IAAK;;AAEL,YAAA,AAAqB,yCAAV,0CAAa;IAAO;;;;EAC9D;;;;;MA5Be,uBAAU;YAAQ,AAAO;;;;;;ACFb,YAAgB;IAAK;;AAEnB,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE3B,YAAgB;IAAO;;AAErB,YAAgB;IAAS;;AAE7B,YAAgB;IAAK;;AAEjB,YAAgB;IAAS;;AAE1B,YAAY,AAAM,+BAAe;IAAS;;AAGlE,YAAY,AAAiC,iCAAV,kCAAyB;IAAO;;;;EACzE;;;;;ACf6B,UAAW,AAAS;EAAI;;AAK9B,UAAA,AAAe;EAAM;;AAKtB,UAAA,AAAe;EAAK;;QAWP;QAAsB;AACrD,UACqD,EAD7C,AAAe,AAAO,4EACpB,AAAe,AAAO,AAAO,4EAAL,MAAO,SAAS,IAC9C,SAAS;EACf;;AAJO;UAA0B;UAAsB;AAAhD,oGAAS,aAAT,SAAS;;EAIhB;;QAWgC;QAAsB;AACpD,UAA2E,EAAnE,AAAe,AAAM,2EAAI,AAAe,AAAM,AAAO,2EAAL,MAAO,SAAS,IACpE,SAAS;EACf;;AAHO;UAAyB;UAAsB;AAA/C,mGAAS,aAAT,SAAS;;EAGhB;;QAIS;QACA;QACA;AAEP,UAAO,AAA+D,+EAAlC,SAAS,aAAa,UAAU,KAChE,6EAA4B,SAAS,aAAa,UAAU;EAClE;;AAPO;UACE;UACA;UACA;AAHF,wFACR,cADQ,UACP,cADO,UACP;;EAMA;;AAGuB,UAAM;EAAQ;;AAGd,UAAC,AAAM,AAAW,0EAAc;EAAK;;AAGpC,UAAA,AAAM,AAAU;EAAK;;AAGlB,UAAM,AAAS;EAAS;;AAGf,UAAW,AAAS;EAAO;;AAG9B,UAAW;EAAQ;;AAGZ,UAAW,AAAS;EAAW;;AAGhC,UAAW,AAAS;EAAU;;AAGtC,UAAW,AAAS;EAAW;;AAGtC,UAAA,AAAY,qEAAe;EAAS;;AAGrC,UAAA,AAAY,qEAAe;EAAQ;;AAG3B,UAAW,AAAS;EAAgB;;AAGrC,UAAW,AAAS;EAAe;;AAG5B,UAAA,AAAe;EAAY;;AAGzC,UAAC,AAAM,6DAAE;EAAI;;AAGhB,UAAC,AAAuB,8EAAE;EAAI;;AAGxB,UAAC,AAAuB,+EAAG;EAAI;;AAG/B,UAAC,AAAuB,+EAAG;EAAI;;AAGpC,UAAA,AAAc,sEAAG;EAAa;;QAS9C;QACA;QACA;QACA;AAEC,sBAAc,AAAe;AACjC,QAAgB;AACoB,MAAlC,cAAc,AAAe;;AAE/B,QAAI,AAAY,WAAD,IAAI,QAAQ,OAAO,UAAU,MAAO,QAAO;AAC1D,QAAI,AAAY,WAAD,IAAI,OAAO,MAAM,UAAU,MAAO,OAAM;AACvD,QAAI,AAAY,WAAD,GAAG,OAAO,KAAK,UAAU,MAAO,MAAK;AACpD,UAAO,OAAM;EACf;;AAdG;UACE;UACA;UACA;UACA;AAJF,+FAAM,UAAN,MAAM,WAAN,OAAO,SAAP,KAAK;;EAcR","file":"../../../../../../../../../../../packages/get/get_utils/src/platform/platform_web.dart.lib.js"}');
   // Exports:
   return {
-    src__scheduler__ticker: ticker$
+    get_utils__src__platform__platform_web: platform_web,
+    get_utils__src__platform__platform: platform,
+    get_utils__src__extensions__context_extensions: context_extensions,
+    get_utils__src__extensions__export: $export,
+    get_utils__get_utils: get_utils$
   };
 }));
 
-//# sourceMappingURL=ticker.dart.lib.js.map
+//# sourceMappingURL=platform_web.dart.lib.js.map

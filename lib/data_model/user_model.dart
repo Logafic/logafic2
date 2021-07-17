@@ -14,6 +14,7 @@ class UserModel {
   String? instagram;
   String? birtday;
   String? biograpfy;
+  bool? isAdmin;
 
   UserModel(
       {this.userEmail,
@@ -30,6 +31,7 @@ class UserModel {
       this.twitter,
       this.instagram,
       this.birtday,
+      this.isAdmin,
       this.biograpfy});
 
   Map<String, dynamic> toJson() {
@@ -49,6 +51,7 @@ class UserModel {
     data['birtday'] = this.birtday;
     data['biograpfy'] = this.biograpfy;
     data['email'] = this.userEmail;
+    data['isAdmin'] = this.isAdmin;
     return data;
   }
 
@@ -59,6 +62,7 @@ class UserModel {
       userEmail: data['email'],
       userBackImage: data['userBackImage'],
       userProfileImage: data['userProfileImage'],
+      isAdmin: data['isAdmin'],
       universty: data['universty'],
     );
   }

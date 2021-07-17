@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/screens/jobs_share_screen.dart';
 import 'package:logafic/screens/showUserInformationScreen.dart';
 //Screens
 import 'package:logafic/screens/status_screen.dart';
@@ -35,7 +36,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return authController.firebaseUser.value!.uid == ''
           ? _getPageRoute(FirstScreenTopBarContents(), settings)
           : _getPageRoute(NotificationScreen(), settings);
-
+    case JobsScreenRoute:
+      return _getPageRoute(JobsShareScreen(), settings);
     case FullProfileRoute:
       final arguments = settings.arguments as Map<String, dynamic>;
       return _getPageRoute(

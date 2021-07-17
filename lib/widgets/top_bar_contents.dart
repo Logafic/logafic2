@@ -164,6 +164,43 @@ class _TopBarContentsState extends State<TopBarContents> {
                         ],
                       ),
                     ),
+                    SizedBox(width: screenSize.width / 20),
+                    InkWell(
+                      onHover: (value) {
+                        setState(() {
+                          value
+                              ? _isHovering[4] = true
+                              : _isHovering[4] = false;
+                        });
+                      },
+                      onTap: () {
+                        Navigator.pushNamed(context, JobsScreenRoute);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'İş ilanları',
+                            style: TextStyle(
+                              color: _isHovering[4] ? Colors.red : Colors.black,
+                              fontSize: 16,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Visibility(
+                            maintainAnimation: true,
+                            maintainState: true,
+                            maintainSize: true,
+                            visible: _isHovering[4],
+                            child: Container(
+                              height: 2,
+                              width: 20,
+                              color: Colors.black45,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
