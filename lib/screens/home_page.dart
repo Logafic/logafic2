@@ -291,16 +291,15 @@ class _HomePageState extends State<HomePage> {
                                                         MainAxisAlignment.start,
                                                     children: [
                                                       TextButton(
-                                                        onPressed: () {},
-                                                        child: Text(
-                                                          'Yorum Yap',
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .black54),
-                                                        ),
-                                                      ),
-                                                      TextButton(
-                                                        onPressed: () {},
+                                                        onPressed: () {
+                                                          Navigator.pushNamed(
+                                                              context,
+                                                              StatusRoute,
+                                                              arguments: {
+                                                                'id':
+                                                                    document.id
+                                                              });
+                                                        },
                                                         child: Text(
                                                           'Yorumlar',
                                                           style: TextStyle(

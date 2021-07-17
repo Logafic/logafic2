@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
@@ -38,6 +40,27 @@ class Database {
         });
       }
     } on FirebaseException catch (err) {
+      print(err);
+    }
+  }
+
+  Future<void> addPostComment(String comment, String postId) async {
+    try {
+      if (authController.firebaseUser.value!.uid.isNotEmpty) {
+        await _firebaseFirestore
+            .collection('posts')
+            .doc(postId)
+            .collection('comment')
+            .add({
+          'userId': authController.firebaseUser.value!.uid,
+          'userProfileImage':
+              authController.firestoreUser.value!.userProfileImage,
+          'userName': authController.firestoreUser.value!.userName,
+          'comment': comment,
+          'created_at': DateTime.now().toString()
+        });
+      }
+    } catch (err) {
       print(err);
     }
   }

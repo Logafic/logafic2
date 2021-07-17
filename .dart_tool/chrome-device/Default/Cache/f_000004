@@ -1,2145 +1,814 @@
-/** vim: et:ts=4:sw=4:sts=4
- * @license RequireJS 2.3.3 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
- */
-//Not using strict: uneven strict support in browsers, #392, and causes
-//problems with requirejs.exec()/transpiler plugins that may not be strict.
-/*jslint regexp: true, nomen: true, sloppy: true */
-/*global window, navigator, document, importScripts, setTimeout, opera */
-
-var requirejs, require, define;
-(function (global, setTimeout) {
-    var req, s, head, baseElement, dataMain, src,
-        interactiveScript, currentlyAddingScript, mainScript, subPath,
-        version = '2.3.3',
-        commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
-        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
-        jsSuffixRegExp = /\.js$/,
-        currDirRegExp = /^\.\//,
-        op = Object.prototype,
-        ostring = op.toString,
-        hasOwn = op.hasOwnProperty,
-        isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
-        isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
-        //PS3 indicates loaded and complete, but need to wait for complete
-        //specifically. Sequence is 'loading', 'loaded', execution,
-        // then 'complete'. The UA check is unfortunate, but not sure how
-        //to feature test w/o causing perf issues.
-        readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ?
-                      /^complete$/ : /^(complete|loaded)$/,
-        defContextName = '_',
-        //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
-        isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
-        contexts = {},
-        cfg = {},
-        globalDefQueue = [],
-        useInteractive = false;
-
-    //Could match something like ')//comment', do not lose the prefix to comment.
-    function commentReplace(match, singlePrefix) {
-        return singlePrefix || '';
+define(['dart_sdk', 'packages/cloud_firestore_web/src/internals.dart', 'packages/cloud_firestore_platform_interface/src/platform_interface/utils/load_bundle_task_state.dart', 'packages/cloud_firestore_web/src/interop/utils/utils.dart', 'packages/cloud_firestore_platform_interface/src/set_options.dart', 'packages/cloud_firestore_web/src/field_value_web.dart', 'packages/cloud_firestore_platform_interface/src/get_options.dart', 'packages/cloud_firestore_platform_interface/src/source.dart', 'packages/cloud_firestore_platform_interface/src/internal/pointer.dart', 'packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_field_value.dart', 'packages/cloud_firestore_platform_interface/src/field_path.dart', 'packages/cloud_firestore_platform_interface/src/timestamp.dart', 'packages/cloud_firestore_platform_interface/src/geo_point.dart', 'packages/cloud_firestore_platform_interface/src/blob.dart', 'packages/cloud_firestore_platform_interface/src/snapshot_metadata.dart', 'packages/firebase_core_web/src/interop/core.dart', 'packages/cloud_firestore_web/src/load_bundle_task_web.dart'], (function load__packages__cloud_firestore_web__src__write_batch_web_dart(dart_sdk, packages__cloud_firestore_web__src__internals$46dart, packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart, packages__cloud_firestore_web__src__interop__utils__utils$46dart, packages__cloud_firestore_platform_interface__src__set_options$46dart, packages__cloud_firestore_web__src__field_value_web$46dart, packages__cloud_firestore_platform_interface__src__get_options$46dart, packages__cloud_firestore_platform_interface__src__source$46dart, packages__cloud_firestore_platform_interface__src__internal__pointer$46dart, packages__cloud_firestore_platform_interface__src__platform_interface__platform_interface_field_value$46dart, packages__cloud_firestore_platform_interface__src__field_path$46dart, packages__cloud_firestore_platform_interface__src__timestamp$46dart, packages__cloud_firestore_platform_interface__src__geo_point$46dart, packages__cloud_firestore_platform_interface__src__blob$46dart, packages__cloud_firestore_platform_interface__src__snapshot_metadata$46dart, packages__firebase_core_web__src__interop__core$46dart, packages__cloud_firestore_web__src__load_bundle_task_web$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const internals = packages__cloud_firestore_web__src__internals$46dart.src__internals;
+  const platform_interface_write_batch = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_write_batch;
+  const platform_interface_document_snapshot = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_document_snapshot;
+  const platform_interface_transaction = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_transaction;
+  const platform_interface_firestore = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_firestore;
+  const platform_interface_field_value_factory = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_field_value_factory;
+  const platform_interface_query_snapshot = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_query_snapshot;
+  const platform_interface_query = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_query;
+  const platform_interface_collection_reference = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_collection_reference;
+  const platform_interface_document_reference = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_document_reference;
+  const platform_interface_document_change = packages__cloud_firestore_platform_interface__src__platform_interface__utils__load_bundle_task_state$46dart.src__platform_interface__platform_interface_document_change;
+  const firestore = packages__cloud_firestore_web__src__interop__utils__utils$46dart.src__interop__firestore;
+  const set_options = packages__cloud_firestore_platform_interface__src__set_options$46dart.src__set_options;
+  const field_value_web = packages__cloud_firestore_web__src__field_value_web$46dart.src__field_value_web;
+  const get_options = packages__cloud_firestore_platform_interface__src__get_options$46dart.src__get_options;
+  const source = packages__cloud_firestore_platform_interface__src__source$46dart.src__source;
+  const pointer = packages__cloud_firestore_platform_interface__src__internal__pointer$46dart.src__internal__pointer;
+  const platform_interface_field_value = packages__cloud_firestore_platform_interface__src__platform_interface__platform_interface_field_value$46dart.src__platform_interface__platform_interface_field_value;
+  const field_path = packages__cloud_firestore_platform_interface__src__field_path$46dart.src__field_path;
+  const timestamp = packages__cloud_firestore_platform_interface__src__timestamp$46dart.src__timestamp;
+  const geo_point = packages__cloud_firestore_platform_interface__src__geo_point$46dart.src__geo_point;
+  const blob = packages__cloud_firestore_platform_interface__src__blob$46dart.src__blob;
+  const snapshot_metadata = packages__cloud_firestore_platform_interface__src__snapshot_metadata$46dart.src__snapshot_metadata;
+  const core$ = packages__firebase_core_web__src__interop__core$46dart.src__interop__core;
+  const load_bundle_task_web = packages__cloud_firestore_web__src__load_bundle_task_web$46dart.src__load_bundle_task_web;
+  var write_batch_web = Object.create(dart.library);
+  var transaction_web = Object.create(dart.library);
+  var field_value_factory_web = Object.create(dart.library);
+  var query_web = Object.create(dart.library);
+  var collection_reference_web = Object.create(dart.library);
+  var document_reference_web = Object.create(dart.library);
+  var codec_utility = Object.create(dart.library);
+  var web_utils = Object.create(dart.library);
+  var cloud_firestore_web = Object.create(dart.library);
+  var $addAll = dartx.addAll;
+  var $_get = dartx._get;
+  var $noSuchMethod = dartx.noSuchMethod;
+  var $updateAll = dartx.updateAll;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $length = dartx.length;
+  var $toLowerCase = dartx.toLowerCase;
+  var $join = dartx.join;
+  dart._checkModuleNullSafetyMode(true);
+  var T$ = {
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureOfDocumentSnapshotPlatform: () => (T$.FutureOfDocumentSnapshotPlatform = dart.constFn(async.Future$(platform_interface_document_snapshot.DocumentSnapshotPlatform)))(),
+    VoidToFutureOfDocumentSnapshotPlatform: () => (T$.VoidToFutureOfDocumentSnapshotPlatform = dart.constFn(dart.fnType(T$.FutureOfDocumentSnapshotPlatform(), [])))(),
+    ListN: () => (T$.ListN = dart.constFn(dart.nullable(core.List)))(),
+    MapOfString$dynamic: () => (T$.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    LinkedHashMapOfString$dynamic: () => (T$.LinkedHashMapOfString$dynamic = dart.constFn(collection.LinkedHashMap$(core.String, dart.dynamic)))(),
+    IdentityMapOfString$dynamic: () => (T$.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    FutureOfQuerySnapshotPlatform: () => (T$.FutureOfQuerySnapshotPlatform = dart.constFn(async.Future$(platform_interface_query_snapshot.QuerySnapshotPlatform)))(),
+    VoidToFutureOfQuerySnapshotPlatform: () => (T$.VoidToFutureOfQuerySnapshotPlatform = dart.constFn(dart.fnType(T$.FutureOfQuerySnapshotPlatform(), [])))(),
+    StreamOfQuerySnapshotPlatform: () => (T$.StreamOfQuerySnapshotPlatform = dart.constFn(async.Stream$(platform_interface_query_snapshot.QuerySnapshotPlatform)))(),
+    QuerySnapshotToQuerySnapshotPlatform: () => (T$.QuerySnapshotToQuerySnapshotPlatform = dart.constFn(dart.fnType(platform_interface_query_snapshot.QuerySnapshotPlatform, [firestore.QuerySnapshot])))(),
+    VoidToStreamOfQuerySnapshotPlatform: () => (T$.VoidToStreamOfQuerySnapshotPlatform = dart.constFn(dart.fnType(T$.StreamOfQuerySnapshotPlatform(), [])))(),
+    FutureOfNull: () => (T$.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    VoidToFutureOfNull: () => (T$.VoidToFutureOfNull = dart.constFn(dart.fnType(T$.FutureOfNull(), [])))(),
+    FutureOrOfDocumentSnapshot: () => (T$.FutureOrOfDocumentSnapshot = dart.constFn(async.FutureOr$(firestore.DocumentSnapshot)))(),
+    FutureOfDocumentSnapshot: () => (T$.FutureOfDocumentSnapshot = dart.constFn(async.Future$(firestore.DocumentSnapshot)))(),
+    VoidToFutureOfDocumentSnapshot: () => (T$.VoidToFutureOfDocumentSnapshot = dart.constFn(dart.fnType(T$.FutureOfDocumentSnapshot(), [])))(),
+    StreamOfDocumentSnapshotPlatform: () => (T$.StreamOfDocumentSnapshotPlatform = dart.constFn(async.Stream$(platform_interface_document_snapshot.DocumentSnapshotPlatform)))(),
+    DocumentSnapshotToDocumentSnapshotPlatform: () => (T$.DocumentSnapshotToDocumentSnapshotPlatform = dart.constFn(dart.fnType(platform_interface_document_snapshot.DocumentSnapshotPlatform, [firestore.DocumentSnapshot])))(),
+    VoidToStreamOfDocumentSnapshotPlatform: () => (T$.VoidToStreamOfDocumentSnapshotPlatform = dart.constFn(dart.fnType(T$.StreamOfDocumentSnapshotPlatform(), [])))(),
+    StringAnddynamicTodynamic: () => (T$.StringAnddynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.String, dart.dynamic])))(),
+    dynamicTodynamic: () => (T$.dynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [dart.dynamic])))(),
+    DocumentSnapshotN: () => (T$.DocumentSnapshotN = dart.constFn(dart.nullable(firestore.DocumentSnapshot)))(),
+    DocumentSnapshotNToDocumentSnapshotPlatform: () => (T$.DocumentSnapshotNToDocumentSnapshotPlatform = dart.constFn(dart.fnType(platform_interface_document_snapshot.DocumentSnapshotPlatform, [T$.DocumentSnapshotN()])))(),
+    DocumentChangeToDocumentChangePlatform: () => (T$.DocumentChangeToDocumentChangePlatform = dart.constFn(dart.fnType(platform_interface_document_change.DocumentChangePlatform, [firestore.DocumentChange])))(),
+    IdentityMapOfString$bool: () => (T$.IdentityMapOfString$bool = dart.constFn(_js_helper.IdentityMap$(core.String, core.bool)))(),
+    FieldPathToString: () => (T$.FieldPathToString = dart.constFn(dart.fnType(core.String, [field_path.FieldPath])))(),
+    TransactionN: () => (T$.TransactionN = dart.constFn(dart.nullable(firestore.Transaction)))(),
+    VoidToFuture: () => (T$.VoidToFuture = dart.constFn(dart.fnType(async.Future, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: source.Source.prototype,
+        [_name]: "Source.serverAndCache",
+        index: 0
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: get_options.GetOptions.prototype,
+        [GetOptions_source]: C[1] || CT.C1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_pointer', _pointer));
+    },
+    get C3() {
+      return C[3] = dart.fn(codec_utility.CodecUtility.valueEncode, T$.dynamicTodynamic());
+    },
+    get C4() {
+      return C[4] = dart.fn(codec_utility.CodecUtility.valueDecode, T$.dynamicTodynamic());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: source.Source.prototype,
+        [_name]: "Source.cache",
+        index: 2
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: source.Source.prototype,
+        [_name]: "Source.server",
+        index: 1
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 30000000
+      });
     }
-
-    function isFunction(it) {
-        return ostring.call(it) === '[object Function]';
+  }, false);
+  var C = Array(8).fill(void 0);
+  var I = [
+    "package:cloud_firestore_web/src/write_batch_web.dart",
+    "package:cloud_firestore_web/src/transaction_web.dart",
+    "package:cloud_firestore_web/src/field_value_factory_web.dart",
+    "package:cloud_firestore_web/src/query_web.dart",
+    "package:cloud_firestore_web/src/collection_reference_web.dart",
+    "package:cloud_firestore_web/src/document_reference_web.dart",
+    "package:cloud_firestore_web/src/utils/codec_utility.dart",
+    "package:cloud_firestore_web/cloud_firestore_web.dart"
+  ];
+  var _webFirestoreDelegate$ = dart.privateName(write_batch_web, "_webFirestoreDelegate");
+  var _webWriteBatchDelegate = dart.privateName(write_batch_web, "_webWriteBatchDelegate");
+  write_batch_web.WriteBatchWeb = class WriteBatchWeb extends platform_interface_write_batch.WriteBatchPlatform {
+    commit() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webWriteBatchDelegate], 'commit'));
     }
-
-    function isArray(it) {
-        return ostring.call(it) === '[object Array]';
+    delete(documentPath) {
+      this[_webWriteBatchDelegate].delete(this[_webFirestoreDelegate$].doc(documentPath));
     }
-
-    /**
-     * Helper function for iterating over an array. If the func returns
-     * a true value, it will break out of the loop.
-     */
-    function each(ary, func) {
-        if (ary) {
-            var i;
-            for (i = 0; i < ary.length; i += 1) {
-                if (ary[i] && func(ary[i], i, ary)) {
-                    break;
-                }
-            }
-        }
+    set(documentPath, data, options = null) {
+      this[_webWriteBatchDelegate].set(this[_webFirestoreDelegate$].doc(documentPath), dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data)), web_utils.convertSetOptions(options));
     }
-
-    /**
-     * Helper function for iterating over an array backwards. If the func
-     * returns a true value, it will break out of the loop.
-     */
-    function eachReverse(ary, func) {
-        if (ary) {
-            var i;
-            for (i = ary.length - 1; i > -1; i -= 1) {
-                if (ary[i] && func(ary[i], i, ary)) {
-                    break;
-                }
-            }
-        }
+    update(documentPath, data) {
+      this[_webWriteBatchDelegate].update(this[_webFirestoreDelegate$].doc(documentPath), dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data)));
     }
-
-    function hasProp(obj, prop) {
-        return hasOwn.call(obj, prop);
+  };
+  (write_batch_web.WriteBatchWeb.new = function(_webFirestoreDelegate) {
+    this[_webFirestoreDelegate$] = _webFirestoreDelegate;
+    this[_webWriteBatchDelegate] = dart.nullCheck(_webFirestoreDelegate.batch());
+    write_batch_web.WriteBatchWeb.__proto__.new.call(this);
+    ;
+  }).prototype = write_batch_web.WriteBatchWeb.prototype;
+  dart.addTypeTests(write_batch_web.WriteBatchWeb);
+  dart.addTypeCaches(write_batch_web.WriteBatchWeb);
+  dart.setLibraryUri(write_batch_web.WriteBatchWeb, I[0]);
+  dart.setFieldSignature(write_batch_web.WriteBatchWeb, () => ({
+    __proto__: dart.getFields(write_batch_web.WriteBatchWeb.__proto__),
+    [_webFirestoreDelegate$]: dart.finalFieldType(firestore.Firestore),
+    [_webWriteBatchDelegate]: dart.fieldType(firestore.WriteBatch)
+  }));
+  var _firestore$ = dart.privateName(transaction_web, "_firestore");
+  var _webFirestoreDelegate$0 = dart.privateName(transaction_web, "_webFirestoreDelegate");
+  var _webTransactionDelegate$ = dart.privateName(transaction_web, "_webTransactionDelegate");
+  transaction_web.TransactionWeb = class TransactionWeb extends platform_interface_transaction.TransactionPlatform {
+    delete(documentPath) {
+      this[_webTransactionDelegate$].delete(this[_webFirestoreDelegate$0].doc(documentPath));
+      return this;
     }
-
-    function getOwn(obj, prop) {
-        return hasProp(obj, prop) && obj[prop];
+    get(documentPath) {
+      return internals.guard(T$.FutureOfDocumentSnapshotPlatform(), dart.fn(() => async.async(platform_interface_document_snapshot.DocumentSnapshotPlatform, (function*() {
+        let webDocumentSnapshot = (yield this[_webTransactionDelegate$].get(this[_webFirestoreDelegate$0].doc(documentPath)));
+        return web_utils.convertWebDocumentSnapshot(this[_firestore$], webDocumentSnapshot);
+      }).bind(this)), T$.VoidToFutureOfDocumentSnapshotPlatform()));
     }
-
-    /**
-     * Cycles over properties in an object and calls a function for each
-     * property value. If the function returns a truthy value, then the
-     * iteration is stopped.
-     */
-    function eachProp(obj, func) {
-        var prop;
-        for (prop in obj) {
-            if (hasProp(obj, prop)) {
-                if (func(obj[prop], prop)) {
-                    break;
-                }
-            }
-        }
+    set(documentPath, data, options = null) {
+      this[_webTransactionDelegate$].set(this[_webFirestoreDelegate$0].doc(documentPath), dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data)), web_utils.convertSetOptions(options));
+      return this;
     }
-
-    /**
-     * Simple function to mix in properties from source into target,
-     * but only if target does not already have a property of the same name.
-     */
-    function mixin(target, source, force, deepStringMixin) {
-        if (source) {
-            eachProp(source, function (value, prop) {
-                if (force || !hasProp(target, prop)) {
-                    if (deepStringMixin && typeof value === 'object' && value &&
-                        !isArray(value) && !isFunction(value) &&
-                        !(value instanceof RegExp)) {
-
-                        if (!target[prop]) {
-                            target[prop] = {};
-                        }
-                        mixin(target[prop], value, force, deepStringMixin);
-                    } else {
-                        target[prop] = value;
-                    }
-                }
-            });
-        }
-        return target;
+    update(documentPath, data) {
+      this[_webTransactionDelegate$].update(this[_webFirestoreDelegate$0].doc(documentPath), dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data)));
+      return this;
     }
-
-    //Similar to Function.prototype.bind, but the 'this' object is specified
-    //first, since it is easier to read/figure out what 'this' will be.
-    function bind(obj, fn) {
-        return function () {
-            return fn.apply(obj, arguments);
-        };
+  };
+  (transaction_web.TransactionWeb.new = function(_firestore, _webFirestoreDelegate, _webTransactionDelegate) {
+    this[_firestore$] = _firestore;
+    this[_webFirestoreDelegate$0] = _webFirestoreDelegate;
+    this[_webTransactionDelegate$] = _webTransactionDelegate;
+    transaction_web.TransactionWeb.__proto__.new.call(this);
+    ;
+  }).prototype = transaction_web.TransactionWeb.prototype;
+  dart.addTypeTests(transaction_web.TransactionWeb);
+  dart.addTypeCaches(transaction_web.TransactionWeb);
+  dart.setMethodSignature(transaction_web.TransactionWeb, () => ({
+    __proto__: dart.getMethods(transaction_web.TransactionWeb.__proto__),
+    delete: dart.fnType(transaction_web.TransactionWeb, [core.String]),
+    set: dart.fnType(transaction_web.TransactionWeb, [core.String, core.Map$(core.String, dart.dynamic)], [dart.nullable(set_options.SetOptions)]),
+    update: dart.fnType(transaction_web.TransactionWeb, [core.String, core.Map$(core.String, dart.dynamic)])
+  }));
+  dart.setLibraryUri(transaction_web.TransactionWeb, I[1]);
+  dart.setFieldSignature(transaction_web.TransactionWeb, () => ({
+    __proto__: dart.getFields(transaction_web.TransactionWeb.__proto__),
+    [_webFirestoreDelegate$0]: dart.finalFieldType(firestore.Firestore),
+    [_webTransactionDelegate$]: dart.finalFieldType(firestore.Transaction),
+    [_firestore$]: dart.fieldType(platform_interface_firestore.FirebaseFirestorePlatform)
+  }));
+  field_value_factory_web.FieldValueFactoryWeb = class FieldValueFactoryWeb extends platform_interface_field_value_factory.FieldValueFactoryPlatform {
+    arrayRemove(elements) {
+      return new field_value_web.FieldValueWeb.new(firestore.FieldValue.arrayRemove(T$.ListN().as(codec_utility.CodecUtility.valueEncode(elements))));
     }
-
-    function scripts() {
-        return document.getElementsByTagName('script');
+    arrayUnion(elements) {
+      return new field_value_web.FieldValueWeb.new(firestore.FieldValue.arrayUnion(T$.ListN().as(codec_utility.CodecUtility.valueEncode(elements))));
     }
-
-    function defaultOnError(err) {
-        throw err;
+    delete() {
+      return new field_value_web.FieldValueWeb.new(firestore.FieldValue.delete());
     }
-
-    //Allow getting a global that is expressed in
-    //dot notation, like 'a.b.c'.
-    function getGlobal(value) {
-        if (!value) {
-            return value;
-        }
-        var g = global;
-        each(value.split('.'), function (part) {
-            g = g[part];
-        });
-        return g;
+    increment(value) {
+      return new field_value_web.FieldValueWeb.new(firestore.FieldValue.increment(value));
     }
-
-    /**
-     * Constructs an error with a pointer to an URL with more information.
-     * @param {String} id the error ID that maps to an ID on a web page.
-     * @param {String} message human readable error.
-     * @param {Error} [err] the original error, if there is one.
-     *
-     * @returns {Error}
-     */
-    function makeError(id, msg, err, requireModules) {
-        var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
-        e.requireType = id;
-        e.requireModules = requireModules;
-        if (err) {
-            e.originalError = err;
-        }
-        return e;
+    serverTimestamp() {
+      return new field_value_web.FieldValueWeb.new(firestore.FieldValue.serverTimestamp());
     }
-
-    if (typeof define !== 'undefined') {
-        //If a define is already in play via another AMD loader,
-        //do not overwrite.
-        return;
+  };
+  (field_value_factory_web.FieldValueFactoryWeb.new = function() {
+    field_value_factory_web.FieldValueFactoryWeb.__proto__.new.call(this);
+    ;
+  }).prototype = field_value_factory_web.FieldValueFactoryWeb.prototype;
+  dart.addTypeTests(field_value_factory_web.FieldValueFactoryWeb);
+  dart.addTypeCaches(field_value_factory_web.FieldValueFactoryWeb);
+  dart.setMethodSignature(field_value_factory_web.FieldValueFactoryWeb, () => ({
+    __proto__: dart.getMethods(field_value_factory_web.FieldValueFactoryWeb.__proto__),
+    arrayRemove: dart.fnType(field_value_web.FieldValueWeb, [core.List]),
+    arrayUnion: dart.fnType(field_value_web.FieldValueWeb, [core.List]),
+    delete: dart.fnType(field_value_web.FieldValueWeb, []),
+    increment: dart.fnType(field_value_web.FieldValueWeb, [core.num]),
+    serverTimestamp: dart.fnType(field_value_web.FieldValueWeb, [])
+  }));
+  dart.setLibraryUri(field_value_factory_web.FieldValueFactoryWeb, I[2]);
+  var isCollectionGroupQuery$ = dart.privateName(query_web, "QueryWeb.isCollectionGroupQuery");
+  var _firestore$0 = dart.privateName(query_web, "_firestore");
+  var _path$ = dart.privateName(query_web, "_path");
+  var _webQuery$ = dart.privateName(query_web, "_webQuery");
+  var _copyWithParameters = dart.privateName(query_web, "_copyWithParameters");
+  var _buildWebQueryWithParameters = dart.privateName(query_web, "_buildWebQueryWithParameters");
+  var _name = dart.privateName(source, "_name");
+  var GetOptions_source = dart.privateName(get_options, "GetOptions.source");
+  query_web.QueryWeb = class QueryWeb extends platform_interface_query.QueryPlatform {
+    get isCollectionGroupQuery() {
+      return this[isCollectionGroupQuery$];
     }
-
-    if (typeof requirejs !== 'undefined') {
-        if (isFunction(requirejs)) {
-            //Do not overwrite an existing requirejs instance.
-            return;
-        }
-        cfg = requirejs;
-        requirejs = undefined;
+    set isCollectionGroupQuery(value) {
+      super.isCollectionGroupQuery = value;
     }
-
-    //Allow for a require config object
-    if (typeof require !== 'undefined' && !isFunction(require)) {
-        //assume it is a config object.
-        cfg = require;
-        require = undefined;
+    [_copyWithParameters](parameters) {
+      let t0;
+      return new query_web.QueryWeb.new(this[_firestore$0], this[_path$], this[_webQuery$], {isCollectionGroupQuery: this.isCollectionGroupQuery, parameters: T$.MapOfString$dynamic().unmodifiable((t0 = T$.LinkedHashMapOfString$dynamic().from(this.parameters), (() => {
+          t0[$addAll](parameters);
+          return t0;
+        })()))});
     }
-
-    function newContext(contextName) {
-        var inCheckLoaded, Module, context, handlers,
-            checkLoadedTimeoutId,
-            config = {
-                //Defaults. Do not set a default for map
-                //config to speed up normalize(), which
-                //will run faster if there is no default.
-                waitSeconds: 7,
-                baseUrl: './',
-                paths: {},
-                bundles: {},
-                pkgs: {},
-                shim: {},
-                config: {}
-            },
-            registry = {},
-            //registry of just enabled modules, to speed
-            //cycle breaking code when lots of modules
-            //are registered, but not activated.
-            enabledRegistry = {},
-            undefEvents = {},
-            defQueue = [],
-            defined = {},
-            urlFetched = {},
-            bundlesMap = {},
-            requireCounter = 1,
-            unnormalizedCounter = 1;
-
-        /**
-         * Trims the . and .. from an array of path segments.
-         * It will keep a leading path segment if a .. will become
-         * the first path segment, to help with module name lookups,
-         * which act like paths, but can be remapped. But the end result,
-         * all paths that use this function should look normalized.
-         * NOTE: this method MODIFIES the input array.
-         * @param {Array} ary the array of path segments.
-         */
-        function trimDots(ary) {
-            var i, part;
-            for (i = 0; i < ary.length; i++) {
-                part = ary[i];
-                if (part === '.') {
-                    ary.splice(i, 1);
-                    i -= 1;
-                } else if (part === '..') {
-                    // If at the start, or previous value is still ..,
-                    // keep them so that when converted to a path it may
-                    // still work when converted to a path, even though
-                    // as an ID it is less than ideal. In larger point
-                    // releases, may be better to just kick out an error.
-                    if (i === 0 || (i === 1 && ary[2] === '..') || ary[i - 1] === '..') {
-                        continue;
-                    } else if (i > 0) {
-                        ary.splice(i - 1, 2);
-                        i -= 2;
-                    }
-                }
-            }
-        }
-
-        /**
-         * Given a relative module name, like ./something, normalize it to
-         * a real name that can be mapped to a path.
-         * @param {String} name the relative name
-         * @param {String} baseName a real name that the name arg is relative
-         * to.
-         * @param {Boolean} applyMap apply the map config to the value. Should
-         * only be done if this normalization is for a dependency ID.
-         * @returns {String} normalized name
-         */
-        function normalize(name, baseName, applyMap) {
-            var pkgMain, mapValue, nameParts, i, j, nameSegment, lastIndex,
-                foundMap, foundI, foundStarMap, starI, normalizedBaseParts,
-                baseParts = (baseName && baseName.split('/')),
-                map = config.map,
-                starMap = map && map['*'];
-
-            //Adjust any relative paths.
-            if (name) {
-                name = name.split('/');
-                lastIndex = name.length - 1;
-
-                // If wanting node ID compatibility, strip .js from end
-                // of IDs. Have to do this here, and not in nameToUrl
-                // because node allows either .js or non .js to map
-                // to same file.
-                if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
-                    name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
-                }
-
-                // Starts with a '.' so need the baseName
-                if (name[0].charAt(0) === '.' && baseParts) {
-                    //Convert baseName to array, and lop off the last part,
-                    //so that . matches that 'directory' and not name of the baseName's
-                    //module. For instance, baseName of 'one/two/three', maps to
-                    //'one/two/three.js', but we want the directory, 'one/two' for
-                    //this normalization.
-                    normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
-                    name = normalizedBaseParts.concat(name);
-                }
-
-                trimDots(name);
-                name = name.join('/');
-            }
-
-            //Apply map config if available.
-            if (applyMap && map && (baseParts || starMap)) {
-                nameParts = name.split('/');
-
-                outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
-                    nameSegment = nameParts.slice(0, i).join('/');
-
-                    if (baseParts) {
-                        //Find the longest baseName segment match in the config.
-                        //So, do joins on the biggest to smallest lengths of baseParts.
-                        for (j = baseParts.length; j > 0; j -= 1) {
-                            mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
-
-                            //baseName segment has config, find if it has one for
-                            //this name.
-                            if (mapValue) {
-                                mapValue = getOwn(mapValue, nameSegment);
-                                if (mapValue) {
-                                    //Match, update name to the new value.
-                                    foundMap = mapValue;
-                                    foundI = i;
-                                    break outerLoop;
-                                }
-                            }
-                        }
-                    }
-
-                    //Check for a star map match, but just hold on to it,
-                    //if there is a shorter segment match later in a matching
-                    //config, then favor over this star map.
-                    if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
-                        foundStarMap = getOwn(starMap, nameSegment);
-                        starI = i;
-                    }
-                }
-
-                if (!foundMap && foundStarMap) {
-                    foundMap = foundStarMap;
-                    foundI = starI;
-                }
-
-                if (foundMap) {
-                    nameParts.splice(0, foundI, foundMap);
-                    name = nameParts.join('/');
-                }
-            }
-
-            // If the name points to a package's name, use
-            // the package main instead.
-            pkgMain = getOwn(config.pkgs, name);
-
-            return pkgMain ? pkgMain : name;
-        }
-
-        function removeScript(name) {
-            if (isBrowser) {
-                each(scripts(), function (scriptNode) {
-                    if (scriptNode.getAttribute('data-requiremodule') === name &&
-                            scriptNode.getAttribute('data-requirecontext') === context.contextName) {
-                        scriptNode.parentNode.removeChild(scriptNode);
-                        return true;
-                    }
-                });
-            }
-        }
-
-        function hasPathFallback(id) {
-            var pathConfig = getOwn(config.paths, id);
-            if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
-                //Pop off the first array value, since it failed, and
-                //retry
-                pathConfig.shift();
-                context.require.undef(id);
-
-                //Custom require that does not do map translation, since
-                //ID is "absolute", already mapped/resolved.
-                context.makeRequire(null, {
-                    skipMap: true
-                })([id]);
-
-                return true;
-            }
-        }
-
-        //Turns a plugin!resource to [plugin, resource]
-        //with the plugin being undefined if the name
-        //did not have a plugin prefix.
-        function splitPrefix(name) {
-            var prefix,
-                index = name ? name.indexOf('!') : -1;
-            if (index > -1) {
-                prefix = name.substring(0, index);
-                name = name.substring(index + 1, name.length);
-            }
-            return [prefix, name];
-        }
-
-        /**
-         * Creates a module mapping that includes plugin prefix, module
-         * name, and path. If parentModuleMap is provided it will
-         * also normalize the name via require.normalize()
-         *
-         * @param {String} name the module name
-         * @param {String} [parentModuleMap] parent module map
-         * for the module name, used to resolve relative names.
-         * @param {Boolean} isNormalized: is the ID already normalized.
-         * This is true if this call is done for a define() module ID.
-         * @param {Boolean} applyMap: apply the map config to the ID.
-         * Should only be true if this map is for a dependency.
-         *
-         * @returns {Object}
-         */
-        function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
-            var url, pluginModule, suffix, nameParts,
-                prefix = null,
-                parentName = parentModuleMap ? parentModuleMap.name : null,
-                originalName = name,
-                isDefine = true,
-                normalizedName = '';
-
-            //If no name, then it means it is a require call, generate an
-            //internal name.
-            if (!name) {
-                isDefine = false;
-                name = '_@r' + (requireCounter += 1);
-            }
-
-            nameParts = splitPrefix(name);
-            prefix = nameParts[0];
-            name = nameParts[1];
-
-            if (prefix) {
-                prefix = normalize(prefix, parentName, applyMap);
-                pluginModule = getOwn(defined, prefix);
-            }
-
-            //Account for relative paths if there is a base name.
-            if (name) {
-                if (prefix) {
-                    if (isNormalized) {
-                        normalizedName = name;
-                    } else if (pluginModule && pluginModule.normalize) {
-                        //Plugin is loaded, use its normalize method.
-                        normalizedName = pluginModule.normalize(name, function (name) {
-                            return normalize(name, parentName, applyMap);
-                        });
-                    } else {
-                        // If nested plugin references, then do not try to
-                        // normalize, as it will not normalize correctly. This
-                        // places a restriction on resourceIds, and the longer
-                        // term solution is not to normalize until plugins are
-                        // loaded and all normalizations to allow for async
-                        // loading of a loader plugin. But for now, fixes the
-                        // common uses. Details in #1131
-                        normalizedName = name.indexOf('!') === -1 ?
-                                         normalize(name, parentName, applyMap) :
-                                         name;
-                    }
-                } else {
-                    //A regular module.
-                    normalizedName = normalize(name, parentName, applyMap);
-
-                    //Normalized name may be a plugin ID due to map config
-                    //application in normalize. The map config values must
-                    //already be normalized, so do not need to redo that part.
-                    nameParts = splitPrefix(normalizedName);
-                    prefix = nameParts[0];
-                    normalizedName = nameParts[1];
-                    isNormalized = true;
-
-                    url = context.nameToUrl(normalizedName);
-                }
-            }
-
-            //If the id is a plugin id that cannot be determined if it needs
-            //normalization, stamp it with a unique ID so two matching relative
-            //ids that may conflict can be separate.
-            suffix = prefix && !pluginModule && !isNormalized ?
-                     '_unnormalized' + (unnormalizedCounter += 1) :
-                     '';
-
-            return {
-                prefix: prefix,
-                name: normalizedName,
-                parentMap: parentModuleMap,
-                unnormalized: !!suffix,
-                url: url,
-                originalName: originalName,
-                isDefine: isDefine,
-                id: (prefix ?
-                        prefix + '!' + normalizedName :
-                        normalizedName) + suffix
-            };
-        }
-
-        function getModule(depMap) {
-            var id = depMap.id,
-                mod = getOwn(registry, id);
-
-            if (!mod) {
-                mod = registry[id] = new context.Module(depMap);
-            }
-
-            return mod;
-        }
-
-        function on(depMap, name, fn) {
-            var id = depMap.id,
-                mod = getOwn(registry, id);
-
-            if (hasProp(defined, id) &&
-                    (!mod || mod.defineEmitComplete)) {
-                if (name === 'defined') {
-                    fn(defined[id]);
-                }
-            } else {
-                mod = getModule(depMap);
-                if (mod.error && name === 'error') {
-                    fn(mod.error);
-                } else {
-                    mod.on(name, fn);
-                }
-            }
-        }
-
-        function onError(err, errback) {
-            var ids = err.requireModules,
-                notified = false;
-
-            if (errback) {
-                errback(err);
-            } else {
-                each(ids, function (id) {
-                    var mod = getOwn(registry, id);
-                    if (mod) {
-                        //Set error on module, so it skips timeout checks.
-                        mod.error = err;
-                        if (mod.events.error) {
-                            notified = true;
-                            mod.emit('error', err);
-                        }
-                    }
-                });
-
-                if (!notified) {
-                    req.onError(err);
-                }
-            }
-        }
-
-        /**
-         * Internal method to transfer globalQueue items to this context's
-         * defQueue.
-         */
-        function takeGlobalQueue() {
-            //Push all the globalDefQueue items into the context's defQueue
-            if (globalDefQueue.length) {
-                each(globalDefQueue, function(queueItem) {
-                    var id = queueItem[0];
-                    if (typeof id === 'string') {
-                        context.defQueueMap[id] = true;
-                    }
-                    defQueue.push(queueItem);
-                });
-                globalDefQueue = [];
-            }
-        }
-
-        handlers = {
-            'require': function (mod) {
-                if (mod.require) {
-                    return mod.require;
-                } else {
-                    return (mod.require = context.makeRequire(mod.map));
-                }
-            },
-            'exports': function (mod) {
-                mod.usingExports = true;
-                if (mod.map.isDefine) {
-                    if (mod.exports) {
-                        return (defined[mod.map.id] = mod.exports);
-                    } else {
-                        return (mod.exports = defined[mod.map.id] = {});
-                    }
-                }
-            },
-            'module': function (mod) {
-                if (mod.module) {
-                    return mod.module;
-                } else {
-                    return (mod.module = {
-                        id: mod.map.id,
-                        uri: mod.map.url,
-                        config: function () {
-                            return getOwn(config.config, mod.map.id) || {};
-                        },
-                        exports: mod.exports || (mod.exports = {})
-                    });
-                }
-            }
-        };
-
-        function cleanRegistry(id) {
-            //Clean up machinery used for waiting modules.
-            delete registry[id];
-            delete enabledRegistry[id];
-        }
-
-        function breakCycle(mod, traced, processed) {
-            var id = mod.map.id;
-
-            if (mod.error) {
-                mod.emit('error', mod.error);
-            } else {
-                traced[id] = true;
-                each(mod.depMaps, function (depMap, i) {
-                    var depId = depMap.id,
-                        dep = getOwn(registry, depId);
-
-                    //Only force things that have not completed
-                    //being defined, so still in the registry,
-                    //and only if it has not been matched up
-                    //in the module already.
-                    if (dep && !mod.depMatched[i] && !processed[depId]) {
-                        if (getOwn(traced, depId)) {
-                            mod.defineDep(i, defined[depId]);
-                            mod.check(); //pass false?
-                        } else {
-                            breakCycle(dep, traced, processed);
-                        }
-                    }
-                });
-                processed[id] = true;
-            }
-        }
-
-        function checkLoaded() {
-            var err, usingPathFallback,
-                waitInterval = config.waitSeconds * 1000,
-                //It is possible to disable the wait interval by using waitSeconds of 0.
-                expired = waitInterval && (context.startTime + waitInterval) < new Date().getTime(),
-                noLoads = [],
-                reqCalls = [],
-                stillLoading = false,
-                needCycleCheck = true;
-
-            //Do not bother if this call was a result of a cycle break.
-            if (inCheckLoaded) {
-                return;
-            }
-
-            inCheckLoaded = true;
-
-            //Figure out the state of all the modules.
-            eachProp(enabledRegistry, function (mod) {
-                var map = mod.map,
-                    modId = map.id;
-
-                //Skip things that are not enabled or in error state.
-                if (!mod.enabled) {
-                    return;
-                }
-
-                if (!map.isDefine) {
-                    reqCalls.push(mod);
-                }
-
-                if (!mod.error) {
-                    //If the module should be executed, and it has not
-                    //been inited and time is up, remember it.
-                    if (!mod.inited && expired) {
-                        if (hasPathFallback(modId)) {
-                            usingPathFallback = true;
-                            stillLoading = true;
-                        } else {
-                            noLoads.push(modId);
-                            removeScript(modId);
-                        }
-                    } else if (!mod.inited && mod.fetched && map.isDefine) {
-                        stillLoading = true;
-                        if (!map.prefix) {
-                            //No reason to keep looking for unfinished
-                            //loading. If the only stillLoading is a
-                            //plugin resource though, keep going,
-                            //because it may be that a plugin resource
-                            //is waiting on a non-plugin cycle.
-                            return (needCycleCheck = false);
-                        }
-                    }
-                }
-            });
-
-            if (expired && noLoads.length) {
-                //If wait time expired, throw error of unloaded modules.
-                err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
-                err.contextName = context.contextName;
-                return onError(err);
-            }
-
-            //Not expired, check for a cycle.
-            if (needCycleCheck) {
-                each(reqCalls, function (mod) {
-                    breakCycle(mod, {}, {});
-                });
-            }
-
-            //If still waiting on loads, and the waiting load is something
-            //other than a plugin resource, or there are still outstanding
-            //scripts, then just try back later.
-            if ((!expired || usingPathFallback) && stillLoading) {
-                //Something is still waiting to load. Wait for it, but only
-                //if a timeout is not already in effect.
-                if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
-                    checkLoadedTimeoutId = setTimeout(function () {
-                        checkLoadedTimeoutId = 0;
-                        checkLoaded();
-                    }, 50);
-                }
-            }
-
-            inCheckLoaded = false;
-        }
-
-        Module = function (map) {
-            this.events = getOwn(undefEvents, map.id) || {};
-            this.map = map;
-            this.shim = getOwn(config.shim, map.id);
-            this.depExports = [];
-            this.depMaps = [];
-            this.depMatched = [];
-            this.pluginMaps = {};
-            this.depCount = 0;
-
-            /* this.exports this.factory
-               this.depMaps = [],
-               this.enabled, this.fetched
-            */
-        };
-
-        Module.prototype = {
-            init: function (depMaps, factory, errback, options) {
-                options = options || {};
-
-                //Do not do more inits if already done. Can happen if there
-                //are multiple define calls for the same module. That is not
-                //a normal, common case, but it is also not unexpected.
-                if (this.inited) {
-                    return;
-                }
-
-                this.factory = factory;
-
-                if (errback) {
-                    //Register for errors on this module.
-                    this.on('error', errback);
-                } else if (this.events.error) {
-                    //If no errback already, but there are error listeners
-                    //on this module, set up an errback to pass to the deps.
-                    errback = bind(this, function (err) {
-                        this.emit('error', err);
-                    });
-                }
-
-                //Do a copy of the dependency array, so that
-                //source inputs are not modified. For example
-                //"shim" deps are passed in here directly, and
-                //doing a direct modification of the depMaps array
-                //would affect that config.
-                this.depMaps = depMaps && depMaps.slice(0);
-
-                this.errback = errback;
-
-                //Indicate this module has be initialized
-                this.inited = true;
-
-                this.ignore = options.ignore;
-
-                //Could have option to init this module in enabled mode,
-                //or could have been previously marked as enabled. However,
-                //the dependencies are not known until init is called. So
-                //if enabled previously, now trigger dependencies as enabled.
-                if (options.enabled || this.enabled) {
-                    //Enable this module and dependencies.
-                    //Will call this.check()
-                    this.enable();
-                } else {
-                    this.check();
-                }
-            },
-
-            defineDep: function (i, depExports) {
-                //Because of cycles, defined callback for a given
-                //export can be called more than once.
-                if (!this.depMatched[i]) {
-                    this.depMatched[i] = true;
-                    this.depCount -= 1;
-                    this.depExports[i] = depExports;
-                }
-            },
-
-            fetch: function () {
-                if (this.fetched) {
-                    return;
-                }
-                this.fetched = true;
-
-                context.startTime = (new Date()).getTime();
-
-                var map = this.map;
-
-                //If the manager is for a plugin managed resource,
-                //ask the plugin to load it now.
-                if (this.shim) {
-                    context.makeRequire(this.map, {
-                        enableBuildCallback: true
-                    })(this.shim.deps || [], bind(this, function () {
-                        return map.prefix ? this.callPlugin() : this.load();
-                    }));
-                } else {
-                    //Regular dependency.
-                    return map.prefix ? this.callPlugin() : this.load();
-                }
-            },
-
-            load: function () {
-                var url = this.map.url;
-
-                //Regular dependency.
-                if (!urlFetched[url]) {
-                    urlFetched[url] = true;
-                    context.load(this.map.id, url);
-                }
-            },
-
-            /**
-             * Checks if the module is ready to define itself, and if so,
-             * define it.
-             */
-            check: function () {
-                if (!this.enabled || this.enabling) {
-                    return;
-                }
-
-                var err, cjsModule,
-                    id = this.map.id,
-                    depExports = this.depExports,
-                    exports = this.exports,
-                    factory = this.factory;
-
-                if (!this.inited) {
-                    // Only fetch if not already in the defQueue.
-                    if (!hasProp(context.defQueueMap, id)) {
-                        this.fetch();
-                    }
-                } else if (this.error) {
-                    this.emit('error', this.error);
-                } else if (!this.defining) {
-                    //The factory could trigger another require call
-                    //that would result in checking this module to
-                    //define itself again. If already in the process
-                    //of doing that, skip this work.
-                    this.defining = true;
-
-                    if (this.depCount < 1 && !this.defined) {
-                        if (isFunction(factory)) {
-                            //If there is an error listener, favor passing
-                            //to that instead of throwing an error. However,
-                            //only do it for define()'d  modules. require
-                            //errbacks should not be called for failures in
-                            //their callbacks (#699). However if a global
-                            //onError is set, use that.
-                            if ((this.events.error && this.map.isDefine) ||
-                                req.onError !== defaultOnError) {
-                                try {
-                                    exports = context.execCb(id, factory, depExports, exports);
-                                } catch (e) {
-                                    err = e;
-                                }
-                            } else {
-                                exports = context.execCb(id, factory, depExports, exports);
-                            }
-
-                            // Favor return value over exports. If node/cjs in play,
-                            // then will not have a return value anyway. Favor
-                            // module.exports assignment over exports object.
-                            if (this.map.isDefine && exports === undefined) {
-                                cjsModule = this.module;
-                                if (cjsModule) {
-                                    exports = cjsModule.exports;
-                                } else if (this.usingExports) {
-                                    //exports already set the defined value.
-                                    exports = this.exports;
-                                }
-                            }
-
-                            if (err) {
-                                err.requireMap = this.map;
-                                err.requireModules = this.map.isDefine ? [this.map.id] : null;
-                                err.requireType = this.map.isDefine ? 'define' : 'require';
-                                return onError((this.error = err));
-                            }
-
-                        } else {
-                            //Just a literal value
-                            exports = factory;
-                        }
-
-                        this.exports = exports;
-
-                        if (this.map.isDefine && !this.ignore) {
-                            defined[id] = exports;
-
-                            if (req.onResourceLoad) {
-                                var resLoadMaps = [];
-                                each(this.depMaps, function (depMap) {
-                                    resLoadMaps.push(depMap.normalizedMap || depMap);
-                                });
-                                req.onResourceLoad(context, this.map, resLoadMaps);
-                            }
-                        }
-
-                        //Clean up
-                        cleanRegistry(id);
-
-                        this.defined = true;
-                    }
-
-                    //Finished the define stage. Allow calling check again
-                    //to allow define notifications below in the case of a
-                    //cycle.
-                    this.defining = false;
-
-                    if (this.defined && !this.defineEmitted) {
-                        this.defineEmitted = true;
-                        this.emit('defined', this.exports);
-                        this.defineEmitComplete = true;
-                    }
-
-                }
-            },
-
-            callPlugin: function () {
-                var map = this.map,
-                    id = map.id,
-                    //Map already normalized the prefix.
-                    pluginMap = makeModuleMap(map.prefix);
-
-                //Mark this as a dependency for this plugin, so it
-                //can be traced for cycles.
-                this.depMaps.push(pluginMap);
-
-                on(pluginMap, 'defined', bind(this, function (plugin) {
-                    var load, normalizedMap, normalizedMod,
-                        bundleId = getOwn(bundlesMap, this.map.id),
-                        name = this.map.name,
-                        parentName = this.map.parentMap ? this.map.parentMap.name : null,
-                        localRequire = context.makeRequire(map.parentMap, {
-                            enableBuildCallback: true
-                        });
-
-                    //If current map is not normalized, wait for that
-                    //normalized name to load instead of continuing.
-                    if (this.map.unnormalized) {
-                        //Normalize the ID if the plugin allows it.
-                        if (plugin.normalize) {
-                            name = plugin.normalize(name, function (name) {
-                                return normalize(name, parentName, true);
-                            }) || '';
-                        }
-
-                        //prefix and name should already be normalized, no need
-                        //for applying map config again either.
-                        normalizedMap = makeModuleMap(map.prefix + '!' + name,
-                                                      this.map.parentMap,
-                                                      true);
-                        on(normalizedMap,
-                            'defined', bind(this, function (value) {
-                                this.map.normalizedMap = normalizedMap;
-                                this.init([], function () { return value; }, null, {
-                                    enabled: true,
-                                    ignore: true
-                                });
-                            }));
-
-                        normalizedMod = getOwn(registry, normalizedMap.id);
-                        if (normalizedMod) {
-                            //Mark this as a dependency for this plugin, so it
-                            //can be traced for cycles.
-                            this.depMaps.push(normalizedMap);
-
-                            if (this.events.error) {
-                                normalizedMod.on('error', bind(this, function (err) {
-                                    this.emit('error', err);
-                                }));
-                            }
-                            normalizedMod.enable();
-                        }
-
-                        return;
-                    }
-
-                    //If a paths config, then just load that file instead to
-                    //resolve the plugin, as it is built into that paths layer.
-                    if (bundleId) {
-                        this.map.url = context.nameToUrl(bundleId);
-                        this.load();
-                        return;
-                    }
-
-                    load = bind(this, function (value) {
-                        this.init([], function () { return value; }, null, {
-                            enabled: true
-                        });
-                    });
-
-                    load.error = bind(this, function (err) {
-                        this.inited = true;
-                        this.error = err;
-                        err.requireModules = [id];
-
-                        //Remove temp unnormalized modules for this module,
-                        //since they will never be resolved otherwise now.
-                        eachProp(registry, function (mod) {
-                            if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
-                                cleanRegistry(mod.map.id);
-                            }
-                        });
-
-                        onError(err);
-                    });
-
-                    //Allow plugins to load other code without having to know the
-                    //context or how to 'complete' the load.
-                    load.fromText = bind(this, function (text, textAlt) {
-                        /*jslint evil: true */
-                        var moduleName = map.name,
-                            moduleMap = makeModuleMap(moduleName),
-                            hasInteractive = useInteractive;
-
-                        //As of 2.1.0, support just passing the text, to reinforce
-                        //fromText only being called once per resource. Still
-                        //support old style of passing moduleName but discard
-                        //that moduleName in favor of the internal ref.
-                        if (textAlt) {
-                            text = textAlt;
-                        }
-
-                        //Turn off interactive script matching for IE for any define
-                        //calls in the text, then turn it back on at the end.
-                        if (hasInteractive) {
-                            useInteractive = false;
-                        }
-
-                        //Prime the system by creating a module instance for
-                        //it.
-                        getModule(moduleMap);
-
-                        //Transfer any config to this other module.
-                        if (hasProp(config.config, id)) {
-                            config.config[moduleName] = config.config[id];
-                        }
-
-                        try {
-                            req.exec(text);
-                        } catch (e) {
-                            return onError(makeError('fromtexteval',
-                                             'fromText eval for ' + id +
-                                            ' failed: ' + e,
-                                             e,
-                                             [id]));
-                        }
-
-                        if (hasInteractive) {
-                            useInteractive = true;
-                        }
-
-                        //Mark this as a dependency for the plugin
-                        //resource
-                        this.depMaps.push(moduleMap);
-
-                        //Support anonymous modules.
-                        context.completeLoad(moduleName);
-
-                        //Bind the value of that module to the value for this
-                        //resource ID.
-                        localRequire([moduleName], load);
-                    });
-
-                    //Use parentName here since the plugin's name is not reliable,
-                    //could be some weird string with no path that actually wants to
-                    //reference the parentName's path.
-                    plugin.load(map.name, localRequire, load, config);
-                }));
-
-                context.enable(pluginMap, this);
-                this.pluginMaps[pluginMap.id] = pluginMap;
-            },
-
-            enable: function () {
-                enabledRegistry[this.map.id] = this;
-                this.enabled = true;
-
-                //Set flag mentioning that the module is enabling,
-                //so that immediate calls to the defined callbacks
-                //for dependencies do not trigger inadvertent load
-                //with the depCount still being zero.
-                this.enabling = true;
-
-                //Enable each dependency
-                each(this.depMaps, bind(this, function (depMap, i) {
-                    var id, mod, handler;
-
-                    if (typeof depMap === 'string') {
-                        //Dependency needs to be converted to a depMap
-                        //and wired up to this module.
-                        depMap = makeModuleMap(depMap,
-                                               (this.map.isDefine ? this.map : this.map.parentMap),
-                                               false,
-                                               !this.skipMap);
-                        this.depMaps[i] = depMap;
-
-                        handler = getOwn(handlers, depMap.id);
-
-                        if (handler) {
-                            this.depExports[i] = handler(this);
-                            return;
-                        }
-
-                        this.depCount += 1;
-
-                        on(depMap, 'defined', bind(this, function (depExports) {
-                            if (this.undefed) {
-                                return;
-                            }
-                            this.defineDep(i, depExports);
-                            this.check();
-                        }));
-
-                        if (this.errback) {
-                            on(depMap, 'error', bind(this, this.errback));
-                        } else if (this.events.error) {
-                            // No direct errback on this module, but something
-                            // else is listening for errors, so be sure to
-                            // propagate the error correctly.
-                            on(depMap, 'error', bind(this, function(err) {
-                                this.emit('error', err);
-                            }));
-                        }
-                    }
-
-                    id = depMap.id;
-                    mod = registry[id];
-
-                    //Skip special modules like 'require', 'exports', 'module'
-                    //Also, don't call enable if it is already enabled,
-                    //important in circular dependency cases.
-                    if (!hasProp(handlers, id) && mod && !mod.enabled) {
-                        context.enable(depMap, this);
-                    }
-                }));
-
-                //Enable each plugin that is used in
-                //a dependency
-                eachProp(this.pluginMaps, bind(this, function (pluginMap) {
-                    var mod = getOwn(registry, pluginMap.id);
-                    if (mod && !mod.enabled) {
-                        context.enable(pluginMap, this);
-                    }
-                }));
-
-                this.enabling = false;
-
-                this.check();
-            },
-
-            on: function (name, cb) {
-                var cbs = this.events[name];
-                if (!cbs) {
-                    cbs = this.events[name] = [];
-                }
-                cbs.push(cb);
-            },
-
-            emit: function (name, evt) {
-                each(this.events[name], function (cb) {
-                    cb(evt);
-                });
-                if (name === 'error') {
-                    //Now that the error handler was triggered, remove
-                    //the listeners, since this broken Module instance
-                    //can stay around for a while in the registry.
-                    delete this.events[name];
-                }
-            }
-        };
-
-        function callGetModule(args) {
-            //Skip modules already defined.
-            if (!hasProp(defined, args[0])) {
-                getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
-            }
-        }
-
-        function removeListener(node, func, name, ieName) {
-            //Favor detachEvent because of IE9
-            //issue, see attachEvent/addEventListener comment elsewhere
-            //in this file.
-            if (node.detachEvent && !isOpera) {
-                //Probably IE. If not it will throw an error, which will be
-                //useful to know.
-                if (ieName) {
-                    node.detachEvent(ieName, func);
-                }
-            } else {
-                node.removeEventListener(name, func, false);
-            }
-        }
-
-        /**
-         * Given an event from a script node, get the requirejs info from it,
-         * and then removes the event listeners on the node.
-         * @param {Event} evt
-         * @returns {Object}
-         */
-        function getScriptData(evt) {
-            //Using currentTarget instead of target for Firefox 2.0's sake. Not
-            //all old browsers will be supported, but this one was easy enough
-            //to support and still makes sense.
-            var node = evt.currentTarget || evt.srcElement;
-
-            //Remove the listeners once here.
-            removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
-            removeListener(node, context.onScriptError, 'error');
-
-            return {
-                node: node,
-                id: node && node.getAttribute('data-requiremodule')
-            };
-        }
-
-        function intakeDefines() {
-            var args;
-
-            //Any defined modules in the global queue, intake them now.
-            takeGlobalQueue();
-
-            //Make sure any remaining defQueue items get properly processed.
-            while (defQueue.length) {
-                args = defQueue.shift();
-                if (args[0] === null) {
-                    return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' +
-                        args[args.length - 1]));
-                } else {
-                    //args are id, deps, factory. Should be normalized by the
-                    //define() function.
-                    callGetModule(args);
-                }
-            }
-            context.defQueueMap = {};
-        }
-
-        context = {
-            config: config,
-            contextName: contextName,
-            registry: registry,
-            defined: defined,
-            urlFetched: urlFetched,
-            defQueue: defQueue,
-            defQueueMap: {},
-            Module: Module,
-            makeModuleMap: makeModuleMap,
-            nextTick: req.nextTick,
-            onError: onError,
-
-            /**
-             * Set a configuration for the context.
-             * @param {Object} cfg config object to integrate.
-             */
-            configure: function (cfg) {
-                //Make sure the baseUrl ends in a slash.
-                if (cfg.baseUrl) {
-                    if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
-                        cfg.baseUrl += '/';
-                    }
-                }
-
-                // Convert old style urlArgs string to a function.
-                if (typeof cfg.urlArgs === 'string') {
-                    var urlArgs = cfg.urlArgs;
-                    cfg.urlArgs = function(id, url) {
-                        return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
-                    };
-                }
-
-                //Save off the paths since they require special processing,
-                //they are additive.
-                var shim = config.shim,
-                    objs = {
-                        paths: true,
-                        bundles: true,
-                        config: true,
-                        map: true
-                    };
-
-                eachProp(cfg, function (value, prop) {
-                    if (objs[prop]) {
-                        if (!config[prop]) {
-                            config[prop] = {};
-                        }
-                        mixin(config[prop], value, true, true);
-                    } else {
-                        config[prop] = value;
-                    }
-                });
-
-                //Reverse map the bundles
-                if (cfg.bundles) {
-                    eachProp(cfg.bundles, function (value, prop) {
-                        each(value, function (v) {
-                            if (v !== prop) {
-                                bundlesMap[v] = prop;
-                            }
-                        });
-                    });
-                }
-
-                //Merge shim
-                if (cfg.shim) {
-                    eachProp(cfg.shim, function (value, id) {
-                        //Normalize the structure
-                        if (isArray(value)) {
-                            value = {
-                                deps: value
-                            };
-                        }
-                        if ((value.exports || value.init) && !value.exportsFn) {
-                            value.exportsFn = context.makeShimExports(value);
-                        }
-                        shim[id] = value;
-                    });
-                    config.shim = shim;
-                }
-
-                //Adjust packages if necessary.
-                if (cfg.packages) {
-                    each(cfg.packages, function (pkgObj) {
-                        var location, name;
-
-                        pkgObj = typeof pkgObj === 'string' ? {name: pkgObj} : pkgObj;
-
-                        name = pkgObj.name;
-                        location = pkgObj.location;
-                        if (location) {
-                            config.paths[name] = pkgObj.location;
-                        }
-
-                        //Save pointer to main module ID for pkg name.
-                        //Remove leading dot in main, so main paths are normalized,
-                        //and remove any trailing .js, since different package
-                        //envs have different conventions: some use a module name,
-                        //some use a file name.
-                        config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main')
-                                     .replace(currDirRegExp, '')
-                                     .replace(jsSuffixRegExp, '');
-                    });
-                }
-
-                //If there are any "waiting to execute" modules in the registry,
-                //update the maps for them, since their info, like URLs to load,
-                //may have changed.
-                eachProp(registry, function (mod, id) {
-                    //If module already has init called, since it is too
-                    //late to modify them, and ignore unnormalized ones
-                    //since they are transient.
-                    if (!mod.inited && !mod.map.unnormalized) {
-                        mod.map = makeModuleMap(id, null, true);
-                    }
-                });
-
-                //If a deps array or a config callback is specified, then call
-                //require with those args. This is useful when require is defined as a
-                //config object before require.js is loaded.
-                if (cfg.deps || cfg.callback) {
-                    context.require(cfg.deps || [], cfg.callback);
-                }
-            },
-
-            makeShimExports: function (value) {
-                function fn() {
-                    var ret;
-                    if (value.init) {
-                        ret = value.init.apply(global, arguments);
-                    }
-                    return ret || (value.exports && getGlobal(value.exports));
-                }
-                return fn;
-            },
-
-            makeRequire: function (relMap, options) {
-                options = options || {};
-
-                function localRequire(deps, callback, errback) {
-                    var id, map, requireMod;
-
-                    if (options.enableBuildCallback && callback && isFunction(callback)) {
-                        callback.__requireJsBuild = true;
-                    }
-
-                    if (typeof deps === 'string') {
-                        if (isFunction(callback)) {
-                            //Invalid call
-                            return onError(makeError('requireargs', 'Invalid require call'), errback);
-                        }
-
-                        //If require|exports|module are requested, get the
-                        //value for them from the special handlers. Caveat:
-                        //this only works while module is being defined.
-                        if (relMap && hasProp(handlers, deps)) {
-                            return handlers[deps](registry[relMap.id]);
-                        }
-
-                        //Synchronous access to one module. If require.get is
-                        //available (as in the Node adapter), prefer that.
-                        if (req.get) {
-                            return req.get(context, deps, relMap, localRequire);
-                        }
-
-                        //Normalize module name, if it contains . or ..
-                        map = makeModuleMap(deps, relMap, false, true);
-                        id = map.id;
-
-                        if (!hasProp(defined, id)) {
-                            return onError(makeError('notloaded', 'Module name "' +
-                                        id +
-                                        '" has not been loaded yet for context: ' +
-                                        contextName +
-                                        (relMap ? '' : '. Use require([])')));
-                        }
-                        return defined[id];
-                    }
-
-                    //Grab defines waiting in the global queue.
-                    intakeDefines();
-
-                    //Mark all the dependencies as needing to be loaded.
-                    context.nextTick(function () {
-                        //Some defines could have been added since the
-                        //require call, collect them.
-                        intakeDefines();
-
-                        requireMod = getModule(makeModuleMap(null, relMap));
-
-                        //Store if map config should be applied to this require
-                        //call for dependencies.
-                        requireMod.skipMap = options.skipMap;
-
-                        requireMod.init(deps, callback, errback, {
-                            enabled: true
-                        });
-
-                        checkLoaded();
-                    });
-
-                    return localRequire;
-                }
-
-                mixin(localRequire, {
-                    isBrowser: isBrowser,
-
-                    /**
-                     * Converts a module name + .extension into an URL path.
-                     * *Requires* the use of a module name. It does not support using
-                     * plain URLs like nameToUrl.
-                     */
-                    toUrl: function (moduleNamePlusExt) {
-                        var ext,
-                            index = moduleNamePlusExt.lastIndexOf('.'),
-                            segment = moduleNamePlusExt.split('/')[0],
-                            isRelative = segment === '.' || segment === '..';
-
-                        //Have a file extension alias, and it is not the
-                        //dots from a relative path.
-                        if (index !== -1 && (!isRelative || index > 1)) {
-                            ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
-                            moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
-                        }
-
-                        return context.nameToUrl(normalize(moduleNamePlusExt,
-                                                relMap && relMap.id, true), ext,  true);
-                    },
-
-                    defined: function (id) {
-                        return hasProp(defined, makeModuleMap(id, relMap, false, true).id);
-                    },
-
-                    specified: function (id) {
-                        id = makeModuleMap(id, relMap, false, true).id;
-                        return hasProp(defined, id) || hasProp(registry, id);
-                    }
-                });
-
-                //Only allow undef on top level require calls
-                if (!relMap) {
-                    localRequire.undef = function (id) {
-                        //Bind any waiting define() calls to this context,
-                        //fix for #408
-                        takeGlobalQueue();
-
-                        var map = makeModuleMap(id, relMap, true),
-                            mod = getOwn(registry, id);
-
-                        mod.undefed = true;
-                        removeScript(id);
-
-                        delete defined[id];
-                        delete urlFetched[map.url];
-                        delete undefEvents[id];
-
-                        //Clean queued defines too. Go backwards
-                        //in array so that the splices do not
-                        //mess up the iteration.
-                        eachReverse(defQueue, function(args, i) {
-                            if (args[0] === id) {
-                                defQueue.splice(i, 1);
-                            }
-                        });
-                        delete context.defQueueMap[id];
-
-                        if (mod) {
-                            //Hold on to listeners in case the
-                            //module will be attempted to be reloaded
-                            //using a different config.
-                            if (mod.events.defined) {
-                                undefEvents[id] = mod.events;
-                            }
-
-                            cleanRegistry(id);
-                        }
-                    };
-                }
-
-                return localRequire;
-            },
-
-            /**
-             * Called to enable a module if it is still in the registry
-             * awaiting enablement. A second arg, parent, the parent module,
-             * is passed in for context, when this method is overridden by
-             * the optimizer. Not shown here to keep code compact.
-             */
-            enable: function (depMap) {
-                var mod = getOwn(registry, depMap.id);
-                if (mod) {
-                    getModule(depMap).enable();
-                }
-            },
-
-            /**
-             * Internal method used by environment adapters to complete a load event.
-             * A load event could be a script load or just a load pass from a synchronous
-             * load call.
-             * @param {String} moduleName the name of the module to potentially complete.
-             */
-            completeLoad: function (moduleName) {
-                var found, args, mod,
-                    shim = getOwn(config.shim, moduleName) || {},
-                    shExports = shim.exports;
-
-                takeGlobalQueue();
-
-                while (defQueue.length) {
-                    args = defQueue.shift();
-                    if (args[0] === null) {
-                        args[0] = moduleName;
-                        //If already found an anonymous module and bound it
-                        //to this name, then this is some other anon module
-                        //waiting for its completeLoad to fire.
-                        if (found) {
-                            break;
-                        }
-                        found = true;
-                    } else if (args[0] === moduleName) {
-                        //Found matching define call for this script!
-                        found = true;
-                    }
-
-                    callGetModule(args);
-                }
-                context.defQueueMap = {};
-
-                //Do this after the cycle of callGetModule in case the result
-                //of those calls/init calls changes the registry.
-                mod = getOwn(registry, moduleName);
-
-                if (!found && !hasProp(defined, moduleName) && mod && !mod.inited) {
-                    if (config.enforceDefine && (!shExports || !getGlobal(shExports))) {
-                        if (hasPathFallback(moduleName)) {
-                            return;
-                        } else {
-                            return onError(makeError('nodefine',
-                                             'No define call for ' + moduleName,
-                                             null,
-                                             [moduleName]));
-                        }
-                    } else {
-                        //A script that does not call define(), so just simulate
-                        //the call for it.
-                        callGetModule([moduleName, (shim.deps || []), shim.exportsFn]);
-                    }
-                }
-
-                checkLoaded();
-            },
-
-            /**
-             * Converts a module name to a file path. Supports cases where
-             * moduleName may actually be just an URL.
-             * Note that it **does not** call normalize on the moduleName,
-             * it is assumed to have already been normalized. This is an
-             * internal API, not a public one. Use toUrl for the public API.
-             */
-            nameToUrl: function (moduleName, ext, skipExt) {
-                var paths, syms, i, parentModule, url,
-                    parentPath, bundleId,
-                    pkgMain = getOwn(config.pkgs, moduleName);
-
-                if (pkgMain) {
-                    moduleName = pkgMain;
-                }
-
-                bundleId = getOwn(bundlesMap, moduleName);
-
-                if (bundleId) {
-                    return context.nameToUrl(bundleId, ext, skipExt);
-                }
-
-                //If a colon is in the URL, it indicates a protocol is used and it is just
-                //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
-                //or ends with .js, then assume the user meant to use an url and not a module id.
-                //The slash is important for protocol-less URLs as well as full paths.
-                if (req.jsExtRegExp.test(moduleName)) {
-                    //Just a plain path, not module name lookup, so just return it.
-                    //Add extension if it is included. This is a bit wonky, only non-.js things pass
-                    //an extension, this method probably needs to be reworked.
-                    url = moduleName + (ext || '');
-                } else {
-                    //A module that needs to be converted to a path.
-                    paths = config.paths;
-
-                    syms = moduleName.split('/');
-                    //For each module name segment, see if there is a path
-                    //registered for it. Start with most specific name
-                    //and work up from it.
-                    for (i = syms.length; i > 0; i -= 1) {
-                        parentModule = syms.slice(0, i).join('/');
-
-                        parentPath = getOwn(paths, parentModule);
-                        if (parentPath) {
-                            //If an array, it means there are a few choices,
-                            //Choose the one that is desired
-                            if (isArray(parentPath)) {
-                                parentPath = parentPath[0];
-                            }
-                            syms.splice(0, i, parentPath);
-                            break;
-                        }
-                    }
-
-                    //Join the path parts together, then figure out if baseUrl is needed.
-                    url = syms.join('/');
-                    url += (ext || (/^data\:|^blob\:|\?/.test(url) || skipExt ? '' : '.js'));
-                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : config.baseUrl) + url;
-                }
-
-                return config.urlArgs && !/^blob\:/.test(url) ?
-                       url + config.urlArgs(moduleName, url) : url;
-            },
-
-            //Delegates to req.load. Broken out as a separate function to
-            //allow overriding in the optimizer.
-            load: function (id, url) {
-                req.load(context, id, url);
-            },
-
-            /**
-             * Executes a module callback function. Broken out as a separate function
-             * solely to allow the build system to sequence the files in the built
-             * layer in the right sequence.
-             *
-             * @private
-             */
-            execCb: function (name, callback, args, exports) {
-                return callback.apply(exports, args);
-            },
-
-            /**
-             * callback for script loads, used to check status of loading.
-             *
-             * @param {Event} evt the event from the browser for the script
-             * that was loaded.
-             */
-            onScriptLoad: function (evt) {
-                //Using currentTarget instead of target for Firefox 2.0's sake. Not
-                //all old browsers will be supported, but this one was easy enough
-                //to support and still makes sense.
-                if (evt.type === 'load' ||
-                        (readyRegExp.test((evt.currentTarget || evt.srcElement).readyState))) {
-                    //Reset interactive script so a script node is not held onto for
-                    //to long.
-                    interactiveScript = null;
-
-                    //Pull out the name of the module and the context.
-                    var data = getScriptData(evt);
-                    context.completeLoad(data.id);
-                }
-            },
-
-            /**
-             * Callback for script errors.
-             */
-            onScriptError: function (evt) {
-                var data = getScriptData(evt);
-                if (!hasPathFallback(data.id)) {
-                    var parents = [];
-                    eachProp(registry, function(value, key) {
-                        if (key.indexOf('_@r') !== 0) {
-                            each(value.depMaps, function(depMap) {
-                                if (depMap.id === data.id) {
-                                    parents.push(key);
-                                    return true;
-                                }
-                            });
-                        }
-                    });
-                    return onError(makeError('scripterror', 'Script error for "' + data.id +
-                                             (parents.length ?
-                                             '", needed by: ' + parents.join(', ') :
-                                             '"'), evt, [data.id]));
-                }
-            }
-        };
-
-        context.require = context.makeRequire();
-        return context;
+    [_buildWebQueryWithParameters]() {
+      let query = this[_webQuery$];
+      for (let t0 of core.Iterable.as(this.parameters[$_get]("orderBy"))) {
+        let order = core.List.as(t0);
+        query = query.orderBy(codec_utility.CodecUtility.valueEncode(order[$_get](0)), dart.dtest(order[$_get](1)) ? "desc" : "asc");
+      }
+      if (this.parameters[$_get]("startAt") != null) {
+        query = query.startAt({fieldValues: T$.ListN().as(codec_utility.CodecUtility.valueEncode(this.parameters[$_get]("startAt")))});
+      }
+      if (this.parameters[$_get]("startAfter") != null) {
+        query = query.startAfter({fieldValues: T$.ListN().as(codec_utility.CodecUtility.valueEncode(this.parameters[$_get]("startAfter")))});
+      }
+      if (this.parameters[$_get]("endAt") != null) {
+        query = query.endAt({fieldValues: T$.ListN().as(codec_utility.CodecUtility.valueEncode(this.parameters[$_get]("endAt")))});
+      }
+      if (this.parameters[$_get]("endBefore") != null) {
+        query = query.endBefore({fieldValues: T$.ListN().as(codec_utility.CodecUtility.valueEncode(this.parameters[$_get]("endBefore")))});
+      }
+      if (this.parameters[$_get]("limit") != null) {
+        query = query.limit(core.num.as(this.parameters[$_get]("limit")));
+      }
+      if (this.parameters[$_get]("limitToLast") != null) {
+        query = query.limitToLast(core.num.as(this.parameters[$_get]("limitToLast")));
+      }
+      for (let t1 of core.Iterable.as(this.parameters[$_get]("where"))) {
+        let condition = core.List.as(t1);
+        let fieldPath = codec_utility.CodecUtility.valueEncode(condition[$_get](0));
+        let opStr = core.String.as(condition[$_get](1));
+        let value = codec_utility.CodecUtility.valueEncode(condition[$_get](2));
+        query = query.where(fieldPath, opStr, value);
+      }
+      return query;
     }
-
-    /**
-     * Main entry point.
-     *
-     * If the only argument to require is a string, then the module that
-     * is represented by that string is fetched for the appropriate context.
-     *
-     * If the first argument is an array, then it will be treated as an array
-     * of dependency string names to fetch. An optional function callback can
-     * be specified to execute when all of those dependencies are available.
-     *
-     * Make a local req variable to help Caja compliance (it assumes things
-     * on a require that are not standardized), and to give a short
-     * name for minification/local scope use.
-     */
-    req = requirejs = function (deps, callback, errback, optional) {
-
-        //Find the right context, use default
-        var context, config,
-            contextName = defContextName;
-
-        // Determine if have config object in the call.
-        if (!isArray(deps) && typeof deps !== 'string') {
-            // deps is a config object
-            config = deps;
-            if (isArray(callback)) {
-                // Adjust args if there are dependencies
-                deps = callback;
-                callback = errback;
-                errback = optional;
-            } else {
-                deps = [];
-            }
-        }
-
-        if (config && config.context) {
-            contextName = config.context;
-        }
-
-        context = getOwn(contexts, contextName);
-        if (!context) {
-            context = contexts[contextName] = req.s.newContext(contextName);
-        }
-
-        if (config) {
-            context.configure(config);
-        }
-
-        return context.require(deps, callback, errback);
-    };
-
-    /**
-     * Support require.config() to make it easier to cooperate with other
-     * AMD loaders on globally agreed names.
-     */
-    req.config = function (config) {
-        return req(config);
-    };
-
-    /**
-     * Execute something after the current tick
-     * of the event loop. Override for other envs
-     * that have a better solution than setTimeout.
-     * @param  {Function} fn function to execute later.
-     */
-    req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
-        setTimeout(fn, 4);
-    } : function (fn) { fn(); };
-
-    /**
-     * Export require as a global, but only if it does not already exist.
-     */
-    if (!require) {
-        require = req;
+    endAtDocument(orders, values) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["orderBy", orders, "endAt", values, "endBefore", null]));
     }
-
-    req.version = version;
-
-    //Used to filter out dependencies that are already paths.
-    req.jsExtRegExp = /^\/|:|\?|\.js$/;
-    req.isBrowser = isBrowser;
-    s = req.s = {
-        contexts: contexts,
-        newContext: newContext
-    };
-
-    //Create default context.
-    req({});
-
-    //Exports some context-sensitive methods on global require.
-    each([
-        'toUrl',
-        'undef',
-        'defined',
-        'specified'
-    ], function (prop) {
-        //Reference from contexts instead of early binding to default context,
-        //so that during builds, the latest instance of the default context
-        //with its config gets used.
-        req[prop] = function () {
-            var ctx = contexts[defContextName];
-            return ctx.require[prop].apply(ctx, arguments);
-        };
-    });
-
-    if (isBrowser) {
-        head = s.head = document.getElementsByTagName('head')[0];
-        //If BASE tag is in play, using appendChild is a problem for IE6.
-        //When that browser dies, this can be removed. Details in this jQuery bug:
-        //http://dev.jquery.com/ticket/2709
-        baseElement = document.getElementsByTagName('base')[0];
-        if (baseElement) {
-            head = s.head = baseElement.parentNode;
-        }
+    endAt(fields) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["endAt", fields, "endBefore", null]));
     }
-
-    /**
-     * Any errors that require explicitly generates will be passed to this
-     * function. Intercept/override it if you want custom error handling.
-     * @param {Error} err the error object.
-     */
-    req.onError = defaultOnError;
-
-    /**
-     * Creates the node for the load command. Only used in browser envs.
-     */
-    req.createNode = function (config, moduleName, url) {
-        var node = config.xhtml ?
-                document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') :
-                document.createElement('script');
-        node.type = config.scriptType || 'text/javascript';
-        node.charset = 'utf-8';
-        node.async = true;
-        return node;
-    };
-
-    /**
-     * Does the request to load a module for the browser case.
-     * Make this a separate function to allow other environments
-     * to override it.
-     *
-     * @param {Object} context the require context to find state.
-     * @param {String} moduleName the name of the module.
-     * @param {Object} url the URL to the module.
-     */
-    req.load = function (context, moduleName, url) {
-        var config = (context && context.config) || {},
-            node;
-        if (isBrowser) {
-            //In the browser so use a script tag
-            node = req.createNode(config, moduleName, url);
-
-            node.setAttribute('data-requirecontext', context.contextName);
-            node.setAttribute('data-requiremodule', moduleName);
-
-            //Set up load listener. Test attachEvent first because IE9 has
-            //a subtle issue in its addEventListener and script onload firings
-            //that do not match the behavior of all other browsers with
-            //addEventListener support, which fire the onload event for a
-            //script right after the script execution. See:
-            //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
-            //UNFORTUNATELY Opera implements attachEvent but does not follow the script
-            //script execution mode.
-            if (node.attachEvent &&
-                    //Check if node.attachEvent is artificially added by custom script or
-                    //natively supported by browser
-                    //read https://github.com/requirejs/requirejs/issues/187
-                    //if we can NOT find [native code] then it must NOT natively supported.
-                    //in IE8, node.attachEvent does not have toString()
-                    //Note the test for "[native code" with no closing brace, see:
-                    //https://github.com/requirejs/requirejs/issues/273
-                    !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) &&
-                    !isOpera) {
-                //Probably IE. IE (at least 6-8) do not fire
-                //script onload right after executing the script, so
-                //we cannot tie the anonymous define call to a name.
-                //However, IE reports the script as being in 'interactive'
-                //readyState at the time of the define call.
-                useInteractive = true;
-
-                node.attachEvent('onreadystatechange', context.onScriptLoad);
-                //It would be great to add an error handler here to catch
-                //404s in IE9+. However, onreadystatechange will fire before
-                //the error handler, so that does not help. If addEventListener
-                //is used, then IE will fire error before load, but we cannot
-                //use that pathway given the connect.microsoft.com issue
-                //mentioned above about not doing the 'script execute,
-                //then fire the script load event listener before execute
-                //next script' that other browsers do.
-                //Best hope: IE10 fixes the issues,
-                //and then destroys all installs of IE 6-9.
-                //node.attachEvent('onerror', context.onScriptError);
-            } else {
-                node.addEventListener('load', context.onScriptLoad, false);
-                node.addEventListener('error', context.onScriptError, false);
-            }
-            node.src = url;
-
-            //Calling onNodeCreated after all properties on the node have been
-            //set, but before it is placed in the DOM.
-            if (config.onNodeCreated) {
-                config.onNodeCreated(node, config, moduleName, url);
-            }
-
-            //For some cache cases in IE 6-8, the script executes before the end
-            //of the appendChild execution, so to tie an anonymous define
-            //call to the module name (which is stored on the node), hold on
-            //to a reference to this node, but clear after the DOM insertion.
-            currentlyAddingScript = node;
-            if (baseElement) {
-                head.insertBefore(node, baseElement);
-            } else {
-                head.appendChild(node);
-            }
-            currentlyAddingScript = null;
-
-            return node;
-        } else if (isWebWorker) {
-            try {
-                //In a web worker, use importScripts. This is not a very
-                //efficient use of importScripts, importScripts will block until
-                //its script is downloaded and evaluated. However, if web workers
-                //are in play, the expectation is that a build has been done so
-                //that only one script needs to be loaded anyway. This may need
-                //to be reevaluated if other use cases become common.
-
-                // Post a task to the event loop to work around a bug in WebKit
-                // where the worker gets garbage-collected after calling
-                // importScripts(): https://webkit.org/b/153317
-                setTimeout(function() {}, 0);
-                importScripts(url);
-
-                //Account for anonymous modules
-                context.completeLoad(moduleName);
-            } catch (e) {
-                context.onError(makeError('importscripts',
-                                'importScripts failed for ' +
-                                    moduleName + ' at ' + url,
-                                e,
-                                [moduleName]));
-            }
-        }
-    };
-
-    function getInteractiveScript() {
-        if (interactiveScript && interactiveScript.readyState === 'interactive') {
-            return interactiveScript;
-        }
-
-        eachReverse(scripts(), function (script) {
-            if (script.readyState === 'interactive') {
-                return (interactiveScript = script);
-            }
-        });
-        return interactiveScript;
+    endBeforeDocument(orders, values) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["orderBy", orders, "endAt", null, "endBefore", values]));
     }
-
-    //Look for a data-main script attribute, which could also adjust the baseUrl.
-    if (isBrowser && !cfg.skipDataMain) {
-        //Figure out baseUrl. Get it from the script tag with require.js in it.
-        eachReverse(scripts(), function (script) {
-            //Set the 'head' where we can append children by
-            //using the script's parent.
-            if (!head) {
-                head = script.parentNode;
-            }
-
-            //Look for a data-main attribute to set main script for the page
-            //to load. If it is there, the path to data main becomes the
-            //baseUrl, if it is not already set.
-            dataMain = script.getAttribute('data-main');
-            if (dataMain) {
-                //Preserve dataMain in case it is a path (i.e. contains '?')
-                mainScript = dataMain;
-
-                //Set final baseUrl if there is not already an explicit one,
-                //but only do so if the data-main value is not a loader plugin
-                //module ID.
-                if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
-                    //Pull off the directory of data-main for use as the
-                    //baseUrl.
-                    src = mainScript.split('/');
-                    mainScript = src.pop();
-                    subPath = src.length ? src.join('/')  + '/' : './';
-
-                    cfg.baseUrl = subPath;
-                }
-
-                //Strip off any trailing .js since mainScript is now
-                //like a module name.
-                mainScript = mainScript.replace(jsSuffixRegExp, '');
-
-                //If mainScript is still a path, fall back to dataMain
-                if (req.jsExtRegExp.test(mainScript)) {
-                    mainScript = dataMain;
-                }
-
-                //Put the data-main script in the files to load.
-                cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
-
-                return true;
-            }
-        });
+    endBefore(fields) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["endAt", null, "endBefore", fields]));
     }
-
-    /**
-     * The function that handles definitions of modules. Differs from
-     * require() in that a string for the module should be the first argument,
-     * and the function to execute after dependencies are loaded should
-     * return a value to define the module corresponding to the first argument's
-     * name.
-     */
-    define = function (name, deps, callback) {
-        var node, context;
-
-        //Allow for anonymous modules
-        if (typeof name !== 'string') {
-            //Adjust args appropriately
-            callback = deps;
-            deps = name;
-            name = null;
+    get(options = C[0] || CT.C0) {
+      return internals.guard(T$.FutureOfQuerySnapshotPlatform(), dart.fn(() => async.async(platform_interface_query_snapshot.QuerySnapshotPlatform, (function*() {
+        return web_utils.convertWebQuerySnapshot(this.firestore, yield this[_buildWebQueryWithParameters]().get(web_utils.convertGetOptions(options)));
+      }).bind(this)), T$.VoidToFutureOfQuerySnapshotPlatform()));
+    }
+    limit(limit) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["limit", limit, "limitToLast", null]));
+    }
+    limitToLast(limit) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["limit", null, "limitToLast", limit]));
+    }
+    snapshots(opts) {
+      let includeMetadataChanges = opts && 'includeMetadataChanges' in opts ? opts.includeMetadataChanges : false;
+      let querySnapshots = null;
+      if (includeMetadataChanges) {
+        querySnapshots = this[_buildWebQueryWithParameters]().onSnapshotMetadata;
+      } else {
+        querySnapshots = this[_buildWebQueryWithParameters]().onSnapshot;
+      }
+      return internals.guard(T$.StreamOfQuerySnapshotPlatform(), dart.fn(() => querySnapshots.map(platform_interface_query_snapshot.QuerySnapshotPlatform, dart.fn(webQuerySnapshot => web_utils.convertWebQuerySnapshot(this.firestore, webQuerySnapshot), T$.QuerySnapshotToQuerySnapshotPlatform())), T$.VoidToStreamOfQuerySnapshotPlatform()));
+    }
+    orderBy(orders) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["orderBy", orders]));
+    }
+    startAfterDocument(orders, values) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["orderBy", orders, "startAt", null, "startAfter", values]));
+    }
+    startAfter(fields) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["startAt", null, "startAfter", fields]));
+    }
+    startAtDocument(orders, values) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["orderBy", orders, "startAt", values, "startAfter", null]));
+    }
+    startAt(fields) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["startAt", fields, "startAfter", null]));
+    }
+    where(conditions) {
+      return this[_copyWithParameters](new (T$.IdentityMapOfString$dynamic()).from(["where", conditions]));
+    }
+  };
+  (query_web.QueryWeb.new = function(_firestore, _path, _webQuery, opts) {
+    let parameters = opts && 'parameters' in opts ? opts.parameters : null;
+    let isCollectionGroupQuery = opts && 'isCollectionGroupQuery' in opts ? opts.isCollectionGroupQuery : false;
+    this[_firestore$0] = _firestore;
+    this[_path$] = _path;
+    this[_webQuery$] = _webQuery;
+    this[isCollectionGroupQuery$] = isCollectionGroupQuery;
+    query_web.QueryWeb.__proto__.new.call(this, _firestore, parameters);
+    ;
+  }).prototype = query_web.QueryWeb.prototype;
+  dart.addTypeTests(query_web.QueryWeb);
+  dart.addTypeCaches(query_web.QueryWeb);
+  dart.setMethodSignature(query_web.QueryWeb, () => ({
+    __proto__: dart.getMethods(query_web.QueryWeb.__proto__),
+    [_copyWithParameters]: dart.fnType(query_web.QueryWeb, [core.Map$(core.String, dart.dynamic)]),
+    [_buildWebQueryWithParameters]: dart.fnType(firestore.Query$(dart.lazyJSType(() => dart.global.firebase.firestore.Query, "firebase.firestore.Query")), [])
+  }));
+  dart.setLibraryUri(query_web.QueryWeb, I[3]);
+  dart.setFieldSignature(query_web.QueryWeb, () => ({
+    __proto__: dart.getFields(query_web.QueryWeb.__proto__),
+    [_webQuery$]: dart.finalFieldType(firestore.Query$(dart.lazyJSType(() => dart.global.firebase.firestore.Query, "firebase.firestore.Query"))),
+    [_firestore$0]: dart.finalFieldType(platform_interface_firestore.FirebaseFirestorePlatform),
+    [_path$]: dart.finalFieldType(core.String),
+    isCollectionGroupQuery: dart.finalFieldType(core.bool)
+  }));
+  var _firestorePlatform$ = dart.privateName(collection_reference_web, "_firestorePlatform");
+  var _webFirestore$ = dart.privateName(collection_reference_web, "_webFirestore");
+  var _delegate = dart.privateName(collection_reference_web, "_delegate");
+  var _pointer = dart.privateName(collection_reference_web, "_pointer");
+  var _pointer$ = dart.privateName(platform_interface_collection_reference, "_pointer");
+  collection_reference_web.CollectionReferenceWeb = class CollectionReferenceWeb extends query_web.QueryWeb {
+    get path() {
+      return this[_delegate].path;
+    }
+    doc(path = null) {
+      let documentReference = this[_delegate].doc(path);
+      return new document_reference_web.DocumentReferenceWeb.new(this[_firestorePlatform$], this[_webFirestore$], documentReference.path);
+    }
+    get id() {
+      return this[_delegate].id;
+    }
+    get parent() {
+      let documentReference = this[_delegate].parent;
+      if (documentReference == null) {
+        return null;
+      }
+      return new document_reference_web.DocumentReferenceWeb.new(this[_firestorePlatform$], this[_webFirestore$], documentReference.path);
+    }
+    get [_pointer$]() {
+      return pointer.Pointer.as(this[$noSuchMethod](new core._Invocation.getter(C[2] || CT.C2)));
+    }
+  };
+  (collection_reference_web.CollectionReferenceWeb.new = function(_firestorePlatform, _webFirestore, path) {
+    this[_firestorePlatform$] = _firestorePlatform;
+    this[_webFirestore$] = _webFirestore;
+    this[_delegate] = _webFirestore.collection(path);
+    collection_reference_web.CollectionReferenceWeb.__proto__.new.call(this, _firestorePlatform, path, _webFirestore.collection(path));
+    ;
+  }).prototype = collection_reference_web.CollectionReferenceWeb.prototype;
+  dart.addTypeTests(collection_reference_web.CollectionReferenceWeb);
+  dart.addTypeCaches(collection_reference_web.CollectionReferenceWeb);
+  collection_reference_web.CollectionReferenceWeb[dart.implements] = () => [platform_interface_collection_reference.CollectionReferencePlatform];
+  dart.setMethodSignature(collection_reference_web.CollectionReferenceWeb, () => ({
+    __proto__: dart.getMethods(collection_reference_web.CollectionReferenceWeb.__proto__),
+    doc: dart.fnType(platform_interface_document_reference.DocumentReferencePlatform, [], [dart.nullable(core.String)])
+  }));
+  dart.setGetterSignature(collection_reference_web.CollectionReferenceWeb, () => ({
+    __proto__: dart.getGetters(collection_reference_web.CollectionReferenceWeb.__proto__),
+    path: core.String,
+    id: core.String,
+    parent: dart.nullable(platform_interface_document_reference.DocumentReferencePlatform),
+    [_pointer$]: pointer.Pointer
+  }));
+  dart.setLibraryUri(collection_reference_web.CollectionReferenceWeb, I[4]);
+  dart.setFieldSignature(collection_reference_web.CollectionReferenceWeb, () => ({
+    __proto__: dart.getFields(collection_reference_web.CollectionReferenceWeb.__proto__),
+    [_webFirestore$]: dart.finalFieldType(firestore.Firestore),
+    [_firestorePlatform$]: dart.finalFieldType(platform_interface_firestore.FirebaseFirestorePlatform),
+    [_delegate]: dart.finalFieldType(firestore.CollectionReference$(dart.lazyJSType(() => dart.global.firebase.firestore.CollectionReference, "firebase.firestore.CollectionReference")))
+  }));
+  var firestoreWeb$ = dart.privateName(document_reference_web, "DocumentReferenceWeb.firestoreWeb");
+  var _delegate$ = dart.privateName(document_reference_web, "_delegate");
+  document_reference_web.DocumentReferenceWeb = class DocumentReferenceWeb extends platform_interface_document_reference.DocumentReferencePlatform {
+    get firestoreWeb() {
+      return this[firestoreWeb$];
+    }
+    set firestoreWeb(value) {
+      super.firestoreWeb = value;
+    }
+    set(data, options = null) {
+      return internals.guard(T$.FutureOfvoid(), dart.fn(() => this[_delegate$].set(dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data)), web_utils.convertSetOptions(options)), T$.VoidToFutureOfNull()));
+    }
+    update(data) {
+      return internals.guard(T$.FutureOfvoid(), dart.fn(() => this[_delegate$].update(dart.nullCheck(codec_utility.CodecUtility.encodeMapData(data))), T$.VoidToFutureOfNull()));
+    }
+    get(options = C[0] || CT.C0) {
+      return async.async(platform_interface_document_snapshot.DocumentSnapshotPlatform, (function* get() {
+        let documentSnapshot = (yield internals.guard(T$.FutureOrOfDocumentSnapshot(), dart.fn(() => this[_delegate$].get(web_utils.convertGetOptions(options)), T$.VoidToFutureOfDocumentSnapshot())));
+        return web_utils.convertWebDocumentSnapshot(this.firestore, documentSnapshot);
+      }).bind(this));
+    }
+    delete() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_delegate$], 'delete'));
+    }
+    snapshots(opts) {
+      let includeMetadataChanges = opts && 'includeMetadataChanges' in opts ? opts.includeMetadataChanges : false;
+      let querySnapshots = this[_delegate$].onSnapshot;
+      if (includeMetadataChanges) {
+        querySnapshots = this[_delegate$].onMetadataChangesSnapshot;
+      }
+      return internals.guard(T$.StreamOfDocumentSnapshotPlatform(), dart.fn(() => querySnapshots.map(platform_interface_document_snapshot.DocumentSnapshotPlatform, dart.fn(webSnapshot => web_utils.convertWebDocumentSnapshot(this.firestore, webSnapshot), T$.DocumentSnapshotToDocumentSnapshotPlatform())), T$.VoidToStreamOfDocumentSnapshotPlatform()));
+    }
+  };
+  (document_reference_web.DocumentReferenceWeb.new = function(firestore, firestoreWeb, path) {
+    this[firestoreWeb$] = firestoreWeb;
+    this[_delegate$] = firestoreWeb.doc(path);
+    document_reference_web.DocumentReferenceWeb.__proto__.new.call(this, firestore, path);
+    ;
+  }).prototype = document_reference_web.DocumentReferenceWeb.prototype;
+  dart.addTypeTests(document_reference_web.DocumentReferenceWeb);
+  dart.addTypeCaches(document_reference_web.DocumentReferenceWeb);
+  dart.setLibraryUri(document_reference_web.DocumentReferenceWeb, I[5]);
+  dart.setFieldSignature(document_reference_web.DocumentReferenceWeb, () => ({
+    __proto__: dart.getFields(document_reference_web.DocumentReferenceWeb.__proto__),
+    firestoreWeb: dart.finalFieldType(firestore.Firestore),
+    [_delegate$]: dart.finalFieldType(firestore.DocumentReference)
+  }));
+  codec_utility.CodecUtility = class CodecUtility extends core.Object {
+    static encodeMapData(data) {
+      if (data == null) {
+        return null;
+      }
+      let output = T$.LinkedHashMapOfString$dynamic().from(data);
+      output[$updateAll](dart.fn((key, value) => codec_utility.CodecUtility.valueEncode(value), T$.StringAnddynamicTodynamic()));
+      return output;
+    }
+    static encodeArrayData(data) {
+      if (data == null) {
+        return null;
+      }
+      return core.List.from(data)[$map](dart.dynamic, C[3] || CT.C3)[$toList]();
+    }
+    static valueEncode(value) {
+      if (platform_interface_field_value.FieldValuePlatform.is(value)) {
+        let delegate = field_value_web.FieldValueWeb.as(platform_interface_field_value.FieldValuePlatform.getDelegate(value));
+        return delegate.data;
+      } else if (field_path.FieldPath.is(value)) {
+        let components = value.components;
+        let length = components[$length];
+        switch (length) {
+          case 1:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0));
+          }
+          case 2:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1));
+          }
+          case 3:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2));
+          }
+          case 4:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3));
+          }
+          case 5:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4));
+          }
+          case 6:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4), components[$_get](5));
+          }
+          case 7:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4), components[$_get](5), components[$_get](6));
+          }
+          case 8:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4), components[$_get](5), components[$_get](6), components[$_get](7));
+          }
+          case 9:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4), components[$_get](5), components[$_get](6), components[$_get](7), components[$_get](8));
+          }
+          case 10:
+          {
+            return new dart.global.firebase.firestore.FieldPath(components[$_get](0), components[$_get](1), components[$_get](2), components[$_get](3), components[$_get](4), components[$_get](5), components[$_get](6), components[$_get](7), components[$_get](8), components[$_get](9));
+          }
+          default:
+          {
+            dart.throw(core.Exception.new("Firestore web FieldPath only supports 10 levels deep field paths"));
+          }
         }
+      } else if (dart.equals(value, field_path.FieldPath.documentId)) {
+        return dart.global.firebase.firestore.FieldPath.documentId();
+      } else if (timestamp.Timestamp.is(value)) {
+        return value.toDate();
+      } else if (geo_point.GeoPoint.is(value)) {
+        return new dart.global.firebase.firestore.GeoPoint(value.latitude, value.longitude);
+      } else if (blob.Blob.is(value)) {
+        return dart.global.firebase.firestore.Blob.fromUint8Array(value.bytes);
+      } else if (document_reference_web.DocumentReferenceWeb.is(value)) {
+        return value.firestoreWeb.doc(value.path);
+      } else if (T$.MapOfString$dynamic().is(value)) {
+        return codec_utility.CodecUtility.encodeMapData(value);
+      } else if (core.List.is(value)) {
+        return codec_utility.CodecUtility.encodeArrayData(value);
+      }
+      return value;
+    }
+    static decodeMapData(data) {
+      if (data == null) {
+        return null;
+      }
+      let output = T$.LinkedHashMapOfString$dynamic().from(data);
+      output[$updateAll](dart.fn((key, value) => codec_utility.CodecUtility.valueDecode(value), T$.StringAnddynamicTodynamic()));
+      return output;
+    }
+    static decodeArrayData(data) {
+      if (data == null) {
+        return null;
+      }
+      return core.List.from(data)[$map](dart.dynamic, C[4] || CT.C4)[$toList]();
+    }
+    static valueDecode(value) {
+      if (dart.lazyJSType(() => dart.global.firebase.firestore.GeoPoint, "firebase.firestore.GeoPoint").is(value)) {
+        return new geo_point.GeoPoint.new(value.latitude, value.longitude);
+      } else if (core.DateTime.is(value)) {
+        return timestamp.Timestamp.fromDate(value);
+      } else if (dart.anonymousJSType("Blob").is(value)) {
+        return new blob.Blob.new(value.toUint8Array());
+      } else if (firestore.DocumentReference.is(value)) {
+        return cloud_firestore_web.FirebaseFirestoreWeb.as(platform_interface_firestore.FirebaseFirestorePlatform.instance).doc(value.path);
+      } else if (T$.MapOfString$dynamic().is(value)) {
+        return codec_utility.CodecUtility.decodeMapData(value);
+      } else if (core.List.is(value)) {
+        return codec_utility.CodecUtility.decodeArrayData(value);
+      }
+      return value;
+    }
+  };
+  (codec_utility.CodecUtility.new = function() {
+    ;
+  }).prototype = codec_utility.CodecUtility.prototype;
+  dart.addTypeTests(codec_utility.CodecUtility);
+  dart.addTypeCaches(codec_utility.CodecUtility);
+  dart.setLibraryUri(codec_utility.CodecUtility, I[6]);
+  web_utils.convertWebQuerySnapshot = function convertWebQuerySnapshot(firestore, webQuerySnapshot) {
+    return new platform_interface_query_snapshot.QuerySnapshotPlatform.new(webQuerySnapshot.docs[$map](platform_interface_document_snapshot.DocumentSnapshotPlatform, dart.fn(webDocumentSnapshot => web_utils.convertWebDocumentSnapshot(firestore, dart.nullCheck(webDocumentSnapshot)), T$.DocumentSnapshotNToDocumentSnapshotPlatform()))[$toList](), webQuerySnapshot.docChanges()[$map](platform_interface_document_change.DocumentChangePlatform, dart.fn(webDocumentChange => web_utils.convertWebDocumentChange(firestore, webDocumentChange), T$.DocumentChangeToDocumentChangePlatform()))[$toList](), web_utils.convertWebSnapshotMetadata(webQuerySnapshot.metadata));
+  };
+  web_utils.convertWebDocumentSnapshot = function convertWebDocumentSnapshot(firestore, webSnapshot) {
+    return new platform_interface_document_snapshot.DocumentSnapshotPlatform.new(firestore, dart.nullCheck(webSnapshot.ref).path, new (T$.IdentityMapOfString$dynamic()).from(["data", codec_utility.CodecUtility.decodeMapData(webSnapshot.data()), "metadata", new (T$.IdentityMapOfString$bool()).from(["hasPendingWrites", webSnapshot.metadata.hasPendingWrites, "isFromCache", webSnapshot.metadata.fromCache])]));
+  };
+  web_utils.convertWebDocumentChange = function convertWebDocumentChange(firestore, webDocumentChange) {
+    return new platform_interface_document_change.DocumentChangePlatform.new(web_utils.convertWebDocumentChangeType(webDocumentChange.type), dart.asInt(webDocumentChange.oldIndex), dart.asInt(webDocumentChange.newIndex), web_utils.convertWebDocumentSnapshot(firestore, dart.nullCheck(webDocumentChange.doc)));
+  };
+  web_utils.convertWebDocumentChangeType = function convertWebDocumentChangeType(changeType) {
+    switch (changeType[$toLowerCase]()) {
+      case "added":
+      {
+        return platform_interface_document_change.DocumentChangeType.added;
+      }
+      case "modified":
+      {
+        return platform_interface_document_change.DocumentChangeType.modified;
+      }
+      case "removed":
+      {
+        return platform_interface_document_change.DocumentChangeType.removed;
+      }
+      default:
+      {
+        dart.throw(new core.FallThroughError.new());
+      }
+    }
+  };
+  web_utils.convertWebSnapshotMetadata = function convertWebSnapshotMetadata(webSnapshotMetadata) {
+    return new snapshot_metadata.SnapshotMetadataPlatform.new(webSnapshotMetadata.hasPendingWrites, webSnapshotMetadata.fromCache);
+  };
+  web_utils.convertGetOptions = function convertGetOptions(options) {
+    if (options == null) return null;
+    let source = null;
+    switch (options.source) {
+      case C[1] || CT.C1:
+      {
+        source = "default";
+        break;
+      }
+      case C[5] || CT.C5:
+      {
+        source = "cache";
+        break;
+      }
+      case C[6] || CT.C6:
+      {
+        source = "server";
+        break;
+      }
+      default:
+      {
+        source = "default";
+        break;
+      }
+    }
+    return {source: source};
+  };
+  web_utils.convertSetOptions = function convertSetOptions(options) {
+    if (options == null) return null;
+    let parsedOptions = null;
+    if (options.merge != null) {
+      parsedOptions = {merge: options.merge};
+    } else if (options.mergeFields != null) {
+      parsedOptions = {mergeFields: dart.nullCheck(options.mergeFields)[$map](core.String, dart.fn(e => e.components[$toList]()[$join]("."), T$.FieldPathToString()))[$toList]()};
+    }
+    return parsedOptions;
+  };
+  web_utils.convertFieldPath = function convertFieldPath(fieldPath) {
+    return new dart.global.firebase.firestore.FieldPath(fieldPath.components[$toList]()[$join]("."));
+  };
+  dart.defineLazy(web_utils, {
+    /*web_utils._kChangeTypeAdded*/get _kChangeTypeAdded() {
+      return "added";
+    },
+    /*web_utils._kChangeTypeModified*/get _kChangeTypeModified() {
+      return "modified";
+    },
+    /*web_utils._kChangeTypeRemoved*/get _kChangeTypeRemoved() {
+      return "removed";
+    }
+  }, false);
+  var _webFirestore = dart.privateName(cloud_firestore_web, "_webFirestore");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  cloud_firestore_web.FirebaseFirestoreWeb = class FirebaseFirestoreWeb extends platform_interface_firestore.FirebaseFirestorePlatform {
+    static registerWith(registrar) {
+      platform_interface_firestore.FirebaseFirestorePlatform.instance = new cloud_firestore_web.FirebaseFirestoreWeb.new();
+    }
+    delegateFor(opts) {
+      let app = opts && 'app' in opts ? opts.app : null;
+      return new cloud_firestore_web.FirebaseFirestoreWeb.new({app: app});
+    }
+    collection(collectionPath) {
+      return new collection_reference_web.CollectionReferenceWeb.new(this, this[_webFirestore], collectionPath);
+    }
+    batch() {
+      return new write_batch_web.WriteBatchWeb.new(this[_webFirestore]);
+    }
+    clearPersistence() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'clearPersistence'));
+    }
+    collectionGroup(collectionPath) {
+      return new query_web.QueryWeb.new(this, collectionPath, this[_webFirestore].collectionGroup(collectionPath), {isCollectionGroupQuery: true});
+    }
+    disableNetwork() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'disableNetwork'));
+    }
+    doc(documentPath) {
+      return new document_reference_web.DocumentReferenceWeb.new(this, this[_webFirestore], documentPath);
+    }
+    enableNetwork() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'enableNetwork'));
+    }
+    snapshotsInSync() {
+      return this[_webFirestore].snapshotsInSync();
+    }
+    runTransaction(T, transactionHandler, opts) {
+      let timeout = opts && 'timeout' in opts ? opts.timeout : C[7] || CT.C7;
+      return async.async(dart.nullable(T), (function* runTransaction() {
+        yield internals.guard(async.Future, dart.fn(() => this[_webFirestore].runTransaction(dart.fn(transaction => async.async(dart.nullable(T), (function*() {
+          return transactionHandler(new transaction_web.TransactionWeb.new(this, this[_webFirestore], dart.nullCheck(transaction)));
+        }).bind(this)), dart.fnType(async.Future$(dart.nullable(T)), [T$.TransactionN()]))).timeout(timeout), T$.VoidToFuture()));
+        return null;
+      }).bind(this));
+    }
+    set settings(settings) {
+      let cacheSizeBytes = null;
+      if (settings.cacheSizeBytes == null) {
+        cacheSizeBytes = 40000000;
+      } else if (settings.cacheSizeBytes === -1) {
+        cacheSizeBytes = -1;
+      } else {
+        cacheSizeBytes = settings.cacheSizeBytes;
+      }
+      if (settings.host != null && settings.sslEnabled != null) {
+        this[_webFirestore].settings({cacheSizeBytes: cacheSizeBytes, host: settings.host, ssl: settings.sslEnabled});
+      } else {
+        this[_webFirestore].settings({cacheSizeBytes: cacheSizeBytes});
+      }
+    }
+    get settings() {
+      return super.settings;
+    }
+    enablePersistence(settings = null) {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'enablePersistence'));
+    }
+    terminate() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'terminate'));
+    }
+    waitForPendingWrites() {
+      return internals.guard(T$.FutureOfvoid(), dart.bind(this[_webFirestore], 'waitForPendingWrites'));
+    }
+    loadBundle(bundle) {
+      return new load_bundle_task_web.LoadBundleTaskWeb.new(this[_webFirestore].loadBundle(bundle));
+    }
+    namedQueryGet(name, opts) {
+      let options = opts && 'options' in opts ? opts.options : C[0] || CT.C0;
+      return async.async(platform_interface_query_snapshot.QuerySnapshotPlatform, (function* namedQueryGet() {
+        let query = (yield this[_webFirestore].namedQuery(name));
+        let snapshot = (yield query.get(web_utils.convertGetOptions(options)));
+        return web_utils.convertWebQuerySnapshot(this, snapshot);
+      }).bind(this));
+    }
+  };
+  (cloud_firestore_web.FirebaseFirestoreWeb.new = function(opts) {
+    let t2;
+    let app = opts && 'app' in opts ? opts.app : null;
+    this[_webFirestore] = firestore.getFirestoreInstance(core$.app((t2 = app, t2 == null ? null : t2.name)));
+    cloud_firestore_web.FirebaseFirestoreWeb.__proto__.new.call(this, {appInstance: app});
+    platform_interface_field_value_factory.FieldValueFactoryPlatform.instance = new field_value_factory_web.FieldValueFactoryWeb.new();
+  }).prototype = cloud_firestore_web.FirebaseFirestoreWeb.prototype;
+  dart.addTypeTests(cloud_firestore_web.FirebaseFirestoreWeb);
+  dart.addTypeCaches(cloud_firestore_web.FirebaseFirestoreWeb);
+  dart.setMethodSignature(cloud_firestore_web.FirebaseFirestoreWeb, () => ({
+    __proto__: dart.getMethods(cloud_firestore_web.FirebaseFirestoreWeb.__proto__),
+    runTransaction: dart.gFnType(T => [async.Future$(dart.nullable(T)), [dart.fnType(dart.nullable(async.Future$(dart.nullable(T))), [platform_interface_transaction.TransactionPlatform])], {timeout: core.Duration}, {}], T => [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(cloud_firestore_web.FirebaseFirestoreWeb, I[7]);
+  dart.setFieldSignature(cloud_firestore_web.FirebaseFirestoreWeb, () => ({
+    __proto__: dart.getFields(cloud_firestore_web.FirebaseFirestoreWeb.__proto__),
+    [_webFirestore]: dart.finalFieldType(firestore.Firestore)
+  }));
+  dart.trackLibraries("packages/cloud_firestore_web/src/write_batch_web.dart", {
+    "package:cloud_firestore_web/src/write_batch_web.dart": write_batch_web,
+    "package:cloud_firestore_web/src/transaction_web.dart": transaction_web,
+    "package:cloud_firestore_web/src/field_value_factory_web.dart": field_value_factory_web,
+    "package:cloud_firestore_web/src/query_web.dart": query_web,
+    "package:cloud_firestore_web/src/collection_reference_web.dart": collection_reference_web,
+    "package:cloud_firestore_web/src/document_reference_web.dart": document_reference_web,
+    "package:cloud_firestore_web/src/utils/codec_utility.dart": codec_utility,
+    "package:cloud_firestore_web/src/utils/web_utils.dart": web_utils,
+    "package:cloud_firestore_web/cloud_firestore_web.dart": cloud_firestore_web
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["write_batch_web.dart","transaction_web.dart","field_value_factory_web.dart","query_web.dart","collection_reference_web.dart","document_reference_web.dart","utils/codec_utility.dart","utils/web_utils.dart","../cloud_firestore_web.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/cloud_firestore_web/src/write_batch_web.dart.lib.js"}');
+  // Exports:
+  return {
+    src__write_batch_web: write_batch_web,
+    src__transaction_web: transaction_web,
+    src__field_value_factory_web: field_value_factory_web,
+    src__query_web: query_web,
+    src__collection_reference_web: collection_reference_web,
+    src__document_reference_web: document_reference_web,
+    src__utils__codec_utility: codec_utility,
+    src__utils__web_utils: web_utils,
+    cloud_firestore_web: cloud_firestore_web
+  };
+}));
 
-        //This module may not have dependencies
-        if (!isArray(deps)) {
-            callback = deps;
-            deps = null;
-        }
-
-        //If no name, and callback is a function, then figure out if it a
-        //CommonJS thing with dependencies.
-        if (!deps && isFunction(callback)) {
-            deps = [];
-            //Remove comments from the callback string,
-            //look for require calls, and pull them into the dependencies,
-            //but only if there are function args.
-            if (callback.length) {
-                callback
-                    .toString()
-                    .replace(commentRegExp, commentReplace)
-                    .replace(cjsRequireRegExp, function (match, dep) {
-                        deps.push(dep);
-                    });
-
-                //May be a CommonJS thing even without require calls, but still
-                //could use exports, and module. Avoid doing exports and module
-                //work though if it just needs require.
-                //REQUIRES the function to expect the CommonJS variables in the
-                //order listed below.
-                deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
-            }
-        }
-
-        //If in IE 6-8 and hit an anonymous define() call, do the interactive
-        //work.
-        if (useInteractive) {
-            node = currentlyAddingScript || getInteractiveScript();
-            if (node) {
-                if (!name) {
-                    name = node.getAttribute('data-requiremodule');
-                }
-                context = contexts[node.getAttribute('data-requirecontext')];
-            }
-        }
-
-        //Always save off evaluating the def call until the script onload handler.
-        //This allows multiple modules to be in a file without prematurely
-        //tracing dependencies, and allows for anonymous module support,
-        //where the module name is not known until the script onload event
-        //occurs. If no context, use the global queue, and get it processed
-        //in the onscript load callback.
-        if (context) {
-            context.defQueue.push([name, deps, callback]);
-            context.defQueueMap[name] = true;
-        } else {
-            globalDefQueue.push([name, deps, callback]);
-        }
-    };
-
-    define.amd = {
-        jQuery: true
-    };
-
-    /**
-     * Executes the text. Normally just uses eval, but can be modified
-     * to use a better, environment-specific call. Only used for transpiling
-     * loader plugins, not for plain JS modules.
-     * @param {String} text the text to execute/evaluate.
-     */
-    req.exec = function (text) {
-        /*jslint evil: true */
-        return eval(text);
-    };
-
-    //Set up with config info.
-    req(cfg);
-}(this, (typeof setTimeout === 'undefined' ? undefined : setTimeout)));
+//# sourceMappingURL=write_batch_web.dart.lib.js.map

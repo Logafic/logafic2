@@ -1,17 +1,19 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/menubaraction.dart';
 import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
 
 // ignore: must_be_immutable
 class StatusScreen extends StatelessWidget {
   final String id;
   AuthController authController = AuthController.to;
-  CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
-  StatusScreen({Key? key, required this.id}) : super(key: key);
   CollectionReference posts = FirebaseFirestore.instance.collection('posts');
+  StatusScreen({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,30 +99,40 @@ class StatusScreen extends StatelessWidget {
                     Divider(),
                     Padding(
                       padding: EdgeInsets.all(20),
-                      child: Text(
-                        data['content'],
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      child: data['urlImage'] == ''
+                          ? Text(data['content'])
+                          : Column(children: [
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.3,
+                                child: Image.network(data['urlImage']),
+                              ),
+                              data['content'] != ''
+                                  ? Padding(
+                                      padding: const EdgeInsets.only(top: 20.0),
+                                      child: Text(data['content']),
+                                    )
+                                  : Text('')
+                            ]),
                     ),
                     Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.all(10),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showCommentPostShareWidget(
+                                  context,
+                                  id,
+                                  data['userId'],
+                                  data['content'],
+                                  data['urlImage'],
+                                  data['userProfile'],
+                                  data['userName'],
+                                  data['created_at']);
+                            },
                             child: Text(
                               'Yorum Yap',
-                              style: TextStyle(
-                                  color: Colors.black54, fontSize: 15),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Yorumlar',
                               style: TextStyle(
                                   color: Colors.black54, fontSize: 15),
                             ),
@@ -137,7 +149,7 @@ class StatusScreen extends StatelessWidget {
                                     color: Colors.green,
                                   ),
                                   onPressed: () {
-                                    likeRef
+                                    posts
                                         .doc('$id')
                                         .collection('likes')
                                         .doc(
@@ -151,7 +163,7 @@ class StatusScreen extends StatelessWidget {
                                     color: Colors.amber,
                                   ),
                                   onPressed: () {
-                                    likeRef
+                                    posts
                                         .doc('$id')
                                         .collection('likes')
                                         .doc(
@@ -172,6 +184,91 @@ class StatusScreen extends StatelessWidget {
                             }),
                       ],
                     ),
+                    Text(
+                      'Yorumlar',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    Expanded(
+                      child: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('posts')
+                            .doc(id)
+                            .collection('comment')
+                            .snapshots(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          if (snapshot.hasError) {
+                            Center(
+                              child: Text(
+                                  'Birşeyler yanlış lütfen daha sonra tekrar deneyiniz.'),
+                            );
+                          }
+
+                          return new ListView(
+                            children: snapshot.data!.docs
+                                .map((DocumentSnapshot document) {
+                              Map<String, dynamic> data =
+                                  document.data() as Map<String, dynamic>;
+                              return new Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: ListTile(
+                                    leading:
+                                        Image.network(data['userProfileImage']),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        TextButton(
+                                          child: Text(
+                                            (data['userName']),
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, ProfileRoute,
+                                                arguments: {
+                                                  'userId': data['userId']
+                                                });
+                                          },
+                                        ),
+                                        Text(
+                                          data['comment'],
+                                          style: TextStyle(fontSize: 17),
+                                        ),
+                                        Divider(),
+                                      ],
+                                    ),
+                                    subtitle: Text(
+                                      data['created_at'],
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    trailing: authController
+                                                .firebaseUser.value!.uid ==
+                                            data['userId']
+                                        ? IconButton(
+                                            onPressed: () {
+                                              posts
+                                                  .doc(id)
+                                                  .collection('comment')
+                                                  .doc(document.id)
+                                                  .delete();
+                                              print(document.id);
+                                            },
+                                            icon: Icon(
+                                                Icons.delete_forever_outlined))
+                                        : null,
+                                  ));
+                            }).toList(),
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               )),
@@ -188,7 +285,7 @@ class StatusScreen extends StatelessWidget {
   Future<bool> checkIfDocExists(String docId) async {
     try {
       // Get reference to Firestore collection
-      var doc = await likeRef
+      var doc = await posts
           .doc(docId)
           .collection('likes')
           .doc('${authController.firebaseUser.value!.uid}')
@@ -201,7 +298,7 @@ class StatusScreen extends StatelessWidget {
 
   Future<int> getSize(String documentId) async {
     var size = 0;
-    await likeRef
+    await posts
         .doc(documentId)
         .collection('likes')
         .get()

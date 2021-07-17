@@ -1,438 +1,366 @@
-define(['dart_sdk', 'packages/collection/src/utils.dart'], (function load__packages__collection__src__priority_queue_dart(dart_sdk, packages__collection__src__utils$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__cupertino__activity_indicator_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const collection = dart_sdk.collection;
-  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const utils = packages__collection__src__utils$46dart.src__utils;
-  var priority_queue = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $take = dartx.take;
-  var $cast = dartx.cast;
-  var $sort = dartx.sort;
-  var $add = dartx.add;
-  var $toString = dartx.toString;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var activity_indicator = Object.create(dart.library);
   var $length = dartx.length;
-  var $isOdd = dartx.isOdd;
-  var $rightShift = dartx['>>'];
-  var $_set = dartx._set;
-  var $truncate = dartx.truncate;
-  var $setRange = dartx.setRange;
-  var $iterator = dartx.iterator;
+  var $floor = dartx.floor;
+  var $modulo = dartx['%'];
+  var $_get = dartx._get;
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    ObjectNAndObjectNToint: () => (T.ObjectNAndObjectNToint = dart.constFn(dart.fnType(core.int, [T.ObjectN(), T.ObjectN()])))()
-  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.fn(utils.defaultCompare, T.ObjectNAndObjectNToint());
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1000000
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
     },
     get C1() {
-      return C[1] = dart.constList([], core.Null);
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293651445.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282137668.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_elevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_color]: C[11] || CT.C11,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C[11] || CT.C11
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([47, 47, 47, 47, 72, 97, 122, 147], core.int);
     }
   }, false);
-  var C = Array(2).fill(void 0);
-  var I = ["package:collection/src/priority_queue.dart"];
-  const _is_PriorityQueue_default = Symbol('_is_PriorityQueue_default');
-  priority_queue.PriorityQueue$ = dart.generic(E => {
-    class PriorityQueue extends core.Object {}
-    (PriorityQueue[dart.mixinNew] = function() {
-    }).prototype = PriorityQueue.prototype;
-    dart.addTypeTests(PriorityQueue);
-    PriorityQueue.prototype[_is_PriorityQueue_default] = true;
-    dart.addTypeCaches(PriorityQueue);
-    dart.setLibraryUri(PriorityQueue, I[0]);
-    return PriorityQueue;
-  });
-  priority_queue.PriorityQueue = priority_queue.PriorityQueue$();
-  dart.addTypeTests(priority_queue.PriorityQueue, _is_PriorityQueue_default);
-  var comparison$ = dart.privateName(priority_queue, "HeapPriorityQueue.comparison");
-  var _queue$ = dart.privateName(priority_queue, "_queue");
-  var _length = dart.privateName(priority_queue, "_length");
-  var _modificationCount = dart.privateName(priority_queue, "_modificationCount");
-  var _elementAt = dart.privateName(priority_queue, "_elementAt");
-  var _add = dart.privateName(priority_queue, "_add");
-  var _locate = dart.privateName(priority_queue, "_locate");
-  var _removeLast = dart.privateName(priority_queue, "_removeLast");
-  var _bubbleUp = dart.privateName(priority_queue, "_bubbleUp");
-  var _bubbleDown = dart.privateName(priority_queue, "_bubbleDown");
-  var _toUnorderedList = dart.privateName(priority_queue, "_toUnorderedList");
-  var _grow = dart.privateName(priority_queue, "_grow");
-  const _is_HeapPriorityQueue_default = Symbol('_is_HeapPriorityQueue_default');
-  priority_queue.HeapPriorityQueue$ = dart.generic(E => {
-    var EN = () => (EN = dart.constFn(dart.nullable(E)))();
-    var ListOfEN = () => (ListOfEN = dart.constFn(core.List$(EN())))();
-    var IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
-    var _UnorderedElementsIterableOfE = () => (_UnorderedElementsIterableOfE = dart.constFn(priority_queue._UnorderedElementsIterable$(E)))();
-    var SplayTreeSetOfE = () => (SplayTreeSetOfE = dart.constFn(collection.SplayTreeSet$(E)))();
-    var JSArrayOfE = () => (JSArrayOfE = dart.constFn(_interceptors.JSArray$(E)))();
-    class HeapPriorityQueue extends core.Object {
-      get comparison() {
-        return this[comparison$];
-      }
-      set comparison(value) {
-        super.comparison = value;
-      }
-      [_elementAt](index) {
-        let t0;
-        t0 = this[_queue$][$_get](index);
-        return t0 == null ? E.as(null) : t0;
-      }
-      add(element) {
-        E.as(element);
-        this[_modificationCount] = this[_modificationCount] + 1;
-        this[_add](element);
-      }
-      addAll(elements) {
-        IterableOfE().as(elements);
-        let modified = 0;
-        for (let element of elements) {
-          modified = 1;
-          this[_add](element);
-        }
-        this[_modificationCount] = this[_modificationCount] + modified;
-      }
-      clear() {
-        this[_modificationCount] = this[_modificationCount] + 1;
-        this[_queue$] = C[1] || CT.C1;
-        this[_length] = 0;
-      }
-      contains(object) {
-        E.as(object);
-        return this[_locate](object) >= 0;
-      }
-      get unorderedElements() {
-        return new (_UnorderedElementsIterableOfE()).new(this);
-      }
-      get first() {
-        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
-        return this[_elementAt](0);
-      }
-      get isEmpty() {
-        return this[_length] === 0;
-      }
-      get isNotEmpty() {
-        return this[_length] !== 0;
-      }
-      get length() {
-        return this[_length];
-      }
-      remove(element) {
-        let t1, t0;
-        E.as(element);
-        let index = this[_locate](element);
-        if (index < 0) return false;
-        this[_modificationCount] = this[_modificationCount] + 1;
-        let last = this[_removeLast]();
-        if (index < this[_length]) {
-          let comp = (t0 = last, t1 = element, this.comparison(t0, t1));
-          if (comp <= 0) {
-            this[_bubbleUp](last, index);
-          } else {
-            this[_bubbleDown](last, index);
-          }
-        }
-        return true;
-      }
-      removeAll() {
-        this[_modificationCount] = this[_modificationCount] + 1;
-        let result = this[_queue$];
-        let length = this[_length];
-        this[_queue$] = C[1] || CT.C1;
-        this[_length] = 0;
-        return result[$take](length)[$cast](E);
-      }
-      removeFirst() {
-        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
-        this[_modificationCount] = this[_modificationCount] + 1;
-        let result = this[_elementAt](0);
-        let last = this[_removeLast]();
-        if (this[_length] > 0) {
-          this[_bubbleDown](last, 0);
-        }
-        return result;
-      }
-      toList() {
-        let t0;
-        t0 = this[_toUnorderedList]();
-        return (() => {
-          t0[$sort](this.comparison);
-          return t0;
-        })();
-      }
-      toSet() {
-        let set = new (SplayTreeSetOfE()).new(this.comparison);
-        for (let i = 0; i < this[_length]; i = i + 1) {
-          set.add(this[_elementAt](i));
-        }
-        return set;
-      }
-      toUnorderedList() {
-        return this[_toUnorderedList]();
-      }
-      [_toUnorderedList]() {
-        return (() => {
-          let t0 = JSArrayOfE().of([]);
-          for (let i = 0; i < this[_length]; i = i + 1)
-            t0[$add](this[_elementAt](i));
-          return t0;
-        })();
-      }
-      toString() {
-        return this[_queue$][$take](this[_length])[$toString]();
-      }
-      [_add](element) {
-        let t1;
-        if (this[_length] === this[_queue$][$length]) this[_grow]();
-        this[_bubbleUp](element, (t1 = this[_length], this[_length] = t1 + 1, t1));
-      }
-      [_locate](object) {
-        let t2, t1;
-        if (this[_length] === 0) return -1;
-        let position = 1;
-        do {
-          let index = position - 1;
-          let element = this[_elementAt](index);
-          let comp = (t1 = element, t2 = object, this.comparison(t1, t2));
-          if (comp <= 0) {
-            if (comp === 0 && dart.equals(element, object)) return index;
-            let leftChildPosition = position * 2;
-            if (leftChildPosition <= this[_length]) {
-              position = leftChildPosition;
-              continue;
-            }
-          }
-          do {
-            while (position[$isOdd]) {
-              position = position[$rightShift](1);
-            }
-            position = position + 1;
-          } while (position > this[_length]);
-        } while (position !== 1);
-        return -1;
-      }
-      [_removeLast]() {
-        let newLength = this[_length] - 1;
-        let last = this[_elementAt](newLength);
-        this[_queue$][$_set](newLength, null);
-        this[_length] = newLength;
-        return last;
-      }
-      [_bubbleUp](element, index) {
-        let t2, t1;
-        while (index > 0) {
-          let parentIndex = ((index - 1) / 2)[$truncate]();
-          let parent = this[_elementAt](parentIndex);
-          if ((t1 = element, t2 = parent, this.comparison(t1, t2)) > 0) break;
-          this[_queue$][$_set](index, parent);
-          index = parentIndex;
-        }
-        this[_queue$][$_set](index, element);
-      }
-      [_bubbleDown](element, index) {
-        let t2, t1, t2$, t1$, t2$0, t1$0;
-        let rightChildIndex = index * 2 + 2;
-        while (rightChildIndex < this[_length]) {
-          let leftChildIndex = rightChildIndex - 1;
-          let leftChild = this[_elementAt](leftChildIndex);
-          let rightChild = this[_elementAt](rightChildIndex);
-          let comp = (t1 = leftChild, t2 = rightChild, this.comparison(t1, t2));
-          let minChildIndex = null;
-          let minChild = null;
-          if (comp < 0) {
-            minChild = leftChild;
-            minChildIndex = leftChildIndex;
-          } else {
-            minChild = rightChild;
-            minChildIndex = rightChildIndex;
-          }
-          comp = (t1$ = element, t2$ = minChild, this.comparison(t1$, t2$));
-          if (comp <= 0) {
-            this[_queue$][$_set](index, element);
-            return;
-          }
-          this[_queue$][$_set](index, minChild);
-          index = minChildIndex;
-          rightChildIndex = index * 2 + 2;
-        }
-        let leftChildIndex = rightChildIndex - 1;
-        if (leftChildIndex < this[_length]) {
-          let child = this[_elementAt](leftChildIndex);
-          let comp = (t1$0 = element, t2$0 = child, this.comparison(t1$0, t2$0));
-          if (comp > 0) {
-            this[_queue$][$_set](index, child);
-            index = leftChildIndex;
-          }
-        }
-        this[_queue$][$_set](index, element);
-      }
-      [_grow]() {
-        let newCapacity = this[_queue$][$length] * 2 + 1;
-        if (newCapacity < 7) newCapacity = 7;
-        let newQueue = ListOfEN().filled(newCapacity, null);
-        newQueue[$setRange](0, this[_length], this[_queue$]);
-        this[_queue$] = newQueue;
-      }
+  var C = Array(13).fill(void 0);
+  var I = [
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart",
+    "package:flutter/src/cupertino/activity_indicator.dart"
+  ];
+  var animating$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.animating");
+  var radius$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.radius");
+  var progress$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.progress");
+  activity_indicator.CupertinoActivityIndicator = class CupertinoActivityIndicator extends framework.StatefulWidget {
+    get animating() {
+      return this[animating$];
     }
-    (HeapPriorityQueue.new = function(comparison = null) {
+    set animating(value) {
+      super.animating = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get progress() {
+      return this[progress$];
+    }
+    set progress(value) {
+      super.progress = value;
+    }
+    createState() {
+      return new activity_indicator._CupertinoActivityIndicatorState.new();
+    }
+  };
+  (activity_indicator.CupertinoActivityIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let animating = opts && 'animating' in opts ? opts.animating : true;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[animating$] = animating;
+    this[radius$] = radius;
+    if (!(animating !== null)) dart.assertFailed(null, I[0], 32, 16, "animating != null");
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 33, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 34, 16, "radius > 0.0");
+    this[progress$] = 1.0;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  (activity_indicator.CupertinoActivityIndicator.partiallyRevealed = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let progress = opts && 'progress' in opts ? opts.progress : 1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[radius$] = radius;
+    this[progress$] = progress;
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 48, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 49, 16, "radius > 0.0");
+    if (!(progress !== null)) dart.assertFailed(null, I[0], 50, 16, "progress != null");
+    if (!(progress >= 0.0)) dart.assertFailed(null, I[0], 51, 16, "progress >= 0.0");
+    if (!(progress <= 1.0)) dart.assertFailed(null, I[0], 52, 16, "progress <= 1.0");
+    this[animating$] = false;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  dart.addTypeTests(activity_indicator.CupertinoActivityIndicator);
+  dart.addTypeCaches(activity_indicator.CupertinoActivityIndicator);
+  dart.setMethodSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getMethods(activity_indicator.CupertinoActivityIndicator.__proto__),
+    createState: dart.fnType(activity_indicator._CupertinoActivityIndicatorState, [])
+  }));
+  dart.setLibraryUri(activity_indicator.CupertinoActivityIndicator, I[1]);
+  dart.setFieldSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getFields(activity_indicator.CupertinoActivityIndicator.__proto__),
+    animating: dart.finalFieldType(core.bool),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double)
+  }));
+  var ___CupertinoActivityIndicatorState__controller = dart.privateName(activity_indicator, "_#_CupertinoActivityIndicatorState#_controller");
+  var _controller = dart.privateName(activity_indicator, "_controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(activity_indicator.CupertinoActivityIndicator) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator));
+  activity_indicator._CupertinoActivityIndicatorState = class _CupertinoActivityIndicatorState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
       let t0;
-      this[_queue$] = ListOfEN().filled(7, null);
-      this[_length] = 0;
-      this[_modificationCount] = 0;
-      this[comparison$] = (t0 = comparison, t0 == null ? C[0] || CT.C0 : t0);
-      ;
-    }).prototype = HeapPriorityQueue.prototype;
-    dart.addTypeTests(HeapPriorityQueue);
-    HeapPriorityQueue.prototype[_is_HeapPriorityQueue_default] = true;
-    dart.addTypeCaches(HeapPriorityQueue);
-    HeapPriorityQueue[dart.implements] = () => [priority_queue.PriorityQueue$(E)];
-    dart.setMethodSignature(HeapPriorityQueue, () => ({
-      __proto__: dart.getMethods(HeapPriorityQueue.__proto__),
-      [_elementAt]: dart.fnType(E, [core.int]),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      remove: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      removeAll: dart.fnType(core.Iterable$(E), []),
-      removeFirst: dart.fnType(E, []),
-      toList: dart.fnType(core.List$(E), []),
-      toSet: dart.fnType(core.Set$(E), []),
-      toUnorderedList: dart.fnType(core.List$(E), []),
-      [_toUnorderedList]: dart.fnType(core.List$(E), []),
-      [_add]: dart.fnType(dart.void, [E]),
-      [_locate]: dart.fnType(core.int, [E]),
-      [_removeLast]: dart.fnType(E, []),
-      [_bubbleUp]: dart.fnType(dart.void, [E, core.int]),
-      [_bubbleDown]: dart.fnType(dart.void, [E, core.int]),
-      [_grow]: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(HeapPriorityQueue, () => ({
-      __proto__: dart.getGetters(HeapPriorityQueue.__proto__),
-      unorderedElements: core.Iterable$(E),
-      first: E,
-      isEmpty: core.bool,
-      isNotEmpty: core.bool,
-      length: core.int
-    }));
-    dart.setLibraryUri(HeapPriorityQueue, I[0]);
-    dart.setFieldSignature(HeapPriorityQueue, () => ({
-      __proto__: dart.getFields(HeapPriorityQueue.__proto__),
-      comparison: dart.finalFieldType(dart.fnType(core.int, [E, E])),
-      [_queue$]: dart.fieldType(core.List$(dart.nullable(E))),
-      [_length]: dart.fieldType(core.int),
-      [_modificationCount]: dart.fieldType(core.int)
-    }));
-    dart.defineExtensionMethods(HeapPriorityQueue, ['toString']);
-    return HeapPriorityQueue;
-  });
-  priority_queue.HeapPriorityQueue = priority_queue.HeapPriorityQueue$();
-  dart.defineLazy(priority_queue.HeapPriorityQueue, {
-    /*priority_queue.HeapPriorityQueue._INITIAL_CAPACITY*/get _INITIAL_CAPACITY() {
-      return 7;
+      t0 = this[___CupertinoActivityIndicatorState__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+    }
+    set [_controller](t0) {
+      this[___CupertinoActivityIndicatorState__controller] = t0;
+    }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[0] || CT.C0, vsync: this});
+      if (this.widget.animating) {
+        this[_controller].repeat();
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      activity_indicator.CupertinoActivityIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.animating !== oldWidget.animating) {
+        if (this.widget.animating)
+          this[_controller].repeat();
+        else
+          this[_controller].stop();
+      }
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      return new basic.SizedBox.new({height: this.widget.radius * 2, width: this.widget.radius * 2, child: new basic.CustomPaint.new({painter: new activity_indicator._CupertinoActivityIndicatorPainter.new({position: this[_controller], activeColor: colors.CupertinoDynamicColor.resolve(activity_indicator._kActiveTickColor, context), radius: this.widget.radius, progress: this.widget.progress}), $creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorState.new = function() {
+    this[___CupertinoActivityIndicatorState__controller] = null;
+    activity_indicator._CupertinoActivityIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorState.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorState);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorState);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getGetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getSetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorState, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [___CupertinoActivityIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  activity_indicator._CupertinoActivityIndicatorPainter = class _CupertinoActivityIndicatorPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let paint = ui.Paint.new();
+      let tickCount = activity_indicator._kAlphaValues[$length];
+      canvas.save();
+      canvas.translate(size.width / 2.0, size.height / 2.0);
+      let activeTick = (tickCount * this.position.value)[$floor]();
+      for (let i = 0; i < tickCount * this.progress; i = i + 1) {
+        let t = (i - activeTick)[$modulo](tickCount);
+        paint.color = this.activeColor.withAlpha(this.progress < 1 ? 147 : activity_indicator._kAlphaValues[$_get](t));
+        canvas.drawRRect(this.tickFundamentalRRect, paint);
+        canvas.rotate(6.283185307179586 / tickCount);
+      }
+      canvas.restore();
+    }
+    shouldRepaint(oldPainter) {
+      activity_indicator._CupertinoActivityIndicatorPainter.as(oldPainter);
+      return !oldPainter.position[$_equals](this.position) || !oldPainter.activeColor._equals(this.activeColor) || oldPainter.progress !== this.progress;
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorPainter.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let progress = opts && 'progress' in opts ? opts.progress : null;
+    this.position = position;
+    this.activeColor = activeColor;
+    this.radius = radius;
+    this.progress = progress;
+    this.tickFundamentalRRect = new ui.RRect.fromLTRBXY(-radius / 10, -radius / 3.0, radius / 10, -radius, radius / 10, radius / 10);
+    activity_indicator._CupertinoActivityIndicatorPainter.__proto__.new.call(this, {repaint: position});
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorPainter.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorPainter, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    position: dart.finalFieldType(animation.Animation$(core.double)),
+    activeColor: dart.finalFieldType(ui.Color),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double),
+    tickFundamentalRRect: dart.finalFieldType(ui.RRect)
+  }));
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  dart.defineLazy(activity_indicator, {
+    /*activity_indicator._kDefaultIndicatorRadius*/get _kDefaultIndicatorRadius() {
+      return 10;
+    },
+    /*activity_indicator._kActiveTickColor*/get _kActiveTickColor() {
+      return C[9] || CT.C9;
+    },
+    /*activity_indicator._kTwoPI*/get _kTwoPI() {
+      return 6.283185307179586;
+    },
+    /*activity_indicator._kAlphaValues*/get _kAlphaValues() {
+      return C[12] || CT.C12;
+    },
+    /*activity_indicator._partiallyRevealedAlpha*/get _partiallyRevealedAlpha() {
+      return 147;
     }
   }, false);
-  dart.addTypeTests(priority_queue.HeapPriorityQueue, _is_HeapPriorityQueue_default);
-  const _is__UnorderedElementsIterable_default = Symbol('_is__UnorderedElementsIterable_default');
-  priority_queue._UnorderedElementsIterable$ = dart.generic(E => {
-    var _UnorderedElementsIteratorOfE = () => (_UnorderedElementsIteratorOfE = dart.constFn(priority_queue._UnorderedElementsIterator$(E)))();
-    class _UnorderedElementsIterable extends core.Iterable$(E) {
-      get iterator() {
-        return new (_UnorderedElementsIteratorOfE()).new(this[_queue$]);
-      }
-    }
-    (_UnorderedElementsIterable.new = function(_queue) {
-      this[_queue$] = _queue;
-      _UnorderedElementsIterable.__proto__.new.call(this);
-      ;
-    }).prototype = _UnorderedElementsIterable.prototype;
-    dart.addTypeTests(_UnorderedElementsIterable);
-    _UnorderedElementsIterable.prototype[_is__UnorderedElementsIterable_default] = true;
-    dart.addTypeCaches(_UnorderedElementsIterable);
-    dart.setGetterSignature(_UnorderedElementsIterable, () => ({
-      __proto__: dart.getGetters(_UnorderedElementsIterable.__proto__),
-      iterator: core.Iterator$(E),
-      [$iterator]: core.Iterator$(E)
-    }));
-    dart.setLibraryUri(_UnorderedElementsIterable, I[0]);
-    dart.setFieldSignature(_UnorderedElementsIterable, () => ({
-      __proto__: dart.getFields(_UnorderedElementsIterable.__proto__),
-      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E))
-    }));
-    dart.defineExtensionAccessors(_UnorderedElementsIterable, ['iterator']);
-    return _UnorderedElementsIterable;
-  });
-  priority_queue._UnorderedElementsIterable = priority_queue._UnorderedElementsIterable$();
-  dart.addTypeTests(priority_queue._UnorderedElementsIterable, _is__UnorderedElementsIterable_default);
-  var _current = dart.privateName(priority_queue, "_current");
-  var _index = dart.privateName(priority_queue, "_index");
-  var _initialModificationCount = dart.privateName(priority_queue, "_initialModificationCount");
-  const _is__UnorderedElementsIterator_default = Symbol('_is__UnorderedElementsIterator_default');
-  priority_queue._UnorderedElementsIterator$ = dart.generic(E => {
-    class _UnorderedElementsIterator extends core.Object {
-      moveNext() {
-        if (this[_initialModificationCount] !== this[_queue$][_modificationCount]) {
-          dart.throw(new core.ConcurrentModificationError.new(this[_queue$]));
-        }
-        let nextIndex = this[_index] + 1;
-        if (0 <= nextIndex && nextIndex < this[_queue$].length) {
-          this[_current] = this[_queue$][_queue$][$_get](nextIndex);
-          this[_index] = nextIndex;
-          return true;
-        }
-        this[_current] = null;
-        this[_index] = -2;
-        return false;
-      }
-      get current() {
-        let t1;
-        return this[_index] < 0 ? dart.throw(new core.StateError.new("No element")) : (t1 = this[_current], t1 == null ? E.as(null) : t1);
-      }
-    }
-    (_UnorderedElementsIterator.new = function(_queue) {
-      this[_current] = null;
-      this[_index] = -1;
-      this[_queue$] = _queue;
-      this[_initialModificationCount] = _queue[_modificationCount];
-      ;
-    }).prototype = _UnorderedElementsIterator.prototype;
-    dart.addTypeTests(_UnorderedElementsIterator);
-    _UnorderedElementsIterator.prototype[_is__UnorderedElementsIterator_default] = true;
-    dart.addTypeCaches(_UnorderedElementsIterator);
-    _UnorderedElementsIterator[dart.implements] = () => [core.Iterator$(E)];
-    dart.setMethodSignature(_UnorderedElementsIterator, () => ({
-      __proto__: dart.getMethods(_UnorderedElementsIterator.__proto__),
-      moveNext: dart.fnType(core.bool, [])
-    }));
-    dart.setGetterSignature(_UnorderedElementsIterator, () => ({
-      __proto__: dart.getGetters(_UnorderedElementsIterator.__proto__),
-      current: E
-    }));
-    dart.setLibraryUri(_UnorderedElementsIterator, I[0]);
-    dart.setFieldSignature(_UnorderedElementsIterator, () => ({
-      __proto__: dart.getFields(_UnorderedElementsIterator.__proto__),
-      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E)),
-      [_initialModificationCount]: dart.finalFieldType(core.int),
-      [_current]: dart.fieldType(dart.nullable(E)),
-      [_index]: dart.fieldType(core.int)
-    }));
-    return _UnorderedElementsIterator;
-  });
-  priority_queue._UnorderedElementsIterator = priority_queue._UnorderedElementsIterator$();
-  dart.addTypeTests(priority_queue._UnorderedElementsIterator, _is__UnorderedElementsIterator_default);
-  dart.trackLibraries("packages/collection/src/priority_queue.dart", {
-    "package:collection/src/priority_queue.dart": priority_queue
+  dart.trackLibraries("packages/flutter/src/cupertino/activity_indicator.dart", {
+    "package:flutter/src/cupertino/activity_indicator.dart": activity_indicator
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["priority_queue.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAmLsB;;;;;;mBA2BH;;AAAU,aAAA,AAAM,qBAAC,KAAK;cAAN,cAAiB,KAAL;MAAU;;aAG5C;AACW,QAApB,2BAAA,AAAkB,2BAAA;AACL,QAAb,WAAK,OAAO;MACd;;yBAGwB;AAClB,uBAAW;AACf,iBAAS,UAAW,SAAQ;AACd,UAAZ,WAAW;AACE,UAAb,WAAK,OAAO;;AAEgB,QAA9B,2BAAA,AAAmB,2BAAG,QAAQ;MAChC;;AAIsB,QAApB,2BAAA,AAAkB,2BAAA;AACD,QAAjB;AACW,QAAX,gBAAU;MACZ;;aAGgB;AAAW,cAAA,AAAgB,eAAR,MAAM,KAAK;MAAC;;AAUV,yDAA8B;MAAK;;AAItE,YAAI,AAAQ,kBAAG,GAAG,AAA8B,WAAxB,wBAAW;AACnC,cAAO,kBAAW;MACpB;;AAGoB,cAAA,AAAQ,mBAAG;MAAC;;AAGT,cAAA,AAAQ,mBAAG;MAAC;;AAGjB;MAAO;aAGX;;;AACR,oBAAQ,cAAQ,OAAO;AAC3B,YAAI,AAAM,KAAD,GAAG,GAAG,MAAO;AACF,QAApB,2BAAA,AAAkB,2BAAA;AACd,mBAAO;AACX,YAAI,AAAM,KAAD,GAAG;AACN,2BAAkB,IAAI,OAAE,OAAO,EAAxB,AAAU;AACrB,cAAI,AAAK,IAAD,IAAI;AACY,YAAtB,gBAAU,IAAI,EAAE,KAAK;;AAEG,YAAxB,kBAAY,IAAI,EAAE,KAAK;;;AAG3B,cAAO;MACT;;AAUsB,QAApB,2BAAA,AAAkB,2BAAA;AACd,qBAAS;AACT,qBAAS;AACI,QAAjB;AACW,QAAX,gBAAU;AACV,cAAO,AAAO,AAAa,OAAd,QAAM,MAAM;MAC3B;;AAIE,YAAI,AAAQ,kBAAG,GAAG,AAA8B,WAAxB,wBAAW;AACf,QAApB,2BAAA,AAAkB,2BAAA;AACd,qBAAS,iBAAW;AACpB,mBAAO;AACX,YAAI,AAAQ,gBAAE;AACQ,UAApB,kBAAY,IAAI,EAAE;;AAEpB,cAAO,OAAM;MACf;;;AAGoB;;AAAoB,oBAAK;;;MAAW;;AAIlD,kBAAM,4BAAgB;AAC1B,iBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,eAAS,IAAA,AAAC,CAAA;AACN,UAAtB,AAAI,GAAD,KAAK,iBAAW,CAAC;;AAEtB,cAAO,IAAG;MACZ;;AAG6B;MAAkB;;AAG3C;;AAAC,mBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,eAAS,IAAA,AAAC,CAAA;AAAI,sCAAW,CAAC;;;MAAE;;AAOnD,cAAO,AAAO,AAAc,sBAAT;MACrB;aAKY;;AACV,YAAI,AAAQ,kBAAG,AAAO,wBAAQ,AAAO;AACR,QAA7B,gBAAU,OAAO,GAAS,oBAAP,qBAAO;MAC5B;gBAQc;;AACZ,YAAI,AAAQ,kBAAG,GAAG,MAAO,EAAC;AAMtB,uBAAW;AAIf;AACM,sBAAQ,AAAS,QAAD,GAAG;AACnB,wBAAU,iBAAW,KAAK;AAC1B,2BAAkB,OAAO,OAAE,MAAM,EAA1B,AAAU;AACrB,cAAI,AAAK,IAAD,IAAI;AACV,gBAAI,AAAK,IAAD,KAAI,KAAa,YAAR,OAAO,EAAI,MAAM,GAAE,MAAO,MAAK;AAG5C,oCAAoB,AAAS,QAAD,GAAG;AACnC,gBAAI,AAAkB,iBAAD,IAAI;AACK,cAA5B,WAAW,iBAAiB;AAC5B;;;AAIJ;AACE,mBAAO,AAAS,QAAD;AAEC,cAAd,WAAA,AAAS,QAAD,cAAK;;AAGF,YAAb,WAAA,AAAS,QAAD,GAAI;mBACL,AAAS,QAAD,GAAG;iBACb,QAAQ,KAAI;AACrB,cAAO,EAAC;MACV;;AAGM,wBAAY,AAAQ,gBAAE;AACtB,mBAAO,iBAAW,SAAS;AACP,QAAxB,AAAM,qBAAC,SAAS,EAAI;AACD,QAAnB,gBAAU,SAAS;AACnB,cAAO,KAAI;MACb;kBAOiB,SAAa;;AAC5B,eAAO,AAAM,KAAD,GAAG;AACT,4BAA0B,EAAX,AAAM,KAAD,GAAG,KAAM;AAC7B,uBAAS,iBAAW,WAAW;AACnC,cAAgC,MAAjB,OAAO,OAAE,MAAM,EAA1B,AAAU,2BAAoB,GAAG;AACf,UAAtB,AAAM,qBAAC,KAAK,EAAI,MAAM;AACH,UAAnB,QAAQ,WAAW;;AAEE,QAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;MACzB;oBAOmB,SAAa;;AAC1B,8BAAkB,AAAM,AAAI,KAAL,GAAG,IAAI;AAClC,eAAO,AAAgB,eAAD,GAAG;AACnB,+BAAiB,AAAgB,eAAD,GAAG;AACnC,0BAAY,iBAAW,cAAc;AACrC,2BAAa,iBAAW,eAAe;AACvC,2BAAkB,SAAS,OAAE,UAAU,EAAhC,AAAU;AACjB;AACF;AACF,cAAI,AAAK,IAAD,GAAG;AACW,YAApB,WAAW,SAAS;AACU,YAA9B,gBAAgB,cAAc;;AAET,YAArB,WAAW,UAAU;AACU,YAA/B,gBAAgB,eAAe;;AAEG,UAApC,cAAkB,OAAO,QAAE,QAAQ,EAA5B,AAAU;AACjB,cAAI,AAAK,IAAD,IAAI;AACa,YAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;AACvB;;AAEsB,UAAxB,AAAM,qBAAC,KAAK,EAAI,QAAQ;AACH,UAArB,QAAQ,aAAa;AACU,UAA/B,kBAAkB,AAAM,AAAI,KAAL,GAAG,IAAI;;AAE5B,6BAAiB,AAAgB,eAAD,GAAG;AACvC,YAAI,AAAe,cAAD,GAAG;AACf,sBAAQ,iBAAW,cAAc;AACjC,6BAAkB,OAAO,SAAE,KAAK,EAAzB,AAAU;AACrB,cAAI,AAAK,IAAD,GAAG;AACY,YAArB,AAAM,qBAAC,KAAK,EAAI,KAAK;AACC,YAAtB,QAAQ,cAAc;;;AAGH,QAAvB,AAAM,qBAAC,KAAK,EAAI,OAAO;MACzB;;AAMM,0BAAc,AAAO,AAAO,AAAI,yBAAF,IAAI;AACtC,YAAI,AAAY,WAAD,MAAsB,AAA+B;AAChE,uBAAW,kBAAgB,WAAW,EAAE;AACP,QAArC,AAAS,QAAD,YAAU,GAAG,eAAS;AACb,QAAjB,gBAAS,QAAQ;MACnB;;sCA9PuC;;MArB9B,gBAAS,qBAAmC;MAKjD,gBAAU;MAKV,2BAAqB;MAYR,qBAAa,KAAX,UAAU,EAAV;;IAA4B;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA5B9B,kDAAiB;;;;;;;;;;AAiSN,yDAA8B;MAAO;;;MAFjC;AAAhC;;IAAuC;;;;;;;;;;;;;;;;;;;;;;;;;;AAgBrC,YAAI,oCAA6B,AAAO;AACG,UAAzC,WAAM,yCAA4B;;AAEhC,wBAAY,AAAO,eAAE;AACzB,YAAI,AAAE,KAAG,SAAS,IAAI,AAAU,SAAD,GAAG,AAAO;AACJ,UAAnC,iBAAW,AAAO,AAAM,8BAAC,SAAS;AAChB,UAAlB,eAAS,SAAS;AAClB,gBAAO;;AAEM,QAAf,iBAAW;AACA,QAAX,eAAS,CAAC;AACV,cAAO;MACT;;;AAII,cAAA,AAAO,gBAAE,IAAI,WAAM,wBAAW,kBAA0B,qBAAT,aAAiB,KAAL;MAAU;;+CArBzC;MAH7B;MACC,eAAS,CAAC;MAEkB;MACA,kCAAE,AAAO,MAAD;;IAAmB","file":"../../../../../../../../../packages/collection/src/priority_queue.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["activity_indicator.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA0Da;;;;;;IAKE;;;;;;IAQA;;;;;;;AAIT;IAAkC;;;QA/C/B;QACA;QACA;;IADA;IACA;UACM,AAAU,SAAD;UACT,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;IACP,kBAAE;AACX,iFAAW,GAAG;;EAAC;;QASd;QACA;QACA;;IADA;IACA;UACM,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;UACT,AAAS,QAAD;UACR,AAAS,QAAD,IAAI;UACZ,AAAS,QAAD,IAAI;IACT,mBAAE;AACZ,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA2BI;;IAAW;;AAAX;IAAW;;AAIjB,MAAX;AAIL,MAHD,oBAAc,kFAEL;AAGT,UAAI,AAAO;AACW,QAApB,AAAY;;IAEhB;;uDAGgD;AACd,MAA1B,sBAAgB,SAAS;AAC/B,UAAI,AAAO,0BAAa,AAAU,SAAD;AAC/B,YAAI,AAAO;AACW,UAApB,AAAY;;AAEM,UAAlB,AAAY;;IAElB;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;AACxB,YAAO,iCACG,AAAO,AAAO,qBAAE,UACjB,AAAO,AAAO,qBAAE,UAChB,oCACI,yEACG,gCAEgB,qCAAQ,sCAAmB,OAAO,WACpD,AAAO,8BACL,AAAO;IAIzB;;;2DA/CyB;;;EAgD3B;;;;;;;;;;;;;;;;;;;;;UA4CoB,QAAa;AACjB,kBAAQ;AACV,sBAAY,AAAc;AAEvB,MAAb,AAAO,MAAD;AAC+C,MAArD,AAAO,MAAD,WAAW,AAAK,AAAM,IAAP,SAAS,KAAK,AAAK,AAAO,IAAR,UAAU;AAEvC,uBAA0C,CAA5B,AAAU,SAAD,GAAG,AAAS;AAE7C,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAU,SAAD,GAAG,eAAY,IAAF,AAAE,CAAC,GAAH;AAC9B,gBAAqB,CAAhB,AAAE,CAAD,GAAG,UAAU,WAAI,SAAS;AAE+B,QADzE,AAAM,KAAD,SAAS,AACT,2BAAU,AAAS,gBAAE,UAA8B,AAAa,wCAAC,CAAC;AAC1B,QAA7C,AAAO,MAAD,WAAW,2BAAsB,KAAK;AACV,QAAlC,AAAO,MAAD,QAAgB,oBAAE,SAAS;;AAGnB,MAAhB,AAAO,MAAD;IACR;;+DAGsD;AACpD,YAC0C,EADnC,AAAW,UAAD,oBAAa,mBAC1B,AAAW,UAAD,qBAAgB,qBAC1B,AAAW,UAAD,cAAa;IAC7B;;;QA/CgB;QACA;QACA;QACA;IAHA;IACA;IACA;IACA;IACW,4BAAQ,wBAC3B,AAAQ,CAAP,MAAM,OACP,AAAQ,CAAP,MAAM,GAAG,KACV,AAAO,MAAD,OACN,CAAC,MAAM,EACP,AAAO,MAAD,OACN,AAAO,MAAD;AAER,6FAAe,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAxJnB,2CAAwB;;;MAGzB,oCAAiB;;;MAqHhB,0BAAO;;;MAIJ,gCAAa;;;MAYnB,0CAAuB","file":"../../../../../../../../packages/flutter/src/cupertino/activity_indicator.dart.lib.js"}');
   // Exports:
   return {
-    src__priority_queue: priority_queue
+    src__cupertino__activity_indicator: activity_indicator
   };
 }));
 
-//# sourceMappingURL=priority_queue.dart.lib.js.map
+//# sourceMappingURL=activity_indicator.dart.lib.js.map

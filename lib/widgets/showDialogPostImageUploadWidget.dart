@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/database.dart';
-import 'package:logafic/services/messageService.dart';
 import 'package:logafic/services/upload_image.dart';
 import 'package:logafic/widgets/responsive.dart';
 
