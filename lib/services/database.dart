@@ -139,10 +139,17 @@ class Database {
             .add({
           'userId': userId,
           'userName': userName,
-          'userProfileImage': userProfileImage
+          'userProfileImage': userProfileImage,
+          'created_at': DateTime.now().toString()
         }).catchError((err) {
           Get.snackbar('Hata', err.toString());
         });
+        await _firebaseFirestore
+            .collection('users')
+            .doc(userId)
+            .collection('jobs')
+            .doc(jobsId)
+            .set({'created_at': DateTime.now().toString()});
       }
     } on FirebaseException catch (err) {
       print(err);

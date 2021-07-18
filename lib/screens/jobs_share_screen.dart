@@ -81,7 +81,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.hasError) {
                           return Center(
-                            child: Text('Birşeyler yanlış gitti'),
+                            child: Text('Bir şeyler yanlış gitti'),
                           );
                         }
                         if (snapshot.connectionState ==

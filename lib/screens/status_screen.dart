@@ -55,7 +55,7 @@ class StatusScreen extends StatelessWidget {
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
           return Center(
-            child: Text('Birşeyler yanlış gidiyor.'),
+            child: Text('Bir şeyler yanlış gitti'),
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {

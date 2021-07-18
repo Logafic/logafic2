@@ -6,7 +6,7 @@ import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 CollectionReference jobsRef = FirebaseFirestore.instance.collection('jobs');
-
+CollectionReference applyRef = FirebaseFirestore.instance.collection('users');
 Future<void> showJobsWidget(BuildContext context, String jobsId) async {
   return showDialog(
       context: context,
@@ -70,26 +70,38 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
                                   height: 60,
                                   width: double.infinity,
                                   color: Colors.white,
-                                  child: ElevatedButton(
-                                    child: Text('Başvur'),
-                                    onPressed: () {
-                                      Database()
-                                          .applyJobs(
-                                              jobsId,
-                                              authController
-                                                  .firebaseUser.value!.uid,
-                                              authController
-                                                  .firestoreUser.value!.userName
-                                                  .toString(),
-                                              authController.firestoreUser
-                                                  .value!.userProfileImage
-                                                  .toString())
-                                          .whenComplete(() {
-                                        Navigator.pushNamedAndRemoveUntil(
-                                            context,
-                                            JobsScreenRoute,
-                                            (route) => false);
-                                      });
+                                  child: FutureBuilder(
+                                    future: checkIfDocExists(jobsId),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot snapshot) {
+                                      return snapshot.data == false
+                                          ? ElevatedButton(
+                                              child: Text('Başvur'),
+                                              onPressed: () {
+                                                Database()
+                                                    .applyJobs(
+                                                        jobsId,
+                                                        authController
+                                                            .firebaseUser
+                                                            .value!
+                                                            .uid,
+                                                        authController
+                                                            .firestoreUser
+                                                            .value!
+                                                            .userName
+                                                            .toString(),
+                                                        authController
+                                                            .firestoreUser
+                                                            .value!
+                                                            .userProfileImage
+                                                            .toString())
+                                                    .whenComplete(() {
+                                                  Navigator.pushNamed(
+                                                      context, JobsScreenRoute);
+                                                });
+                                              },
+                                            )
+                                          : Text('Bu ilana başvurdun.');
                                     },
                                   ),
                                 ),
@@ -105,4 +117,18 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
                   ),
                 ));
           })));
+}
+
+Future<bool> checkIfDocExists(String docId) async {
+  try {
+    // Get reference to Firestore collection
+    var doc = await applyRef
+        .doc('${authController.firebaseUser.value!.uid}')
+        .collection('jobs')
+        .doc(docId)
+        .get();
+    return doc.exists;
+  } catch (e) {
+    throw e;
+  }
 }

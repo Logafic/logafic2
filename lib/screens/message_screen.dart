@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         }
         if (snapshot.hasError) {
-          return Text('Bir hatayla karşılaştık..');
+          return Text('Bir şeyler yanlış gitti');
         }
         return new ListView(
           children: snapshot.data!.docs.map((DocumentSnapshot document) {

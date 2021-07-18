@@ -35,11 +35,9 @@ class AuthController extends GetxController {
 
   handleAuthChanged(_firebaseUser) {
     if (_firebaseUser?.uid != null) {
-      print(_firebaseUser!.uid);
       firestoreUser.bindStream(streamFirestoreUser());
     }
     if (_firebaseUser == null) {
-      print('Giris sayfasınına yönlendiriliyor.');
       Get.offAllNamed(FirstRoute);
     } else {
       newUser == false
@@ -54,7 +52,6 @@ class AuthController extends GetxController {
   Stream<User?> get user => _auth.authStateChanges();
 
   Stream<UserProfile> streamFirestoreUser() {
-    print('Stream FirestoreUser');
     return _db
         .doc('/users/${firebaseUser.value!.uid}')
         .snapshots()
@@ -71,11 +68,9 @@ class AuthController extends GetxController {
   signInWithEmailAndPassword(BuildContext context) async {
     showLoadingIndicator();
     try {
-      await _auth
-          .signInWithEmailAndPassword(
-              email: emailController.text.trim(),
-              password: passwordController.text.trim())
-          .then((value) => print(value.user!.uid.toString()));
+      await _auth.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
       emailController.clear();
       passwordController.clear();
       hideLoadingIndicator();
