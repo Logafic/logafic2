@@ -20,11 +20,11 @@ class JobsShareScreen extends StatefulWidget {
 class _JobSharesScreenState extends State<JobsShareScreen> {
   final Stream<QuerySnapshot> _jobsStreamCreatedAt = FirebaseFirestore.instance
       .collection('jobs')
-      .orderBy('created_at', descending: true)
+      .where('category', isEqualTo: 'İş ilanı')
       .snapshots();
   final Stream<QuerySnapshot> _jobsStreamRanked = FirebaseFirestore.instance
       .collection('jobs')
-      .orderBy('rank', descending: true)
+      .where('category', isEqualTo: 'Etkinlik ilanı')
       .snapshots();
 
   AuthController authController = AuthController.to;

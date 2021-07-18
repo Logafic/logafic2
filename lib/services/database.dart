@@ -127,4 +127,25 @@ class Database {
       print(err);
     }
   }
+
+  Future<void> applyJobs(String jobsId, String userId, String userName,
+      String userProfileImage) async {
+    try {
+      if (authController.firebaseUser.value!.uid.isNotEmpty) {
+        await _firebaseFirestore
+            .collection('jobs')
+            .doc(jobsId)
+            .collection('applications ')
+            .add({
+          'userId': userId,
+          'userName': userName,
+          'userProfileImage': userProfileImage
+        }).catchError((err) {
+          Get.snackbar('Hata', err.toString());
+        });
+      }
+    } on FirebaseException catch (err) {
+      print(err);
+    }
+  }
 }

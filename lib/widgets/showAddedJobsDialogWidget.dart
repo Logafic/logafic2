@@ -19,6 +19,7 @@ String urlImage = '';
 Future<void> showAddedJobsDialogWidget(
   BuildContext context,
 ) async {
+  categoryController.text = 'İş ilanı';
   return showDialog(
       context: context,
       builder: (_) => new AlertDialog(
@@ -74,6 +75,7 @@ Future<void> showAddedJobsDialogWidget(
                                       child: TextFormField(
                                         validator: _validateEmptyString,
                                         controller: categoryController,
+                                        enabled: false,
                                         decoration: InputDecoration(
                                             labelText: 'İlan kategorisi :'),
                                       )),

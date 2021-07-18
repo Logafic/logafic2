@@ -376,14 +376,9 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                     .collection('users')
                                     .doc(widget.userId)
                                     .update(userProfile.toJson())
-                                    .then((value) {
-                                  isLoading
-                                      ? Center(
-                                          child: CircularProgressIndicator(),
-                                        )
-                                      : Navigator.pushNamed(
-                                          context, ProfileRoute,
-                                          arguments: {'userId': widget.userId});
+                                    .whenComplete(() {
+                                  Navigator.pushNamed(context, ProfileRoute,
+                                      arguments: {'userId': widget.userId});
                                 });
                               } else {
                                 Center(

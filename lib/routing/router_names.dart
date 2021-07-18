@@ -8,6 +8,7 @@ const String FullProfileRoute = '/fullProfile';
 const String RegisterRoute = '/register';
 const String StatusRoute = '/status';
 const String ResetRoute = '/reset';
+const String MyJobsRoute = '/myjobs';
 const String JobsScreenRoute = '/jobs';
 const String UserInformationRoute = '/save';
 const String UpdateUserInformationRoute = '/update';

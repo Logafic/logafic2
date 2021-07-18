@@ -250,6 +250,20 @@ class _TopBarContentsState extends State<TopBarContents> {
                           title: Text('Mesajlar'),
                         ),
                       ),
+                      // authController.firestoreUser.value!.isAdmin == true
+                      //     ? PopupMenuItem(
+                      //         child: ListTile(
+                      //           onTap: () {},
+                      //           leading: Icon(Icons.message),
+                      //           title: Text('İlanlarım'),
+                      //         ),
+                      //       )
+                      //     : PopupMenuItem(
+                      //         child: ListTile(
+                      //           onTap: () {},
+                      //           title: Text(''),
+                      //         ),
+                      //       ),
                       const PopupMenuDivider(),
                       PopupMenuItem(
                           child: ListTile(

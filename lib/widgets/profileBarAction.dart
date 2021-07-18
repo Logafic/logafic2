@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/showAddedActivityDialogWidget.dart';
 import 'package:logafic/widgets/showAddedJobsDialogWidget.dart';
 
 // ignore: must_be_immutable
 class ProfileActionBar extends StatelessWidget {
   final String userProfileId;
-  ProfileActionBar({Key? key, required this.userProfileId}) : super(key: key);
+
+  ProfileActionBar({
+    Key? key,
+    required this.userProfileId,
+  }) : super(key: key);
   CollectionReference isAdminRef =
       FirebaseFirestore.instance.collection('Admin');
   bool isAdmin = false;
@@ -19,13 +24,6 @@ class ProfileActionBar extends StatelessWidget {
     AuthController authController = AuthController.to;
     return Container(
         child: Row(children: [
-      IconButton(
-          icon: const Icon(
-            Icons.message_rounded,
-            color: Colors.black,
-          ),
-          tooltip: 'Message Gönder',
-          onPressed: () {}),
       authController.firestoreUser.value!.isAdmin == true &&
               authController.firebaseUser.value!.uid == userProfileId
           ? IconButton(
@@ -36,6 +34,18 @@ class ProfileActionBar extends StatelessWidget {
               tooltip: 'İş ilanı ver',
               onPressed: () {
                 showAddedJobsDialogWidget(context);
+              })
+          : Text(''),
+      authController.firestoreUser.value!.isAdmin == true &&
+              authController.firebaseUser.value!.uid == userProfileId
+          ? IconButton(
+              icon: const Icon(
+                Icons.local_activity_outlined,
+                color: Colors.black,
+              ),
+              tooltip: 'Etkinlik oluştur',
+              onPressed: () {
+                showAddedActivityDialogWidget(context);
               })
           : Text(''),
       IconButton(
@@ -84,6 +94,20 @@ class ProfileActionBar extends StatelessWidget {
                 title: Text('Mesajlar'),
               ),
             ),
+            authController.firestoreUser.value!.isAdmin == true
+                ? PopupMenuItem(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: Icon(Icons.message),
+                      title: Text('İlanlarım'),
+                    ),
+                  )
+                : PopupMenuItem(
+                    child: ListTile(
+                      onTap: () {},
+                      title: Text(''),
+                    ),
+                  ),
             const PopupMenuDivider(),
             PopupMenuItem(
               child: ListTile(

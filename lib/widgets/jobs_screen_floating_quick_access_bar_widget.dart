@@ -21,7 +21,7 @@ class _JobsScreenFloatingQuickAccessBar
   List _isHovering = [false, false];
   List<Widget> rowElements = [];
   AuthController authController = AuthController.to;
-  List<String> items = ['Yayınlama tarihi', 'Çok başvurulanlar'];
+  List<String> items = ['İş ilanları', 'Etkinlik ilanları'];
   List<IconData> icons = [
     Icons.timeline,
     Icons.trending_up,

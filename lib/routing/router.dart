@@ -4,6 +4,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/screens/jobs_share_screen.dart';
 import 'package:logafic/screens/showUserInformationScreen.dart';
+import 'package:logafic/screens/show_my_jobs_posts.dart';
 //Screens
 import 'package:logafic/screens/status_screen.dart';
 import 'package:logafic/screens/home_page.dart';
@@ -62,6 +63,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
               UpdateUserInformation(userId: arguments['userId']), settings);
     case RegisterRoute:
       return _getPageRoute(RegisterScreen(), settings);
+    case MyJobsRoute:
+      return _getPageRoute(ShowMyJobsPostScreen(), settings);
     case ResetRoute:
       return _getPageRoute(ResetPasswordUI(), settings);
     case StatusRoute:

@@ -4,6 +4,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/deletePostProfileScreenWidget.dart';
+import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/updatePostWidget.dart';
@@ -224,6 +225,33 @@ class ProfileScreen extends StatelessWidget {
                                                               color: Colors
                                                                       .lightBlue[
                                                                   100]),
+                                                        ))
+                                                  ],
+                                                ))
+                                            : Text(''),
+                                        authController
+                                                    .firebaseUser.value!.uid !=
+                                                userId
+                                            ? new Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 100, top: 5),
+                                                child: new Row(
+                                                  children: [
+                                                    TextButton(
+                                                        onPressed: () {
+                                                          messageShowDialogWidget(
+                                                              context,
+                                                              snapshot.data[
+                                                                  'userName'],
+                                                              snapshot.data[
+                                                                  'userProfileImage'],
+                                                              userId);
+                                                        },
+                                                        child: Text(
+                                                          'Mesaj Gönder',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.amber),
                                                         ))
                                                   ],
                                                 ))

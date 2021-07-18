@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/services/database.dart';
+import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 CollectionReference jobsRef = FirebaseFirestore.instance.collection('jobs');
@@ -14,7 +17,7 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
             var height = MediaQuery.of(context).size.height;
             var width = MediaQuery.of(context).size.width;
             return Container(
-                height: height / 2,
+                height: height,
                 width: ResponsiveWidget.isSmallScreen(context)
                     ? width * 0.9
                     : width * 0.3,
@@ -59,13 +62,38 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
                               Divider(),
                               Text('Açıklaması :${data['explanation']}',
                                   style: TextStyle(fontSize: 20)),
-                              Padding(
-                                padding: EdgeInsets.all(20),
-                                child: ElevatedButton(
-                                  child: Text('Başvur'),
-                                  onPressed: () {},
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                      left: 10, bottom: 10, top: 10),
+                                  height: 60,
+                                  width: double.infinity,
+                                  color: Colors.white,
+                                  child: ElevatedButton(
+                                    child: Text('Başvur'),
+                                    onPressed: () {
+                                      Database()
+                                          .applyJobs(
+                                              jobsId,
+                                              authController
+                                                  .firebaseUser.value!.uid,
+                                              authController
+                                                  .firestoreUser.value!.userName
+                                                  .toString(),
+                                              authController.firestoreUser
+                                                  .value!.userProfileImage
+                                                  .toString())
+                                          .whenComplete(() {
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            JobsScreenRoute,
+                                            (route) => false);
+                                      });
+                                    },
+                                  ),
                                 ),
-                              )
+                              ),
                             ],
                           );
                         }
