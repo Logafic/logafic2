@@ -1,564 +1,800 @@
-define(['dart_sdk', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__image_cache_dart(dart_sdk, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk'], (function load__packages__get__get_rx__src__rx_stream__rx_stream_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const developer = dart_sdk.developer;
   const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
   const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var image_cache = Object.create(dart.library);
-  var $length = dartx.length;
-  var $values = dartx.values;
-  var $clear = dartx.clear;
+  var rx_stream = Object.create(dart.library);
   var $remove = dartx.remove;
-  var $_set = dartx._set;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $toString = dartx.toString;
-  var $_get = dartx._get;
-  var $containsKey = dartx.containsKey;
-  var $first = dartx.first;
-  var $keys = dartx.keys;
-  var $runtimeType = dartx.runtimeType;
+  var $add = dartx.add;
+  var $length = dartx.length;
+  var $isNotEmpty = dartx.isNotEmpty;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    LinkedMapOfObject$_PendingImage: () => (T.LinkedMapOfObject$_PendingImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._PendingImage)))(),
-    LinkedMapOfObject$_CachedImage: () => (T.LinkedMapOfObject$_CachedImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._CachedImage)))(),
-    LinkedMapOfObject$_LiveImage: () => (T.LinkedMapOfObject$_LiveImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._LiveImage)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidTo_LiveImage: () => (T.VoidTo_LiveImage = dart.constFn(dart.fnType(image_cache._LiveImage, [])))(),
-    ImageInfoN: () => (T.ImageInfoN = dart.constFn(dart.nullable(image_stream.ImageInfo)))(),
-    ImageInfoNAndboolTovoid: () => (T.ImageInfoNAndboolTovoid = dart.constFn(dart.fnType(dart.void, [T.ImageInfoN(), core.bool])))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))()
+  var T$ = {
+    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   var I = [
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/painting/image_cache.dart",
-    "package:flutter/src/painting/image_cache.dart"
+    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_rx/src/rx_stream/get_stream.dart",
+    "package:get/get_rx/src/rx_stream/rx_stream.dart"
   ];
-  var _pendingImages = dart.privateName(image_cache, "_pendingImages");
-  var _cache = dart.privateName(image_cache, "_cache");
-  var _liveImages = dart.privateName(image_cache, "_liveImages");
-  var _maximumSize = dart.privateName(image_cache, "_maximumSize");
-  var _maximumSizeBytes = dart.privateName(image_cache, "_maximumSizeBytes");
-  var _currentSizeBytes = dart.privateName(image_cache, "_currentSizeBytes");
-  var _checkCacheSize = dart.privateName(image_cache, "_checkCacheSize");
-  var _touch = dart.privateName(image_cache, "_touch");
-  var _trackLiveImage = dart.privateName(image_cache, "_trackLiveImage");
-  image_cache.ImageCache = class ImageCache extends core.Object {
-    get maximumSize() {
-      return this[_maximumSize];
-    }
-    set maximumSize(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 103, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 104, 12, "value >= 0");
-      if (value === this.maximumSize) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSize", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
+  var onListen$ = dart.privateName(rx_stream, "GetStream.onListen");
+  var onPause$ = dart.privateName(rx_stream, "GetStream.onPause");
+  var onResume$ = dart.privateName(rx_stream, "GetStream.onResume");
+  var onCancel$ = dart.privateName(rx_stream, "GetStream.onCancel");
+  var _onData = dart.privateName(rx_stream, "_onData");
+  var _isBusy = dart.privateName(rx_stream, "_isBusy");
+  var _value = dart.privateName(rx_stream, "_value");
+  var _data = dart.privateName(rx_stream, "_data");
+  var _notifyData = dart.privateName(rx_stream, "_notifyData");
+  var _onError = dart.privateName(rx_stream, "_onError");
+  var _onDone = dart.privateName(rx_stream, "_onDone");
+  var _notifyError = dart.privateName(rx_stream, "_notifyError");
+  var _notifyDone = dart.privateName(rx_stream, "_notifyDone");
+  const _is_GetStream_default = Symbol('_is_GetStream_default');
+  rx_stream.GetStream$ = dart.generic(T => {
+    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
+    var JSArrayOfLightSubscriptionOfT = () => (JSArrayOfLightSubscriptionOfT = dart.constFn(_interceptors.JSArray$(LightSubscriptionOfT())))();
+    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
+    var TToNvoid = () => (TToNvoid = dart.constFn(dart.nullable(TTovoid())))();
+    var GetStreamTransformationOfT = () => (GetStreamTransformationOfT = dart.constFn(rx_stream.GetStreamTransformation$(T)))();
+    class GetStream extends core.Object {
+      get onListen() {
+        return this[onListen$];
       }
-      this[_maximumSize] = value;
-      if (this.maximumSize === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
+      set onListen(value) {
+        this[onListen$] = value;
       }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
+      get onPause() {
+        return this[onPause$];
       }
-    }
-    get currentSize() {
-      return this[_cache][$length];
-    }
-    get maximumSizeBytes() {
-      return this[_maximumSizeBytes];
-    }
-    set maximumSizeBytes(value) {
-      let t0;
-      if (!(value !== null)) dart.assertFailed(null, I[0], 142, 12, "value != null");
-      if (!(value >= 0)) dart.assertFailed(null, I[0], 143, 12, "value >= 0");
-      if (value === this[_maximumSizeBytes]) return;
-      let timelineTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.setMaximumSizeBytes", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
-          return t0;
-        })());
+      set onPause(value) {
+        this[onPause$] = value;
       }
-      this[_maximumSizeBytes] = value;
-      if (this[_maximumSizeBytes] === 0) {
-        this.clear();
-      } else {
-        this[_checkCacheSize](timelineTask);
+      get onResume() {
+        return this[onResume$];
       }
-      if (!false) {
-        dart.nullCheck(timelineTask).finish();
+      set onResume(value) {
+        this[onResume$] = value;
       }
-    }
-    get currentSizeBytes() {
-      return this[_currentSizeBytes];
-    }
-    clear() {
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.clear", {arguments: new (T.IdentityMapOfString$dynamic()).from(["pendingImages", this[_pendingImages][$length], "keepAliveImages", this[_cache][$length], "liveImages", this[_liveImages][$length], "currentSizeInBytes", this[_currentSizeBytes]])});
+      get onCancel() {
+        return this[onCancel$];
       }
-      for (let image of this[_cache][$values]) {
-        image.dispose();
+      set onCancel(value) {
+        this[onCancel$] = value;
       }
-      this[_cache][$clear]();
-      this[_pendingImages][$clear]();
-      this[_currentSizeBytes] = 0;
-    }
-    evict(key, opts) {
-      let t0;
-      let includeLive = opts && 'includeLive' in opts ? opts.includeLive : true;
-      if (!(includeLive !== null)) dart.assertFailed(null, I[0], 239, 12, "includeLive != null");
-      if (includeLive) {
-        let image = this[_liveImages][$remove](key);
-        t0 = image;
-        t0 == null ? null : t0.dispose();
-      }
-      let pendingImage = this[_pendingImages][$remove](key);
-      if (pendingImage != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "pending"])});
-        }
-        pendingImage.removeListener();
-        return true;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "keepAlive", "sizeInBytes", image.sizeBytes])});
-        }
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        return true;
-      }
-      if (!false) {
-        developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "miss"])});
-      }
-      return false;
-    }
-    [_touch](key, image, timelineTask) {
-      if (!(timelineTask != null)) dart.assertFailed(null, I[0], 285, 12, "timelineTask != null");
-      if (image.sizeBytes != null && dart.nullCheck(image.sizeBytes) <= this.maximumSizeBytes && this.maximumSize > 0) {
-        this[_currentSizeBytes] = this[_currentSizeBytes] + dart.nullCheck(image.sizeBytes);
-        this[_cache][$_set](key, image);
-        this[_checkCacheSize](timelineTask);
-      } else {
-        image.dispose();
-      }
-    }
-    [_trackLiveImage](key, completer, sizeBytes) {
-      let t0;
-      t0 = this[_liveImages][$putIfAbsent](key, dart.fn(() => new image_cache._LiveImage.new(completer, dart.fn(() => {
-        this[_liveImages][$remove](key);
-      }, T.VoidTovoid())), T.VoidTo_LiveImage()));
-      t0.sizeBytes == null ? t0.sizeBytes = sizeBytes : null;
-    }
-    putIfAbsent(key, loader, opts) {
-      let t0, t0$, t1;
-      let onError = opts && 'onError' in opts ? opts.onError : null;
-      if (!(key !== null)) dart.assertFailed(null, I[0], 323, 12, "key != null");
-      if (!(loader !== null)) dart.assertFailed(null, I[0], 324, 12, "loader != null");
-      let timelineTask = null;
-      let listenerTask = null;
-      if (!false) {
-        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
-          t0.start("ImageCache.putIfAbsent", {arguments: new (T.IdentityMapOfString$dynamic()).from(["key", key[$toString]()])});
-          return t0;
-        })());
-      }
-      let result = (t0$ = this[_pendingImages][$_get](key), t0$ == null ? null : t0$.completer);
-      if (result != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "pending"])});
-        }
-        return result;
-      }
-      let image = this[_cache][$remove](key);
-      if (image != null) {
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        this[_trackLiveImage](key, image.completer, image.sizeBytes);
-        this[_cache][$_set](key, image);
-        return image.completer;
-      }
-      let liveImage = this[_liveImages][$_get](key);
-      if (liveImage != null) {
-        this[_touch](key, new image_cache._CachedImage.new(liveImage.completer, {sizeBytes: liveImage.sizeBytes}), timelineTask);
-        if (!false) {
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
-        }
-        return liveImage.completer;
-      }
-      try {
-        result = loader();
-        this[_trackLiveImage](key, result, null);
-      } catch (e) {
-        let error = dart.getThrown(e);
-        let stackTrace = dart.stackTrace(e);
-        if (core.Object.is(error)) {
-          if (!false) {
-            dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "error", "error", error[$toString](), "stackTrace", stackTrace.toString()])});
-          }
-          if (onError != null) {
-            onError(error, stackTrace);
-            return null;
+      removeSubscription(subs) {
+        LightSubscriptionOfT().as(subs);
+        return async.async(T$.boolN(), (function* removeSubscription() {
+          let t0;
+          if (!dart.nullCheck(this[_isBusy])) {
+            return dart.nullCheck(this[_onData])[$remove](subs);
           } else {
-            dart.rethrow(e);
+            yield async.Future.delayed(core.Duration.zero);
+            t0 = this[_onData];
+            return t0 == null ? null : t0[$remove](subs);
           }
-        } else
-          throw e;
+        }).bind(this));
       }
-      if (!false) {
-        listenerTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("listener");
-          return t1;
+      addSubscription(subs) {
+        LightSubscriptionOfT().as(subs);
+        return async.async(dart.void, (function* addSubscription() {
+          if (!dart.nullCheck(this[_isBusy])) {
+            return dart.nullCheck(this[_onData])[$add](subs);
+          } else {
+            yield async.Future.delayed(core.Duration.zero);
+            return dart.nullCheck(this[_onData])[$add](subs);
+          }
+        }).bind(this));
+      }
+      get length() {
+        let t0;
+        t0 = this[_onData];
+        return t0 == null ? null : t0[$length];
+      }
+      get hasListeners() {
+        return dart.nullCheck(this[_onData])[$isNotEmpty];
+      }
+      [_notifyData](data) {
+        let t0;
+        this[_isBusy] = true;
+        for (let item of dart.nullCheck(this[_onData])) {
+          if (!item.isPaused) {
+            t0 = TToNvoid().as(item[_data]);
+            t0 == null ? null : t0(data);
+          }
+        }
+        this[_isBusy] = false;
+      }
+      [_notifyError](error, stackTrace = null) {
+        let t0, t0$, t0$0;
+        if (!!this.isClosed) dart.assertFailed("You cannot add errors to a closed stream.", I[0], 54, 12, "!isClosed");
+        this[_isBusy] = true;
+        let itemsToRemove = JSArrayOfLightSubscriptionOfT().of([]);
+        for (let item of dart.nullCheck(this[_onData])) {
+          if (!item.isPaused) {
+            if (stackTrace != null) {
+              t0 = item[_onError];
+              t0 == null ? null : dart.dcall(t0, [error, stackTrace]);
+            } else {
+              t0$ = item[_onError];
+              t0$ == null ? null : dart.dcall(t0$, [error]);
+            }
+            if (dart.nullCheck(item.cancelOnError)) {
+              itemsToRemove[$add](item);
+              item.pause();
+              t0$0 = item[_onDone];
+              t0$0 == null ? null : t0$0();
+            }
+          }
+        }
+        for (let item of itemsToRemove) {
+          dart.nullCheck(this[_onData])[$remove](item);
+        }
+        this[_isBusy] = false;
+      }
+      [_notifyDone]() {
+        let t0;
+        if (!!this.isClosed) dart.assertFailed("You cannot close a closed stream.", I[0], 80, 12, "!isClosed");
+        this[_isBusy] = true;
+        for (let item of dart.nullCheck(this[_onData])) {
+          if (!item.isPaused) {
+            t0 = item[_onDone];
+            t0 == null ? null : t0();
+          }
+        }
+        this[_isBusy] = false;
+      }
+      get value() {
+        return this[_value];
+      }
+      add(event) {
+        T.as(event);
+        if (!!this.isClosed) dart.assertFailed("You cannot add event to closed Stream", I[0], 95, 12, "!isClosed");
+        this[_value] = event;
+        this[_notifyData](event);
+      }
+      get isClosed() {
+        return this[_onData] == null;
+      }
+      addError(error, stackTrace = null) {
+        if (!!this.isClosed) dart.assertFailed("You cannot add error to closed Stream", I[0], 103, 12, "!isClosed");
+        this[_notifyError](error, stackTrace);
+      }
+      close() {
+        if (!!this.isClosed) dart.assertFailed("You cannot close a closed Stream", I[0], 108, 12, "!isClosed");
+        this[_notifyDone]();
+        this[_onData] = null;
+        this[_isBusy] = null;
+        this[_value] = null;
+      }
+      listen(onData, opts) {
+        let t0, t0$;
+        let onError = opts && 'onError' in opts ? opts.onError : null;
+        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
+        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
+        let subs = (t0 = new (LightSubscriptionOfT()).new(dart.bind(this, 'removeSubscription'), {onPause: this.onPause, onResume: this.onResume, onCancel: this.onCancel}), (() => {
+          t0.onData(onData);
+          t0.onError(onError);
+          t0.onDone(onDone);
+          t0.cancelOnError = cancelOnError;
+          return t0;
         })());
+        this.addSubscription(subs);
+        t0$ = this.onListen;
+        t0$ == null ? null : t0$();
+        return subs;
       }
-      let listenedOnce = false;
-      let untrackedPendingImage = null;
-      const listener = (info, syncCall) => {
+      get stream() {
+        return new (GetStreamTransformationOfT()).new(dart.bind(this, 'addSubscription'), dart.bind(this, 'removeSubscription'));
+      }
+    }
+    (GetStream.new = function(opts) {
+      let onListen = opts && 'onListen' in opts ? opts.onListen : null;
+      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
+      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
+      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
+      this[_onData] = JSArrayOfLightSubscriptionOfT().of([]);
+      this[_isBusy] = false;
+      this[_value] = null;
+      this[onListen$] = onListen;
+      this[onPause$] = onPause;
+      this[onResume$] = onResume;
+      this[onCancel$] = onCancel;
+      ;
+    }).prototype = GetStream.prototype;
+    dart.addTypeTests(GetStream);
+    GetStream.prototype[_is_GetStream_default] = true;
+    dart.addTypeCaches(GetStream);
+    dart.setMethodSignature(GetStream, () => ({
+      __proto__: dart.getMethods(GetStream.__proto__),
+      removeSubscription: dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [dart.nullable(core.Object)]),
+      addSubscription: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [_notifyData]: dart.fnType(dart.void, [T]),
+      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      [_notifyDone]: dart.fnType(dart.void, []),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      close: dart.fnType(dart.void, []),
+      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
+    }));
+    dart.setGetterSignature(GetStream, () => ({
+      __proto__: dart.getGetters(GetStream.__proto__),
+      length: dart.nullable(core.int),
+      hasListeners: core.bool,
+      value: dart.nullable(T),
+      isClosed: core.bool,
+      stream: async.Stream$(T)
+    }));
+    dart.setLibraryUri(GetStream, I[1]);
+    dart.setFieldSignature(GetStream, () => ({
+      __proto__: dart.getFields(GetStream.__proto__),
+      onListen: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+      onPause: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+      onResume: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+      onCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+      [_onData]: dart.fieldType(dart.nullable(core.List$(rx_stream.LightSubscription$(T)))),
+      [_isBusy]: dart.fieldType(dart.nullable(core.bool)),
+      [_value]: dart.fieldType(dart.nullable(T))
+    }));
+    return GetStream;
+  });
+  rx_stream.GetStream = rx_stream.GetStream$();
+  dart.addTypeTests(rx_stream.GetStream, _is_GetStream_default);
+  var onPause$0 = dart.privateName(rx_stream, "LightSubscription.onPause");
+  var onResume$0 = dart.privateName(rx_stream, "LightSubscription.onResume");
+  var onCancel$0 = dart.privateName(rx_stream, "LightSubscription.onCancel");
+  var cancelOnError = dart.privateName(rx_stream, "LightSubscription.cancelOnError");
+  var _isPaused = dart.privateName(rx_stream, "_isPaused");
+  var _removeSubscription$ = dart.privateName(rx_stream, "_removeSubscription");
+  const _is_LightSubscription_default = Symbol('_is_LightSubscription_default');
+  rx_stream.LightSubscription$ = dart.generic(T => {
+    class LightSubscription extends async.StreamSubscription$(T) {
+      get onPause() {
+        return this[onPause$0];
+      }
+      set onPause(value) {
+        super.onPause = value;
+      }
+      get onResume() {
+        return this[onResume$0];
+      }
+      set onResume(value) {
+        super.onResume = value;
+      }
+      get onCancel() {
+        return this[onCancel$0];
+      }
+      set onCancel(value) {
+        super.onCancel = value;
+      }
+      get cancelOnError() {
+        return this[cancelOnError];
+      }
+      set cancelOnError(value) {
+        this[cancelOnError] = value;
+      }
+      cancel() {
+        let t0;
+        this[_removeSubscription$](this);
+        t0 = this.onCancel;
+        t0 == null ? null : t0();
+        return T$.FutureOfvoid().value();
+      }
+      onData(handleData) {
+        return this[_data] = handleData;
+      }
+      onError(handleError) {
+        return this[_onError] = handleError;
+      }
+      onDone(handleDone) {
+        return this[_onDone] = handleDone;
+      }
+      pause(resumeSignal = null) {
+        let t0;
+        this[_isPaused] = true;
+        t0 = this.onPause;
+        t0 == null ? null : t0();
+      }
+      resume() {
+        let t0;
+        this[_isPaused] = false;
+        t0 = this.onResume;
+        t0 == null ? null : t0();
+      }
+      get isPaused() {
+        return this[_isPaused];
+      }
+      asFuture(E, futureValue = null) {
+        return async.Future$(E).value(futureValue);
+      }
+    }
+    (LightSubscription.new = function(_removeSubscription, opts) {
+      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
+      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
+      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
+      this[cancelOnError] = false;
+      this[_data] = null;
+      this[_onError] = null;
+      this[_onDone] = null;
+      this[_isPaused] = false;
+      this[_removeSubscription$] = _removeSubscription;
+      this[onPause$0] = onPause;
+      this[onResume$0] = onResume;
+      this[onCancel$0] = onCancel;
+      ;
+    }).prototype = LightSubscription.prototype;
+    dart.addTypeTests(LightSubscription);
+    LightSubscription.prototype[_is_LightSubscription_default] = true;
+    dart.addTypeCaches(LightSubscription);
+    dart.setMethodSignature(LightSubscription, () => ({
+      __proto__: dart.getMethods(LightSubscription.__proto__),
+      cancel: dart.fnType(async.Future$(dart.void), []),
+      onData: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [T]))]),
+      onError: dart.fnType(dart.void, [dart.nullable(core.Function)]),
+      onDone: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, []))]),
+      pause: dart.fnType(dart.void, [], [dart.nullable(async.Future$(dart.void))]),
+      resume: dart.fnType(dart.void, []),
+      asFuture: dart.gFnType(E => [async.Future$(E), [], [dart.nullable(E)]], E => [dart.nullable(core.Object)])
+    }));
+    dart.setGetterSignature(LightSubscription, () => ({
+      __proto__: dart.getGetters(LightSubscription.__proto__),
+      isPaused: core.bool
+    }));
+    dart.setLibraryUri(LightSubscription, I[1]);
+    dart.setFieldSignature(LightSubscription, () => ({
+      __proto__: dart.getFields(LightSubscription.__proto__),
+      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)])),
+      onPause: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+      onResume: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+      onCancel: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+      cancelOnError: dart.fieldType(dart.nullable(core.bool)),
+      [_data]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [T]))),
+      [_onError]: dart.fieldType(dart.nullable(core.Function)),
+      [_onDone]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+      [_isPaused]: dart.fieldType(core.bool)
+    }));
+    return LightSubscription;
+  });
+  rx_stream.LightSubscription = rx_stream.LightSubscription$();
+  dart.addTypeTests(rx_stream.LightSubscription, _is_LightSubscription_default);
+  var _addSubscription$ = dart.privateName(rx_stream, "_addSubscription");
+  const _is_GetStreamTransformation_default = Symbol('_is_GetStreamTransformation_default');
+  rx_stream.GetStreamTransformation$ = dart.generic(T => {
+    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
+    class GetStreamTransformation extends async.Stream$(T) {
+      listen(onData, opts) {
+        let t0, t0$;
+        let onError = opts && 'onError' in opts ? opts.onError : null;
+        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
+        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
+        let subs = (t0 = new (LightSubscriptionOfT()).new(this[_removeSubscription$]), (() => {
+          t0.onData(onData);
+          t0.onError(onError);
+          t0.onDone(onDone);
+          return t0;
+        })());
+        t0$ = subs;
+        this[_addSubscription$](t0$);
+        return subs;
+      }
+    }
+    (GetStreamTransformation.new = function(_addSubscription, _removeSubscription) {
+      this[_addSubscription$] = _addSubscription;
+      this[_removeSubscription$] = _removeSubscription;
+      GetStreamTransformation.__proto__.new.call(this);
+      ;
+    }).prototype = GetStreamTransformation.prototype;
+    dart.addTypeTests(GetStreamTransformation);
+    GetStreamTransformation.prototype[_is_GetStreamTransformation_default] = true;
+    dart.addTypeCaches(GetStreamTransformation);
+    dart.setMethodSignature(GetStreamTransformation, () => ({
+      __proto__: dart.getMethods(GetStreamTransformation.__proto__),
+      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.nullable(dart.fnType(dart.void, [T]))], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
+    }));
+    dart.setLibraryUri(GetStreamTransformation, I[1]);
+    dart.setFieldSignature(GetStreamTransformation, () => ({
+      __proto__: dart.getFields(GetStreamTransformation.__proto__),
+      [_addSubscription$]: dart.finalFieldType(dart.fnType(dart.void, [rx_stream.LightSubscription$(T)])),
+      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)]))
+    }));
+    return GetStreamTransformation;
+  });
+  rx_stream.GetStreamTransformation = rx_stream.GetStreamTransformation$();
+  dart.addTypeTests(rx_stream.GetStreamTransformation, _is_GetStreamTransformation_default);
+  var data$ = dart.privateName(rx_stream, "Node.data");
+  var next$ = dart.privateName(rx_stream, "Node.next");
+  const _is_Node_default = Symbol('_is_Node_default');
+  rx_stream.Node$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var NodeOfT = () => (NodeOfT = dart.constFn(rx_stream.Node$(T)))();
+    var NodeNOfT = () => (NodeNOfT = dart.constFn(dart.nullable(NodeOfT())))();
+    class Node extends core.Object {
+      get data() {
+        return this[data$];
+      }
+      set data(value) {
+        this[data$] = TN().as(value);
+      }
+      get next() {
+        return this[next$];
+      }
+      set next(value) {
+        this[next$] = NodeNOfT().as(value);
+      }
+    }
+    (Node.new = function(opts) {
+      let data = opts && 'data' in opts ? opts.data : null;
+      let next = opts && 'next' in opts ? opts.next : null;
+      this[data$] = data;
+      this[next$] = next;
+      ;
+    }).prototype = Node.prototype;
+    dart.addTypeTests(Node);
+    Node.prototype[_is_Node_default] = true;
+    dart.addTypeCaches(Node);
+    dart.setLibraryUri(Node, I[1]);
+    dart.setFieldSignature(Node, () => ({
+      __proto__: dart.getFields(Node.__proto__),
+      data: dart.fieldType(dart.nullable(T)),
+      next: dart.fieldType(dart.nullable(rx_stream.Node$(T)))
+    }));
+    return Node;
+  });
+  rx_stream.Node = rx_stream.Node$();
+  dart.addTypeTests(rx_stream.Node, _is_Node_default);
+  var data$0 = dart.privateName(rx_stream, "MiniSubscription.data");
+  var onError$ = dart.privateName(rx_stream, "MiniSubscription.onError");
+  var onDone$ = dart.privateName(rx_stream, "MiniSubscription.onDone");
+  var cancelOnError$ = dart.privateName(rx_stream, "MiniSubscription.cancelOnError");
+  var listener$ = dart.privateName(rx_stream, "MiniSubscription.listener");
+  const _is_MiniSubscription_default = Symbol('_is_MiniSubscription_default');
+  rx_stream.MiniSubscription$ = dart.generic(T => {
+    class MiniSubscription extends core.Object {
+      get data() {
+        return this[data$0];
+      }
+      set data(value) {
+        super.data = value;
+      }
+      get onError() {
+        return this[onError$];
+      }
+      set onError(value) {
+        super.onError = value;
+      }
+      get onDone() {
+        return this[onDone$];
+      }
+      set onDone(value) {
+        super.onDone = value;
+      }
+      get cancelOnError() {
+        return this[cancelOnError$];
+      }
+      set cancelOnError(value) {
+        super.cancelOnError = value;
+      }
+      get listener() {
+        return this[listener$];
+      }
+      set listener(value) {
+        super.listener = value;
+      }
+      cancel() {
+        return async.async(dart.void, (function* cancel() {
+          return this.listener.removeListener(this);
+        }).bind(this));
+      }
+    }
+    (MiniSubscription.new = function(data, onError, onDone, cancelOnError, listener) {
+      this[data$0] = data;
+      this[onError$] = onError;
+      this[onDone$] = onDone;
+      this[cancelOnError$] = cancelOnError;
+      this[listener$] = listener;
+      ;
+    }).prototype = MiniSubscription.prototype;
+    dart.addTypeTests(MiniSubscription);
+    MiniSubscription.prototype[_is_MiniSubscription_default] = true;
+    dart.addTypeCaches(MiniSubscription);
+    dart.setMethodSignature(MiniSubscription, () => ({
+      __proto__: dart.getMethods(MiniSubscription.__proto__),
+      cancel: dart.fnType(async.Future$(dart.void), [])
+    }));
+    dart.setLibraryUri(MiniSubscription, I[1]);
+    dart.setFieldSignature(MiniSubscription, () => ({
+      __proto__: dart.getFields(MiniSubscription.__proto__),
+      data: dart.finalFieldType(dart.fnType(dart.void, [T])),
+      onError: dart.finalFieldType(dart.nullable(core.Function)),
+      onDone: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+      cancelOnError: dart.finalFieldType(core.bool),
+      listener: dart.finalFieldType(rx_stream.FastList$(T))
+    }));
+    return MiniSubscription;
+  });
+  rx_stream.MiniSubscription = rx_stream.MiniSubscription$();
+  dart.addTypeTests(rx_stream.MiniSubscription, _is_MiniSubscription_default);
+  var listenable = dart.privateName(rx_stream, "MiniStream.listenable");
+  var __MiniStream__value = dart.privateName(rx_stream, "_#MiniStream#_value");
+  var __MiniStream__value_isSet = dart.privateName(rx_stream, "_#MiniStream#_value#isSet");
+  var _isClosed = dart.privateName(rx_stream, "_isClosed");
+  const _is_MiniStream_default = Symbol('_is_MiniStream_default');
+  rx_stream.MiniStream$ = dart.generic(T => {
+    var FastListOfT = () => (FastListOfT = dart.constFn(rx_stream.FastList$(T)))();
+    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
+    class MiniStream extends core.Object {
+      get listenable() {
+        return this[listenable];
+      }
+      set listenable(value) {
+        this[listenable] = FastListOfT().as(value);
+      }
+      get [_value]() {
+        let t0;
+        return this[__MiniStream__value_isSet] ? (t0 = this[__MiniStream__value], t0) : dart.throw(new _internal.LateError.fieldNI("_value"));
+      }
+      set [_value](t0) {
+        this[__MiniStream__value_isSet] = true;
+        this[__MiniStream__value] = t0;
+      }
+      get value() {
+        return this[_value];
+      }
+      set value(val) {
+        T.as(val);
+        this.add(val);
+      }
+      add(event) {
+        T.as(event);
+        this[_value] = event;
+        this.listenable[_notifyData](event);
+      }
+      addError(error, stackTrace = null) {
+        this.listenable[_notifyError](error, stackTrace);
+      }
+      get length() {
+        return this.listenable.length;
+      }
+      get hasListeners() {
+        return this.listenable.isNotEmpty;
+      }
+      get isClosed() {
+        return this[_isClosed];
+      }
+      listen(onData, opts) {
+        let onError = opts && 'onError' in opts ? opts.onError : null;
+        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
+        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : false;
+        let subs = new (MiniSubscriptionOfT()).new(onData, onError, onDone, cancelOnError, this.listenable);
+        this.listenable.addListener(subs);
+        return subs;
+      }
+      close() {
+        if (this[_isClosed]) {
+          dart.throw("You can not close a closed Stream");
+        }
+        this.listenable[_notifyDone]();
+        this.listenable.clear();
+        this[_isClosed] = true;
+      }
+    }
+    (MiniStream.new = function() {
+      this[listenable] = new (FastListOfT()).new();
+      this[__MiniStream__value] = null;
+      this[__MiniStream__value_isSet] = false;
+      this[_isClosed] = false;
+      ;
+    }).prototype = MiniStream.prototype;
+    dart.addTypeTests(MiniStream);
+    MiniStream.prototype[_is_MiniStream_default] = true;
+    dart.addTypeCaches(MiniStream);
+    dart.setMethodSignature(MiniStream, () => ({
+      __proto__: dart.getMethods(MiniStream.__proto__),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      listen: dart.fnType(rx_stream.MiniSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: core.bool, onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {}),
+      close: dart.fnType(dart.void, [])
+    }));
+    dart.setGetterSignature(MiniStream, () => ({
+      __proto__: dart.getGetters(MiniStream.__proto__),
+      [_value]: T,
+      value: T,
+      length: core.int,
+      hasListeners: core.bool,
+      isClosed: core.bool
+    }));
+    dart.setSetterSignature(MiniStream, () => ({
+      __proto__: dart.getSetters(MiniStream.__proto__),
+      [_value]: T,
+      value: dart.nullable(core.Object)
+    }));
+    dart.setLibraryUri(MiniStream, I[1]);
+    dart.setFieldSignature(MiniStream, () => ({
+      __proto__: dart.getFields(MiniStream.__proto__),
+      listenable: dart.fieldType(rx_stream.FastList$(T)),
+      [__MiniStream__value]: dart.fieldType(dart.nullable(T)),
+      [__MiniStream__value_isSet]: dart.fieldType(core.bool),
+      [_isClosed]: dart.fieldType(core.bool)
+    }));
+    return MiniStream;
+  });
+  rx_stream.MiniStream = rx_stream.MiniStream$();
+  dart.addTypeTests(rx_stream.MiniStream, _is_MiniStream_default);
+  var _head = dart.privateName(rx_stream, "_head");
+  var _elementAt = dart.privateName(rx_stream, "_elementAt");
+  var _removeAt = dart.privateName(rx_stream, "_removeAt");
+  const _is_FastList_default = Symbol('_is_FastList_default');
+  rx_stream.FastList$ = dart.generic(T => {
+    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
+    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
+    var NodeOfMiniSubscriptionOfT = () => (NodeOfMiniSubscriptionOfT = dart.constFn(rx_stream.Node$(MiniSubscriptionOfT())))();
+    class FastList extends core.Object {
+      [_notifyData](data) {
+        let t4, t3, t2, t1, t1$;
+        T.as(data);
+        let currentNode = this[_head];
+        do {
+          t1 = currentNode;
+          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2, t4 = data, TTovoid().as(t3.data)(t4)));
+          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
+        } while (currentNode != null);
+      }
+      [_notifyDone]() {
+        let t3, t2, t1, t1$;
+        let currentNode = this[_head];
+        do {
+          t1 = currentNode;
+          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2.onDone, t3 == null ? null : t3()));
+          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
+        } while (currentNode != null);
+      }
+      [_notifyError](error, stackTrace = null) {
         let t1;
-        let sizeBytes = null;
-        if (info != null) {
-          sizeBytes = info.image.height * info.image.width * 4;
-          info.dispose();
+        let currentNode = this[_head];
+        while (currentNode != null) {
+          t1 = dart.nullCheck(currentNode.data).onError;
+          t1 == null ? null : dart.dcall(t1, [error, stackTrace]);
+          currentNode = currentNode.next;
         }
-        let image = new image_cache._CachedImage.new(dart.nullCheck(result), {sizeBytes: sizeBytes});
-        this[_trackLiveImage](key, result, sizeBytes);
-        if (untrackedPendingImage == null) {
-          this[_touch](key, image, listenerTask);
+      }
+      get isEmpty() {
+        return this[_head] == null;
+      }
+      get isNotEmpty() {
+        return !this.isEmpty;
+      }
+      get length() {
+        let length = 0;
+        let currentNode = this[_head];
+        while (currentNode != null) {
+          currentNode = currentNode.next;
+          length = length + 1;
+        }
+        return length;
+      }
+      [_elementAt](position) {
+        if (this.isEmpty || this.length < position || position < 0) return null;
+        let node = this[_head];
+        let current = 0;
+        while (current !== position) {
+          node = dart.nullCheck(node).next;
+          current = current + 1;
+        }
+        return dart.nullCheck(node).data;
+      }
+      addListener(data) {
+        MiniSubscriptionOfT().as(data);
+        let newNode = new (NodeOfMiniSubscriptionOfT()).new({data: data});
+        if (this.isEmpty) {
+          this[_head] = newNode;
         } else {
-          image.dispose();
-        }
-        let pendingImage = (t1 = untrackedPendingImage, t1 == null ? this[_pendingImages][$remove](key) : t1);
-        if (pendingImage != null) {
-          pendingImage.removeListener();
-        }
-        if (!false && !listenedOnce) {
-          dart.nullCheck(listenerTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["syncCall", syncCall, "sizeInBytes", sizeBytes])});
-          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["currentSizeBytes", this.currentSizeBytes, "currentSize", this.currentSize])});
-        }
-        listenedOnce = true;
-      };
-      dart.fn(listener, T.ImageInfoNAndboolTovoid());
-      let streamListener = new image_stream.ImageStreamListener.new(listener);
-      if (this.maximumSize > 0 && this.maximumSizeBytes > 0) {
-        this[_pendingImages][$_set](key, new image_cache._PendingImage.new(result, streamListener));
-      } else {
-        untrackedPendingImage = new image_cache._PendingImage.new(result, streamListener);
-      }
-      result.addListener(streamListener);
-      return result;
-    }
-    statusForKey(key) {
-      return new image_cache.ImageCacheStatus.__({pending: this[_pendingImages][$containsKey](key), keepAlive: this[_cache][$containsKey](key), live: this[_liveImages][$containsKey](key)});
-    }
-    containsKey(key) {
-      return this[_pendingImages][$_get](key) != null || this[_cache][$_get](key) != null;
-    }
-    get liveImageCount() {
-      return this[_liveImages][$length];
-    }
-    get pendingImageCount() {
-      return this[_pendingImages][$length];
-    }
-    clearLiveImages() {
-      for (let image of this[_liveImages][$values]) {
-        image.dispose();
-      }
-      this[_liveImages][$clear]();
-    }
-    [_checkCacheSize](timelineTask) {
-      let t1;
-      let finishArgs = new (T.IdentityMapOfString$dynamic()).new();
-      let checkCacheTask = null;
-      if (!false) {
-        checkCacheTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
-          t1.start("checkCacheSize");
-          return t1;
-        })());
-        finishArgs[$_set]("evictedKeys", T.JSArrayOfString().of([]));
-        finishArgs[$_set]("currentSize", this.currentSize);
-        finishArgs[$_set]("currentSizeBytes", this.currentSizeBytes);
-      }
-      while (this[_currentSizeBytes] > this[_maximumSizeBytes] || this[_cache][$length] > this[_maximumSize]) {
-        let key = this[_cache][$keys][$first];
-        let image = dart.nullCheck(this[_cache][$_get](key));
-        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
-        image.dispose();
-        this[_cache][$remove](key);
-        if (!false) {
-          dart.dsend(finishArgs[$_get]("evictedKeys"), 'add', [key[$toString]()]);
+          let currentNode = dart.nullCheck(this[_head]);
+          while (currentNode.next != null) {
+            currentNode = dart.nullCheck(currentNode.next);
+          }
+          currentNode.next = newNode;
         }
       }
-      if (!false) {
-        finishArgs[$_set]("endSize", this.currentSize);
-        finishArgs[$_set]("endSizeBytes", this.currentSizeBytes);
-        dart.nullCheck(checkCacheTask).finish({arguments: finishArgs});
-      }
-      if (!(this[_currentSizeBytes] >= 0)) dart.assertFailed(null, I[0], 528, 12, "_currentSizeBytes >= 0");
-      if (!(this[_cache][$length] <= this.maximumSize)) dart.assertFailed(null, I[0], 529, 12, "_cache.length <= maximumSize");
-      if (!(this[_currentSizeBytes] <= this.maximumSizeBytes)) dart.assertFailed(null, I[0], 530, 12, "_currentSizeBytes <= maximumSizeBytes");
-    }
-  };
-  (image_cache.ImageCache.new = function() {
-    this[_pendingImages] = new (T.LinkedMapOfObject$_PendingImage()).new();
-    this[_cache] = new (T.LinkedMapOfObject$_CachedImage()).new();
-    this[_liveImages] = new (T.LinkedMapOfObject$_LiveImage()).new();
-    this[_maximumSize] = 1000;
-    this[_maximumSizeBytes] = 104857600;
-    this[_currentSizeBytes] = 0;
-    ;
-  }).prototype = image_cache.ImageCache.prototype;
-  dart.addTypeTests(image_cache.ImageCache);
-  dart.addTypeCaches(image_cache.ImageCache);
-  dart.setMethodSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getMethods(image_cache.ImageCache.__proto__),
-    clear: dart.fnType(dart.void, []),
-    evict: dart.fnType(core.bool, [core.Object], {includeLive: core.bool}, {}),
-    [_touch]: dart.fnType(dart.void, [core.Object, image_cache._CachedImage, dart.nullable(developer.TimelineTask)]),
-    [_trackLiveImage]: dart.fnType(dart.void, [core.Object, image_stream.ImageStreamCompleter, dart.nullable(core.int)]),
-    putIfAbsent: dart.fnType(dart.nullable(image_stream.ImageStreamCompleter), [core.Object, dart.fnType(image_stream.ImageStreamCompleter, [])], {onError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {}),
-    statusForKey: dart.fnType(image_cache.ImageCacheStatus, [core.Object]),
-    containsKey: dart.fnType(core.bool, [core.Object]),
-    clearLiveImages: dart.fnType(dart.void, []),
-    [_checkCacheSize]: dart.fnType(dart.void, [dart.nullable(developer.TimelineTask)])
-  }));
-  dart.setGetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    currentSize: core.int,
-    maximumSizeBytes: core.int,
-    currentSizeBytes: core.int,
-    liveImageCount: core.int,
-    pendingImageCount: core.int
-  }));
-  dart.setSetterSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getSetters(image_cache.ImageCache.__proto__),
-    maximumSize: core.int,
-    maximumSizeBytes: core.int
-  }));
-  dart.setLibraryUri(image_cache.ImageCache, I[1]);
-  dart.setFieldSignature(image_cache.ImageCache, () => ({
-    __proto__: dart.getFields(image_cache.ImageCache.__proto__),
-    [_pendingImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._PendingImage)),
-    [_cache]: dart.finalFieldType(core.Map$(core.Object, image_cache._CachedImage)),
-    [_liveImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._LiveImage)),
-    [_maximumSize]: dart.fieldType(core.int),
-    [_maximumSizeBytes]: dart.fieldType(core.int),
-    [_currentSizeBytes]: dart.fieldType(core.int)
-  }));
-  var pending$ = dart.privateName(image_cache, "ImageCacheStatus.pending");
-  var keepAlive$ = dart.privateName(image_cache, "ImageCacheStatus.keepAlive");
-  var live$ = dart.privateName(image_cache, "ImageCacheStatus.live");
-  image_cache.ImageCacheStatus = class ImageCacheStatus extends core.Object {
-    get pending() {
-      return this[pending$];
-    }
-    set pending(value) {
-      super.pending = value;
-    }
-    get keepAlive() {
-      return this[keepAlive$];
-    }
-    set keepAlive(value) {
-      super.keepAlive = value;
-    }
-    get live() {
-      return this[live$];
-    }
-    set live(value) {
-      super.live = value;
-    }
-    get tracked() {
-      return this.pending || this.keepAlive || this.live;
-    }
-    get untracked() {
-      return !this.pending && !this.keepAlive && !this.live;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) {
+      contains(element) {
+        T.as(element);
+        let length = this.length;
+        for (let i = 0; i < length; i = i + 1) {
+          if (dart.equals(this[_elementAt](i), element)) return true;
+          if (length !== this.length) {
+            dart.throw(new core.ConcurrentModificationError.new(this));
+          }
+        }
         return false;
       }
-      return image_cache.ImageCacheStatus.is(other) && other.pending === this.pending && other.keepAlive === this.keepAlive && other.live === this.live;
+      removeListener(element) {
+        MiniSubscriptionOfT().as(element);
+        let length = this.length;
+        for (let i = 0; i < length; i = i + 1) {
+          if (dart.equals(this[_elementAt](i), element)) {
+            this[_removeAt](i);
+            break;
+          }
+        }
+      }
+      clear() {
+        let length = this.length;
+        for (let i = 0; i < length; i = i + 1) {
+          this[_removeAt](i);
+        }
+      }
+      [_removeAt](position) {
+        let index = 0;
+        let currentNode = this[_head];
+        let previousNode = null;
+        if (this.isEmpty || this.length < position || position < 0) {
+          dart.throw(core.Exception.new("Invalid position"));
+        } else if (position === 0) {
+          this[_head] = dart.nullCheck(this[_head]).next;
+        } else {
+          while (index !== position) {
+            previousNode = currentNode;
+            currentNode = dart.nullCheck(currentNode).next;
+            index = index + 1;
+          }
+          if (previousNode == null) {
+            this[_head] = null;
+          } else {
+            previousNode.next = dart.nullCheck(currentNode).next;
+          }
+          dart.nullCheck(currentNode).next = null;
+        }
+        return dart.nullCheck(currentNode).data;
+      }
     }
-    get hashCode() {
-      return ui.hashValues(this.pending, this.keepAlive, this.live);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "ImageCacheStatus") + "(pending: " + dart.str(this.pending) + ", live: " + dart.str(this.live) + ", keepAlive: " + dart.str(this.keepAlive) + ")";
-    }
-  };
-  (image_cache.ImageCacheStatus.__ = function(opts) {
-    let pending = opts && 'pending' in opts ? opts.pending : false;
-    let keepAlive = opts && 'keepAlive' in opts ? opts.keepAlive : false;
-    let live = opts && 'live' in opts ? opts.live : false;
-    this[pending$] = pending;
-    this[keepAlive$] = keepAlive;
-    this[live$] = live;
-    if (!(!pending || !keepAlive)) dart.assertFailed(null, I[0], 557, 15, "!pending || !keepAlive");
-    ;
-  }).prototype = image_cache.ImageCacheStatus.prototype;
-  dart.addTypeTests(image_cache.ImageCacheStatus);
-  dart.addTypeCaches(image_cache.ImageCacheStatus);
-  dart.setGetterSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getGetters(image_cache.ImageCacheStatus.__proto__),
-    tracked: core.bool,
-    untracked: core.bool
-  }));
-  dart.setLibraryUri(image_cache.ImageCacheStatus, I[1]);
-  dart.setFieldSignature(image_cache.ImageCacheStatus, () => ({
-    __proto__: dart.getFields(image_cache.ImageCacheStatus.__proto__),
-    pending: dart.finalFieldType(core.bool),
-    keepAlive: dart.finalFieldType(core.bool),
-    live: dart.finalFieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(image_cache.ImageCacheStatus, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(image_cache.ImageCacheStatus, ['hashCode']);
-  image_cache._CachedImageBase = class _CachedImageBase extends core.Object {
-    dispose() {
-      if (!(this.handle != null)) dart.assertFailed(null, I[0], 622, 12, "handle != null");
-      dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
-        let t1;
-        if (!(this.handle != null)) dart.assertFailed(null, I[0], 626, 14, "handle != null");
-        t1 = this.handle;
-        t1 == null ? null : t1.dispose();
-        this.handle = null;
-      }, T.DurationTovoid()));
-    }
-  };
-  (image_cache._CachedImageBase.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this.completer = completer;
-    this.sizeBytes = sizeBytes;
-    if (!(completer !== null)) dart.assertFailed(null, I[0], 613, 15, "completer != null");
-    this.handle = completer.keepAlive();
-    ;
-  }).prototype = image_cache._CachedImageBase.prototype;
-  dart.addTypeTests(image_cache._CachedImageBase);
-  dart.addTypeCaches(image_cache._CachedImageBase);
-  dart.setMethodSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getMethods(image_cache._CachedImageBase.__proto__),
-    dispose: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._CachedImageBase, I[1]);
-  dart.setFieldSignature(image_cache._CachedImageBase, () => ({
-    __proto__: dart.getFields(image_cache._CachedImageBase.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    sizeBytes: dart.fieldType(dart.nullable(core.int)),
-    handle: dart.fieldType(dart.nullable(image_stream.ImageStreamCompleterHandle))
-  }));
-  image_cache._CachedImage = class _CachedImage extends image_cache._CachedImageBase {};
-  (image_cache._CachedImage.new = function(completer, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    image_cache._CachedImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    ;
-  }).prototype = image_cache._CachedImage.prototype;
-  dart.addTypeTests(image_cache._CachedImage);
-  dart.addTypeCaches(image_cache._CachedImage);
-  dart.setLibraryUri(image_cache._CachedImage, I[1]);
-  var ___LiveImage__handleRemove = dart.privateName(image_cache, "_#_LiveImage#_handleRemove");
-  var _handleRemove = dart.privateName(image_cache, "_handleRemove");
-  image_cache._LiveImage = class _LiveImage extends image_cache._CachedImageBase {
-    get [_handleRemove]() {
-      let t1;
-      t1 = this[___LiveImage__handleRemove];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_handleRemove")) : t1;
-    }
-    set [_handleRemove](t1) {
-      this[___LiveImage__handleRemove] = t1;
-    }
-    dispose() {
-      this.completer.removeOnLastListenerRemovedCallback(this[_handleRemove]);
-      super.dispose();
-    }
-    toString() {
-      return diagnostics.describeIdentity(this);
-    }
-  };
-  (image_cache._LiveImage.new = function(completer, handleRemove, opts) {
-    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
-    this[___LiveImage__handleRemove] = null;
-    image_cache._LiveImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
-    this[_handleRemove] = dart.fn(() => {
-      handleRemove();
-      this.dispose();
-    }, T.VoidTovoid());
-    completer.addOnLastListenerRemovedCallback(this[_handleRemove]);
-  }).prototype = image_cache._LiveImage.prototype;
-  dart.addTypeTests(image_cache._LiveImage);
-  dart.addTypeCaches(image_cache._LiveImage);
-  dart.setGetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getGetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setSetterSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getSetters(image_cache._LiveImage.__proto__),
-    [_handleRemove]: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._LiveImage, I[1]);
-  dart.setFieldSignature(image_cache._LiveImage, () => ({
-    __proto__: dart.getFields(image_cache._LiveImage.__proto__),
-    [___LiveImage__handleRemove]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
-  }));
-  dart.defineExtensionMethods(image_cache._LiveImage, ['toString']);
-  image_cache._PendingImage = class _PendingImage extends core.Object {
-    removeListener() {
-      this.completer.removeListener(this.listener);
-    }
-  };
-  (image_cache._PendingImage.new = function(completer, listener) {
-    this.completer = completer;
-    this.listener = listener;
-    ;
-  }).prototype = image_cache._PendingImage.prototype;
-  dart.addTypeTests(image_cache._PendingImage);
-  dart.addTypeCaches(image_cache._PendingImage);
-  dart.setMethodSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getMethods(image_cache._PendingImage.__proto__),
-    removeListener: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(image_cache._PendingImage, I[1]);
-  dart.setFieldSignature(image_cache._PendingImage, () => ({
-    __proto__: dart.getFields(image_cache._PendingImage.__proto__),
-    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
-    listener: dart.finalFieldType(image_stream.ImageStreamListener)
-  }));
-  dart.defineLazy(image_cache, {
-    /*image_cache._kDefaultSize*/get _kDefaultSize() {
-      return 1000;
-    },
-    /*image_cache._kDefaultSizeBytes*/get _kDefaultSizeBytes() {
-      return 104857600;
-    }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/painting/image_cache.dart", {
-    "package:flutter/src/painting/image_cache.dart": image_cache
+    (FastList.new = function() {
+      this[_head] = null;
+      ;
+    }).prototype = FastList.prototype;
+    dart.addTypeTests(FastList);
+    FastList.prototype[_is_FastList_default] = true;
+    dart.addTypeCaches(FastList);
+    dart.setMethodSignature(FastList, () => ({
+      __proto__: dart.getMethods(FastList.__proto__),
+      [_notifyData]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      [_notifyDone]: dart.fnType(dart.void, []),
+      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
+      [_elementAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int]),
+      addListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      removeListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      clear: dart.fnType(dart.void, []),
+      [_removeAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int])
+    }));
+    dart.setGetterSignature(FastList, () => ({
+      __proto__: dart.getGetters(FastList.__proto__),
+      isEmpty: core.bool,
+      isNotEmpty: core.bool,
+      length: core.int
+    }));
+    dart.setLibraryUri(FastList, I[1]);
+    dart.setFieldSignature(FastList, () => ({
+      __proto__: dart.getFields(FastList.__proto__),
+      [_head]: dart.fieldType(dart.nullable(rx_stream.Node$(rx_stream.MiniSubscription$(T))))
+    }));
+    return FastList;
+  });
+  rx_stream.FastList = rx_stream.FastList$();
+  dart.addTypeTests(rx_stream.FastList, _is_FastList_default);
+  dart.trackLibraries("packages/get/get_rx/src/rx_stream/rx_stream.dart", {
+    "package:get/get_rx/src/rx_stream/rx_stream.dart": rx_stream
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["image_cache.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/painting/image_cache.dart.lib.js"}');
+    "package:get/get_rx/src/rx_stream/rx_stream.dart": ["get_stream.dart", "mini_stream.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["get_stream.dart","mini_stream.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/get/get_rx/src/rx_stream/rx_stream.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__image_cache: image_cache
+    get_rx__src__rx_stream__rx_stream: rx_stream
   };
 }));
 
-//# sourceMappingURL=image_cache.dart.lib.js.map
+//# sourceMappingURL=rx_stream.dart.lib.js.map

@@ -24,7 +24,21 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
     return Container(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          elevation: 0.0,
+          backgroundColor: Colors.transparent,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black54,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              );
+            },
+          ),
           title: Text(
             'İlanlarını görüntüleyin...',
             style: TextStyle(color: Colors.black45),

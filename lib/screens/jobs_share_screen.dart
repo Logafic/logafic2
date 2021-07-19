@@ -28,24 +28,8 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
       .snapshots();
 
   AuthController authController = AuthController.to;
-
-  ScrollController? _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
-
-  @override
-  void initState() {
-    _scrollController = ScrollController();
-    _scrollController!.addListener(_scrollListener);
-    super.initState();
-  }
-
-  _scrollListener() {
-    setState(() {
-      _scrollPosition = _scrollController!.position.pixels;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -73,122 +57,112 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
               Center(
                 child: JobsScreenFloatingQuickAccessBar(screenSize: screenSize),
               ),
-              Expanded(
-                  child: StreamBuilder(
-                      stream: authController.isRank == true
-                          ? _jobsStreamCreatedAt
-                          : _jobsStreamRanked,
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text('Bir şeyler yanlış gitti'),
-                          );
-                        }
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
+              StreamBuilder(
+                  stream: authController.isRank == true
+                      ? _jobsStreamCreatedAt
+                      : _jobsStreamRanked,
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Bir şeyler yanlış gitti'),
+                      );
+                    }
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
 
-                        return new ListView(
-                          shrinkWrap: true,
-                          physics: ClampingScrollPhysics(),
-                          children: snapshot.data.docs
-                              .map<Widget>((DocumentSnapshot document) {
-                            Map<String, dynamic> data =
-                                document.data() as Map<String, dynamic>;
-                            return new Center(
-                                child: SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.7,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        showJobsWidget(context, document.id);
-                                      },
-                                      child: Card(
-                                          color: Colors.grey[50],
-                                          clipBehavior: Clip.antiAlias,
-                                          child: Column(
-                                            children: [
-                                              ListTile(
-                                                leading: Image.network(
-                                                    data['userProfileImage']),
-                                                title: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    TextButton(
-                                                      child: Text(
-                                                        (data['userName']),
-                                                      ),
-                                                      onPressed: () {
-                                                        Navigator.pushNamed(
-                                                            context,
-                                                            ProfileRoute,
-                                                            arguments: {
-                                                              'userId':
-                                                                  data['userId']
-                                                            });
-                                                      },
-                                                    ),
-                                                  ],
+                    return new ListView(
+                      shrinkWrap: true,
+                      physics: ClampingScrollPhysics(),
+                      children: snapshot.data.docs
+                          .map<Widget>((DocumentSnapshot document) {
+                        Map<String, dynamic> data =
+                            document.data() as Map<String, dynamic>;
+                        return new Center(
+                            child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    showJobsWidget(context, document.id);
+                                  },
+                                  child: Card(
+                                      color: Colors.grey[50],
+                                      clipBehavior: Clip.antiAlias,
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Image.network(
+                                                data['userProfileImage']),
+                                            title: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                TextButton(
+                                                  child: Text(
+                                                    (data['userName']),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pushNamed(
+                                                        context, ProfileRoute,
+                                                        arguments: {
+                                                          'userId':
+                                                              data['userId']
+                                                        });
+                                                  },
                                                 ),
-                                                subtitle: Text(
-                                                    data['created_at']
-                                                        .toString()),
-                                              ),
+                                              ],
+                                            ),
+                                            subtitle: Text(
+                                                data['created_at'].toString()),
+                                          ),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan başlığı : ${data['title']}',
+                                                style: TextStyle(fontSize: 30),
+                                              )),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan veren firma : ${data['companyName']}',
+                                                style: TextStyle(fontSize: 25),
+                                              )),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan konumu : ${data['location']}',
+                                                style: TextStyle(fontSize: 25),
+                                              )),
+                                          ButtonBar(
+                                            alignment: MainAxisAlignment.start,
+                                            children: [
                                               Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
+                                                padding: EdgeInsets.all(10),
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    showJobsWidget(
+                                                        context, document.id);
+                                                  },
                                                   child: Text(
-                                                    'İlan başlığı : ${data['title']}',
-                                                    style:
-                                                        TextStyle(fontSize: 30),
-                                                  )),
-                                              Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'İlan veren firma : ${data['companyName']}',
-                                                    style:
-                                                        TextStyle(fontSize: 25),
-                                                  )),
-                                              Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'İlan konumu : ${data['location']}',
-                                                    style:
-                                                        TextStyle(fontSize: 25),
-                                                  )),
-                                              ButtonBar(
-                                                alignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: TextButton(
-                                                      onPressed: () {
-                                                        showJobsWidget(context,
-                                                            document.id);
-                                                      },
-                                                      child: Text(
-                                                        'Görüntüle',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black54),
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
+                                                    'Görüntüle',
+                                                    style: TextStyle(
+                                                        color: Colors.black54),
+                                                  ),
+                                                ),
                                               )
                                             ],
-                                          )),
-                                    )));
-                          }).toList(),
-                        );
-                      })),
+                                          )
+                                        ],
+                                      )),
+                                )));
+                      }).toList(),
+                    );
+                  })
               // BottomBar()
             ],
           ),

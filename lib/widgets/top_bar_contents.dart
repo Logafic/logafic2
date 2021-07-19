@@ -180,7 +180,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'İş ilanları',
+                            'İş ve Etkinlik ilanları',
                             style: TextStyle(
                               color: _isHovering[4] ? Colors.red : Colors.black,
                               fontSize: 16,

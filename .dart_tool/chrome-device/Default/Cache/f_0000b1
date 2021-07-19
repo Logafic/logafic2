@@ -1,475 +1,441 @@
-define(['dart_sdk', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/stack.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__rendering__debug_overflow_indicator_dart(dart_sdk, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__stack$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/circle_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/decoration.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/_network_image_web.dart'], (function load__packages__flutter__src__painting__shape_decoration_dart(dart_sdk, packages__flutter__src__painting__circle_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__decoration$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting___network_image_web$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
-  const _js_helper = dart_sdk._js_helper;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
-  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const circle_border = packages__flutter__src__painting__circle_border$46dart.src__painting__circle_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const stack = packages__flutter__src__rendering__stack$46dart.src__rendering__stack;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var debug_overflow_indicator = Object.create(dart.library);
-  var $length = dartx.length;
-  var $toStringAsFixed = dartx.toStringAsFixed;
-  var $toStringAsPrecision = dartx.toStringAsPrecision;
-  var $add = dartx.add;
-  var $isEmpty = dartx.isEmpty;
+  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  var shape_decoration = Object.create(dart.library);
   var $runtimeType = dartx.runtimeType;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
-  var $last = dartx.last;
+  var $_equals = dartx._equals;
+  var $length = dartx.length;
+  var $map = dartx.map;
   var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $join = dartx.join;
-  var $times = dartx['*'];
-  var $truncate = dartx.truncate;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    ListOfTextPainter: () => (T.ListOfTextPainter = dart.constFn(core.List$(text_painter.TextPainter)))(),
-    JSArrayOf_OverflowRegionData: () => (T.JSArrayOf_OverflowRegionData = dart.constFn(_interceptors.JSArray$(debug_overflow_indicator._OverflowRegionData)))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
-    SyncIterableOfDiagnosticsNode: () => (T.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
-    IterableOfDiagnosticsNode: () => (T.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
-    VoidToIterableOfDiagnosticsNode: () => (T.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T.IterableOfDiagnosticsNode(), [])))(),
-    TextSpanN: () => (T.TextSpanN = dart.constFn(dart.nullable(text_span.TextSpan)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
-    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
+    ShapeDecorationN: () => (T.ShapeDecorationN = dart.constFn(dart.nullable(shape_decoration.ShapeDecoration)))(),
+    DiagnosticsPropertyOfGradient: () => (T.DiagnosticsPropertyOfGradient = dart.constFn(diagnostics.DiagnosticsProperty$(gradient.Gradient)))(),
+    DiagnosticsPropertyOfDecorationImage: () => (T.DiagnosticsPropertyOfDecorationImage = dart.constFn(diagnostics.DiagnosticsProperty$(decoration_image.DecorationImage)))(),
+    IterablePropertyOfBoxShadow: () => (T.IterablePropertyOfBoxShadow = dart.constFn(diagnostics.IterableProperty$(box_shadow.BoxShadow)))(),
+    DiagnosticsPropertyOfShapeBorder: () => (T.DiagnosticsPropertyOfShapeBorder = dart.constFn(diagnostics.DiagnosticsProperty$(borders.ShapeBorder)))(),
+    ListOfPaint: () => (T.ListOfPaint = dart.constFn(core.List$(ui.Paint)))(),
+    BoxShadowToPaint: () => (T.BoxShadowToPaint = dart.constFn(dart.fnType(ui.Paint, [box_shadow.BoxShadow])))(),
+    ListOfPath: () => (T.ListOfPath = dart.constFn(core.List$(ui.Path)))(),
+    BoxShadowToPath: () => (T.BoxShadowToPath = dart.constFn(dart.fnType(ui.Path, [box_shadow.BoxShadow])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.left",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.top",
-        index: 1
-      });
-    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.bottom",
-        index: 2
+        __proto__: borders.BorderStyle.prototype,
+        [_name]: "BorderStyle.none",
+        index: 0
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: debug_overflow_indicator._OverflowSide.prototype,
-        [_name$]: "_OverflowSide.right",
-        index: 3
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: borders.BorderSide.prototype,
+        [BorderSide_style]: C[2] || CT.C2,
+        [BorderSide_width]: 0,
+        [BorderSide_color]: C[3] || CT.C3
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: circle_border.CircleBorder.prototype,
+        [OutlinedBorder_side]: C[1] || CT.C1
       });
     },
     get C4() {
-      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], debug_overflow_indicator._OverflowSide);
+      return C[4] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name$]: "BoxShape.circle",
+        index: 1
+      });
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
+        __proto__: box_border.Border.prototype,
+        [Border_left]: C[1] || CT.C1,
+        [Border_bottom]: C[1] || CT.C1,
+        [Border_right]: C[1] || CT.C1,
+        [Border_top]: C[1] || CT.C1
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 8.5
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 1,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 8.5,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3204448256.0
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3221225216.0
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: ui.FontWeight.prototype,
-        [FontWeight_index]: 7
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4287627264.0
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: null,
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: null,
-        [TextStyle_decorationColor]: null,
-        [TextStyle_decoration]: null,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: null,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: C[12] || CT.C12,
-        [TextStyle_fontSize]: 7.5,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: null,
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: C[13] || CT.C13,
-        [TextStyle_inherit]: true
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 10,
-        [OffsetBase__dx]: 10
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967295.0
+        __proto__: box_border.BoxShape.prototype,
+        [_name$]: "BoxShape.rectangle",
+        index: 0
       });
     }
   }, false);
-  var C = Array(16).fill(void 0);
+  var C = Array(7).fill(void 0);
   var I = [
-    "package:flutter/src/rendering/debug_overflow_indicator.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/debug_overflow_indicator.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/painting/shape_decoration.dart",
+    "package:flutter/src/painting/shape_decoration.dart"
   ];
-  var _name$ = dart.privateName(debug_overflow_indicator, "_name");
-  debug_overflow_indicator._OverflowSide = class _OverflowSide extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (debug_overflow_indicator._OverflowSide.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = debug_overflow_indicator._OverflowSide.prototype;
-  dart.addTypeTests(debug_overflow_indicator._OverflowSide);
-  dart.addTypeCaches(debug_overflow_indicator._OverflowSide);
-  dart.setLibraryUri(debug_overflow_indicator._OverflowSide, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator._OverflowSide, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator._OverflowSide.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(debug_overflow_indicator._OverflowSide, ['toString']);
-  debug_overflow_indicator._OverflowSide.left = C[0] || CT.C0;
-  debug_overflow_indicator._OverflowSide.top = C[1] || CT.C1;
-  debug_overflow_indicator._OverflowSide.bottom = C[2] || CT.C2;
-  debug_overflow_indicator._OverflowSide.right = C[3] || CT.C3;
-  debug_overflow_indicator._OverflowSide.values = C[4] || CT.C4;
-  var rect$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rect");
-  var label$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.label");
-  var labelOffset$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.labelOffset");
-  var rotation$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rotation");
-  var side$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.side");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  debug_overflow_indicator._OverflowRegionData = class _OverflowRegionData extends core.Object {
-    get rect() {
-      return this[rect$];
-    }
-    set rect(value) {
-      super.rect = value;
-    }
-    get label() {
-      return this[label$];
-    }
-    set label(value) {
-      super.label = value;
-    }
-    get labelOffset() {
-      return this[labelOffset$];
-    }
-    set labelOffset(value) {
-      super.labelOffset = value;
-    }
-    get rotation() {
-      return this[rotation$];
-    }
-    set rotation(value) {
-      super.rotation = value;
-    }
-    get side() {
-      return this[side$];
-    }
-    set side(value) {
-      super.side = value;
-    }
-  };
-  (debug_overflow_indicator._OverflowRegionData.new = function(opts) {
-    let rect = opts && 'rect' in opts ? opts.rect : null;
-    let label = opts && 'label' in opts ? opts.label : "";
-    let labelOffset = opts && 'labelOffset' in opts ? opts.labelOffset : C[5] || CT.C5;
-    let rotation = opts && 'rotation' in opts ? opts.rotation : 0;
-    let side = opts && 'side' in opts ? opts.side : null;
-    this[rect$] = rect;
-    this[label$] = label;
-    this[labelOffset$] = labelOffset;
-    this[rotation$] = rotation;
-    this[side$] = side;
-    ;
-  }).prototype = debug_overflow_indicator._OverflowRegionData.prototype;
-  dart.addTypeTests(debug_overflow_indicator._OverflowRegionData);
-  dart.addTypeCaches(debug_overflow_indicator._OverflowRegionData);
-  dart.setLibraryUri(debug_overflow_indicator._OverflowRegionData, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator._OverflowRegionData, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator._OverflowRegionData.__proto__),
-    rect: dart.finalFieldType(ui.Rect),
-    label: dart.finalFieldType(core.String),
-    labelOffset: dart.finalFieldType(ui.Offset),
-    rotation: dart.finalFieldType(core.double),
-    side: dart.finalFieldType(debug_overflow_indicator._OverflowSide)
-  }));
-  var _indicatorLabel = dart.privateName(debug_overflow_indicator, "_indicatorLabel");
-  var _overflowReportNeeded = dart.privateName(debug_overflow_indicator, "_overflowReportNeeded");
-  var _formatPixels = dart.privateName(debug_overflow_indicator, "_formatPixels");
-  var _calculateOverflowRegions = dart.privateName(debug_overflow_indicator, "_calculateOverflowRegions");
-  var _reportOverflow = dart.privateName(debug_overflow_indicator, "_reportOverflow");
+  var color$ = dart.privateName(shape_decoration, "ShapeDecoration.color");
+  var gradient$ = dart.privateName(shape_decoration, "ShapeDecoration.gradient");
+  var image$ = dart.privateName(shape_decoration, "ShapeDecoration.image");
+  var shadows$ = dart.privateName(shape_decoration, "ShapeDecoration.shadows");
+  var shape$ = dart.privateName(shape_decoration, "ShapeDecoration.shape");
+  var _name = dart.privateName(borders, "_name");
+  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
+  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
   var Color_value = dart.privateName(ui, "Color.value");
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  debug_overflow_indicator.DebugOverflowIndicatorMixin = class DebugOverflowIndicatorMixin extends object.RenderObject {};
-  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinOn] = RenderObject => class DebugOverflowIndicatorMixin extends RenderObject {
-    [_formatPixels](value) {
-      if (!(value > 0.0)) dart.assertFailed(null, I[1], 122, 12, "value > 0.0");
-      let pixels = null;
-      if (value > 10.0) {
-        pixels = value[$toStringAsFixed](0);
-      } else if (value > 1.0) {
-        pixels = value[$toStringAsFixed](1);
-      } else {
-        pixels = value[$toStringAsPrecision](3);
-      }
-      return pixels;
+  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
+  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
+  var _name$ = dart.privateName(box_border, "_name");
+  var Border_left = dart.privateName(box_border, "Border.left");
+  var Border_bottom = dart.privateName(box_border, "Border.bottom");
+  var Border_right = dart.privateName(box_border, "Border.right");
+  var Border_top = dart.privateName(box_border, "Border.top");
+  shape_decoration.ShapeDecoration = class ShapeDecoration extends decoration.Decoration {
+    get color() {
+      return this[color$];
     }
-    [_calculateOverflowRegions](overflow, containerRect) {
-      let regions = T.JSArrayOf_OverflowRegionData().of([]);
-      if (overflow.left > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width * 0.1, containerRect.height);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "LEFT OVERFLOWED BY " + this[_formatPixels](overflow.left) + " PIXELS", labelOffset: markerRect.centerLeft['+'](C[6] || CT.C6), rotation: 3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.left}));
-      }
-      if (overflow.right > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(containerRect.width * (1.0 - 0.1), 0.0, containerRect.width * 0.1, containerRect.height);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "RIGHT OVERFLOWED BY " + this[_formatPixels](overflow.right) + " PIXELS", labelOffset: markerRect.centerRight['-'](C[6] || CT.C6), rotation: -3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.right}));
-      }
-      if (overflow.top > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width, containerRect.height * 0.1);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "TOP OVERFLOWED BY " + this[_formatPixels](overflow.top) + " PIXELS", labelOffset: markerRect.topCenter['+'](C[7] || CT.C7), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.top}));
-      }
-      if (overflow.bottom > 0.0) {
-        let markerRect = new ui.Rect.fromLTWH(0.0, containerRect.height * (1.0 - 0.1), containerRect.width, containerRect.height * 0.1);
-        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "BOTTOM OVERFLOWED BY " + this[_formatPixels](overflow.bottom) + " PIXELS", labelOffset: markerRect.bottomCenter['-'](C[8] || CT.C8), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.bottom}));
-      }
-      return regions;
+    set color(value) {
+      super.color = value;
     }
-    [_reportOverflow](overflow, overflowHints) {
-      overflowHints == null ? overflowHints = T.JSArrayOfDiagnosticsNode().of([]) : null;
-      if (overflowHints[$isEmpty]) {
-        overflowHints[$add](new assertions.ErrorDescription.new("The edge of the " + dart.str(this[$runtimeType]) + " that is " + "overflowing has been marked in the rendering with a yellow and black " + "striped pattern. This is usually caused by the contents being too big " + "for the " + dart.str(this[$runtimeType]) + "."));
-        overflowHints[$add](new assertions.ErrorHint.new("This is considered an error condition because it indicates that there " + "is content that cannot be seen. If the content is legitimately bigger " + "than the available space, consider clipping it with a ClipRect widget " + "before putting it in the " + dart.str(this[$runtimeType]) + ", or using a scrollable " + "container, like a ListView."));
-      }
-      let overflows = (() => {
-        let t0 = T.JSArrayOfString().of([]);
-        if (overflow.left > 0.0) t0[$add](this[_formatPixels](overflow.left) + " pixels on the left");
-        if (overflow.top > 0.0) t0[$add](this[_formatPixels](overflow.top) + " pixels on the top");
-        if (overflow.bottom > 0.0) t0[$add](this[_formatPixels](overflow.bottom) + " pixels on the bottom");
-        if (overflow.right > 0.0) t0[$add](this[_formatPixels](overflow.right) + " pixels on the right");
-        return t0;
-      })();
-      let overflowText = "";
-      if (!overflows[$isNotEmpty]) dart.assertFailed("Somehow " + dart.str(this[$runtimeType]) + " didn't actually overflow like it thought it did.", I[1], 227, 12, "overflows.isNotEmpty");
-      switch (overflows[$length]) {
-        case 1:
+    get gradient() {
+      return this[gradient$];
+    }
+    set gradient(value) {
+      super.gradient = value;
+    }
+    get image() {
+      return this[image$];
+    }
+    set image(value) {
+      super.image = value;
+    }
+    get shadows() {
+      return this[shadows$];
+    }
+    set shadows(value) {
+      super.shadows = value;
+    }
+    get shape() {
+      return this[shape$];
+    }
+    set shape(value) {
+      super.shape = value;
+    }
+    static fromBoxDecoration(source) {
+      let t0, t0$, t0$0;
+      let shape = null;
+      if (!(source.shape !== null)) dart.assertFailed(null, I[0], 95, 12, "source.shape != null");
+      switch (source.shape) {
+        case C[4] || CT.C4:
         {
-          overflowText = overflows[$first];
+          if (source.border != null) {
+            if (!dart.nullCheck(source.border).isUniform) dart.assertFailed(null, I[0], 99, 18, "source.border!.isUniform");
+            shape = new circle_border.CircleBorder.new({side: dart.nullCheck(source.border).top});
+          } else {
+            shape = C[0] || CT.C0;
+          }
           break;
         }
-        case 2:
+        case C[6] || CT.C6:
         {
-          overflowText = overflows[$first] + " and " + overflows[$last];
+          if (source.borderRadius != null) {
+            if (!(source.border == null || dart.nullCheck(source.border).isUniform)) dart.assertFailed(null, I[0], 107, 18, "source.border == null || source.border!.isUniform");
+            shape = new rounded_rectangle_border.RoundedRectangleBorder.new({side: (t0$ = (t0 = source.border, t0 == null ? null : t0.top), t0$ == null ? borders.BorderSide.none : t0$), borderRadius: dart.nullCheck(source.borderRadius)});
+          } else {
+            shape = (t0$0 = source.border, t0$0 == null ? C[5] || CT.C5 : t0$0);
+          }
           break;
         }
-        default:
-        {
-          overflows[$_set](overflows[$length] - 1, "and " + overflows[$_get](overflows[$length] - 1));
-          overflowText = overflows[$join](", ");
-        }
       }
-      assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: assertions.FlutterError.new("A " + dart.str(this[$runtimeType]) + " overflowed by " + overflowText + "."), library: "rendering library", context: new assertions.ErrorDescription.new("during layout"), informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new((function*() {
-          if (this.debugCreator != null) yield new object.DiagnosticsDebugCreator.new(dart.nullCheck(this.debugCreator));
-          yield* dart.nullCheck(overflowHints);
-          yield this.describeForError("The specific " + dart.str(this[$runtimeType]) + " in question is");
-          yield diagnostics.DiagnosticsNode.message("◢◤"[$times]((100 / 2)[$truncate]()), {allowWrap: false});
-        }).bind(this)), T.VoidToIterableOfDiagnosticsNode())}));
+      return new shape_decoration.ShapeDecoration.new({color: source.color, image: source.image, gradient: source.gradient, shadows: source.boxShadow, shape: shape});
     }
-    paintOverflowIndicator(context, offset, containerRect, childRect, opts) {
-      let t1;
-      let overflowHints = opts && 'overflowHints' in opts ? opts.overflowHints : null;
-      let overflow = stack.RelativeRect.fromRect(containerRect, childRect);
-      if (overflow.left <= 0.0 && overflow.right <= 0.0 && overflow.top <= 0.0 && overflow.bottom <= 0.0) {
-        return;
-      }
-      let overflowRegions = this[_calculateOverflowRegions](overflow, containerRect);
-      for (let region of overflowRegions) {
-        context.canvas.drawRect(region.rect.shift(offset), debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint);
-        let textSpan = T.TextSpanN().as(this[_indicatorLabel][$_get](region.side.index).text);
-        if ((t1 = textSpan, t1 == null ? null : t1.text) !== region.label) {
-          this[_indicatorLabel][$_get](region.side.index).text = new text_span.TextSpan.new({text: region.label, style: debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle});
-          this[_indicatorLabel][$_get](region.side.index).layout();
-        }
-        let labelOffset = region.labelOffset['+'](offset);
-        let centerOffset = new ui.Offset.new(-this[_indicatorLabel][$_get](region.side.index).width / 2.0, 0.0);
-        let textBackgroundRect = centerOffset['&'](this[_indicatorLabel][$_get](region.side.index).size);
-        context.canvas.save();
-        context.canvas.translate(labelOffset.dx, labelOffset.dy);
-        context.canvas.rotate(region.rotation);
-        context.canvas.drawRect(textBackgroundRect, debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint);
-        this[_indicatorLabel][$_get](region.side.index).paint(context.canvas, centerOffset);
-        context.canvas.restore();
-      }
-      if (this[_overflowReportNeeded]) {
-        this[_overflowReportNeeded] = false;
-        this[_reportOverflow](overflow, overflowHints);
-      }
+    getClipPath(rect, textDirection) {
+      return this.shape.getOuterPath(rect, {textDirection: textDirection});
     }
-    reassemble() {
-      super.reassemble();
-      if (!dart.fn(() => {
-        this[_overflowReportNeeded] = true;
-        return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 315, 12, "() {\r\n      _overflowReportNeeded = true;\r\n      return true;\r\n    }()");
+    get padding() {
+      return this.shape.dimensions;
+    }
+    get isComplex() {
+      return this.shadows != null;
+    }
+    lerpFrom(a, t) {
+      if (box_decoration.BoxDecoration.is(a)) {
+        return shape_decoration.ShapeDecoration.lerp(shape_decoration.ShapeDecoration.fromBoxDecoration(a), this, t);
+      } else if (a == null || shape_decoration.ShapeDecoration.is(a)) {
+        return shape_decoration.ShapeDecoration.lerp(T.ShapeDecorationN().as(a), this, t);
+      }
+      return T.ShapeDecorationN().as(super.lerpFrom(a, t));
+    }
+    lerpTo(b, t) {
+      if (box_decoration.BoxDecoration.is(b)) {
+        return shape_decoration.ShapeDecoration.lerp(this, shape_decoration.ShapeDecoration.fromBoxDecoration(b), t);
+      } else if (b == null || shape_decoration.ShapeDecoration.is(b)) {
+        return shape_decoration.ShapeDecoration.lerp(this, T.ShapeDecorationN().as(b), t);
+      }
+      return T.ShapeDecorationN().as(super.lerpTo(b, t));
+    }
+    static lerp(a, b, t) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5;
+      if (!(t !== null)) dart.assertFailed(null, I[0], 231, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a != null && b != null) {
+        if (t === 0.0) return a;
+        if (t === 1.0) return b;
+      }
+      return new shape_decoration.ShapeDecoration.new({color: ui.Color.lerp((t0 = a, t0 == null ? null : t0.color), (t0$ = b, t0$ == null ? null : t0$.color), t), gradient: gradient.Gradient.lerp((t0$0 = a, t0$0 == null ? null : t0$0.gradient), (t0$1 = b, t0$1 == null ? null : t0$1.gradient), t), image: t < 0.5 ? dart.nullCheck(a).image : dart.nullCheck(b).image, shadows: box_shadow.BoxShadow.lerpList((t0$2 = a, t0$2 == null ? null : t0$2.shadows), (t0$3 = b, t0$3 == null ? null : t0$3.shadows), t), shape: dart.nullCheck(borders.ShapeBorder.lerp((t0$4 = a, t0$4 == null ? null : t0$4.shape), (t0$5 = b, t0$5 == null ? null : t0$5.shape), t))});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return shape_decoration.ShapeDecoration.is(other) && dart.equals(other.color, this.color) && dart.equals(other.gradient, this.gradient) && dart.equals(other.image, this.image) && collections.listEquals(box_shadow.BoxShadow, other.shadows, this.shadows) && other.shape[$_equals](this.shape);
+    }
+    get hashCode() {
+      return ui.hashValues(this.color, this.gradient, this.image, this.shape, ui.hashList(this.shadows));
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.defaultDiagnosticsTreeStyle = diagnostics.DiagnosticsTreeStyle.whitespace;
+      properties.add(new colors.ColorProperty.new("color", this.color, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfGradient()).new("gradient", this.gradient, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfDecorationImage()).new("image", this.image, {defaultValue: null}));
+      properties.add(new (T.IterablePropertyOfBoxShadow()).new("shadows", this.shadows, {defaultValue: null, style: diagnostics.DiagnosticsTreeStyle.whitespace}));
+      properties.add(new (T.DiagnosticsPropertyOfShapeBorder()).new("shape", this.shape));
+    }
+    hitTest(size, position, opts) {
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return this.shape.getOuterPath(ui.Offset.zero['&'](size), {textDirection: textDirection}).contains(position);
+    }
+    createBoxPainter(onChanged = null) {
+      if (!(onChanged != null || this.image == null)) dart.assertFailed(null, I[0], 292, 12, "onChanged != null || image == null");
+      return new shape_decoration._ShapeDecorationPainter.new(this, dart.nullCheck(onChanged));
     }
   };
-  (debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinNew] = function() {
-    this[_indicatorLabel] = T.ListOfTextPainter().filled(debug_overflow_indicator._OverflowSide.values[$length], new text_painter.TextPainter.new({textDirection: ui.TextDirection.ltr}));
-    this[_overflowReportNeeded] = true;
-  }).prototype = debug_overflow_indicator.DebugOverflowIndicatorMixin.prototype;
-  dart.addTypeTests(debug_overflow_indicator.DebugOverflowIndicatorMixin);
-  dart.addTypeCaches(debug_overflow_indicator.DebugOverflowIndicatorMixin);
-  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.implements] = () => [object.RenderObject];
-  dart.setMethodSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
-    __proto__: dart.getMethods(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
-    [_formatPixels]: dart.fnType(core.String, [core.double]),
-    [_calculateOverflowRegions]: dart.fnType(core.List$(debug_overflow_indicator._OverflowRegionData), [stack.RelativeRect, ui.Rect]),
-    [_reportOverflow]: dart.fnType(dart.void, [stack.RelativeRect, dart.nullable(core.List$(diagnostics.DiagnosticsNode))]),
-    paintOverflowIndicator: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, ui.Rect, ui.Rect], {overflowHints: dart.nullable(core.List$(diagnostics.DiagnosticsNode))}, {})
+  (shape_decoration.ShapeDecoration.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    let image = opts && 'image' in opts ? opts.image : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let shadows = opts && 'shadows' in opts ? opts.shadows : null;
+    let shape = opts && 'shape' in opts ? opts.shape : null;
+    this[color$] = color;
+    this[image$] = image;
+    this[gradient$] = gradient;
+    this[shadows$] = shadows;
+    this[shape$] = shape;
+    if (!!(color != null && gradient != null)) dart.assertFailed(null, I[0], 80, 15, "!(color != null && gradient != null)");
+    if (!(shape !== null)) dart.assertFailed(null, I[0], 81, 15, "shape != null");
+    shape_decoration.ShapeDecoration.__proto__.new.call(this);
+    ;
+  }).prototype = shape_decoration.ShapeDecoration.prototype;
+  dart.addTypeTests(shape_decoration.ShapeDecoration);
+  dart.addTypeCaches(shape_decoration.ShapeDecoration);
+  dart.setMethodSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getMethods(shape_decoration.ShapeDecoration.__proto__),
+    lerpFrom: dart.fnType(dart.nullable(shape_decoration.ShapeDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    lerpTo: dart.fnType(dart.nullable(shape_decoration.ShapeDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    createBoxPainter: dart.fnType(shape_decoration._ShapeDecorationPainter, [], [dart.nullable(dart.fnType(dart.void, []))])
   }));
-  dart.setLibraryUri(debug_overflow_indicator.DebugOverflowIndicatorMixin, I[0]);
-  dart.setFieldSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
-    __proto__: dart.getFields(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
-    [_indicatorLabel]: dart.finalFieldType(core.List$(text_painter.TextPainter)),
-    [_overflowReportNeeded]: dart.fieldType(core.bool)
+  dart.setGetterSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getGetters(shape_decoration.ShapeDecoration.__proto__),
+    padding: edge_insets.EdgeInsetsGeometry
   }));
-  dart.defineLazy(debug_overflow_indicator.DebugOverflowIndicatorMixin, {
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._black*/get _black() {
-      return C[9] || CT.C9;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow*/get _yellow() {
-      return C[10] || CT.C10;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFraction*/get _indicatorFraction() {
-      return 0.1;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFontSizePixels*/get _indicatorFontSizePixels() {
-      return 7.5;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorLabelPaddingPixels*/get _indicatorLabelPaddingPixels() {
-      return 1;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle*/get _indicatorTextStyle() {
-      return C[11] || CT.C11;
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint*/get _indicatorPaint() {
-      let t1;
-      return t1 = ui.Paint.new(), (() => {
-        t1.shader = ui.Gradient.linear(ui.Offset.zero, C[14] || CT.C14, T.JSArrayOfColor().of([debug_overflow_indicator.DebugOverflowIndicatorMixin._black, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._black]), T.JSArrayOfdouble().of([0.25, 0.25, 0.75, 0.75]), ui.TileMode.repeated);
-        return t1;
-      })();
-    },
-    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint*/get _labelBackgroundPaint() {
-      let t1;
-      return t1 = ui.Paint.new(), (() => {
-        t1.color = C[15] || CT.C15;
-        return t1;
-      })();
+  dart.setLibraryUri(shape_decoration.ShapeDecoration, I[1]);
+  dart.setFieldSignature(shape_decoration.ShapeDecoration, () => ({
+    __proto__: dart.getFields(shape_decoration.ShapeDecoration.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    image: dart.finalFieldType(dart.nullable(decoration_image.DecorationImage)),
+    shadows: dart.finalFieldType(dart.nullable(core.List$(box_shadow.BoxShadow))),
+    shape: dart.finalFieldType(borders.ShapeBorder)
+  }));
+  dart.defineExtensionMethods(shape_decoration.ShapeDecoration, ['_equals']);
+  dart.defineExtensionAccessors(shape_decoration.ShapeDecoration, ['hashCode']);
+  var _lastRect = dart.privateName(shape_decoration, "_lastRect");
+  var _lastTextDirection = dart.privateName(shape_decoration, "_lastTextDirection");
+  var ___ShapeDecorationPainter__outerPath = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_outerPath");
+  var _innerPath = dart.privateName(shape_decoration, "_innerPath");
+  var _interiorPaint = dart.privateName(shape_decoration, "_interiorPaint");
+  var _shadowCount = dart.privateName(shape_decoration, "_shadowCount");
+  var ___ShapeDecorationPainter__shadowPaths = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_shadowPaths");
+  var ___ShapeDecorationPainter__shadowPaints = dart.privateName(shape_decoration, "_#_ShapeDecorationPainter#_shadowPaints");
+  var _imagePainter = dart.privateName(shape_decoration, "_imagePainter");
+  var _decoration$ = dart.privateName(shape_decoration, "_decoration");
+  var _outerPath = dart.privateName(shape_decoration, "_outerPath");
+  var _shadowPaths = dart.privateName(shape_decoration, "_shadowPaths");
+  var _shadowPaints = dart.privateName(shape_decoration, "_shadowPaints");
+  var _precache = dart.privateName(shape_decoration, "_precache");
+  var _paintShadows = dart.privateName(shape_decoration, "_paintShadows");
+  var _paintInterior = dart.privateName(shape_decoration, "_paintInterior");
+  var _paintImage = dart.privateName(shape_decoration, "_paintImage");
+  shape_decoration._ShapeDecorationPainter = class _ShapeDecorationPainter extends decoration.BoxPainter {
+    get [_outerPath]() {
+      let t0;
+      t0 = this[___ShapeDecorationPainter__outerPath];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_outerPath")) : t0;
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/rendering/debug_overflow_indicator.dart", {
-    "package:flutter/src/rendering/debug_overflow_indicator.dart": debug_overflow_indicator
+    set [_outerPath](t0) {
+      this[___ShapeDecorationPainter__outerPath] = t0;
+    }
+    get [_shadowPaths]() {
+      let t1;
+      t1 = this[___ShapeDecorationPainter__shadowPaths];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_shadowPaths")) : t1;
+    }
+    set [_shadowPaths](t1) {
+      this[___ShapeDecorationPainter__shadowPaths] = t1;
+    }
+    get [_shadowPaints]() {
+      let t2;
+      t2 = this[___ShapeDecorationPainter__shadowPaints];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_shadowPaints")) : t2;
+    }
+    set [_shadowPaints](t2) {
+      this[___ShapeDecorationPainter__shadowPaints] = t2;
+    }
+    get onChanged() {
+      return dart.nullCheck(super.onChanged);
+    }
+    [_precache](rect, textDirection) {
+      if (!(rect !== null)) dart.assertFailed(null, I[0], 318, 12, "rect != null");
+      if (rect._equals(this[_lastRect]) && textDirection == this[_lastTextDirection]) return;
+      if (this[_interiorPaint] == null && (this[_decoration$].color != null || this[_decoration$].gradient != null)) {
+        this[_interiorPaint] = ui.Paint.new();
+        if (this[_decoration$].color != null) dart.nullCheck(this[_interiorPaint]).color = dart.nullCheck(this[_decoration$].color);
+      }
+      if (this[_decoration$].gradient != null) dart.nullCheck(this[_interiorPaint]).shader = dart.nullCheck(this[_decoration$].gradient).createShader(rect, {textDirection: textDirection});
+      if (this[_decoration$].shadows != null) {
+        if (this[_shadowCount] == null) {
+          this[_shadowCount] = dart.nullCheck(this[_decoration$].shadows)[$length];
+          this[_shadowPaints] = (() => {
+            let t3 = T.ListOfPaint().of(dart.nullCheck(this[_decoration$].shadows)[$map](ui.Paint, dart.fn(shadow => shadow.toPaint(), T.BoxShadowToPaint())));
+            return t3;
+          })();
+        }
+        this[_shadowPaths] = (() => {
+          let t4 = T.ListOfPath().of(dart.nullCheck(this[_decoration$].shadows)[$map](ui.Path, dart.fn(shadow => this[_decoration$].shape.getOuterPath(rect.shift(shadow.offset).inflate(shadow.spreadRadius), {textDirection: textDirection}), T.BoxShadowToPath())));
+          return t4;
+        })();
+      }
+      if (this[_interiorPaint] != null || this[_shadowCount] != null) this[_outerPath] = this[_decoration$].shape.getOuterPath(rect, {textDirection: textDirection});
+      if (this[_decoration$].image != null) this[_innerPath] = this[_decoration$].shape.getInnerPath(rect, {textDirection: textDirection});
+      this[_lastRect] = rect;
+      this[_lastTextDirection] = textDirection;
+    }
+    [_paintShadows](canvas) {
+      if (this[_shadowCount] != null) {
+        for (let index = 0; index < dart.nullCheck(this[_shadowCount]); index = index + 1)
+          canvas.drawPath(this[_shadowPaths][$_get](index), this[_shadowPaints][$_get](index));
+      }
+    }
+    [_paintInterior](canvas) {
+      if (this[_interiorPaint] != null) canvas.drawPath(this[_outerPath], dart.nullCheck(this[_interiorPaint]));
+    }
+    [_paintImage](canvas, configuration) {
+      if (this[_decoration$].image == null) return;
+      this[_imagePainter] == null ? this[_imagePainter] = dart.nullCheck(this[_decoration$].image).createPainter(this.onChanged) : null;
+      dart.nullCheck(this[_imagePainter]).paint(canvas, dart.nullCheck(this[_lastRect]), this[_innerPath], configuration);
+    }
+    dispose() {
+      let t5;
+      t5 = this[_imagePainter];
+      t5 == null ? null : t5.dispose();
+      super.dispose();
+    }
+    paint(canvas, offset, configuration) {
+      if (!(configuration !== null)) dart.assertFailed(null, I[0], 383, 12, "configuration != null");
+      if (!(configuration.size != null)) dart.assertFailed(null, I[0], 384, 12, "configuration.size != null");
+      let rect = offset['&'](dart.nullCheck(configuration.size));
+      let textDirection = configuration.textDirection;
+      this[_precache](rect, textDirection);
+      this[_paintShadows](canvas);
+      this[_paintInterior](canvas);
+      this[_paintImage](canvas, configuration);
+      this[_decoration$].shape.paint(canvas, rect, {textDirection: textDirection});
+    }
+  };
+  (shape_decoration._ShapeDecorationPainter.new = function(_decoration, onChanged) {
+    this[_lastRect] = null;
+    this[_lastTextDirection] = null;
+    this[___ShapeDecorationPainter__outerPath] = null;
+    this[_innerPath] = null;
+    this[_interiorPaint] = null;
+    this[_shadowCount] = null;
+    this[___ShapeDecorationPainter__shadowPaths] = null;
+    this[___ShapeDecorationPainter__shadowPaints] = null;
+    this[_imagePainter] = null;
+    this[_decoration$] = _decoration;
+    if (!(_decoration !== null)) dart.assertFailed(null, I[0], 300, 14, "_decoration != null");
+    shape_decoration._ShapeDecorationPainter.__proto__.new.call(this, onChanged);
+    ;
+  }).prototype = shape_decoration._ShapeDecorationPainter.prototype;
+  dart.addTypeTests(shape_decoration._ShapeDecorationPainter);
+  dart.addTypeCaches(shape_decoration._ShapeDecorationPainter);
+  dart.setMethodSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getMethods(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_precache]: dart.fnType(dart.void, [ui.Rect, dart.nullable(ui.TextDirection)]),
+    [_paintShadows]: dart.fnType(dart.void, [ui.Canvas]),
+    [_paintInterior]: dart.fnType(dart.void, [ui.Canvas]),
+    [_paintImage]: dart.fnType(dart.void, [ui.Canvas, image_provider.ImageConfiguration]),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Offset, image_provider.ImageConfiguration])
+  }));
+  dart.setGetterSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getGetters(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_outerPath]: ui.Path,
+    [_shadowPaths]: core.List$(ui.Path),
+    [_shadowPaints]: core.List$(ui.Paint),
+    onChanged: dart.fnType(dart.void, [])
+  }));
+  dart.setSetterSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getSetters(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_outerPath]: ui.Path,
+    [_shadowPaths]: core.List$(ui.Path),
+    [_shadowPaints]: core.List$(ui.Paint)
+  }));
+  dart.setLibraryUri(shape_decoration._ShapeDecorationPainter, I[1]);
+  dart.setFieldSignature(shape_decoration._ShapeDecorationPainter, () => ({
+    __proto__: dart.getFields(shape_decoration._ShapeDecorationPainter.__proto__),
+    [_decoration$]: dart.finalFieldType(shape_decoration.ShapeDecoration),
+    [_lastRect]: dart.fieldType(dart.nullable(ui.Rect)),
+    [_lastTextDirection]: dart.fieldType(dart.nullable(ui.TextDirection)),
+    [___ShapeDecorationPainter__outerPath]: dart.fieldType(dart.nullable(ui.Path)),
+    [_innerPath]: dart.fieldType(dart.nullable(ui.Path)),
+    [_interiorPaint]: dart.fieldType(dart.nullable(ui.Paint)),
+    [_shadowCount]: dart.fieldType(dart.nullable(core.int)),
+    [___ShapeDecorationPainter__shadowPaths]: dart.fieldType(dart.nullable(core.List$(ui.Path))),
+    [___ShapeDecorationPainter__shadowPaints]: dart.fieldType(dart.nullable(core.List$(ui.Paint))),
+    [_imagePainter]: dart.fieldType(dart.nullable(decoration_image.DecorationImagePainter))
+  }));
+  dart.trackLibraries("packages/flutter/src/painting/shape_decoration.dart", {
+    "package:flutter/src/painting/shape_decoration.dart": shape_decoration
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["debug_overflow_indicator.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/debug_overflow_indicator.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["shape_decoration.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAuIe;;;;;;IAOG;;;;;;IAKO;;;;;;IASA;;;;;;IAwBL;;;;;;6BAxFsC;;AACpC;AAClB,YAAO,AAAO,AAAM,MAAP;AACb,cAAQ,AAAO,MAAD;;;AAEV,cAAI,AAAO,MAAD;AACR,iBAAoB,AAAE,eAAf,AAAO,MAAD;AACiC,YAA9C,QAAQ,0CAAgC,AAAE,eAAf,AAAO,MAAD;;AAEL,YAA5B;;AAEF;;;;AAEA,cAAI,AAAO,MAAD;AACR,kBAAO,AAAO,AAAO,AAAQ,MAAhB,mBAAgC,AAAE,eAAf,AAAO,MAAD;AAIrC,YAHD,QAAQ,gEACmB,YAAnB,AAAO,MAAD,sBAAC,OAAQ,SAAR,cAA0B,8CACN,eAAnB,AAAO,MAAD;;AAGiB,YAAvC,SAAsB,OAAd,AAAO,MAAD,SAAC;;AAEjB;;;AAEJ,YAAO,kDACE,AAAO,MAAD,eACN,AAAO,MAAD,kBACH,AAAO,MAAD,oBACP,AAAO,MAAD,mBACR,KAAK;IAEhB;gBAGsB,MAAoB;AACxC,YAAO,AAAM,yBAAa,IAAI,kBAAiB,aAAa;IAC9D;;AA0DkC,YAAA,AAAM;IAAU;;AAG5B,YAAA,AAAQ;IAAO;aAGC,GAAU;AAC9C,UAAM,gCAAF,CAAC;AACH,cAAuB,uCAAqB,mDAAkB,CAAC,GAAG,MAAM,CAAC;YACpE,KAAI,AAAE,CAAD,YAAc,oCAAF,CAAC;AACvB,cAAuB,uCAAO,wBAAF,CAAC,GAAsB,MAAM,CAAC;;AAE5D,YAA4B,yBAAf,eAAS,CAAC,EAAE,CAAC;IAC5B;WAGoC,GAAU;AAC5C,UAAM,gCAAF,CAAC;AACH,cAAuB,uCAAK,MAAsB,mDAAkB,CAAC,GAAG,CAAC;YACpE,KAAI,AAAE,CAAD,YAAc,oCAAF,CAAC;AACvB,cAAuB,uCAAK,MAAQ,wBAAF,CAAC,GAAsB,CAAC;;AAE5D,YAA0B,yBAAb,aAAO,CAAC,EAAE,CAAC;IAC1B;gBAoB8C,GAAoB,GAAU;;AAC1E,YAAO,AAAE,CAAD;AACR,UAAI,AAAE,CAAD,YAAY,AAAE,CAAD,UAChB,MAAO;AACT,UAAI,CAAC,YAAY,CAAC;AAChB,YAAI,AAAE,CAAD,KAAI,KACP,MAAO,EAAC;AACV,YAAI,AAAE,CAAD,KAAI,KACP,MAAO,EAAC;;AAEZ,YAAO,kDACQ,oBAAK,CAAC,eAAD,OAAG,kBAAO,CAAC,gBAAD,OAAG,YAAO,CAAC,aACpB,+BAAK,CAAC,iBAAD,OAAG,wBAAU,CAAC,iBAAD,OAAG,gBAAU,CAAC,UAC5C,AAAE,CAAD,GAAG,MAAO,AAAE,eAAH,CAAC,UAAW,AAAE,eAAH,CAAC,kBACV,sCAAS,CAAC,iBAAD,OAAG,uBAAS,CAAC,iBAAD,OAAG,eAAS,CAAC,UACP,eAA3B,iCAAK,CAAC,iBAAD,OAAG,qBAAO,CAAC,iBAAD,OAAG,aAAO,CAAC;IAEjD;;UAGwB;AACtB,UAAI,AAAU,SAAM,KAAK,EACvB,MAAO;AACT,WAAI,AAAM,KAAD,uBAAgB,qBACvB,MAAO;AACT,YAAa,AAKT,qCALG,KAAK,KACO,YAAZ,AAAM,KAAD,QAAU,eACA,YAAf,AAAM,KAAD,WAAa,kBACN,YAAZ,AAAM,KAAD,QAAU,eACf,6CAAsB,AAAM,KAAD,UAAU,iBACrC,AAAM,AAAM,KAAP,iBAAU;IACxB;;AAIE,YAAO,eACL,YACA,eACA,YACA,YACA,YAAS;IAEb;wBAGqD;AACd,MAA/B,0BAAoB,UAAU;AACoC,MAAxE,AAAW,UAAD,+BAAoD;AACG,MAAjE,AAAW,UAAD,KAAK,6BAAc,SAAS,2BAAqB;AAC4B,MAAvF,AAAW,UAAD,KAAK,4CAA8B,YAAY,8BAAwB;AACO,MAAxF,AAAW,UAAD,KAAK,mDAAqC,SAAS,2BAAqB;AACyC,MAA3H,AAAW,UAAD,KAAK,0CAA4B,WAAW,6BAAuB,aAAkC;AAC/C,MAAhE,AAAW,UAAD,KAAK,+CAAiC,SAAS;IAC3D;YAGkB,MAAa;UAA2B;AACxD,YAAO,AAAM,AAA+D,yBAA3C,AAAK,oBAAE,IAAI,mBAAiB,aAAa,YAAW,QAAQ;IAC/F;qBAGyD;AACvD,YAAO,AAAkB,SAAT,YAAY,AAAM;AAClC,YAAO,kDAAwB,MAAe,eAAT,SAAS;IAChD;;;QA3NO;QACA;QACA;QACA;QACS;IAJT;IACA;IACA;IACA;IACS;SACJ,EAAE,KAAK,YAAY,QAAQ;UAC3B,AAAM,KAAD;AAPX;;EAOoB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAkOhB;;IAAU;;AAAV;IAAU;;;AAIJ;;IAAY;;AAAZ;IAAY;;;AACX;;IAAa;;AAAb;IAAa;;AAGA,YAAe,gBAAT;IAAU;gBAE1B,MAAqB;AACvC,YAAO,AAAK,IAAD;AACX,UAAI,AAAK,IAAD,SAAI,oBAAa,AAAc,aAAD,IAAI,0BACxC;AAMF,UAAI,AAAe,iCAAY,AAAY,oCAAiB,AAAY;AAC9C,QAAxB,uBAAiB;AACjB,YAAI,AAAY,kCACA,AAAE,AAA0B,eAA1C,8BAAyC,eAAjB,AAAY;;AAExC,UAAI,AAAY,qCACA,AAAE,AAA+E,eAA/F,+BAA6C,AAAE,eAAtB,AAAY,0CAAuB,IAAI,kBAAiB,aAAa;AAChG,UAAI,AAAY;AACd,YAAI,AAAa;AAC2B,UAA1C,qBAAkC,AAAE,eAArB,AAAY;AAG1B,UAFD,sBAAuB;wCACC,AAAE,eAArB,AAAY,4CAAa,QAAW,UAAW,AAAO,MAAD;;;;AAO3D,QAJD,qBAAqB;qCACG,AAAE,eAArB,AAAY,2CAAa,QAAW,UAC9B,AAAY,AAAM,sCAAa,AAAK,AAAqB,IAAtB,OAAO,AAAO,MAAD,iBAAiB,AAAO,MAAD,gCAA+B,aAAa;;;;AAIhI,UAAI,gCAA0B,4BAC5B,AAA+E,mBAAlE,AAAY,AAAM,sCAAa,IAAI,kBAAiB,aAAa;AAChF,UAAI,AAAY,kCACd,AAA+E,mBAAlE,AAAY,AAAM,sCAAa,IAAI,kBAAiB,aAAa;AAEhE,MAAhB,kBAAY,IAAI;AACkB,MAAlC,2BAAqB,aAAa;IACpC;oBAE0B;AACxB,UAAI;AACF,iBAAS,QAAQ,GAAG,AAAM,KAAD,GAAe,eAAZ,qBAAe,QAAA,AAAM,KAAD,GAAI;AACQ,UAA1D,AAAO,MAAD,UAAU,AAAY,0BAAC,KAAK,GAAG,AAAa,2BAAC,KAAK;;IAE9D;qBAE2B;AACzB,UAAI,8BACF,AAAO,AAAqC,MAAtC,UAAU,kBAA0B,eAAd;IAChC;kBAGwB,QAA2B;AACjD,UAAI,AAAY,AAAM,kCACpB;AAC2D,MAA/C,8BAAd,sBAAmC,AAAE,eAAnB,AAAY,wCAAqB,kBAArC;AACqD,MAAtD,AAAE,eAAf,2BAAqB,MAAM,EAAW,eAAT,kBAAY,kBAAY,aAAa;IACpE;;;AAI0B,WAAxB;0BAAe;AACA,MAAT;IACR;UAGkB,QAAe,QAA2B;AAC1D,YAAO,AAAc,aAAD;AACpB,YAAO,AAAc,AAAK,aAAN;AACT,iBAAO,AAAO,MAAD,MAAqB,eAAlB,AAAc,aAAD;AACnB,0BAAgB,AAAc,aAAD;AACpB,MAA9B,gBAAU,IAAI,EAAE,aAAa;AACR,MAArB,oBAAc,MAAM;AACE,MAAtB,qBAAe,MAAM;AACa,MAAlC,kBAAY,MAAM,EAAE,aAAa;AACkC,MAAnE,AAAY,AAAM,+BAAM,MAAM,EAAE,IAAI,kBAAiB,aAAa;IACpE;;2DA7F6B,aAA0B;IAMjD;IACS;iDACL;IACJ;IACC;IACF;mDACW;oDACC;IAuDO;IApEK;UAClB,AAAY,WAAD;AAClB,sEAAM,SAAS;;EAAC","file":"../../../../../../../../packages/flutter/src/painting/shape_decoration.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__debug_overflow_indicator: debug_overflow_indicator
+    src__painting__shape_decoration: shape_decoration
   };
 }));
 
-//# sourceMappingURL=debug_overflow_indicator.dart.lib.js.map
+//# sourceMappingURL=shape_decoration.dart.lib.js.map

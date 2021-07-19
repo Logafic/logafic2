@@ -1,200 +1,245 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/arc.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/material/scrollbar.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/flutter/src/cupertino/debug.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/page.dart', 'packages/flutter/src/widgets/grid_paper.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__material__app_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__arc$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__material__scrollbar$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__flutter__src__cupertino__debug$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__page$46dart, packages__flutter__src__widgets__grid_paper$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/logafic/controllers/authController.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/logafic/widgets/menubaraction.dart', 'packages/flutter/src/material/scrollbar.dart', 'packages/flutter/src/widgets/async.dart', 'packages/logafic/widgets/responsive.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/logafic/widgets/showCommentDialogStatusWidget.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/scroll_view.dart'], (function load__packages__logafic__screens__status_screen_dart(dart_sdk, packages__logafic__controllers__authController$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__painting__strut_style$46dart, packages__logafic__widgets__menubaraction$46dart, packages__flutter__src__material__scrollbar$46dart, packages__flutter__src__widgets__async$46dart, packages__logafic__widgets__responsive$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__logafic__widgets__showCommentDialogStatusWidget$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__scroll_view$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
+  const authController = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const text_button = packages__flutter__src__material__icon_button$46dart.src__material__text_button;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
   const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const heroes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__heroes;
-  const router = packages__flutter__src__widgets__widget_span$46dart.src__widgets__router;
-  const localizations = packages__flutter__src__widgets__widget_span$46dart.src__widgets__localizations;
-  const shortcuts = packages__flutter__src__widgets__widget_span$46dart.src__widgets__shortcuts;
-  const actions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__actions;
-  const scroll_configuration = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_configuration;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const overscroll_indicator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__overscroll_indicator;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
   const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const app = packages__flutter__src__widgets__widget_span$46dart.src__widgets__app;
-  const arc = packages__flutter__src__material__arc$46dart.src__material__arc;
-  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
-  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
-  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const material_localizations = packages__flutter__src__material__icon_button$46dart.src__material__material_localizations;
-  const floating_action_button = packages__flutter__src__material__icon_button$46dart.src__material__floating_action_button;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const scrollbar = packages__flutter__src__material__scrollbar$46dart.src__material__scrollbar;
-  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  const localizations$ = packages__flutter__src__cupertino__debug$46dart.src__cupertino__localizations;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
   const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
   const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const page = packages__flutter__src__material__page$46dart.src__material__page;
-  const grid_paper = packages__flutter__src__widgets__grid_paper$46dart.src__widgets__grid_paper;
   const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var app$ = Object.create(dart.library);
+  const menubaraction = packages__logafic__widgets__menubaraction$46dart.widgets__menubaraction;
+  const scrollbar = packages__flutter__src__material__scrollbar$46dart.src__material__scrollbar;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const responsive = packages__logafic__widgets__responsive$46dart.widgets__responsive;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const showCommentDialogStatusWidget = packages__logafic__widgets__showCommentDialogStatusWidget$46dart.widgets__showCommentDialogStatusWidget;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  var status_screen = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    BuildContextToWidget: () => (T$.BuildContextToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext])))(),
-    RectN: () => (T$.RectN = dart.constFn(dart.nullable(ui.Rect)))(),
-    RectNAndRectNToMaterialRectArcTween: () => (T$.RectNAndRectNToMaterialRectArcTween = dart.constFn(dart.fnType(arc.MaterialRectArcTween, [T$.RectN(), T$.RectN()])))(),
-    SyncIterableOfLocalizationsDelegate: () => (T$.SyncIterableOfLocalizationsDelegate = dart.constFn(_js_helper.SyncIterable$(localizations.LocalizationsDelegate)))(),
-    StateOfStatefulWidget: () => (T$.StateOfStatefulWidget = dart.constFn(framework.State$(framework.StatefulWidget)))(),
-    GlobalObjectKeyOfStateOfStatefulWidget: () => (T$.GlobalObjectKeyOfStateOfStatefulWidget = dart.constFn(framework.GlobalObjectKey$(T$.StateOfStatefulWidget())))(),
-    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    RouteSettingsAndFnToMaterialPageRouteOfT: () => (T$.RouteSettingsAndFnToMaterialPageRouteOfT = dart.constFn(dart.gFnType(T => {
-      var MaterialPageRouteOfT = () => (MaterialPageRouteOfT = dart.constFn(page.MaterialPageRoute$(T)))();
-      return [MaterialPageRouteOfT(), [navigator.RouteSettings, T$.BuildContextToWidget()]];
-    }, T => {
-      var MaterialPageRouteOfT = () => (MaterialPageRouteOfT = dart.constFn(page.MaterialPageRoute$(T)))();
-      return [T$.ObjectN()];
-    })))(),
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    BuildContextToIconButton: () => (T.BuildContextToIconButton = dart.constFn(dart.fnType(icon_button.IconButton, [framework.BuildContext])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    DocumentSnapshotOfObjectN: () => (T.DocumentSnapshotOfObjectN = dart.constFn(cloud_firestore.DocumentSnapshot$(T.ObjectN())))(),
+    FutureBuilderOfDocumentSnapshotOfObjectN: () => (T.FutureBuilderOfDocumentSnapshotOfObjectN = dart.constFn(async$.FutureBuilder$(T.DocumentSnapshotOfObjectN())))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    FutureBuilderOfbool: () => (T.FutureBuilderOfbool = dart.constFn(async$.FutureBuilder$(core.bool)))(),
+    BuildContextAndAsyncSnapshotToIconButton: () => (T.BuildContextAndAsyncSnapshotToIconButton = dart.constFn(dart.fnType(icon_button.IconButton, [framework.BuildContext, async$.AsyncSnapshot])))(),
+    FutureBuilderOfint: () => (T.FutureBuilderOfint = dart.constFn(async$.FutureBuilder$(core.int)))(),
+    AsyncSnapshotOfint: () => (T.AsyncSnapshotOfint = dart.constFn(async$.AsyncSnapshot$(core.int)))(),
+    BuildContextAndAsyncSnapshotOfintToText: () => (T.BuildContextAndAsyncSnapshotOfintToText = dart.constFn(dart.fnType(text.Text, [framework.BuildContext, T.AsyncSnapshotOfint()])))(),
+    QuerySnapshotOfObjectN: () => (T.QuerySnapshotOfObjectN = dart.constFn(cloud_firestore.QuerySnapshot$(T.ObjectN())))(),
+    StreamBuilderOfQuerySnapshotOfObjectN: () => (T.StreamBuilderOfQuerySnapshotOfObjectN = dart.constFn(async$.StreamBuilder$(T.QuerySnapshotOfObjectN())))(),
+    DocumentSnapshotOfObjectNToPadding: () => (T.DocumentSnapshotOfObjectNToPadding = dart.constFn(dart.fnType(basic.Padding, [T.DocumentSnapshotOfObjectN()])))(),
+    AsyncSnapshotOfQuerySnapshotOfObjectN: () => (T.AsyncSnapshotOfQuerySnapshotOfObjectN = dart.constFn(async$.AsyncSnapshot$(T.QuerySnapshotOfObjectN())))(),
+    BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget: () => (T.BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.AsyncSnapshotOfQuerySnapshotOfObjectN()])))(),
+    AsyncSnapshotOfDocumentSnapshotOfObjectN: () => (T.AsyncSnapshotOfDocumentSnapshotOfObjectN = dart.constFn(async$.AsyncSnapshot$(T.DocumentSnapshotOfObjectN())))(),
+    BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter: () => (T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter = dart.constFn(dart.fnType(basic.Center, [framework.BuildContext, T.AsyncSnapshotOfDocumentSnapshotOfObjectN()])))(),
+    QuerySnapshotOfMapOfString$dynamic: () => (T.QuerySnapshotOfMapOfString$dynamic = dart.constFn(cloud_firestore.QuerySnapshot$(T.MapOfString$dynamic())))(),
+    QuerySnapshotOfMapOfString$dynamicToint: () => (T.QuerySnapshotOfMapOfString$dynamicToint = dart.constFn(dart.fnType(core.int, [T.QuerySnapshotOfMapOfString$dynamic()])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: app$.ThemeMode.prototype,
-        [_name$]: "ThemeMode.system",
-        index: 0
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 25,
+        [_Location_line]: 27,
+        [_Location_file]: null
       });
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: app$.ThemeMode.prototype,
-        [_name$]: "ThemeMode.light",
-        index: 1
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 19,
+        [_Location_line]: 28,
+        [_Location_file]: null
       });
     },
     get C2() {
-      return C[2] = dart.const({
-        __proto__: app$.ThemeMode.prototype,
-        [_name$]: "ThemeMode.dark",
-        index: 2
+      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], widget_inspector._Location);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
-    get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], app$.ThemeMode);
-    },
-    get C4() {
-      return C[4] = dart.constMap(core.String, T$.BuildContextToWidget(), []);
-    },
     get C5() {
-      return C[5] = dart.constList([], navigator.NavigatorObserver);
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: ui.Locale.prototype,
-        [Locale__countryCode]: "US",
-        [Locale_scriptCode]: null,
-        [Locale__languageCode]: "en"
+      return C[5] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
       });
     },
     get C6() {
-      return C[6] = dart.constList([C[7] || CT.C7], ui.Locale);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.horizontal",
-        index: 0
+      return C[6] = dart.const({
+        __proto__: icon_data.IconData.prototype,
+        [IconData_matchTextDirection]: true,
+        [IconData_fontPackage]: null,
+        [IconData_fontFamily]: "MaterialIcons",
+        [IconData_codePoint]: 57490
       });
     },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 716,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: icon.Icon.prototype,
+        [Widget__location]: C[1] || CT.C1,
+        [Widget_key]: null,
+        [Icon_textDirection]: null,
+        [Icon_semanticLabel]: null,
+        [Icon_color]: C[5] || CT.C5,
+        [Icon_size]: null,
+        [Icon_icon]: C[6] || CT.C6
       });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "controller",
-        [_Location_column]: 15,
-        [_Location_line]: 717,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
     },
     get C9() {
       return C[9] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 17,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 17,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
         [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 715,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 22,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C13() {
       return C[13] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.linux",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
       });
     },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.macOS",
-        index: 4
-      });
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13], widget_inspector._Location);
     },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.windows",
-        index: 5
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C16() {
       return C[16] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.android",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 13,
+        [_Location_line]: 37,
+        [_Location_file]: null
       });
     },
     get C17() {
       return C[17] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.fuchsia",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 38,
+        [_Location_file]: null
       });
     },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: platform.TargetPlatform.prototype,
-        [_name$0]: "TargetPlatform.iOS",
-        index: 2
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C19() {
-      return C[19] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.vertical",
-        index: 1
+      return C[19] = dart.constList([], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C22() {
       return C[22] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
+        [_Location_name]: "backgroundColor",
         [_Location_column]: 11,
-        [_Location_line]: 740,
+        [_Location_line]: 22,
         [_Location_file]: null
       });
     },
@@ -202,9 +247,9 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[23] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "axisDirection",
+        [_Location_name]: "leading",
         [_Location_column]: 11,
-        [_Location_line]: 741,
+        [_Location_line]: 23,
         [_Location_file]: null
       });
     },
@@ -212,32 +257,42 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[24] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
+        [_Location_name]: "title",
         [_Location_column]: 11,
-        [_Location_line]: 742,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 11,
+        [_Location_line]: 46,
         [_Location_file]: null
       });
     },
     get C21() {
-      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24], widget_inspector._Location);
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
     },
     get C20() {
       return C[20] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[21] || CT.C21,
         [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 739,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 17,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C28() {
       return C[28] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 31,
-        [_Location_line]: 773,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 48,
         [_Location_file]: null
       });
     },
@@ -249,138 +304,120 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[27] || CT.C27,
         [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 773,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 15,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: icon_data.IconData.prototype,
-        [IconData_matchTextDirection]: false,
-        [IconData_fontPackage]: null,
-        [IconData_fontFamily]: "MaterialIcons",
-        [IconData_codePoint]: 58727
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: icon.Icon.prototype,
-        [Widget__location]: C[26] || CT.C26,
-        [Widget_key]: null,
-        [Icon_textDirection]: null,
-        [Icon_semanticLabel]: null,
-        [Icon_color]: null,
-        [Icon_size]: null,
-        [Icon_icon]: C[29] || CT.C29
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
       });
     },
     get C32() {
       return C[32] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 773,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 48,
         [_Location_file]: null
       });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 7,
-        [_Location_line]: 774,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mini",
-        [_Location_column]: 7,
-        [_Location_line]: 775,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], widget_inspector._Location);
     },
     get C30() {
-      return C[30] = dart.const({
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C29() {
+      return C[29] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_parameterLocations]: C[30] || CT.C30,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 772,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 15,
-        [_Location_line]: 803,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.constList([C[37] || CT.C37], widget_inspector._Location);
     },
     get C35() {
       return C[35] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[36] || CT.C36,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 802,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
-        [_Location_column]: 9,
-        [_Location_line]: 800,
+        [_Location_column]: 25,
+        [_Location_line]: 58,
         [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C41() {
       return C[41] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 801,
+        [_Location_name]: "src",
+        [_Location_column]: 52,
+        [_Location_line]: 77,
         [_Location_file]: null
       });
     },
-    get C39() {
-      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], widget_inspector._Location);
     },
-    get C38() {
-      return C[38] = dart.const({
+    get C39() {
+      return C[39] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_parameterLocations]: C[40] || CT.C40,
         [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 799,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 40,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C44() {
       return C[44] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 7,
-        [_Location_line]: 798,
+        [_Location_name]: "data",
+        [_Location_column]: 38,
+        [_Location_line]: 83,
         [_Location_file]: null
       });
     },
@@ -388,9 +425,9 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[45] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 799,
+        [_Location_name]: "style",
+        [_Location_column]: 33,
+        [_Location_line]: 84,
         [_Location_file]: null
       });
     },
@@ -402,18 +439,18 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[43] || CT.C43,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 797,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 38,
+        [_Location_line]: 82,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C48() {
       return C[48] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 9,
-        [_Location_line]: 834,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 82,
         [_Location_file]: null
       });
     },
@@ -421,39 +458,32 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[49] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "routeInformationProvider",
-        [_Location_column]: 9,
-        [_Location_line]: 835,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 31,
+        [_Location_line]: 86,
         [_Location_file]: null
       });
     },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "routeInformationParser",
-        [_Location_column]: 9,
-        [_Location_line]: 836,
-        [_Location_file]: null
-      });
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
     },
-    get C51() {
-      return C[51] = dart.const({
+    get C46() {
+      return C[46] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "routerDelegate",
-        [_Location_column]: 9,
-        [_Location_line]: 837,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 81,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C52() {
       return C[52] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "backButtonDispatcher",
-        [_Location_column]: 9,
-        [_Location_line]: 838,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 79,
         [_Location_file]: null
       });
     },
@@ -461,39 +491,32 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[53] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 9,
-        [_Location_line]: 839,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 80,
         [_Location_file]: null
       });
     },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 9,
-        [_Location_line]: 840,
-        [_Location_file]: null
-      });
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
     },
-    get C55() {
-      return C[55] = dart.const({
+    get C50() {
+      return C[50] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onGenerateTitle",
-        [_Location_column]: 9,
-        [_Location_line]: 841,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 78,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C56() {
       return C[56] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "textStyle",
-        [_Location_column]: 9,
-        [_Location_line]: 842,
+        [_Location_name]: "data",
+        [_Location_column]: 31,
+        [_Location_line]: 94,
         [_Location_file]: null
       });
     },
@@ -501,39 +524,32 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[57] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 9,
-        [_Location_line]: 843,
+        [_Location_name]: "style",
+        [_Location_column]: 27,
+        [_Location_line]: 95,
         [_Location_file]: null
       });
     },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "locale",
-        [_Location_column]: 9,
-        [_Location_line]: 844,
-        [_Location_file]: null
-      });
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
     },
-    get C59() {
-      return C[59] = dart.const({
+    get C54() {
+      return C[54] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "localizationsDelegates",
-        [_Location_column]: 9,
-        [_Location_line]: 845,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C60() {
       return C[60] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "localeResolutionCallback",
-        [_Location_column]: 9,
-        [_Location_line]: 846,
+        [_Location_name]: "leading",
+        [_Location_column]: 25,
+        [_Location_line]: 77,
         [_Location_file]: null
       });
     },
@@ -541,9 +557,9 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[61] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "localeListResolutionCallback",
-        [_Location_column]: 9,
-        [_Location_line]: 847,
+        [_Location_name]: "title",
+        [_Location_column]: 25,
+        [_Location_line]: 78,
         [_Location_file]: null
       });
     },
@@ -551,39 +567,32 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[62] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "supportedLocales",
-        [_Location_column]: 9,
-        [_Location_line]: 848,
+        [_Location_name]: "subtitle",
+        [_Location_column]: 25,
+        [_Location_line]: 93,
         [_Location_file]: null
       });
     },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "showPerformanceOverlay",
-        [_Location_column]: 9,
-        [_Location_line]: 849,
-        [_Location_file]: null
-      });
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62], widget_inspector._Location);
     },
-    get C64() {
-      return C[64] = dart.const({
+    get C58() {
+      return C[58] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "checkerboardRasterCacheImages",
-        [_Location_column]: 9,
-        [_Location_line]: 850,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C65() {
       return C[65] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "checkerboardOffscreenLayers",
-        [_Location_column]: 9,
-        [_Location_line]: 851,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 75,
         [_Location_file]: null
       });
     },
@@ -591,102 +600,88 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[66] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "showSemanticsDebugger",
-        [_Location_column]: 9,
-        [_Location_line]: 852,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 76,
         [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C67() {
       return C[67] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "debugShowCheckedModeBanner",
-        [_Location_column]: 9,
-        [_Location_line]: 853,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "inspectorSelectButtonBuilder",
-        [_Location_column]: 9,
-        [_Location_line]: 854,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shortcuts",
-        [_Location_column]: 9,
-        [_Location_line]: 855,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C70() {
       return C[70] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "actions",
-        [_Location_column]: 9,
-        [_Location_line]: 856,
+        [_Location_name]: "data",
+        [_Location_column]: 38,
+        [_Location_line]: 103,
         [_Location_file]: null
       });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70], widget_inspector._Location);
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "src",
+        [_Location_column]: 58,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73], widget_inspector._Location);
     },
     get C71() {
       return C[71] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "restorationScopeId",
-        [_Location_column]: 9,
-        [_Location_line]: 857,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66, C[67] || CT.C67, C[68] || CT.C68, C[69] || CT.C69, C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_parameterLocations]: C[72] || CT.C72,
         [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 833,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "key",
-        [_Location_column]: 7,
-        [_Location_line]: 862,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "navigatorKey",
-        [_Location_column]: 7,
-        [_Location_line]: 863,
-        [_Location_file]: null
+        [_Location_column]: 46,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C76() {
       return C[76] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "navigatorObservers",
-        [_Location_column]: 7,
-        [_Location_line]: 864,
+        [_Location_name]: "height",
+        [_Location_column]: 33,
+        [_Location_line]: 106,
         [_Location_file]: null
       });
     },
@@ -694,79 +689,64 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[77] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "pageRouteBuilder",
-        [_Location_column]: 7,
-        [_Location_line]: 865,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 108,
         [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76, C[77] || CT.C77], widget_inspector._Location);
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C78() {
       return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "home",
-        [_Location_column]: 7,
-        [_Location_line]: 868,
-        [_Location_file]: null
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "routes",
-        [_Location_column]: 7,
-        [_Location_line]: 869,
-        [_Location_file]: null
-      });
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "initialRoute",
-        [_Location_column]: 7,
-        [_Location_line]: 870,
-        [_Location_file]: null
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 0,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 20,
+        [EdgeInsets_left]: 0
       });
     },
     get C81() {
       return C[81] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "onGenerateRoute",
-        [_Location_column]: 7,
-        [_Location_line]: 871,
+        [_Location_name]: "data",
+        [_Location_column]: 55,
+        [_Location_line]: 113,
         [_Location_file]: null
       });
     },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onGenerateInitialRoutes",
-        [_Location_column]: 7,
-        [_Location_line]: 872,
-        [_Location_file]: null
-      });
+    get C80() {
+      return C[80] = dart.constList([C[81] || CT.C81], widget_inspector._Location);
     },
-    get C83() {
-      return C[83] = dart.const({
+    get C79() {
+      return C[79] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onUnknownRoute",
-        [_Location_column]: 7,
-        [_Location_line]: 873,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[80] || CT.C80,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 113,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C84() {
       return C[84] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 7,
-        [_Location_line]: 874,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 112,
         [_Location_file]: null
       });
     },
@@ -774,99 +754,78 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[85] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 7,
-        [_Location_line]: 875,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 113,
         [_Location_file]: null
       });
     },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onGenerateTitle",
-        [_Location_column]: 7,
-        [_Location_line]: 876,
-        [_Location_file]: null
-      });
+    get C83() {
+      return C[83] = dart.constList([C[84] || CT.C84, C[85] || CT.C85], widget_inspector._Location);
     },
-    get C87() {
-      return C[87] = dart.const({
+    get C82() {
+      return C[82] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textStyle",
-        [_Location_column]: 7,
-        [_Location_line]: 877,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[83] || CT.C83,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C88() {
       return C[88] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 7,
-        [_Location_line]: 878,
+        [_Location_name]: "data",
+        [_Location_column]: 42,
+        [_Location_line]: 115,
         [_Location_file]: null
       });
     },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "locale",
-        [_Location_column]: 7,
-        [_Location_line]: 879,
-        [_Location_file]: null
-      });
+    get C87() {
+      return C[87] = dart.constList([C[88] || CT.C88], widget_inspector._Location);
     },
-    get C90() {
-      return C[90] = dart.const({
+    get C86() {
+      return C[86] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "localizationsDelegates",
-        [_Location_column]: 7,
-        [_Location_line]: 880,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[87] || CT.C87,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C91() {
       return C[91] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "localeResolutionCallback",
-        [_Location_column]: 7,
-        [_Location_line]: 881,
+        [_Location_name]: "children",
+        [_Location_column]: 36,
+        [_Location_line]: 104,
         [_Location_file]: null
       });
     },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "localeListResolutionCallback",
-        [_Location_column]: 7,
-        [_Location_line]: 882,
-        [_Location_file]: null
-      });
+    get C90() {
+      return C[90] = dart.constList([C[91] || CT.C91], widget_inspector._Location);
     },
-    get C93() {
-      return C[93] = dart.const({
+    get C89() {
+      return C[89] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "supportedLocales",
-        [_Location_column]: 7,
-        [_Location_line]: 883,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[90] || CT.C90,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C94() {
       return C[94] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "showPerformanceOverlay",
-        [_Location_column]: 7,
-        [_Location_line]: 884,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 101,
         [_Location_file]: null
       });
     },
@@ -874,39 +833,32 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[95] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "checkerboardRasterCacheImages",
-        [_Location_column]: 7,
-        [_Location_line]: 885,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 102,
         [_Location_file]: null
       });
     },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "checkerboardOffscreenLayers",
-        [_Location_column]: 7,
-        [_Location_line]: 886,
-        [_Location_file]: null
-      });
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95], widget_inspector._Location);
     },
-    get C97() {
-      return C[97] = dart.const({
+    get C92() {
+      return C[92] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "showSemanticsDebugger",
-        [_Location_column]: 7,
-        [_Location_line]: 887,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 100,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C98() {
       return C[98] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "debugShowCheckedModeBanner",
-        [_Location_column]: 7,
-        [_Location_line]: 888,
+        [_Location_name]: "data",
+        [_Location_column]: 31,
+        [_Location_line]: 135,
         [_Location_file]: null
       });
     },
@@ -914,68 +866,65 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[99] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "inspectorSelectButtonBuilder",
-        [_Location_column]: 7,
-        [_Location_line]: 889,
+        [_Location_name]: "style",
+        [_Location_column]: 31,
+        [_Location_line]: 136,
         [_Location_file]: null
       });
     },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shortcuts",
-        [_Location_column]: 7,
-        [_Location_line]: 890,
-        [_Location_file]: null
-      });
+    get C97() {
+      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99], widget_inspector._Location);
     },
-    get C101() {
-      return C[101] = dart.const({
+    get C96() {
+      return C[96] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "actions",
-        [_Location_column]: 7,
-        [_Location_line]: 891,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[97] || CT.C97,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 134,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C102() {
       return C[102] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "restorationScopeId",
-        [_Location_column]: 7,
-        [_Location_line]: 892,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 29,
+        [_Location_line]: 123,
         [_Location_file]: null
-      });
-    },
-    get C73() {
-      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79, C[80] || CT.C80, C[81] || CT.C81, C[82] || CT.C82, C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89, C[90] || CT.C90, C[91] || CT.C91, C[92] || CT.C92, C[93] || CT.C93, C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97, C[98] || CT.C98, C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102], widget_inspector._Location);
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[73] || CT.C73,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 861,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
       });
     },
     get C103() {
       return C[103] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3774462944.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103], widget_inspector._Location);
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[101] || CT.C101,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 122,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C106() {
       return C[106] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 11,
-        [_Location_line]: 903,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 121,
         [_Location_file]: null
       });
     },
@@ -983,67 +932,65 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[107] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "interval",
-        [_Location_column]: 11,
-        [_Location_line]: 904,
-        [_Location_file]: null
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "divisions",
-        [_Location_column]: 11,
-        [_Location_line]: 905,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "subdivisions",
-        [_Location_column]: 11,
-        [_Location_line]: 906,
-        [_Location_file]: null
-      });
-    },
-    get C110() {
-      return C[110] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 907,
+        [_Location_column]: 27,
+        [_Location_line]: 122,
         [_Location_file]: null
       });
     },
     get C105() {
-      return C[105] = dart.constList([C[106] || CT.C106, C[107] || CT.C107, C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110], widget_inspector._Location);
+      return C[105] = dart.constList([C[106] || CT.C106, C[107] || CT.C107], widget_inspector._Location);
     },
     get C104() {
       return C[104] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[105] || CT.C105,
         [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 902,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 25,
+        [_Location_line]: 120,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 43,
+        [_Location_line]: 148,
+        [_Location_file]: null
       });
     },
     get C111() {
       return C[111] = dart.const({
-        __proto__: app$.MaterialScrollBehavior.prototype
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 37,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.constList([C[110] || CT.C110, C[111] || CT.C111], widget_inspector._Location);
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[109] || CT.C109,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 147,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C114() {
       return C[114] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "controller",
-        [_Location_column]: 9,
-        [_Location_line]: 916,
+        [_Location_name]: "icon",
+        [_Location_column]: 35,
+        [_Location_line]: 147,
         [_Location_file]: null
       });
     },
@@ -1051,9 +998,9 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[115] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 917,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 35,
+        [_Location_line]: 151,
         [_Location_file]: null
       });
     },
@@ -1065,18 +1012,18 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[113] || CT.C113,
         [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 915,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
+        [_Location_column]: 38,
+        [_Location_line]: 146,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C118() {
       return C[118] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "behavior",
-        [_Location_column]: 7,
-        [_Location_line]: 914,
+        [_Location_name]: "icon",
+        [_Location_column]: 43,
+        [_Location_line]: 162,
         [_Location_file]: null
       });
     },
@@ -1084,9 +1031,9 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       return C[119] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 915,
+        [_Location_name]: "color",
+        [_Location_column]: 37,
+        [_Location_line]: 163,
         [_Location_file]: null
       });
     },
@@ -1098,652 +1045,927 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[117] || CT.C117,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 913,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
-      });
-    },
-    get C121() {
-      return C[121] = dart.const({
-        __proto__: ui.TextDecorationStyle.prototype,
-        [_name$1]: "TextDecorationStyle.double",
-        index: 1
+        [_Location_column]: 41,
+        [_Location_line]: 161,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     },
     get C122() {
       return C[122] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967040.0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 35,
+        [_Location_line]: 161,
+        [_Location_file]: null
       });
     },
     get C123() {
       return C[123] = dart.const({
-        __proto__: ui.TextDecoration.prototype,
-        [TextDecoration__mask]: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 35,
+        [_Location_line]: 165,
+        [_Location_file]: null
       });
     },
-    get C124() {
-      return C[124] = dart.const({
-        __proto__: ui.FontWeight.prototype,
-        [FontWeight_index]: 8
-      });
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 3506372608.0
-      });
+    get C121() {
+      return C[121] = dart.constList([C[122] || CT.C122, C[123] || CT.C123], widget_inspector._Location);
     },
     get C120() {
       return C[120] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: "fallback style; consider putting your text in a Material",
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: C[121] || CT.C121,
-        [TextStyle_decorationColor]: C[122] || CT.C122,
-        [TextStyle_decoration]: C[123] || CT.C123,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: null,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: C[124] || CT.C124,
-        [TextStyle_fontSize]: 48,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: "monospace",
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: C[125] || CT.C125,
-        [TextStyle_inherit]: true
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[121] || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 160,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 27,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 27,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126, C[127] || CT.C127], widget_inspector._Location);
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 141,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 59,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.constList([C[130] || CT.C130], widget_inspector._Location);
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[129] || CT.C129,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 181,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 43,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.constList([C[133] || CT.C133], widget_inspector._Location);
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[132] || CT.C132,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 183,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 29,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 29,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.constList([C[136] || CT.C136, C[137] || CT.C137], widget_inspector._Location);
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[135] || CT.C135,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 176,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C[139] = dart.constList([C[140] || CT.C140], widget_inspector._Location);
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[139] || CT.C139,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C142() {
+      return C[142] = dart.constList([C[143] || CT.C143, C[144] || CT.C144], widget_inspector._Location);
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[142] || CT.C142,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 187,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 203,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 203,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.constList([C[148] || CT.C148], widget_inspector._Location);
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[147] || CT.C147,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C150() {
+      return C[150] = dart.constList([C[151] || CT.C151], widget_inspector._Location);
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[150] || CT.C150,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 208,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C153() {
+      return C[153] = dart.constList([C[154] || CT.C154], widget_inspector._Location);
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[153] || CT.C153,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C157() {
+      return C[157] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "src",
+        [_Location_column]: 59,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C156() {
+      return C[156] = dart.constList([C[157] || CT.C157], widget_inspector._Location);
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[156] || CT.C156,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 222,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 50,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 45,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
+    },
+    get C159() {
+      return C[159] = dart.constList([C[160] || CT.C160, C[161] || CT.C161], widget_inspector._Location);
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[159] || CT.C159,
+        [_Location_name]: null,
+        [_Location_column]: 50,
+        [_Location_line]: 228,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 43,
+        [_Location_line]: 228,
+        [_Location_file]: null
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 43,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C163() {
+      return C[163] = dart.constList([C[164] || CT.C164, C[165] || CT.C165], widget_inspector._Location);
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[163] || CT.C163,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 227,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 47,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 43,
+        [_Location_line]: 242,
+        [_Location_file]: null
+      });
+    },
+    get C167() {
+      return C[167] = dart.constList([C[168] || CT.C168, C[169] || CT.C169], widget_inspector._Location);
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[167] || CT.C167,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 240,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 244,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 39,
+        [_Location_line]: 224,
+        [_Location_file]: null
+      });
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 39,
+        [_Location_line]: 226,
+        [_Location_file]: null
+      });
+    },
+    get C172() {
+      return C[172] = dart.constList([C[173] || CT.C173, C[174] || CT.C174], widget_inspector._Location);
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[172] || CT.C172,
+        [_Location_name]: null,
+        [_Location_column]: 44,
+        [_Location_line]: 223,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 43,
+        [_Location_line]: 248,
+        [_Location_file]: null
+      });
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 39,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C176() {
+      return C[176] = dart.constList([C[177] || CT.C177, C[178] || CT.C178], widget_inspector._Location);
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[176] || CT.C176,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 247,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 55,
+        [_Location_line]: 264,
+        [_Location_file]: null
+      });
+    },
+    get C180() {
+      return C[180] = dart.constList([C[181] || CT.C181], widget_inspector._Location);
+    },
+    get C179() {
+      return C[179] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[180] || CT.C180,
+        [_Location_name]: null,
+        [_Location_column]: 51,
+        [_Location_line]: 263,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 45,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 45,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184, C[185] || CT.C185], widget_inspector._Location);
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 43,
+        [_Location_line]: 254,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 37,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 37,
+        [_Location_line]: 223,
+        [_Location_file]: null
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "subtitle",
+        [_Location_column]: 37,
+        [_Location_line]: 247,
+        [_Location_file]: null
+      });
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trailing",
+        [_Location_column]: 37,
+        [_Location_line]: 251,
+        [_Location_file]: null
+      });
+    },
+    get C187() {
+      return C[187] = dart.constList([C[188] || CT.C188, C[189] || CT.C189, C[190] || CT.C190, C[191] || CT.C191], widget_inspector._Location);
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[187] || CT.C187,
+        [_Location_name]: null,
+        [_Location_column]: 42,
+        [_Location_line]: 220,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 35,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 35,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C193() {
+      return C[193] = dart.constList([C[194] || CT.C194, C[195] || CT.C195], widget_inspector._Location);
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[193] || CT.C193,
+        [_Location_name]: null,
+        [_Location_column]: 42,
+        [_Location_line]: 218,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C198() {
+      return C[198] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 29,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C197() {
+      return C[197] = dart.constList([C[198] || CT.C198], widget_inspector._Location);
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[197] || CT.C197,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 213,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C201() {
+      return C[201] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "stream",
+        [_Location_column]: 25,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 25,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C200() {
+      return C[200] = dart.constList([C[201] || CT.C201, C[202] || CT.C202], widget_inspector._Location);
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[200] || CT.C200,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 192,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C204() {
+      return C[204] = dart.constList([C[205] || CT.C205], widget_inspector._Location);
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[204] || CT.C204,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C207() {
+      return C[207] = dart.constList([C[208] || CT.C208], widget_inspector._Location);
+    },
+    get C206() {
+      return C[206] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[207] || CT.C207,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C210() {
+      return C[210] = dart.constList([C[211] || CT.C211, C[212] || CT.C212], widget_inspector._Location);
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[210] || CT.C210,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C215() {
+      return C[215] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C214() {
+      return C[214] = dart.constList([C[215] || CT.C215], widget_inspector._Location);
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[214] || CT.C214,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 15,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C219() {
+      return C[219] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C217() {
+      return C[217] = dart.constList([C[218] || CT.C218, C[219] || CT.C219], widget_inspector._Location);
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[217] || CT.C217,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C222() {
+      return C[222] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C221() {
+      return C[221] = dart.constList([C[222] || CT.C222], widget_inspector._Location);
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[221] || CT.C221,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C223() {
+      return C[223] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 279,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C226() {
+      return C[226] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 279,
+        [_Location_file]: null
+      });
+    },
+    get C225() {
+      return C[225] = dart.constList([C[226] || CT.C226], widget_inspector._Location);
+    },
+    get C224() {
+      return C[224] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[225] || CT.C225,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 278,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
+      });
+    },
+    get C229() {
+      return C[229] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 7,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C230() {
+      return C[230] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C228() {
+      return C[228] = dart.constList([C[229] || CT.C229, C[230] || CT.C230], widget_inspector._Location);
+    },
+    get C227() {
+      return C[227] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[228] || CT.C228,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/status_screen.dart"
       });
     }
   }, false);
-  var C = Array(126).fill(void 0);
-  var I = [
-    "package:flutter/src/material/app.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/app.dart"
-  ];
-  var _name$ = dart.privateName(app$, "_name");
-  app$.ThemeMode = class ThemeMode extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (app$.ThemeMode.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = app$.ThemeMode.prototype;
-  dart.addTypeTests(app$.ThemeMode);
-  dart.addTypeCaches(app$.ThemeMode);
-  dart.setLibraryUri(app$.ThemeMode, I[0]);
-  dart.setFieldSignature(app$.ThemeMode, () => ({
-    __proto__: dart.getFields(app$.ThemeMode.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(app$.ThemeMode, ['toString']);
-  app$.ThemeMode.system = C[0] || CT.C0;
-  app$.ThemeMode.light = C[1] || CT.C1;
-  app$.ThemeMode.dark = C[2] || CT.C2;
-  app$.ThemeMode.values = C[3] || CT.C3;
-  var navigatorKey$ = dart.privateName(app$, "MaterialApp.navigatorKey");
-  var scaffoldMessengerKey$ = dart.privateName(app$, "MaterialApp.scaffoldMessengerKey");
-  var home$ = dart.privateName(app$, "MaterialApp.home");
-  var routes$ = dart.privateName(app$, "MaterialApp.routes");
-  var initialRoute$ = dart.privateName(app$, "MaterialApp.initialRoute");
-  var onGenerateRoute$ = dart.privateName(app$, "MaterialApp.onGenerateRoute");
-  var onGenerateInitialRoutes$ = dart.privateName(app$, "MaterialApp.onGenerateInitialRoutes");
-  var onUnknownRoute$ = dart.privateName(app$, "MaterialApp.onUnknownRoute");
-  var navigatorObservers$ = dart.privateName(app$, "MaterialApp.navigatorObservers");
-  var routeInformationProvider$ = dart.privateName(app$, "MaterialApp.routeInformationProvider");
-  var routeInformationParser$ = dart.privateName(app$, "MaterialApp.routeInformationParser");
-  var routerDelegate$ = dart.privateName(app$, "MaterialApp.routerDelegate");
-  var backButtonDispatcher$ = dart.privateName(app$, "MaterialApp.backButtonDispatcher");
-  var builder$ = dart.privateName(app$, "MaterialApp.builder");
-  var title$ = dart.privateName(app$, "MaterialApp.title");
-  var onGenerateTitle$ = dart.privateName(app$, "MaterialApp.onGenerateTitle");
-  var theme$0 = dart.privateName(app$, "MaterialApp.theme");
-  var darkTheme$ = dart.privateName(app$, "MaterialApp.darkTheme");
-  var highContrastTheme$ = dart.privateName(app$, "MaterialApp.highContrastTheme");
-  var highContrastDarkTheme$ = dart.privateName(app$, "MaterialApp.highContrastDarkTheme");
-  var themeMode$ = dart.privateName(app$, "MaterialApp.themeMode");
-  var color$ = dart.privateName(app$, "MaterialApp.color");
-  var locale$ = dart.privateName(app$, "MaterialApp.locale");
-  var localizationsDelegates$ = dart.privateName(app$, "MaterialApp.localizationsDelegates");
-  var localeListResolutionCallback$ = dart.privateName(app$, "MaterialApp.localeListResolutionCallback");
-  var localeResolutionCallback$ = dart.privateName(app$, "MaterialApp.localeResolutionCallback");
-  var supportedLocales$ = dart.privateName(app$, "MaterialApp.supportedLocales");
-  var showPerformanceOverlay$ = dart.privateName(app$, "MaterialApp.showPerformanceOverlay");
-  var checkerboardRasterCacheImages$ = dart.privateName(app$, "MaterialApp.checkerboardRasterCacheImages");
-  var checkerboardOffscreenLayers$ = dart.privateName(app$, "MaterialApp.checkerboardOffscreenLayers");
-  var showSemanticsDebugger$ = dart.privateName(app$, "MaterialApp.showSemanticsDebugger");
-  var debugShowCheckedModeBanner$ = dart.privateName(app$, "MaterialApp.debugShowCheckedModeBanner");
-  var shortcuts$ = dart.privateName(app$, "MaterialApp.shortcuts");
-  var actions$ = dart.privateName(app$, "MaterialApp.actions");
-  var restorationScopeId$ = dart.privateName(app$, "MaterialApp.restorationScopeId");
-  var scrollBehavior$ = dart.privateName(app$, "MaterialApp.scrollBehavior");
-  var debugShowMaterialGrid$ = dart.privateName(app$, "MaterialApp.debugShowMaterialGrid");
-  var Locale__countryCode = dart.privateName(ui, "Locale._countryCode");
-  var Locale_scriptCode = dart.privateName(ui, "Locale.scriptCode");
-  var Locale__languageCode = dart.privateName(ui, "Locale._languageCode");
-  app$.MaterialApp = class MaterialApp extends framework.StatefulWidget {
-    get navigatorKey() {
-      return this[navigatorKey$];
-    }
-    set navigatorKey(value) {
-      super.navigatorKey = value;
-    }
-    get scaffoldMessengerKey() {
-      return this[scaffoldMessengerKey$];
-    }
-    set scaffoldMessengerKey(value) {
-      super.scaffoldMessengerKey = value;
-    }
-    get home() {
-      return this[home$];
-    }
-    set home(value) {
-      super.home = value;
-    }
-    get routes() {
-      return this[routes$];
-    }
-    set routes(value) {
-      super.routes = value;
-    }
-    get initialRoute() {
-      return this[initialRoute$];
-    }
-    set initialRoute(value) {
-      super.initialRoute = value;
-    }
-    get onGenerateRoute() {
-      return this[onGenerateRoute$];
-    }
-    set onGenerateRoute(value) {
-      super.onGenerateRoute = value;
-    }
-    get onGenerateInitialRoutes() {
-      return this[onGenerateInitialRoutes$];
-    }
-    set onGenerateInitialRoutes(value) {
-      super.onGenerateInitialRoutes = value;
-    }
-    get onUnknownRoute() {
-      return this[onUnknownRoute$];
-    }
-    set onUnknownRoute(value) {
-      super.onUnknownRoute = value;
-    }
-    get navigatorObservers() {
-      return this[navigatorObservers$];
-    }
-    set navigatorObservers(value) {
-      super.navigatorObservers = value;
-    }
-    get routeInformationProvider() {
-      return this[routeInformationProvider$];
-    }
-    set routeInformationProvider(value) {
-      super.routeInformationProvider = value;
-    }
-    get routeInformationParser() {
-      return this[routeInformationParser$];
-    }
-    set routeInformationParser(value) {
-      super.routeInformationParser = value;
-    }
-    get routerDelegate() {
-      return this[routerDelegate$];
-    }
-    set routerDelegate(value) {
-      super.routerDelegate = value;
-    }
-    get backButtonDispatcher() {
-      return this[backButtonDispatcher$];
-    }
-    set backButtonDispatcher(value) {
-      super.backButtonDispatcher = value;
-    }
-    get builder() {
-      return this[builder$];
-    }
-    set builder(value) {
-      super.builder = value;
-    }
-    get title() {
-      return this[title$];
-    }
-    set title(value) {
-      super.title = value;
-    }
-    get onGenerateTitle() {
-      return this[onGenerateTitle$];
-    }
-    set onGenerateTitle(value) {
-      super.onGenerateTitle = value;
-    }
-    get theme() {
-      return this[theme$0];
-    }
-    set theme(value) {
-      super.theme = value;
-    }
-    get darkTheme() {
-      return this[darkTheme$];
-    }
-    set darkTheme(value) {
-      super.darkTheme = value;
-    }
-    get highContrastTheme() {
-      return this[highContrastTheme$];
-    }
-    set highContrastTheme(value) {
-      super.highContrastTheme = value;
-    }
-    get highContrastDarkTheme() {
-      return this[highContrastDarkTheme$];
-    }
-    set highContrastDarkTheme(value) {
-      super.highContrastDarkTheme = value;
-    }
-    get themeMode() {
-      return this[themeMode$];
-    }
-    set themeMode(value) {
-      super.themeMode = value;
-    }
-    get color() {
-      return this[color$];
-    }
-    set color(value) {
-      super.color = value;
-    }
-    get locale() {
-      return this[locale$];
-    }
-    set locale(value) {
-      super.locale = value;
-    }
-    get localizationsDelegates() {
-      return this[localizationsDelegates$];
-    }
-    set localizationsDelegates(value) {
-      super.localizationsDelegates = value;
-    }
-    get localeListResolutionCallback() {
-      return this[localeListResolutionCallback$];
-    }
-    set localeListResolutionCallback(value) {
-      super.localeListResolutionCallback = value;
-    }
-    get localeResolutionCallback() {
-      return this[localeResolutionCallback$];
-    }
-    set localeResolutionCallback(value) {
-      super.localeResolutionCallback = value;
-    }
-    get supportedLocales() {
-      return this[supportedLocales$];
-    }
-    set supportedLocales(value) {
-      super.supportedLocales = value;
-    }
-    get showPerformanceOverlay() {
-      return this[showPerformanceOverlay$];
-    }
-    set showPerformanceOverlay(value) {
-      super.showPerformanceOverlay = value;
-    }
-    get checkerboardRasterCacheImages() {
-      return this[checkerboardRasterCacheImages$];
-    }
-    set checkerboardRasterCacheImages(value) {
-      super.checkerboardRasterCacheImages = value;
-    }
-    get checkerboardOffscreenLayers() {
-      return this[checkerboardOffscreenLayers$];
-    }
-    set checkerboardOffscreenLayers(value) {
-      super.checkerboardOffscreenLayers = value;
-    }
-    get showSemanticsDebugger() {
-      return this[showSemanticsDebugger$];
-    }
-    set showSemanticsDebugger(value) {
-      super.showSemanticsDebugger = value;
-    }
-    get debugShowCheckedModeBanner() {
-      return this[debugShowCheckedModeBanner$];
-    }
-    set debugShowCheckedModeBanner(value) {
-      super.debugShowCheckedModeBanner = value;
-    }
-    get shortcuts() {
-      return this[shortcuts$];
-    }
-    set shortcuts(value) {
-      super.shortcuts = value;
-    }
-    get actions() {
-      return this[actions$];
-    }
-    set actions(value) {
-      super.actions = value;
-    }
-    get restorationScopeId() {
-      return this[restorationScopeId$];
-    }
-    set restorationScopeId(value) {
-      super.restorationScopeId = value;
-    }
-    get scrollBehavior() {
-      return this[scrollBehavior$];
-    }
-    set scrollBehavior(value) {
-      super.scrollBehavior = value;
-    }
-    get debugShowMaterialGrid() {
-      return this[debugShowMaterialGrid$];
-    }
-    set debugShowMaterialGrid(value) {
-      super.debugShowMaterialGrid = value;
-    }
-    createState() {
-      return new app$._MaterialAppState.new();
-    }
-    static createMaterialHeroController() {
-      return new heroes.HeroController.new({createRectTween: dart.fn((begin, end) => new arc.MaterialRectArcTween.new({begin: begin, end: end}), T$.RectNAndRectNToMaterialRectArcTween())});
-    }
-  };
-  (app$.MaterialApp.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let navigatorKey = opts && 'navigatorKey' in opts ? opts.navigatorKey : null;
-    let scaffoldMessengerKey = opts && 'scaffoldMessengerKey' in opts ? opts.scaffoldMessengerKey : null;
-    let home = opts && 'home' in opts ? opts.home : null;
-    let routes = opts && 'routes' in opts ? opts.routes : C[4] || CT.C4;
-    let initialRoute = opts && 'initialRoute' in opts ? opts.initialRoute : null;
-    let onGenerateRoute = opts && 'onGenerateRoute' in opts ? opts.onGenerateRoute : null;
-    let onGenerateInitialRoutes = opts && 'onGenerateInitialRoutes' in opts ? opts.onGenerateInitialRoutes : null;
-    let onUnknownRoute = opts && 'onUnknownRoute' in opts ? opts.onUnknownRoute : null;
-    let navigatorObservers = opts && 'navigatorObservers' in opts ? opts.navigatorObservers : C[5] || CT.C5;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let title = opts && 'title' in opts ? opts.title : "";
-    let onGenerateTitle = opts && 'onGenerateTitle' in opts ? opts.onGenerateTitle : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let theme = opts && 'theme' in opts ? opts.theme : null;
-    let darkTheme = opts && 'darkTheme' in opts ? opts.darkTheme : null;
-    let highContrastTheme = opts && 'highContrastTheme' in opts ? opts.highContrastTheme : null;
-    let highContrastDarkTheme = opts && 'highContrastDarkTheme' in opts ? opts.highContrastDarkTheme : null;
-    let themeMode = opts && 'themeMode' in opts ? opts.themeMode : C[0] || CT.C0;
-    let locale = opts && 'locale' in opts ? opts.locale : null;
-    let localizationsDelegates = opts && 'localizationsDelegates' in opts ? opts.localizationsDelegates : null;
-    let localeListResolutionCallback = opts && 'localeListResolutionCallback' in opts ? opts.localeListResolutionCallback : null;
-    let localeResolutionCallback = opts && 'localeResolutionCallback' in opts ? opts.localeResolutionCallback : null;
-    let supportedLocales = opts && 'supportedLocales' in opts ? opts.supportedLocales : C[6] || CT.C6;
-    let debugShowMaterialGrid = opts && 'debugShowMaterialGrid' in opts ? opts.debugShowMaterialGrid : false;
-    let showPerformanceOverlay = opts && 'showPerformanceOverlay' in opts ? opts.showPerformanceOverlay : false;
-    let checkerboardRasterCacheImages = opts && 'checkerboardRasterCacheImages' in opts ? opts.checkerboardRasterCacheImages : false;
-    let checkerboardOffscreenLayers = opts && 'checkerboardOffscreenLayers' in opts ? opts.checkerboardOffscreenLayers : false;
-    let showSemanticsDebugger = opts && 'showSemanticsDebugger' in opts ? opts.showSemanticsDebugger : false;
-    let debugShowCheckedModeBanner = opts && 'debugShowCheckedModeBanner' in opts ? opts.debugShowCheckedModeBanner : true;
-    let shortcuts = opts && 'shortcuts' in opts ? opts.shortcuts : null;
-    let actions = opts && 'actions' in opts ? opts.actions : null;
-    let restorationScopeId = opts && 'restorationScopeId' in opts ? opts.restorationScopeId : null;
-    let scrollBehavior = opts && 'scrollBehavior' in opts ? opts.scrollBehavior : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[navigatorKey$] = navigatorKey;
-    this[scaffoldMessengerKey$] = scaffoldMessengerKey;
-    this[home$] = home;
-    this[routes$] = routes;
-    this[initialRoute$] = initialRoute;
-    this[onGenerateRoute$] = onGenerateRoute;
-    this[onGenerateInitialRoutes$] = onGenerateInitialRoutes;
-    this[onUnknownRoute$] = onUnknownRoute;
-    this[navigatorObservers$] = navigatorObservers;
-    this[builder$] = builder;
-    this[title$] = title;
-    this[onGenerateTitle$] = onGenerateTitle;
-    this[color$] = color;
-    this[theme$0] = theme;
-    this[darkTheme$] = darkTheme;
-    this[highContrastTheme$] = highContrastTheme;
-    this[highContrastDarkTheme$] = highContrastDarkTheme;
-    this[themeMode$] = themeMode;
-    this[locale$] = locale;
-    this[localizationsDelegates$] = localizationsDelegates;
-    this[localeListResolutionCallback$] = localeListResolutionCallback;
-    this[localeResolutionCallback$] = localeResolutionCallback;
-    this[supportedLocales$] = supportedLocales;
-    this[debugShowMaterialGrid$] = debugShowMaterialGrid;
-    this[showPerformanceOverlay$] = showPerformanceOverlay;
-    this[checkerboardRasterCacheImages$] = checkerboardRasterCacheImages;
-    this[checkerboardOffscreenLayers$] = checkerboardOffscreenLayers;
-    this[showSemanticsDebugger$] = showSemanticsDebugger;
-    this[debugShowCheckedModeBanner$] = debugShowCheckedModeBanner;
-    this[shortcuts$] = shortcuts;
-    this[actions$] = actions;
-    this[restorationScopeId$] = restorationScopeId;
-    this[scrollBehavior$] = scrollBehavior;
-    if (!(routes !== null)) dart.assertFailed(null, I[1], 201, 15, "routes != null");
-    if (!(navigatorObservers !== null)) dart.assertFailed(null, I[1], 202, 15, "navigatorObservers != null");
-    if (!(title !== null)) dart.assertFailed(null, I[1], 203, 15, "title != null");
-    if (!(debugShowMaterialGrid !== null)) dart.assertFailed(null, I[1], 204, 15, "debugShowMaterialGrid != null");
-    if (!(showPerformanceOverlay !== null)) dart.assertFailed(null, I[1], 205, 15, "showPerformanceOverlay != null");
-    if (!(checkerboardRasterCacheImages !== null)) dart.assertFailed(null, I[1], 206, 15, "checkerboardRasterCacheImages != null");
-    if (!(checkerboardOffscreenLayers !== null)) dart.assertFailed(null, I[1], 207, 15, "checkerboardOffscreenLayers != null");
-    if (!(showSemanticsDebugger !== null)) dart.assertFailed(null, I[1], 208, 15, "showSemanticsDebugger != null");
-    if (!(debugShowCheckedModeBanner !== null)) dart.assertFailed(null, I[1], 209, 15, "debugShowCheckedModeBanner != null");
-    this[routeInformationProvider$] = null;
-    this[routeInformationParser$] = null;
-    this[routerDelegate$] = null;
-    this[backButtonDispatcher$] = null;
-    app$.MaterialApp.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = app$.MaterialApp.prototype;
-  (app$.MaterialApp.router = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scaffoldMessengerKey = opts && 'scaffoldMessengerKey' in opts ? opts.scaffoldMessengerKey : null;
-    let routeInformationProvider = opts && 'routeInformationProvider' in opts ? opts.routeInformationProvider : null;
-    let routeInformationParser = opts && 'routeInformationParser' in opts ? opts.routeInformationParser : null;
-    let routerDelegate = opts && 'routerDelegate' in opts ? opts.routerDelegate : null;
-    let backButtonDispatcher = opts && 'backButtonDispatcher' in opts ? opts.backButtonDispatcher : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let title = opts && 'title' in opts ? opts.title : "";
-    let onGenerateTitle = opts && 'onGenerateTitle' in opts ? opts.onGenerateTitle : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let theme = opts && 'theme' in opts ? opts.theme : null;
-    let darkTheme = opts && 'darkTheme' in opts ? opts.darkTheme : null;
-    let highContrastTheme = opts && 'highContrastTheme' in opts ? opts.highContrastTheme : null;
-    let highContrastDarkTheme = opts && 'highContrastDarkTheme' in opts ? opts.highContrastDarkTheme : null;
-    let themeMode = opts && 'themeMode' in opts ? opts.themeMode : C[0] || CT.C0;
-    let locale = opts && 'locale' in opts ? opts.locale : null;
-    let localizationsDelegates = opts && 'localizationsDelegates' in opts ? opts.localizationsDelegates : null;
-    let localeListResolutionCallback = opts && 'localeListResolutionCallback' in opts ? opts.localeListResolutionCallback : null;
-    let localeResolutionCallback = opts && 'localeResolutionCallback' in opts ? opts.localeResolutionCallback : null;
-    let supportedLocales = opts && 'supportedLocales' in opts ? opts.supportedLocales : C[6] || CT.C6;
-    let debugShowMaterialGrid = opts && 'debugShowMaterialGrid' in opts ? opts.debugShowMaterialGrid : false;
-    let showPerformanceOverlay = opts && 'showPerformanceOverlay' in opts ? opts.showPerformanceOverlay : false;
-    let checkerboardRasterCacheImages = opts && 'checkerboardRasterCacheImages' in opts ? opts.checkerboardRasterCacheImages : false;
-    let checkerboardOffscreenLayers = opts && 'checkerboardOffscreenLayers' in opts ? opts.checkerboardOffscreenLayers : false;
-    let showSemanticsDebugger = opts && 'showSemanticsDebugger' in opts ? opts.showSemanticsDebugger : false;
-    let debugShowCheckedModeBanner = opts && 'debugShowCheckedModeBanner' in opts ? opts.debugShowCheckedModeBanner : true;
-    let shortcuts = opts && 'shortcuts' in opts ? opts.shortcuts : null;
-    let actions = opts && 'actions' in opts ? opts.actions : null;
-    let restorationScopeId = opts && 'restorationScopeId' in opts ? opts.restorationScopeId : null;
-    let scrollBehavior = opts && 'scrollBehavior' in opts ? opts.scrollBehavior : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[scaffoldMessengerKey$] = scaffoldMessengerKey;
-    this[routeInformationProvider$] = routeInformationProvider;
-    this[routeInformationParser$] = routeInformationParser;
-    this[routerDelegate$] = routerDelegate;
-    this[backButtonDispatcher$] = backButtonDispatcher;
-    this[builder$] = builder;
-    this[title$] = title;
-    this[onGenerateTitle$] = onGenerateTitle;
-    this[color$] = color;
-    this[theme$0] = theme;
-    this[darkTheme$] = darkTheme;
-    this[highContrastTheme$] = highContrastTheme;
-    this[highContrastDarkTheme$] = highContrastDarkTheme;
-    this[themeMode$] = themeMode;
-    this[locale$] = locale;
-    this[localizationsDelegates$] = localizationsDelegates;
-    this[localeListResolutionCallback$] = localeListResolutionCallback;
-    this[localeResolutionCallback$] = localeResolutionCallback;
-    this[supportedLocales$] = supportedLocales;
-    this[debugShowMaterialGrid$] = debugShowMaterialGrid;
-    this[showPerformanceOverlay$] = showPerformanceOverlay;
-    this[checkerboardRasterCacheImages$] = checkerboardRasterCacheImages;
-    this[checkerboardOffscreenLayers$] = checkerboardOffscreenLayers;
-    this[showSemanticsDebugger$] = showSemanticsDebugger;
-    this[debugShowCheckedModeBanner$] = debugShowCheckedModeBanner;
-    this[shortcuts$] = shortcuts;
-    this[actions$] = actions;
-    this[restorationScopeId$] = restorationScopeId;
-    this[scrollBehavior$] = scrollBehavior;
-    if (!(routeInformationParser !== null)) dart.assertFailed(null, I[1], 248, 15, "routeInformationParser != null");
-    if (!(routerDelegate !== null)) dart.assertFailed(null, I[1], 249, 15, "routerDelegate != null");
-    if (!(title !== null)) dart.assertFailed(null, I[1], 250, 15, "title != null");
-    if (!(debugShowMaterialGrid !== null)) dart.assertFailed(null, I[1], 251, 15, "debugShowMaterialGrid != null");
-    if (!(showPerformanceOverlay !== null)) dart.assertFailed(null, I[1], 252, 15, "showPerformanceOverlay != null");
-    if (!(checkerboardRasterCacheImages !== null)) dart.assertFailed(null, I[1], 253, 15, "checkerboardRasterCacheImages != null");
-    if (!(checkerboardOffscreenLayers !== null)) dart.assertFailed(null, I[1], 254, 15, "checkerboardOffscreenLayers != null");
-    if (!(showSemanticsDebugger !== null)) dart.assertFailed(null, I[1], 255, 15, "showSemanticsDebugger != null");
-    if (!(debugShowCheckedModeBanner !== null)) dart.assertFailed(null, I[1], 256, 15, "debugShowCheckedModeBanner != null");
-    this[navigatorObservers$] = null;
-    this[navigatorKey$] = null;
-    this[onGenerateRoute$] = null;
-    this[home$] = null;
-    this[onGenerateInitialRoutes$] = null;
-    this[onUnknownRoute$] = null;
-    this[routes$] = null;
-    this[initialRoute$] = null;
-    app$.MaterialApp.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = app$.MaterialApp.prototype;
-  dart.addTypeTests(app$.MaterialApp);
-  dart.addTypeCaches(app$.MaterialApp);
-  dart.setMethodSignature(app$.MaterialApp, () => ({
-    __proto__: dart.getMethods(app$.MaterialApp.__proto__),
-    createState: dart.fnType(app$._MaterialAppState, [])
-  }));
-  dart.setLibraryUri(app$.MaterialApp, I[0]);
-  dart.setFieldSignature(app$.MaterialApp, () => ({
-    __proto__: dart.getFields(app$.MaterialApp.__proto__),
-    navigatorKey: dart.finalFieldType(dart.nullable(framework.GlobalKey$(navigator.NavigatorState))),
-    scaffoldMessengerKey: dart.finalFieldType(dart.nullable(framework.GlobalKey$(scaffold.ScaffoldMessengerState))),
-    home: dart.finalFieldType(dart.nullable(framework.Widget)),
-    routes: dart.finalFieldType(dart.nullable(core.Map$(core.String, dart.fnType(framework.Widget, [framework.BuildContext])))),
-    initialRoute: dart.finalFieldType(dart.nullable(core.String)),
-    onGenerateRoute: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(navigator.Route), [navigator.RouteSettings]))),
-    onGenerateInitialRoutes: dart.finalFieldType(dart.nullable(dart.fnType(core.List$(navigator.Route), [core.String]))),
-    onUnknownRoute: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(navigator.Route), [navigator.RouteSettings]))),
-    navigatorObservers: dart.finalFieldType(dart.nullable(core.List$(navigator.NavigatorObserver))),
-    routeInformationProvider: dart.finalFieldType(dart.nullable(router.RouteInformationProvider)),
-    routeInformationParser: dart.finalFieldType(dart.nullable(router.RouteInformationParser$(core.Object))),
-    routerDelegate: dart.finalFieldType(dart.nullable(router.RouterDelegate$(core.Object))),
-    backButtonDispatcher: dart.finalFieldType(dart.nullable(router.BackButtonDispatcher)),
-    builder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(framework.Widget)]))),
-    title: dart.finalFieldType(core.String),
-    onGenerateTitle: dart.finalFieldType(dart.nullable(dart.fnType(core.String, [framework.BuildContext]))),
-    theme: dart.finalFieldType(dart.nullable(theme_data.ThemeData)),
-    darkTheme: dart.finalFieldType(dart.nullable(theme_data.ThemeData)),
-    highContrastTheme: dart.finalFieldType(dart.nullable(theme_data.ThemeData)),
-    highContrastDarkTheme: dart.finalFieldType(dart.nullable(theme_data.ThemeData)),
-    themeMode: dart.finalFieldType(dart.nullable(app$.ThemeMode)),
-    color: dart.finalFieldType(dart.nullable(ui.Color)),
-    locale: dart.finalFieldType(dart.nullable(ui.Locale)),
-    localizationsDelegates: dart.finalFieldType(dart.nullable(core.Iterable$(localizations.LocalizationsDelegate))),
-    localeListResolutionCallback: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(ui.Locale), [dart.nullable(core.List$(ui.Locale)), core.Iterable$(ui.Locale)]))),
-    localeResolutionCallback: dart.finalFieldType(dart.nullable(dart.fnType(dart.nullable(ui.Locale), [dart.nullable(ui.Locale), core.Iterable$(ui.Locale)]))),
-    supportedLocales: dart.finalFieldType(core.Iterable$(ui.Locale)),
-    showPerformanceOverlay: dart.finalFieldType(core.bool),
-    checkerboardRasterCacheImages: dart.finalFieldType(core.bool),
-    checkerboardOffscreenLayers: dart.finalFieldType(core.bool),
-    showSemanticsDebugger: dart.finalFieldType(core.bool),
-    debugShowCheckedModeBanner: dart.finalFieldType(core.bool),
-    shortcuts: dart.finalFieldType(dart.nullable(core.Map$(shortcuts.LogicalKeySet, actions.Intent))),
-    actions: dart.finalFieldType(dart.nullable(core.Map$(core.Type, actions.Action$(actions.Intent)))),
-    restorationScopeId: dart.finalFieldType(dart.nullable(core.String)),
-    scrollBehavior: dart.finalFieldType(dart.nullable(scroll_configuration.ScrollBehavior)),
-    debugShowMaterialGrid: dart.finalFieldType(core.bool)
-  }));
-  var _name = dart.privateName(basic_types, "_name");
+  var C = Array(231).fill(void 0);
+  var I = ["package:logafic/screens/status_screen.dart"];
+  var id$ = dart.privateName(status_screen, "StatusScreen.id");
+  var authController$ = dart.privateName(status_screen, "StatusScreen.authController");
+  var posts = dart.privateName(status_screen, "StatusScreen.posts");
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _name$0 = dart.privateName(platform, "_name");
-  app$.MaterialScrollBehavior = class MaterialScrollBehavior extends scroll_configuration.ScrollBehavior {
-    getPlatform(context) {
-      return theme$.Theme.of(context).platform;
-    }
-    buildScrollbar(context, child, details) {
-      switch (basic_types.axisDirectionToAxis(details.direction)) {
-        case C[8] || CT.C8:
-        {
-          return child;
-        }
-        case C[19] || CT.C19:
-        {
-          switch (this.getPlatform(context)) {
-            case C[13] || CT.C13:
-            case C[14] || CT.C14:
-            case C[15] || CT.C15:
-            {
-              return new scrollbar.Scrollbar.new({child: child, controller: details.controller, $creationLocationd_0dea112b090073317d4: C[9] || CT.C9});
-            }
-            case C[16] || CT.C16:
-            case C[17] || CT.C17:
-            case C[18] || CT.C18:
-            {
-              return child;
-            }
-          }
-        }
-      }
-    }
-    buildOverscrollIndicator(context, child, details) {
-      switch (this.getPlatform(context)) {
-        case C[18] || CT.C18:
-        case C[13] || CT.C13:
-        case C[14] || CT.C14:
-        case C[15] || CT.C15:
-        {
-          return child;
-        }
-        case C[16] || CT.C16:
-        case C[17] || CT.C17:
-        {
-          return new overscroll_indicator.GlowingOverscrollIndicator.new({child: child, axisDirection: details.direction, color: theme$.Theme.of(context).colorScheme.secondary, $creationLocationd_0dea112b090073317d4: C[20] || CT.C20});
-        }
-      }
-    }
-  };
-  (app$.MaterialScrollBehavior.new = function() {
-    app$.MaterialScrollBehavior.__proto__.new.call(this);
-    ;
-  }).prototype = app$.MaterialScrollBehavior.prototype;
-  dart.addTypeTests(app$.MaterialScrollBehavior);
-  dart.addTypeCaches(app$.MaterialScrollBehavior);
-  dart.setLibraryUri(app$.MaterialScrollBehavior, I[0]);
-  var ___MaterialAppState__heroController = dart.privateName(app$, "_#_MaterialAppState#_heroController");
-  var _heroController = dart.privateName(app$, "_heroController");
-  var _usesRouter = dart.privateName(app$, "_usesRouter");
-  var _localizationsDelegates = dart.privateName(app$, "_localizationsDelegates");
   var Widget__location = dart.privateName(framework, "Widget._location");
   var Widget_key = dart.privateName(framework, "Widget.key");
   var Icon_textDirection = dart.privateName(icon, "Icon.textDirection");
   var Icon_semanticLabel = dart.privateName(icon, "Icon.semanticLabel");
+  var Color_value = dart.privateName(ui, "Color.value");
   var Icon_color = dart.privateName(icon, "Icon.color");
   var Icon_size = dart.privateName(icon, "Icon.size");
   var IconData_matchTextDirection = dart.privateName(icon_data, "IconData.matchTextDirection");
@@ -1751,142 +1973,140 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   var IconData_fontFamily = dart.privateName(icon_data, "IconData.fontFamily");
   var IconData_codePoint = dart.privateName(icon_data, "IconData.codePoint");
   var Icon_icon = dart.privateName(icon, "Icon.icon");
-  var _inspectorSelectButtonBuilder = dart.privateName(app$, "_inspectorSelectButtonBuilder");
-  var _materialBuilder = dart.privateName(app$, "_materialBuilder");
-  var _buildWidgetApp = dart.privateName(app$, "_buildWidgetApp");
-  var Color_value = dart.privateName(ui, "Color.value");
-  app$._MaterialAppState = class _MaterialAppState extends framework.State$(app$.MaterialApp) {
-    get [_heroController]() {
-      let t0;
-      t0 = this[___MaterialAppState__heroController];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_heroController")) : t0;
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  status_screen.StatusScreen = class StatusScreen extends framework.StatelessWidget {
+    get id() {
+      return this[id$];
     }
-    set [_heroController](t0) {
-      this[___MaterialAppState__heroController] = t0;
+    set id(value) {
+      super.id = value;
     }
-    get [_usesRouter]() {
-      return this.widget.routerDelegate != null;
+    get authController() {
+      return this[authController$];
     }
-    initState() {
-      super.initState();
-      this[_heroController] = app$.MaterialApp.createMaterialHeroController();
+    set authController(value) {
+      this[authController$] = value;
     }
-    get [_localizationsDelegates]() {
-      return new (T$.SyncIterableOfLocalizationsDelegate()).new((function* _localizationsDelegates() {
-        if (this.widget.localizationsDelegates != null) yield* dart.nullCheck(this.widget.localizationsDelegates);
-        yield material_localizations.DefaultMaterialLocalizations.delegate;
-        yield localizations$.DefaultCupertinoLocalizations.delegate;
-      }).bind(this));
+    get posts() {
+      return this[posts];
     }
-    [_inspectorSelectButtonBuilder](context, onPressed) {
-      return new floating_action_button.FloatingActionButton.new({child: C[25] || CT.C25, onPressed: onPressed, mini: true, $creationLocationd_0dea112b090073317d4: C[30] || CT.C30});
-    }
-    [_materialBuilder](context, child) {
-      let t1, t1$;
-      let mode = (t1 = this.widget.themeMode, t1 == null ? app$.ThemeMode.system : t1);
-      let platformBrightness = media_query.MediaQuery.platformBrightnessOf(context);
-      let useDarkTheme = mode === app$.ThemeMode.dark || mode === app$.ThemeMode.system && platformBrightness === ui.Brightness.dark;
-      let highContrast = media_query.MediaQuery.highContrastOf(context);
-      let theme = null;
-      if (useDarkTheme && highContrast && this.widget.highContrastDarkTheme != null) {
-        theme = this.widget.highContrastDarkTheme;
-      } else if (useDarkTheme && this.widget.darkTheme != null) {
-        theme = this.widget.darkTheme;
-      } else if (highContrast && this.widget.highContrastTheme != null) {
-        theme = this.widget.highContrastTheme;
-      }
-      theme == null ? theme = (t1$ = this.widget.theme, t1$ == null ? theme_data.ThemeData.light() : t1$) : null;
-      return new scaffold.ScaffoldMessenger.new({key: this.widget.scaffoldMessengerKey, child: new theme$.AnimatedTheme.new({data: theme, child: this.widget.builder != null ? new basic.Builder.new({builder: dart.fn(context => dart.nullCheck(this.widget.builder)(context, child), T$.BuildContextToWidget()), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}) : dart.nullCheck(child), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
-    }
-    [_buildWidgetApp](context) {
-      let t2, t1, t1$;
-      let materialColor = (t1$ = (t1 = this.widget.color, t1 == null ? (t2 = this.widget.theme, t2 == null ? null : t2.primaryColor) : t1), t1$ == null ? colors.Colors.blue : t1$);
-      if (this[_usesRouter]) {
-        return new app.WidgetsApp.router({key: new (T$.GlobalObjectKeyOfStateOfStatefulWidget()).new(this), routeInformationProvider: this.widget.routeInformationProvider, routeInformationParser: dart.nullCheck(this.widget.routeInformationParser), routerDelegate: dart.nullCheck(this.widget.routerDelegate), backButtonDispatcher: this.widget.backButtonDispatcher, builder: dart.bind(this, _materialBuilder), title: this.widget.title, onGenerateTitle: this.widget.onGenerateTitle, textStyle: app$._errorTextStyle, color: materialColor, locale: this.widget.locale, localizationsDelegates: this[_localizationsDelegates], localeResolutionCallback: this.widget.localeResolutionCallback, localeListResolutionCallback: this.widget.localeListResolutionCallback, supportedLocales: this.widget.supportedLocales, showPerformanceOverlay: this.widget.showPerformanceOverlay, checkerboardRasterCacheImages: this.widget.checkerboardRasterCacheImages, checkerboardOffscreenLayers: this.widget.checkerboardOffscreenLayers, showSemanticsDebugger: this.widget.showSemanticsDebugger, debugShowCheckedModeBanner: this.widget.debugShowCheckedModeBanner, inspectorSelectButtonBuilder: dart.bind(this, _inspectorSelectButtonBuilder), shortcuts: this.widget.shortcuts, actions: this.widget.actions, restorationScopeId: this.widget.restorationScopeId, $creationLocationd_0dea112b090073317d4: C[46] || CT.C46});
-      }
-      return new app.WidgetsApp.new({key: new (T$.GlobalObjectKeyOfStateOfStatefulWidget()).new(this), navigatorKey: this.widget.navigatorKey, navigatorObservers: dart.nullCheck(this.widget.navigatorObservers), pageRouteBuilder: dart.fn((T, settings, builder) => new (page.MaterialPageRoute$(T)).new({settings: settings, builder: builder}), T$.RouteSettingsAndFnToMaterialPageRouteOfT()), home: this.widget.home, routes: dart.nullCheck(this.widget.routes), initialRoute: this.widget.initialRoute, onGenerateRoute: this.widget.onGenerateRoute, onGenerateInitialRoutes: this.widget.onGenerateInitialRoutes, onUnknownRoute: this.widget.onUnknownRoute, builder: dart.bind(this, _materialBuilder), title: this.widget.title, onGenerateTitle: this.widget.onGenerateTitle, textStyle: app$._errorTextStyle, color: materialColor, locale: this.widget.locale, localizationsDelegates: this[_localizationsDelegates], localeResolutionCallback: this.widget.localeResolutionCallback, localeListResolutionCallback: this.widget.localeListResolutionCallback, supportedLocales: this.widget.supportedLocales, showPerformanceOverlay: this.widget.showPerformanceOverlay, checkerboardRasterCacheImages: this.widget.checkerboardRasterCacheImages, checkerboardOffscreenLayers: this.widget.checkerboardOffscreenLayers, showSemanticsDebugger: this.widget.showSemanticsDebugger, debugShowCheckedModeBanner: this.widget.debugShowCheckedModeBanner, inspectorSelectButtonBuilder: dart.bind(this, _inspectorSelectButtonBuilder), shortcuts: this.widget.shortcuts, actions: this.widget.actions, restorationScopeId: this.widget.restorationScopeId, $creationLocationd_0dea112b090073317d4: C[72] || CT.C72});
+    set posts(value) {
+      this[posts] = value;
     }
     build(context) {
-      let t1;
-      let result = this[_buildWidgetApp](context);
-      if (!dart.fn(() => {
-        if (this.widget.debugShowMaterialGrid) {
-          result = new grid_paper.GridPaper.new({color: C[103] || CT.C103, interval: 8.0, divisions: 2, subdivisions: 1, child: result, $creationLocationd_0dea112b090073317d4: C[104] || CT.C104});
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({backgroundColor: colors.Colors.white, leading: new basic.Builder.new({builder: dart.fn(context => new icon_button.IconButton.new({icon: C[0] || CT.C0, onPressed: dart.fn(() => {
+                navigator.Navigator.pop(T.ObjectN(), context);
+              }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), T.BuildContextToIconButton()), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), title: new text.Text.new("Gönderi", {style: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 20.0, fontFamily: "Montserrat", fontWeight: ui.FontWeight.w400, letterSpacing: 3.0}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), actions: T.JSArrayOfWidget().of([new menubaraction.MenuActionBar.new({$creationLocationd_0dea112b090073317d4: C[18] || CT.C18})]), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), body: new scrollbar.Scrollbar.new({child: this.getData, $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29});
+    }
+    get getData() {
+      return new (T.FutureBuilderOfDocumentSnapshotOfObjectN()).new({future: this.posts.doc(this.id).get(), builder: dart.fn((context, snapshot) => {
+          if (snapshot.hasError) {
+            return new basic.Center.new({child: new text.Text.new("Bir şeyler yanlış gitti", {$creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36});
+          }
+          if (snapshot.connectionState === async$.ConnectionState.done) {
+            let data = T.MapOfString$dynamic().as(dart.nullCheck(snapshot.data).data());
+            return new basic.Center.new({child: new basic.SizedBox.new({width: responsive.ResponsiveWidget.isSmallScreen(context) ? media_query.MediaQuery.of(context).size.width * 0.8 : media_query.MediaQuery.of(context).size.width * 0.6, child: new card.Card.new({child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new list_tile.ListTile.new({leading: new image.Image.network(core.String.as(data[$_get]("userProfile")), {$creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), title: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new text_button.TextButton.new({child: new text.Text.new(core.String.as(data[$_get]("userName")), {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), onPressed: dart.fn(() => {
+                                    navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$dynamic()).from(["userId", data[$_get]("userId")])});
+                                  }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46})]), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), subtitle: new text.Text.new(core.String.as(data[$_get]("created_at")), {style: new text_style.TextStyle.new({fontSize: 17.0}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[67] || CT.C67}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: dart.equals(data[$_get]("urlImage"), "") ? new text.Text.new(core.String.as(data[$_get]("content")), {$creationLocationd_0dea112b090073317d4: C[68] || CT.C68}) : new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.SizedBox.new({height: media_query.MediaQuery.of(context).size.height * 0.3, child: new image.Image.network(core.String.as(data[$_get]("urlImage")), {$creationLocationd_0dea112b090073317d4: C[71] || CT.C71}), $creationLocationd_0dea112b090073317d4: C[74] || CT.C74}), !dart.equals(data[$_get]("content"), "") ? new basic.Padding.new({padding: C[78] || CT.C78, child: new text.Text.new(core.String.as(data[$_get]("content")), {$creationLocationd_0dea112b090073317d4: C[79] || CT.C79}), $creationLocationd_0dea112b090073317d4: C[82] || CT.C82}) : new text.Text.new("", {$creationLocationd_0dea112b090073317d4: C[86] || CT.C86})]), $creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}), new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new text_button.TextButton.new({onPressed: dart.fn(() => {
+                                  showCommentDialogStatusWidget.showCommentPostShareWidget(context, this.id, core.String.as(data[$_get]("userId")), core.String.as(data[$_get]("content")), core.String.as(data[$_get]("urlImage")), core.String.as(data[$_get]("userProfile")), core.String.as(data[$_get]("userName")), core.String.as(data[$_get]("created_at")));
+                                }, T.VoidTovoid()), child: new text.Text.new("Yorum Yap", {style: new text_style.TextStyle.new({color: colors.Colors.black54, fontSize: 15.0}), $creationLocationd_0dea112b090073317d4: C[96] || CT.C96}), $creationLocationd_0dea112b090073317d4: C[100] || CT.C100}), $creationLocationd_0dea112b090073317d4: C[104] || CT.C104}), new (T.FutureBuilderOfbool()).new({future: this.checkIfDocExists(this.id), builder: dart.fn((context, snapshot) => {
+                                if (dart.equals(snapshot.data, false)) {
+                                  return new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.star_outline, {color: colors.Colors.green, $creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), onPressed: dart.fn(() => {
+                                      this.posts.doc(this.id).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).set(new (T.IdentityMapOfString$dynamic()).from(["like", true]));
+                                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112});
+                                } else {
+                                  return new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.star_outline, {color: colors.Colors.amber, $creationLocationd_0dea112b090073317d4: C[116] || CT.C116}), onPressed: dart.fn(() => {
+                                      this.posts.doc(this.id).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).delete();
+                                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[120] || CT.C120});
+                                }
+                              }, T.BuildContextAndAsyncSnapshotToIconButton()), $creationLocationd_0dea112b090073317d4: C[124] || CT.C124}), new (T.FutureBuilderOfint()).new({future: this.getSize(this.id), builder: dart.fn((context, snapshot) => {
+                                if (snapshot.hasData) {
+                                  return new text.Text.new(dart.toString(snapshot.data), {$creationLocationd_0dea112b090073317d4: C[128] || CT.C128});
+                                }
+                                return new text.Text.new("0", {$creationLocationd_0dea112b090073317d4: C[131] || CT.C131});
+                              }, T.BuildContextAndAsyncSnapshotOfintToText()), $creationLocationd_0dea112b090073317d4: C[134] || CT.C134})]), $creationLocationd_0dea112b090073317d4: C[138] || CT.C138}), new text.Text.new("Yorumlar", {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[141] || CT.C141}), new basic.Expanded.new({child: new (T.StreamBuilderOfQuerySnapshotOfObjectN()).new({stream: cloud_firestore.FirebaseFirestore.instance.collection("posts").doc(this.id).collection("comment").snapshots(), builder: dart.fn((context, snapshot) => {
+                              if (snapshot.connectionState === async$.ConnectionState.waiting) {
+                                return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[145] || CT.C145}), $creationLocationd_0dea112b090073317d4: C[146] || CT.C146});
+                              }
+                              if (snapshot.hasError) {
+                                new basic.Center.new({child: new text.Text.new("Birşeyler yanlış lütfen daha sonra tekrar deneyiniz.", {$creationLocationd_0dea112b090073317d4: C[149] || CT.C149}), $creationLocationd_0dea112b090073317d4: C[152] || CT.C152});
+                              }
+                              return new scroll_view.ListView.new({children: dart.nullCheck(snapshot.data).docs[$map](basic.Padding, dart.fn(document => {
+                                  let data = T.MapOfString$dynamic().as(document.data());
+                                  return new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new list_tile.ListTile.new({leading: new image.Image.network(core.String.as(data[$_get]("userProfileImage")), {$creationLocationd_0dea112b090073317d4: C[155] || CT.C155}), title: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new text_button.TextButton.new({child: new text.Text.new(core.String.as(data[$_get]("userName")), {style: new text_style.TextStyle.new({fontSize: 17.0}), $creationLocationd_0dea112b090073317d4: C[158] || CT.C158}), onPressed: dart.fn(() => {
+                                              navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$dynamic()).from(["userId", data[$_get]("userId")])});
+                                            }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), new text.Text.new(core.String.as(data[$_get]("comment")), {style: new text_style.TextStyle.new({fontSize: 17.0}), $creationLocationd_0dea112b090073317d4: C[166] || CT.C166}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[170] || CT.C170})]), $creationLocationd_0dea112b090073317d4: C[171] || CT.C171}), subtitle: new text.Text.new(core.String.as(data[$_get]("created_at")), {style: new text_style.TextStyle.new({fontSize: 12.0}), $creationLocationd_0dea112b090073317d4: C[175] || CT.C175}), trailing: dart.nullCheck(this.authController.firebaseUser.value).uid === data[$_get]("userId") ? new icon_button.IconButton.new({onPressed: dart.fn(() => {
+                                          this.posts.doc(this.id).collection("comment").doc(document.id).delete();
+                                          core.print(document.id);
+                                        }, T.VoidTovoid()), icon: new icon.Icon.new(icons.Icons.delete_forever_outlined, {$creationLocationd_0dea112b090073317d4: C[179] || CT.C179}), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182}) : null, $creationLocationd_0dea112b090073317d4: C[186] || CT.C186}), $creationLocationd_0dea112b090073317d4: C[192] || CT.C192});
+                                }, T.DocumentSnapshotOfObjectNToPadding()))[$toList](), $creationLocationd_0dea112b090073317d4: C[196] || CT.C196});
+                            }, T.BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget()), $creationLocationd_0dea112b090073317d4: C[199] || CT.C199}), $creationLocationd_0dea112b090073317d4: C[203] || CT.C203})]), $creationLocationd_0dea112b090073317d4: C[206] || CT.C206}), $creationLocationd_0dea112b090073317d4: C[209] || CT.C209}), $creationLocationd_0dea112b090073317d4: C[213] || CT.C213}), $creationLocationd_0dea112b090073317d4: C[216] || CT.C216}), $creationLocationd_0dea112b090073317d4: C[220] || CT.C220});
+          }
+          return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[223] || CT.C223}), $creationLocationd_0dea112b090073317d4: C[224] || CT.C224});
+        }, T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToCenter()), $creationLocationd_0dea112b090073317d4: C[227] || CT.C227});
+    }
+    checkIfDocExists(docId) {
+      return async.async(core.bool, (function* checkIfDocExists() {
+        try {
+          let doc = (yield this.posts.doc(docId).collection("likes").doc(dart.nullCheck(this.authController.firebaseUser.value).uid).get());
+          return doc.exists;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (core.Object.is(e)) {
+            dart.throw(e);
+          } else
+            throw e$;
         }
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[1], 900, 12, "() {\r\n      if (widget.debugShowMaterialGrid) {\r\n        result = GridPaper(\r\n          color: const Color(0xE0F9BBE0),\r\n          interval: 8.0,\r\n          divisions: 2,\r\n          subdivisions: 1,\r\n          child: result,\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-      return new scroll_configuration.ScrollConfiguration.new({behavior: (t1 = this.widget.scrollBehavior, t1 == null ? C[111] || CT.C111 : t1), child: new navigator.HeroControllerScope.new({controller: this[_heroController], child: result, $creationLocationd_0dea112b090073317d4: C[112] || CT.C112}), $creationLocationd_0dea112b090073317d4: C[116] || CT.C116});
+      }).bind(this));
+    }
+    getSize(documentId) {
+      return async.async(core.int, (function* getSize() {
+        let size = 0;
+        yield this.posts.doc(documentId).collection("likes").get().then(core.int, dart.fn(value => size = value.size, T.QuerySnapshotOfMapOfString$dynamicToint()));
+        return size;
+      }).bind(this));
     }
   };
-  (app$._MaterialAppState.new = function() {
-    this[___MaterialAppState__heroController] = null;
-    app$._MaterialAppState.__proto__.new.call(this);
+  (status_screen.StatusScreen.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let id = opts && 'id' in opts ? opts.id : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[authController$] = authController.AuthController.to;
+    this[posts] = cloud_firestore.FirebaseFirestore.instance.collection("posts");
+    this[id$] = id;
+    status_screen.StatusScreen.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = app$._MaterialAppState.prototype;
-  dart.addTypeTests(app$._MaterialAppState);
-  dart.addTypeCaches(app$._MaterialAppState);
-  dart.setMethodSignature(app$._MaterialAppState, () => ({
-    __proto__: dart.getMethods(app$._MaterialAppState.__proto__),
-    [_inspectorSelectButtonBuilder]: dart.fnType(framework.Widget, [framework.BuildContext, dart.fnType(dart.void, [])]),
-    [_materialBuilder]: dart.fnType(framework.Widget, [framework.BuildContext, dart.nullable(framework.Widget)]),
-    [_buildWidgetApp]: dart.fnType(framework.Widget, [framework.BuildContext]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = status_screen.StatusScreen.prototype;
+  dart.addTypeTests(status_screen.StatusScreen);
+  dart.addTypeCaches(status_screen.StatusScreen);
+  dart.setMethodSignature(status_screen.StatusScreen, () => ({
+    __proto__: dart.getMethods(status_screen.StatusScreen.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    checkIfDocExists: dart.fnType(async.Future$(core.bool), [core.String]),
+    getSize: dart.fnType(async.Future$(core.int), [core.String])
   }));
-  dart.setGetterSignature(app$._MaterialAppState, () => ({
-    __proto__: dart.getGetters(app$._MaterialAppState.__proto__),
-    [_heroController]: heroes.HeroController,
-    [_usesRouter]: core.bool,
-    [_localizationsDelegates]: core.Iterable$(localizations.LocalizationsDelegate)
+  dart.setGetterSignature(status_screen.StatusScreen, () => ({
+    __proto__: dart.getGetters(status_screen.StatusScreen.__proto__),
+    getData: framework.Widget
   }));
-  dart.setSetterSignature(app$._MaterialAppState, () => ({
-    __proto__: dart.getSetters(app$._MaterialAppState.__proto__),
-    [_heroController]: heroes.HeroController
+  dart.setLibraryUri(status_screen.StatusScreen, I[0]);
+  dart.setFieldSignature(status_screen.StatusScreen, () => ({
+    __proto__: dart.getFields(status_screen.StatusScreen.__proto__),
+    id: dart.finalFieldType(core.String),
+    authController: dart.fieldType(authController.AuthController),
+    posts: dart.fieldType(cloud_firestore.CollectionReference$(dart.nullable(core.Object)))
   }));
-  dart.setLibraryUri(app$._MaterialAppState, I[0]);
-  dart.setFieldSignature(app$._MaterialAppState, () => ({
-    __proto__: dart.getFields(app$._MaterialAppState.__proto__),
-    [___MaterialAppState__heroController]: dart.fieldType(dart.nullable(heroes.HeroController))
-  }));
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var _name$1 = dart.privateName(ui, "_name");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextDecoration__mask = dart.privateName(ui, "TextDecoration._mask");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  dart.defineLazy(app$, {
-    /*app$._errorTextStyle*/get _errorTextStyle() {
-      return C[120] || CT.C120;
-    }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/material/app.dart", {
-    "package:flutter/src/material/app.dart": app$
+  dart.trackLibraries("packages/logafic/screens/status_screen.dart", {
+    "package:logafic/screens/status_screen.dart": status_screen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["app.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgDA;;wCAVK;;;;EAUL;;;;;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","file":"../../../../../../../../packages/flutter/src/material/app.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["status_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../packages/logafic/screens/status_screen.dart.lib.js"}');
   // Exports:
   return {
-    src__material__app: app$
+    screens__status_screen: status_screen
   };
 }));
 
-//# sourceMappingURL=app.dart.lib.js.map
+//# sourceMappingURL=status_screen.dart.lib.js.map

@@ -62,8 +62,7 @@ class MessageScreenUserMessagesWidget extends StatelessWidget {
                                 image: NetworkImage(data['profileImage']),
                               )),
                         ),
-                        title: new Expanded(
-                            child: new Column(
+                        title: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -88,7 +87,7 @@ class MessageScreenUserMessagesWidget extends StatelessWidget {
                                   fontWeight: FontWeight.normal),
                             )
                           ],
-                        )),
+                        ),
                         subtitle: new Text(data['created_at']),
                         trailing: IconButton(
                           icon: Icon(Icons.delete_forever_outlined),

@@ -135,7 +135,7 @@ class Database {
         await _firebaseFirestore
             .collection('jobs')
             .doc(jobsId)
-            .collection('applications ')
+            .collection('applications')
             .add({
           'userId': userId,
           'userName': userName,

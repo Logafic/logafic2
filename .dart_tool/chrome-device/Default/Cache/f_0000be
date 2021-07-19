@@ -1,1405 +1,564 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/editable.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/cupertino/debug.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/rendering/paragraph.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/cupertino/button.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__cupertino__desktop_text_selection_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__editable$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__cupertino__debug$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__desktop_text_selection_toolbar_layout_delegate$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__rendering__paragraph$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__cupertino__button$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__painting__strut_style$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/image_stream.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__image_cache_dart(dart_sdk, packages__flutter__src__painting__image_stream$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const developer = dart_sdk.developer;
   const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const text$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const editable = packages__flutter__src__rendering__editable$46dart.src__rendering__editable;
-  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
-  const localizations$ = packages__flutter__src__cupertino__debug$46dart.src__cupertino__localizations;
-  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
-  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const desktop_text_selection_toolbar_layout_delegate = packages__flutter__src__widgets__desktop_text_selection_toolbar_layout_delegate$46dart.src__widgets__desktop_text_selection_toolbar_layout_delegate;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const paragraph = packages__flutter__src__rendering__paragraph$46dart.src__rendering__paragraph;
-  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
-  const theme = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__theme;
-  const button = packages__flutter__src__cupertino__button$46dart.src__cupertino__button;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  var desktop_text_selection = Object.create(dart.library);
-  var $clamp = dartx.clamp;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $add = dartx.add;
-  var $isEmpty = dartx.isEmpty;
+  const image_stream = packages__flutter__src__painting__image_stream$46dart.src__painting__image_stream;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var image_cache = Object.create(dart.library);
   var $length = dartx.length;
+  var $values = dartx.values;
+  var $clear = dartx.clear;
+  var $remove = dartx.remove;
+  var $_set = dartx._set;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $toString = dartx.toString;
+  var $_get = dartx._get;
+  var $containsKey = dartx.containsKey;
+  var $first = dartx.first;
+  var $keys = dartx.keys;
+  var $runtimeType = dartx.runtimeType;
   dart._checkModuleNullSafetyMode(true);
   var T = {
+    LinkedMapOfObject$_PendingImage: () => (T.LinkedMapOfObject$_PendingImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._PendingImage)))(),
+    LinkedMapOfObject$_CachedImage: () => (T.LinkedMapOfObject$_CachedImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._CachedImage)))(),
+    LinkedMapOfObject$_LiveImage: () => (T.LinkedMapOfObject$_LiveImage = dart.constFn(_js_helper.LinkedMap$(core.Object, image_cache._LiveImage)))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
     VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    StringAndFnTovoid: () => (T.StringAndFnTovoid = dart.constFn(dart.fnType(dart.void, [core.String, T.VoidTovoid()])))(),
-    BuildContextAndWidgetToWidget: () => (T.BuildContextAndWidgetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget])))()
+    VoidTo_LiveImage: () => (T.VoidTo_LiveImage = dart.constFn(dart.fnType(image_cache._LiveImage, [])))(),
+    ImageInfoN: () => (T.ImageInfoN = dart.constFn(dart.nullable(image_stream.ImageInfo)))(),
+    ImageInfoNAndboolTovoid: () => (T.ImageInfoNAndboolTovoid = dart.constFn(dart.fnType(dart.void, [T.ImageInfoN(), core.bool])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
-  dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipboardStatus",
-        [_Location_column]: 7,
-        [_Location_line]: 55,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "endpoints",
-        [_Location_column]: 7,
-        [_Location_line]: 56,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "globalEditableRegion",
-        [_Location_column]: 7,
-        [_Location_line]: 57,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "handleCut",
-        [_Location_column]: 7,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "handleCopy",
-        [_Location_column]: 7,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "handlePaste",
-        [_Location_column]: 7,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "handleSelectAll",
-        [_Location_column]: 7,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "selectionMidpoint",
-        [_Location_column]: 7,
-        [_Location_line]: 62,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "lastSecondaryTapDownPosition",
-        [_Location_column]: 7,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textLineHeight",
-        [_Location_column]: 7,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 54,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C14() {
-      return C[14] = dart.constList([], widget_inspector._Location);
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[14] || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 71,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[13] || CT.C13,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 0,
-        [SizedBox_width]: 0
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 29,
-        [_Location_line]: 168,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 41,
-        [_Location_line]: 168,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[17] || CT.C17,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 168,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[16] || CT.C16,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 0,
-        [SizedBox_width]: 0
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 18,
-        [_Location_line]: 185,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.constList([C[22] || CT.C22], widget_inspector._Location);
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[21] || CT.C21,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 185,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "context",
-        [_Location_column]: 9,
-        [_Location_line]: 196,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 9,
-        [_Location_line]: 197,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "text",
-        [_Location_column]: 9,
-        [_Location_line]: 198,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27], widget_inspector._Location);
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 61,
-        [_Location_line]: 195,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 29,
-        [_Location_line]: 218,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 41,
-        [_Location_line]: 218,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32], widget_inspector._Location);
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[30] || CT.C30,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 218,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: basic.SizedBox.prototype,
-        [Widget__location]: C[29] || CT.C29,
-        [Widget_key]: null,
-        [SingleChildRenderObjectWidget_child]: null,
-        [SizedBox_height]: 0,
-        [SizedBox_width]: 0
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "anchor",
-        [_Location_column]: 7,
-        [_Location_line]: 222,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 223,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[34] || CT.C34,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 221,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C37() {
-      return C[37] = dart.fn(desktop_text_selection._CupertinoDesktopTextSelectionToolbar._defaultToolbarBuilder, T.BuildContextAndWidgetToWidget());
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: ui.Radius.prototype,
-        [Radius_y]: 4,
-        [Radius_x]: 4
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: border_radius.BorderRadius.prototype,
-        [BorderRadius_bottomRight]: C[39] || CT.C39,
-        [BorderRadius_bottomLeft]: C[39] || CT.C39,
-        [BorderRadius_topRight]: C[39] || CT.C39,
-        [BorderRadius_topLeft]: C[39] || CT.C39
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 3,
-        [EdgeInsets_right]: 0,
-        [EdgeInsets_top]: 3,
-        [EdgeInsets_left]: 0
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 9,
-        [_Location_line]: 282,
-        [_Location_file]: null
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 288,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], widget_inspector._Location);
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[42] || CT.C42,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 281,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 7,
-        [_Location_line]: 273,
-        [_Location_file]: null
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 7,
-        [_Location_line]: 274,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 281,
-        [_Location_file]: null
-      });
-    },
-    get C46() {
-      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[46] || CT.C46,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 272,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisSize",
-        [_Location_column]: 11,
-        [_Location_line]: 313,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 314,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[51] || CT.C51,
-        [_Location_name]: null,
-        [_Location_column]: 40,
-        [_Location_line]: 312,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 9,
-        [_Location_line]: 309,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 312,
-        [_Location_file]: null
-      });
-    },
-    get C55() {
-      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57], widget_inspector._Location);
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[55] || CT.C55,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 308,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 302,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 308,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], widget_inspector._Location);
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[59] || CT.C59,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 301,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967295.0
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: colors.CupertinoDynamicColor.prototype,
-        [Color_value]: 0,
-        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[63] || CT.C63,
-        [CupertinoDynamicColor_highContrastElevatedColor]: C[64] || CT.C64,
-        [CupertinoDynamicColor_darkElevatedColor]: C[63] || CT.C63,
-        [CupertinoDynamicColor_elevatedColor]: C[64] || CT.C64,
-        [CupertinoDynamicColor_darkHighContrastColor]: C[63] || CT.C63,
-        [CupertinoDynamicColor_highContrastColor]: C[64] || CT.C64,
-        [CupertinoDynamicColor_darkColor]: C[63] || CT.C63,
-        [CupertinoDynamicColor_color]: C[64] || CT.C64,
-        [CupertinoDynamicColor__debugResolveContext]: null,
-        [CupertinoDynamicColor__debugLabel]: null,
-        [CupertinoDynamicColor__effectiveColor]: C[64] || CT.C64
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 10,
-        [_Location_line]: 356,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "overflow",
-        [_Location_column]: 10,
-        [_Location_line]: 357,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 10,
-        [_Location_line]: 358,
-        [_Location_file]: null
-      });
-    },
-    get C66() {
-      return C[66] = dart.constList([C[67] || CT.C67, C[68] || CT.C68, C[69] || CT.C69], widget_inspector._Location);
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[66] || CT.C66,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 355,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 400,
-        [_Location_file]: null
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderRadius",
-        [_Location_column]: 11,
-        [_Location_line]: 401,
-        [_Location_file]: null
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 11,
-        [_Location_line]: 402,
-        [_Location_file]: null
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "minSize",
-        [_Location_column]: 11,
-        [_Location_line]: 403,
-        [_Location_file]: null
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 11,
-        [_Location_line]: 404,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 11,
-        [_Location_line]: 405,
-        [_Location_file]: null
-      });
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "pressedOpacity",
-        [_Location_column]: 11,
-        [_Location_line]: 406,
-        [_Location_file]: null
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 407,
-        [_Location_file]: null
-      });
-    },
-    get C71() {
-      return C[71] = dart.constList([C[72] || CT.C72, C[73] || CT.C73, C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79], widget_inspector._Location);
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[71] || CT.C71,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 399,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onEnter",
-        [_Location_column]: 9,
-        [_Location_line]: 397,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onExit",
-        [_Location_column]: 9,
-        [_Location_line]: 398,
-        [_Location_file]: null
-      });
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 399,
-        [_Location_file]: null
-      });
-    },
-    get C81() {
-      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83, C[84] || CT.C84], widget_inspector._Location);
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[81] || CT.C81,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 396,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 7,
-        [_Location_line]: 395,
-        [_Location_file]: null
-      });
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 396,
-        [_Location_file]: null
-      });
-    },
-    get C86() {
-      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88], widget_inspector._Location);
-    },
-    get C85() {
-      return C[85] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[86] || CT.C86,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 394,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4283453778.0
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4290493371.0
-      });
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: colors.CupertinoDynamicColor.prototype,
-        [Color_value]: 0,
-        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[90] || CT.C90,
-        [CupertinoDynamicColor_highContrastElevatedColor]: C[91] || CT.C91,
-        [CupertinoDynamicColor_darkElevatedColor]: C[90] || CT.C90,
-        [CupertinoDynamicColor_elevatedColor]: C[91] || CT.C91,
-        [CupertinoDynamicColor_darkHighContrastColor]: C[90] || CT.C90,
-        [CupertinoDynamicColor_highContrastColor]: C[91] || CT.C91,
-        [CupertinoDynamicColor_darkColor]: C[90] || CT.C90,
-        [CupertinoDynamicColor_color]: C[91] || CT.C91,
-        [CupertinoDynamicColor__debugResolveContext]: null,
-        [CupertinoDynamicColor__debugLabel]: null,
-        [CupertinoDynamicColor__effectiveColor]: C[91] || CT.C91
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4281346344.0
-      });
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4293716198.0
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: colors.CupertinoDynamicColor.prototype,
-        [Color_value]: 0,
-        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[93] || CT.C93,
-        [CupertinoDynamicColor_highContrastElevatedColor]: C[94] || CT.C94,
-        [CupertinoDynamicColor_darkElevatedColor]: C[93] || CT.C93,
-        [CupertinoDynamicColor_elevatedColor]: C[94] || CT.C94,
-        [CupertinoDynamicColor_darkHighContrastColor]: C[93] || CT.C93,
-        [CupertinoDynamicColor_highContrastColor]: C[94] || CT.C94,
-        [CupertinoDynamicColor_darkColor]: C[93] || CT.C93,
-        [CupertinoDynamicColor_color]: C[94] || CT.C94,
-        [CupertinoDynamicColor__debugResolveContext]: null,
-        [CupertinoDynamicColor__debugLabel]: null,
-        [CupertinoDynamicColor__effectiveColor]: C[94] || CT.C94
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: ui.FontWeight.prototype,
-        [FontWeight_index]: 3
-      });
-    },
-    get C95() {
-      return C[95] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: null,
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: null,
-        [TextStyle_decorationColor]: null,
-        [TextStyle_decoration]: null,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: -0.15,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: C[96] || CT.C96,
-        [TextStyle_fontSize]: 14,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: null,
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: null,
-        [TextStyle_inherit]: false
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 3,
-        [EdgeInsets_right]: 20,
-        [EdgeInsets_top]: 0,
-        [EdgeInsets_left]: 20
-      });
-    }
-  }, false);
-  var C = Array(98).fill(void 0);
   var I = [
-    "package:flutter/src/cupertino/desktop_text_selection.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/desktop_text_selection.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/painting/image_cache.dart",
+    "package:flutter/src/painting/image_cache.dart"
   ];
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var Widget__location = dart.privateName(framework, "Widget._location");
-  var Widget_key = dart.privateName(framework, "Widget.key");
-  var SingleChildRenderObjectWidget_child = dart.privateName(framework, "SingleChildRenderObjectWidget.child");
-  var SizedBox_height = dart.privateName(basic, "SizedBox.height");
-  var SizedBox_width = dart.privateName(basic, "SizedBox.width");
-  desktop_text_selection._CupertinoDesktopTextSelectionControls = class _CupertinoDesktopTextSelectionControls extends text_selection.TextSelectionControls {
-    getHandleSize(textLineHeight) {
-      return ui.Size.zero;
+  var _pendingImages = dart.privateName(image_cache, "_pendingImages");
+  var _cache = dart.privateName(image_cache, "_cache");
+  var _liveImages = dart.privateName(image_cache, "_liveImages");
+  var _maximumSize = dart.privateName(image_cache, "_maximumSize");
+  var _maximumSizeBytes = dart.privateName(image_cache, "_maximumSizeBytes");
+  var _currentSizeBytes = dart.privateName(image_cache, "_currentSizeBytes");
+  var _checkCacheSize = dart.privateName(image_cache, "_checkCacheSize");
+  var _touch = dart.privateName(image_cache, "_touch");
+  var _trackLiveImage = dart.privateName(image_cache, "_trackLiveImage");
+  image_cache.ImageCache = class ImageCache extends core.Object {
+    get maximumSize() {
+      return this[_maximumSize];
     }
-    buildToolbar(context, globalEditableRegion, textLineHeight, selectionMidpoint, endpoints, delegate, clipboardStatus, lastSecondaryTapDownPosition) {
-      return new desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.new({clipboardStatus: clipboardStatus, endpoints: endpoints, globalEditableRegion: globalEditableRegion, handleCut: this.canCut(delegate) ? dart.fn(() => this.handleCut(delegate), T.VoidTovoid()) : null, handleCopy: this.canCopy(delegate) ? dart.fn(() => this.handleCopy(delegate, clipboardStatus), T.VoidTovoid()) : null, handlePaste: this.canPaste(delegate) ? dart.fn(() => this.handlePaste(delegate), T.VoidTovoid()) : null, handleSelectAll: this.canSelectAll(delegate) ? dart.fn(() => this.handleSelectAll(delegate), T.VoidTovoid()) : null, selectionMidpoint: selectionMidpoint, lastSecondaryTapDownPosition: lastSecondaryTapDownPosition, textLineHeight: textLineHeight, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
-    }
-    buildHandle(context, type, textLineHeight) {
-      return C[12] || CT.C12;
-    }
-    getHandleAnchor(type, textLineHeight) {
-      return ui.Offset.zero;
-    }
-  };
-  (desktop_text_selection._CupertinoDesktopTextSelectionControls.new = function() {
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionControls.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionControls);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionControls);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionControls, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionControls.__proto__),
-    getHandleSize: dart.fnType(ui.Size, [core.double]),
-    buildToolbar: dart.fnType(framework.Widget, [framework.BuildContext, ui.Rect, core.double, ui.Offset, core.List$(editable.TextSelectionPoint), text_input.TextSelectionDelegate, text_selection.ClipboardStatusNotifier, dart.nullable(ui.Offset)]),
-    buildHandle: dart.fnType(framework.Widget, [framework.BuildContext, text_selection.TextSelectionHandleType, core.double]),
-    getHandleAnchor: dart.fnType(ui.Offset, [text_selection.TextSelectionHandleType, core.double])
-  }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionControls, I[0]);
-  var clipboardStatus$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.clipboardStatus");
-  var endpoints$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.endpoints");
-  var globalEditableRegion$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.globalEditableRegion");
-  var handleCopy$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.handleCopy");
-  var handleCut$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.handleCut");
-  var handlePaste$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.handlePaste");
-  var handleSelectAll$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.handleSelectAll");
-  var lastSecondaryTapDownPosition$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.lastSecondaryTapDownPosition");
-  var selectionMidpoint$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.selectionMidpoint");
-  var textLineHeight$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionControlsToolbar.textLineHeight");
-  desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar = class _CupertinoDesktopTextSelectionControlsToolbar extends framework.StatefulWidget {
-    get clipboardStatus() {
-      return this[clipboardStatus$];
-    }
-    set clipboardStatus(value) {
-      super.clipboardStatus = value;
-    }
-    get endpoints() {
-      return this[endpoints$];
-    }
-    set endpoints(value) {
-      super.endpoints = value;
-    }
-    get globalEditableRegion() {
-      return this[globalEditableRegion$];
-    }
-    set globalEditableRegion(value) {
-      super.globalEditableRegion = value;
-    }
-    get handleCopy() {
-      return this[handleCopy$];
-    }
-    set handleCopy(value) {
-      super.handleCopy = value;
-    }
-    get handleCut() {
-      return this[handleCut$];
-    }
-    set handleCut(value) {
-      super.handleCut = value;
-    }
-    get handlePaste() {
-      return this[handlePaste$];
-    }
-    set handlePaste(value) {
-      super.handlePaste = value;
-    }
-    get handleSelectAll() {
-      return this[handleSelectAll$];
-    }
-    set handleSelectAll(value) {
-      super.handleSelectAll = value;
-    }
-    get lastSecondaryTapDownPosition() {
-      return this[lastSecondaryTapDownPosition$];
-    }
-    set lastSecondaryTapDownPosition(value) {
-      super.lastSecondaryTapDownPosition = value;
-    }
-    get selectionMidpoint() {
-      return this[selectionMidpoint$];
-    }
-    set selectionMidpoint(value) {
-      super.selectionMidpoint = value;
-    }
-    get textLineHeight() {
-      return this[textLineHeight$];
-    }
-    set textLineHeight(value) {
-      super.textLineHeight = value;
-    }
-    createState() {
-      return new desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.new();
-    }
-  };
-  (desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let clipboardStatus = opts && 'clipboardStatus' in opts ? opts.clipboardStatus : null;
-    let endpoints = opts && 'endpoints' in opts ? opts.endpoints : null;
-    let globalEditableRegion = opts && 'globalEditableRegion' in opts ? opts.globalEditableRegion : null;
-    let handleCopy = opts && 'handleCopy' in opts ? opts.handleCopy : null;
-    let handleCut = opts && 'handleCut' in opts ? opts.handleCut : null;
-    let handlePaste = opts && 'handlePaste' in opts ? opts.handlePaste : null;
-    let handleSelectAll = opts && 'handleSelectAll' in opts ? opts.handleSelectAll : null;
-    let selectionMidpoint = opts && 'selectionMidpoint' in opts ? opts.selectionMidpoint : null;
-    let textLineHeight = opts && 'textLineHeight' in opts ? opts.textLineHeight : null;
-    let lastSecondaryTapDownPosition = opts && 'lastSecondaryTapDownPosition' in opts ? opts.lastSecondaryTapDownPosition : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[clipboardStatus$] = clipboardStatus;
-    this[endpoints$] = endpoints;
-    this[globalEditableRegion$] = globalEditableRegion;
-    this[handleCopy$] = handleCopy;
-    this[handleCut$] = handleCut;
-    this[handlePaste$] = handlePaste;
-    this[handleSelectAll$] = handleSelectAll;
-    this[selectionMidpoint$] = selectionMidpoint;
-    this[textLineHeight$] = textLineHeight;
-    this[lastSecondaryTapDownPosition$] = lastSecondaryTapDownPosition;
-    desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.__proto__),
-    createState: dart.fnType(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState, [])
-  }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar, I[0]);
-  dart.setFieldSignature(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar, () => ({
-    __proto__: dart.getFields(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.__proto__),
-    clipboardStatus: dart.finalFieldType(dart.nullable(text_selection.ClipboardStatusNotifier)),
-    endpoints: dart.finalFieldType(core.List$(editable.TextSelectionPoint)),
-    globalEditableRegion: dart.finalFieldType(ui.Rect),
-    handleCopy: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    handleCut: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    handlePaste: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    handleSelectAll: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-    lastSecondaryTapDownPosition: dart.finalFieldType(dart.nullable(ui.Offset)),
-    selectionMidpoint: dart.finalFieldType(ui.Offset),
-    textLineHeight: dart.finalFieldType(core.double)
-  }));
-  var _clipboardStatus = dart.privateName(desktop_text_selection, "_clipboardStatus");
-  var _onChangedClipboardStatus = dart.privateName(desktop_text_selection, "_onChangedClipboardStatus");
-  desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState = class _CupertinoDesktopTextSelectionControlsToolbarState extends framework.State$(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar) {
-    [_onChangedClipboardStatus]() {
-      this.setState(dart.fn(() => {
-      }, T.VoidTovoid()));
-    }
-    initState() {
+    set maximumSize(value) {
       let t0;
-      super.initState();
-      if (this.widget.handlePaste != null) {
-        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
-        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
-        dart.nullCheck(this[_clipboardStatus]).update();
+      if (!(value !== null)) dart.assertFailed(null, I[0], 103, 12, "value != null");
+      if (!(value >= 0)) dart.assertFailed(null, I[0], 104, 12, "value >= 0");
+      if (value === this.maximumSize) return;
+      let timelineTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.setMaximumSize", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
+          return t0;
+        })());
+      }
+      this[_maximumSize] = value;
+      if (this.maximumSize === 0) {
+        this.clear();
+      } else {
+        this[_checkCacheSize](timelineTask);
+      }
+      if (!false) {
+        dart.nullCheck(timelineTask).finish();
       }
     }
-    didUpdateWidget(oldWidget) {
+    get currentSize() {
+      return this[_cache][$length];
+    }
+    get maximumSizeBytes() {
+      return this[_maximumSizeBytes];
+    }
+    set maximumSizeBytes(value) {
       let t0;
-      desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbar.as(oldWidget);
-      super.didUpdateWidget(oldWidget);
-      if (!dart.equals(oldWidget.clipboardStatus, this.widget.clipboardStatus)) {
-        if (this[_clipboardStatus] != null) {
-          dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
-          dart.nullCheck(this[_clipboardStatus]).dispose();
+      if (!(value !== null)) dart.assertFailed(null, I[0], 142, 12, "value != null");
+      if (!(value >= 0)) dart.assertFailed(null, I[0], 143, 12, "value >= 0");
+      if (value === this[_maximumSizeBytes]) return;
+      let timelineTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.setMaximumSizeBytes", {arguments: new (T.IdentityMapOfString$dynamic()).from(["value", value])});
+          return t0;
+        })());
+      }
+      this[_maximumSizeBytes] = value;
+      if (this[_maximumSizeBytes] === 0) {
+        this.clear();
+      } else {
+        this[_checkCacheSize](timelineTask);
+      }
+      if (!false) {
+        dart.nullCheck(timelineTask).finish();
+      }
+    }
+    get currentSizeBytes() {
+      return this[_currentSizeBytes];
+    }
+    clear() {
+      if (!false) {
+        developer.Timeline.instantSync("ImageCache.clear", {arguments: new (T.IdentityMapOfString$dynamic()).from(["pendingImages", this[_pendingImages][$length], "keepAliveImages", this[_cache][$length], "liveImages", this[_liveImages][$length], "currentSizeInBytes", this[_currentSizeBytes]])});
+      }
+      for (let image of this[_cache][$values]) {
+        image.dispose();
+      }
+      this[_cache][$clear]();
+      this[_pendingImages][$clear]();
+      this[_currentSizeBytes] = 0;
+    }
+    evict(key, opts) {
+      let t0;
+      let includeLive = opts && 'includeLive' in opts ? opts.includeLive : true;
+      if (!(includeLive !== null)) dart.assertFailed(null, I[0], 239, 12, "includeLive != null");
+      if (includeLive) {
+        let image = this[_liveImages][$remove](key);
+        t0 = image;
+        t0 == null ? null : t0.dispose();
+      }
+      let pendingImage = this[_pendingImages][$remove](key);
+      if (pendingImage != null) {
+        if (!false) {
+          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "pending"])});
         }
-        this[_clipboardStatus] = (t0 = this.widget.clipboardStatus, t0 == null ? new text_selection.ClipboardStatusNotifier.new() : t0);
-        dart.nullCheck(this[_clipboardStatus]).addListener(dart.bind(this, _onChangedClipboardStatus));
-        if (this.widget.handlePaste != null) {
-          dart.nullCheck(this[_clipboardStatus]).update();
+        pendingImage.removeListener();
+        return true;
+      }
+      let image = this[_cache][$remove](key);
+      if (image != null) {
+        if (!false) {
+          developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "keepAlive", "sizeInBytes", image.sizeBytes])});
+        }
+        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
+        image.dispose();
+        return true;
+      }
+      if (!false) {
+        developer.Timeline.instantSync("ImageCache.evict", {arguments: new (T.IdentityMapOfString$dynamic()).from(["type", "miss"])});
+      }
+      return false;
+    }
+    [_touch](key, image, timelineTask) {
+      if (!(timelineTask != null)) dart.assertFailed(null, I[0], 285, 12, "timelineTask != null");
+      if (image.sizeBytes != null && dart.nullCheck(image.sizeBytes) <= this.maximumSizeBytes && this.maximumSize > 0) {
+        this[_currentSizeBytes] = this[_currentSizeBytes] + dart.nullCheck(image.sizeBytes);
+        this[_cache][$_set](key, image);
+        this[_checkCacheSize](timelineTask);
+      } else {
+        image.dispose();
+      }
+    }
+    [_trackLiveImage](key, completer, sizeBytes) {
+      let t0;
+      t0 = this[_liveImages][$putIfAbsent](key, dart.fn(() => new image_cache._LiveImage.new(completer, dart.fn(() => {
+        this[_liveImages][$remove](key);
+      }, T.VoidTovoid())), T.VoidTo_LiveImage()));
+      t0.sizeBytes == null ? t0.sizeBytes = sizeBytes : null;
+    }
+    putIfAbsent(key, loader, opts) {
+      let t0, t0$, t1;
+      let onError = opts && 'onError' in opts ? opts.onError : null;
+      if (!(key !== null)) dart.assertFailed(null, I[0], 323, 12, "key != null");
+      if (!(loader !== null)) dart.assertFailed(null, I[0], 324, 12, "loader != null");
+      let timelineTask = null;
+      let listenerTask = null;
+      if (!false) {
+        timelineTask = (t0 = new developer.TimelineTask.new(), (() => {
+          t0.start("ImageCache.putIfAbsent", {arguments: new (T.IdentityMapOfString$dynamic()).from(["key", key[$toString]()])});
+          return t0;
+        })());
+      }
+      let result = (t0$ = this[_pendingImages][$_get](key), t0$ == null ? null : t0$.completer);
+      if (result != null) {
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "pending"])});
+        }
+        return result;
+      }
+      let image = this[_cache][$remove](key);
+      if (image != null) {
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
+        }
+        this[_trackLiveImage](key, image.completer, image.sizeBytes);
+        this[_cache][$_set](key, image);
+        return image.completer;
+      }
+      let liveImage = this[_liveImages][$_get](key);
+      if (liveImage != null) {
+        this[_touch](key, new image_cache._CachedImage.new(liveImage.completer, {sizeBytes: liveImage.sizeBytes}), timelineTask);
+        if (!false) {
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "keepAlive"])});
+        }
+        return liveImage.completer;
+      }
+      try {
+        result = loader();
+        this[_trackLiveImage](key, result, null);
+      } catch (e) {
+        let error = dart.getThrown(e);
+        let stackTrace = dart.stackTrace(e);
+        if (core.Object.is(error)) {
+          if (!false) {
+            dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["result", "error", "error", error[$toString](), "stackTrace", stackTrace.toString()])});
+          }
+          if (onError != null) {
+            onError(error, stackTrace);
+            return null;
+          } else {
+            dart.rethrow(e);
+          }
+        } else
+          throw e;
+      }
+      if (!false) {
+        listenerTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
+          t1.start("listener");
+          return t1;
+        })());
+      }
+      let listenedOnce = false;
+      let untrackedPendingImage = null;
+      const listener = (info, syncCall) => {
+        let t1;
+        let sizeBytes = null;
+        if (info != null) {
+          sizeBytes = info.image.height * info.image.width * 4;
+          info.dispose();
+        }
+        let image = new image_cache._CachedImage.new(dart.nullCheck(result), {sizeBytes: sizeBytes});
+        this[_trackLiveImage](key, result, sizeBytes);
+        if (untrackedPendingImage == null) {
+          this[_touch](key, image, listenerTask);
+        } else {
+          image.dispose();
+        }
+        let pendingImage = (t1 = untrackedPendingImage, t1 == null ? this[_pendingImages][$remove](key) : t1);
+        if (pendingImage != null) {
+          pendingImage.removeListener();
+        }
+        if (!false && !listenedOnce) {
+          dart.nullCheck(listenerTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["syncCall", syncCall, "sizeInBytes", sizeBytes])});
+          dart.nullCheck(timelineTask).finish({arguments: new (T.IdentityMapOfString$dynamic()).from(["currentSizeBytes", this.currentSizeBytes, "currentSize", this.currentSize])});
+        }
+        listenedOnce = true;
+      };
+      dart.fn(listener, T.ImageInfoNAndboolTovoid());
+      let streamListener = new image_stream.ImageStreamListener.new(listener);
+      if (this.maximumSize > 0 && this.maximumSizeBytes > 0) {
+        this[_pendingImages][$_set](key, new image_cache._PendingImage.new(result, streamListener));
+      } else {
+        untrackedPendingImage = new image_cache._PendingImage.new(result, streamListener);
+      }
+      result.addListener(streamListener);
+      return result;
+    }
+    statusForKey(key) {
+      return new image_cache.ImageCacheStatus.__({pending: this[_pendingImages][$containsKey](key), keepAlive: this[_cache][$containsKey](key), live: this[_liveImages][$containsKey](key)});
+    }
+    containsKey(key) {
+      return this[_pendingImages][$_get](key) != null || this[_cache][$_get](key) != null;
+    }
+    get liveImageCount() {
+      return this[_liveImages][$length];
+    }
+    get pendingImageCount() {
+      return this[_pendingImages][$length];
+    }
+    clearLiveImages() {
+      for (let image of this[_liveImages][$values]) {
+        image.dispose();
+      }
+      this[_liveImages][$clear]();
+    }
+    [_checkCacheSize](timelineTask) {
+      let t1;
+      let finishArgs = new (T.IdentityMapOfString$dynamic()).new();
+      let checkCacheTask = null;
+      if (!false) {
+        checkCacheTask = (t1 = new developer.TimelineTask.new({parent: timelineTask}), (() => {
+          t1.start("checkCacheSize");
+          return t1;
+        })());
+        finishArgs[$_set]("evictedKeys", T.JSArrayOfString().of([]));
+        finishArgs[$_set]("currentSize", this.currentSize);
+        finishArgs[$_set]("currentSizeBytes", this.currentSizeBytes);
+      }
+      while (this[_currentSizeBytes] > this[_maximumSizeBytes] || this[_cache][$length] > this[_maximumSize]) {
+        let key = this[_cache][$keys][$first];
+        let image = dart.nullCheck(this[_cache][$_get](key));
+        this[_currentSizeBytes] = this[_currentSizeBytes] - dart.nullCheck(image.sizeBytes);
+        image.dispose();
+        this[_cache][$remove](key);
+        if (!false) {
+          dart.dsend(finishArgs[$_get]("evictedKeys"), 'add', [key[$toString]()]);
         }
       }
+      if (!false) {
+        finishArgs[$_set]("endSize", this.currentSize);
+        finishArgs[$_set]("endSizeBytes", this.currentSizeBytes);
+        dart.nullCheck(checkCacheTask).finish({arguments: finishArgs});
+      }
+      if (!(this[_currentSizeBytes] >= 0)) dart.assertFailed(null, I[0], 528, 12, "_currentSizeBytes >= 0");
+      if (!(this[_cache][$length] <= this.maximumSize)) dart.assertFailed(null, I[0], 529, 12, "_cache.length <= maximumSize");
+      if (!(this[_currentSizeBytes] <= this.maximumSizeBytes)) dart.assertFailed(null, I[0], 530, 12, "_currentSizeBytes <= maximumSizeBytes");
+    }
+  };
+  (image_cache.ImageCache.new = function() {
+    this[_pendingImages] = new (T.LinkedMapOfObject$_PendingImage()).new();
+    this[_cache] = new (T.LinkedMapOfObject$_CachedImage()).new();
+    this[_liveImages] = new (T.LinkedMapOfObject$_LiveImage()).new();
+    this[_maximumSize] = 1000;
+    this[_maximumSizeBytes] = 104857600;
+    this[_currentSizeBytes] = 0;
+    ;
+  }).prototype = image_cache.ImageCache.prototype;
+  dart.addTypeTests(image_cache.ImageCache);
+  dart.addTypeCaches(image_cache.ImageCache);
+  dart.setMethodSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getMethods(image_cache.ImageCache.__proto__),
+    clear: dart.fnType(dart.void, []),
+    evict: dart.fnType(core.bool, [core.Object], {includeLive: core.bool}, {}),
+    [_touch]: dart.fnType(dart.void, [core.Object, image_cache._CachedImage, dart.nullable(developer.TimelineTask)]),
+    [_trackLiveImage]: dart.fnType(dart.void, [core.Object, image_stream.ImageStreamCompleter, dart.nullable(core.int)]),
+    putIfAbsent: dart.fnType(dart.nullable(image_stream.ImageStreamCompleter), [core.Object, dart.fnType(image_stream.ImageStreamCompleter, [])], {onError: dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))}, {}),
+    statusForKey: dart.fnType(image_cache.ImageCacheStatus, [core.Object]),
+    containsKey: dart.fnType(core.bool, [core.Object]),
+    clearLiveImages: dart.fnType(dart.void, []),
+    [_checkCacheSize]: dart.fnType(dart.void, [dart.nullable(developer.TimelineTask)])
+  }));
+  dart.setGetterSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getGetters(image_cache.ImageCache.__proto__),
+    maximumSize: core.int,
+    currentSize: core.int,
+    maximumSizeBytes: core.int,
+    currentSizeBytes: core.int,
+    liveImageCount: core.int,
+    pendingImageCount: core.int
+  }));
+  dart.setSetterSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getSetters(image_cache.ImageCache.__proto__),
+    maximumSize: core.int,
+    maximumSizeBytes: core.int
+  }));
+  dart.setLibraryUri(image_cache.ImageCache, I[1]);
+  dart.setFieldSignature(image_cache.ImageCache, () => ({
+    __proto__: dart.getFields(image_cache.ImageCache.__proto__),
+    [_pendingImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._PendingImage)),
+    [_cache]: dart.finalFieldType(core.Map$(core.Object, image_cache._CachedImage)),
+    [_liveImages]: dart.finalFieldType(core.Map$(core.Object, image_cache._LiveImage)),
+    [_maximumSize]: dart.fieldType(core.int),
+    [_maximumSizeBytes]: dart.fieldType(core.int),
+    [_currentSizeBytes]: dart.fieldType(core.int)
+  }));
+  var pending$ = dart.privateName(image_cache, "ImageCacheStatus.pending");
+  var keepAlive$ = dart.privateName(image_cache, "ImageCacheStatus.keepAlive");
+  var live$ = dart.privateName(image_cache, "ImageCacheStatus.live");
+  image_cache.ImageCacheStatus = class ImageCacheStatus extends core.Object {
+    get pending() {
+      return this[pending$];
+    }
+    set pending(value) {
+      super.pending = value;
+    }
+    get keepAlive() {
+      return this[keepAlive$];
+    }
+    set keepAlive(value) {
+      super.keepAlive = value;
+    }
+    get live() {
+      return this[live$];
+    }
+    set live(value) {
+      super.live = value;
+    }
+    get tracked() {
+      return this.pending || this.keepAlive || this.live;
+    }
+    get untracked() {
+      return !this.pending && !this.keepAlive && !this.live;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) {
+        return false;
+      }
+      return image_cache.ImageCacheStatus.is(other) && other.pending === this.pending && other.keepAlive === this.keepAlive && other.live === this.live;
+    }
+    get hashCode() {
+      return ui.hashValues(this.pending, this.keepAlive, this.live);
+    }
+    toString() {
+      return object.objectRuntimeType(this, "ImageCacheStatus") + "(pending: " + dart.str(this.pending) + ", live: " + dart.str(this.live) + ", keepAlive: " + dart.str(this.keepAlive) + ")";
+    }
+  };
+  (image_cache.ImageCacheStatus.__ = function(opts) {
+    let pending = opts && 'pending' in opts ? opts.pending : false;
+    let keepAlive = opts && 'keepAlive' in opts ? opts.keepAlive : false;
+    let live = opts && 'live' in opts ? opts.live : false;
+    this[pending$] = pending;
+    this[keepAlive$] = keepAlive;
+    this[live$] = live;
+    if (!(!pending || !keepAlive)) dart.assertFailed(null, I[0], 557, 15, "!pending || !keepAlive");
+    ;
+  }).prototype = image_cache.ImageCacheStatus.prototype;
+  dart.addTypeTests(image_cache.ImageCacheStatus);
+  dart.addTypeCaches(image_cache.ImageCacheStatus);
+  dart.setGetterSignature(image_cache.ImageCacheStatus, () => ({
+    __proto__: dart.getGetters(image_cache.ImageCacheStatus.__proto__),
+    tracked: core.bool,
+    untracked: core.bool
+  }));
+  dart.setLibraryUri(image_cache.ImageCacheStatus, I[1]);
+  dart.setFieldSignature(image_cache.ImageCacheStatus, () => ({
+    __proto__: dart.getFields(image_cache.ImageCacheStatus.__proto__),
+    pending: dart.finalFieldType(core.bool),
+    keepAlive: dart.finalFieldType(core.bool),
+    live: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(image_cache.ImageCacheStatus, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(image_cache.ImageCacheStatus, ['hashCode']);
+  image_cache._CachedImageBase = class _CachedImageBase extends core.Object {
+    dispose() {
+      if (!(this.handle != null)) dart.assertFailed(null, I[0], 622, 12, "handle != null");
+      dart.nullCheck(binding.SchedulerBinding.instance).addPostFrameCallback(dart.fn(timeStamp => {
+        let t1;
+        if (!(this.handle != null)) dart.assertFailed(null, I[0], 626, 14, "handle != null");
+        t1 = this.handle;
+        t1 == null ? null : t1.dispose();
+        this.handle = null;
+      }, T.DurationTovoid()));
+    }
+  };
+  (image_cache._CachedImageBase.new = function(completer, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    this.completer = completer;
+    this.sizeBytes = sizeBytes;
+    if (!(completer !== null)) dart.assertFailed(null, I[0], 613, 15, "completer != null");
+    this.handle = completer.keepAlive();
+    ;
+  }).prototype = image_cache._CachedImageBase.prototype;
+  dart.addTypeTests(image_cache._CachedImageBase);
+  dart.addTypeCaches(image_cache._CachedImageBase);
+  dart.setMethodSignature(image_cache._CachedImageBase, () => ({
+    __proto__: dart.getMethods(image_cache._CachedImageBase.__proto__),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(image_cache._CachedImageBase, I[1]);
+  dart.setFieldSignature(image_cache._CachedImageBase, () => ({
+    __proto__: dart.getFields(image_cache._CachedImageBase.__proto__),
+    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
+    sizeBytes: dart.fieldType(dart.nullable(core.int)),
+    handle: dart.fieldType(dart.nullable(image_stream.ImageStreamCompleterHandle))
+  }));
+  image_cache._CachedImage = class _CachedImage extends image_cache._CachedImageBase {};
+  (image_cache._CachedImage.new = function(completer, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    image_cache._CachedImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
+    ;
+  }).prototype = image_cache._CachedImage.prototype;
+  dart.addTypeTests(image_cache._CachedImage);
+  dart.addTypeCaches(image_cache._CachedImage);
+  dart.setLibraryUri(image_cache._CachedImage, I[1]);
+  var ___LiveImage__handleRemove = dart.privateName(image_cache, "_#_LiveImage#_handleRemove");
+  var _handleRemove = dart.privateName(image_cache, "_handleRemove");
+  image_cache._LiveImage = class _LiveImage extends image_cache._CachedImageBase {
+    get [_handleRemove]() {
+      let t1;
+      t1 = this[___LiveImage__handleRemove];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_handleRemove")) : t1;
+    }
+    set [_handleRemove](t1) {
+      this[___LiveImage__handleRemove] = t1;
     }
     dispose() {
+      this.completer.removeOnLastListenerRemovedCallback(this[_handleRemove]);
       super.dispose();
-      if (this[_clipboardStatus] != null && !dart.nullCheck(this[_clipboardStatus]).disposed) {
-        dart.nullCheck(this[_clipboardStatus]).removeListener(dart.bind(this, _onChangedClipboardStatus));
-        if (this.widget.clipboardStatus == null) {
-          dart.nullCheck(this[_clipboardStatus]).dispose();
-        }
-      }
     }
-    build(context) {
-      let t0;
-      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value === text_selection.ClipboardStatus.unknown) {
-        return C[15] || CT.C15;
-      }
-      if (!debug.debugCheckHasMediaQuery(context)) dart.assertFailed(null, I[1], 171, 12, "debugCheckHasMediaQuery(context)");
-      let mediaQuery = media_query.MediaQuery.of(context);
-      let midpointAnchor = new ui.Offset.new((this.widget.selectionMidpoint.dx - this.widget.globalEditableRegion.left)[$clamp](mediaQuery.padding.left, mediaQuery.size.width - mediaQuery.padding.right), this.widget.selectionMidpoint.dy - this.widget.globalEditableRegion.top);
-      let items = T.JSArrayOfWidget().of([]);
-      let localizations = localizations$.CupertinoLocalizations.of(context);
-      let onePhysicalPixelVerticalDivider = new basic.SizedBox.new({width: 1.0 / media_query.MediaQuery.of(context).devicePixelRatio, $creationLocationd_0dea112b090073317d4: C[20] || CT.C20});
-      function addToolbarButton(text, onPressed) {
-        if (items[$isNotEmpty]) {
-          items[$add](onePhysicalPixelVerticalDivider);
-        }
-        items[$add](new desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.text({context: context, onPressed: onPressed, text: text, $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}));
-      }
-      dart.fn(addToolbarButton, T.StringAndFnTovoid());
-      if (this.widget.handleCut != null) {
-        addToolbarButton(localizations.cutButtonLabel, dart.nullCheck(this.widget.handleCut));
-      }
-      if (this.widget.handleCopy != null) {
-        addToolbarButton(localizations.copyButtonLabel, dart.nullCheck(this.widget.handleCopy));
-      }
-      if (this.widget.handlePaste != null && dart.nullCheck(this[_clipboardStatus]).value === text_selection.ClipboardStatus.pasteable) {
-        addToolbarButton(localizations.pasteButtonLabel, dart.nullCheck(this.widget.handlePaste));
-      }
-      if (this.widget.handleSelectAll != null) {
-        addToolbarButton(localizations.selectAllButtonLabel, dart.nullCheck(this.widget.handleSelectAll));
-      }
-      if (items[$isEmpty]) {
-        return C[28] || CT.C28;
-      }
-      return new desktop_text_selection._CupertinoDesktopTextSelectionToolbar.new({anchor: (t0 = this.widget.lastSecondaryTapDownPosition, t0 == null ? midpointAnchor : t0), children: items, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33});
+    toString() {
+      return diagnostics.describeIdentity(this);
     }
   };
-  (desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.new = function() {
-    this[_clipboardStatus] = null;
-    desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.__proto__.new.call(this);
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.__proto__),
-    [_onChangedClipboardStatus]: dart.fnType(dart.void, []),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  (image_cache._LiveImage.new = function(completer, handleRemove, opts) {
+    let sizeBytes = opts && 'sizeBytes' in opts ? opts.sizeBytes : null;
+    this[___LiveImage__handleRemove] = null;
+    image_cache._LiveImage.__proto__.new.call(this, completer, {sizeBytes: sizeBytes});
+    this[_handleRemove] = dart.fn(() => {
+      handleRemove();
+      this.dispose();
+    }, T.VoidTovoid());
+    completer.addOnLastListenerRemovedCallback(this[_handleRemove]);
+  }).prototype = image_cache._LiveImage.prototype;
+  dart.addTypeTests(image_cache._LiveImage);
+  dart.addTypeCaches(image_cache._LiveImage);
+  dart.setGetterSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getGetters(image_cache._LiveImage.__proto__),
+    [_handleRemove]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState, I[0]);
-  dart.setFieldSignature(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState, () => ({
-    __proto__: dart.getFields(desktop_text_selection._CupertinoDesktopTextSelectionControlsToolbarState.__proto__),
-    [_clipboardStatus]: dart.fieldType(dart.nullable(text_selection.ClipboardStatusNotifier))
+  dart.setSetterSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getSetters(image_cache._LiveImage.__proto__),
+    [_handleRemove]: dart.fnType(dart.void, [])
   }));
-  var anchor$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionToolbar.anchor");
-  var children$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionToolbar.children");
-  var toolbarBuilder$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionToolbar.toolbarBuilder");
-  var Radius_y = dart.privateName(ui, "Radius.y");
-  var Radius_x = dart.privateName(ui, "Radius.x");
-  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  desktop_text_selection._CupertinoDesktopTextSelectionToolbar = class _CupertinoDesktopTextSelectionToolbar extends framework.StatelessWidget {
-    get anchor() {
-      return this[anchor$];
-    }
-    set anchor(value) {
-      super.anchor = value;
-    }
-    get children() {
-      return this[children$];
-    }
-    set children(value) {
-      super.children = value;
-    }
-    get toolbarBuilder() {
-      return this[toolbarBuilder$];
-    }
-    set toolbarBuilder(value) {
-      super.toolbarBuilder = value;
-    }
-    static _defaultToolbarBuilder(context, child) {
-      return new container.Container.new({width: 222, decoration: new box_decoration.BoxDecoration.new({color: desktop_text_selection._kToolbarBackgroundColor.resolveFrom(context), border: box_border.Border.all({color: desktop_text_selection._kToolbarBorderColor.resolveFrom(context)}), borderRadius: C[38] || CT.C38}), child: new basic.Padding.new({padding: C[40] || CT.C40, child: child, $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45});
-    }
-    build(context) {
-      let t1, t0;
-      if (!debug.debugCheckHasMediaQuery(context)) dart.assertFailed(null, I[1], 295, 12, "debugCheckHasMediaQuery(context)");
-      let mediaQuery = media_query.MediaQuery.of(context);
-      let paddingAbove = mediaQuery.padding.top + 8;
-      let localAdjustment = new ui.Offset.new(8, paddingAbove);
-      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.fromLTRB(8, paddingAbove, 8, 8), child: new basic.CustomSingleChildLayout.new({delegate: new desktop_text_selection_toolbar_layout_delegate.DesktopTextSelectionToolbarLayoutDelegate.new({anchor: this.anchor['-'](localAdjustment)}), child: (t0 = context, t1 = new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: this.children, $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), this.toolbarBuilder(t0, t1)), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58});
+  dart.setLibraryUri(image_cache._LiveImage, I[1]);
+  dart.setFieldSignature(image_cache._LiveImage, () => ({
+    __proto__: dart.getFields(image_cache._LiveImage.__proto__),
+    [___LiveImage__handleRemove]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [])))
+  }));
+  dart.defineExtensionMethods(image_cache._LiveImage, ['toString']);
+  image_cache._PendingImage = class _PendingImage extends core.Object {
+    removeListener() {
+      this.completer.removeListener(this.listener);
     }
   };
-  (desktop_text_selection._CupertinoDesktopTextSelectionToolbar.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let anchor = opts && 'anchor' in opts ? opts.anchor : null;
-    let children = opts && 'children' in opts ? opts.children : null;
-    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : C[37] || CT.C37;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[anchor$] = anchor;
-    this[children$] = children;
-    this[toolbarBuilder$] = toolbarBuilder;
-    if (!(children[$length] > 0)) dart.assertFailed(null, I[1], 249, 15, "children.length > 0");
-    desktop_text_selection._CupertinoDesktopTextSelectionToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (image_cache._PendingImage.new = function(completer, listener) {
+    this.completer = completer;
+    this.listener = listener;
     ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionToolbar.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionToolbar);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionToolbar);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbar, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionToolbar.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = image_cache._PendingImage.prototype;
+  dart.addTypeTests(image_cache._PendingImage);
+  dart.addTypeCaches(image_cache._PendingImage);
+  dart.setMethodSignature(image_cache._PendingImage, () => ({
+    __proto__: dart.getMethods(image_cache._PendingImage.__proto__),
+    removeListener: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionToolbar, I[0]);
-  dart.setFieldSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbar, () => ({
-    __proto__: dart.getFields(desktop_text_selection._CupertinoDesktopTextSelectionToolbar.__proto__),
-    anchor: dart.finalFieldType(ui.Offset),
-    children: dart.finalFieldType(core.List$(framework.Widget)),
-    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
+  dart.setLibraryUri(image_cache._PendingImage, I[1]);
+  dart.setFieldSignature(image_cache._PendingImage, () => ({
+    __proto__: dart.getFields(image_cache._PendingImage.__proto__),
+    completer: dart.finalFieldType(image_stream.ImageStreamCompleter),
+    listener: dart.finalFieldType(image_stream.ImageStreamListener)
   }));
-  var onPressed$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionToolbarButton.onPressed");
-  var child$ = dart.privateName(desktop_text_selection, "_CupertinoDesktopTextSelectionToolbarButton.child");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
-  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
-  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
-  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
-  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
-  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
-  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
-  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
-  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
-  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
-  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
-  desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton = class _CupertinoDesktopTextSelectionToolbarButton extends framework.StatefulWidget {
-    get onPressed() {
-      return this[onPressed$];
-    }
-    set onPressed(value) {
-      super.onPressed = value;
-    }
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    createState() {
-      return new desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.new();
-    }
-  };
-  (desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[onPressed$] = onPressed;
-    this[child$] = child;
-    desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.prototype;
-  (desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.text = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let context = opts && 'context' in opts ? opts.context : null;
-    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
-    let text = opts && 'text' in opts ? opts.text : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[onPressed$] = onPressed;
-    this[child$] = new text$.Text.new(text, {overflow: paragraph.TextOverflow.ellipsis, style: desktop_text_selection._kToolbarButtonFontStyle.copyWith({color: (C[62] || CT.C62).resolveFrom(context)}), $creationLocationd_0dea112b090073317d4: C[65] || CT.C65});
-    desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.__proto__),
-    createState: dart.fnType(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState, [])
-  }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton, I[0]);
-  dart.setFieldSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton, () => ({
-    __proto__: dart.getFields(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton.__proto__),
-    onPressed: dart.finalFieldType(dart.fnType(dart.void, [])),
-    child: dart.finalFieldType(framework.Widget)
-  }));
-  var _isHovered = dart.privateName(desktop_text_selection, "_isHovered");
-  var _onEnter = dart.privateName(desktop_text_selection, "_onEnter");
-  var _onExit = dart.privateName(desktop_text_selection, "_onExit");
-  desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState = class _CupertinoDesktopTextSelectionToolbarButtonState extends framework.State$(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButton) {
-    [_onEnter](event) {
-      this.setState(dart.fn(() => {
-        this[_isHovered] = true;
-      }, T.VoidTovoid()));
-    }
-    [_onExit](event) {
-      this.setState(dart.fn(() => {
-        this[_isHovered] = false;
-      }, T.VoidTovoid()));
-    }
-    build(context) {
-      return new basic.SizedBox.new({width: 1 / 0, child: new basic.MouseRegion.new({onEnter: dart.bind(this, _onEnter), onExit: dart.bind(this, _onExit), child: new button.CupertinoButton.new({alignment: alignment.Alignment.centerLeft, borderRadius: null, color: this[_isHovered] ? theme.CupertinoTheme.of(context).primaryColor : null, minSize: 0.0, onPressed: this.widget.onPressed, padding: desktop_text_selection._kToolbarButtonPadding, pressedOpacity: 0.7, child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[70] || CT.C70}), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
-    }
-  };
-  (desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.new = function() {
-    this[_isHovered] = false;
-    desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.__proto__.new.call(this);
-    ;
-  }).prototype = desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.prototype;
-  dart.addTypeTests(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState);
-  dart.addTypeCaches(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState);
-  dart.setMethodSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState, () => ({
-    __proto__: dart.getMethods(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.__proto__),
-    [_onEnter]: dart.fnType(dart.void, [events.PointerEnterEvent]),
-    [_onExit]: dart.fnType(dart.void, [events.PointerExitEvent]),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState, I[0]);
-  dart.setFieldSignature(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState, () => ({
-    __proto__: dart.getFields(desktop_text_selection._CupertinoDesktopTextSelectionToolbarButtonState.__proto__),
-    [_isHovered]: dart.fieldType(core.bool)
-  }));
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  dart.defineLazy(desktop_text_selection, {
-    /*desktop_text_selection._kToolbarScreenPadding*/get _kToolbarScreenPadding() {
-      return 8;
+  dart.defineLazy(image_cache, {
+    /*image_cache._kDefaultSize*/get _kDefaultSize() {
+      return 1000;
     },
-    /*desktop_text_selection._kToolbarWidth*/get _kToolbarWidth() {
-      return 222;
-    },
-    /*desktop_text_selection._kToolbarBorderRadius*/get _kToolbarBorderRadius() {
-      return C[39] || CT.C39;
-    },
-    /*desktop_text_selection._kToolbarBorderColor*/get _kToolbarBorderColor() {
-      return C[89] || CT.C89;
-    },
-    /*desktop_text_selection._kToolbarBackgroundColor*/get _kToolbarBackgroundColor() {
-      return C[92] || CT.C92;
-    },
-    /*desktop_text_selection.cupertinoDesktopTextSelectionControls*/get cupertinoDesktopTextSelectionControls() {
-      return new desktop_text_selection._CupertinoDesktopTextSelectionControls.new();
-    },
-    /*desktop_text_selection._kToolbarButtonFontStyle*/get _kToolbarButtonFontStyle() {
-      return C[95] || CT.C95;
-    },
-    /*desktop_text_selection._kToolbarButtonPadding*/get _kToolbarButtonPadding() {
-      return C[97] || CT.C97;
+    /*image_cache._kDefaultSizeBytes*/get _kDefaultSizeBytes() {
+      return 104857600;
     }
   }, false);
-  dart.trackLibraries("packages/flutter/src/cupertino/desktop_text_selection.dart", {
-    "package:flutter/src/cupertino/desktop_text_selection.dart": desktop_text_selection
+  dart.trackLibraries("packages/flutter/src/painting/image_cache.dart", {
+    "package:flutter/src/painting/image_cache.dart": image_cache
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["desktop_text_selection.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/cupertino/desktop_text_selection.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["image_cache.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/painting/image_cache.dart.lib.js"}');
   // Exports:
   return {
-    src__cupertino__desktop_text_selection: desktop_text_selection
+    src__painting__image_cache: image_cache
   };
 }));
 
-//# sourceMappingURL=desktop_text_selection.dart.lib.js.map
+//# sourceMappingURL=image_cache.dart.lib.js.map

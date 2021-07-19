@@ -101,7 +101,12 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
                                                 });
                                               },
                                             )
-                                          : Text('Bu ilana başvurdun.');
+                                          : Center(
+                                              child: Text(
+                                                'Bu ilana başvurdun.',
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            );
                                     },
                                   ),
                                 ),

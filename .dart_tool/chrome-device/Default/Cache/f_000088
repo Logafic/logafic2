@@ -1,136 +1,155 @@
-define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/viewport_offset.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/sliver_grid.dart'], (function load__packages__flutter__src__widgets__scroll_view_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__viewport_offset$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__sliver_grid$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/logafic/controllers/authController.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/logafic/widgets/responsive.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/rendering/flex.dart'], (function load__packages__logafic__widgets__jobs_screen_floating_quick_access_bar_widget_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__logafic__controllers__authController$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__logafic__widgets__responsive$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__rendering__flex$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
-  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const viewport = packages__flutter__src__widgets__widget_span$46dart.src__widgets__viewport;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const primary_scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__primary_scroll_controller;
-  const scrollable$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scrollable;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const notification_listener = packages__flutter__src__widgets__widget_span$46dart.src__widgets__notification_listener;
-  const scroll_notification = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_notification;
-  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
-  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
-  const scroll_configuration = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_configuration;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const sliver = packages__flutter__src__widgets__widget_span$46dart.src__widgets__sliver;
-  const viewport_offset = packages__flutter__src__rendering__viewport_offset$46dart.src__rendering__viewport_offset;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const authController = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
   const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const sliver_grid = packages__flutter__src__rendering__sliver_grid$46dart.src__rendering__sliver_grid;
-  var scroll_view = Object.create(dart.library);
+  const responsive = packages__logafic__widgets__responsive$46dart.widgets__responsive;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  var jobs_screen_floating_quick_access_bar_widget = Object.create(dart.library);
+  var $clear = dartx.clear;
   var $length = dartx.length;
-  var $truncate = dartx.truncate;
-  var $isEven = dartx.isEven;
+  var $_set = dartx._set;
+  var $modulo = dartx['%'];
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $map = dartx.map;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    BuildContextAndViewportOffsetToWidget: () => (T.BuildContextAndViewportOffsetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, viewport_offset.ViewportOffset])))(),
-    NotificationListenerOfScrollUpdateNotification: () => (T.NotificationListenerOfScrollUpdateNotification = dart.constFn(notification_listener.NotificationListener$(scroll_notification.ScrollUpdateNotification)))(),
-    ScrollUpdateNotificationTobool: () => (T.ScrollUpdateNotificationTobool = dart.constFn(dart.fnType(core.bool, [scroll_notification.ScrollUpdateNotification])))(),
-    EnumPropertyOfAxis: () => (T.EnumPropertyOfAxis = dart.constFn(diagnostics.EnumProperty$(basic_types.Axis)))(),
-    DiagnosticsPropertyOfScrollController: () => (T.DiagnosticsPropertyOfScrollController = dart.constFn(diagnostics.DiagnosticsProperty$(scroll_controller.ScrollController)))(),
-    DiagnosticsPropertyOfScrollPhysics: () => (T.DiagnosticsPropertyOfScrollPhysics = dart.constFn(diagnostics.DiagnosticsProperty$(scroll_physics.ScrollPhysics)))(),
     JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    DiagnosticsPropertyOfEdgeInsetsGeometry: () => (T.DiagnosticsPropertyOfEdgeInsetsGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(edge_insets.EdgeInsetsGeometry)))(),
-    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    WidgetAndintTointN: () => (T.WidgetAndintTointN = dart.constFn(dart.fnType(T.intN(), [framework.Widget, core.int])))()
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    JSArrayOfIconData: () => (T.JSArrayOfIconData = dart.constFn(_interceptors.JSArray$(icon_data.IconData)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    boolTovoid: () => (T.boolTovoid = dart.constFn(dart.fnType(dart.void, [core.bool])))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    ListOfWidget: () => (T.ListOfWidget = dart.constFn(core.List$(framework.Widget)))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToPadding: () => (T.intToPadding = dart.constFn(dart.fnType(basic.Padding, [core.int])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.const({
-        __proto__: scroll_view.ScrollViewKeyboardDismissBehavior.prototype,
-        [_name$]: "ScrollViewKeyboardDismissBehavior.manual",
-        index: 0
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: scroll_view.ScrollViewKeyboardDismissBehavior.prototype,
-        [_name$]: "ScrollViewKeyboardDismissBehavior.onDrag",
-        index: 1
-      });
-    },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], scroll_view.ScrollViewKeyboardDismissBehavior);
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 16,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: basic_types.Axis.prototype,
-        [_name]: "Axis.vertical",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 11,
+        [_Location_line]: 52,
+        [_Location_file]: null
       });
     },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: recognizer.DragStartBehavior.prototype,
-        [_name$0]: "DragStartBehavior.start",
-        index: 1
-      });
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
     },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name$1]: "Clip.hardEdge",
-        index: 1
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: scroll_physics.AlwaysScrollableScrollPhysics.prototype,
-        [ScrollPhysics_parent]: null
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 9,
+        [_Location_line]: 34,
+        [_Location_file]: null
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.up",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "hoverColor",
+        [_Location_column]: 9,
+        [_Location_line]: 35,
+        [_Location_file]: null
       });
     },
     get C8() {
       return C[8] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.down",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 9,
+        [_Location_line]: 36,
+        [_Location_file]: null
       });
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.left",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 9,
+        [_Location_line]: 41,
+        [_Location_file]: null
       });
     },
     get C10() {
       return C[10] = dart.const({
-        __proto__: basic_types.AxisDirection.prototype,
-        [_name]: "AxisDirection.right",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C13() {
       return C[13] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "axisDirection",
-        [_Location_column]: 9,
-        [_Location_line]: 368,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 62,
         [_Location_file]: null
       });
     },
@@ -138,9 +157,9 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[14] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "offset",
-        [_Location_column]: 9,
-        [_Location_line]: 369,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 63,
         [_Location_file]: null
       });
     },
@@ -148,72 +167,65 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[15] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "slivers",
-        [_Location_column]: 9,
-        [_Location_line]: 370,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipBehavior",
-        [_Location_column]: 9,
-        [_Location_line]: 371,
+        [_Location_name]: "thickness",
+        [_Location_column]: 11,
+        [_Location_line]: 64,
         [_Location_file]: null
       });
     },
     get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], widget_inspector._Location);
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], widget_inspector._Location);
     },
     get C11() {
       return C[11] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[12] || CT.C12,
         [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 367,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+        [_Location_column]: 16,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 60,
+        [_Location_file]: null
       });
     },
     get C19() {
       return C[19] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "axisDirection",
-        [_Location_column]: 7,
-        [_Location_line]: 375,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 61,
         [_Location_file]: null
       });
     },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "offset",
-        [_Location_column]: 7,
-        [_Location_line]: 376,
-        [_Location_file]: null
-      });
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
     },
-    get C21() {
-      return C[21] = dart.const({
+    get C16() {
+      return C[16] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "slivers",
-        [_Location_column]: 7,
-        [_Location_line]: 377,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C22() {
       return C[22] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "cacheExtent",
-        [_Location_column]: 7,
-        [_Location_line]: 378,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 107,
         [_Location_file]: null
       });
     },
@@ -221,62 +233,55 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[23] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "center",
-        [_Location_column]: 7,
-        [_Location_line]: 379,
+        [_Location_name]: "color",
+        [_Location_column]: 33,
+        [_Location_line]: 108,
         [_Location_file]: null
       });
     },
-    get C24() {
-      return C[24] = dart.const({
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "anchor",
-        [_Location_column]: 7,
-        [_Location_line]: 380,
+        [_Location_name]: "width",
+        [_Location_column]: 40,
+        [_Location_line]: 110,
         [_Location_file]: null
       });
     },
     get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipBehavior",
-        [_Location_column]: 7,
-        [_Location_line]: 381,
-        [_Location_file]: null
-      });
+      return C[25] = dart.constList([C[26] || CT.C26], widget_inspector._Location);
     },
-    get C18() {
-      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
-    },
-    get C17() {
-      return C[17] = dart.const({
+    get C24() {
+      return C[24] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_parameterLocations]: C[25] || CT.C25,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 374,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "dragStartBehavior",
-        [_Location_column]: 7,
-        [_Location_line]: 393,
-        [_Location_file]: null
+        [_Location_column]: 31,
+        [_Location_line]: 110,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C29() {
       return C[29] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "axisDirection",
-        [_Location_column]: 7,
-        [_Location_line]: 394,
+        [_Location_name]: "data",
+        [_Location_column]: 40,
+        [_Location_line]: 126,
         [_Location_file]: null
       });
     },
@@ -284,39 +289,32 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[30] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "controller",
-        [_Location_column]: 7,
-        [_Location_line]: 395,
+        [_Location_name]: "style",
+        [_Location_column]: 35,
+        [_Location_line]: 127,
         [_Location_file]: null
       });
     },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "physics",
-        [_Location_column]: 7,
-        [_Location_line]: 396,
-        [_Location_file]: null
-      });
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], widget_inspector._Location);
     },
-    get C32() {
-      return C[32] = dart.const({
+    get C27() {
+      return C[27] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scrollBehavior",
-        [_Location_column]: 7,
-        [_Location_line]: 397,
-        [_Location_file]: null
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 125,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C33() {
       return C[33] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "semanticChildCount",
-        [_Location_column]: 7,
-        [_Location_line]: 398,
+        [_Location_name]: "splashColor",
+        [_Location_column]: 33,
+        [_Location_line]: 112,
         [_Location_file]: null
       });
     },
@@ -324,9 +322,9 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[34] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "restorationId",
-        [_Location_column]: 7,
-        [_Location_line]: 399,
+        [_Location_name]: "hoverColor",
+        [_Location_column]: 33,
+        [_Location_line]: 113,
         [_Location_file]: null
       });
     },
@@ -334,91 +332,98 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[35] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "viewportBuilder",
-        [_Location_column]: 7,
-        [_Location_line]: 400,
+        [_Location_name]: "onTap",
+        [_Location_column]: 33,
+        [_Location_line]: 114,
         [_Location_file]: null
       });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 35,
-        [_Location_line]: 392,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 40,
-        [_Location_line]: 405,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38], widget_inspector._Location);
     },
     get C36() {
       return C[36] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 35,
-        [_Location_line]: 405,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 410,
+        [_Location_column]: 33,
+        [_Location_line]: 125,
         [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 29,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C42() {
       return C[42] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "onNotification",
-        [_Location_column]: 9,
-        [_Location_line]: 411,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 100,
         [_Location_file]: null
       });
     },
-    get C40() {
-      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42], widget_inspector._Location);
-    },
-    get C39() {
-      return C[39] = dart.const({
+    get C43() {
+      return C[43] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[40] || CT.C40,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 409,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 104,
+        [_Location_file]: null
       });
     },
-    get C43() {
-      return C[43] = dart.constList([], framework.Widget);
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
     },
     get C46() {
       return C[46] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 11,
-        [_Location_line]: 729,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 97,
         [_Location_file]: null
       });
     },
@@ -426,868 +431,370 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
       return C[47] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 25,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 734,
+        [_Location_column]: 25,
+        [_Location_line]: 99,
         [_Location_file]: null
       });
     },
     get C45() {
-      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48], widget_inspector._Location);
     },
     get C44() {
       return C[44] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[45] || CT.C45,
         [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 728,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
         [_Location_column]: 30,
-        [_Location_line]: 740,
-        [_Location_file]: null
+        [_Location_line]: 96,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C51() {
       return C[51] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "sliver",
-        [_Location_column]: 57,
-        [_Location_line]: 740,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 94,
         [_Location_file]: null
       });
     },
-    get C49() {
-      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], widget_inspector._Location);
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[49] || CT.C49,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 740,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C54() {
-      return C[54] = dart.const({
+    get C52() {
+      return C[52] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 9,
-        [_Location_line]: 1474,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 96,
         [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C55() {
       return C[55] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "itemExtent",
-        [_Location_column]: 9,
-        [_Location_line]: 1475,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 91,
         [_Location_file]: null
       });
     },
-    get C53() {
-      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], widget_inspector._Location);
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55], widget_inspector._Location);
     },
-    get C52() {
-      return C[52] = dart.const({
+    get C53() {
+      return C[53] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_parameterLocations]: C[54] || CT.C54,
         [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 1473,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+        [_Location_column]: 15,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C58() {
       return C[58] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 23,
-        [_Location_line]: 1478,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 21,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 148,
         [_Location_file]: null
       });
     },
     get C57() {
-      return C[57] = dart.constList([C[58] || CT.C58], widget_inspector._Location);
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], widget_inspector._Location);
     },
     get C56() {
       return C[56] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[57] || CT.C57,
         [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 1478,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-      });
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "delegate",
-        [_Location_column]: 7,
-        [_Location_line]: 2024,
-        [_Location_file]: null
+        [_Location_column]: 26,
+        [_Location_line]: 146,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     },
     get C62() {
       return C[62] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "gridDelegate",
-        [_Location_column]: 7,
-        [_Location_line]: 2025,
+        [_Location_name]: "padding",
+        [_Location_column]: 19,
+        [_Location_line]: 142,
         [_Location_file]: null
       });
     },
-    get C60() {
-      return C[60] = dart.constList([C[61] || CT.C61, C[62] || CT.C62], widget_inspector._Location);
-    },
-    get C59() {
-      return C[59] = dart.const({
+    get C63() {
+      return C[63] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[60] || CT.C60,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63], widget_inspector._Location);
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 141,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 17,
+        [_Location_line]: 140,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 141,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67], widget_inspector._Location);
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[65] || CT.C65,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 139,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "heightFactor",
+        [_Location_column]: 7,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.constList([C[74] || CT.C74, C[75] || CT.C75], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[73] || CT.C73,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 2023,
-        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+        [_Location_line]: 78,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/jobs_screen_floating_quick_access_bar_widget.dart"
       });
     }
   }, false);
-  var C = Array(63).fill(void 0);
-  var I = [
-    "package:flutter/src/widgets/scroll_view.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
-  ];
-  var _name$ = dart.privateName(scroll_view, "_name");
-  scroll_view.ScrollViewKeyboardDismissBehavior = class ScrollViewKeyboardDismissBehavior extends core.Object {
-    toString() {
-      return this[_name$];
+  var C = Array(76).fill(void 0);
+  var I = ["package:logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart"];
+  var screenSize$ = dart.privateName(jobs_screen_floating_quick_access_bar_widget, "JobsScreenFloatingQuickAccessBar.screenSize");
+  jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar = class JobsScreenFloatingQuickAccessBar extends framework.StatefulWidget {
+    get screenSize() {
+      return this[screenSize$];
+    }
+    set screenSize(value) {
+      super.screenSize = value;
+    }
+    createState() {
+      return new jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.new();
     }
   };
-  (scroll_view.ScrollViewKeyboardDismissBehavior.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
+  (jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let screenSize = opts && 'screenSize' in opts ? opts.screenSize : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[screenSize$] = screenSize;
+    jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = scroll_view.ScrollViewKeyboardDismissBehavior.prototype;
-  dart.addTypeTests(scroll_view.ScrollViewKeyboardDismissBehavior);
-  dart.addTypeCaches(scroll_view.ScrollViewKeyboardDismissBehavior);
-  dart.setLibraryUri(scroll_view.ScrollViewKeyboardDismissBehavior, I[0]);
-  dart.setFieldSignature(scroll_view.ScrollViewKeyboardDismissBehavior, () => ({
-    __proto__: dart.getFields(scroll_view.ScrollViewKeyboardDismissBehavior.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
+  }).prototype = jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar.prototype;
+  dart.addTypeTests(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar);
+  dart.addTypeCaches(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar);
+  dart.setMethodSignature(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar, () => ({
+    __proto__: dart.getMethods(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar.__proto__),
+    createState: dart.fnType(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar, [])
   }));
-  dart.defineExtensionMethods(scroll_view.ScrollViewKeyboardDismissBehavior, ['toString']);
-  scroll_view.ScrollViewKeyboardDismissBehavior.manual = C[0] || CT.C0;
-  scroll_view.ScrollViewKeyboardDismissBehavior.onDrag = C[1] || CT.C1;
-  scroll_view.ScrollViewKeyboardDismissBehavior.values = C[2] || CT.C2;
-  var scrollDirection$ = dart.privateName(scroll_view, "ScrollView.scrollDirection");
-  var reverse$ = dart.privateName(scroll_view, "ScrollView.reverse");
-  var controller$ = dart.privateName(scroll_view, "ScrollView.controller");
-  var primary$ = dart.privateName(scroll_view, "ScrollView.primary");
-  var physics$ = dart.privateName(scroll_view, "ScrollView.physics");
-  var scrollBehavior$ = dart.privateName(scroll_view, "ScrollView.scrollBehavior");
-  var shrinkWrap$ = dart.privateName(scroll_view, "ScrollView.shrinkWrap");
-  var center$ = dart.privateName(scroll_view, "ScrollView.center");
-  var anchor$ = dart.privateName(scroll_view, "ScrollView.anchor");
-  var cacheExtent$ = dart.privateName(scroll_view, "ScrollView.cacheExtent");
-  var semanticChildCount$ = dart.privateName(scroll_view, "ScrollView.semanticChildCount");
-  var dragStartBehavior$ = dart.privateName(scroll_view, "ScrollView.dragStartBehavior");
-  var keyboardDismissBehavior$ = dart.privateName(scroll_view, "ScrollView.keyboardDismissBehavior");
-  var restorationId$ = dart.privateName(scroll_view, "ScrollView.restorationId");
-  var clipBehavior$ = dart.privateName(scroll_view, "ScrollView.clipBehavior");
-  var _name = dart.privateName(basic_types, "_name");
-  var _name$0 = dart.privateName(recognizer, "_name");
-  var _name$1 = dart.privateName(ui, "_name");
-  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  dart.setLibraryUri(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar, I[0]);
+  dart.setFieldSignature(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar, () => ({
+    __proto__: dart.getFields(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar.__proto__),
+    screenSize: dart.finalFieldType(ui.Size)
+  }));
+  var _isHovering = dart.privateName(jobs_screen_floating_quick_access_bar_widget, "_isHovering");
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  scroll_view.ScrollView = class ScrollView extends framework.StatelessWidget {
-    get scrollDirection() {
-      return this[scrollDirection$];
-    }
-    set scrollDirection(value) {
-      super.scrollDirection = value;
-    }
-    get reverse() {
-      return this[reverse$];
-    }
-    set reverse(value) {
-      super.reverse = value;
-    }
-    get controller() {
-      return this[controller$];
-    }
-    set controller(value) {
-      super.controller = value;
-    }
-    get primary() {
-      return this[primary$];
-    }
-    set primary(value) {
-      super.primary = value;
-    }
-    get physics() {
-      return this[physics$];
-    }
-    set physics(value) {
-      super.physics = value;
-    }
-    get scrollBehavior() {
-      return this[scrollBehavior$];
-    }
-    set scrollBehavior(value) {
-      super.scrollBehavior = value;
-    }
-    get shrinkWrap() {
-      return this[shrinkWrap$];
-    }
-    set shrinkWrap(value) {
-      super.shrinkWrap = value;
-    }
-    get center() {
-      return this[center$];
-    }
-    set center(value) {
-      super.center = value;
-    }
-    get anchor() {
-      return this[anchor$];
-    }
-    set anchor(value) {
-      super.anchor = value;
-    }
-    get cacheExtent() {
-      return this[cacheExtent$];
-    }
-    set cacheExtent(value) {
-      super.cacheExtent = value;
-    }
-    get semanticChildCount() {
-      return this[semanticChildCount$];
-    }
-    set semanticChildCount(value) {
-      super.semanticChildCount = value;
-    }
-    get dragStartBehavior() {
-      return this[dragStartBehavior$];
-    }
-    set dragStartBehavior(value) {
-      super.dragStartBehavior = value;
-    }
-    get keyboardDismissBehavior() {
-      return this[keyboardDismissBehavior$];
-    }
-    set keyboardDismissBehavior(value) {
-      super.keyboardDismissBehavior = value;
-    }
-    get restorationId() {
-      return this[restorationId$];
-    }
-    set restorationId(value) {
-      super.restorationId = value;
-    }
-    get clipBehavior() {
-      return this[clipBehavior$];
-    }
-    set clipBehavior(value) {
-      super.clipBehavior = value;
-    }
-    getDirection(context) {
-      return basic.getAxisDirectionFromAxisReverseAndDirectionality(context, this.scrollDirection, this.reverse);
-    }
-    buildViewport(context, offset, axisDirection, slivers) {
-      if (!dart.fn(() => {
-        switch (axisDirection) {
-          case C[7] || CT.C7:
-          case C[8] || CT.C8:
-          {
-            return debug.debugCheckHasDirectionality(context, {why: "to determine the cross-axis direction of the scroll view", hint: "Vertical scroll views create Viewport widgets that try to determine their cross axis direction " + "from the ambient Directionality."});
-          }
-          case C[9] || CT.C9:
-          case C[10] || CT.C10:
-          {
-            return true;
-          }
+  jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar = class _JobsScreenFloatingQuickAccessBar extends framework.State$(jobs_screen_floating_quick_access_bar_widget.JobsScreenFloatingQuickAccessBar) {
+    generateRowElements() {
+      this.rowElements[$clear]();
+      for (let i = 0; i < this.items[$length]; i = i + 1) {
+        let elementTile = new ink_well.InkWell.new({splashColor: colors.Colors.transparent, hoverColor: colors.Colors.transparent, onHover: dart.fn(value => {
+            this.setState(dart.fn(() => {
+              let t2, t1, t0, t2$, t1$, t0$;
+              value ? (t0 = this[_isHovering], t1 = i, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = i, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+            }, T.VoidTovoid()));
+          }, T.boolTovoid()), onTap: dart.fn(() => {
+            if (i[$modulo](2) === 0) {
+              this.authController.isRank = true;
+              navigator.Navigator.pushNamed(T.ObjectN(), this.context, "/jobs");
+            } else {
+              this.authController.isRank = false;
+              navigator.Navigator.pushNamed(T.ObjectN(), this.context, "/jobs");
+            }
+          }, T.VoidTovoid()), child: new text.Text.new(this.items[$_get](i), {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](i)) ? dart.nullCheck(theme.Theme.of(this.context).primaryTextTheme.button).decorationColor : colors.Colors.black54}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+        let spacer = new basic.SizedBox.new({height: this.widget.screenSize.height / 60, child: new divider.VerticalDivider.new({width: 1.0, color: colors.Colors.blueGrey._get(100), thickness: 1.0, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+        this.rowElements[$add](elementTile);
+        if (i < this.items[$length] - 1) {
+          this.rowElements[$add](spacer);
         }
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 351, 12, "() {\r\n      switch (axisDirection) {\r\n        case AxisDirection.up:\r\n        case AxisDirection.down:\r\n          return debugCheckHasDirectionality(\r\n            context,\r\n            why: 'to determine the cross-axis direction of the scroll view',\r\n            hint: 'Vertical scroll views create Viewport widgets that try to determine their cross axis direction '\r\n                  'from the ambient Directionality.',\r\n          );\r\n        case AxisDirection.left:\r\n        case AxisDirection.right:\r\n          return true;\r\n      }\r\n    }()");
-      if (this.shrinkWrap) {
-        return new viewport.ShrinkWrappingViewport.new({axisDirection: axisDirection, offset: offset, slivers: slivers, clipBehavior: this.clipBehavior, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11});
       }
-      return new viewport.Viewport.new({axisDirection: axisDirection, offset: offset, slivers: slivers, cacheExtent: this.cacheExtent, center: this.center, anchor: this.anchor, clipBehavior: this.clipBehavior, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+      return this.rowElements;
     }
     build(context) {
-      let slivers = this.buildSlivers(context);
-      let axisDirection = this.getDirection(context);
-      let scrollController = this.primary ? primary_scroll_controller.PrimaryScrollController.of(context) : this.controller;
-      let scrollable = new scrollable$.Scrollable.new({dragStartBehavior: this.dragStartBehavior, axisDirection: axisDirection, controller: scrollController, physics: this.physics, scrollBehavior: this.scrollBehavior, semanticChildCount: this.semanticChildCount, restorationId: this.restorationId, viewportBuilder: dart.fn((context, offset) => this.buildViewport(context, offset, axisDirection, slivers), T.BuildContextAndViewportOffsetToWidget()), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
-      let scrollableResult = this.primary && scrollController != null ? new primary_scroll_controller.PrimaryScrollController.none({child: scrollable, $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}) : scrollable;
-      if (this.keyboardDismissBehavior === scroll_view.ScrollViewKeyboardDismissBehavior.onDrag) {
-        return new (T.NotificationListenerOfScrollUpdateNotification()).new({child: scrollableResult, onNotification: dart.fn(notification => {
-            let focusScope = focus_scope.FocusScope.of(context);
-            if (notification.dragDetails != null && focusScope.hasFocus) {
-              focusScope.unfocus();
-            }
-            return false;
-          }, T.ScrollUpdateNotificationTobool()), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39});
-      } else {
-        return scrollableResult;
-      }
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new (T.EnumPropertyOfAxis()).new("scrollDirection", this.scrollDirection));
-      properties.add(new diagnostics.FlagProperty.new("reverse", {value: this.reverse, ifTrue: "reversed", showName: true}));
-      properties.add(new (T.DiagnosticsPropertyOfScrollController()).new("controller", this.controller, {showName: false, defaultValue: null}));
-      properties.add(new diagnostics.FlagProperty.new("primary", {value: this.primary, ifTrue: "using primary controller", showName: true}));
-      properties.add(new (T.DiagnosticsPropertyOfScrollPhysics()).new("physics", this.physics, {showName: false, defaultValue: null}));
-      properties.add(new diagnostics.FlagProperty.new("shrinkWrap", {value: this.shrinkWrap, ifTrue: "shrink-wrapping", showName: true}));
+      return new basic.Center.new({heightFactor: 1.0, child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({left: responsive.ResponsiveWidget.isSmallScreen(context) ? this.widget.screenSize.width / 12 : this.widget.screenSize.width / 5, right: responsive.ResponsiveWidget.isSmallScreen(context) ? this.widget.screenSize.width / 12 : this.widget.screenSize.width / 5}), child: responsive.ResponsiveWidget.isSmallScreen(context) ? new basic.Column.new({children: (() => {
+              let t0 = T.ListOfWidget().of(T.IterableOfint().generate(this.items[$length])[$map](framework.Widget, dart.fn(pageIndex => new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({top: this.widget.screenSize.height / 80}), child: new card.Card.new({color: theme.Theme.of(context).cardColor, elevation: 4.0, child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({top: this.widget.screenSize.height / 45, bottom: this.widget.screenSize.height / 45, left: this.widget.screenSize.width / 20}), child: new basic.Row.new({children: T.JSArrayOfWidget().of([new icon.Icon.new(this.icons[$_get](pageIndex), {color: theme.Theme.of(context).iconTheme.color, $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), new basic.SizedBox.new({width: this.widget.screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), new ink_well.InkWell.new({splashColor: colors.Colors.transparent, hoverColor: colors.Colors.transparent, onTap: dart.fn(() => {
+                            if (pageIndex[$modulo](2) === 0) {
+                              this.authController.isRank = true;
+                              navigator.Navigator.pushNamed(T.ObjectN(), context, "/jobs");
+                            } else {
+                              this.authController.isRank = false;
+                              navigator.Navigator.pushNamed(T.ObjectN(), context, "/jobs");
+                            }
+                          }, T.VoidTovoid()), child: new text.Text.new(this.items[$_get](pageIndex), {style: new text_style.TextStyle.new({color: colors.Colors.black54, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31})]), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[40] || CT.C40}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44}), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), T.intToPadding())));
+              return t0;
+            })(), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}) : new card.Card.new({elevation: 5.0, child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({top: this.widget.screenSize.height / 50, bottom: this.widget.screenSize.height / 50}), child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: this.generateRowElements(), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), $creationLocationd_0dea112b090073317d4: C[72] || CT.C72});
     }
   };
-  (scroll_view.ScrollView.new = function(opts) {
-    let t0, t0$;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let scrollBehavior = opts && 'scrollBehavior' in opts ? opts.scrollBehavior : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let center = opts && 'center' in opts ? opts.center : null;
-    let anchor = opts && 'anchor' in opts ? opts.anchor : 0;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[scrollDirection$] = scrollDirection;
-    this[reverse$] = reverse;
-    this[controller$] = controller;
-    this[scrollBehavior$] = scrollBehavior;
-    this[shrinkWrap$] = shrinkWrap;
-    this[center$] = center;
-    this[anchor$] = anchor;
-    this[cacheExtent$] = cacheExtent;
-    this[semanticChildCount$] = semanticChildCount;
-    this[dragStartBehavior$] = dragStartBehavior;
-    this[keyboardDismissBehavior$] = keyboardDismissBehavior;
-    this[restorationId$] = restorationId;
-    this[clipBehavior$] = clipBehavior;
-    if (!(scrollDirection !== null)) dart.assertFailed(null, I[1], 97, 15, "scrollDirection != null");
-    if (!(reverse !== null)) dart.assertFailed(null, I[1], 98, 15, "reverse != null");
-    if (!(shrinkWrap !== null)) dart.assertFailed(null, I[1], 99, 15, "shrinkWrap != null");
-    if (!(dragStartBehavior !== null)) dart.assertFailed(null, I[1], 100, 15, "dragStartBehavior != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 101, 15, "clipBehavior != null");
-    if (!!(controller != null && primary === true)) dart.assertFailed("Primary ScrollViews obtain their ScrollController via inheritance from a PrimaryScrollController widget. " + "You cannot both set primary to true and pass an explicit controller.", I[1], 102, 15, "!(controller != null && primary == true)");
-    if (!(!shrinkWrap || center == null)) dart.assertFailed(null, I[1], 106, 15, "!shrinkWrap || center == null");
-    if (!(anchor !== null)) dart.assertFailed(null, I[1], 107, 15, "anchor != null");
-    if (!(anchor >= 0.0 && anchor <= 1.0)) dart.assertFailed(null, I[1], 108, 15, "anchor >= 0.0 && anchor <= 1.0");
-    if (!(semanticChildCount == null || dart.notNull(semanticChildCount) >= 0)) dart.assertFailed(null, I[1], 109, 15, "semanticChildCount == null || semanticChildCount >= 0");
-    this[primary$] = (t0 = primary, t0 == null ? controller == null && scrollDirection === basic_types.Axis.vertical : t0);
-    this[physics$] = (t0$ = physics, t0$ == null ? primary === true || primary == null && controller == null && scrollDirection === basic_types.Axis.vertical ? C[6] || CT.C6 : null : t0$);
-    scroll_view.ScrollView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.new = function() {
+    this[_isHovering] = [false, false];
+    this.rowElements = T.JSArrayOfWidget().of([]);
+    this.authController = authController.AuthController.to;
+    this.items = T.JSArrayOfString().of(["İş ilanları", "Etkinlik ilanları"]);
+    this.icons = T.JSArrayOfIconData().of([icons.Icons.timeline, icons.Icons.trending_up]);
+    jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.__proto__.new.call(this);
     ;
-  }).prototype = scroll_view.ScrollView.prototype;
-  dart.addTypeTests(scroll_view.ScrollView);
-  dart.addTypeCaches(scroll_view.ScrollView);
-  dart.setMethodSignature(scroll_view.ScrollView, () => ({
-    __proto__: dart.getMethods(scroll_view.ScrollView.__proto__),
-    getDirection: dart.fnType(basic_types.AxisDirection, [framework.BuildContext]),
-    buildViewport: dart.fnType(framework.Widget, [framework.BuildContext, viewport_offset.ViewportOffset, basic_types.AxisDirection, core.List$(framework.Widget)]),
+  }).prototype = jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.prototype;
+  dart.addTypeTests(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar);
+  dart.addTypeCaches(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar);
+  dart.setMethodSignature(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar, () => ({
+    __proto__: dart.getMethods(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.__proto__),
+    generateRowElements: dart.fnType(core.List$(framework.Widget), []),
     build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(scroll_view.ScrollView, I[0]);
-  dart.setFieldSignature(scroll_view.ScrollView, () => ({
-    __proto__: dart.getFields(scroll_view.ScrollView.__proto__),
-    scrollDirection: dart.finalFieldType(basic_types.Axis),
-    reverse: dart.finalFieldType(core.bool),
-    controller: dart.finalFieldType(dart.nullable(scroll_controller.ScrollController)),
-    primary: dart.finalFieldType(core.bool),
-    physics: dart.finalFieldType(dart.nullable(scroll_physics.ScrollPhysics)),
-    scrollBehavior: dart.finalFieldType(dart.nullable(scroll_configuration.ScrollBehavior)),
-    shrinkWrap: dart.finalFieldType(core.bool),
-    center: dart.finalFieldType(dart.nullable(key.Key)),
-    anchor: dart.finalFieldType(core.double),
-    cacheExtent: dart.finalFieldType(dart.nullable(core.double)),
-    semanticChildCount: dart.finalFieldType(dart.nullable(core.int)),
-    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
-    keyboardDismissBehavior: dart.finalFieldType(scroll_view.ScrollViewKeyboardDismissBehavior),
-    restorationId: dart.finalFieldType(dart.nullable(core.String)),
-    clipBehavior: dart.finalFieldType(ui.Clip)
+  dart.setLibraryUri(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar, I[0]);
+  dart.setFieldSignature(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar, () => ({
+    __proto__: dart.getFields(jobs_screen_floating_quick_access_bar_widget._JobsScreenFloatingQuickAccessBar.__proto__),
+    [_isHovering]: dart.fieldType(core.List),
+    rowElements: dart.fieldType(core.List$(framework.Widget)),
+    authController: dart.fieldType(authController.AuthController),
+    items: dart.fieldType(core.List$(core.String)),
+    icons: dart.fieldType(core.List$(icon_data.IconData))
   }));
-  var slivers$ = dart.privateName(scroll_view, "CustomScrollView.slivers");
-  scroll_view.CustomScrollView = class CustomScrollView extends scroll_view.ScrollView {
-    get slivers() {
-      return this[slivers$];
-    }
-    set slivers(value) {
-      super.slivers = value;
-    }
-    buildSlivers(context) {
-      return this.slivers;
-    }
-  };
-  (scroll_view.CustomScrollView.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let scrollBehavior = opts && 'scrollBehavior' in opts ? opts.scrollBehavior : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let center = opts && 'center' in opts ? opts.center : null;
-    let anchor = opts && 'anchor' in opts ? opts.anchor : 0;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let slivers = opts && 'slivers' in opts ? opts.slivers : C[43] || CT.C43;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[slivers$] = slivers;
-    scroll_view.CustomScrollView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, scrollBehavior: scrollBehavior, shrinkWrap: shrinkWrap, center: center, anchor: anchor, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.CustomScrollView.prototype;
-  dart.addTypeTests(scroll_view.CustomScrollView);
-  dart.addTypeCaches(scroll_view.CustomScrollView);
-  dart.setMethodSignature(scroll_view.CustomScrollView, () => ({
-    __proto__: dart.getMethods(scroll_view.CustomScrollView.__proto__),
-    buildSlivers: dart.fnType(core.List$(framework.Widget), [framework.BuildContext])
-  }));
-  dart.setLibraryUri(scroll_view.CustomScrollView, I[0]);
-  dart.setFieldSignature(scroll_view.CustomScrollView, () => ({
-    __proto__: dart.getFields(scroll_view.CustomScrollView.__proto__),
-    slivers: dart.finalFieldType(core.List$(framework.Widget))
-  }));
-  var padding$ = dart.privateName(scroll_view, "BoxScrollView.padding");
-  scroll_view.BoxScrollView = class BoxScrollView extends scroll_view.ScrollView {
-    get padding() {
-      return this[padding$];
-    }
-    set padding(value) {
-      super.padding = value;
-    }
-    buildSlivers(context) {
-      let sliver = this.buildChildLayout(context);
-      let effectivePadding = this.padding;
-      if (this.padding == null) {
-        let mediaQuery = media_query.MediaQuery.maybeOf(context);
-        if (mediaQuery != null) {
-          let mediaQueryHorizontalPadding = mediaQuery.padding.copyWith({top: 0.0, bottom: 0.0});
-          let mediaQueryVerticalPadding = mediaQuery.padding.copyWith({left: 0.0, right: 0.0});
-          effectivePadding = this.scrollDirection === basic_types.Axis.vertical ? mediaQueryVerticalPadding : mediaQueryHorizontalPadding;
-          sliver = new media_query.MediaQuery.new({data: mediaQuery.copyWith({padding: this.scrollDirection === basic_types.Axis.vertical ? mediaQueryHorizontalPadding : mediaQueryVerticalPadding}), child: sliver, $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
-        }
-      }
-      if (effectivePadding != null) sliver = new basic.SliverPadding.new({padding: effectivePadding, sliver: sliver, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
-      return T.JSArrayOfWidget().of([sliver]);
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new (T.DiagnosticsPropertyOfEdgeInsetsGeometry()).new("padding", this.padding, {defaultValue: null}));
-    }
-  };
-  (scroll_view.BoxScrollView.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[padding$] = padding;
-    scroll_view.BoxScrollView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.BoxScrollView.prototype;
-  dart.addTypeTests(scroll_view.BoxScrollView);
-  dart.addTypeCaches(scroll_view.BoxScrollView);
-  dart.setMethodSignature(scroll_view.BoxScrollView, () => ({
-    __proto__: dart.getMethods(scroll_view.BoxScrollView.__proto__),
-    buildSlivers: dart.fnType(core.List$(framework.Widget), [framework.BuildContext])
-  }));
-  dart.setLibraryUri(scroll_view.BoxScrollView, I[0]);
-  dart.setFieldSignature(scroll_view.BoxScrollView, () => ({
-    __proto__: dart.getFields(scroll_view.BoxScrollView.__proto__),
-    padding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsetsGeometry))
-  }));
-  var itemExtent$ = dart.privateName(scroll_view, "ListView.itemExtent");
-  var childrenDelegate$ = dart.privateName(scroll_view, "ListView.childrenDelegate");
-  scroll_view.ListView = class ListView extends scroll_view.BoxScrollView {
-    get itemExtent() {
-      return this[itemExtent$];
-    }
-    set itemExtent(value) {
-      super.itemExtent = value;
-    }
-    get childrenDelegate() {
-      return this[childrenDelegate$];
-    }
-    set childrenDelegate(value) {
-      super.childrenDelegate = value;
-    }
-    buildChildLayout(context) {
-      if (this.itemExtent != null) {
-        return new sliver.SliverFixedExtentList.new({delegate: this.childrenDelegate, itemExtent: dart.nullCheck(this.itemExtent), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52});
-      }
-      return new sliver.SliverList.new({delegate: this.childrenDelegate, $creationLocationd_0dea112b090073317d4: C[56] || CT.C56});
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new diagnostics.DoubleProperty.new("itemExtent", this.itemExtent, {defaultValue: null}));
-    }
-    static _computeActualChildCount(itemCount) {
-      return math.max(core.int, 0, itemCount * 2 - 1);
-    }
-  };
-  (scroll_view.ListView.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let children = opts && 'children' in opts ? opts.children : C[43] || CT.C43;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[itemExtent$] = itemExtent;
-    this[childrenDelegate$] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.ListView.prototype;
-  (scroll_view.ListView.builder = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
-    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
-    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[itemExtent$] = itemExtent;
-    if (!(itemCount == null || dart.notNull(itemCount) >= 0)) dart.assertFailed(null, I[1], 1192, 15, "itemCount == null || itemCount >= 0");
-    if (!(semanticChildCount == null || dart.notNull(semanticChildCount) <= dart.nullCheck(itemCount))) dart.assertFailed(null, I[1], 1193, 15, "semanticChildCount == null || semanticChildCount <= itemCount!");
-    this[childrenDelegate$] = new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? itemCount : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.ListView.prototype;
-  (scroll_view.ListView.separated = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
-    let separatorBuilder = opts && 'separatorBuilder' in opts ? opts.separatorBuilder : null;
-    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    if (!(itemBuilder !== null)) dart.assertFailed(null, I[1], 1285, 15, "itemBuilder != null");
-    if (!(separatorBuilder !== null)) dart.assertFailed(null, I[1], 1286, 15, "separatorBuilder != null");
-    if (!(itemCount !== null && itemCount >= 0)) dart.assertFailed(null, I[1], 1287, 15, "itemCount != null && itemCount >= 0");
-    this[itemExtent$] = null;
-    this[childrenDelegate$] = new sliver.SliverChildBuilderDelegate.new(dart.fn((context, index) => {
-      let itemIndex = (index / 2)[$truncate]();
-      let widget = null;
-      if (index[$isEven]) {
-        widget = itemBuilder(context, itemIndex);
-      } else {
-        widget = separatorBuilder(context, itemIndex);
-        if (!dart.fn(() => {
-          if (widget === null) {
-            dart.throw(assertions.FlutterError.new("separatorBuilder cannot return null."));
-          }
-          return true;
-        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 1297, 21, "() {\r\n               if (widget == null) {\r\n                 throw FlutterError('separatorBuilder cannot return null.');\r\n               }\r\n               return true;\r\n             }()");
-      }
-      return widget;
-    }, T.BuildContextAndintToWidget()), {childCount: scroll_view.ListView._computeActualChildCount(itemCount), addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes, semanticIndexCallback: dart.fn((_, index) => index[$isEven] ? (index / 2)[$truncate]() : null, T.WidgetAndintTointN())});
-    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: itemCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.ListView.prototype;
-  (scroll_view.ListView.custom = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
-    let childrenDelegate = opts && 'childrenDelegate' in opts ? opts.childrenDelegate : null;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[itemExtent$] = itemExtent;
-    this[childrenDelegate$] = childrenDelegate;
-    if (!(childrenDelegate !== null)) dart.assertFailed(null, I[1], 1435, 15, "childrenDelegate != null");
-    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.ListView.prototype;
-  dart.addTypeTests(scroll_view.ListView);
-  dart.addTypeCaches(scroll_view.ListView);
-  dart.setMethodSignature(scroll_view.ListView, () => ({
-    __proto__: dart.getMethods(scroll_view.ListView.__proto__),
-    buildChildLayout: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(scroll_view.ListView, I[0]);
-  dart.setFieldSignature(scroll_view.ListView, () => ({
-    __proto__: dart.getFields(scroll_view.ListView.__proto__),
-    itemExtent: dart.finalFieldType(dart.nullable(core.double)),
-    childrenDelegate: dart.finalFieldType(sliver.SliverChildDelegate)
-  }));
-  var gridDelegate$ = dart.privateName(scroll_view, "GridView.gridDelegate");
-  var childrenDelegate$0 = dart.privateName(scroll_view, "GridView.childrenDelegate");
-  scroll_view.GridView = class GridView extends scroll_view.BoxScrollView {
-    get gridDelegate() {
-      return this[gridDelegate$];
-    }
-    set gridDelegate(value) {
-      super.gridDelegate = value;
-    }
-    get childrenDelegate() {
-      return this[childrenDelegate$0];
-    }
-    set childrenDelegate(value) {
-      super.childrenDelegate = value;
-    }
-    buildChildLayout(context) {
-      return new sliver.SliverGrid.new({delegate: this.childrenDelegate, gridDelegate: this.gridDelegate, $creationLocationd_0dea112b090073317d4: C[59] || CT.C59});
-    }
-  };
-  (scroll_view.GridView.new = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let children = opts && 'children' in opts ? opts.children : C[43] || CT.C43;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[gridDelegate$] = gridDelegate;
-    if (!(gridDelegate !== null)) dart.assertFailed(null, I[1], 1743, 15, "gridDelegate != null");
-    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.GridView.prototype;
-  (scroll_view.GridView.builder = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
-    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
-    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[gridDelegate$] = gridDelegate;
-    if (!(gridDelegate !== null)) dart.assertFailed(null, I[1], 1807, 15, "gridDelegate != null");
-    this[childrenDelegate$0] = new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? itemCount : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.GridView.prototype;
-  (scroll_view.GridView.custom = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
-    let childrenDelegate = opts && 'childrenDelegate' in opts ? opts.childrenDelegate : null;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[gridDelegate$] = gridDelegate;
-    this[childrenDelegate$0] = childrenDelegate;
-    if (!(gridDelegate !== null)) dart.assertFailed(null, I[1], 1856, 15, "gridDelegate != null");
-    if (!(childrenDelegate !== null)) dart.assertFailed(null, I[1], 1857, 15, "childrenDelegate != null");
-    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.GridView.prototype;
-  (scroll_view.GridView.count = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
-    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
-    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
-    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let children = opts && 'children' in opts ? opts.children : C[43] || CT.C43;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[gridDelegate$] = new sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.new({crossAxisCount: crossAxisCount, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, childAspectRatio: childAspectRatio});
-    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.GridView.prototype;
-  (scroll_view.GridView.extent = function(opts) {
-    let t0;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
-    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    let primary = opts && 'primary' in opts ? opts.primary : null;
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
-    let padding = opts && 'padding' in opts ? opts.padding : null;
-    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
-    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
-    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
-    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
-    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
-    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
-    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
-    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
-    let children = opts && 'children' in opts ? opts.children : C[43] || CT.C43;
-    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
-    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
-    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
-    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[gridDelegate$] = new sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.new({maxCrossAxisExtent: maxCrossAxisExtent, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, childAspectRatio: childAspectRatio});
-    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
-    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = scroll_view.GridView.prototype;
-  dart.addTypeTests(scroll_view.GridView);
-  dart.addTypeCaches(scroll_view.GridView);
-  dart.setMethodSignature(scroll_view.GridView, () => ({
-    __proto__: dart.getMethods(scroll_view.GridView.__proto__),
-    buildChildLayout: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(scroll_view.GridView, I[0]);
-  dart.setFieldSignature(scroll_view.GridView, () => ({
-    __proto__: dart.getFields(scroll_view.GridView.__proto__),
-    gridDelegate: dart.finalFieldType(sliver_grid.SliverGridDelegate),
-    childrenDelegate: dart.finalFieldType(sliver.SliverChildDelegate)
-  }));
-  dart.trackLibraries("packages/flutter/src/widgets/scroll_view.dart", {
-    "package:flutter/src/widgets/scroll_view.dart": scroll_view
+  dart.trackLibraries("packages/logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart", {
+    "package:logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart": jobs_screen_floating_quick_access_bar_widget
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["scroll_view.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/widgets/scroll_view.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["jobs_screen_floating_quick_access_bar_widget.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAWa;;;;;;;AAIP;IAAmC;;;QARhC;QACS;;;AACX,iHAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;AAqBC,MAAnB,AAAY;AACZ,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAM,qBAAQ,IAAA,AAAC,CAAA;AAC1B,0BAAc,uCACC,uCACD,oCACV,QAAC;AAGN,YAFF,cAAS;;AAC+C,cAAtD,KAAK,IAAc,KAAX,wBAAY,CAAC,OAAI,MAAN,0BAAwB,MAAX,yBAAY,CAAC,QAAI,OAAN;;qCAGxC;AACL,gBAAI,AAAE,AAAI,CAAL,UAAG,OAAK;AACiB,cAA5B,AAAe,6BAAS;AACqB,cAAnC,2CAAU;;AAES,cAA7B,AAAe,6BAAS;AACqB,cAAnC,2CAAU;;qCAGjB,kBACL,AAAK,kBAAC,CAAC,WACA,gDACE,AAAW,yBAAC,CAAC,KAC2B,AAAE,eAArC,AAAY,AAAiB,eAA1B,yDACF;AAIZ,qBAAS,gCACN,AAAO,AAAW,AAAO,gCAAE,WAC5B,wCACE,YACO,AAAQ,4BAAC,iBACZ;AAGa,QAA5B,AAAY,uBAAI,WAAW;AAC3B,YAAI,AAAE,CAAD,GAAG,AAAM,AAAO,sBAAE;AACE,UAAvB,AAAY,uBAAI,MAAM;;;AAI1B,YAAO;IACT;UAG0B;AACxB,YAAO,qCACS,YACP,gCACe,uCACK,0CAAc,OAAO,IACtC,AAAO,AAAW,AAAM,+BAAE,KAC1B,AAAO,AAAW,AAAM,+BAAE,UACR,0CAAc,OAAO,IACvC,AAAO,AAAW,AAAM,+BAAE,KAC1B,AAAO,AAAW,AAAM,+BAAE,YAEV,0CAAc,OAAO,IACvC,gCACY;2CACL,AAAqC,2BAAd,AAAM,6CAC9B,QAAK,aAAc,gCAEF,sCAAU,AAAO,AAAW,AAAO,gCAAE,aAC7C,0BACQ,AAAY,eAAT,OAAO,wBACZ,YACJ,gCACe,sCACX,AAAO,AAAW,AAAO,gCAAE,YACxB,AAAO,AAAW,AAAO,gCAAE,UAC7B,AAAO,AAAW,AAAM,+BAAE,aAC7B,6BACK,wBACR,kBACE,AAAK,kBAAC,SAAS,WACF,AAAY,AAAU,eAAnB,OAAO,8EAEzB,+BAAgB,AAAO,AAAW,AAAM,+BAAE,+DAC1C,uCACsB,uCACD,kCACZ;AACL,gCAAI,AAAU,AAAI,SAAL,UAAG,OAAK;AACS,8BAA5B,AAAe,6BAAS;AAEK,8BADnB,2CACN,OAAO;;AAEkB,8BAA7B,AAAe,6BAAS;AAEK,8BADnB,2CACN,OAAO;;qDAGR,kBACL,AAAK,kBAAC,SAAS,WACR,qCACW,iCAAmB;;8EAWzD,8BACa,YACJ,gCACe,sCACb,AAAO,AAAW,AAAO,gCAAE,YACxB,AAAO,AAAW,AAAO,gCAAE,aAE9B,sCACgC,8CAC3B;IAM5B;;;IArIK,oBAAc,CAAC,OAAO;IACd,mBAAc;IACZ,sBAAgC;IAClC,aAAQ,wBAAC,eAAe;IACtB,aAAQ,0BACf,sBACA;;;EAgIV","file":"../../../../../../../packages/logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__scroll_view: scroll_view
+    widgets__jobs_screen_floating_quick_access_bar_widget: jobs_screen_floating_quick_access_bar_widget
   };
 }));
 
-//# sourceMappingURL=scroll_view.dart.lib.js.map
+//# sourceMappingURL=jobs_screen_floating_quick_access_bar_widget.dart.lib.js.map

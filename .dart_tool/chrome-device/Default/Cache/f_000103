@@ -1,1 +1,261 @@
-{"version":3,"sourceRoot":"","sources":["events.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/gestures/events.dart.lib.js"}
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/firebase_auth/firebase_auth.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/get/get_rx/src/rx_types/rx_types.dart', 'packages/logafic/data_model/user_profile_model.dart', 'packages/get/get_rx/src/rx_workers/rx_workers.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart', 'packages/logafic/widgets/loading.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/get/get_utils/src/extensions/internacionalization.dart', 'packages/get/get_instance/src/extension_instance.dart'], (function load__packages__logafic__controllers__authController_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__firebase_auth__firebase_auth$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__get__get_rx__src__rx_types__rx_types$46dart, packages__logafic__data_model__user_profile_model$46dart, packages__get__get_rx__src__rx_workers__rx_workers$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart, packages__logafic__widgets__loading$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__get__get_utils__src__extensions__internacionalization$46dart, packages__get__get_instance__src__extension_instance$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
+  const user_profile_model = packages__logafic__data_model__user_profile_model$46dart.data_model__user_profile_model;
+  const rx_workers = packages__get__get_rx__src__rx_workers__rx_workers$46dart.get_rx__src__rx_workers__rx_workers;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const snack = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__snackbar__snack;
+  const get_controllers = packages__get__get_navigation__src__routes__route_middleware$46dart.get_state_manager__src__simple__get_controllers;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const loading = packages__logafic__widgets__loading$46dart.widgets__loading;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const internacionalization = packages__get__get_utils__src__extensions__internacionalization$46dart.get_utils__src__extensions__internacionalization;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  var authController = Object.create(dart.library);
+  var $trim = dartx.trim;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    RxnOfUser: () => (T.RxnOfUser = dart.constFn(rx_types.Rxn$(firebase_auth.User)))(),
+    RxnOfUserProfile: () => (T.RxnOfUserProfile = dart.constFn(rx_types.Rxn$(user_profile_model.UserProfile)))(),
+    UserN: () => (T.UserN = dart.constFn(dart.nullable(firebase_auth.User)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    DocumentSnapshotOfMapOfString$dynamic: () => (T.DocumentSnapshotOfMapOfString$dynamic = dart.constFn(cloud_firestore.DocumentSnapshot$(T.MapOfString$dynamic())))(),
+    DocumentSnapshotOfMapOfString$dynamicToUserProfile: () => (T.DocumentSnapshotOfMapOfString$dynamicToUserProfile = dart.constFn(dart.fnType(user_profile_model.UserProfile, [T.DocumentSnapshotOfMapOfString$dynamic()])))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    UserCredentialToFutureOfNull: () => (T.UserCredentialToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [firebase_auth.UserCredential])))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureNOfvoid: () => (T.FutureNOfvoid = dart.constFn(dart.nullable(T.FutureOfvoid())))(),
+    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:logafic/controllers/authController.dart"];
+  var nameController = dart.privateName(authController, "AuthController.nameController");
+  var emailController = dart.privateName(authController, "AuthController.emailController");
+  var passwordController = dart.privateName(authController, "AuthController.passwordController");
+  var firebaseUser = dart.privateName(authController, "AuthController.firebaseUser");
+  var firestoreUser = dart.privateName(authController, "AuthController.firestoreUser");
+  var newUser = dart.privateName(authController, "AuthController.newUser");
+  var isRank = dart.privateName(authController, "AuthController.isRank");
+  var isAdmin = dart.privateName(authController, "AuthController.isAdmin");
+  var _auth = dart.privateName(authController, "_auth");
+  var _db = dart.privateName(authController, "_db");
+  authController.AuthController = class AuthController extends get_controllers.GetxController {
+    get nameController() {
+      return this[nameController];
+    }
+    set nameController(value) {
+      this[nameController] = value;
+    }
+    get emailController() {
+      return this[emailController];
+    }
+    set emailController(value) {
+      this[emailController] = value;
+    }
+    get passwordController() {
+      return this[passwordController];
+    }
+    set passwordController(value) {
+      this[passwordController] = value;
+    }
+    get firebaseUser() {
+      return this[firebaseUser];
+    }
+    set firebaseUser(value) {
+      this[firebaseUser] = value;
+    }
+    get firestoreUser() {
+      return this[firestoreUser];
+    }
+    set firestoreUser(value) {
+      this[firestoreUser] = value;
+    }
+    get newUser() {
+      return this[newUser];
+    }
+    set newUser(value) {
+      this[newUser] = value;
+    }
+    get isRank() {
+      return this[isRank];
+    }
+    set isRank(value) {
+      this[isRank] = value;
+    }
+    get isAdmin() {
+      return this[isAdmin];
+    }
+    set isAdmin(value) {
+      this[isAdmin] = value;
+    }
+    onReady() {
+      rx_workers.ever(T.UserN(), this.firebaseUser, dart.bind(this, 'handleAuthChanged'));
+      this.firebaseUser.bindStream(this.user);
+      super.onReady();
+    }
+    onClose() {
+      this.nameController.dispose();
+      this.emailController.dispose();
+      this.passwordController.dispose();
+      super.onClose();
+    }
+    handleAuthChanged(_firebaseUser) {
+      let t0;
+      if ((t0 = _firebaseUser, t0 == null ? null : dart.dload(t0, 'uid')) != null) {
+        this.firestoreUser.bindStream(this.streamFirestoreUser());
+      }
+      if (_firebaseUser == null) {
+        extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/");
+      } else {
+        this.newUser === false ? extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/home") : extension_navigation['GetNavigation|offAllNamed'](dart.dynamic, get_main.Get, "/save");
+      }
+    }
+    get getUser() {
+      return async.async(T.UserN(), (function* getUser() {
+        return dart.nullCheck(this[_auth].currentUser);
+      }).bind(this));
+    }
+    get user() {
+      return this[_auth].authStateChanges();
+    }
+    streamFirestoreUser() {
+      return this[_db].doc("/users/" + dart.nullCheck(this.firebaseUser.value).uid).snapshots().map(user_profile_model.UserProfile, dart.fn(snapshot => user_profile_model.UserProfile.fromMap(dart.nullCheck(snapshot.data())), T.DocumentSnapshotOfMapOfString$dynamicToUserProfile()));
+    }
+    getFirestoreUser() {
+      return this[_db].doc("/users/" + dart.nullCheck(this.firebaseUser.value).uid).get().then(user_profile_model.UserProfile, dart.fn(snapshot => user_profile_model.UserProfile.fromMap(dart.nullCheck(snapshot.data())), T.DocumentSnapshotOfMapOfString$dynamicToUserProfile()));
+    }
+    signInWithEmailAndPassword(context) {
+      return async.async(dart.dynamic, (function* signInWithEmailAndPassword() {
+        loading.showLoadingIndicator();
+        try {
+          yield this[_auth].signInWithEmailAndPassword({email: this.emailController.text[$trim](), password: this.passwordController.text[$trim]()});
+          this.emailController.clear();
+          this.passwordController.clear();
+          loading.hideLoadingIndicator();
+        } catch (e) {
+          let err = dart.getThrown(e);
+          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
+            loading.hideLoadingIndicator();
+            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, "Giriş hatası", err.toString(), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 7}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+          } else
+            throw e;
+        }
+      }).bind(this));
+    }
+    registerWithEmailAndPassword(context) {
+      return async.async(dart.dynamic, (function* registerWithEmailAndPassword() {
+        try {
+          loading.showLoadingIndicator();
+          yield this[_auth].createUserWithEmailAndPassword({email: this.emailController.text, password: this.passwordController.text}).then(core.Null, dart.fn(result => async.async(core.Null, function*() {
+            loading.hideLoadingIndicator();
+          }), T.UserCredentialToFutureOfNull()));
+        } catch (e) {
+          let err = dart.getThrown(e);
+          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
+            loading.hideLoadingIndicator();
+            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, "Kayıt işleminde hata oluştu.", dart.nullCheck(err.message), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+          } else
+            throw e;
+        }
+      }).bind(this));
+    }
+    createUserFirestore(user, _firebaseUser) {
+      this[_db].doc("/users/" + _firebaseUser.uid).set(user.toJson()).whenComplete(dart.fn(() => extension_navigation['GetNavigation|offAllNamed'](dart.void, get_main.Get, "/home"), T.VoidToFutureNOfvoid()));
+    }
+    sendPasswordResetEmail(context) {
+      return async.async(dart.void, (function* sendPasswordResetEmail() {
+        loading.showLoadingIndicator();
+        try {
+          yield this[_auth].sendPasswordResetEmail({email: this.emailController.text});
+          loading.hideLoadingIndicator();
+          extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Şifreme yenileme bağlantı"), internacionalization['Trans|get#tr']("Şifrenizi yenilemeniz için bağlantı email adresinize gönderildi."), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 5}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+        } catch (e) {
+          let err = dart.getThrown(e);
+          if (firebase_auth_exception.FirebaseAuthException.is(err)) {
+            loading.hideLoadingIndicator();
+            extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Şifre yenileme hatası"), dart.nullCheck(err.message), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 10}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+          } else
+            throw e;
+        }
+      }).bind(this));
+    }
+    signOut() {
+      this.nameController.clear();
+      this.emailController.clear();
+      this.passwordController.clear();
+      return this[_auth].signOut();
+    }
+  };
+  (authController.AuthController.new = function() {
+    this[nameController] = new editable_text.TextEditingController.new();
+    this[emailController] = new editable_text.TextEditingController.new();
+    this[passwordController] = new editable_text.TextEditingController.new();
+    this[_auth] = firebase_auth.FirebaseAuth.instance;
+    this[_db] = cloud_firestore.FirebaseFirestore.instance;
+    this[firebaseUser] = new (T.RxnOfUser()).new();
+    this[firestoreUser] = new (T.RxnOfUserProfile()).new();
+    this[newUser] = false;
+    this[isRank] = false;
+    this[isAdmin] = false;
+    authController.AuthController.__proto__.new.call(this);
+    ;
+  }).prototype = authController.AuthController.prototype;
+  dart.addTypeTests(authController.AuthController);
+  dart.addTypeCaches(authController.AuthController);
+  dart.setMethodSignature(authController.AuthController, () => ({
+    __proto__: dart.getMethods(authController.AuthController.__proto__),
+    handleAuthChanged: dart.fnType(dart.dynamic, [dart.dynamic]),
+    streamFirestoreUser: dart.fnType(async.Stream$(user_profile_model.UserProfile), []),
+    getFirestoreUser: dart.fnType(async.Future$(user_profile_model.UserProfile), []),
+    signInWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
+    registerWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
+    createUserFirestore: dart.fnType(dart.void, [user_profile_model.UserProfile, firebase_auth.User]),
+    sendPasswordResetEmail: dart.fnType(async.Future$(dart.void), [framework.BuildContext]),
+    signOut: dart.fnType(async.Future$(dart.void), [])
+  }));
+  dart.setGetterSignature(authController.AuthController, () => ({
+    __proto__: dart.getGetters(authController.AuthController.__proto__),
+    getUser: async.Future$(dart.nullable(firebase_auth.User)),
+    user: async.Stream$(dart.nullable(firebase_auth.User))
+  }));
+  dart.setLibraryUri(authController.AuthController, I[0]);
+  dart.setFieldSignature(authController.AuthController, () => ({
+    __proto__: dart.getFields(authController.AuthController.__proto__),
+    nameController: dart.fieldType(editable_text.TextEditingController),
+    emailController: dart.fieldType(editable_text.TextEditingController),
+    passwordController: dart.fieldType(editable_text.TextEditingController),
+    [_auth]: dart.finalFieldType(firebase_auth.FirebaseAuth),
+    [_db]: dart.finalFieldType(cloud_firestore.FirebaseFirestore),
+    firebaseUser: dart.fieldType(rx_types.Rxn$(firebase_auth.User)),
+    firestoreUser: dart.fieldType(rx_types.Rxn$(user_profile_model.UserProfile)),
+    newUser: dart.fieldType(core.bool),
+    isRank: dart.fieldType(core.bool),
+    isAdmin: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(authController.AuthController, {
+    /*authController.AuthController.to*/get to() {
+      return extension_instance['Inst|find'](authController.AuthController, get_main.Get);
+    },
+    set to(_) {}
+  }, false);
+  dart.trackLibraries("packages/logafic/controllers/authController.dart", {
+    "package:logafic/controllers/authController.dart": authController
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["authController.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAUwB;;;;;;IACA;;;;;;IACA;;;;;;IAGZ;;;;;;IACO;;;;;;IACZ;;;;;;IACA;;;;;;IACA;;;;;;;AAIkC,MAArC,2BAAK,6BAAc;AACU,MAA7B,AAAa,6BAAW;AACT,MAAT;IACR;;AAG0B,MAAxB,AAAe;AACU,MAAzB,AAAgB;AACY,MAA5B,AAAmB;AACJ,MAAT;IACR;sBAEkB;;AAChB,gBAAI,aAAa,eAAb,OAAe;AAC8B,QAA/C,AAAc,8BAAW;;AAE3B,UAAI,AAAc,aAAD;AACY,QAAvB,gEAAJ;;AAI2C,QAF3C,AAAQ,iBAAG,QACD,gEAAJ,yBACI,gEAAJ;;IAEV;;AAE0B;AAAS,cAAiB,gBAAjB,AAAM;MAAY;;;AAG3B,YAAA,AAAM;IAAkB;;AAGhD,YAAO,AACF,AACA,AACA,eAFI,AAAmC,YAAP,AAAE,eAApB,AAAa,8EAEvB,QAAC,YAAyB,uCAAuB,eAAf,AAAS,QAAD;IACrD;;AAGE,YAAO,AACF,AACA,AACA,eAFI,AAAmC,YAAP,AAAE,eAApB,AAAa,yEAEtB,QAAC,YAAyB,uCAAuB,eAAf,AAAS,QAAD;IACtD;+BAEwC;AAAd;AACF,QAAtB;AACA;AAG+C,UAF7C,MAAM,AAAM,+CACD,AAAgB,AAAK,8CAClB,AAAmB,AAAK;AACf,UAAvB,AAAgB;AACU,UAA1B,AAAmB;AACG,UAAtB;;cACgC;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAa,gBAAmB,AAAI,GAAD,6BACF,sCACnB,gCAAkB,sBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;iCAE0C;AAAd;AAC1B;AACwB,UAAtB;AAME,UALF,MAAM,AACD,AAEA,mDADU,AAAgB,qCAAgB,AAAmB,+CACxD,QAAC;AACa,YAAtB;UACD;;cAC+B;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAa,gCAA2C,eAAX,AAAI,GAAD,2BACf,sCACnB,gCAAkB,uBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;wBAEqC,MAAW;AAIK,MAHnD,AACK,AACA,AACA,cAFI,AAA6B,YAAnB,AAAc,aAAD,UACvB,AAAK,IAAD,wBACK,cAAU,6DAAJ;IAC1B;2BAEiD;AAAd;AACX,QAAtB;AACA;AACiE,UAA/D,MAAM,AAAM,2CAA8B,AAAgB;AACpC,UAAtB;AAMuD,UALnD,iEAAJ,cAAyC,qCAA5B,8BAC0D,qCAAnE,qFAC6B,sCACnB,gCAAkB,sBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;cACiB;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAqC,qCAAxB,0BAAuC,eAAX,AAAI,GAAD,2BACX,sCACnB,gCAAkB,uBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;;AAGwB,MAAtB,AAAe;AACQ,MAAvB,AAAgB;AACU,MAA1B,AAAmB;AACnB,YAAO,AAAM;IACf;;;IAhIsB,uBAAiB;IACjB,wBAAkB;IAClB,2BAAqB;IACxB,cAAqB;IAChB,YAAwB;IACtC,qBAAe;IACR,sBAAgB;IAC5B,gBAAU;IACV,eAAS;IACT,gBAAU;;;EAwHjB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAlIwB,gCAAE;YAAO,gEAAJ","file":"../../../../../../../packages/logafic/controllers/authController.dart.lib.js"}');
+  // Exports:
+  return {
+    controllers__authController: authController
+  };
+}));
+
+//# sourceMappingURL=authController.dart.lib.js.map
