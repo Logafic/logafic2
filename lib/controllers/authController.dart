@@ -40,11 +40,19 @@ class AuthController extends GetxController {
     if (_firebaseUser == null) {
       Get.offAllNamed(FirstRoute);
     } else {
-      newUser == false
-          ? Get.offAllNamed(HomeRoute)
-          : Get.offAllNamed(UserInformationRoute);
+      if (newUser == false) {
+        firebaseUser.value!.emailVerified
+            ? Get.offAllNamed(HomeRoute)
+            : Get.offAllNamed(VerifyScreenRoute);
+      } else {
+        firebaseUser.value!.emailVerified
+            ? Get.offAllNamed(UserInformationRoute)
+            : Get.offAllNamed(VerifyScreenRoute);
+      }
     }
   }
+
+  Future<bool?> get getVerify async => _auth.currentUser!.emailVerified;
 
   Future<User?> get getUser async => _auth.currentUser!;
 
@@ -91,6 +99,7 @@ class AuthController extends GetxController {
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
           .then((result) async {
+        result.user!.sendEmailVerification();
         hideLoadingIndicator();
       });
     } on FirebaseAuthException catch (err) {

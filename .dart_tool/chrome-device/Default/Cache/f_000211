@@ -1,676 +1,1272 @@
-define(['dart_sdk', 'packages/collection/src/equality.dart', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/_platform_web.dart'], (function load__packages__firebase_core_platform_interface__firebase_core_platform_interface_dart(dart_sdk, packages__collection__src__equality$46dart, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation___platform_web$46dart) {
+define(['dart_sdk', 'packages/flutter/src/material/button_bar.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/logafic/widgets/responsive.dart', 'packages/flutter/src/widgets/form.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/input_border.dart', 'packages/logafic/data_model/jobs_model.dart', 'packages/logafic/services/messageService.dart', 'packages/logafic/services/database.dart'], (function load__packages__logafic__widgets__showAddedJobsDialogWidget_dart(dart_sdk, packages__flutter__src__material__button_bar$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__logafic__widgets__responsive$46dart, packages__flutter__src__widgets__form$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__input_border$46dart, packages__logafic__data_model__jobs_model$46dart, packages__logafic__services__messageService$46dart, packages__logafic__services__database$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
   const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const equality = packages__collection__src__equality$46dart.src__equality;
-  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
-  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
-  const message_codecs = packages__flutter__src__services__system_channels$46dart.src__services__message_codecs;
-  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
-  var firebase_core_platform_interface = Object.create(dart.library);
+  const dialog = packages__flutter__src__material__button_bar$46dart.src__material__dialog;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const responsive = packages__logafic__widgets__responsive$46dart.widgets__responsive;
+  const form = packages__flutter__src__widgets__form$46dart.src__widgets__form;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const floating_action_button = packages__flutter__src__material__icon_button$46dart.src__material__floating_action_button;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const input_border = packages__flutter__src__material__input_border$46dart.src__material__input_border;
+  const jobs_model = packages__logafic__data_model__jobs_model$46dart.data_model__jobs_model;
+  const messageService = packages__logafic__services__messageService$46dart.services__messageService;
+  const database = packages__logafic__services__database$46dart.services__database;
+  var showAddedJobsDialogWidget = Object.create(dart.library);
   var $toString = dartx.toString;
-  var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $forEach = dartx.forEach;
-  var $_set = dartx._set;
-  var $values = dartx.values;
-  var $toList = dartx.toList;
-  var $containsKey = dartx.containsKey;
+  var $isEmpty = dartx.isEmpty;
   dart._checkModuleNullSafetyMode(true);
   var T = {
     StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    IdentityMapOfString$StringN: () => (T.IdentityMapOfString$StringN = dart.constFn(_js_helper.IdentityMap$(core.String, T.StringN())))(),
-    DefaultEqualityOfNever: () => (T.DefaultEqualityOfNever = dart.constFn(equality.DefaultEquality$(dart.Never)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    IdentityMapOfString$MethodChannelFirebaseApp: () => (T.IdentityMapOfString$MethodChannelFirebaseApp = dart.constFn(_js_helper.IdentityMap$(core.String, firebase_core_platform_interface.MethodChannelFirebaseApp)))()
+    StringNToStringN: () => (T.StringNToStringN = dart.constFn(dart.fnType(T.StringN(), [T.StringN()])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    BuildContextToContainer: () => (T.BuildContextToContainer = dart.constFn(dart.fnType(container.Container, [framework.BuildContext])))(),
+    BuildContextToAlertDialog: () => (T.BuildContextToAlertDialog = dart.constFn(dart.fnType(dialog.AlertDialog, [framework.BuildContext])))(),
+    GlobalKeyOfFormState: () => (T.GlobalKeyOfFormState = dart.constFn(framework.GlobalKey$(form.FormState)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: T.DefaultEqualityOfNever().prototype
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 59,
+        [_Location_line]: 49,
+        [_Location_file]: null
       });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
     },
     get C0() {
       return C[0] = dart.const({
-        __proto__: equality.MapEquality.prototype,
-        [MapEquality__valueEquality]: C[1] || CT.C1,
-        [MapEquality__keyEquality]: C[1] || CT.C1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 48,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 41,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 41,
+        [_Location_line]: 52,
+        [_Location_file]: null
       });
     },
     get C4() {
-      return C[4] = dart.const({
-        __proto__: message_codecs.StandardMessageCodec.prototype
-      });
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], widget_inspector._Location);
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: message_codecs.StandardMethodCodec.prototype,
-        [StandardMethodCodec_messageCodec]: C[4] || CT.C4
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
       });
     },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: platform_channel.MethodChannel.prototype,
-        [MethodChannel__binaryMessenger]: null,
-        [MethodChannel_codec]: C[3] || CT.C3,
-        [MethodChannel_name]: "plugins.flutter.io/firebase_core"
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 39,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 39,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 44,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 37,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 37,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.fn(showAddedJobsDialogWidget._validateEmptyString, T.StringNToStringN());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 41,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 41,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 41,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 41,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 67,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 41,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 41,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 41,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 73,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 41,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 41,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50], widget_inspector._Location);
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54], widget_inspector._Location);
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 82,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 41,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "minLines",
+        [_Location_column]: 41,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maxLines",
+        [_Location_column]: 41,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 41,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61], widget_inspector._Location);
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 92,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 39,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 33,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 33,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 33,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69, C[70] || CT.C70], widget_inspector._Location);
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73], widget_inspector._Location);
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[72] || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77], widget_inspector._Location);
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 33,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 35,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 35,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 35,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 120,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.constList([C[88] || CT.C88], widget_inspector._Location);
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[87] || CT.C87,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 119,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 33,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.constList([C[91] || CT.C91], widget_inspector._Location);
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[90] || CT.C90,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 35,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 35,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96], widget_inspector._Location);
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 167,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 33,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 33,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 33,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.constList([C[99] || CT.C99, C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102], widget_inspector._Location);
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[98] || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 133,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 29,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.constList([C[105] || CT.C105], widget_inspector._Location);
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[104] || CT.C104,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 114,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 27,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 27,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.constList([C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110, C[111] || CT.C111, C[112] || CT.C112], widget_inspector._Location);
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[107] || CT.C107,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 25,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.constList([C[115] || CT.C115, C[116] || CT.C116], widget_inspector._Location);
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[114] || CT.C114,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.constList([C[119] || CT.C119], widget_inspector._Location);
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[118] || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 19,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.constList([C[122] || CT.C122, C[123] || CT.C123], widget_inspector._Location);
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[121] || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 17,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 17,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126, C[127] || CT.C127, C[128] || CT.C128], widget_inspector._Location);
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 28,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.constList([C[131] || CT.C131], widget_inspector._Location);
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[130] || CT.C130,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shape",
+        [_Location_column]: 11,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 11,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C[133] = dart.constList([C[134] || CT.C134, C[135] || CT.C135], widget_inspector._Location);
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[133] || CT.C133,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/showAddedJobsDialogWidget.dart"
       });
     }
   }, false);
-  var C = Array(5).fill(void 0);
-  var I = [
-    "package:firebase_core_platform_interface/firebase_core_platform_interface.dart",
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.0.1/lib/src/firebase_options.dart",
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.0.1/lib/src/method_channel/method_channel_firebase.dart"
-  ];
-  var plugin$ = dart.privateName(firebase_core_platform_interface, "FirebaseException.plugin");
-  var message$ = dart.privateName(firebase_core_platform_interface, "FirebaseException.message");
-  var code$ = dart.privateName(firebase_core_platform_interface, "FirebaseException.code");
-  var stackTrace$ = dart.privateName(firebase_core_platform_interface, "FirebaseException.stackTrace");
-  firebase_core_platform_interface.FirebaseException = class FirebaseException extends core.Object {
-    get plugin() {
-      return this[plugin$];
-    }
-    set plugin(value) {
-      super.plugin = value;
-    }
-    get message() {
-      return this[message$];
-    }
-    set message(value) {
-      super.message = value;
-    }
-    get code() {
-      return this[code$];
-    }
-    set code(value) {
-      super.code = value;
-    }
-    get stackTrace() {
-      return this[stackTrace$];
-    }
-    set stackTrace(value) {
-      super.stackTrace = value;
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!firebase_core_platform_interface.FirebaseException.is(other)) return false;
-      return other.hashCode === this.hashCode;
-    }
-    get hashCode() {
-      return ui.hashValues(this.plugin, this.code, this.message);
-    }
-    toString() {
-      let output = "[" + this.plugin + "/" + this.code + "] " + dart.str(this.message);
-      if (this.stackTrace != null) {
-        output = output + ("\n\n" + dart.toString(this.stackTrace));
-      }
-      return output;
-    }
+  var C = Array(136).fill(void 0);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  showAddedJobsDialogWidget.showAddedJobsDialogWidget = function showAddedJobsDialogWidget$(context) {
+    return async.async(dart.void, function* showAddedJobsDialogWidget$() {
+      showAddedJobsDialogWidget.categoryController.text = "İş ilanı";
+      return dialog.showDialog(dart.void, {context: context, builder: dart.fn(_ => new dialog.AlertDialog.new({shape: new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(10.0))}), content: new basic.Builder.new({builder: dart.fn(context => {
+              let height = media_query.MediaQuery.of(context).size.height;
+              let width = media_query.MediaQuery.of(context).size.width;
+              return new container.Container.new({height: height / 2, width: responsive.ResponsiveWidget.isSmallScreen(context) ? width * 0.9 : width * 0.3, child: new form.Form.new({key: showAddedJobsDialogWidget._formKey, child: new basic.Stack.new({children: T.JSArrayOfWidget().of([showAddedJobsDialogWidget.isLoading === false ? new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(10.0), child: new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.add, {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), title: new text.Text.new("İş ilanı oluştur", {style: new text_style.TextStyle.new({fontSize: 25.0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new text_form_field.TextFormField.new({validator: C[17] || CT.C17, controller: showAddedJobsDialogWidget.titleController, decoration: new input_decorator.InputDecoration.new({labelText: "İlan başlığı :"}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18}), $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new text_form_field.TextFormField.new({validator: C[17] || CT.C17, controller: showAddedJobsDialogWidget.companyNameController, decoration: new input_decorator.InputDecoration.new({labelText: "Şirket Adı :"}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new text_form_field.TextFormField.new({validator: C[17] || CT.C17, controller: showAddedJobsDialogWidget.categoryController, enabled: false, decoration: new input_decorator.InputDecoration.new({labelText: "İlan kategorisi :"}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new text_form_field.TextFormField.new({validator: C[17] || CT.C17, controller: showAddedJobsDialogWidget.locationController, decoration: new input_decorator.InputDecoration.new({labelText: "Konum :"}), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(8.0), child: new text_form_field.TextFormField.new({controller: showAddedJobsDialogWidget.explanationController, minLines: 5, maxLines: 10, keyboardType: text_input.TextInputType.multiline, decoration: new input_decorator.InputDecoration.new({labelText: "İlan açıklaması :"}), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55}), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62})]), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[71] || CT.C71}) : new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[74] || CT.C74}), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75}), new basic.Align.new({alignment: alignment.Alignment.bottomLeft, child: new container.Container.new({padding: new edge_insets.EdgeInsets.only({left: 10.0, bottom: 10.0, top: 10.0}), height: 60.0, width: 1 / 0, color: colors.Colors.white, child: new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: 15.0, $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), new basic.Expanded.new({child: new text_form_field.TextFormField.new({validator: C[17] || CT.C17, controller: showAddedJobsDialogWidget.jobsNameController, decoration: new input_decorator.InputDecoration.new({hintText: "İlana bir isim veriniz..", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black54}), border: input_border.InputBorder.none}), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), $creationLocationd_0dea112b090073317d4: C[86] || CT.C86}), new basic.SizedBox.new({width: 15.0, $creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), new floating_action_button.FloatingActionButton.new({onPressed: dart.fn(() => async.async(dart.void, function*() {
+                                  if (dart.nullCheck(showAddedJobsDialogWidget._formKey.currentState).validate()) {
+                                    let jobsModel = new jobs_model.JobsModel.new(showAddedJobsDialogWidget.categoryController.text, dart.nullCheck(messageService.authController.firebaseUser.value).uid, dart.toString(dart.nullCheck(messageService.authController.firestoreUser.value).userName), dart.toString(dart.nullCheck(messageService.authController.firestoreUser.value).userProfileImage), showAddedJobsDialogWidget.jobsNameController.text, showAddedJobsDialogWidget.titleController.text, showAddedJobsDialogWidget.companyNameController.text, showAddedJobsDialogWidget.locationController.text, showAddedJobsDialogWidget.explanationController.text);
+                                    new database.Database.new().addJob(jobsModel).whenComplete(dart.fn(() => {
+                                      showAddedJobsDialogWidget.categoryController.clear();
+                                      showAddedJobsDialogWidget.jobsNameController.clear();
+                                      showAddedJobsDialogWidget.titleController.clear();
+                                      showAddedJobsDialogWidget.companyNameController.clear();
+                                      showAddedJobsDialogWidget.locationController.clear();
+                                      showAddedJobsDialogWidget.explanationController.clear();
+                                      navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$String()).from(["userId", dart.nullCheck(messageService.authController.firebaseUser.value).uid])});
+                                    }, T.VoidToNull()));
+                                  }
+                                }), T.VoidToFutureOfvoid()), child: new icon.Icon.new(icons.Icons.add_circle_outline, {color: colors.Colors.white, size: 18.0, $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}), backgroundColor: colors.Colors.amber, elevation: 0.0, $creationLocationd_0dea112b090073317d4: C[97] || CT.C97})]), $creationLocationd_0dea112b090073317d4: C[103] || CT.C103}), $creationLocationd_0dea112b090073317d4: C[106] || CT.C106}), $creationLocationd_0dea112b090073317d4: C[113] || CT.C113})]), $creationLocationd_0dea112b090073317d4: C[117] || CT.C117}), $creationLocationd_0dea112b090073317d4: C[120] || CT.C120}), $creationLocationd_0dea112b090073317d4: C[124] || CT.C124});
+            }, T.BuildContextToContainer()), $creationLocationd_0dea112b090073317d4: C[129] || CT.C129}), $creationLocationd_0dea112b090073317d4: C[132] || CT.C132}), T.BuildContextToAlertDialog())});
+    });
   };
-  (firebase_core_platform_interface.FirebaseException.new = function(opts) {
-    let plugin = opts && 'plugin' in opts ? opts.plugin : null;
-    let message = opts && 'message' in opts ? opts.message : null;
-    let code = opts && 'code' in opts ? opts.code : "unknown";
-    let stackTrace = opts && 'stackTrace' in opts ? opts.stackTrace : null;
-    this[plugin$] = plugin;
-    this[message$] = message;
-    this[code$] = code;
-    this[stackTrace$] = stackTrace;
-    ;
-  }).prototype = firebase_core_platform_interface.FirebaseException.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.FirebaseException);
-  dart.addTypeCaches(firebase_core_platform_interface.FirebaseException);
-  firebase_core_platform_interface.FirebaseException[dart.implements] = () => [core.Exception];
-  dart.setLibraryUri(firebase_core_platform_interface.FirebaseException, I[0]);
-  dart.setFieldSignature(firebase_core_platform_interface.FirebaseException, () => ({
-    __proto__: dart.getFields(firebase_core_platform_interface.FirebaseException.__proto__),
-    plugin: dart.finalFieldType(core.String),
-    message: dart.finalFieldType(dart.nullable(core.String)),
-    code: dart.finalFieldType(core.String),
-    stackTrace: dart.finalFieldType(dart.nullable(core.StackTrace))
-  }));
-  dart.defineExtensionMethods(firebase_core_platform_interface.FirebaseException, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(firebase_core_platform_interface.FirebaseException, ['hashCode']);
-  var apiKey$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.apiKey");
-  var appId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.appId");
-  var messagingSenderId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.messagingSenderId");
-  var projectId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.projectId");
-  var authDomain$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.authDomain");
-  var databaseURL$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.databaseURL");
-  var storageBucket$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.storageBucket");
-  var measurementId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.measurementId");
-  var trackingId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.trackingId");
-  var deepLinkURLScheme$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.deepLinkURLScheme");
-  var androidClientId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.androidClientId");
-  var iosClientId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.iosClientId");
-  var iosBundleId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.iosBundleId");
-  var appGroupId$ = dart.privateName(firebase_core_platform_interface, "FirebaseOptions.appGroupId");
-  var MapEquality__valueEquality = dart.privateName(equality, "MapEquality._valueEquality");
-  var MapEquality__keyEquality = dart.privateName(equality, "MapEquality._keyEquality");
-  firebase_core_platform_interface.FirebaseOptions = class FirebaseOptions extends core.Object {
-    get apiKey() {
-      return this[apiKey$];
-    }
-    set apiKey(value) {
-      super.apiKey = value;
-    }
-    get appId() {
-      return this[appId$];
-    }
-    set appId(value) {
-      super.appId = value;
-    }
-    get messagingSenderId() {
-      return this[messagingSenderId$];
-    }
-    set messagingSenderId(value) {
-      super.messagingSenderId = value;
-    }
-    get projectId() {
-      return this[projectId$];
-    }
-    set projectId(value) {
-      super.projectId = value;
-    }
-    get authDomain() {
-      return this[authDomain$];
-    }
-    set authDomain(value) {
-      super.authDomain = value;
-    }
-    get databaseURL() {
-      return this[databaseURL$];
-    }
-    set databaseURL(value) {
-      super.databaseURL = value;
-    }
-    get storageBucket() {
-      return this[storageBucket$];
-    }
-    set storageBucket(value) {
-      super.storageBucket = value;
-    }
-    get measurementId() {
-      return this[measurementId$];
-    }
-    set measurementId(value) {
-      super.measurementId = value;
-    }
-    get trackingId() {
-      return this[trackingId$];
-    }
-    set trackingId(value) {
-      super.trackingId = value;
-    }
-    get deepLinkURLScheme() {
-      return this[deepLinkURLScheme$];
-    }
-    set deepLinkURLScheme(value) {
-      super.deepLinkURLScheme = value;
-    }
-    get androidClientId() {
-      return this[androidClientId$];
-    }
-    set androidClientId(value) {
-      super.androidClientId = value;
-    }
-    get iosClientId() {
-      return this[iosClientId$];
-    }
-    set iosClientId(value) {
-      super.iosClientId = value;
-    }
-    get iosBundleId() {
-      return this[iosBundleId$];
-    }
-    set iosBundleId(value) {
-      super.iosBundleId = value;
-    }
-    get appGroupId() {
-      return this[appGroupId$];
-    }
-    set appGroupId(value) {
-      super.appGroupId = value;
-    }
-    get asMap() {
-      return new (T.IdentityMapOfString$StringN()).from(["apiKey", this.apiKey, "appId", this.appId, "messagingSenderId", this.messagingSenderId, "projectId", this.projectId, "authDomain", this.authDomain, "databaseURL", this.databaseURL, "storageBucket", this.storageBucket, "measurementId", this.measurementId, "trackingId", this.trackingId, "deepLinkURLScheme", this.deepLinkURLScheme, "androidClientId", this.androidClientId, "iosClientId", this.iosClientId, "iosBundleId", this.iosBundleId, "appGroupId", this.appGroupId]);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!firebase_core_platform_interface.FirebaseOptions.is(other)) return false;
-      return (C[0] || CT.C0).equals(this.asMap, other.asMap);
-    }
-    get hashCode() {
-      return (C[0] || CT.C0).hash(this.asMap);
-    }
-    toString() {
-      return this.asMap[$toString]();
-    }
+  showAddedJobsDialogWidget._validateEmptyString = function _validateEmptyString(email) {
+    let regex = core.RegExp.new("\\w+@\\w+\\.\\w+");
+    if (dart.nullCheck(email)[$isEmpty] || !regex.hasMatch(email)) if (email[$isEmpty]) return "Bu alanı boş bırakamazsınız.";
   };
-  (firebase_core_platform_interface.FirebaseOptions.new = function(opts) {
-    let apiKey = opts && 'apiKey' in opts ? opts.apiKey : null;
-    let appId = opts && 'appId' in opts ? opts.appId : null;
-    let messagingSenderId = opts && 'messagingSenderId' in opts ? opts.messagingSenderId : null;
-    let projectId = opts && 'projectId' in opts ? opts.projectId : null;
-    let authDomain = opts && 'authDomain' in opts ? opts.authDomain : null;
-    let databaseURL = opts && 'databaseURL' in opts ? opts.databaseURL : null;
-    let storageBucket = opts && 'storageBucket' in opts ? opts.storageBucket : null;
-    let measurementId = opts && 'measurementId' in opts ? opts.measurementId : null;
-    let trackingId = opts && 'trackingId' in opts ? opts.trackingId : null;
-    let deepLinkURLScheme = opts && 'deepLinkURLScheme' in opts ? opts.deepLinkURLScheme : null;
-    let androidClientId = opts && 'androidClientId' in opts ? opts.androidClientId : null;
-    let iosClientId = opts && 'iosClientId' in opts ? opts.iosClientId : null;
-    let iosBundleId = opts && 'iosBundleId' in opts ? opts.iosBundleId : null;
-    let appGroupId = opts && 'appGroupId' in opts ? opts.appGroupId : null;
-    this[apiKey$] = apiKey;
-    this[appId$] = appId;
-    this[messagingSenderId$] = messagingSenderId;
-    this[projectId$] = projectId;
-    this[authDomain$] = authDomain;
-    this[databaseURL$] = databaseURL;
-    this[storageBucket$] = storageBucket;
-    this[measurementId$] = measurementId;
-    this[trackingId$] = trackingId;
-    this[deepLinkURLScheme$] = deepLinkURLScheme;
-    this[androidClientId$] = androidClientId;
-    this[iosClientId$] = iosClientId;
-    this[iosBundleId$] = iosBundleId;
-    this[appGroupId$] = appGroupId;
-    ;
-  }).prototype = firebase_core_platform_interface.FirebaseOptions.prototype;
-  (firebase_core_platform_interface.FirebaseOptions.fromMap = function(map) {
-    if (!(map[$_get]("apiKey") != null)) dart.assertFailed("'apiKey' cannot be null.", I[1], 60, 16, "map['apiKey'] != null");
-    if (!(map[$_get]("appId") != null)) dart.assertFailed("'appId' cannot be null.", I[1], 61, 16, "map['appId'] != null");
-    if (!(map[$_get]("messagingSenderId") != null)) dart.assertFailed("'messagingSenderId' cannot be null.", I[1], 62, 16, "map['messagingSenderId'] != null");
-    if (!(map[$_get]("projectId") != null)) dart.assertFailed("'projectId' cannot be null.", I[1], 64, 16, "map['projectId'] != null");
-    this[apiKey$] = core.String.as(map[$_get]("apiKey"));
-    this[appId$] = core.String.as(map[$_get]("appId"));
-    this[messagingSenderId$] = core.String.as(map[$_get]("messagingSenderId"));
-    this[projectId$] = core.String.as(map[$_get]("projectId"));
-    this[authDomain$] = T.StringN().as(map[$_get]("authDomain"));
-    this[databaseURL$] = T.StringN().as(map[$_get]("databaseURL"));
-    this[storageBucket$] = T.StringN().as(map[$_get]("storageBucket"));
-    this[measurementId$] = T.StringN().as(map[$_get]("measurementId"));
-    this[trackingId$] = T.StringN().as(map[$_get]("trackingId"));
-    this[deepLinkURLScheme$] = T.StringN().as(map[$_get]("deepLinkURLScheme"));
-    this[androidClientId$] = T.StringN().as(map[$_get]("androidClientId"));
-    this[iosClientId$] = T.StringN().as(map[$_get]("iosClientId"));
-    this[iosBundleId$] = T.StringN().as(map[$_get]("iosBundleId"));
-    this[appGroupId$] = T.StringN().as(map[$_get]("appGroupId"));
-    ;
-  }).prototype = firebase_core_platform_interface.FirebaseOptions.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.FirebaseOptions);
-  dart.addTypeCaches(firebase_core_platform_interface.FirebaseOptions);
-  dart.setGetterSignature(firebase_core_platform_interface.FirebaseOptions, () => ({
-    __proto__: dart.getGetters(firebase_core_platform_interface.FirebaseOptions.__proto__),
-    asMap: core.Map$(core.String, dart.nullable(core.String))
-  }));
-  dart.setLibraryUri(firebase_core_platform_interface.FirebaseOptions, I[0]);
-  dart.setFieldSignature(firebase_core_platform_interface.FirebaseOptions, () => ({
-    __proto__: dart.getFields(firebase_core_platform_interface.FirebaseOptions.__proto__),
-    apiKey: dart.finalFieldType(core.String),
-    appId: dart.finalFieldType(core.String),
-    messagingSenderId: dart.finalFieldType(core.String),
-    projectId: dart.finalFieldType(core.String),
-    authDomain: dart.finalFieldType(dart.nullable(core.String)),
-    databaseURL: dart.finalFieldType(dart.nullable(core.String)),
-    storageBucket: dart.finalFieldType(dart.nullable(core.String)),
-    measurementId: dart.finalFieldType(dart.nullable(core.String)),
-    trackingId: dart.finalFieldType(dart.nullable(core.String)),
-    deepLinkURLScheme: dart.finalFieldType(dart.nullable(core.String)),
-    androidClientId: dart.finalFieldType(dart.nullable(core.String)),
-    iosClientId: dart.finalFieldType(dart.nullable(core.String)),
-    iosBundleId: dart.finalFieldType(dart.nullable(core.String)),
-    appGroupId: dart.finalFieldType(dart.nullable(core.String))
-  }));
-  dart.defineExtensionMethods(firebase_core_platform_interface.FirebaseOptions, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(firebase_core_platform_interface.FirebaseOptions, ['hashCode']);
-  var _isDeleted = dart.privateName(firebase_core_platform_interface, "_isDeleted");
-  var _isAutomaticDataCollectionEnabled = dart.privateName(firebase_core_platform_interface, "_isAutomaticDataCollectionEnabled");
-  var _isDefault = dart.privateName(firebase_core_platform_interface, "_isDefault");
-  var name$ = dart.privateName(firebase_core_platform_interface, "FirebaseAppPlatform.name");
-  var options$ = dart.privateName(firebase_core_platform_interface, "FirebaseAppPlatform.options");
-  firebase_core_platform_interface.FirebaseAppPlatform = class FirebaseAppPlatform extends plugin_platform_interface.PlatformInterface {
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    get options() {
-      return this[options$];
-    }
-    set options(value) {
-      super.options = value;
-    }
-    static verifyExtends(instance) {
-      plugin_platform_interface.PlatformInterface.verifyToken(instance, firebase_core_platform_interface.FirebaseAppPlatform._token);
-    }
-    get [_isDefault]() {
-      return this.name === "[DEFAULT]";
-    }
-    get isAutomaticDataCollectionEnabled() {
-      dart.throw(new core.UnimplementedError.new("isAutomaticDataCollectionEnabled has not been implemented."));
-    }
-    delete() {
-      return async.async(dart.void, function* $delete() {
-        dart.throw(new core.UnimplementedError.new("delete() has not been implemented."));
-      });
-    }
-    setAutomaticDataCollectionEnabled(enabled) {
-      return async.async(dart.void, function* setAutomaticDataCollectionEnabled() {
-        dart.throw(new core.UnimplementedError.new("setAutomaticDataCollectionEnabled() has not been implemented."));
-      });
-    }
-    setAutomaticResourceManagementEnabled(enabled) {
-      return async.async(dart.void, function* setAutomaticResourceManagementEnabled() {
-        dart.throw(new core.UnimplementedError.new("setAutomaticResourceManagementEnabled() has not been implemented."));
-      });
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!firebase_core_platform_interface.FirebaseAppPlatform.is(other)) return false;
-      return other.name === this.name && other.options._equals(this.options);
-    }
-    get hashCode() {
-      return ui.hashValues(this.name, this.options);
-    }
-    toString() {
-      return dart.str(dart.wrapType(firebase_core_platform_interface.FirebaseAppPlatform)) + "(" + this.name + ")";
-    }
-  };
-  (firebase_core_platform_interface.FirebaseAppPlatform.new = function(name, options) {
-    this[name$] = name;
-    this[options$] = options;
-    firebase_core_platform_interface.FirebaseAppPlatform.__proto__.new.call(this, {token: firebase_core_platform_interface.FirebaseAppPlatform._token});
-    ;
-  }).prototype = firebase_core_platform_interface.FirebaseAppPlatform.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.FirebaseAppPlatform);
-  dart.addTypeCaches(firebase_core_platform_interface.FirebaseAppPlatform);
-  dart.setMethodSignature(firebase_core_platform_interface.FirebaseAppPlatform, () => ({
-    __proto__: dart.getMethods(firebase_core_platform_interface.FirebaseAppPlatform.__proto__),
-    delete: dart.fnType(async.Future$(dart.void), []),
-    setAutomaticDataCollectionEnabled: dart.fnType(async.Future$(dart.void), [core.bool]),
-    setAutomaticResourceManagementEnabled: dart.fnType(async.Future$(dart.void), [core.bool])
-  }));
-  dart.setGetterSignature(firebase_core_platform_interface.FirebaseAppPlatform, () => ({
-    __proto__: dart.getGetters(firebase_core_platform_interface.FirebaseAppPlatform.__proto__),
-    [_isDefault]: core.bool,
-    isAutomaticDataCollectionEnabled: core.bool
-  }));
-  dart.setLibraryUri(firebase_core_platform_interface.FirebaseAppPlatform, I[0]);
-  dart.setFieldSignature(firebase_core_platform_interface.FirebaseAppPlatform, () => ({
-    __proto__: dart.getFields(firebase_core_platform_interface.FirebaseAppPlatform.__proto__),
-    name: dart.finalFieldType(core.String),
-    options: dart.finalFieldType(firebase_core_platform_interface.FirebaseOptions)
-  }));
-  dart.defineExtensionMethods(firebase_core_platform_interface.FirebaseAppPlatform, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(firebase_core_platform_interface.FirebaseAppPlatform, ['hashCode']);
-  dart.defineLazy(firebase_core_platform_interface.FirebaseAppPlatform, {
-    /*firebase_core_platform_interface.FirebaseAppPlatform._token*/get _token() {
-      return new core.Object.new();
-    }
-  }, false);
-  firebase_core_platform_interface.MethodChannelFirebaseApp = class MethodChannelFirebaseApp extends firebase_core_platform_interface.FirebaseAppPlatform {
-    get isAutomaticDataCollectionEnabled() {
-      return this[_isAutomaticDataCollectionEnabled];
-    }
-    delete() {
-      return async.async(dart.void, (function* $delete() {
-        if (this[_isDefault]) {
-          dart.throw(firebase_core_platform_interface.noDefaultAppDelete());
-        }
-        if (this[_isDeleted]) {
-          return;
-        }
-        yield firebase_core_platform_interface.MethodChannelFirebase.channel.invokeMethod(dart.void, "FirebaseApp#delete", new (T.IdentityMapOfString$dynamic()).from(["appName", this.name, "options", this.options.asMap]));
-        firebase_core_platform_interface.MethodChannelFirebase.appInstances[$remove](this.name);
-        firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps[$remove](this.name);
-        this[_isDeleted] = true;
-      }).bind(this));
-    }
-    setAutomaticDataCollectionEnabled(enabled) {
-      return async.async(dart.void, (function* setAutomaticDataCollectionEnabled() {
-        yield firebase_core_platform_interface.MethodChannelFirebase.channel.invokeMethod(dart.void, "FirebaseApp#setAutomaticDataCollectionEnabled", new (T.IdentityMapOfString$dynamic()).from(["appName", this.name, "enabled", enabled]));
-        this[_isAutomaticDataCollectionEnabled] = enabled;
-      }).bind(this));
-    }
-    setAutomaticResourceManagementEnabled(enabled) {
-      return async.async(dart.void, (function* setAutomaticResourceManagementEnabled() {
-        yield firebase_core_platform_interface.MethodChannelFirebase.channel.invokeMethod(dart.void, "FirebaseApp#setAutomaticResourceManagementEnabled", new (T.IdentityMapOfString$dynamic()).from(["appName", this.name, "enabled", enabled]));
-      }).bind(this));
-    }
-  };
-  (firebase_core_platform_interface.MethodChannelFirebaseApp.new = function(name, options, opts) {
-    let t0;
-    let isAutomaticDataCollectionEnabled = opts && 'isAutomaticDataCollectionEnabled' in opts ? opts.isAutomaticDataCollectionEnabled : null;
-    this[_isDeleted] = false;
-    this[_isAutomaticDataCollectionEnabled] = core.bool.as((t0 = isAutomaticDataCollectionEnabled, t0 == null ? false : t0));
-    firebase_core_platform_interface.MethodChannelFirebaseApp.__proto__.new.call(this, name, options);
-    ;
-  }).prototype = firebase_core_platform_interface.MethodChannelFirebaseApp.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.MethodChannelFirebaseApp);
-  dart.addTypeCaches(firebase_core_platform_interface.MethodChannelFirebaseApp);
-  dart.setLibraryUri(firebase_core_platform_interface.MethodChannelFirebaseApp, I[0]);
-  dart.setFieldSignature(firebase_core_platform_interface.MethodChannelFirebaseApp, () => ({
-    __proto__: dart.getFields(firebase_core_platform_interface.MethodChannelFirebaseApp.__proto__),
-    [_isDeleted]: dart.fieldType(core.bool),
-    [_isAutomaticDataCollectionEnabled]: dart.fieldType(core.bool)
-  }));
-  var _initializeFirebaseAppFromMap = dart.privateName(firebase_core_platform_interface, "_initializeFirebaseAppFromMap");
-  var _initializeCore = dart.privateName(firebase_core_platform_interface, "_initializeCore");
-  firebase_core_platform_interface.FirebasePlatform = class FirebasePlatform extends plugin_platform_interface.PlatformInterface {
-    static get instance() {
-      return firebase_core_platform_interface.FirebasePlatform._instance;
-    }
-    static set instance(instance) {
-      plugin_platform_interface.PlatformInterface.verifyToken(instance, firebase_core_platform_interface.FirebasePlatform._token);
-      firebase_core_platform_interface.FirebasePlatform._instance = instance;
-    }
-    get apps() {
-      dart.throw(new core.UnimplementedError.new("apps has not been implemented."));
-    }
-    initializeApp(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let options = opts && 'options' in opts ? opts.options : null;
-      dart.throw(new core.UnimplementedError.new("initializeApp() has not been implemented."));
-    }
-    app(name = "[DEFAULT]") {
-      dart.throw(new core.UnimplementedError.new("app() has not been implemented."));
-    }
-  };
-  (firebase_core_platform_interface.FirebasePlatform.new = function() {
-    firebase_core_platform_interface.FirebasePlatform.__proto__.new.call(this, {token: firebase_core_platform_interface.FirebasePlatform._token});
-    ;
-  }).prototype = firebase_core_platform_interface.FirebasePlatform.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.FirebasePlatform);
-  dart.addTypeCaches(firebase_core_platform_interface.FirebasePlatform);
-  dart.setMethodSignature(firebase_core_platform_interface.FirebasePlatform, () => ({
-    __proto__: dart.getMethods(firebase_core_platform_interface.FirebasePlatform.__proto__),
-    initializeApp: dart.fnType(async.Future$(firebase_core_platform_interface.FirebaseAppPlatform), [], {name: dart.nullable(core.String), options: dart.nullable(firebase_core_platform_interface.FirebaseOptions)}, {}),
-    app: dart.fnType(firebase_core_platform_interface.FirebaseAppPlatform, [], [core.String])
-  }));
-  dart.setGetterSignature(firebase_core_platform_interface.FirebasePlatform, () => ({
-    __proto__: dart.getGetters(firebase_core_platform_interface.FirebasePlatform.__proto__),
-    apps: core.List$(firebase_core_platform_interface.FirebaseAppPlatform)
-  }));
-  dart.setLibraryUri(firebase_core_platform_interface.FirebasePlatform, I[0]);
-  dart.defineLazy(firebase_core_platform_interface.FirebasePlatform, {
-    /*firebase_core_platform_interface.FirebasePlatform._token*/get _token() {
-      return new core.Object.new();
+  dart.defineLazy(showAddedJobsDialogWidget, {
+    /*showAddedJobsDialogWidget.titleController*/get titleController() {
+      return new editable_text.TextEditingController.new();
     },
-    /*firebase_core_platform_interface.FirebasePlatform._instance*/get _instance() {
-      return new firebase_core_platform_interface.MethodChannelFirebase.new();
+    set titleController(_) {},
+    /*showAddedJobsDialogWidget.jobsNameController*/get jobsNameController() {
+      return new editable_text.TextEditingController.new();
     },
-    set _instance(_) {}
-  }, false);
-  var MethodChannel__binaryMessenger = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
-  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
-  var MethodChannel_codec = dart.privateName(platform_channel, "MethodChannel.codec");
-  var MethodChannel_name = dart.privateName(platform_channel, "MethodChannel.name");
-  firebase_core_platform_interface.MethodChannelFirebase = class MethodChannelFirebase extends firebase_core_platform_interface.FirebasePlatform {
-    [_initializeCore]() {
-      return async.async(dart.void, (function* _initializeCore() {
-        let apps = dart.nullCheck(yield firebase_core_platform_interface.MethodChannelFirebase.channel.invokeListMethod(core.Map, "Firebase#initializeCore"));
-        apps[$forEach](dart.bind(this, _initializeFirebaseAppFromMap));
-        firebase_core_platform_interface.MethodChannelFirebase.isCoreInitialized = true;
-      }).bind(this));
-    }
-    [_initializeFirebaseAppFromMap](map) {
-      let methodChannelFirebaseApp = new firebase_core_platform_interface.MethodChannelFirebaseApp.new(core.String.as(map[$_get]("name")), new firebase_core_platform_interface.FirebaseOptions.fromMap(core.Map.as(map[$_get]("options"))), {isAutomaticDataCollectionEnabled: map[$_get]("isAutomaticDataCollectionEnabled")});
-      firebase_core_platform_interface.MethodChannelFirebase.appInstances[$_set](methodChannelFirebaseApp.name, methodChannelFirebaseApp);
-      firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps[$_set](methodChannelFirebaseApp.name, map[$_get]("pluginConstants"));
-    }
-    get apps() {
-      return firebase_core_platform_interface.MethodChannelFirebase.appInstances[$values][$toList]({growable: false});
-    }
-    initializeApp(opts) {
-      let name = opts && 'name' in opts ? opts.name : null;
-      let options = opts && 'options' in opts ? opts.options : null;
-      return async.async(firebase_core_platform_interface.FirebaseAppPlatform, (function* initializeApp() {
-        if (name === "[DEFAULT]") {
-          dart.throw(firebase_core_platform_interface.noDefaultAppInitialization());
-        }
-        if (!firebase_core_platform_interface.MethodChannelFirebase.isCoreInitialized) {
-          yield this[_initializeCore]();
-        }
-        if (name == null) {
-          let defaultApp = firebase_core_platform_interface.MethodChannelFirebase.appInstances[$_get]("[DEFAULT]");
-          if (defaultApp == null) {
-            dart.throw(firebase_core_platform_interface.coreNotInitialized());
-          }
-          return dart.nullCheck(firebase_core_platform_interface.MethodChannelFirebase.appInstances[$_get]("[DEFAULT]"));
-        }
-        if (!(options != null)) dart.assertFailed("FirebaseOptions cannot be null when creating a secondary Firebase app.", I[2], 95, 7, "options != null");
-        if (firebase_core_platform_interface.MethodChannelFirebase.appInstances[$containsKey](name)) {
-          dart.throw(firebase_core_platform_interface.duplicateApp(name));
-        }
-        this[_initializeFirebaseAppFromMap](dart.nullCheck(yield firebase_core_platform_interface.MethodChannelFirebase.channel.invokeMapMethod(dart.dynamic, dart.dynamic, "Firebase#initializeApp", new (T.IdentityMapOfString$dynamic()).from(["appName", name, "options", dart.nullCheck(options).asMap]))));
-        return dart.nullCheck(firebase_core_platform_interface.MethodChannelFirebase.appInstances[$_get](name));
-      }).bind(this));
-    }
-    app(name = "[DEFAULT]") {
-      if (firebase_core_platform_interface.MethodChannelFirebase.appInstances[$containsKey](name)) {
-        return dart.nullCheck(firebase_core_platform_interface.MethodChannelFirebase.appInstances[$_get](name));
-      }
-      dart.throw(firebase_core_platform_interface.noAppExists(name));
-    }
-  };
-  (firebase_core_platform_interface.MethodChannelFirebase.new = function() {
-    firebase_core_platform_interface.MethodChannelFirebase.__proto__.new.call(this);
-    ;
-  }).prototype = firebase_core_platform_interface.MethodChannelFirebase.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.MethodChannelFirebase);
-  dart.addTypeCaches(firebase_core_platform_interface.MethodChannelFirebase);
-  dart.setMethodSignature(firebase_core_platform_interface.MethodChannelFirebase, () => ({
-    __proto__: dart.getMethods(firebase_core_platform_interface.MethodChannelFirebase.__proto__),
-    [_initializeCore]: dart.fnType(async.Future$(dart.void), []),
-    [_initializeFirebaseAppFromMap]: dart.fnType(dart.void, [core.Map])
-  }));
-  dart.setLibraryUri(firebase_core_platform_interface.MethodChannelFirebase, I[0]);
-  dart.defineLazy(firebase_core_platform_interface.MethodChannelFirebase, {
-    /*firebase_core_platform_interface.MethodChannelFirebase.appInstances*/get appInstances() {
-      return new (T.IdentityMapOfString$MethodChannelFirebaseApp()).new();
+    set jobsNameController(_) {},
+    /*showAddedJobsDialogWidget.explanationController*/get explanationController() {
+      return new editable_text.TextEditingController.new();
     },
-    set appInstances(_) {},
-    /*firebase_core_platform_interface.MethodChannelFirebase.isCoreInitialized*/get isCoreInitialized() {
+    set explanationController(_) {},
+    /*showAddedJobsDialogWidget.locationController*/get locationController() {
+      return new editable_text.TextEditingController.new();
+    },
+    set locationController(_) {},
+    /*showAddedJobsDialogWidget.categoryController*/get categoryController() {
+      return new editable_text.TextEditingController.new();
+    },
+    set categoryController(_) {},
+    /*showAddedJobsDialogWidget.companyNameController*/get companyNameController() {
+      return new editable_text.TextEditingController.new();
+    },
+    set companyNameController(_) {},
+    /*showAddedJobsDialogWidget._formKey*/get _formKey() {
+      return T.GlobalKeyOfFormState().new();
+    },
+    /*showAddedJobsDialogWidget.isLoading*/get isLoading() {
       return false;
     },
-    set isCoreInitialized(_) {},
-    /*firebase_core_platform_interface.MethodChannelFirebase.channel*/get channel() {
-      return C[2] || CT.C2;
-    }
-  }, false);
-  var _appName$ = dart.privateName(firebase_core_platform_interface, "_appName");
-  var _methodChannelName$ = dart.privateName(firebase_core_platform_interface, "_methodChannelName");
-  firebase_core_platform_interface.FirebasePluginPlatform = class FirebasePluginPlatform extends plugin_platform_interface.PlatformInterface {
-    static verifyExtends(instance) {
-      plugin_platform_interface.PlatformInterface.verifyToken(instance, firebase_core_platform_interface.FirebasePluginPlatform._token);
-    }
-    get pluginConstants() {
-      if (firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps[$_get](this[_appName$]) != null && dart.dsend(firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps[$_get](this[_appName$]), '_get', [this[_methodChannelName$]]) != null) {
-        return core.Map.as(dart.dsend(firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps[$_get](this[_appName$]), '_get', [this[_methodChannelName$]]));
-      }
-      return new _js_helper.LinkedMap.new();
-    }
-  };
-  (firebase_core_platform_interface.FirebasePluginPlatform.new = function(_appName, _methodChannelName) {
-    this[_appName$] = _appName;
-    this[_methodChannelName$] = _methodChannelName;
-    firebase_core_platform_interface.FirebasePluginPlatform.__proto__.new.call(this, {token: firebase_core_platform_interface.FirebasePluginPlatform._token});
-    ;
-  }).prototype = firebase_core_platform_interface.FirebasePluginPlatform.prototype;
-  dart.addTypeTests(firebase_core_platform_interface.FirebasePluginPlatform);
-  dart.addTypeCaches(firebase_core_platform_interface.FirebasePluginPlatform);
-  dart.setGetterSignature(firebase_core_platform_interface.FirebasePluginPlatform, () => ({
-    __proto__: dart.getGetters(firebase_core_platform_interface.FirebasePluginPlatform.__proto__),
-    pluginConstants: core.Map
-  }));
-  dart.setLibraryUri(firebase_core_platform_interface.FirebasePluginPlatform, I[0]);
-  dart.setFieldSignature(firebase_core_platform_interface.FirebasePluginPlatform, () => ({
-    __proto__: dart.getFields(firebase_core_platform_interface.FirebasePluginPlatform.__proto__),
-    [_appName$]: dart.finalFieldType(core.String),
-    [_methodChannelName$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineLazy(firebase_core_platform_interface.FirebasePluginPlatform, {
-    /*firebase_core_platform_interface.FirebasePluginPlatform._constantsForPluginApps*/get _constantsForPluginApps() {
-      return new _js_helper.LinkedMap.new();
+    set isLoading(_) {},
+    /*showAddedJobsDialogWidget.urlImage*/get urlImage() {
+      return "";
     },
-    set _constantsForPluginApps(_) {},
-    /*firebase_core_platform_interface.FirebasePluginPlatform._token*/get _token() {
-      return new core.Object.new();
-    }
+    set urlImage(_) {}
   }, false);
-  firebase_core_platform_interface.noAppExists = function noAppExists(appName) {
-    return new firebase_core_platform_interface.FirebaseException.new({plugin: "core", code: "no-app", message: "No Firebase App '" + appName + "' has been created - call Firebase.initializeApp()"});
-  };
-  firebase_core_platform_interface.duplicateApp = function duplicateApp(appName) {
-    return new firebase_core_platform_interface.FirebaseException.new({plugin: "core", code: "duplicate-app", message: "A Firebase App named \"" + appName + "\" already exists"});
-  };
-  firebase_core_platform_interface.noDefaultAppInitialization = function noDefaultAppInitialization() {
-    return new firebase_core_platform_interface.FirebaseException.new({plugin: "core", message: "The " + "[DEFAULT]" + " app cannot be initialized here. " + "To initialize the default app, follow the installation instructions " + "for the specific platform you are developing with."});
-  };
-  firebase_core_platform_interface.coreNotInitialized = function coreNotInitialized() {
-    let message = null;
-    if (true) {
-      message = "Firebase has not been correctly initialized. Have you added the Firebase import scripts to your index.html file? \n    \nView the Web Installation documentation for more information: https://firebase.flutter.dev/docs/installation/web\n    ";
-    } else if (platform.defaultTargetPlatform === platform.TargetPlatform.android) {
-      message = "Firebase has not been correctly initialized. Have you added the \"google-services.json\" file to the project? \n    \nView the Android Installation documentation for more information: https://firebase.flutter.dev/docs/installation/android\n";
-    } else if (platform.defaultTargetPlatform === platform.TargetPlatform.iOS) {
-      message = "Firebase has not been correctly initialized. Have you added the \"GoogleService-Info.plist\" file to the project? \n    \nView the iOS Installation documentation for more information: https://firebase.flutter.dev/docs/installation/ios\n";
-    } else {
-      message = "Firebase has not been initialized. " + "Please check the documentation for your platform.";
-    }
-    return new firebase_core_platform_interface.FirebaseException.new({plugin: "core", code: "not-initialized", message: message});
-  };
-  firebase_core_platform_interface.noDefaultAppDelete = function noDefaultAppDelete() {
-    return new firebase_core_platform_interface.FirebaseException.new({plugin: "core", message: "The default Firebase app instance cannot be deleted."});
-  };
-  dart.defineLazy(firebase_core_platform_interface, {
-    /*firebase_core_platform_interface.defaultFirebaseAppName*/get defaultFirebaseAppName() {
-      return "[DEFAULT]";
-    }
-  }, false);
-  dart.trackLibraries("packages/firebase_core_platform_interface/firebase_core_platform_interface.dart", {
-    "package:firebase_core_platform_interface/firebase_core_platform_interface.dart": firebase_core_platform_interface
+  dart.trackLibraries("packages/logafic/widgets/showAddedJobsDialogWidget.dart", {
+    "package:logafic/widgets/showAddedJobsDialogWidget.dart": showAddedJobsDialogWidget
   }, {
-    "package:firebase_core_platform_interface/firebase_core_platform_interface.dart": ["src/firebase_core_exceptions.dart", "src/firebase_exception.dart", "src/firebase_options.dart", "src/method_channel/method_channel_firebase_app.dart", "src/method_channel/method_channel_firebase.dart", "src/platform_interface/platform_interface_firebase_app.dart", "src/platform_interface/platform_interface_firebase.dart", "src/platform_interface/platform_interface_firebase_plugin.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["src/firebase_exception.dart","src/firebase_options.dart","src/platform_interface/platform_interface_firebase_app.dart","src/method_channel/method_channel_firebase_app.dart","src/platform_interface/platform_interface_firebase.dart","src/method_channel/method_channel_firebase.dart","src/platform_interface/platform_interface_firebase_plugin.dart","src/firebase_core_exceptions.dart","firebase_core_platform_interface.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/firebase_core_platform_interface/firebase_core_platform_interface.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["showAddedJobsDialogWidget.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4FAmBe;AADuB;AAGA,MAApC,AAAmB,oDAAO;AAC1B,YAAO,wCACM,OAAO,WACP,QAAC,KAAU,mCACT,uEACwB,mCAAW,uBAAS,mBAC1C,gCAAiB,QAAC;AACrB,2BAAoB,AAAY,AAAK,0BAAd,OAAO;AAC9B,0BAAmB,AAAY,AAAK,0BAAd,OAAO;AACjC,oBAAO,sCACK,AAAO,MAAD,GAAG,UACO,0CAAc,OAAO,IACvC,AAAM,KAAD,GAAG,MACR,AAAM,KAAD,GAAG,YACP,wBACA,2CACE,+BACa,wBAChB,AAAU,wCAAG,QACP,6BACS,yCACgC,kDACE,0CAC7B,wBACR,gCACsB,+BAAI,cACjB,qCACI,kBAAW,kFACb,kBACL,4BACO,wCAAoB,qLAIjC,oFACA,gCACwB,+BAAI,aACjB,+EAEO,uDACA,oDACG,0IAErB,gCACwB,+BAAI,aACjB,+EAEO,6DACA,oDACG,wIAErB,gCACwB,+BAAI,aACjB,+EAEO,uDACH,mBACG,oDACG,6IAErB,gCACwB,+BAAI,aACjB,+EAEO,0DACA,oDACG,mIAErB,gCACwB,+BAAI,aACjB,mDACO,2DACF,aACA,kBACkB,gDAChB,oDACG,sQAK3B,6BACS,4KAEf,gCACuB,uCACd,sCAEU,uCAAW,cAAY,WAAS,gBACvC,2BAEM,4BACP,6BACa,wBAChB,+BACS,iEAET,+BACS,+EAEO,0DACA,mDACE,uCAEN,qCAAwB,iCACR,uJAG5B,+BACS,iEAET,gEACa;AACT,sCAAyB,AAAE,eAAvB,AAAS;AACD,oDAAY,6BAClB,AAAmB,mDACc,AAAE,eAAnC,AAAe,AAAa,uDAGvB,cADmB,AAAE,eAD1B,AACK,AAAc,8DAId,cAF6B,AAC7B,eADL,AAAe,AAAc,sEAG7B,AAAmB,mDACnB,AAAgB,gDAChB,AAAsB,sDACtB,AAAmB,mDACnB,AAAsB;AAexB,oCAdF,AACK,AACA,mCADO,SAAS,eACH;AACU,sCAA1B,AAAmB;AACO,sCAA1B,AAAmB;AACI,sCAAvB,AAAgB;AACa,sCAA7B,AAAsB;AACI,sCAA1B,AAAmB;AACU,sCAA7B,AAAsB;AAKhB,sCAJI,2CAAU,OAAO,0BACZ,2CACT,UACuB,AAAE,eADf,AACL,AAAa;;;gCAI7B,oCACM,kBACC,wCACQ,2BACR,kFAEgB,gCACb;;IAU3C;;iFAEqC;AAC5B,gBAAQ,gBAAO;AACtB,QAAS,AAAE,eAAP,KAAK,gBAAc,AAAM,KAAD,UAAU,KAAK,GAAG,IAAI,AAAM,KAAD,YACrD,MAAO;EACX;;MArLsB,yCAAe;YAAG;;;MAClB,4CAAkB;YAAG;;;MACrB,+CAAqB;YAAG;;;MACxB,4CAAkB;YAAG;;;MACrB,4CAAkB;YAAG;;;MACrB,+CAAqB;YAAG;;;MAEnB,kCAAQ;YAAG;;MAEjC,mCAAS;YAAG;;;MACV,kCAAQ;YAAG","file":"../../../../../../../packages/logafic/widgets/showAddedJobsDialogWidget.dart.lib.js"}');
   // Exports:
   return {
-    firebase_core_platform_interface: firebase_core_platform_interface
+    widgets__showAddedJobsDialogWidget: showAddedJobsDialogWidget
   };
 }));
 
-//# sourceMappingURL=firebase_core_platform_interface.dart.lib.js.map
+//# sourceMappingURL=showAddedJobsDialogWidget.dart.lib.js.map

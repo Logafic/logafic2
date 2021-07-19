@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "Q1XD8PlfmEaSYF4mjC753A==";
+    window.$dartAppId = "azAS8hqvK8GWID5coiiqpw==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:61371/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:59851/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:61373/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:59853/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -681,6 +681,8 @@ let modulePaths = {
  "packages/firebase_auth/firebase_auth.dart": "packages/firebase_auth/firebase_auth.dart.lib",
  "packages/logafic/services/navigation_service.dart": "packages/logafic/services/navigation_service.dart.lib",
  "packages/logafic/routing/router.dart": "packages/logafic/routing/router.dart.lib",
+ "packages/logafic/screens/verify_screen.dart": "packages/logafic/screens/verify_screen.dart.lib",
+ "packages/logafic/services/messageService.dart": "packages/logafic/services/messageService.dart.lib",
  "packages/logafic/screens/user_information_screen.dart": "packages/logafic/screens/user_information_screen.dart.lib",
  "packages/image_picker/image_picker.dart": "packages/image_picker/image_picker.dart.lib",
  "packages/firebase_storage/firebase_storage.dart": "packages/firebase_storage/firebase_storage.dart.lib",
@@ -709,7 +711,6 @@ let modulePaths = {
  "packages/logafic/widgets/updatePostWidget.dart": "packages/logafic/widgets/updatePostWidget.dart.lib",
  "packages/logafic/widgets/profileBarAction.dart": "packages/logafic/widgets/profileBarAction.dart.lib",
  "packages/logafic/widgets/showAddedJobsDialogWidget.dart": "packages/logafic/widgets/showAddedJobsDialogWidget.dart.lib",
- "packages/logafic/services/messageService.dart": "packages/logafic/services/messageService.dart.lib",
  "packages/logafic/services/database.dart": "packages/logafic/services/database.dart.lib",
  "packages/logafic/data_model/post_data_model.dart": "packages/logafic/data_model/post_data_model.dart.lib",
  "packages/logafic/data_model/jobs_model.dart": "packages/logafic/data_model/jobs_model.dart.lib",
@@ -1378,6 +1379,8 @@ let moduleNames = {
  "packages/firebase_auth/firebase_auth.dart.lib": "packages/firebase_auth/firebase_auth.dart",
  "packages/logafic/services/navigation_service.dart.lib": "packages/logafic/services/navigation_service.dart",
  "packages/logafic/routing/router.dart.lib": "packages/logafic/routing/router.dart",
+ "packages/logafic/screens/verify_screen.dart.lib": "packages/logafic/screens/verify_screen.dart",
+ "packages/logafic/services/messageService.dart.lib": "packages/logafic/services/messageService.dart",
  "packages/logafic/screens/user_information_screen.dart.lib": "packages/logafic/screens/user_information_screen.dart",
  "packages/image_picker/image_picker.dart.lib": "packages/image_picker/image_picker.dart",
  "packages/firebase_storage/firebase_storage.dart.lib": "packages/firebase_storage/firebase_storage.dart",
@@ -1406,7 +1409,6 @@ let moduleNames = {
  "packages/logafic/widgets/updatePostWidget.dart.lib": "packages/logafic/widgets/updatePostWidget.dart",
  "packages/logafic/widgets/profileBarAction.dart.lib": "packages/logafic/widgets/profileBarAction.dart",
  "packages/logafic/widgets/showAddedJobsDialogWidget.dart.lib": "packages/logafic/widgets/showAddedJobsDialogWidget.dart",
- "packages/logafic/services/messageService.dart.lib": "packages/logafic/services/messageService.dart",
  "packages/logafic/services/database.dart.lib": "packages/logafic/services/database.dart",
  "packages/logafic/data_model/post_data_model.dart.lib": "packages/logafic/data_model/post_data_model.dart",
  "packages/logafic/data_model/jobs_model.dart.lib": "packages/logafic/data_model/jobs_model.dart",

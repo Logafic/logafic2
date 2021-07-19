@@ -1,1058 +1,2013 @@
-define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/utils.dart', 'packages/http/src/boundary_characters.dart', 'packages/http_parser/src/media_type.dart', 'packages/pedantic/pedantic.dart', 'packages/http/src/exception.dart'], (function load__packages__http__src__multipart_request_dart(dart_sdk, packages__http__src__byte_stream$46dart, packages__http__src__utils$46dart, packages__http__src__boundary_characters$46dart, packages__http_parser__src__media_type$46dart, packages__pedantic__pedantic$46dart, packages__http__src__exception$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/logafic/controllers/authController.dart', 'packages/flutter/src/widgets/preferred_size.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/popup_menu.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart'], (function load__packages__logafic__widgets__top_bar_contents_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__logafic__controllers__authController$46dart, packages__flutter__src__widgets__preferred_size$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__popup_menu$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
-  const convert = dart_sdk.convert;
+  const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
-  const collection = dart_sdk.collection;
-  const math = dart_sdk.math;
-  const html = dart_sdk.html;
-  const typed_data = dart_sdk.typed_data;
-  const _native_typed_data = dart_sdk._native_typed_data;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
-  const utils = packages__http__src__utils$46dart.src__utils;
-  const boundary_characters = packages__http__src__boundary_characters$46dart.src__boundary_characters;
-  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
-  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
-  const exception = packages__http__src__exception$46dart.src__exception;
-  var multipart_request = Object.create(dart.library);
-  var multipart_file_stub = Object.create(dart.library);
-  var multipart_file = Object.create(dart.library);
-  var streamed_request = Object.create(dart.library);
-  var browser_client = Object.create(dart.library);
-  var response$ = Object.create(dart.library);
-  var request$ = Object.create(dart.library);
-  var streamed_response = Object.create(dart.library);
-  var base_response = Object.create(dart.library);
-  var base_request = Object.create(dart.library);
-  var base_client = Object.create(dart.library);
-  var client$ = Object.create(dart.library);
-  var http = Object.create(dart.library);
-  var $length = dartx.length;
-  var $forEach = dartx.forEach;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const visibility = packages__flutter__src__widgets__widget_span$46dart.src__widgets__visibility;
+  const authController = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const preferred_size = packages__flutter__src__widgets__preferred_size$46dart.src__widgets__preferred_size;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const popup_menu = packages__flutter__src__material__popup_menu$46dart.src__material__popup_menu;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var top_bar_contents = Object.create(dart.library);
   var $_set = dartx._set;
-  var $entries = dartx.entries;
-  var $replaceAll = dartx.replaceAll;
   var $_get = dartx._get;
-  var $toLowerCase = dartx.toLowerCase;
-  var $hashCode = dartx.hashCode;
-  var $responseType = dartx.responseType;
-  var $onLoad = dartx.onLoad;
-  var $response = dartx.response;
-  var $asUint8List = dartx.asUint8List;
-  var $responseHeaders = dartx.responseHeaders;
-  var $onError = dartx.onError;
-  var $addAll = dartx.addAll;
-  var $cast = dartx.cast;
-  var $containsKey = dartx.containsKey;
-  var $remove = dartx.remove;
   dart._checkModuleNullSafetyMode(true);
   var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    boolTovoid: () => (T.boolTovoid = dart.constFn(dart.fnType(dart.void, [core.bool])))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
     IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
-    JSArrayOfMultipartFile: () => (T.JSArrayOfMultipartFile = dart.constFn(_interceptors.JSArray$(multipart_file.MultipartFile)))(),
-    StringAndStringTovoid: () => (T.StringAndStringTovoid = dart.constFn(dart.fnType(dart.void, [core.String, core.String])))(),
-    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
-    _AsyncStarImplOfListOfint: () => (T._AsyncStarImplOfListOfint = dart.constFn(async._AsyncStarImpl$(T.ListOfint())))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    LinkedHashMapOfString$String: () => (T.LinkedHashMapOfString$String = dart.constFn(collection.LinkedHashMap$(core.String, core.String)))(),
-    StringAndStringTobool: () => (T.StringAndStringTobool = dart.constFn(dart.fnType(core.bool, [core.String, core.String])))(),
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    _EmptyStreamOfListOfint: () => (T._EmptyStreamOfListOfint = dart.constFn(async._EmptyStream$(T.ListOfint())))(),
-    StreamControllerOfListOfint: () => (T.StreamControllerOfListOfint = dart.constFn(async.StreamController$(T.ListOfint())))(),
-    LinkedHashSetOfHttpRequest: () => (T.LinkedHashSetOfHttpRequest = dart.constFn(collection.LinkedHashSet$(html.HttpRequest)))(),
-    CompleterOfStreamedResponse: () => (T.CompleterOfStreamedResponse = dart.constFn(async.Completer$(streamed_response.StreamedResponse)))(),
-    ProgressEventToNull: () => (T.ProgressEventToNull = dart.constFn(dart.fnType(core.Null, [html.ProgressEvent])))(),
-    FutureOfResponse: () => (T.FutureOfResponse = dart.constFn(async.Future$(response$.Response)))(),
-    ClientToFutureOfResponse: () => (T.ClientToFutureOfResponse = dart.constFn(dart.fnType(T.FutureOfResponse(), [client$.Client])))(),
-    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
-    ClientToFutureOfString: () => (T.ClientToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [client$.Client])))(),
-    FutureOfUint8List: () => (T.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
-    ClientToFutureOfUint8List: () => (T.ClientToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [client$.Client])))()
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureNOfvoid: () => (T.FutureNOfvoid = dart.constFn(dart.nullable(T.FutureOfvoid())))(),
+    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    JSArrayOfPopupMenuEntry: () => (T.JSArrayOfPopupMenuEntry = dart.constFn(_interceptors.JSArray$(popup_menu.PopupMenuEntry)))(),
+    ListOfPopupMenuEntry: () => (T.ListOfPopupMenuEntry = dart.constFn(core.List$(popup_menu.PopupMenuEntry)))(),
+    BuildContextToListOfPopupMenuEntry: () => (T.BuildContextToListOfPopupMenuEntry = dart.constFn(dart.fnType(T.ListOfPopupMenuEntry(), [framework.BuildContext])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.constList([13, 10], core.int);
-    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: T._EmptyStreamOfListOfint().prototype
-      });
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: byte_stream.ByteStream.prototype,
-        [StreamView__stream]: C[2] || CT.C2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 17,
+        [_Location_line]: 43,
+        [_Location_file]: null
       });
     },
     get C3() {
-      return C[3] = dart.constMap(core.String, core.String, []);
-    }
-  }, false);
-  var C = Array(4).fill(void 0);
-  var I = [
-    "package:http/src/base_request.dart",
-    "package:http/src/multipart_request.dart",
-    "package:http/src/multipart_file.dart",
-    "package:http/src/streamed_request.dart",
-    "package:http/src/base_client.dart",
-    "package:http/src/browser_client.dart",
-    "package:http/src/base_response.dart",
-    "package:http/src/response.dart",
-    "package:http/src/request.dart",
-    "package:http/src/streamed_response.dart",
-    "package:http/src/client.dart"
-  ];
-  var fields = dart.privateName(multipart_request, "MultipartRequest.fields");
-  var files = dart.privateName(multipart_request, "MultipartRequest.files");
-  var _headerForField = dart.privateName(multipart_request, "_headerForField");
-  var _headerForFile = dart.privateName(multipart_request, "_headerForFile");
-  var _boundaryString = dart.privateName(multipart_request, "_boundaryString");
-  var _finalize = dart.privateName(multipart_request, "_finalize");
-  var _browserEncode = dart.privateName(multipart_request, "_browserEncode");
-  var method$ = dart.privateName(base_request, "BaseRequest.method");
-  var url$ = dart.privateName(base_request, "BaseRequest.url");
-  var headers = dart.privateName(base_request, "BaseRequest.headers");
-  var _contentLength = dart.privateName(base_request, "_contentLength");
-  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
-  var _followRedirects = dart.privateName(base_request, "_followRedirects");
-  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
-  var _finalized = dart.privateName(base_request, "_finalized");
-  var _checkFinalized = dart.privateName(base_request, "_checkFinalized");
-  var StreamView__stream = dart.privateName(async, "StreamView._stream");
-  base_request.BaseRequest = class BaseRequest extends core.Object {
-    get method() {
-      return this[method$];
-    }
-    set method(value) {
-      super.method = value;
-    }
-    get url() {
-      return this[url$];
-    }
-    set url(value) {
-      super.url = value;
-    }
-    get headers() {
-      return this[headers];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get contentLength() {
-      return this[_contentLength];
-    }
-    set contentLength(value) {
-      if (value != null && dart.notNull(value) < 0) {
-        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
-      }
-      this[_checkFinalized]();
-      this[_contentLength] = value;
-    }
-    get persistentConnection() {
-      return this[_persistentConnection];
-    }
-    set persistentConnection(value) {
-      this[_checkFinalized]();
-      this[_persistentConnection] = value;
-    }
-    get followRedirects() {
-      return this[_followRedirects];
-    }
-    set followRedirects(value) {
-      this[_checkFinalized]();
-      this[_followRedirects] = value;
-    }
-    get maxRedirects() {
-      return this[_maxRedirects];
-    }
-    set maxRedirects(value) {
-      this[_checkFinalized]();
-      this[_maxRedirects] = value;
-    }
-    get finalized() {
-      return this[_finalized];
-    }
-    static _validateMethod(method) {
-      if (!base_request.BaseRequest._tokenRE.hasMatch(method)) {
-        dart.throw(new core.ArgumentError.value(method, "method", "Not a valid method"));
-      }
-      return method;
-    }
-    finalize() {
-      if (this.finalized) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
-      this[_finalized] = true;
-      return C[1] || CT.C1;
-    }
-    send() {
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let client = client$.Client.new();
-        try {
-          let response = (yield client.send(this));
-          let stream = utils.onDone(T.ListOfint(), response.stream, dart.bind(client, 'close'));
-          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
-        } catch (e) {
-          let _ = dart.getThrown(e);
-          if (core.Object.is(_)) {
-            client.close();
-            dart.rethrow(e);
-          } else
-            throw e;
-        }
-      }).bind(this));
-    }
-    [_checkFinalized]() {
-      if (!this.finalized) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
-    }
-    toString() {
-      return this.method + " " + dart.str(this.url);
-    }
-  };
-  (base_request.BaseRequest.new = function(method, url) {
-    this[_contentLength] = null;
-    this[_persistentConnection] = true;
-    this[_followRedirects] = true;
-    this[_maxRedirects] = 5;
-    this[_finalized] = false;
-    this[url$] = url;
-    this[method$] = base_request.BaseRequest._validateMethod(method);
-    this[headers] = T.LinkedHashMapOfString$String().new({equals: dart.fn((key1, key2) => key1[$toLowerCase]() === key2[$toLowerCase](), T.StringAndStringTobool()), hashCode: dart.fn(key => key[$toLowerCase]()[$hashCode], T.StringToint())});
-    ;
-  }).prototype = base_request.BaseRequest.prototype;
-  dart.addTypeTests(base_request.BaseRequest);
-  dart.addTypeCaches(base_request.BaseRequest);
-  dart.setMethodSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, []),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), []),
-    [_checkFinalized]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int,
-    finalized: core.bool
-  }));
-  dart.setSetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int
-  }));
-  dart.setLibraryUri(base_request.BaseRequest, I[0]);
-  dart.setFieldSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
-    method: dart.finalFieldType(core.String),
-    url: dart.finalFieldType(core.Uri),
-    [_contentLength]: dart.fieldType(dart.nullable(core.int)),
-    [_persistentConnection]: dart.fieldType(core.bool),
-    [_followRedirects]: dart.fieldType(core.bool),
-    [_maxRedirects]: dart.fieldType(core.int),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    [_finalized]: dart.fieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
-  dart.defineLazy(base_request.BaseRequest, {
-    /*base_request.BaseRequest._tokenRE*/get _tokenRE() {
-      return core.RegExp.new("^[\\w!#%&'*+\\-.^`|~]+$");
-    }
-  }, false);
-  multipart_request.MultipartRequest = class MultipartRequest extends base_request.BaseRequest {
-    get fields() {
-      return this[fields];
-    }
-    set fields(value) {
-      super.fields = value;
-    }
-    get files() {
-      return this[files];
-    }
-    set files(value) {
-      super.files = value;
-    }
-    get contentLength() {
-      let length = 0;
-      this.fields[$forEach](dart.fn((name, value) => {
-        length = length + ("--".length + 70 + "\r\n".length + convert.utf8.encode(this[_headerForField](name, value))[$length] + convert.utf8.encode(value)[$length] + "\r\n".length);
-      }, T.StringAndStringTovoid()));
-      for (let file of this.files) {
-        length = length + ("--".length + 70 + "\r\n".length + convert.utf8.encode(this[_headerForFile](file))[$length] + file.length + "\r\n".length);
-      }
-      return length + "--".length + 70 + "--\r\n".length;
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "multipart requests."));
-    }
-    finalize() {
-      let boundary = this[_boundaryString]();
-      this.headers[$_set]("content-type", "multipart/form-data; boundary=" + boundary);
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_finalize](boundary));
-    }
-    [_finalize](boundary) {
-      return new (T._AsyncStarImplOfListOfint()).new((function* _finalize(stream) {
-        let line = C[0] || CT.C0;
-        let separator = convert.utf8.encode("--" + boundary + "\r\n");
-        let close = convert.utf8.encode("--" + boundary + "--\r\n");
-        for (let field of this.fields[$entries]) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForField](field.key, field.value)))) return;
-          yield;
-          if (stream.add(convert.utf8.encode(field.value))) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        for (let file of this.files) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForFile](file)))) return;
-          yield;
-          if (stream.addStream(file.finalize())) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        if (stream.add(close)) return;
-        yield;
-      }).bind(this)).stream;
-    }
-    [_headerForField](name, value) {
-      let header = "content-disposition: form-data; name=\"" + this[_browserEncode](name) + "\"";
-      if (!utils.isPlainAscii(value)) {
-        header = header + "\r\n" + "content-type: text/plain; charset=utf-8\r\n" + "content-transfer-encoding: binary";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_headerForFile](file) {
-      let header = "content-type: " + dart.str(file.contentType) + "\r\n" + "content-disposition: form-data; name=\"" + this[_browserEncode](file.field) + "\"";
-      if (file.filename != null) {
-        header = header + "; filename=\"" + this[_browserEncode](dart.nullCheck(file.filename)) + "\"";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_browserEncode](value) {
-      return value[$replaceAll](multipart_request._newlineRegExp, "%0D%0A")[$replaceAll]("\"", "%22");
-    }
-    [_boundaryString]() {
-      let prefix = "dart-http-boundary-";
-      let list = T.ListOfint().generate(70 - prefix.length, dart.fn(index => boundary_characters.boundaryCharacters[$_get](multipart_request.MultipartRequest._random.nextInt(boundary_characters.boundaryCharacters[$length])), T.intToint()), {growable: false});
-      return prefix + core.String.fromCharCodes(list);
-    }
-  };
-  (multipart_request.MultipartRequest.new = function(method, url) {
-    this[fields] = new (T.IdentityMapOfString$String()).new();
-    this[files] = T.JSArrayOfMultipartFile().of([]);
-    multipart_request.MultipartRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = multipart_request.MultipartRequest.prototype;
-  dart.addTypeTests(multipart_request.MultipartRequest);
-  dart.addTypeCaches(multipart_request.MultipartRequest);
-  dart.setMethodSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getMethods(multipart_request.MultipartRequest.__proto__),
-    [_finalize]: dart.fnType(async.Stream$(core.List$(core.int)), [core.String]),
-    [_headerForField]: dart.fnType(core.String, [core.String, core.String]),
-    [_headerForFile]: dart.fnType(core.String, [multipart_file.MultipartFile]),
-    [_browserEncode]: dart.fnType(core.String, [core.String]),
-    [_boundaryString]: dart.fnType(core.String, [])
-  }));
-  dart.setGetterSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getGetters(multipart_request.MultipartRequest.__proto__),
-    contentLength: core.int
-  }));
-  dart.setLibraryUri(multipart_request.MultipartRequest, I[1]);
-  dart.setFieldSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getFields(multipart_request.MultipartRequest.__proto__),
-    fields: dart.finalFieldType(core.Map$(core.String, core.String)),
-    files: dart.finalFieldType(core.List$(multipart_file.MultipartFile))
-  }));
-  dart.defineLazy(multipart_request.MultipartRequest, {
-    /*multipart_request.MultipartRequest._boundaryLength*/get _boundaryLength() {
-      return 70;
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 17,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
     },
-    /*multipart_request.MultipartRequest._random*/get _random() {
-      return math.Random.new();
-    }
-  }, false);
-  dart.defineLazy(multipart_request, {
-    /*multipart_request._newlineRegExp*/get _newlineRegExp() {
-      return core.RegExp.new("\\r\\n|\\r|\\n");
-    }
-  }, false);
-  multipart_file_stub.multipartFileFromPath = function multipartFileFromPath(field, filePath, opts) {
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    return dart.throw(new core.UnsupportedError.new("MultipartFile is only supported where dart:io is available."));
-  };
-  var field$ = dart.privateName(multipart_file, "MultipartFile.field");
-  var length$ = dart.privateName(multipart_file, "MultipartFile.length");
-  var filename$ = dart.privateName(multipart_file, "MultipartFile.filename");
-  var contentType$ = dart.privateName(multipart_file, "MultipartFile.contentType");
-  var _isFinalized = dart.privateName(multipart_file, "_isFinalized");
-  var _stream = dart.privateName(multipart_file, "_stream");
-  multipart_file.MultipartFile = class MultipartFile extends core.Object {
-    get field() {
-      return this[field$];
-    }
-    set field(value) {
-      super.field = value;
-    }
-    get length() {
-      return this[length$];
-    }
-    set length(value) {
-      super.length = value;
-    }
-    get filename() {
-      return this[filename$];
-    }
-    set filename(value) {
-      super.filename = value;
-    }
-    get contentType() {
-      return this[contentType$];
-    }
-    set contentType(value) {
-      super.contentType = value;
-    }
-    get isFinalized() {
-      return this[_isFinalized];
-    }
-    static fromBytes(field, value, opts) {
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      let stream = byte_stream.ByteStream.fromBytes(value);
-      return new multipart_file.MultipartFile.new(field, stream, value[$length], {filename: filename, contentType: contentType});
-    }
-    static fromString(field, value, opts) {
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
-      let encoding = utils.encodingForCharset(contentType.parameters[$_get]("charset"), convert.utf8);
-      contentType = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", encoding.name])});
-      return multipart_file.MultipartFile.fromBytes(field, encoding.encode(value), {filename: filename, contentType: contentType});
-    }
-    static fromPath(field, filePath, opts) {
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      return multipart_file_stub.multipartFileFromPath(field, filePath, {filename: filename, contentType: contentType});
-    }
-    finalize() {
-      if (this.isFinalized) {
-        dart.throw(new core.StateError.new("Can't finalize a finalized MultipartFile."));
-      }
-      this[_isFinalized] = true;
-      return this[_stream];
-    }
-  };
-  (multipart_file.MultipartFile.new = function(field, stream, length, opts) {
-    let t1;
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    this[_isFinalized] = false;
-    this[field$] = field;
-    this[length$] = length;
-    this[filename$] = filename;
-    this[_stream] = utils.toByteStream(stream);
-    this[contentType$] = (t1 = contentType, t1 == null ? new media_type.MediaType.new("application", "octet-stream") : t1);
-    ;
-  }).prototype = multipart_file.MultipartFile.prototype;
-  dart.addTypeTests(multipart_file.MultipartFile);
-  dart.addTypeCaches(multipart_file.MultipartFile);
-  dart.setMethodSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getMethods(multipart_file.MultipartFile.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, [])
-  }));
-  dart.setGetterSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getGetters(multipart_file.MultipartFile.__proto__),
-    isFinalized: core.bool
-  }));
-  dart.setLibraryUri(multipart_file.MultipartFile, I[2]);
-  dart.setFieldSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getFields(multipart_file.MultipartFile.__proto__),
-    field: dart.finalFieldType(core.String),
-    length: dart.finalFieldType(core.int),
-    filename: dart.finalFieldType(dart.nullable(core.String)),
-    contentType: dart.finalFieldType(media_type.MediaType),
-    [_stream]: dart.finalFieldType(byte_stream.ByteStream),
-    [_isFinalized]: dart.fieldType(core.bool)
-  }));
-  var _controller = dart.privateName(streamed_request, "_controller");
-  streamed_request.StreamedRequest = class StreamedRequest extends base_request.BaseRequest {
-    get sink() {
-      return this[_controller].sink;
-    }
-    finalize() {
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_controller].stream);
-    }
-  };
-  (streamed_request.StreamedRequest.new = function(method, url) {
-    this[_controller] = T.StreamControllerOfListOfint().new({sync: true});
-    streamed_request.StreamedRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = streamed_request.StreamedRequest.prototype;
-  dart.addTypeTests(streamed_request.StreamedRequest);
-  dart.addTypeCaches(streamed_request.StreamedRequest);
-  dart.setGetterSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getGetters(streamed_request.StreamedRequest.__proto__),
-    sink: async.EventSink$(core.List$(core.int))
-  }));
-  dart.setLibraryUri(streamed_request.StreamedRequest, I[3]);
-  dart.setFieldSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getFields(streamed_request.StreamedRequest.__proto__),
-    [_controller]: dart.finalFieldType(async.StreamController$(core.List$(core.int)))
-  }));
-  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
-  var _xhrs = dart.privateName(browser_client, "_xhrs");
-  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
-  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
-  base_client.BaseClient = class BaseClient extends core.Object {
-    head(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("HEAD", url, headers);
-    }
-    get(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("GET", url, headers);
-    }
-    post(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
-    }
-    put(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
-    }
-    patch(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
-    }
-    delete(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("DELETE", url, headers, body, encoding);
-    }
-    read(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(core.String, (function* read() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.body;
-      }).bind(this));
-    }
-    readBytes(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(typed_data.Uint8List, (function* readBytes() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.bodyBytes;
-      }).bind(this));
-    }
-    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
-      return async.async(response$.Response, (function* _sendUnstreamed() {
-        let request = new request$.Request.new(method, url);
-        if (headers != null) request.headers[$addAll](headers);
-        if (encoding != null) request.encoding = encoding;
-        if (body != null) {
-          if (typeof body == 'string') {
-            request.body = body;
-          } else if (core.List.is(body)) {
-            request.bodyBytes = body[$cast](core.int);
-          } else if (core.Map.is(body)) {
-            request.bodyFields = body[$cast](core.String, core.String);
-          } else {
-            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
-          }
-        }
-        return response$.Response.fromStream(yield this.send(request));
-      }).bind(this));
-    }
-    [_checkResponseSuccess](url, response) {
-      if (response.statusCode < 400) return;
-      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
-      if (response.reasonPhrase != null) {
-        message = message + ": " + dart.str(response.reasonPhrase);
-      }
-      dart.throw(new exception.ClientException.new(message + ".", url));
-    }
-    close() {
-    }
-  };
-  (base_client.BaseClient.new = function() {
-    ;
-  }).prototype = base_client.BaseClient.prototype;
-  dart.addTypeTests(base_client.BaseClient);
-  dart.addTypeCaches(base_client.BaseClient);
-  base_client.BaseClient[dart.implements] = () => [client$.Client];
-  dart.setMethodSignature(base_client.BaseClient, () => ({
-    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
-    head: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    get: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    post: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    put: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    patch: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    delete: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    read: dart.fnType(async.Future$(core.String), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    readBytes: dart.fnType(async.Future$(typed_data.Uint8List), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    [_sendUnstreamed]: dart.fnType(async.Future$(response$.Response), [core.String, core.Uri, dart.nullable(core.Map$(core.String, core.String))], [dart.dynamic, dart.nullable(convert.Encoding)]),
-    [_checkResponseSuccess]: dart.fnType(dart.void, [core.Uri, response$.Response]),
-    close: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(base_client.BaseClient, I[4]);
-  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
-    get withCredentials() {
-      return this[withCredentials];
-    }
-    set withCredentials(value) {
-      this[withCredentials] = value;
-    }
-    send(request) {
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let t1;
-        let bytes = (yield request.finalize().toBytes());
-        let xhr = html.HttpRequest.new();
-        this[_xhrs].add(xhr);
-        t1 = xhr;
-        (() => {
-          t1.open(request.method, dart.str(request.url), {async: true});
-          t1[$responseType] = "arraybuffer";
-          t1.withCredentials = this.withCredentials;
-          return t1;
-        })();
-        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
-        let completer = T.CompleterOfStreamedResponse().new();
-        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
-          let body = typed_data.ByteBuffer.as(xhr[$response])[$asUint8List]();
-          completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), dart.nullCheck(xhr.status), {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
-        }, T.ProgressEventToNull())));
-        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
-          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
-        }, T.ProgressEventToNull())));
-        xhr.send(bytes);
-        try {
-          return yield completer.future;
-        } finally {
-          this[_xhrs].remove(xhr);
-        }
-      }).bind(this));
-    }
-    close() {
-      for (let xhr of this[_xhrs]) {
-        xhr.abort();
-      }
-    }
-  };
-  (browser_client.BrowserClient.new = function() {
-    this[_xhrs] = T.LinkedHashSetOfHttpRequest().new();
-    this[withCredentials] = false;
-    ;
-  }).prototype = browser_client.BrowserClient.prototype;
-  dart.addTypeTests(browser_client.BrowserClient);
-  dart.addTypeCaches(browser_client.BrowserClient);
-  dart.setMethodSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), [base_request.BaseRequest])
-  }));
-  dart.setLibraryUri(browser_client.BrowserClient, I[5]);
-  dart.setFieldSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
-    [_xhrs]: dart.finalFieldType(core.Set$(html.HttpRequest)),
-    withCredentials: dart.fieldType(core.bool)
-  }));
-  browser_client.createClient = function createClient() {
-    return new browser_client.BrowserClient.new();
-  };
-  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
-  var request$0 = dart.privateName(base_response, "BaseResponse.request");
-  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
-  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
-  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
-  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
-  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
-  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
-  base_response.BaseResponse = class BaseResponse extends core.Object {
-    get request() {
-      return this[request$0];
-    }
-    set request(value) {
-      super.request = value;
-    }
-    get statusCode() {
-      return this[statusCode$];
-    }
-    set statusCode(value) {
-      super.statusCode = value;
-    }
-    get reasonPhrase() {
-      return this[reasonPhrase$];
-    }
-    set reasonPhrase(value) {
-      super.reasonPhrase = value;
-    }
-    get contentLength() {
-      return this[contentLength$];
-    }
-    set contentLength(value) {
-      super.contentLength = value;
-    }
-    get headers() {
-      return this[headers$];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get isRedirect() {
-      return this[isRedirect$];
-    }
-    set isRedirect(value) {
-      super.isRedirect = value;
-    }
-    get persistentConnection() {
-      return this[persistentConnection$];
-    }
-    set persistentConnection(value) {
-      super.persistentConnection = value;
-    }
-  };
-  (base_response.BaseResponse.new = function(statusCode, opts) {
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[statusCode$] = statusCode;
-    this[contentLength$] = contentLength;
-    this[request$0] = request;
-    this[headers$] = headers;
-    this[isRedirect$] = isRedirect;
-    this[persistentConnection$] = persistentConnection;
-    this[reasonPhrase$] = reasonPhrase;
-    if (this.statusCode < 100) {
-      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
-    } else if (this.contentLength != null && dart.nullCheck(this.contentLength) < 0) {
-      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
-    }
-  }).prototype = base_response.BaseResponse.prototype;
-  dart.addTypeTests(base_response.BaseResponse);
-  dart.addTypeCaches(base_response.BaseResponse);
-  dart.setLibraryUri(base_response.BaseResponse, I[6]);
-  dart.setFieldSignature(base_response.BaseResponse, () => ({
-    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
-    request: dart.finalFieldType(dart.nullable(base_request.BaseRequest)),
-    statusCode: dart.finalFieldType(core.int),
-    reasonPhrase: dart.finalFieldType(dart.nullable(core.String)),
-    contentLength: dart.finalFieldType(dart.nullable(core.int)),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    isRedirect: dart.finalFieldType(core.bool),
-    persistentConnection: dart.finalFieldType(core.bool)
-  }));
-  response$.Response = class Response extends base_response.BaseResponse {
-    get bodyBytes() {
-      return this[bodyBytes$];
-    }
-    set bodyBytes(value) {
-      super.bodyBytes = value;
-    }
-    get body() {
-      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
-    }
-    static fromStream(response) {
-      return async.async(response$.Response, function* fromStream() {
-        let body = (yield response.stream.toBytes());
-        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 71,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 78,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 79,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 121,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56], widget_inspector._Location);
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59, C[60] || CT.C60], widget_inspector._Location);
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 102,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 94,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68], widget_inspector._Location);
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71, C[72] || CT.C72], widget_inspector._Location);
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 145,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 152,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.constList([C[75] || CT.C75], widget_inspector._Location);
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 152,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 159,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.constList([C[78] || CT.C78, C[79] || CT.C79, C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[77] || CT.C77,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 158,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 154,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 157,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 158,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 153,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 144,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91], widget_inspector._Location);
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 142,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 132,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 139,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96], widget_inspector._Location);
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 131,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.constList([C[99] || CT.C99], widget_inspector._Location);
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[98] || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 167,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103], widget_inspector._Location);
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[101] || CT.C101,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 182,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.constList([C[106] || CT.C106], widget_inspector._Location);
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[105] || CT.C105,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 189,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 196,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 197,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.constList([C[109] || CT.C109, C[110] || CT.C110, C[111] || CT.C111], widget_inspector._Location);
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[108] || CT.C108,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 195,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 194,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116, C[117] || CT.C117, C[118] || CT.C118], widget_inspector._Location);
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 190,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.constList([C[121] || CT.C121, C[122] || CT.C122], widget_inspector._Location);
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[120] || CT.C120,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 179,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 176,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C124() {
+      return C[124] = dart.constList([C[125] || CT.C125, C[126] || CT.C126, C[127] || CT.C127], widget_inspector._Location);
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[124] || CT.C124,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 168,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.constList([C[130] || CT.C130, C[131] || CT.C131], widget_inspector._Location);
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[129] || CT.C129,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C[133] = dart.constList([C[134] || CT.C134], widget_inspector._Location);
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[133] || CT.C133,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 17,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.constList([C[137] || CT.C137], widget_inspector._Location);
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[136] || CT.C136,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 29,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 23,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C[139] = dart.constList([C[140] || CT.C140, C[141] || CT.C141], widget_inspector._Location);
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[139] || CT.C139,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 218,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 231,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C[143] = dart.constList([C[144] || CT.C144], widget_inspector._Location);
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[143] || CT.C143,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 231,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C147() {
+      return C[147] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C146() {
+      return C[146] = dart.constList([C[147] || CT.C147], widget_inspector._Location);
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[146] || CT.C146,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 232,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 225,
+        [_Location_file]: null
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 231,
+        [_Location_file]: null
+      });
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C149() {
+      return C[149] = dart.constList([C[150] || CT.C150, C[151] || CT.C151, C[152] || CT.C152], widget_inspector._Location);
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[149] || CT.C149,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 224,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 224,
+        [_Location_file]: null
+      });
+    },
+    get C154() {
+      return C[154] = dart.constList([C[155] || CT.C155], widget_inspector._Location);
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[154] || CT.C154,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 223,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C157() {
+      return C[157] = dart.constList([C[158] || CT.C158], widget_inspector._Location);
+    },
+    get C156() {
+      return C[156] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[157] || CT.C157,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 240,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C160() {
+      return C[160] = dart.constList([C[161] || CT.C161], widget_inspector._Location);
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[160] || CT.C160,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 241,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C163() {
+      return C[163] = dart.constList([C[164] || CT.C164, C[165] || CT.C165, C[166] || CT.C166], widget_inspector._Location);
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[163] || CT.C163,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 236,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C168() {
+      return C[168] = dart.constList([C[169] || CT.C169], widget_inspector._Location);
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[168] || CT.C168,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 235,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C171() {
+      return C[171] = dart.constList([C[172] || CT.C172], widget_inspector._Location);
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[171] || CT.C171,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 249,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C174() {
+      return C[174] = dart.constList([C[175] || CT.C175], widget_inspector._Location);
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[174] || CT.C174,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 250,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 246,
+        [_Location_file]: null
+      });
+    },
+    get C179() {
+      return C[179] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 250,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.constList([C[178] || CT.C178, C[179] || CT.C179, C[180] || CT.C180], widget_inspector._Location);
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[177] || CT.C177,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 245,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C183() {
+      return C[183] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 245,
+        [_Location_file]: null
+      });
+    },
+    get C182() {
+      return C[182] = dart.constList([C[183] || CT.C183], widget_inspector._Location);
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[182] || CT.C182,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 244,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C186() {
+      return C[186] = dart.constList([], widget_inspector._Location);
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[186] || CT.C186,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 267,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: popup_menu.PopupMenuDivider.prototype,
+        [Widget__location]: C[185] || CT.C185,
+        [Widget_key]: null,
+        [PopupMenuDivider_height]: 16
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 37,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C188() {
+      return C[188] = dart.constList([C[189] || CT.C189], widget_inspector._Location);
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[188] || CT.C188,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 275,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 25,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C193() {
+      return C[193] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 25,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C191() {
+      return C[191] = dart.constList([C[192] || CT.C192, C[193] || CT.C193], widget_inspector._Location);
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[191] || CT.C191,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 269,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C195() {
+      return C[195] = dart.constList([C[196] || CT.C196], widget_inspector._Location);
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[195] || CT.C195,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 268,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 21,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 21,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C198() {
+      return C[198] = dart.constList([C[199] || CT.C199, C[200] || CT.C200], widget_inspector._Location);
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[198] || CT.C198,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 217,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 19,
+        [_Location_line]: 211,
+        [_Location_file]: null
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 19,
+        [_Location_line]: 216,
+        [_Location_file]: null
+      });
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 217,
+        [_Location_file]: null
+      });
+    },
+    get C202() {
+      return C[202] = dart.constList([C[203] || CT.C203, C[204] || CT.C204, C[205] || CT.C205], widget_inspector._Location);
+    },
+    get C201() {
+      return C[201] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[202] || CT.C202,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 210,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C207() {
+      return C[207] = dart.constList([C[208] || CT.C208, C[209] || CT.C209], widget_inspector._Location);
+    },
+    get C206() {
+      return C[206] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[207] || CT.C207,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 11,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C211() {
+      return C[211] = dart.constList([C[212] || CT.C212, C[213] || CT.C213], widget_inspector._Location);
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[211] || CT.C211,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C217() {
+      return C[217] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C215() {
+      return C[215] = dart.constList([C[216] || CT.C216, C[217] || CT.C217], widget_inspector._Location);
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[215] || CT.C215,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "preferredSize",
+        [_Location_column]: 7,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C221() {
+      return C[221] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C219() {
+      return C[219] = dart.constList([C[220] || CT.C220, C[221] || CT.C221], widget_inspector._Location);
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[219] || CT.C219,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
       });
     }
+  }, false);
+  var C = Array(222).fill(void 0);
+  var I = ["package:logafic/widgets/top_bar_contents.dart"];
+  var opacity$ = dart.privateName(top_bar_contents, "TopBarContents.opacity");
+  var fontSize = dart.privateName(top_bar_contents, "TopBarContents.fontSize");
+  top_bar_contents.TopBarContents = class TopBarContents extends framework.StatefulWidget {
+    get opacity() {
+      return this[opacity$];
+    }
+    set opacity(value) {
+      super.opacity = value;
+    }
+    get fontSize() {
+      return this[fontSize];
+    }
+    set fontSize(value) {
+      super.fontSize = value;
+    }
+    createState() {
+      return new top_bar_contents._TopBarContentsState.new();
+    }
   };
-  (response$.Response.new = function(body, statusCode, opts) {
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-  }).prototype = response$.Response.prototype;
-  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[bodyBytes$] = utils.toUint8List(bodyBytes);
-    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+  (top_bar_contents.TopBarContents.new = function(opacity, opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[fontSize] = 16;
+    this[opacity$] = opacity;
+    top_bar_contents.TopBarContents.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = response$.Response.prototype;
-  dart.addTypeTests(response$.Response);
-  dart.addTypeCaches(response$.Response);
-  dart.setGetterSignature(response$.Response, () => ({
-    __proto__: dart.getGetters(response$.Response.__proto__),
-    body: core.String
+  }).prototype = top_bar_contents.TopBarContents.prototype;
+  dart.addTypeTests(top_bar_contents.TopBarContents);
+  dart.addTypeCaches(top_bar_contents.TopBarContents);
+  dart.setMethodSignature(top_bar_contents.TopBarContents, () => ({
+    __proto__: dart.getMethods(top_bar_contents.TopBarContents.__proto__),
+    createState: dart.fnType(top_bar_contents._TopBarContentsState, [])
   }));
-  dart.setLibraryUri(response$.Response, I[7]);
-  dart.setFieldSignature(response$.Response, () => ({
-    __proto__: dart.getFields(response$.Response.__proto__),
-    bodyBytes: dart.finalFieldType(typed_data.Uint8List)
+  dart.setLibraryUri(top_bar_contents.TopBarContents, I[0]);
+  dart.setFieldSignature(top_bar_contents.TopBarContents, () => ({
+    __proto__: dart.getFields(top_bar_contents.TopBarContents.__proto__),
+    opacity: dart.finalFieldType(core.double),
+    fontSize: dart.finalFieldType(core.int)
   }));
-  response$._encodingForHeaders = function _encodingForHeaders(headers) {
-    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
-  };
-  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
-    let contentType = headers[$_get]("content-type");
-    if (contentType != null) return media_type.MediaType.parse(contentType);
-    return new media_type.MediaType.new("application", "octet-stream");
-  };
-  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
-  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
-  var _contentType = dart.privateName(request$, "_contentType");
-  var _checkFinalized$ = dart.privateName(request$, "_checkFinalized");
-  request$.Request = class Request extends base_request.BaseRequest {
-    get contentLength() {
-      return this.bodyBytes[$length];
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
-    }
-    get encoding() {
-      if (this[_contentType] == null || !dart.nullCheck(this[_contentType]).parameters[$containsKey]("charset")) {
-        return this[_defaultEncoding];
-      }
-      return utils.requiredEncodingForCharset(dart.nullCheck(dart.nullCheck(this[_contentType]).parameters[$_get]("charset")));
-    }
-    set encoding(value) {
-      this[_checkFinalized$]();
-      this[_defaultEncoding] = value;
-      let contentType = this[_contentType];
-      if (contentType == null) return;
-      this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", value.name])});
-    }
-    get bodyBytes() {
-      return this[_bodyBytes];
-    }
-    set bodyBytes(value) {
-      this[_checkFinalized$]();
-      this[_bodyBytes] = utils.toUint8List(value);
-    }
-    get body() {
-      return this.encoding.decode(this.bodyBytes);
-    }
-    set body(value) {
-      this.bodyBytes = this.encoding.encode(value);
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("text", "plain", new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name]));
-      } else if (!contentType.parameters[$containsKey]("charset")) {
-        this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name])});
-      }
-    }
-    get bodyFields() {
-      let contentType = this[_contentType];
-      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
-      }
-      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
-    }
-    set bodyFields(fields) {
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
-      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + contentType.mimeType + "\"."));
-      }
-      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
-    }
-    finalize() {
-      super.finalize();
-      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
-    }
-    get [_contentType]() {
-      let contentType = this.headers[$_get]("content-type");
-      if (contentType == null) return null;
-      return media_type.MediaType.parse(contentType);
-    }
-    set [_contentType](value) {
-      if (value == null) {
-        this.headers[$remove]("content-type");
-      } else {
-        this.headers[$_set]("content-type", dart.toString(value));
-      }
-    }
-    [_checkFinalized$]() {
-      if (!this.finalized) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+  var _isHovering = dart.privateName(top_bar_contents, "_isHovering");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var PopupMenuDivider_height = dart.privateName(popup_menu, "PopupMenuDivider.height");
+  top_bar_contents._TopBarContentsState = class _TopBarContentsState extends framework.State$(top_bar_contents.TopBarContents) {
+    build(context) {
+      let screenSize = media_query.MediaQuery.of(context).size;
+      return new preferred_size.PreferredSize.new({preferredSize: new ui.Size.new(screenSize.width, 1000.0), child: new container.Container.new({color: theme.Theme.of(context).splashColor.withOpacity(this.widget.opacity), child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidget().of([new text.Text.new("LOGAFIC", {style: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 20.0, fontFamily: "Montserrat", fontWeight: ui.FontWeight.w400, letterSpacing: 3.0}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new basic.Expanded.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: screenSize.width / 8, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 0, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 0, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/home");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("Anasayfa", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](0)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](0)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19})]), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 1, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 1, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/notification");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("Bildirimler", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](1)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](1)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50})]), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57}), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 2, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 2, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/message");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("Mesajlar", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](2)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[73] || CT.C73}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](2)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[76] || CT.C76}), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81})]), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88}), $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[97] || CT.C97}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 4, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 4, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/jobs");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("İş ve Etkinlik ilanları", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](4)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[100] || CT.C100}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[104] || CT.C104}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](4)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[107] || CT.C107}), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112})]), $creationLocationd_0dea112b090073317d4: C[119] || CT.C119}), $creationLocationd_0dea112b090073317d4: C[123] || CT.C123})]), $creationLocationd_0dea112b090073317d4: C[128] || CT.C128}), $creationLocationd_0dea112b090073317d4: C[132] || CT.C132}), new basic.SizedBox.new({width: screenSize.width / 50, $creationLocationd_0dea112b090073317d4: C[135] || CT.C135}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                    this.setState(dart.fn(() => {
+                      let t2, t1, t0, t2$, t1$, t0$;
+                      value ? (t0 = this[_isHovering], t1 = 3, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 3, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                    }, T.VoidTovoid()));
+                  }, T.boolTovoid()), onTap: dart.fn(() => {
+                  }, T.VoidTovoid()), child: new popup_menu.PopupMenuButton.new({icon: new icon.Icon.new(icons.Icons.person, {color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[138] || CT.C138}), itemBuilder: dart.fn(context => T.JSArrayOfPopupMenuEntry().of([new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$String()).from(["userId", dart.nullCheck(this.authController.firebaseUser.value).uid])});
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.reorder, {$creationLocationd_0dea112b090073317d4: C[142] || CT.C142}), title: new text.Text.new("Profilim", {$creationLocationd_0dea112b090073317d4: C[145] || CT.C145}), $creationLocationd_0dea112b090073317d4: C[148] || CT.C148}), $creationLocationd_0dea112b090073317d4: C[153] || CT.C153}), new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/notification");
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.notification_important, {$creationLocationd_0dea112b090073317d4: C[156] || CT.C156}), title: new text.Text.new("Bildirimler", {$creationLocationd_0dea112b090073317d4: C[159] || CT.C159}), $creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), $creationLocationd_0dea112b090073317d4: C[167] || CT.C167}), new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/message");
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.message, {$creationLocationd_0dea112b090073317d4: C[170] || CT.C170}), title: new text.Text.new("Mesajlar", {$creationLocationd_0dea112b090073317d4: C[173] || CT.C173}), $creationLocationd_0dea112b090073317d4: C[176] || CT.C176}), $creationLocationd_0dea112b090073317d4: C[181] || CT.C181}), C[184] || CT.C184, new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => async.async(dart.void, (function*() {
+                            yield this.authController.signOut().whenComplete(dart.fn(() => extension_navigation['GetNavigation|offAllNamed'](dart.void, get_main.Get, "/"), T.VoidToFutureNOfvoid()));
+                          }).bind(this)), T.VoidToFutureOfvoid()), title: new text.Text.new("Çıkış Yap", {$creationLocationd_0dea112b090073317d4: C[187] || CT.C187}), $creationLocationd_0dea112b090073317d4: C[190] || CT.C190}), $creationLocationd_0dea112b090073317d4: C[194] || CT.C194})]), T.BuildContextToListOfPopupMenuEntry()), $creationLocationd_0dea112b090073317d4: C[197] || CT.C197}), $creationLocationd_0dea112b090073317d4: C[201] || CT.C201})]), $creationLocationd_0dea112b090073317d4: C[206] || CT.C206}), $creationLocationd_0dea112b090073317d4: C[210] || CT.C210}), $creationLocationd_0dea112b090073317d4: C[214] || CT.C214}), $creationLocationd_0dea112b090073317d4: C[218] || CT.C218});
     }
   };
-  (request$.Request.new = function(method, url) {
-    this[_defaultEncoding] = convert.utf8;
-    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
-    request$.Request.__proto__.new.call(this, method, url);
+  (top_bar_contents._TopBarContentsState.new = function() {
+    this.authController = authController.AuthController.to;
+    this[_isHovering] = [false, false, false, false, false, false, false, false];
+    top_bar_contents._TopBarContentsState.__proto__.new.call(this);
     ;
-  }).prototype = request$.Request.prototype;
-  dart.addTypeTests(request$.Request);
-  dart.addTypeCaches(request$.Request);
-  dart.setMethodSignature(request$.Request, () => ({
-    __proto__: dart.getMethods(request$.Request.__proto__),
-    [_checkFinalized$]: dart.fnType(dart.void, [])
+  }).prototype = top_bar_contents._TopBarContentsState.prototype;
+  dart.addTypeTests(top_bar_contents._TopBarContentsState);
+  dart.addTypeCaches(top_bar_contents._TopBarContentsState);
+  dart.setMethodSignature(top_bar_contents._TopBarContentsState, () => ({
+    __proto__: dart.getMethods(top_bar_contents._TopBarContentsState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(request$.Request, () => ({
-    __proto__: dart.getGetters(request$.Request.__proto__),
-    contentLength: core.int,
-    encoding: convert.Encoding,
-    bodyBytes: typed_data.Uint8List,
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
+  dart.setLibraryUri(top_bar_contents._TopBarContentsState, I[0]);
+  dart.setFieldSignature(top_bar_contents._TopBarContentsState, () => ({
+    __proto__: dart.getFields(top_bar_contents._TopBarContentsState.__proto__),
+    authController: dart.fieldType(authController.AuthController),
+    [_isHovering]: dart.finalFieldType(core.List)
   }));
-  dart.setSetterSignature(request$.Request, () => ({
-    __proto__: dart.getSetters(request$.Request.__proto__),
-    encoding: convert.Encoding,
-    bodyBytes: core.List$(core.int),
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
-  }));
-  dart.setLibraryUri(request$.Request, I[8]);
-  dart.setFieldSignature(request$.Request, () => ({
-    __proto__: dart.getFields(request$.Request.__proto__),
-    [_defaultEncoding]: dart.fieldType(convert.Encoding),
-    [_bodyBytes]: dart.fieldType(typed_data.Uint8List)
-  }));
-  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
-  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
-    get stream() {
-      return this[stream$];
-    }
-    set stream(value) {
-      super.stream = value;
-    }
-  };
-  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[stream$] = utils.toByteStream(stream);
-    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-    ;
-  }).prototype = streamed_response.StreamedResponse.prototype;
-  dart.addTypeTests(streamed_response.StreamedResponse);
-  dart.addTypeCaches(streamed_response.StreamedResponse);
-  dart.setLibraryUri(streamed_response.StreamedResponse, I[9]);
-  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
-    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
-    stream: dart.finalFieldType(byte_stream.ByteStream)
-  }));
-  client$.Client = class Client extends core.Object {
-    static new() {
-      return browser_client.createClient();
-    }
-  };
-  (client$.Client[dart.mixinNew] = function() {
-  }).prototype = client$.Client.prototype;
-  dart.addTypeTests(client$.Client);
-  dart.addTypeCaches(client$.Client);
-  dart.setLibraryUri(client$.Client, I[10]);
-  http.head = function head(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => client.head(url, {headers: headers}), T.ClientToFutureOfResponse()));
-  };
-  http.get = function get(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => client.get(url, {headers: headers}), T.ClientToFutureOfResponse()));
-  };
-  http.post = function post(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => client.post(url, {headers: headers, body: body, encoding: encoding}), T.ClientToFutureOfResponse()));
-  };
-  http.put = function put(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => client.put(url, {headers: headers, body: body, encoding: encoding}), T.ClientToFutureOfResponse()));
-  };
-  http.patch = function patch(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => client.patch(url, {headers: headers, body: body, encoding: encoding}), T.ClientToFutureOfResponse()));
-  };
-  http.delete = function $delete(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => client.delete(url, {headers: headers, body: body, encoding: encoding}), T.ClientToFutureOfResponse()));
-  };
-  http.read = function read(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(core.String, dart.fn(client => client.read(url, {headers: headers}), T.ClientToFutureOfString()));
-  };
-  http.readBytes = function readBytes(url, opts) {
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(typed_data.Uint8List, dart.fn(client => client.readBytes(url, {headers: headers}), T.ClientToFutureOfUint8List()));
-  };
-  http._withClient = function _withClient(T, fn) {
-    return async.async(T, function* _withClient() {
-      let client = client$.Client.new();
-      try {
-        return yield fn(client);
-      } finally {
-        client.close();
-      }
-    });
-  };
-  dart.trackLibraries("packages/http/src/multipart_request.dart", {
-    "package:http/src/multipart_request.dart": multipart_request,
-    "package:http/src/multipart_file_stub.dart": multipart_file_stub,
-    "package:http/src/multipart_file.dart": multipart_file,
-    "package:http/src/streamed_request.dart": streamed_request,
-    "package:http/src/browser_client.dart": browser_client,
-    "package:http/src/response.dart": response$,
-    "package:http/src/request.dart": request$,
-    "package:http/src/streamed_response.dart": streamed_response,
-    "package:http/src/base_response.dart": base_response,
-    "package:http/src/base_request.dart": base_request,
-    "package:http/src/base_client.dart": base_client,
-    "package:http/src/client.dart": client$,
-    "package:http/http.dart": http
+  dart.trackLibraries("packages/logafic/widgets/top_bar_contents.dart", {
+    "package:logafic/widgets/top_bar_contents.dart": top_bar_contents
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["base_request.dart","multipart_request.dart","multipart_file_stub.dart","multipart_file.dart","streamed_request.dart","base_client.dart","browser_client.dart","base_response.dart","response.dart","request.dart","streamed_response.dart","client.dart","../http.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/http/src/multipart_request.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["top_bar_contents.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../packages/logafic/widgets/top_bar_contents.dart.lib.js"}');
   // Exports:
   return {
-    src__multipart_request: multipart_request,
-    src__multipart_file_stub: multipart_file_stub,
-    src__multipart_file: multipart_file,
-    src__streamed_request: streamed_request,
-    src__browser_client: browser_client,
-    src__response: response$,
-    src__request: request$,
-    src__streamed_response: streamed_response,
-    src__base_response: base_response,
-    src__base_request: base_request,
-    src__base_client: base_client,
-    src__client: client$,
-    http: http
+    widgets__top_bar_contents: top_bar_contents
   };
 }));
 
-//# sourceMappingURL=multipart_request.dart.lib.js.map
+//# sourceMappingURL=top_bar_contents.dart.lib.js.map

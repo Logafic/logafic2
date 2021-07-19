@@ -19,6 +19,7 @@ import 'package:logafic/screens/reset_password_screen.dart';
 import 'package:logafic/extensions/string_extensions.dart';
 import 'package:logafic/screens/update_user_information.dart';
 import 'package:logafic/screens/user_information_screen.dart';
+import 'package:logafic/screens/verify_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   AuthController authController = AuthController.to;
@@ -63,6 +64,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
               UpdateUserInformation(userId: arguments['userId']), settings);
     case RegisterRoute:
       return _getPageRoute(RegisterScreen(), settings);
+    case VerifyScreenRoute:
+      return _getPageRoute(VerifyScreen(), settings);
     case MyJobsRoute:
       return _getPageRoute(ShowMyJobsPostScreen(), settings);
     case ResetRoute:
