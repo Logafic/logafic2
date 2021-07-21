@@ -23,8 +23,8 @@ class _JobsScreenFloatingQuickAccessBar
   AuthController authController = AuthController.to;
   List<String> items = ['İş ilanları', 'Etkinlik ilanları'];
   List<IconData> icons = [
-    Icons.timeline,
-    Icons.trending_up,
+    Icons.code_off_outlined,
+    Icons.explore_off,
   ];
 
   List<Widget> generateRowElements() {

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/database.dart';
+import 'package:logafic/services/messageService.dart';
+import 'package:logafic/services/notificationService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 TextEditingController commentController = TextEditingController();
@@ -28,7 +30,7 @@ Future<void> showCommentPostShareWidget(
             return Container(
                 height: height / 2,
                 width: ResponsiveWidget.isSmallScreen(context)
-                    ? width * 0.9
+                    ? width
                     : width * 0.3,
                 child: Stack(
                   children: <Widget>[
@@ -126,9 +128,20 @@ Future<void> showCommentPostShareWidget(
                                 await Database()
                                     .addPostComment(
                                         commentController.value.text, postId)
+                                    .then((value) => addNotification(
+                                        authController.firestoreUser.value!
+                                            .userProfileImage
+                                            .toString(),
+                                        authController
+                                            .firestoreUser.value!.userName
+                                            .toString(),
+                                        postUserId,
+                                        postId,
+                                        'Comment'))
                                     .whenComplete(() {
                                   commentController.clear();
-                                  Navigator.pushNamed(context, StatusRoute,
+                                  Navigator.popAndPushNamed(
+                                      context, StatusRoute,
                                       arguments: {'id': postId});
                                 });
                               },

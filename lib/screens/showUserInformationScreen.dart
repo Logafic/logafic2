@@ -63,7 +63,32 @@ class ShowFullUserInformationScreen extends StatelessWidget {
             return Center(
               child: Scrollbar(
                   child: ResponsiveWidget.isSmallScreen(context)
-                      ? Text('')
+                      ? Card(
+                          child: ListView(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(20),
+                                child: SizedBox(
+                                  width: 400,
+                                  height: 400,
+                                  child:
+                                      Image.network(data['userProfileImage']),
+                                ),
+                              ),
+                              textField('Kullanıcı Adı', data['userName']),
+                              textField('Email', data['email']),
+                              textField('Doğum tarihi', data['birtday']),
+                              textField('Şehir', data['city']),
+                              textField('Üniversite', data['universty']),
+                              textField('Bölüm', data['department']),
+                              textField('Cinsiyet', data['gender']),
+                              textField('Biyografi', data['biograpfy']),
+                              textField('Instagram', data['instagram']),
+                              textField('Twitter', data['twitter']),
+                              textField('Linkedin', data['linkedin']),
+                            ],
+                          ),
+                        )
                       : Container(
                           width: MediaQuery.of(context).size.width * 0.6,
                           child: Card(

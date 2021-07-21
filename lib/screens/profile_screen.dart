@@ -358,12 +358,13 @@ class ProfileScreen extends StatelessWidget {
 
           return ListView.builder(
               shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
               itemCount: snapshot.data.docs.length,
               itemBuilder: (context, index) {
                 return Center(
                     child: SizedBox(
                         width: ResponsiveWidget.isSmallScreen(context)
-                            ? MediaQuery.of(context).size.width * 0.9
+                            ? MediaQuery.of(context).size.width
                             : MediaQuery.of(context).size.width * 0.7,
                         child: GestureDetector(
                           onTap: () {
@@ -465,14 +466,12 @@ class ProfileScreen extends StatelessWidget {
                                   alignment: MainAxisAlignment.start,
                                   children: [
                                     TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Yorum Yap',
-                                        style: TextStyle(color: Colors.black54),
-                                      ),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, StatusRoute, arguments: {
+                                          'id': snapshot.data[index]['postId']
+                                        });
+                                      },
                                       child: Text(
                                         'Yorumlar',
                                         style: TextStyle(color: Colors.black54),

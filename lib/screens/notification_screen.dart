@@ -173,19 +173,35 @@ class NotificationScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        TextButton(
-                                          child: Text(
-                                            ('${data['userName']} gönderinizi beğendi'),
-                                            style: TextStyle(fontSize: 17),
-                                          ),
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, ProfileRoute,
-                                                arguments: {
-                                                  'userId': data['userId']
-                                                });
-                                          },
-                                        ),
+                                        data['type'] == 'Like'
+                                            ? TextButton(
+                                                child: Text(
+                                                  ('${data['userName']} gönderinizi beğendi'),
+                                                  style:
+                                                      TextStyle(fontSize: 17),
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                      context, ProfileRoute,
+                                                      arguments: {
+                                                        'userId': data['userId']
+                                                      });
+                                                },
+                                              )
+                                            : TextButton(
+                                                child: Text(
+                                                  ('${data['userName']} gönderinize yorum yaptı.'),
+                                                  style:
+                                                      TextStyle(fontSize: 17),
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                      context, StatusRoute,
+                                                      arguments: {
+                                                        'id': data['userId']
+                                                      });
+                                                },
+                                              ),
                                       ],
                                     ),
                                     isThreeLine: true,

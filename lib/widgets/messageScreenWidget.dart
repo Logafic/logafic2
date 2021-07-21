@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
@@ -27,7 +28,7 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
                 return Container(
                     height: height,
                     width: ResponsiveWidget.isSmallScreen(context)
-                        ? width * 0.9
+                        ? width
                         : width * 0.3,
                     child: StreamBuilder<QuerySnapshot>(
                         stream: messageStream,
@@ -81,12 +82,22 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: <Widget>[
-                                              Text(
-                                                userName,
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                      context, ProfileRoute,
+                                                      arguments: {
+                                                        'userId':
+                                                            messageSentUserId
+                                                      });
+                                                },
+                                                child: Text(
+                                                  userName,
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
                                               ),
                                               SizedBox(
                                                 height: 6,

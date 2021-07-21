@@ -108,7 +108,11 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   ? SizedBox(height: 20)
                   : Container(),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, ProfileRoute, arguments: {
+                    'userId': authController.firebaseUser.value!.uid
+                  });
+                },
                 child: Text(
                   'Profil',
                   style: TextStyle(color: Colors.white, fontSize: 22),
@@ -154,7 +158,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, JobsScreenRoute);
+                },
                 child: Text(
                   'İş ilanları',
                   style: TextStyle(color: Colors.white, fontSize: 22),

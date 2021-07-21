@@ -1,9 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
+
+import 'messageScreenWidget.dart';
 
 class MenuActionBar extends StatelessWidget {
-  const MenuActionBar({Key? key}) : super(key: key);
+  AuthController authController = AuthController.to;
+  String postId;
+  String userName;
+  String userProfileImage;
+  String userId;
+  String content;
+  String urlImage;
+  String createAt;
+  MenuActionBar({
+    Key? key,
+    required this.postId,
+    required this.userName,
+    required this.userId,
+    required this.userProfileImage,
+    required this.content,
+    required this.urlImage,
+    required this.createAt,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +37,20 @@ class MenuActionBar extends StatelessWidget {
               color: Colors.black,
             ),
             tooltip: 'Yanıtla',
-            onPressed: () {}),
+            onPressed: () {
+              showCommentPostShareWidget(context, postId, userId, content,
+                  urlImage, userProfileImage, userName, createAt);
+            }),
         IconButton(
             icon: const Icon(
               Icons.message,
               color: Colors.black,
             ),
             tooltip: 'Mesaj Gönder',
-            onPressed: () {}),
+            onPressed: () {
+              messageShowDialogWidget(
+                  context, userName, userProfileImage, userId);
+            }),
         IconButton(
             icon: const Icon(
               Icons.notification_important,
@@ -36,13 +64,15 @@ class MenuActionBar extends StatelessWidget {
               child: PopupMenuButton(
             icon: Icon(
               Icons.person,
-              color: Colors.black,
+              color: Colors.black45,
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
               PopupMenuItem(
                 child: ListTile(
                   onTap: () {
-                    Navigator.pushNamed(context, ProfileRoute);
+                    Navigator.pushNamed(context, ProfileRoute, arguments: {
+                      'userId': authController.firebaseUser.value!.uid
+                    });
                   },
                   leading: Icon(Icons.reorder),
                   title: Text('Profilim'),
@@ -66,8 +96,30 @@ class MenuActionBar extends StatelessWidget {
                   title: Text('Mesajlar'),
                 ),
               ),
+              // authController.firestoreUser.value!.isAdmin == true
+              //     ? PopupMenuItem(
+              //         child: ListTile(
+              //           onTap: () {},
+              //           leading: Icon(Icons.message),
+              //           title: Text('İlanlarım'),
+              //         ),
+              //       )
+              //     : PopupMenuItem(
+              //         child: ListTile(
+              //           onTap: () {},
+              //           title: Text(''),
+              //         ),
+              //       ),
               const PopupMenuDivider(),
-              PopupMenuItem(child: Text('Çıkış Yap')),
+              PopupMenuItem(
+                  child: ListTile(
+                onTap: () async {
+                  await authController
+                      .signOut()
+                      .whenComplete(() => Get.offAllNamed(FirstRoute));
+                },
+                title: Text('Çıkış Yap'),
+              )),
             ],
           )),
         ),

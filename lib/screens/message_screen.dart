@@ -39,50 +39,55 @@ class _MyHomePageState extends State<MyHomePage> {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             return new Padding(
               padding: EdgeInsets.all(8),
-              child: new InkWell(
-                onTap: () {
-                  messageShowDialogWidget(context, data['userName'],
-                      data['userProfileImage'], data['userId']);
-                },
-                child: new Container(
-                  decoration: new BoxDecoration(
-                      borderRadius: new BorderRadius.circular(10.0),
-                      color: Colors.black12,
-                      boxShadow: [
-                        new BoxShadow(
-                            color: Colors.black.withAlpha(20),
-                            offset: const Offset(3.0, 10.0),
-                            blurRadius: 15.0)
-                      ],
-                      image: new DecorationImage(
-                        image: NetworkImage('${data['userProfileImage']}'),
-                      )),
-                  width: 200.0,
-                  child: new Stack(
-                    children: <Widget>[
-                      new Align(
-                        alignment: Alignment.bottomCenter,
-                        child: new Container(
-                            decoration: new BoxDecoration(
-                                color: Colors.black12,
-                                borderRadius: new BorderRadius.only(
-                                    bottomLeft: new Radius.circular(10.0),
-                                    bottomRight: new Radius.circular(10.0))),
-                            height: 30.0,
-                            child: new Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                new Text(
-                                  '${data['userName']}',
-                                  style: new TextStyle(color: Colors.white),
-                                )
-                              ],
+              child: authController.firebaseUser.value!.uid == data['userId']
+                  ? Text('')
+                  : new InkWell(
+                      onTap: () {
+                        messageShowDialogWidget(context, data['userName'],
+                            data['userProfileImage'], data['userId']);
+                      },
+                      child: new Container(
+                        decoration: new BoxDecoration(
+                            borderRadius: new BorderRadius.circular(10.0),
+                            color: Colors.black12,
+                            boxShadow: [
+                              new BoxShadow(
+                                  color: Colors.black.withAlpha(20),
+                                  offset: const Offset(3.0, 10.0),
+                                  blurRadius: 15.0)
+                            ],
+                            image: new DecorationImage(
+                              image:
+                                  NetworkImage('${data['userProfileImage']}'),
                             )),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+                        width: 200.0,
+                        child: new Stack(
+                          children: <Widget>[
+                            new Align(
+                              alignment: Alignment.bottomCenter,
+                              child: new Container(
+                                  decoration: new BoxDecoration(
+                                      color: Colors.black12,
+                                      borderRadius: new BorderRadius.only(
+                                          bottomLeft: new Radius.circular(10.0),
+                                          bottomRight:
+                                              new Radius.circular(10.0))),
+                                  height: 30.0,
+                                  child: new Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      new Text(
+                                        '${data['userName']}',
+                                        style:
+                                            new TextStyle(color: Colors.white),
+                                      )
+                                    ],
+                                  )),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
             );
           }).toList(),
           scrollDirection: Axis.horizontal,

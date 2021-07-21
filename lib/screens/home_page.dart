@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/extensions/string_extensions.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/database.dart';
 import 'package:logafic/services/notificationService.dart';
@@ -230,7 +231,8 @@ class _HomePageState extends State<HomePage> {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: data['urlImage'] == ''
-                                                ? Text(data['content'])
+                                                ? Text(truncateString(
+                                                    data['content'], 240))
                                                 : Column(children: [
                                                     SizedBox(
                                                       height:
@@ -247,8 +249,11 @@ class _HomePageState extends State<HomePage> {
                                                                 const EdgeInsets
                                                                         .only(
                                                                     top: 20.0),
-                                                            child: Text(data[
-                                                                'content']),
+                                                            child: Text(
+                                                                truncateString(
+                                                                    data[
+                                                                        'content'],
+                                                                    240)),
                                                           )
                                                         : Text('')
                                                   ]),
@@ -316,7 +321,8 @@ class _HomePageState extends State<HomePage> {
                                                                   authController
                                                                       .firebaseUser
                                                                       .value!
-                                                                      .uid));
+                                                                      .uid,
+                                                                  'Like'));
                                                         });
                                                   } else {
                                                     return IconButton(
