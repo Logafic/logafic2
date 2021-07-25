@@ -375,7 +375,6 @@ class _UserInformationState extends State<UserInformation> {
                         userProfile.isAdmin = false;
                         userProfile.unreadMessage = false;
                         userProfile.unreadNotification = false;
-
                         authController.createUserFirestore(
                             userProfile, authController.firebaseUser.value!);
                         authController.newUser = false;

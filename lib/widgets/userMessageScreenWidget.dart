@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/deleteMessegaScreenWidget.dart';
 import 'package:logafic/widgets/responsive.dart';
 
@@ -77,7 +78,7 @@ class MessageScreenUserMessagesWidget extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                             new Text(
-                              data['message'],
+                              decodeMessage(data['message']),
                               style: new TextStyle(
                                   fontSize:
                                       ResponsiveWidget.isSmallScreen(context)

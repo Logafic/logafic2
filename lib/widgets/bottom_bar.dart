@@ -21,19 +21,13 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'Hakkımızda',
+                      s1: 'İletişim',
+                      s2: 'Hakkımızda',
+                      s3: 'Kariyer',
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
-                    ),
-                    BottomBarColumn(
-                      heading: 'SOCIAL',
+                      heading: 'Sosyal Medya',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
@@ -48,12 +42,13 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 InfoText(
                   type: 'Email',
-                  text: 'logafic@gmail.com',
+                  text: 'info.logafic.com@gmail.com',
                 ),
                 SizedBox(height: 5),
                 InfoText(
-                  type: 'Address',
-                  text: '128, Trymore Road, Delft, MN - 56124',
+                  type: 'Adres',
+                  text:
+                      'Üniversitesi Rektörlüğü Çağış Yerleşkesi Üzeri 17. km, Bigadiç Caddesi, 10145 Balıkesir',
                 ),
                 SizedBox(height: 20),
                 Container(
@@ -78,19 +73,13 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'Hakkımızda',
+                      s1: 'İletişim',
+                      s2: 'Hakkımızda',
+                      s3: 'Kariyer',
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
-                    ),
-                    BottomBarColumn(
-                      heading: 'SOCIAL',
+                      heading: 'Sosyal Medya',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
@@ -105,12 +94,13 @@ class BottomBar extends StatelessWidget {
                       children: [
                         InfoText(
                           type: 'Email',
-                          text: 'logafic@gmail.com',
+                          text: 'info.logafic.com@gmail.com',
                         ),
                         SizedBox(height: 5),
                         InfoText(
-                          type: 'Address',
-                          text: '128, Trymore Road, Delft, MN - 56124',
+                          type: 'Adres',
+                          text:
+                              'Üniversitesi Rektörlüğü Çağış Yerleşkesi Üzeri 17. km, Bigadiç Caddesi, 10145 Balıkesir',
                         )
                       ],
                     ),
@@ -126,7 +116,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | Logafic',
+                  'Copyright © 2021 | Logafic',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,

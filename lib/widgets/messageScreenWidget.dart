@@ -143,7 +143,7 @@ Future<void> messageShowDialogWidget(BuildContext context, String userName,
                                             ),
                                             padding: EdgeInsets.all(16),
                                             child: Text(
-                                              data['message'],
+                                              decodeMessage(data['message']),
                                               style: TextStyle(fontSize: 15),
                                             ),
                                           ),
