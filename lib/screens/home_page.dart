@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   final postController = TextEditingController();
   double _scrollPosition = 0;
   double _opacity = 0;
-
+  @override
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -312,17 +312,18 @@ class _HomePageState extends State<HomePage> {
                                                                   '${authController.firebaseUser.value!.uid}')
                                                               .set({
                                                             'like': true
-                                                          }).then((value) => addNotification(
-                                                                  data[
-                                                                      'userProfile'],
-                                                                  '${authController.firestoreUser.value!.userName}',
-                                                                  data[
-                                                                      'userId'],
-                                                                  authController
-                                                                      .firebaseUser
-                                                                      .value!
-                                                                      .uid,
-                                                                  'Like'));
+                                                          }).then((value) {
+                                                            addNotification(
+                                                                data[
+                                                                    'userProfile'],
+                                                                '${authController.firestoreUser.value!.userName}',
+                                                                data['userId'],
+                                                                authController
+                                                                    .firebaseUser
+                                                                    .value!
+                                                                    .uid,
+                                                                'Like');
+                                                          });
                                                         });
                                                   } else {
                                                     return IconButton(

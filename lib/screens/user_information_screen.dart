@@ -373,6 +373,8 @@ class _UserInformationState extends State<UserInformation> {
                         userProfile.userBackImage =
                             bannerRef != '' ? bannerRef : defaultBannerImage;
                         userProfile.isAdmin = false;
+                        userProfile.unreadMessage = false;
+                        userProfile.unreadNotification = true;
 
                         authController.createUserFirestore(
                             userProfile, authController.firebaseUser.value!);

@@ -15,9 +15,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
   const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
   const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
   const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
   const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
   const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
   const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
   const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
@@ -400,9 +400,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[44] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 30,
-        [_Location_line]: 66,
+        [_Location_name]: "src",
+        [_Location_column]: 57,
+        [_Location_line]: 75,
         [_Location_file]: null
       });
     },
@@ -414,8 +414,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[43] || CT.C43,
         [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 66,
+        [_Location_column]: 45,
+        [_Location_line]: 75,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -423,98 +423,98 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[47] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "src",
-        [_Location_column]: 59,
-        [_Location_line]: 78,
+        [_Location_name]: "width",
+        [_Location_column]: 35,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 35,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 35,
+        [_Location_line]: 74,
         [_Location_file]: null
       });
     },
     get C46() {
-      return C[46] = dart.constList([C[47] || CT.C47], widget_inspector._Location);
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49], widget_inspector._Location);
     },
     get C45() {
       return C[45] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[46] || CT.C46,
         [_Location_name]: null,
-        [_Location_column]: 47,
-        [_Location_line]: 78,
+        [_Location_column]: 40,
+        [_Location_line]: 71,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 37,
-        [_Location_line]: 75,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 37,
-        [_Location_line]: 76,
-        [_Location_file]: null
       });
     },
     get C52() {
       return C[52] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 37,
-        [_Location_line]: 77,
+        [_Location_name]: "padding",
+        [_Location_column]: 33,
+        [_Location_line]: 70,
         [_Location_file]: null
       });
     },
-    get C49() {
-      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[49] || CT.C49,
-        [_Location_name]: null,
-        [_Location_column]: 42,
-        [_Location_line]: 74,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
+    get C53() {
+      return C[53] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 35,
-        [_Location_line]: 73,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 71,
         [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 31,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
     get C56() {
       return C[56] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 35,
-        [_Location_line]: 74,
+        [_Location_name]: "children",
+        [_Location_column]: 29,
+        [_Location_line]: 68,
         [_Location_file]: null
       });
     },
-    get C54() {
-      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56], widget_inspector._Location);
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56], widget_inspector._Location);
     },
-    get C53() {
-      return C[53] = dart.const({
+    get C54() {
+      return C[54] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_parameterLocations]: C[55] || CT.C55,
         [_Location_name]: null,
-        [_Location_column]: 33,
-        [_Location_line]: 72,
+        [_Location_column]: 34,
+        [_Location_line]: 67,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -522,9 +522,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[59] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 31,
-        [_Location_line]: 71,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 67,
         [_Location_file]: null
       });
     },
@@ -536,8 +536,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[58] || CT.C58,
         [_Location_name]: null,
-        [_Location_column]: 36,
-        [_Location_line]: 70,
+        [_Location_column]: 25,
+        [_Location_line]: 66,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -545,9 +545,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[62] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 29,
-        [_Location_line]: 70,
+        [_Location_name]: "src",
+        [_Location_column]: 59,
+        [_Location_line]: 103,
         [_Location_file]: null
       });
     },
@@ -559,8 +559,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[61] || CT.C61,
         [_Location_name]: null,
-        [_Location_column]: 34,
-        [_Location_line]: 69,
+        [_Location_column]: 47,
+        [_Location_line]: 103,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -569,8 +569,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "width",
-        [_Location_column]: 27,
-        [_Location_line]: 68,
+        [_Location_column]: 37,
+        [_Location_line]: 100,
         [_Location_file]: null
       });
     },
@@ -578,81 +578,88 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[66] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 37,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 27,
-        [_Location_line]: 69,
+        [_Location_column]: 37,
+        [_Location_line]: 102,
         [_Location_file]: null
       });
     },
     get C64() {
-      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66, C[67] || CT.C67], widget_inspector._Location);
     },
     get C63() {
       return C[63] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[64] || CT.C64,
         [_Location_name]: null,
-        [_Location_column]: 25,
-        [_Location_line]: 67,
+        [_Location_column]: 42,
+        [_Location_line]: 99,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C68() {
-      return C[68] = dart.constList([C[69] || CT.C69], widget_inspector._Location);
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[68] || CT.C68,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C71() {
-      return C[71] = dart.constList([C[72] || CT.C72], widget_inspector._Location);
     },
     get C70() {
       return C[70] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 35,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 35,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71], widget_inspector._Location);
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
         [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 63,
+        [_Location_column]: 33,
+        [_Location_line]: 97,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
     get C74() {
-      return C[74] = dart.constList([], widget_inspector._Location);
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 31,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
     },
     get C73() {
-      return C[73] = dart.const({
+      return C[73] = dart.constList([C[74] || CT.C74], widget_inspector._Location);
+    },
+    get C72() {
+      return C[72] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_parameterLocations]: C[73] || CT.C73,
         [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 100,
+        [_Location_column]: 36,
+        [_Location_line]: 95,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -661,8 +668,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 100,
+        [_Location_column]: 29,
+        [_Location_line]: 95,
         [_Location_file]: null
       });
     },
@@ -674,8 +681,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[76] || CT.C76,
         [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 99,
+        [_Location_column]: 34,
+        [_Location_line]: 94,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -683,9 +690,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[80] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "future",
-        [_Location_column]: 9,
-        [_Location_line]: 49,
+        [_Location_name]: "width",
+        [_Location_column]: 27,
+        [_Location_line]: 93,
         [_Location_file]: null
       });
     },
@@ -693,9 +700,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return C[81] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 9,
-        [_Location_line]: 50,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 94,
         [_Location_file]: null
       });
     },
@@ -707,8 +714,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[79] || CT.C79,
         [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 48,
+        [_Location_column]: 25,
+        [_Location_line]: 92,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -717,8 +724,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 48,
+        [_Location_column]: 19,
+        [_Location_line]: 65,
         [_Location_file]: null
       });
     },
@@ -730,13 +737,128 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[83] || CT.C83,
         [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 47,
+        [_Location_column]: 22,
+        [_Location_line]: 64,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
     get C87() {
       return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87], widget_inspector._Location);
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.constList([], widget_inspector._Location);
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 125,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92], widget_inspector._Location);
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 124,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 9,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.constList([C[95] || CT.C95, C[96] || CT.C96], widget_inspector._Location);
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[94] || CT.C94,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.constList([C[99] || CT.C99], widget_inspector._Location);
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[98] || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "appBar",
@@ -745,8 +867,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_file]: null
       });
     },
-    get C88() {
-      return C[88] = dart.const({
+    get C103() {
+      return C[103] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "body",
@@ -755,173 +877,173 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_file]: null
       });
     },
-    get C86() {
-      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88], widget_inspector._Location);
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102, C[103] || CT.C103], widget_inspector._Location);
     },
-    get C85() {
-      return C[85] = dart.const({
+    get C100() {
+      return C[100] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_parameterLocations]: C[101] || CT.C101,
         [_Location_name]: null,
         [_Location_column]: 12,
         [_Location_line]: 15,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
-    get C89() {
-      return C[89] = dart.const({
+    get C104() {
+      return C[104] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_parameterLocations]: C[89] || CT.C89,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 113,
+        [_Location_line]: 138,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
-    get C92() {
-      return C[92] = dart.const({
+    get C107() {
+      return C[107] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 16,
-        [_Location_line]: 114,
+        [_Location_line]: 139,
         [_Location_file]: null
       });
     },
-    get C93() {
-      return C[93] = dart.const({
+    get C108() {
+      return C[108] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "style",
         [_Location_column]: 23,
-        [_Location_line]: 114,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C[91] = dart.constList([C[92] || CT.C92, C[93] || CT.C93], widget_inspector._Location);
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[91] || CT.C91,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 114,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 24,
-        [_Location_line]: 116,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 13,
-        [_Location_line]: 117,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.constList([C[96] || CT.C96, C[97] || CT.C97], widget_inspector._Location);
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[95] || CT.C95,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 115,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[74] || CT.C74,
-        [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 119,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 9,
-        [_Location_line]: 111,
-        [_Location_file]: null
-      });
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 9,
-        [_Location_line]: 112,
-        [_Location_file]: null
-      });
-    },
-    get C100() {
-      return C[100] = dart.constList([C[101] || CT.C101, C[102] || CT.C102], widget_inspector._Location);
-    },
-    get C99() {
-      return C[99] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[100] || CT.C100,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 110,
-        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 7,
-        [_Location_line]: 109,
+        [_Location_line]: 139,
         [_Location_file]: null
       });
     },
     get C106() {
-      return C[106] = dart.const({
+      return C[106] = dart.constList([C[107] || CT.C107, C[108] || CT.C108], widget_inspector._Location);
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[106] || CT.C106,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 139,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 24,
+        [_Location_line]: 141,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.constList([C[111] || CT.C111, C[112] || CT.C112], widget_inspector._Location);
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[110] || CT.C110,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 140,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 144,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.constList([C[116] || CT.C116, C[117] || CT.C117], widget_inspector._Location);
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[115] || CT.C115,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 135,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 7,
-        [_Location_line]: 110,
+        [_Location_line]: 135,
         [_Location_file]: null
       });
     },
-    get C104() {
-      return C[104] = dart.constList([C[105] || CT.C105, C[106] || CT.C106], widget_inspector._Location);
+    get C119() {
+      return C[119] = dart.constList([C[120] || CT.C120, C[121] || CT.C121], widget_inspector._Location);
     },
-    get C103() {
-      return C[103] = dart.const({
+    get C118() {
+      return C[118] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[104] || CT.C104,
+        [_Location_parameterLocations]: C[119] || CT.C119,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 108,
+        [_Location_line]: 133,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     }
   }, false);
-  var C = Array(107).fill(void 0);
+  var C = Array(122).fill(void 0);
   var I = ["package:logafic/screens/showUserInformationScreen.dart"];
   var userId$ = dart.privateName(showUserInformationScreen, "ShowFullUserInformationScreen.userId");
   var user = dart.privateName(showUserInformationScreen, "ShowFullUserInformationScreen.user");
@@ -968,13 +1090,13 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
               }
               if (snapshot.connectionState === async.ConnectionState.done) {
                 let data = T.MapOfString$dynamic().as(dart.nullCheck(snapshot.data).data());
-                return new basic.Center.new({child: new scrollbar.Scrollbar.new({child: responsive.ResponsiveWidget.isSmallScreen(context) ? new text.Text.new("", {$creationLocationd_0dea112b090073317d4: C[42] || CT.C42}) : new container.Container.new({width: media_query.MediaQuery.of(context).size.width * 0.6, child: new card.Card.new({child: new scroll_view.ListView.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.SizedBox.new({width: 400.0, height: 400.0, child: new image.Image.network(core.String.as(data[$_get]("userProfileImage")), {$creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), this.textField("Kullanıcı Adı", core.String.as(data[$_get]("userName"))), this.textField("Email", core.String.as(data[$_get]("email"))), this.textField("Doğum tarihi", core.String.as(data[$_get]("birtday"))), this.textField("Şehir", core.String.as(data[$_get]("city"))), this.textField("Üniversite", core.String.as(data[$_get]("universty"))), this.textField("Bölüm", core.String.as(data[$_get]("department"))), this.textField("Cinsiyet", core.String.as(data[$_get]("gender"))), this.textField("Biyografi", core.String.as(data[$_get]("biograpfy"))), this.textField("Instagram", core.String.as(data[$_get]("instagram"))), this.textField("Twitter", core.String.as(data[$_get]("twitter"))), this.textField("Linkedin", core.String.as(data[$_get]("linkedin")))]), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), $creationLocationd_0dea112b090073317d4: C[67] || CT.C67}), $creationLocationd_0dea112b090073317d4: C[70] || CT.C70});
+                return new basic.Center.new({child: new scrollbar.Scrollbar.new({child: responsive.ResponsiveWidget.isSmallScreen(context) ? new card.Card.new({child: new scroll_view.ListView.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.SizedBox.new({width: 400.0, height: 400.0, child: new image.Image.network(core.String.as(data[$_get]("userProfileImage")), {$creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), this.textField("Kullanıcı Adı", core.String.as(data[$_get]("userName"))), this.textField("Email", core.String.as(data[$_get]("email"))), this.textField("Doğum tarihi", core.String.as(data[$_get]("birtday"))), this.textField("Şehir", core.String.as(data[$_get]("city"))), this.textField("Üniversite", core.String.as(data[$_get]("universty"))), this.textField("Bölüm", core.String.as(data[$_get]("department"))), this.textField("Cinsiyet", core.String.as(data[$_get]("gender"))), this.textField("Biyografi", core.String.as(data[$_get]("biograpfy"))), this.textField("Instagram", core.String.as(data[$_get]("instagram"))), this.textField("Twitter", core.String.as(data[$_get]("twitter"))), this.textField("Linkedin", core.String.as(data[$_get]("linkedin")))]), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57}) : new container.Container.new({width: media_query.MediaQuery.of(context).size.width * 0.6, child: new card.Card.new({child: new scroll_view.ListView.new({children: T.JSArrayOfWidget().of([new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.SizedBox.new({width: 400.0, height: 400.0, child: new image.Image.network(core.String.as(data[$_get]("userProfileImage")), {$creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), this.textField("Kullanıcı Adı", core.String.as(data[$_get]("userName"))), this.textField("Email", core.String.as(data[$_get]("email"))), this.textField("Doğum tarihi", core.String.as(data[$_get]("birtday"))), this.textField("Şehir", core.String.as(data[$_get]("city"))), this.textField("Üniversite", core.String.as(data[$_get]("universty"))), this.textField("Bölüm", core.String.as(data[$_get]("department"))), this.textField("Cinsiyet", core.String.as(data[$_get]("gender"))), this.textField("Biyografi", core.String.as(data[$_get]("biograpfy"))), this.textField("Instagram", core.String.as(data[$_get]("instagram"))), this.textField("Twitter", core.String.as(data[$_get]("twitter"))), this.textField("Linkedin", core.String.as(data[$_get]("linkedin")))]), $creationLocationd_0dea112b090073317d4: C[72] || CT.C72}), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75}), $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), $creationLocationd_0dea112b090073317d4: C[82] || CT.C82}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
               }
-              return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[73] || CT.C73}), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
-            }, T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToWidget()), $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), $creationLocationd_0dea112b090073317d4: C[82] || CT.C82}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
+              return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[88] || CT.C88}), $creationLocationd_0dea112b090073317d4: C[90] || CT.C90});
+            }, T.BuildContextAndAsyncSnapshotOfDocumentSnapshotOfObjectNToWidget()), $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), $creationLocationd_0dea112b090073317d4: C[97] || CT.C97}), $creationLocationd_0dea112b090073317d4: C[100] || CT.C100});
     }
     textField(title, content) {
-      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({right: 10.0, left: 10.0}), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: T.JSArrayOfWidget().of([new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), new text.Text.new(title, {style: new text_style.TextStyle.new({fontSize: 25.0}), $creationLocationd_0dea112b090073317d4: C[90] || CT.C90}), new text.Text.new(" " + content, {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[94] || CT.C94}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[98] || CT.C98})]), $creationLocationd_0dea112b090073317d4: C[99] || CT.C99}), $creationLocationd_0dea112b090073317d4: C[103] || CT.C103});
+      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.only({right: 10.0, left: 10.0}), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: T.JSArrayOfWidget().of([new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[104] || CT.C104}), new text.Text.new(title, {style: new text_style.TextStyle.new({fontSize: 25.0}), $creationLocationd_0dea112b090073317d4: C[105] || CT.C105}), new text.Text.new(" " + content, {style: new text_style.TextStyle.new({fontSize: 20.0}), $creationLocationd_0dea112b090073317d4: C[109] || CT.C109}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[113] || CT.C113})]), $creationLocationd_0dea112b090073317d4: C[114] || CT.C114}), $creationLocationd_0dea112b090073317d4: C[118] || CT.C118});
     }
   };
   (showUserInformationScreen.ShowFullUserInformationScreen.new = function(opts) {
@@ -1002,7 +1124,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   dart.trackLibraries("packages/logafic/screens/showUserInformationScreen.dart", {
     "package:logafic/screens/showUserInformationScreen.dart": showUserInformationScreen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["showUserInformationScreen.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/screens/showUserInformationScreen.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["showUserInformationScreen.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/screens/showUserInformationScreen.dart.lib.js"}');
   // Exports:
   return {
     screens__showUserInformationScreen: showUserInformationScreen

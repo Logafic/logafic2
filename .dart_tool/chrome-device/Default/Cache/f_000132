@@ -1,1 +1,583 @@
-{"web_entrypoint.dart":"756116186","packages/logafic/generated_plugin_registrant.dart":"197940925","packages/flutter_web_plugins/flutter_web_plugins.dart":"975403878","packages/flutter_web_plugins/src/plugin_registry.dart":"74676653","packages/flutter/services.dart":"674368125","packages/flutter/src/services/text_input.dart":"106998273","packages/flutter/src/services/text_editing.dart":"434181630","packages/flutter/foundation.dart":"550546829","packages/flutter/src/foundation/unicode.dart":"729899086","packages/flutter/src/foundation/synchronous_future.dart":"231101934","packages/flutter/src/foundation/stack_frame.dart":"942972091","packages/flutter/src/foundation/object.dart":"640162288","packages/flutter/src/foundation/constants.dart":"8312868","packages/meta/meta.dart":"68269337","packages/meta/meta_meta.dart":"784139073","packages/flutter/src/foundation/serialization.dart":"243511095","packages/typed_data/typed_buffers.dart":"574496996","packages/typed_data/src/typed_buffer.dart":"818143048","packages/flutter/src/foundation/print.dart":"18577323","packages/flutter/src/foundation/_platform_web.dart":"184168204","packages/flutter/src/foundation/observer_list.dart":"693972135","packages/flutter/src/foundation/node.dart":"290579233","packages/flutter/src/foundation/licenses.dart":"478602200","packages/flutter/src/foundation/key.dart":"737302418","packages/flutter/src/foundation/_isolates_web.dart":"880953066","packages/flutter/src/foundation/debug.dart":"382178608","packages/flutter/src/foundation/basic_types.dart":"532972843","packages/flutter/src/foundation/consolidate_response.dart":"1070670632","packages/flutter/src/foundation/collections.dart":"883502360","packages/flutter/src/foundation/change_notifier.dart":"162263410","packages/flutter/src/foundation/_bitfield_web.dart":"322981770","packages/flutter/src/foundation/binding.dart":"594283970","packages/flutter/src/foundation/annotations.dart":"447778921","packages/flutter/src/services/system_chrome.dart":"466354573","packages/flutter/src/services/system_channels.dart":"147285915","packages/flutter/scheduler.dart":"159146385","packages/flutter/src/scheduler/ticker.dart":"1034251356","packages/flutter/src/scheduler/binding.dart":"1018197957","packages/flutter/src/scheduler/priority.dart":"730292108","packages/flutter/src/scheduler/debug.dart":"387228182","packages/collection/src/union_set_controller.dart":"690621077","packages/collection/src/queue_list.dart":"896579031","packages/collection/src/priority_queue.dart":"601196844","packages/collection/src/utils.dart":"860878485","packages/collection/src/list_extensions.dart":"549161477","packages/collection/src/equality.dart":"427674505","packages/collection/src/comparators.dart":"260513467","packages/collection/src/algorithms.dart":"161303478","packages/collection/src/iterable_zip.dart":"343654421","packages/collection/src/iterable_extensions.dart":"252390769","packages/collection/src/functions.dart":"649304885","packages/collection/src/combined_wrappers/combined_map.dart":"207573658","packages/collection/src/combined_wrappers/combined_iterable.dart":"530225178","packages/collection/src/combined_wrappers/combined_iterator.dart":"579456349","packages/collection/src/combined_wrappers/combined_list.dart":"749775421","packages/collection/src/canonicalized_map.dart":"495257062","packages/vector_math/vector_math_64.dart":"686410615","packages/vector_math/hash.dart":"209806255","packages/flutter/src/services/text_formatter.dart":"351378500","packages/characters/characters.dart":"885817765","packages/characters/src/extensions.dart":"176082911","packages/characters/src/characters_impl.dart":"532865412","packages/characters/src/grapheme_clusters/breaks.dart":"672317429","packages/characters/src/grapheme_clusters/table.dart":"548149607","packages/characters/src/grapheme_clusters/constants.dart":"207006459","packages/flutter/src/services/system_sound.dart":"620447992","packages/flutter/src/services/system_navigator.dart":"335598127","packages/flutter/src/services/raw_keyboard_windows.dart":"602688144","packages/flutter/src/services/keyboard_maps.dart":"646944911","packages/flutter/src/services/keyboard_key.dart":"457781469","packages/flutter/src/services/platform_views.dart":"563952918","packages/flutter/gestures.dart":"862541115","packages/flutter/src/gestures/velocity_tracker.dart":"445423223","packages/flutter/src/gestures/lsq_solver.dart":"83365515","packages/flutter/src/gestures/events.dart":"373208832","packages/flutter/src/gestures/constants.dart":"1033393946","packages/flutter/src/gestures/team.dart":"643863726","packages/flutter/src/gestures/binding.dart":"50610628","packages/flutter/src/gestures/resampler.dart":"583203538","packages/flutter/src/gestures/pointer_signal_resolver.dart":"567716863","packages/flutter/src/gestures/pointer_router.dart":"557511214","packages/flutter/src/gestures/hit_test.dart":"242242533","packages/flutter/src/gestures/debug.dart":"930361987","packages/flutter/src/gestures/converter.dart":"338108825","packages/flutter/src/gestures/arena.dart":"229526257","packages/flutter/src/gestures/tap.dart":"1056688588","packages/flutter/src/gestures/recognizer.dart":"579514859","packages/flutter/src/gestures/scale.dart":"707629330","packages/flutter/src/gestures/multitap.dart":"106408822","packages/flutter/src/gestures/multidrag.dart":"174559054","packages/flutter/src/gestures/drag_details.dart":"405962393","packages/flutter/src/gestures/drag.dart":"21681537","packages/flutter/src/gestures/monodrag.dart":"1033426048","packages/flutter/src/gestures/long_press.dart":"60750733","packages/flutter/src/gestures/force_press.dart":"377728272","packages/flutter/src/gestures/eager.dart":"1022059210","packages/flutter/src/services/mouse_tracking.dart":"96166988","packages/flutter/src/services/mouse_cursor.dart":"748778580","packages/flutter/src/services/haptic_feedback.dart":"929059690","packages/flutter/src/services/font_loader.dart":"786028721","packages/flutter/src/services/deferred_component.dart":"401695977","packages/flutter/src/services/clipboard.dart":"246113188","packages/flutter_web_plugins/src/plugin_event_channel.dart":"29497563","packages/flutter_web_plugins/src/navigation/utils.dart":"682135929","packages/flutter_web_plugins/src/navigation/url_strategy.dart":"1045889674","packages/js/js.dart":"109129373","packages/image_picker_for_web/image_picker_for_web.dart":"128086408","packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart":"760565310","packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart":"269710107","packages/image_picker_platform_interface/src/types/picked_file/html.dart":"1019115246","packages/image_picker_platform_interface/src/types/picked_file/base.dart":"257730871","packages/http/src/multipart_request.dart":"626240060","packages/http/src/utils.dart":"353395962","packages/http/src/byte_stream.dart":"786321119","packages/http_parser/http_parser.dart":"1034181811","packages/http_parser/src/media_type.dart":"722566988","packages/http_parser/src/utils.dart":"902197092","packages/source_span/source_span.dart":"879793773","packages/source_span/src/location_mixin.dart":"645059380","packages/source_span/src/colors.dart":"846048725","packages/source_span/src/charcode.dart":"242485490","packages/term_glyph/src/generated/top_level.dart":"677037293","packages/term_glyph/src/generated/unicode_glyph_set.dart":"515019528","packages/term_glyph/src/generated/glyph_set.dart":"270729027","packages/term_glyph/src/generated/ascii_glyph_set.dart":"531317530","packages/path/src/path_set.dart":"369822114","packages/path/src/utils.dart":"890783006","packages/path/src/characters.dart":"1013992787","packages/path/src/path_exception.dart":"426889265","packages/source_span/src/span_exception.dart":"68028421","packages/http_parser/src/scan.dart":"627405674","packages/string_scanner/string_scanner.dart":"139205544","packages/string_scanner/src/utils.dart":"902474169","packages/charcode/charcode.dart":"1046706607","packages/charcode/html_entity.dart":"453237768","packages/charcode/ascii.dart":"509887031","packages/string_scanner/src/relative_span_scanner.dart":"77603420","packages/string_scanner/src/line_scanner.dart":"543448926","packages/http_parser/src/case_insensitive_map.dart":"217253777","packages/http_parser/src/http_date.dart":"437922166","packages/http_parser/src/chunked_coding.dart":"56455710","packages/http_parser/src/chunked_coding/encoder.dart":"504504437","packages/http_parser/src/chunked_coding/decoder.dart":"133381519","packages/typed_data/typed_data.dart":"271358237","packages/typed_data/src/typed_queue.dart":"808736278","packages/http_parser/src/authentication_challenge.dart":"969846280","packages/http/src/exception.dart":"391209807","packages/pedantic/pedantic.dart":"837057266","packages/http/src/boundary_characters.dart":"96744128","packages/image_picker_platform_interface/src/types/retrieve_type.dart":"670714239","packages/image_picker_platform_interface/src/types/image_source.dart":"938712730","packages/image_picker_platform_interface/src/types/camera_device.dart":"482335809","packages/plugin_platform_interface/plugin_platform_interface.dart":"288602685","packages/firebase_storage_web/firebase_storage_web.dart":"834956281","packages/firebase_storage_web/src/reference_web.dart":"769761981","packages/firebase_storage_web/src/utils/errors.dart":"393960411","packages/firebase_core/src/internals.dart":"368030033","packages/firebase_core_web/firebase_core_web_interop.dart":"493465486","packages/firebase_core_web/src/interop/utils/utils.dart":"56170973","packages/firebase_core_web/src/interop/utils/js_interop.dart":"91270247","packages/js/js_util.dart":"251475435","packages/firebase_core_web/src/interop/utils/func.dart":"948586339","packages/firebase_core_web/src/interop/utils/es6_interop.dart":"551407766","packages/firebase_core_web/src/interop/utils/js.dart":"1070711383","packages/firebase_core_web/src/interop/core.dart":"186355439","packages/firebase_core_web/src/interop/core_interop.dart":"1029134002","packages/firebase_core_web/src/interop/app.dart":"723496114","packages/firebase_core_platform_interface/firebase_core_platform_interface.dart":"271931167","packages/flutter/cupertino.dart":"295456697","packages/flutter/widgets.dart":"1025110917","packages/flutter/src/widgets/will_pop_scope.dart":"713074606","packages/flutter/src/widgets/widget_span.dart":"869606882","packages/flutter/rendering.dart":"981284385","packages/flutter/src/rendering/wrap.dart":"398471732","packages/flutter/src/rendering/layer.dart":"745622919","packages/flutter/painting.dart":"1037642256","packages/flutter/src/painting/strut_style.dart":"433255544","packages/flutter/src/painting/basic_types.dart":"970219345","packages/flutter/src/painting/colors.dart":"237778839","packages/flutter/src/painting/placeholder_span.dart":"232623409","packages/flutter/src/painting/stadium_border.dart":"359105533","packages/flutter/src/painting/rounded_rectangle_border.dart":"631293186","packages/flutter/src/painting/edge_insets.dart":"178813506","packages/flutter/src/painting/circle_border.dart":"631222495","packages/flutter/src/painting/borders.dart":"667390763","packages/flutter/src/painting/border_radius.dart":"915764691","packages/flutter/src/painting/shape_decoration.dart":"236455156","packages/flutter/src/painting/_network_image_web.dart":"699701265","packages/flutter/src/painting/image_stream.dart":"286550908","packages/flutter/src/painting/image_cache.dart":"971713953","packages/flutter/src/painting/binding.dart":"500203132","packages/flutter/src/painting/shader_warm_up.dart":"140414441","packages/flutter/src/painting/gradient.dart":"648090709","packages/flutter/src/painting/alignment.dart":"671780904","packages/flutter/src/painting/decoration_image.dart":"181783947","packages/flutter/src/painting/debug.dart":"907948528","packages/flutter/src/painting/box_fit.dart":"440900770","packages/flutter/src/painting/decoration.dart":"892862836","packages/flutter/src/painting/box_shadow.dart":"1016965751","packages/flutter/src/painting/box_decoration.dart":"573918737","packages/flutter/src/painting/box_border.dart":"639570834","packages/flutter/src/painting/paint_utilities.dart":"86754861","packages/flutter/src/painting/notched_shapes.dart":"968886869","packages/flutter/src/painting/matrix_utils.dart":"424967891","packages/flutter/src/painting/image_resolution.dart":"513975070","packages/flutter/src/painting/image_decoder.dart":"1065826735","packages/flutter/src/painting/geometry.dart":"415430749","packages/flutter/src/painting/fractional_offset.dart":"766289050","packages/flutter/src/painting/flutter_logo.dart":"467535082","packages/flutter/src/painting/continuous_rectangle_border.dart":"182087268","packages/flutter/src/painting/clip.dart":"756499363","packages/flutter/src/painting/beveled_rectangle_border.dart":"738421098","packages/flutter/semantics.dart":"854435674","packages/flutter/src/semantics/semantics_service.dart":"336918906","packages/flutter/src/semantics/semantics_event.dart":"68796461","packages/flutter/src/semantics/semantics.dart":"574771495","packages/flutter/src/semantics/binding.dart":"850758278","packages/flutter/src/semantics/debug.dart":"281003723","packages/flutter/animation.dart":"139102653","packages/flutter/src/animation/tween_sequence.dart":"900539024","packages/flutter/src/animation/listener_helpers.dart":"729269284","packages/flutter/src/animation/curves.dart":"952711979","packages/flutter/src/animation/animation_controller.dart":"227707031","packages/flutter/physics.dart":"978920155","packages/flutter/src/physics/utils.dart":"881007993","packages/flutter/src/physics/tolerance.dart":"18827643","packages/flutter/src/physics/spring_simulation.dart":"310436867","packages/flutter/src/physics/simulation.dart":"886982505","packages/flutter/src/physics/gravity_simulation.dart":"363638900","packages/flutter/src/physics/friction_simulation.dart":"10963840","packages/flutter/src/physics/clamped_simulation.dart":"1034387710","packages/flutter/src/rendering/layout_helper.dart":"190306134","packages/flutter/src/rendering/viewport_offset.dart":"385366195","packages/flutter/src/rendering/sliver.dart":"835027795","packages/flutter/src/rendering/tweens.dart":"419381649","packages/flutter/src/rendering/texture.dart":"1870890","packages/flutter/src/rendering/table_border.dart":"190583943","packages/flutter/src/rendering/table.dart":"91898109","packages/flutter/src/rendering/stack.dart":"551264017","packages/flutter/src/rendering/sliver_persistent_header.dart":"979741852","packages/flutter/src/rendering/sliver_padding.dart":"621857892","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"158723262","packages/flutter/src/rendering/sliver_list.dart":"680124980","packages/flutter/src/rendering/sliver_grid.dart":"184747271","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"278834760","packages/flutter/src/rendering/sliver_fill.dart":"1007177566","packages/flutter/src/rendering/shifted_box.dart":"936526882","packages/flutter/src/rendering/debug_overflow_indicator.dart":"741468314","packages/flutter/src/rendering/rotated_box.dart":"146676346","packages/flutter/src/rendering/proxy_sliver.dart":"790988727","packages/flutter/src/rendering/proxy_box.dart":"765379273","packages/flutter/src/rendering/platform_view.dart":"177782608","packages/flutter/src/rendering/performance_overlay.dart":"436046962","packages/flutter/src/rendering/paragraph.dart":"908142038","packages/flutter/src/rendering/list_wheel_viewport.dart":"706380504","packages/flutter/src/rendering/list_body.dart":"839677105","packages/flutter/src/rendering/image.dart":"1070408575","packages/flutter/src/rendering/flow.dart":"517352977","packages/flutter/src/rendering/flex.dart":"1031050021","packages/flutter/src/rendering/error.dart":"394790113","packages/flutter/src/rendering/editable.dart":"765442853","packages/flutter/src/rendering/custom_paint.dart":"1050375498","packages/flutter/src/rendering/custom_layout.dart":"76627768","packages/flutter/src/rendering/animated_size.dart":"465945384","packages/flutter/src/widgets/constants.dart":"300458334","packages/flutter/src/widgets/scroll_simulation.dart":"822966916","packages/flutter/src/widgets/scroll_metrics.dart":"578115470","packages/flutter/src/widgets/value_listenable_builder.dart":"426037748","packages/flutter/src/widgets/unique_widget.dart":"510274032","packages/flutter/src/widgets/tween_animation_builder.dart":"503665774","packages/flutter/src/widgets/implicit_animations.dart":"91900869","packages/flutter/src/widgets/texture.dart":"657438917","packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart":"129655669","packages/flutter/src/widgets/status_transitions.dart":"244811208","packages/flutter/src/widgets/spacer.dart":"599622187","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"204983695","packages/flutter/src/widgets/sliver_persistent_header.dart":"191046256","packages/flutter/src/widgets/sliver_layout_builder.dart":"239535219","packages/flutter/src/widgets/layout_builder.dart":"371310416","packages/flutter/src/widgets/sliver_fill.dart":"527297098","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"646256321","packages/flutter/src/widgets/single_child_scroll_view.dart":"775245","packages/flutter/src/widgets/scroll_view.dart":"709815624","packages/flutter/src/widgets/safe_area.dart":"635955360","packages/flutter/src/widgets/reorderable_list.dart":"995541445","packages/flutter/src/widgets/raw_keyboard_listener.dart":"710945070","packages/flutter/src/widgets/preferred_size.dart":"936927843","packages/flutter/src/widgets/platform_view.dart":"344957152","packages/flutter/src/widgets/page_view.dart":"155935509","packages/flutter/src/widgets/overflow_bar.dart":"401128218","packages/flutter/src/widgets/orientation_builder.dart":"456755579","packages/flutter/src/widgets/nested_scroll_view.dart":"341088234","packages/flutter/src/widgets/navigation_toolbar.dart":"671479255","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"286868068","packages/flutter/src/widgets/interactive_viewer.dart":"103673628","packages/flutter/src/widgets/image_icon.dart":"314729873","packages/flutter/src/widgets/icon_theme_data.dart":"7691720","packages/flutter/src/widgets/icon_theme.dart":"9115652","packages/flutter/src/widgets/icon.dart":"954933982","packages/flutter/src/widgets/icon_data.dart":"711206202","packages/flutter/src/widgets/image_filter.dart":"90982383","packages/flutter/src/widgets/grid_paper.dart":"198836780","packages/flutter/src/widgets/form.dart":"920573301","packages/flutter/src/widgets/fade_in_image.dart":"922101110","packages/flutter/src/widgets/dual_transition_builder.dart":"401164772","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"543316931","packages/flutter/src/widgets/drag_target.dart":"396524711","packages/flutter/src/widgets/dismissible.dart":"1054867204","packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart":"480877632","packages/flutter/src/widgets/color_filter.dart":"255731827","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"841925939","packages/flutter/src/widgets/autocomplete.dart":"1034605798","packages/flutter/src/widgets/async.dart":"107656699","packages/flutter/src/widgets/annotated_region.dart":"922151311","packages/flutter/src/widgets/animated_switcher.dart":"797376914","packages/flutter/src/widgets/animated_size.dart":"355038601","packages/flutter/src/widgets/animated_list.dart":"401021554","packages/flutter/src/widgets/animated_cross_fade.dart":"1061943987","packages/flutter/src/cupertino/thumb_painter.dart":"875028586","packages/flutter/src/cupertino/text_theme.dart":"517836570","packages/flutter/src/cupertino/interface_level.dart":"855776984","packages/flutter/src/cupertino/text_selection_toolbar_button.dart":"890408722","packages/flutter/src/cupertino/button.dart":"739317226","packages/flutter/src/cupertino/constants.dart":"502535047","packages/flutter/src/cupertino/text_selection_toolbar.dart":"1012384447","packages/flutter/src/cupertino/text_selection.dart":"892430570","packages/flutter/src/cupertino/debug.dart":"769564287","packages/flutter/src/cupertino/text_form_field_row.dart":"328444485","packages/flutter/src/cupertino/text_field.dart":"622787688","packages/flutter/src/cupertino/icons.dart":"3719014","packages/flutter/src/cupertino/desktop_text_selection.dart":"894589396","packages/flutter/src/cupertino/form_row.dart":"817116933","packages/flutter/src/cupertino/tab_view.dart":"864533741","packages/flutter/src/cupertino/route.dart":"1049129038","packages/flutter/src/cupertino/app.dart":"345731792","packages/flutter/src/cupertino/scrollbar.dart":"9398001","packages/flutter/src/cupertino/tab_scaffold.dart":"596298462","packages/flutter/src/cupertino/bottom_tab_bar.dart":"482565000","packages/flutter/src/cupertino/switch.dart":"454943549","packages/flutter/src/cupertino/sliding_segmented_control.dart":"478942510","packages/flutter/src/cupertino/slider.dart":"475594946","packages/flutter/src/cupertino/segmented_control.dart":"139424327","packages/flutter/src/cupertino/search_field.dart":"778586211","packages/flutter/src/cupertino/refresh.dart":"105945650","packages/flutter/src/cupertino/activity_indicator.dart":"617473964","packages/flutter/src/cupertino/picker.dart":"321285243","packages/flutter/src/cupertino/page_scaffold.dart":"100807842","packages/flutter/src/cupertino/nav_bar.dart":"811211867","packages/flutter/src/cupertino/form_section.dart":"90353376","packages/flutter/src/cupertino/dialog.dart":"778272880","packages/flutter/src/cupertino/date_picker.dart":"817724617","packages/flutter/src/cupertino/context_menu_action.dart":"336204669","packages/flutter/src/cupertino/context_menu.dart":"104951829","packages/flutter/src/cupertino/action_sheet.dart":"864086932","packages/firebase_core/firebase_core.dart":"630028117","packages/firebase_storage_web/src/utils/metadata_cache.dart":"566584992","packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart":"852120379","packages/firebase_storage_platform_interface/src/task_state.dart":"704322871","packages/firebase_storage_platform_interface/src/settable_metadata.dart":"429845314","packages/firebase_storage_platform_interface/src/put_string_format.dart":"376064057","packages/firebase_storage_platform_interface/src/internal/pointer.dart":"908712152","packages/firebase_storage_platform_interface/src/method_channel/utils/exception.dart":"594428450","packages/flutter/material.dart":"1018874552","packages/flutter/src/material/user_accounts_drawer_header.dart":"352137042","packages/flutter/src/material/icon_button.dart":"406732003","packages/flutter/src/material/typography.dart":"341108928","packages/flutter/src/material/colors.dart":"306938292","packages/flutter/src/material/input_border.dart":"1056859324","packages/flutter/src/material/constants.dart":"675495312","packages/flutter/src/material/material_state.dart":"324005143","packages/flutter/src/material/floating_action_button_theme.dart":"26972180","packages/flutter/src/material/curves.dart":"42052381","packages/flutter/src/material/bottom_sheet_theme.dart":"148651233","packages/flutter/src/material/tab_indicator.dart":"904553366","packages/flutter/src/material/tab_controller.dart":"302186974","packages/flutter/src/material/icons.dart":"491814126","packages/flutter/src/material/drawer_header.dart":"923902355","packages/flutter/src/material/toggleable.dart":"1019414775","packages/flutter/src/material/toggle_buttons.dart":"709023033","packages/flutter/src/material/time_picker.dart":"1058605665","packages/flutter/src/material/text_form_field.dart":"597974220","packages/flutter/src/material/text_field.dart":"375160292","packages/flutter/src/material/text_selection.dart":"196259610","packages/flutter/src/material/text_selection_toolbar_text_button.dart":"400032788","packages/flutter/src/material/text_selection_toolbar.dart":"788797090","packages/flutter/src/material/selectable_text.dart":"1002776028","packages/flutter/src/material/desktop_text_selection.dart":"620856325","packages/flutter/src/material/button_bar.dart":"875693339","packages/flutter/src/material/switch_list_tile.dart":"123737716","packages/flutter/src/material/switch.dart":"253693275","packages/flutter/src/material/shadows.dart":"1021461724","packages/flutter/src/material/stepper.dart":"939390069","packages/flutter/src/material/slider.dart":"702706120","packages/flutter/src/material/search.dart":"864729667","packages/flutter/src/material/scrollbar.dart":"340096426","packages/flutter/src/material/reorderable_list.dart":"1037800012","packages/flutter/src/material/refresh_indicator.dart":"701153246","packages/flutter/src/material/progress_indicator.dart":"318093394","packages/flutter/src/material/range_slider.dart":"220296917","packages/flutter/src/material/radio_list_tile.dart":"90545590","packages/flutter/src/material/radio.dart":"999617146","packages/flutter/src/material/popup_menu.dart":"293696349","packages/flutter/src/material/paginated_data_table.dart":"68137636","packages/flutter/src/material/dropdown.dart":"389695617","packages/flutter/src/material/data_table_source.dart":"972077412","packages/flutter/src/material/data_table.dart":"55663100","packages/flutter/src/material/checkbox.dart":"634055934","packages/flutter/src/material/card.dart":"983359056","packages/flutter/src/material/page.dart":"966065672","packages/flutter/src/material/outlined_button.dart":"1013699207","packages/flutter/src/material/no_splash.dart":"118803269","packages/flutter/src/material/mergeable_material.dart":"460036047","packages/flutter/src/material/input_date_picker_form_field.dart":"880702354","packages/flutter/src/material/date.dart":"615421954","packages/flutter/src/material/grid_tile_bar.dart":"904520030","packages/flutter/src/material/grid_tile.dart":"19138371","packages/flutter/src/material/flutter_logo.dart":"831168716","packages/flutter/src/material/expansion_tile.dart":"724639574","packages/flutter/src/material/expansion_panel.dart":"210964218","packages/flutter/src/material/expand_icon.dart":"49336767","packages/flutter/src/material/elevated_button.dart":"273692470","packages/flutter/src/material/date_picker_deprecated.dart":"702882664","packages/flutter/src/material/date_picker.dart":"359319996","packages/flutter/src/material/calendar_date_picker.dart":"760776695","packages/flutter/src/material/circle_avatar.dart":"786520330","packages/flutter/src/material/chip.dart":"686151732","packages/flutter/src/material/checkbox_list_tile.dart":"77455889","packages/flutter/src/material/bottom_app_bar.dart":"812534753","packages/flutter/src/material/banner.dart":"903891251","packages/flutter/src/material/autocomplete.dart":"206837801","packages/flutter/src/material/arc.dart":"557941870","packages/flutter/src/material/app.dart":"212772289","packages/flutter/src/material/animated_icons.dart":"53399941","packages/flutter/src/material/about.dart":"304228894","packages/firebase_storage_platform_interface/src/list_options.dart":"409433606","packages/firebase_storage_platform_interface/src/full_metadata.dart":"837999742","packages/firebase_storage_web/src/utils/list.dart":"820433373","packages/firebase_storage_web/src/list_result_web.dart":"583805472","packages/firebase_storage_web/src/interop/storage.dart":"397418117","packages/firebase_storage_web/src/interop/storage_interop.dart":"621336994","packages/firebase_storage_web/src/interop/firebase_interop.dart":"416128246","packages/firebase_storage_web/src/task_web.dart":"90063068","packages/firebase_storage_web/src/task_snapshot_web.dart":"666490949","packages/firebase_storage_web/src/utils/metadata.dart":"167231754","packages/async/src/chunked_stream_reader.dart":"494611203","packages/async/src/utils.dart":"45282626","packages/async/src/typed_stream_transformer.dart":"422597805","packages/async/src/subscription_stream.dart":"376924592","packages/async/src/delegate/stream_subscription.dart":"1037262765","packages/async/src/typed/stream_subscription.dart":"6661169","packages/async/src/stream_zip.dart":"269091726","packages/async/src/stream_subscription_transformer.dart":"309772333","packages/async/src/async_memoizer.dart":"219327322","packages/async/src/stream_splitter.dart":"759375909","packages/async/src/result/release_transformer.dart":"743348755","packages/async/src/stream_sink_transformer/typed.dart":"945632705","packages/async/src/delegate/stream_sink.dart":"807845163","packages/async/src/future_group.dart":"583558260","packages/async/src/stream_sink_extensions.dart":"794162562","packages/async/src/stream_sink_transformer/reject_errors.dart":"1026450941","packages/async/src/stream_sink_completer.dart":"400148243","packages/async/src/null_stream_sink.dart":"640086666","packages/async/src/stream_completer.dart":"948029781","packages/async/src/stream_group.dart":"450796602","packages/async/src/stream_closer.dart":"216430521","packages/async/src/single_subscription_transformer.dart":"831479038","packages/async/src/result/future.dart":"8534719","packages/async/src/delegate/future.dart":"773013430","packages/async/src/restartable_timer.dart":"493332260","packages/async/src/lazy_stream.dart":"866248858","packages/async/src/delegate/stream_consumer.dart":"208668391","packages/async/src/delegate/stream.dart":"828870585","packages/async/src/delegate/sink.dart":"402748418","packages/async/src/delegate/event_sink.dart":"258130772","packages/firebase_core_web/firebase_core_web.dart":"975356132","packages/firebase_auth_web/firebase_auth_web.dart":"436809620","packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart":"1049700486","packages/firebase_auth_web/src/utils/web_utils.dart":"829479430","packages/firebase_auth_web/src/interop/auth.dart":"253068643","packages/firebase_auth_web/src/interop/auth_interop.dart":"1027706207","packages/firebase_auth_web/src/interop/utils/utils.dart":"266809647","packages/firebase_auth_web/src/interop/firebase_interop.dart":"883194118","packages/firebase_auth_platform_interface/src/types.dart":"67390677","packages/firebase_auth_platform_interface/src/user_metadata.dart":"103768478","packages/firebase_auth_platform_interface/src/user_info.dart":"276935171","packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart":"356847369","packages/firebase_auth_platform_interface/src/auth_credential.dart":"1025963626","packages/firebase_auth_platform_interface/src/auth_provider.dart":"759000718","packages/firebase_auth_platform_interface/src/providers/saml_auth.dart":"773987360","packages/firebase_auth_platform_interface/src/action_code_settings.dart":"658558004","packages/firebase_auth_platform_interface/src/id_token_result.dart":"838322881","packages/firebase_auth_platform_interface/src/additional_user_info.dart":"165871785","packages/firebase_auth_platform_interface/src/action_code_info.dart":"135023584","packages/intl/intl.dart":"905249462","packages/intl/src/intl/text_direction.dart":"197364896","packages/intl/src/intl/number_parser.dart":"61085494","packages/intl/src/intl/number_format_parser.dart":"785943360","packages/intl/src/intl/string_iterator.dart":"234434015","packages/intl/number_symbols_data.dart":"771203186","packages/intl/number_symbols.dart":"803245174","packages/intl/src/intl/intl_stream.dart":"520890140","packages/intl/src/intl/regexp.dart":"295543501","packages/intl/src/intl/constants.dart":"394583089","packages/intl/src/intl_helpers.dart":"443706784","packages/intl/src/global_state.dart":"317694736","packages/intl/src/intl/micro_money.dart":"163964","packages/intl/src/intl/date_format.dart":"1011599943","packages/intl/src/intl/date_computation.dart":"191793139","packages/intl/src/intl/date_builder.dart":"728576407","packages/clock/src/stopwatch.dart":"805908131","packages/clock/src/utils.dart":"522645447","packages/intl/src/date_format_internal.dart":"49062717","packages/intl/date_symbols.dart":"980628822","packages/intl/src/intl/bidi_formatter.dart":"815965482","packages/intl/src/intl/bidi.dart":"693775685","packages/intl/src/plural_rules.dart":"141321187","packages/firebase_auth_web/src/firebase_auth_web_recaptcha_verifier_factory.dart":"528066000","packages/cloud_firestore_web/src/write_batch_web.dart":"131839975","packages/cloud_firestore_web/src/interop/utils/utils.dart":"570183724","packages/cloud_firestore_platform_interface/src/platform_interface/utils/load_bundle_task_state.dart":"1032631270","packages/cloud_firestore_platform_interface/src/load_bundle_task_state.dart":"1006205693","packages/cloud_firestore_platform_interface/src/persistence_settings.dart":"71218083","packages/cloud_firestore_platform_interface/src/set_options.dart":"970711364","packages/cloud_firestore_platform_interface/src/field_path.dart":"110164884","packages/cloud_firestore_platform_interface/src/internal/field_path_type.dart":"764395150","packages/cloud_firestore_platform_interface/src/get_options.dart":"509233029","packages/cloud_firestore_platform_interface/src/source.dart":"250710452","packages/cloud_firestore_platform_interface/src/settings.dart":"800154085","packages/cloud_firestore_platform_interface/src/timestamp.dart":"471390751","packages/cloud_firestore_platform_interface/src/snapshot_metadata.dart":"671527413","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_load_bundle_task.dart":"282454893","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_field_value.dart":"8500519","packages/cloud_firestore_platform_interface/src/internal/pointer.dart":"927646578","packages/cloud_firestore_platform_interface/src/method_channel/utils/exception.dart":"511886469","packages/cloud_firestore_platform_interface/src/method_channel/utils/source.dart":"922073262","packages/cloud_firestore_platform_interface/src/method_channel/utils/auto_id_generator.dart":"68210343","packages/cloud_firestore_platform_interface/src/geo_point.dart":"715798941","packages/cloud_firestore_platform_interface/src/blob.dart":"925553295","packages/cloud_firestore_web/src/field_value_web.dart":"740756913","packages/cloud_firestore_web/src/internals.dart":"132745167","packages/cloud_firestore_web/src/load_bundle_task_web.dart":"226318325","packages/logafic/main.dart":"459074675","packages/logafic/controllers/authController.dart":"990620475","packages/logafic/widgets/loading.dart":"883902959","packages/logafic/routing/router_names.dart":"324958850","packages/logafic/data_model/user_profile_model.dart":"726678631","packages/cloud_firestore/cloud_firestore.dart":"542178258","packages/get/get_navigation/src/routes/route_middleware.dart":"818635447","packages/get/get_utils/src/platform/platform_web.dart":"402897045","packages/get/get_utils/src/queue/get_queue.dart":"615480752","packages/get/get_utils/src/get_utils/get_utils.dart":"703647951","packages/get/get_core/get_core.dart":"12464314","packages/get/get_core/src/typedefs.dart":"553811760","packages/get/get_core/src/smart_management.dart":"106204455","packages/get/get_core/src/get_main.dart":"962635961","packages/get/get_utils/src/extensions/widget_extensions.dart":"71989724","packages/get/get_utils/src/extensions/string_extensions.dart":"958011977","packages/get/get_utils/src/extensions/num_extensions.dart":"1043770992","packages/get/get_utils/src/extensions/internacionalization.dart":"662602261","packages/get/get_utils/src/extensions/event_loop_extensions.dart":"383412390","packages/get/get_utils/src/extensions/dynamic_extensions.dart":"95760985","packages/get/get_utils/src/extensions/duration_extensions.dart":"437121533","packages/get/get_utils/src/extensions/double_extensions.dart":"786353109","packages/get/get_state_manager/src/simple/list_notifier.dart":"430972329","packages/get/instance_manager.dart":"551938125","packages/get/get_instance/get_instance.dart":"22115571","packages/get/get_instance/src/lifecycle.dart":"195317511","packages/get/get_instance/src/get_instance.dart":"752693908","packages/get/get_instance/src/extension_instance.dart":"1020134999","packages/get/get_instance/src/bindings_interface.dart":"76569815","packages/get/get_state_manager/src/simple/get_view.dart":"98802935","packages/get/get_state_manager/src/simple/get_widget_cache.dart":"287269332","packages/get/utils.dart":"234882256","packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart":"960209709","packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart":"986016202","packages/get/get_rx/src/rx_types/rx_types.dart":"660934834","packages/get/get_rx/src/rx_typedefs/rx_typedefs.dart":"285078735","packages/get/get_rx/src/rx_stream/rx_stream.dart":"995838728","packages/get/get_rx/get_rx.dart":"25296217","packages/get/get_rx/src/rx_workers/rx_workers.dart":"850212351","packages/get/get_rx/src/rx_workers/utils/debouncer.dart":"429554299","packages/get/get_navigation/src/routes/transitions_type.dart":"695055229","packages/get/get_navigation/src/routes/default_transitions.dart":"80169978","packages/get/get_navigation/src/routes/custom_transition.dart":"823075884","packages/get/get_navigation/src/dialog/dialog_route.dart":"1056869609","packages/get/get_navigation/src/root/internacionalization.dart":"668913636","packages/get/get_navigation/src/bottomsheet/bottomsheet.dart":"228377312","packages/get/get_connect/connect.dart":"30031382","packages/get/get_connect/sockets/sockets.dart":"88723575","packages/get/get_connect/sockets/src/sockets_html.dart":"655967488","packages/get/get_connect/sockets/src/socket_notifier.dart":"395436099","packages/get/get_connect/http/src/interceptors/get_modifiers.dart":"88944020","packages/get/get_connect/http/src/status/http_status.dart":"670166108","packages/get/get_connect/http/src/http/html/file_decoder_html.dart":"97444171","packages/get/get_connect/http/src/utils/utils.dart":"707692948","packages/get/get_connect/http/src/exceptions/exceptions.dart":"242974993","packages/get/get_connect/http/src/certificates/certificates.dart":"929095493","packages/firebase_auth/firebase_auth.dart":"121068430","packages/logafic/services/navigation_service.dart":"561880452","packages/logafic/routing/router.dart":"248624347","packages/logafic/screens/user_information_screen.dart":"759579368","packages/image_picker/image_picker.dart":"594866655","packages/firebase_storage/firebase_storage.dart":"856489780","packages/firebase_storage/src/utils.dart":"350606143","packages/logafic/widgets/background.dart":"468385844","packages/logafic/screens/update_user_information.dart":"441998031","packages/logafic/extensions/string_extensions.dart":"57702578","packages/logafic/data_model/routing_data.dart":"298217709","packages/logafic/screens/reset_password_screen.dart":"739201669","packages/logafic/widgets/formInputFieldWithIcon.dart":"538608233","packages/logafic/widgets/primaryButton.dart":"1002305447","packages/logafic/widgets/labelButton.dart":"253166939","packages/logafic/widgets/formVerticalSpacing.dart":"131068809","packages/logafic/screens/first_screen.dart":"1002281995","packages/logafic/widgets/firstScreenColumnSecond.dart":"705261966","packages/logafic/widgets/smallFirstScreen.dart":"843883064","packages/logafic/widgets/firstScreenColumnThird.dart":"599029893","packages/logafic/widgets/firstSccreenColumnFirst.dart":"869439880","packages/logafic/widgets/textFirstScreen.dart":"450640902","packages/logafic/widgets/appBarSingleAction.dart":"1018253474","packages/logafic/widgets/responsive.dart":"94286791","packages/logafic/screens/register_screen.dart":"197919565","packages/logafic/widgets/FormInputFieldWithIcon.dart":"438965981","packages/logafic/helpers/validate.dart":"976355634","packages/logafic/screens/profile_screen.dart":"96801527","packages/logafic/widgets/updatePostWidget.dart":"3883644","packages/logafic/widgets/profileBarAction.dart":"57048509","packages/logafic/widgets/showAddedJobsDialogWidget.dart":"354427966","packages/logafic/services/messageService.dart":"946726788","packages/logafic/services/database.dart":"478215789","packages/logafic/data_model/post_data_model.dart":"588816346","packages/logafic/data_model/jobs_model.dart":"619993894","packages/logafic/widgets/showAddedActivityDialogWidget.dart":"295373661","packages/logafic/widgets/messageScreenWidget.dart":"592814624","packages/logafic/widgets/deletePostProfileScreenWidget.dart":"743787364","packages/logafic/screens/notification_screen.dart":"696624179","packages/logafic/screens/message_screen.dart":"766011988","packages/logafic/widgets/userMessageScreenWidget.dart":"930038482","packages/logafic/widgets/deleteMessegaScreenWidget.dart":"650249333","packages/logafic/screens/login_screen.dart":"592767960","packages/logafic/screens/home_page.dart":"208151381","packages/logafic/widgets/top_bar_contents.dart":"705001548","packages/logafic/widgets/showDialogPostImageUploadWidget.dart":"104202398","packages/logafic/services/upload_image.dart":"239513885","packages/logafic/widgets/floating_quick_access_bar.dart":"592364757","packages/logafic/widgets/explore_drawer.dart":"570017725","packages/logafic/widgets/appBarHomePageWidget.dart":"596901280","packages/logafic/services/notificationService.dart":"924430933","packages/logafic/screens/status_screen.dart":"589418337","packages/logafic/widgets/showCommentDialogStatusWidget.dart":"783325936","packages/logafic/widgets/menubaraction.dart":"145413567","packages/logafic/screens/show_my_jobs_posts.dart":"759065880","packages/logafic/widgets/showJobsWdiget.dart":"1008246302","packages/logafic/widgets/showApplyJobsDiaologWidget.dart":"543756223","packages/logafic/screens/showUserInformationScreen.dart":"1061178115","packages/logafic/screens/jobs_share_screen.dart":"242376213","packages/logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart":"457779460","packages/get_storage/get_storage.dart":"387546790","packages/path_provider/path_provider.dart":"209165705","packages/path_provider_platform_interface/src/method_channel_path_provider.dart":"199273597","packages/path_provider_platform_interface/src/enums.dart":"657211236","packages/platform/platform.dart":"586294607","packages/platform/src/testing/fake_platform.dart":"815997711","packages/platform/src/interface/platform.dart":"174852774","packages/platform/src/interface/local_platform.dart":"40541005","packages/path_provider_windows/path_provider_windows.dart":"420703828","packages/path_provider_windows/src/path_provider_windows_stub.dart":"479171278","packages/path_provider_windows/src/folders_stub.dart":"863299418","packages/path_provider_linux/path_provider_linux.dart":"197147011","packages/xdg_directories/xdg_directories.dart":"958411861","packages/process/src/interface/local_process_manager.dart":"248938957","packages/process/src/interface/process_wrapper.dart":"102488176","packages/process/src/interface/process_manager.dart":"31688535","packages/process/src/interface/exceptions.dart":"910664972","packages/process/src/interface/common.dart":"1674674","packages/file/local.dart":"442167277","packages/file/src/backends/local.dart":"1020187736","packages/file/src/backends/local/local_file_system.dart":"45400808","packages/file/src/backends/local/local_link.dart":"161027606","packages/file/src/forwarding/forwarding_link.dart":"6607199","packages/file/src/interface.dart":"859479362","packages/file/src/io.dart":"672709954","packages/file/src/interface/link.dart":"893209096","packages/file/src/interface/error_codes.dart":"727579160","packages/file/src/interface/error_codes_internal.dart":"21171235","packages/file/src/forwarding/forwarding_random_access_file.dart":"784547640","packages/file/src/common.dart":"789543918","packages/get_storage/src/value.dart":"1067686102","packages/get/state_manager.dart":"255729660","packages/get_storage/src/storage_impl.dart":"101838505","packages/get_storage/src/storage/html.dart":"637449902","packages/get_storage/src/read_write_value.dart":"967804428"}
+define(['dart_sdk', 'packages/logafic/controllers/authController.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/logafic/widgets/messageScreenWidget.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/logafic/widgets/responsive.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/logafic/widgets/deleteMessegaScreenWidget.dart'], (function load__packages__logafic__widgets__userMessageScreenWidget_dart(dart_sdk, packages__logafic__controllers__authController$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__material__icon_button$46dart, packages__logafic__widgets__messageScreenWidget$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__logafic__widgets__responsive$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__logafic__widgets__deleteMessegaScreenWidget$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const authController$ = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const async = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const messageScreenWidget = packages__logafic__widgets__messageScreenWidget$46dart.widgets__messageScreenWidget;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const responsive = packages__logafic__widgets__responsive$46dart.widgets__responsive;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const deleteMessegaScreenWidget = packages__logafic__widgets__deleteMessegaScreenWidget$46dart.widgets__deleteMessegaScreenWidget;
+  var userMessageScreenWidget = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    QuerySnapshotOfObjectN: () => (T.QuerySnapshotOfObjectN = dart.constFn(cloud_firestore.QuerySnapshot$(T.ObjectN())))(),
+    StreamBuilderOfQuerySnapshotOfObjectN: () => (T.StreamBuilderOfQuerySnapshotOfObjectN = dart.constFn(async.StreamBuilder$(T.QuerySnapshotOfObjectN())))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    JSArrayOfBoxShadow: () => (T.JSArrayOfBoxShadow = dart.constFn(_interceptors.JSArray$(box_shadow.BoxShadow)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    DocumentSnapshotOfObjectN: () => (T.DocumentSnapshotOfObjectN = dart.constFn(cloud_firestore.DocumentSnapshot$(T.ObjectN())))(),
+    DocumentSnapshotOfObjectNToPadding: () => (T.DocumentSnapshotOfObjectNToPadding = dart.constFn(dart.fnType(basic.Padding, [T.DocumentSnapshotOfObjectN()])))(),
+    AsyncSnapshotOfQuerySnapshotOfObjectN: () => (T.AsyncSnapshotOfQuerySnapshotOfObjectN = dart.constFn(async.AsyncSnapshot$(T.QuerySnapshotOfObjectN())))(),
+    BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget: () => (T.BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.AsyncSnapshotOfQuerySnapshotOfObjectN()])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], widget_inspector._Location);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 2,
+        [OffsetBase__dx]: 2
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 27,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 27,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 27,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 31,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 31,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 79,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 48,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 39,
+        [_Location_line]: 91,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 44,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 27,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 27,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 92,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 25,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 25,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 25,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "subtitle",
+        [_Location_column]: 25,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trailing",
+        [_Location_column]: 25,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43], widget_inspector._Location);
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.constList([C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[45] || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "stream",
+        [_Location_column]: 13,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 13,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54], widget_inspector._Location);
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57], widget_inspector._Location);
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/userMessageScreenWidget.dart"
+      });
+    }
+  }, false);
+  var C = Array(58).fill(void 0);
+  var I = ["package:logafic/widgets/userMessageScreenWidget.dart"];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  userMessageScreenWidget.MessageScreenUserMessagesWidget = class MessageScreenUserMessagesWidget extends framework.StatelessWidget {
+    build(context) {
+      let authController = authController$.AuthController.to;
+      let messageStream = cloud_firestore.FirebaseFirestore.instance.collection("users").doc(dart.nullCheck(authController.firebaseUser.value).uid).collection("lastMessages").snapshots();
+      return new container.Container.new({child: new (T.StreamBuilderOfQuerySnapshotOfObjectN()).new({stream: messageStream, builder: dart.fn((context, snapshot) => {
+            if (snapshot.hasError) {
+              return new text.Text.new("Something went wrong", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+            }
+            if (snapshot.connectionState === async.ConnectionState.waiting || snapshot.connectionState === async.ConnectionState.none) {
+              return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+            }
+            return new scroll_view.ListView.new({children: dart.nullCheck(snapshot.data).docs[$map](basic.Padding, dart.fn(document => {
+                let data = T.MapOfString$dynamic().as(document.data());
+                return new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(12.0), child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                      messageScreenWidget.messageShowDialogWidget(context, core.String.as(data[$_get]("messageSentUser")), core.String.as(data[$_get]("profileImage")), document.id);
+                    }, T.VoidTovoid()), leading: new container.Container.new({height: 72.0, width: 72.0, decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.black12, boxShadow: T.JSArrayOfBoxShadow().of([new box_shadow.BoxShadow.new({color: colors.Colors.black.withAlpha(50), offset: C[8] || CT.C8, blurRadius: 2.0})]), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(12.0)), image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new(core.String.as(data[$_get]("profileImage")))})}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), title: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.start, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new text.Text.new(core.String.as(data[$_get]("messageSentUser")), {style: new text_style.TextStyle.new({fontSize: responsive.ResponsiveWidget.isSmallScreen(context) ? 15.0 : 22.0, color: colors.Colors.black87, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), new text.Text.new(core.String.as(data[$_get]("message")), {style: new text_style.TextStyle.new({fontSize: responsive.ResponsiveWidget.isSmallScreen(context) ? 14.0 : 20.0, color: colors.Colors.black54, fontWeight: ui.FontWeight.normal}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18})]), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), subtitle: new text.Text.new(core.String.as(data[$_get]("created_at")), {$creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), trailing: new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.delete_forever_outlined, {$creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), onPressed: dart.fn(() => {
+                        deleteMessegaScreenWidget.showDeleteMessegaScreenWidget(context, document.id);
+                      }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), $creationLocationd_0dea112b090073317d4: C[44] || CT.C44});
+              }, T.DocumentSnapshotOfObjectNToPadding()))[$toList](), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
+          }, T.BuildContextAndAsyncSnapshotOfQuerySnapshotOfObjectNToWidget()), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55});
+    }
+  };
+  (userMessageScreenWidget.MessageScreenUserMessagesWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    userMessageScreenWidget.MessageScreenUserMessagesWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = userMessageScreenWidget.MessageScreenUserMessagesWidget.prototype;
+  dart.addTypeTests(userMessageScreenWidget.MessageScreenUserMessagesWidget);
+  dart.addTypeCaches(userMessageScreenWidget.MessageScreenUserMessagesWidget);
+  dart.setMethodSignature(userMessageScreenWidget.MessageScreenUserMessagesWidget, () => ({
+    __proto__: dart.getMethods(userMessageScreenWidget.MessageScreenUserMessagesWidget.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(userMessageScreenWidget.MessageScreenUserMessagesWidget, I[0]);
+  dart.trackLibraries("packages/logafic/widgets/userMessageScreenWidget.dart", {
+    "package:logafic/widgets/userMessageScreenWidget.dart": userMessageScreenWidget
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["userMessageScreenWidget.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAY4B;AACT,2BAAgC;AACzB,0BAAkC,AACnD,AACA,AACA,AACA,sDAHW,aAC6B,AAAE,eAAnC,AAAe,AAAa,cAAd,qCACV;AAEhB,YAAO,qCACI,6DACK,aAAa,WAEjB,SAAc,SAAsC;AACtD,gBAAI,AAAS,QAAD;AACV,oBAAO,mBAAK;;AAEd,gBAAI,AAAS,AAAgB,QAAjB,qBAAoC,iCAC5C,AAAS,AAAgB,QAAjB,qBAAoC;AAC9C,oBAAO,8BACE;;AAGX,kBAAW,yCACc,AAAE,AAAK,AAgE3B,eAhEO,AAAS,QAAD,iCAAgB,QAAkB;AAC7B,2BACD,2BAAhB,AAAS,QAAD;AACZ,sBAAW,iCACa,+BAAI,cACjB,mCACE;AAKW,sBAJhB,4CACI,OAAO,iBACP,AAAI,IAAA,QAAC,oCACL,AAAI,IAAA,QAAC,kBACL,AAAS,QAAD;iDAED,qCACH,aACD,kBACS,6CACE,kCACH,2BACL,qCACc,AAAM,8BAAU,wCAElB,uBAEA,mCACV,uBAAgB,eACb,iDACF,uDAAa,AAAI,IAAA,QAAC,uFAG1B,yCACgC,kDACE,yCACrB,wBACZ,iCACF,AAAI,IAAA,QAAC,6BACM,wCAEc,0CAAc,OAAO,IAChC,OACA,aACI,mCACS,iFAEzB,iCACF,AAAI,IAAA,QAAC,qBACM,wCAEc,0CAAc,OAAO,IAChC,OACA,aACI,mCACS,0JAInB,iCAAK,AAAI,IAAA,QAAC,sFACd,sCACF,kBAAW,4GACN;AAC0C,wBAAnD,wDAA8B,OAAO,EAAE,AAAS,QAAD;;;;IAOzE;;;QA3FsC;;AAAQ,2FAAW,GAAG;;EAAC","file":"../../../../../../../packages/logafic/widgets/userMessageScreenWidget.dart.lib.js"}');
+  // Exports:
+  return {
+    widgets__userMessageScreenWidget: userMessageScreenWidget
+  };
+}));
+
+//# sourceMappingURL=userMessageScreenWidget.dart.lib.js.map

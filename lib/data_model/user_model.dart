@@ -15,6 +15,8 @@ class UserModel {
   String? birtday;
   String? biograpfy;
   bool? isAdmin;
+  bool? unreadMessage;
+  bool? unreadNotification;
 
   UserModel(
       {this.userEmail,
@@ -32,6 +34,8 @@ class UserModel {
       this.instagram,
       this.birtday,
       this.isAdmin,
+      this.unreadMessage,
+      this.unreadNotification,
       this.biograpfy});
 
   Map<String, dynamic> toJson() {
@@ -52,6 +56,8 @@ class UserModel {
     data['biograpfy'] = this.biograpfy;
     data['email'] = this.userEmail;
     data['isAdmin'] = this.isAdmin;
+    data['unreadMessage'] = this.unreadMessage;
+    data['unreadNotification'] = this.unreadNotification;
     return data;
   }
 
@@ -63,6 +69,8 @@ class UserModel {
       userBackImage: data['userBackImage'],
       userProfileImage: data['userProfileImage'],
       isAdmin: data['isAdmin'],
+      unreadMessage: data['unreadMessage'],
+      unreadNotification: data['unreadNotification'],
       universty: data['universty'],
     );
   }

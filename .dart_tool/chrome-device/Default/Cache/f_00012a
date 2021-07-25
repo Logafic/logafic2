@@ -1,4 +1,4 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/logafic/controllers/authController.dart', 'packages/logafic/extensions/string_extensions.dart', 'packages/logafic/screens/first_screen.dart', 'packages/logafic/screens/home_page.dart', 'packages/logafic/screens/message_screen.dart', 'packages/logafic/screens/notification_screen.dart', 'packages/logafic/screens/profile_screen.dart', 'packages/logafic/screens/update_user_information.dart', 'packages/logafic/screens/register_screen.dart', 'packages/logafic/screens/reset_password_screen.dart', 'packages/logafic/screens/status_screen.dart', 'packages/logafic/screens/user_information_screen.dart', 'packages/logafic/screens/login_screen.dart'], (function load__packages__logafic__routing__router_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__logafic__controllers__authController$46dart, packages__logafic__extensions__string_extensions$46dart, packages__logafic__screens__first_screen$46dart, packages__logafic__screens__home_page$46dart, packages__logafic__screens__message_screen$46dart, packages__logafic__screens__notification_screen$46dart, packages__logafic__screens__profile_screen$46dart, packages__logafic__screens__update_user_information$46dart, packages__logafic__screens__register_screen$46dart, packages__logafic__screens__reset_password_screen$46dart, packages__logafic__screens__status_screen$46dart, packages__logafic__screens__user_information_screen$46dart, packages__logafic__screens__login_screen$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/logafic/controllers/authController.dart', 'packages/logafic/extensions/string_extensions.dart', 'packages/logafic/screens/first_screen.dart', 'packages/logafic/screens/home_page.dart', 'packages/logafic/screens/message_screen.dart', 'packages/logafic/screens/notification_screen.dart', 'packages/logafic/screens/jobs_share_screen.dart', 'packages/logafic/screens/showUserInformationScreen.dart', 'packages/logafic/screens/profile_screen.dart', 'packages/logafic/screens/update_user_information.dart', 'packages/logafic/screens/register_screen.dart', 'packages/logafic/screens/verify_screen.dart', 'packages/logafic/screens/show_my_jobs_posts.dart', 'packages/logafic/screens/reset_password_screen.dart', 'packages/logafic/screens/status_screen.dart', 'packages/logafic/screens/user_information_screen.dart', 'packages/logafic/screens/login_screen.dart'], (function load__packages__logafic__routing__router_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__logafic__controllers__authController$46dart, packages__logafic__extensions__string_extensions$46dart, packages__logafic__screens__first_screen$46dart, packages__logafic__screens__home_page$46dart, packages__logafic__screens__message_screen$46dart, packages__logafic__screens__notification_screen$46dart, packages__logafic__screens__jobs_share_screen$46dart, packages__logafic__screens__showUserInformationScreen$46dart, packages__logafic__screens__profile_screen$46dart, packages__logafic__screens__update_user_information$46dart, packages__logafic__screens__register_screen$46dart, packages__logafic__screens__verify_screen$46dart, packages__logafic__screens__show_my_jobs_posts$46dart, packages__logafic__screens__reset_password_screen$46dart, packages__logafic__screens__status_screen$46dart, packages__logafic__screens__user_information_screen$46dart, packages__logafic__screens__login_screen$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const dart = dart_sdk.dart;
@@ -15,9 +15,13 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   const home_page = packages__logafic__screens__home_page$46dart.screens__home_page;
   const message_screen = packages__logafic__screens__message_screen$46dart.screens__message_screen;
   const notification_screen = packages__logafic__screens__notification_screen$46dart.screens__notification_screen;
+  const jobs_share_screen = packages__logafic__screens__jobs_share_screen$46dart.screens__jobs_share_screen;
+  const showUserInformationScreen = packages__logafic__screens__showUserInformationScreen$46dart.screens__showUserInformationScreen;
   const profile_screen = packages__logafic__screens__profile_screen$46dart.screens__profile_screen;
   const update_user_information = packages__logafic__screens__update_user_information$46dart.screens__update_user_information;
   const register_screen = packages__logafic__screens__register_screen$46dart.screens__register_screen;
+  const verify_screen = packages__logafic__screens__verify_screen$46dart.screens__verify_screen;
+  const show_my_jobs_posts = packages__logafic__screens__show_my_jobs_posts$46dart.screens__show_my_jobs_posts;
   const reset_password_screen = packages__logafic__screens__reset_password_screen$46dart.screens__reset_password_screen;
   const status_screen = packages__logafic__screens__status_screen$46dart.screens__status_screen;
   const user_information_screen = packages__logafic__screens__user_information_screen$46dart.screens__user_information_screen;
@@ -41,7 +45,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "opacity",
         [_Location_column]: 13,
-        [_Location_line]: 95,
+        [_Location_line]: 112,
         [_Location_file]: null
       });
     },
@@ -51,7 +55,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 13,
-        [_Location_line]: 96,
+        [_Location_line]: 113,
         [_Location_file]: null
       });
     },
@@ -64,7 +68,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[1] || CT.C1,
         [_Location_name]: null,
         [_Location_column]: 15,
-        [_Location_line]: 94,
+        [_Location_line]: 111,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -77,7 +81,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 28,
-        [_Location_line]: 26,
+        [_Location_line]: 30,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -87,7 +91,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 28,
-        [_Location_line]: 28,
+        [_Location_line]: 32,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -97,7 +101,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 31,
+        [_Location_line]: 35,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -107,7 +111,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 32,
+        [_Location_line]: 36,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -117,7 +121,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 35,
+        [_Location_line]: 39,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -127,7 +131,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 36,
+        [_Location_line]: 40,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -136,8 +140,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 40,
+        [_Location_column]: 28,
+        [_Location_line]: 42,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -146,8 +150,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "userId",
-        [_Location_column]: 17,
-        [_Location_line]: 43,
+        [_Location_column]: 13,
+        [_Location_line]: 47,
         [_Location_file]: null
       });
     },
@@ -159,8 +163,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[13] || CT.C13,
         [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 42,
+        [_Location_column]: 11,
+        [_Location_line]: 46,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -170,7 +174,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 49,
+        [_Location_line]: 53,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -179,8 +183,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
         [_Location_name]: "userId",
-        [_Location_column]: 37,
-        [_Location_line]: 51,
+        [_Location_column]: 17,
+        [_Location_line]: 56,
         [_Location_file]: null
       });
     },
@@ -193,7 +197,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[17] || CT.C17,
         [_Location_name]: null,
         [_Location_column]: 15,
-        [_Location_line]: 51,
+        [_Location_line]: 55,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -202,41 +206,41 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 53,
+        [_Location_column]: 27,
+        [_Location_line]: 62,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "userId",
+        [_Location_column]: 37,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22], widget_inspector._Location);
     },
     get C20() {
       return C[20] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_parameterLocations]: C[21] || CT.C21,
         [_Location_name]: null,
-        [_Location_column]: 28,
-        [_Location_line]: 55,
+        [_Location_column]: 15,
+        [_Location_line]: 64,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
     get C23() {
       return C[23] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "id",
-        [_Location_column]: 13,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23], widget_inspector._Location);
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
-        [_Location_column]: 11,
-        [_Location_line]: 59,
+        [_Location_column]: 28,
+        [_Location_line]: 66,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -245,8 +249,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 65,
+        [_Location_column]: 28,
+        [_Location_line]: 68,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -255,8 +259,8 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 66,
+        [_Location_column]: 28,
+        [_Location_line]: 70,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     },
@@ -266,12 +270,65 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
         [_Location_parameterLocations]: C[5] || CT.C5,
         [_Location_name]: null,
         [_Location_column]: 28,
-        [_Location_line]: 68,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "id",
+        [_Location_column]: 13,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 82,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 83,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 85,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/routing/router.dart"
       });
     }
   }, false);
-  var C = Array(27).fill(void 0);
+  var C = Array(33).fill(void 0);
   var I = ["package:logafic/routing/router.dart"];
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
@@ -316,36 +373,53 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
       {
         return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), settings) : router._getPageRoute(new notification_screen.NotificationScreen.new({$creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), settings);
       }
+      case "/jobs":
+      {
+        return router._getPageRoute(new jobs_share_screen.JobsShareScreen.new({$creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), settings);
+      }
+      case "/fullProfile":
+      {
+        let $arguments = T.MapOfString$dynamic().as(settings.arguments);
+        return router._getPageRoute(new showUserInformationScreen.ShowFullUserInformationScreen.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), settings);
+      }
       case "/profile":
       {
         let $arguments = T.MapOfString$dynamic().as(settings.arguments);
-        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), settings) : router._getPageRoute(new profile_screen.ProfileScreen.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), settings);
+        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), settings) : router._getPageRoute(new profile_screen.ProfileScreen.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), settings);
       }
       case "/update":
       {
         let $arguments = T.MapOfString$dynamic().as(settings.arguments);
-        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), settings) : router._getPageRoute(new update_user_information.UpdateUserInformation.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), settings);
+        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), settings) : router._getPageRoute(new update_user_information.UpdateUserInformation.new({userId: core.String.as($arguments[$_get]("userId")), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), settings);
       }
       case "/register":
       {
-        return router._getPageRoute(new register_screen.RegisterScreen.new({$creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), settings);
+        return router._getPageRoute(new register_screen.RegisterScreen.new({$creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), settings);
+      }
+      case "/verify":
+      {
+        return router._getPageRoute(new verify_screen.VerifyScreen.new({$creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), settings);
+      }
+      case "/myjobs":
+      {
+        return router._getPageRoute(new show_my_jobs_posts.ShowMyJobsPostScreen.new({$creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), settings);
       }
       case "/reset":
       {
-        return router._getPageRoute(new reset_password_screen.ResetPasswordUI.new({$creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), settings);
+        return router._getPageRoute(new reset_password_screen.ResetPasswordUI.new({$creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), settings);
       }
       case "/status":
       {
         let $arguments = T.MapOfString$dynamic().as(settings.arguments);
-        return router._getPageRoute(new status_screen.StatusScreen.new({id: core.String.as($arguments[$_get]("id")), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), settings);
+        return router._getPageRoute(new status_screen.StatusScreen.new({id: core.String.as($arguments[$_get]("id")), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), settings);
       }
       case "/save":
       {
-        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), settings) : router._getPageRoute(new user_information_screen.UserInformation.new({$creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), settings);
+        return dart.nullCheck(authController.firebaseUser.value).uid === "" ? router._getPageRoute(new first_screen.FirstScreenTopBarContents.new({$creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), settings) : router._getPageRoute(new user_information_screen.UserInformation.new({$creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), settings);
       }
       default:
       {
-        return router._getPageRoute(new login_screen.LoginScreen.new({$creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), settings);
+        return router._getPageRoute(new login_screen.LoginScreen.new({$creationLocationd_0dea112b090073317d4: C[32] || CT.C32}), settings);
       }
     }
   };
@@ -355,7 +429,7 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/f
   dart.trackLibraries("packages/logafic/routing/router.dart", {
     "package:logafic/routing/router.dart": router
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["router.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;QA8E4B;QAAqB;IAArB;IAAqB;AACzC,0DACY,uCAAoB,SAAS,iBAC1B,SACE,SACK,WACA,uBAEhB,KAAK,yFACW,SACL,SACK,WACA,oBACX,UAEL,6CACO,SAAS,SACX,KAAK;;EAEf;;;;;;;;;gDA9EkC;;AAC1B,yBAAgC;AAE3C,4BAAc,AAAS,QAAD,oBAAC,OAAM;AACjC,kBAAQ,WAAW,gBAAX,OAAa;;;AAEjB,cAAO,sBAAc,yGAA6B,QAAQ;;;;AAE1D,cAAO,sBAAc,qFAAY,QAAQ;;;;AAEzC,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,yGAA6B,QAAQ,IACnD,qBAAc,4FAAc,QAAQ;;;;AAE1C,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,yGAA6B,QAAQ,IACnD,qBAAc,2GAAsB,QAAQ;;;;AAE5C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBACE,6DACU,AAAS,kBAAC,uEAEpB,QAAQ;;;;AAEV,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBACE,8EAA8B,AAAS,kBAAC,uEAAY,QAAQ;;;;AAEpE,cAAO,sBAAc,mGAAkB,QAAQ;;;;AAE/C,cAAO,sBAAc,0GAAmB,QAAQ;;;;AAE1C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,uDACM,AAAS,kBAAC,mEAEhB,QAAQ;;;;AAEZ,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBAAc,4GAAmB,QAAQ;;;;AAE/C,cAAO,sBAAc,6FAAe,QAAQ;;;EAElD;gDAE+B,OAAqB;AAClD,UAAO,mCAAkB,KAAK,aAAa,AAAS,QAAD;EACrD","file":"../../../../../../../packages/logafic/routing/router.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["router.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;QA+F4B;QAAqB;IAArB;IAAqB;AACzC,0DACY,uCAAoB,SAAS,iBAC1B,SACE,SACK,WACA,uBAEhB,KAAK,yFACW,SACL,SACK,WACA,oBACX,UAEL,6CACO,SAAS,SACX,KAAK;;EAEf;;;;;;;;;gDA3FkC;;AAC1B,yBAAgC;AAE3C,4BAAc,AAAS,QAAD,oBAAC,OAAM;AACjC,kBAAQ,WAAW,gBAAX,OAAa;;;AAEjB,cAAO,sBAAc,yGAA6B,QAAQ;;;;AAE1D,cAAO,sBAAc,qFAAY,QAAQ;;;;AAEzC,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,yGAA6B,QAAQ,IACnD,qBAAc,4FAAc,QAAQ;;;;AAE1C,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,yGAA6B,QAAQ,IACnD,qBAAc,2GAAsB,QAAQ;;;;AAElD,cAAO,sBAAc,sGAAmB,QAAQ;;;;AAE1C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,wFACU,AAAS,kBAAC,uEAEpB,QAAQ;;;;AAEN,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBACE,6DACU,AAAS,kBAAC,uEAEpB,QAAQ;;;;AAEV,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBACE,8EAA8B,AAAS,kBAAC,uEAAY,QAAQ;;;;AAEpE,cAAO,sBAAc,mGAAkB,QAAQ;;;;AAE/C,cAAO,sBAAc,+FAAgB,QAAQ;;;;AAE7C,cAAO,sBAAc,4GAAwB,QAAQ;;;;AAErD,cAAO,sBAAc,0GAAmB,QAAQ;;;;AAE1C,yBAA+B,2BAAnB,AAAS,QAAD;AAC1B,cAAO,sBACH,uDACM,AAAS,kBAAC,mEAEhB,QAAQ;;;;AAEZ,cAAwC,AAAE,AAAI,gBAAvC,AAAe,AAAa,cAAd,6BAA4B,KAC3C,qBAAc,2GAA6B,QAAQ,IACnD,qBAAc,4GAAmB,QAAQ;;;;AAE/C,cAAO,sBAAc,6FAAe,QAAQ;;;EAElD;gDAE+B,OAAqB;AAClD,UAAO,mCAAkB,KAAK,aAAa,AAAS,QAAD;EACrD","file":"../../../../../../../packages/logafic/routing/router.dart.lib.js"}');
   // Exports:
   return {
     routing__router: router

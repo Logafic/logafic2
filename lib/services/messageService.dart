@@ -39,19 +39,23 @@ Future<void> lastMessage(String messageSentUserId, String profileImage,
     'sender': authController.firebaseUser.value!.uid,
     'message': message,
     'created_at': DateTime.now().toString()
-  });
+  }).whenComplete(() => setUnreadMessage());
 }
 
-Future<void> addMessage(
-    String messageType, String userName, String userId, String message) async {
-  CollectionReference notificationRef = FirebaseFirestore.instance
-      .collection('messages')
-      .doc('${authController.firebaseUser.value!.uid}')
-      .collection(userId);
+Future<void> setReadMessage() async {
+  CollectionReference checkUnreadMessageReference =
+      FirebaseFirestore.instance.collection('users');
 
-  notificationRef.add({
-    'message': message,
-    'messageType': messageType,
-    'created_at': DateTime.now().toString()
-  });
+  checkUnreadMessageReference
+      .doc(authController.firebaseUser.value!.uid)
+      .update({'unreadMessage': false});
+}
+
+Future<void> setUnreadMessage() async {
+  CollectionReference checkUnreadMessageReference =
+      FirebaseFirestore.instance.collection('users');
+
+  checkUnreadMessageReference
+      .doc(authController.firebaseUser.value!.uid)
+      .update({'unreadMessage': true});
 }

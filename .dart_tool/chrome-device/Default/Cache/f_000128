@@ -1,1 +1,2194 @@
-{"web_entrypoint.dart":"954456312","packages/logafic/generated_plugin_registrant.dart":"777258390","packages/flutter_web_plugins/flutter_web_plugins.dart":"1008553532","packages/flutter_web_plugins/src/plugin_registry.dart":"541476033","packages/flutter/services.dart":"187377265","packages/flutter/src/services/text_input.dart":"843027986","packages/flutter/src/services/text_editing.dart":"362720914","packages/flutter/foundation.dart":"1014277241","packages/flutter/src/foundation/unicode.dart":"747423528","packages/flutter/src/foundation/synchronous_future.dart":"678431354","packages/flutter/src/foundation/stack_frame.dart":"264177964","packages/flutter/src/foundation/object.dart":"931221111","packages/flutter/src/foundation/constants.dart":"589745631","packages/meta/meta.dart":"355601400","packages/meta/meta_meta.dart":"593101178","packages/flutter/src/foundation/serialization.dart":"897486611","packages/typed_data/typed_buffers.dart":"804749054","packages/typed_data/src/typed_buffer.dart":"442846477","packages/flutter/src/foundation/print.dart":"573698349","packages/flutter/src/foundation/_platform_web.dart":"767433010","packages/flutter/src/foundation/observer_list.dart":"324413633","packages/flutter/src/foundation/node.dart":"851811753","packages/flutter/src/foundation/licenses.dart":"1013879488","packages/flutter/src/foundation/key.dart":"1002926673","packages/flutter/src/foundation/_isolates_web.dart":"1020252285","packages/flutter/src/foundation/debug.dart":"772524029","packages/flutter/src/foundation/basic_types.dart":"204650952","packages/flutter/src/foundation/consolidate_response.dart":"780312121","packages/flutter/src/foundation/collections.dart":"360015786","packages/flutter/src/foundation/change_notifier.dart":"93873006","packages/flutter/src/foundation/_bitfield_web.dart":"623723957","packages/flutter/src/foundation/binding.dart":"665580606","packages/flutter/src/foundation/annotations.dart":"846784319","packages/flutter/src/services/system_chrome.dart":"160629082","packages/flutter/src/services/system_channels.dart":"437650898","packages/flutter/scheduler.dart":"380463816","packages/flutter/src/scheduler/ticker.dart":"6838231","packages/flutter/src/scheduler/binding.dart":"558769810","packages/flutter/src/scheduler/priority.dart":"819337161","packages/flutter/src/scheduler/debug.dart":"576614094","packages/collection/src/union_set_controller.dart":"719174426","packages/collection/src/queue_list.dart":"748814606","packages/collection/src/priority_queue.dart":"506305859","packages/collection/src/utils.dart":"1044674067","packages/collection/src/list_extensions.dart":"1061117838","packages/collection/src/equality.dart":"597988878","packages/collection/src/comparators.dart":"609233777","packages/collection/src/algorithms.dart":"882266252","packages/collection/src/iterable_zip.dart":"250719948","packages/collection/src/iterable_extensions.dart":"812416452","packages/collection/src/functions.dart":"133928252","packages/collection/src/combined_wrappers/combined_map.dart":"13649380","packages/collection/src/combined_wrappers/combined_iterable.dart":"49716465","packages/collection/src/combined_wrappers/combined_iterator.dart":"1063280807","packages/collection/src/combined_wrappers/combined_list.dart":"585451354","packages/collection/src/canonicalized_map.dart":"210746685","packages/vector_math/vector_math_64.dart":"422091844","packages/vector_math/hash.dart":"286998892","packages/flutter/src/services/text_formatter.dart":"748444835","packages/characters/characters.dart":"859773124","packages/characters/src/extensions.dart":"882570398","packages/characters/src/characters_impl.dart":"973019606","packages/characters/src/grapheme_clusters/breaks.dart":"930854833","packages/characters/src/grapheme_clusters/table.dart":"679702504","packages/characters/src/grapheme_clusters/constants.dart":"536284884","packages/flutter/src/services/system_sound.dart":"362200024","packages/flutter/src/services/system_navigator.dart":"698433606","packages/flutter/src/services/raw_keyboard_windows.dart":"322750173","packages/flutter/src/services/keyboard_maps.dart":"359480673","packages/flutter/src/services/keyboard_key.dart":"275423109","packages/flutter/src/services/platform_views.dart":"261169777","packages/flutter/gestures.dart":"251927660","packages/flutter/src/gestures/velocity_tracker.dart":"649313836","packages/flutter/src/gestures/lsq_solver.dart":"508783468","packages/flutter/src/gestures/events.dart":"605691717","packages/flutter/src/gestures/constants.dart":"854346753","packages/flutter/src/gestures/team.dart":"1043404832","packages/flutter/src/gestures/binding.dart":"683500233","packages/flutter/src/gestures/resampler.dart":"696365514","packages/flutter/src/gestures/pointer_signal_resolver.dart":"45875957","packages/flutter/src/gestures/pointer_router.dart":"655431365","packages/flutter/src/gestures/hit_test.dart":"1044089352","packages/flutter/src/gestures/debug.dart":"753211301","packages/flutter/src/gestures/converter.dart":"699508271","packages/flutter/src/gestures/arena.dart":"903976769","packages/flutter/src/gestures/tap.dart":"984997984","packages/flutter/src/gestures/recognizer.dart":"992765737","packages/flutter/src/gestures/scale.dart":"267564768","packages/flutter/src/gestures/multitap.dart":"789166631","packages/flutter/src/gestures/multidrag.dart":"212714407","packages/flutter/src/gestures/drag_details.dart":"648209595","packages/flutter/src/gestures/drag.dart":"665937312","packages/flutter/src/gestures/monodrag.dart":"207963879","packages/flutter/src/gestures/long_press.dart":"14364071","packages/flutter/src/gestures/force_press.dart":"227865420","packages/flutter/src/gestures/eager.dart":"432871991","packages/flutter/src/services/mouse_tracking.dart":"83392271","packages/flutter/src/services/mouse_cursor.dart":"776584159","packages/flutter/src/services/haptic_feedback.dart":"90170755","packages/flutter/src/services/font_loader.dart":"1000572717","packages/flutter/src/services/deferred_component.dart":"210979783","packages/flutter/src/services/clipboard.dart":"358754231","packages/flutter_web_plugins/src/plugin_event_channel.dart":"33791725","packages/flutter_web_plugins/src/navigation/utils.dart":"594749658","packages/flutter_web_plugins/src/navigation/url_strategy.dart":"611036587","packages/js/js.dart":"228913157","packages/image_picker_for_web/image_picker_for_web.dart":"592369240","packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart":"907566102","packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart":"804141848","packages/image_picker_platform_interface/src/types/picked_file/html.dart":"366978654","packages/image_picker_platform_interface/src/types/picked_file/base.dart":"781962323","packages/http/src/multipart_request.dart":"471581771","packages/http/src/utils.dart":"84860441","packages/http/src/byte_stream.dart":"996487161","packages/http_parser/http_parser.dart":"746234942","packages/http_parser/src/media_type.dart":"629497979","packages/http_parser/src/utils.dart":"216925784","packages/source_span/source_span.dart":"408148518","packages/source_span/src/location_mixin.dart":"453992802","packages/source_span/src/colors.dart":"398458171","packages/source_span/src/charcode.dart":"805355964","packages/term_glyph/src/generated/top_level.dart":"309747057","packages/term_glyph/src/generated/unicode_glyph_set.dart":"290842364","packages/term_glyph/src/generated/glyph_set.dart":"623651715","packages/term_glyph/src/generated/ascii_glyph_set.dart":"839090897","packages/path/src/path_set.dart":"968760863","packages/path/src/utils.dart":"626091367","packages/path/src/characters.dart":"721000779","packages/path/src/path_exception.dart":"883796320","packages/source_span/src/span_exception.dart":"434971798","packages/http_parser/src/scan.dart":"151560251","packages/string_scanner/string_scanner.dart":"659267068","packages/string_scanner/src/utils.dart":"564175766","packages/charcode/charcode.dart":"613351705","packages/charcode/html_entity.dart":"833586860","packages/charcode/ascii.dart":"749173414","packages/string_scanner/src/relative_span_scanner.dart":"335276526","packages/string_scanner/src/line_scanner.dart":"736218569","packages/http_parser/src/case_insensitive_map.dart":"749951461","packages/http_parser/src/http_date.dart":"737390077","packages/http_parser/src/chunked_coding.dart":"118376851","packages/http_parser/src/chunked_coding/encoder.dart":"210710190","packages/http_parser/src/chunked_coding/decoder.dart":"166459018","packages/typed_data/typed_data.dart":"423105805","packages/typed_data/src/typed_queue.dart":"254535794","packages/http_parser/src/authentication_challenge.dart":"500066896","packages/http/src/exception.dart":"1057134365","packages/pedantic/pedantic.dart":"162922798","packages/http/src/boundary_characters.dart":"15516232","packages/image_picker_platform_interface/src/types/retrieve_type.dart":"764055566","packages/image_picker_platform_interface/src/types/image_source.dart":"262957086","packages/image_picker_platform_interface/src/types/camera_device.dart":"87286136","packages/plugin_platform_interface/plugin_platform_interface.dart":"1029423166","packages/firebase_storage_web/firebase_storage_web.dart":"411700342","packages/firebase_storage_web/src/reference_web.dart":"152646392","packages/firebase_storage_web/src/utils/errors.dart":"1026907412","packages/firebase_core/src/internals.dart":"756744046","packages/firebase_core_web/firebase_core_web_interop.dart":"72109820","packages/firebase_core_web/src/interop/utils/utils.dart":"679569809","packages/firebase_core_web/src/interop/utils/js_interop.dart":"394668403","packages/js/js_util.dart":"1018227384","packages/firebase_core_web/src/interop/utils/func.dart":"359673493","packages/firebase_core_web/src/interop/utils/es6_interop.dart":"599788353","packages/firebase_core_web/src/interop/utils/js.dart":"563994432","packages/firebase_core_web/src/interop/core.dart":"987166424","packages/firebase_core_web/src/interop/core_interop.dart":"1000613600","packages/firebase_core_web/src/interop/app.dart":"93564923","packages/firebase_core_platform_interface/firebase_core_platform_interface.dart":"1052590838","packages/flutter/cupertino.dart":"902549264","packages/flutter/widgets.dart":"225276198","packages/flutter/src/widgets/will_pop_scope.dart":"220609384","packages/flutter/src/widgets/widget_span.dart":"987883283","packages/flutter/rendering.dart":"826010102","packages/flutter/src/rendering/wrap.dart":"243923133","packages/flutter/src/rendering/layer.dart":"744044821","packages/flutter/painting.dart":"681056486","packages/flutter/src/painting/strut_style.dart":"720150537","packages/flutter/src/painting/basic_types.dart":"864228726","packages/flutter/src/painting/colors.dart":"17244655","packages/flutter/src/painting/placeholder_span.dart":"496623824","packages/flutter/src/painting/stadium_border.dart":"282076552","packages/flutter/src/painting/rounded_rectangle_border.dart":"847886090","packages/flutter/src/painting/edge_insets.dart":"1035539149","packages/flutter/src/painting/circle_border.dart":"502880819","packages/flutter/src/painting/borders.dart":"570392329","packages/flutter/src/painting/border_radius.dart":"129129607","packages/flutter/src/painting/shape_decoration.dart":"1000669273","packages/flutter/src/painting/_network_image_web.dart":"203259778","packages/flutter/src/painting/image_stream.dart":"712955632","packages/flutter/src/painting/image_cache.dart":"912764717","packages/flutter/src/painting/binding.dart":"795272294","packages/flutter/src/painting/shader_warm_up.dart":"907611296","packages/flutter/src/painting/gradient.dart":"752905200","packages/flutter/src/painting/alignment.dart":"1032540319","packages/flutter/src/painting/decoration_image.dart":"1004815387","packages/flutter/src/painting/debug.dart":"173025082","packages/flutter/src/painting/box_fit.dart":"51079623","packages/flutter/src/painting/decoration.dart":"573239110","packages/flutter/src/painting/box_shadow.dart":"330551039","packages/flutter/src/painting/box_decoration.dart":"370592918","packages/flutter/src/painting/box_border.dart":"719677207","packages/flutter/src/painting/paint_utilities.dart":"76479617","packages/flutter/src/painting/notched_shapes.dart":"648993635","packages/flutter/src/painting/matrix_utils.dart":"834256957","packages/flutter/src/painting/image_resolution.dart":"698673414","packages/flutter/src/painting/image_decoder.dart":"957697062","packages/flutter/src/painting/geometry.dart":"247700813","packages/flutter/src/painting/fractional_offset.dart":"1029958869","packages/flutter/src/painting/flutter_logo.dart":"470619637","packages/flutter/src/painting/continuous_rectangle_border.dart":"34241025","packages/flutter/src/painting/clip.dart":"710979485","packages/flutter/src/painting/beveled_rectangle_border.dart":"831700887","packages/flutter/semantics.dart":"164972031","packages/flutter/src/semantics/semantics_service.dart":"49965484","packages/flutter/src/semantics/semantics_event.dart":"645857702","packages/flutter/src/semantics/semantics.dart":"372365211","packages/flutter/src/semantics/binding.dart":"535854689","packages/flutter/src/semantics/debug.dart":"956849071","packages/flutter/animation.dart":"975430584","packages/flutter/src/animation/tween_sequence.dart":"392954333","packages/flutter/src/animation/listener_helpers.dart":"192534937","packages/flutter/src/animation/curves.dart":"173021712","packages/flutter/src/animation/animation_controller.dart":"682325525","packages/flutter/physics.dart":"304849804","packages/flutter/src/physics/utils.dart":"725129309","packages/flutter/src/physics/tolerance.dart":"963804025","packages/flutter/src/physics/spring_simulation.dart":"764599108","packages/flutter/src/physics/simulation.dart":"830472348","packages/flutter/src/physics/gravity_simulation.dart":"689283496","packages/flutter/src/physics/friction_simulation.dart":"303458254","packages/flutter/src/physics/clamped_simulation.dart":"359879025","packages/flutter/src/rendering/layout_helper.dart":"302417611","packages/flutter/src/rendering/viewport_offset.dart":"809812578","packages/flutter/src/rendering/sliver.dart":"53808765","packages/flutter/src/rendering/tweens.dart":"320379793","packages/flutter/src/rendering/texture.dart":"486968309","packages/flutter/src/rendering/table_border.dart":"626679897","packages/flutter/src/rendering/table.dart":"935908376","packages/flutter/src/rendering/stack.dart":"860175846","packages/flutter/src/rendering/sliver_persistent_header.dart":"164383945","packages/flutter/src/rendering/sliver_padding.dart":"722595873","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"977794630","packages/flutter/src/rendering/sliver_list.dart":"927260733","packages/flutter/src/rendering/sliver_grid.dart":"37289379","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"75787476","packages/flutter/src/rendering/sliver_fill.dart":"1024317641","packages/flutter/src/rendering/shifted_box.dart":"1051364758","packages/flutter/src/rendering/debug_overflow_indicator.dart":"965810833","packages/flutter/src/rendering/rotated_box.dart":"329091572","packages/flutter/src/rendering/proxy_sliver.dart":"607261796","packages/flutter/src/rendering/proxy_box.dart":"741679257","packages/flutter/src/rendering/platform_view.dart":"1040693473","packages/flutter/src/rendering/performance_overlay.dart":"587171412","packages/flutter/src/rendering/paragraph.dart":"1047072730","packages/flutter/src/rendering/list_wheel_viewport.dart":"664427120","packages/flutter/src/rendering/list_body.dart":"566531284","packages/flutter/src/rendering/image.dart":"76140967","packages/flutter/src/rendering/flow.dart":"130993444","packages/flutter/src/rendering/flex.dart":"711332405","packages/flutter/src/rendering/error.dart":"18849171","packages/flutter/src/rendering/editable.dart":"165546079","packages/flutter/src/rendering/custom_paint.dart":"509711193","packages/flutter/src/rendering/custom_layout.dart":"429756240","packages/flutter/src/rendering/animated_size.dart":"839675301","packages/flutter/src/widgets/constants.dart":"447220365","packages/flutter/src/widgets/scroll_simulation.dart":"877649030","packages/flutter/src/widgets/scroll_metrics.dart":"448659644","packages/flutter/src/widgets/value_listenable_builder.dart":"255906575","packages/flutter/src/widgets/unique_widget.dart":"667184392","packages/flutter/src/widgets/tween_animation_builder.dart":"725161172","packages/flutter/src/widgets/implicit_animations.dart":"83084054","packages/flutter/src/widgets/texture.dart":"956615181","packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart":"540396005","packages/flutter/src/widgets/status_transitions.dart":"1062849688","packages/flutter/src/widgets/spacer.dart":"505496998","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"558236236","packages/flutter/src/widgets/sliver_persistent_header.dart":"1056566941","packages/flutter/src/widgets/sliver_layout_builder.dart":"728235201","packages/flutter/src/widgets/layout_builder.dart":"525195091","packages/flutter/src/widgets/sliver_fill.dart":"525003203","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"236799405","packages/flutter/src/widgets/single_child_scroll_view.dart":"329918967","packages/flutter/src/widgets/scroll_view.dart":"558591919","packages/flutter/src/widgets/safe_area.dart":"132284279","packages/flutter/src/widgets/reorderable_list.dart":"159815819","packages/flutter/src/widgets/raw_keyboard_listener.dart":"723560689","packages/flutter/src/widgets/preferred_size.dart":"446345509","packages/flutter/src/widgets/platform_view.dart":"734494816","packages/flutter/src/widgets/page_view.dart":"701632414","packages/flutter/src/widgets/overflow_bar.dart":"974789095","packages/flutter/src/widgets/orientation_builder.dart":"1065311167","packages/flutter/src/widgets/nested_scroll_view.dart":"195690700","packages/flutter/src/widgets/navigation_toolbar.dart":"1037123360","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"665536360","packages/flutter/src/widgets/interactive_viewer.dart":"222643995","packages/flutter/src/widgets/image_icon.dart":"221815673","packages/flutter/src/widgets/icon_theme_data.dart":"266813921","packages/flutter/src/widgets/icon_theme.dart":"852697579","packages/flutter/src/widgets/icon.dart":"926070667","packages/flutter/src/widgets/icon_data.dart":"238301223","packages/flutter/src/widgets/image_filter.dart":"923573346","packages/flutter/src/widgets/grid_paper.dart":"416336487","packages/flutter/src/widgets/form.dart":"925564080","packages/flutter/src/widgets/fade_in_image.dart":"644115245","packages/flutter/src/widgets/dual_transition_builder.dart":"846034950","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"247085537","packages/flutter/src/widgets/drag_target.dart":"880818283","packages/flutter/src/widgets/dismissible.dart":"504802647","packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart":"566951219","packages/flutter/src/widgets/color_filter.dart":"792066983","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"530215758","packages/flutter/src/widgets/autocomplete.dart":"345667788","packages/flutter/src/widgets/async.dart":"504392373","packages/flutter/src/widgets/annotated_region.dart":"168088360","packages/flutter/src/widgets/animated_switcher.dart":"249641160","packages/flutter/src/widgets/animated_size.dart":"340928100","packages/flutter/src/widgets/animated_list.dart":"499988202","packages/flutter/src/widgets/animated_cross_fade.dart":"863622378","packages/flutter/src/cupertino/thumb_painter.dart":"402699964","packages/flutter/src/cupertino/text_theme.dart":"547188915","packages/flutter/src/cupertino/interface_level.dart":"238321579","packages/flutter/src/cupertino/text_selection_toolbar_button.dart":"719733793","packages/flutter/src/cupertino/button.dart":"509286073","packages/flutter/src/cupertino/constants.dart":"511067472","packages/flutter/src/cupertino/text_selection_toolbar.dart":"497144017","packages/flutter/src/cupertino/text_selection.dart":"184278236","packages/flutter/src/cupertino/debug.dart":"425297994","packages/flutter/src/cupertino/text_form_field_row.dart":"540102463","packages/flutter/src/cupertino/text_field.dart":"667016550","packages/flutter/src/cupertino/icons.dart":"231272852","packages/flutter/src/cupertino/desktop_text_selection.dart":"922983220","packages/flutter/src/cupertino/form_row.dart":"925423363","packages/flutter/src/cupertino/tab_view.dart":"230258906","packages/flutter/src/cupertino/route.dart":"1071467835","packages/flutter/src/cupertino/app.dart":"256740411","packages/flutter/src/cupertino/scrollbar.dart":"763116520","packages/flutter/src/cupertino/tab_scaffold.dart":"762260253","packages/flutter/src/cupertino/bottom_tab_bar.dart":"854854794","packages/flutter/src/cupertino/switch.dart":"415345961","packages/flutter/src/cupertino/sliding_segmented_control.dart":"516003188","packages/flutter/src/cupertino/slider.dart":"903700989","packages/flutter/src/cupertino/segmented_control.dart":"579273778","packages/flutter/src/cupertino/search_field.dart":"888998566","packages/flutter/src/cupertino/refresh.dart":"320128417","packages/flutter/src/cupertino/activity_indicator.dart":"353067438","packages/flutter/src/cupertino/picker.dart":"159209449","packages/flutter/src/cupertino/page_scaffold.dart":"705362064","packages/flutter/src/cupertino/nav_bar.dart":"663823580","packages/flutter/src/cupertino/form_section.dart":"443341972","packages/flutter/src/cupertino/dialog.dart":"478820173","packages/flutter/src/cupertino/date_picker.dart":"308002277","packages/flutter/src/cupertino/context_menu_action.dart":"103125048","packages/flutter/src/cupertino/context_menu.dart":"771713805","packages/flutter/src/cupertino/action_sheet.dart":"152692524","packages/firebase_core/firebase_core.dart":"767693703","packages/firebase_storage_web/src/utils/metadata_cache.dart":"1012127727","packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart":"634940035","packages/firebase_storage_platform_interface/src/task_state.dart":"913460382","packages/firebase_storage_platform_interface/src/settable_metadata.dart":"451578080","packages/firebase_storage_platform_interface/src/put_string_format.dart":"968158463","packages/firebase_storage_platform_interface/src/internal/pointer.dart":"42453251","packages/firebase_storage_platform_interface/src/method_channel/utils/exception.dart":"841317593","packages/flutter/material.dart":"701187260","packages/flutter/src/material/user_accounts_drawer_header.dart":"854027024","packages/flutter/src/material/icon_button.dart":"804086632","packages/flutter/src/material/typography.dart":"569348352","packages/flutter/src/material/colors.dart":"986942812","packages/flutter/src/material/input_border.dart":"12951511","packages/flutter/src/material/constants.dart":"159108015","packages/flutter/src/material/material_state.dart":"540076927","packages/flutter/src/material/floating_action_button_theme.dart":"975160279","packages/flutter/src/material/curves.dart":"260608650","packages/flutter/src/material/bottom_sheet_theme.dart":"118419279","packages/flutter/src/material/tab_indicator.dart":"891911847","packages/flutter/src/material/tab_controller.dart":"206602669","packages/flutter/src/material/icons.dart":"491198478","packages/flutter/src/material/drawer_header.dart":"710954207","packages/flutter/src/material/toggleable.dart":"735265867","packages/flutter/src/material/toggle_buttons.dart":"364937546","packages/flutter/src/material/time_picker.dart":"866777271","packages/flutter/src/material/text_form_field.dart":"805799332","packages/flutter/src/material/text_field.dart":"630231121","packages/flutter/src/material/text_selection.dart":"297039368","packages/flutter/src/material/text_selection_toolbar_text_button.dart":"106611248","packages/flutter/src/material/text_selection_toolbar.dart":"310177456","packages/flutter/src/material/selectable_text.dart":"353588664","packages/flutter/src/material/desktop_text_selection.dart":"814399722","packages/flutter/src/material/button_bar.dart":"637676909","packages/flutter/src/material/switch_list_tile.dart":"461916586","packages/flutter/src/material/switch.dart":"421890087","packages/flutter/src/material/shadows.dart":"122400913","packages/flutter/src/material/stepper.dart":"787157652","packages/flutter/src/material/slider.dart":"932964080","packages/flutter/src/material/search.dart":"1066255561","packages/flutter/src/material/scrollbar.dart":"623478467","packages/flutter/src/material/reorderable_list.dart":"936459404","packages/flutter/src/material/refresh_indicator.dart":"985603984","packages/flutter/src/material/progress_indicator.dart":"888241567","packages/flutter/src/material/range_slider.dart":"920493237","packages/flutter/src/material/radio_list_tile.dart":"862034432","packages/flutter/src/material/radio.dart":"816151087","packages/flutter/src/material/popup_menu.dart":"465105839","packages/flutter/src/material/paginated_data_table.dart":"836092758","packages/flutter/src/material/dropdown.dart":"105428888","packages/flutter/src/material/data_table_source.dart":"559433219","packages/flutter/src/material/data_table.dart":"905819795","packages/flutter/src/material/checkbox.dart":"532737530","packages/flutter/src/material/card.dart":"812490424","packages/flutter/src/material/page.dart":"9557587","packages/flutter/src/material/outlined_button.dart":"123888330","packages/flutter/src/material/no_splash.dart":"1048806411","packages/flutter/src/material/mergeable_material.dart":"659889146","packages/flutter/src/material/input_date_picker_form_field.dart":"520575588","packages/flutter/src/material/date.dart":"611444956","packages/flutter/src/material/grid_tile_bar.dart":"602942281","packages/flutter/src/material/grid_tile.dart":"268276510","packages/flutter/src/material/flutter_logo.dart":"613092584","packages/flutter/src/material/expansion_tile.dart":"711879408","packages/flutter/src/material/expansion_panel.dart":"992078046","packages/flutter/src/material/expand_icon.dart":"818705613","packages/flutter/src/material/elevated_button.dart":"353238051","packages/flutter/src/material/date_picker_deprecated.dart":"261292942","packages/flutter/src/material/date_picker.dart":"934488043","packages/flutter/src/material/calendar_date_picker.dart":"482990855","packages/flutter/src/material/circle_avatar.dart":"16271512","packages/flutter/src/material/chip.dart":"978233383","packages/flutter/src/material/checkbox_list_tile.dart":"637737013","packages/flutter/src/material/bottom_app_bar.dart":"445639404","packages/flutter/src/material/banner.dart":"287440822","packages/flutter/src/material/autocomplete.dart":"176065687","packages/flutter/src/material/arc.dart":"133561035","packages/flutter/src/material/app.dart":"214570930","packages/flutter/src/material/animated_icons.dart":"735051140","packages/flutter/src/material/about.dart":"465741571","packages/firebase_storage_platform_interface/src/list_options.dart":"92983514","packages/firebase_storage_platform_interface/src/full_metadata.dart":"975294517","packages/firebase_storage_web/src/utils/list.dart":"994062632","packages/firebase_storage_web/src/list_result_web.dart":"780955644","packages/firebase_storage_web/src/interop/storage.dart":"1067310816","packages/firebase_storage_web/src/interop/storage_interop.dart":"866560661","packages/firebase_storage_web/src/interop/firebase_interop.dart":"98102659","packages/firebase_storage_web/src/task_web.dart":"608987599","packages/firebase_storage_web/src/task_snapshot_web.dart":"5739133","packages/firebase_storage_web/src/utils/metadata.dart":"765728621","packages/async/src/chunked_stream_reader.dart":"735940189","packages/async/src/utils.dart":"155811339","packages/async/src/typed_stream_transformer.dart":"425084965","packages/async/src/subscription_stream.dart":"852795482","packages/async/src/delegate/stream_subscription.dart":"206218376","packages/async/src/typed/stream_subscription.dart":"28853727","packages/async/src/stream_zip.dart":"287769862","packages/async/src/stream_subscription_transformer.dart":"16912958","packages/async/src/async_memoizer.dart":"61268192","packages/async/src/stream_splitter.dart":"517114533","packages/async/src/result/release_transformer.dart":"780835529","packages/async/src/stream_sink_transformer/typed.dart":"122801921","packages/async/src/delegate/stream_sink.dart":"927806899","packages/async/src/future_group.dart":"861995800","packages/async/src/stream_sink_extensions.dart":"578080402","packages/async/src/stream_sink_transformer/reject_errors.dart":"1029236367","packages/async/src/stream_sink_completer.dart":"182499401","packages/async/src/null_stream_sink.dart":"679632803","packages/async/src/stream_completer.dart":"19853187","packages/async/src/stream_group.dart":"1043177904","packages/async/src/stream_closer.dart":"59271103","packages/async/src/single_subscription_transformer.dart":"129668036","packages/async/src/result/future.dart":"64801220","packages/async/src/delegate/future.dart":"217447615","packages/async/src/restartable_timer.dart":"854994608","packages/async/src/lazy_stream.dart":"911315037","packages/async/src/delegate/stream_consumer.dart":"758456200","packages/async/src/delegate/stream.dart":"149913975","packages/async/src/delegate/sink.dart":"243899375","packages/async/src/delegate/event_sink.dart":"1040822207","packages/firebase_core_web/firebase_core_web.dart":"844371305","packages/firebase_auth_web/firebase_auth_web.dart":"473744415","packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart":"1039252591","packages/firebase_auth_web/src/utils/web_utils.dart":"893781588","packages/firebase_auth_web/src/interop/auth.dart":"663857102","packages/firebase_auth_web/src/interop/auth_interop.dart":"80108547","packages/firebase_auth_web/src/interop/utils/utils.dart":"1070617200","packages/firebase_auth_web/src/interop/firebase_interop.dart":"556493021","packages/firebase_auth_platform_interface/src/types.dart":"244834050","packages/firebase_auth_platform_interface/src/user_metadata.dart":"403478960","packages/firebase_auth_platform_interface/src/user_info.dart":"398872661","packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart":"918846199","packages/firebase_auth_platform_interface/src/auth_credential.dart":"387950179","packages/firebase_auth_platform_interface/src/auth_provider.dart":"898469438","packages/firebase_auth_platform_interface/src/providers/saml_auth.dart":"376724646","packages/firebase_auth_platform_interface/src/action_code_settings.dart":"66094846","packages/firebase_auth_platform_interface/src/id_token_result.dart":"1062893283","packages/firebase_auth_platform_interface/src/additional_user_info.dart":"979594276","packages/firebase_auth_platform_interface/src/action_code_info.dart":"587890588","packages/intl/intl.dart":"719478981","packages/intl/src/intl/text_direction.dart":"981786478","packages/intl/src/intl/number_parser.dart":"243896667","packages/intl/src/intl/number_format_parser.dart":"274215630","packages/intl/src/intl/string_iterator.dart":"146506864","packages/intl/number_symbols_data.dart":"339672247","packages/intl/number_symbols.dart":"581249411","packages/intl/src/intl/intl_stream.dart":"173369745","packages/intl/src/intl/regexp.dart":"456390162","packages/intl/src/intl/constants.dart":"755857456","packages/intl/src/intl_helpers.dart":"701066084","packages/intl/src/global_state.dart":"1044950800","packages/intl/src/intl/micro_money.dart":"666282906","packages/intl/src/intl/date_format.dart":"243817863","packages/intl/src/intl/date_computation.dart":"10090343","packages/intl/src/intl/date_builder.dart":"302913238","packages/clock/src/stopwatch.dart":"336890368","packages/clock/src/utils.dart":"283407461","packages/intl/src/date_format_internal.dart":"755368366","packages/intl/date_symbols.dart":"371696161","packages/intl/src/intl/bidi_formatter.dart":"932841803","packages/intl/src/intl/bidi.dart":"426721659","packages/intl/src/plural_rules.dart":"409134053","packages/firebase_auth_web/src/firebase_auth_web_recaptcha_verifier_factory.dart":"556320852","packages/cloud_firestore_web/src/write_batch_web.dart":"1008432491","packages/cloud_firestore_web/src/interop/utils/utils.dart":"511541094","packages/cloud_firestore_platform_interface/src/platform_interface/utils/load_bundle_task_state.dart":"274324194","packages/cloud_firestore_platform_interface/src/load_bundle_task_state.dart":"282804820","packages/cloud_firestore_platform_interface/src/persistence_settings.dart":"104338020","packages/cloud_firestore_platform_interface/src/set_options.dart":"421227833","packages/cloud_firestore_platform_interface/src/field_path.dart":"7063299","packages/cloud_firestore_platform_interface/src/internal/field_path_type.dart":"141326871","packages/cloud_firestore_platform_interface/src/get_options.dart":"241657316","packages/cloud_firestore_platform_interface/src/source.dart":"762128209","packages/cloud_firestore_platform_interface/src/settings.dart":"581203596","packages/cloud_firestore_platform_interface/src/timestamp.dart":"32175664","packages/cloud_firestore_platform_interface/src/snapshot_metadata.dart":"512749807","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_load_bundle_task.dart":"1030487653","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_field_value.dart":"726214990","packages/cloud_firestore_platform_interface/src/internal/pointer.dart":"813282268","packages/cloud_firestore_platform_interface/src/method_channel/utils/exception.dart":"1052067298","packages/cloud_firestore_platform_interface/src/method_channel/utils/source.dart":"690576288","packages/cloud_firestore_platform_interface/src/method_channel/utils/auto_id_generator.dart":"110567953","packages/cloud_firestore_platform_interface/src/geo_point.dart":"468764786","packages/cloud_firestore_platform_interface/src/blob.dart":"920684731","packages/cloud_firestore_web/src/field_value_web.dart":"631742555","packages/cloud_firestore_web/src/internals.dart":"786905736","packages/cloud_firestore_web/src/load_bundle_task_web.dart":"426691235","packages/logafic/main.dart":"197900874","packages/logafic/controllers/authController.dart":"852804101","packages/logafic/widgets/loading.dart":"872224856","packages/logafic/data_model/user_model.dart":"930952104","packages/logafic/routing/router_names.dart":"573911537","packages/logafic/data_model/user_profile_model.dart":"762294013","packages/cloud_firestore/cloud_firestore.dart":"418488667","packages/get/get_navigation/src/routes/route_middleware.dart":"56129489","packages/get/get_utils/src/platform/platform_web.dart":"613802506","packages/get/get_utils/src/queue/get_queue.dart":"149406084","packages/get/get_utils/src/get_utils/get_utils.dart":"875757099","packages/get/get_core/get_core.dart":"567214289","packages/get/get_core/src/typedefs.dart":"949178269","packages/get/get_core/src/smart_management.dart":"664750189","packages/get/get_core/src/get_main.dart":"154316081","packages/get/get_utils/src/extensions/widget_extensions.dart":"316191571","packages/get/get_utils/src/extensions/string_extensions.dart":"1070427812","packages/get/get_utils/src/extensions/num_extensions.dart":"900625621","packages/get/get_utils/src/extensions/internacionalization.dart":"563252889","packages/get/get_utils/src/extensions/event_loop_extensions.dart":"830427455","packages/get/get_utils/src/extensions/dynamic_extensions.dart":"712188108","packages/get/get_utils/src/extensions/duration_extensions.dart":"1059413838","packages/get/get_utils/src/extensions/double_extensions.dart":"337673341","packages/get/get_state_manager/src/simple/list_notifier.dart":"404202384","packages/get/instance_manager.dart":"987952412","packages/get/get_instance/get_instance.dart":"424716107","packages/get/get_instance/src/lifecycle.dart":"956846258","packages/get/get_instance/src/get_instance.dart":"1005798754","packages/get/get_instance/src/extension_instance.dart":"362154391","packages/get/get_instance/src/bindings_interface.dart":"175822769","packages/get/get_state_manager/src/simple/get_view.dart":"368138537","packages/get/get_state_manager/src/simple/get_widget_cache.dart":"946409161","packages/get/utils.dart":"981444559","packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart":"93224382","packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart":"86559405","packages/get/get_rx/src/rx_types/rx_types.dart":"823754503","packages/get/get_rx/src/rx_typedefs/rx_typedefs.dart":"149246969","packages/get/get_rx/src/rx_stream/rx_stream.dart":"296208195","packages/get/get_rx/get_rx.dart":"1007822261","packages/get/get_rx/src/rx_workers/rx_workers.dart":"431666907","packages/get/get_rx/src/rx_workers/utils/debouncer.dart":"80292947","packages/get/get_navigation/src/routes/transitions_type.dart":"882577728","packages/get/get_navigation/src/routes/default_transitions.dart":"920004405","packages/get/get_navigation/src/routes/custom_transition.dart":"619368525","packages/get/get_navigation/src/dialog/dialog_route.dart":"1045135062","packages/get/get_navigation/src/root/internacionalization.dart":"347119920","packages/get/get_navigation/src/bottomsheet/bottomsheet.dart":"779020961","packages/get/get_connect/connect.dart":"203103813","packages/get/get_connect/sockets/sockets.dart":"779884268","packages/get/get_connect/sockets/src/sockets_html.dart":"919291632","packages/get/get_connect/sockets/src/socket_notifier.dart":"187645266","packages/get/get_connect/http/src/interceptors/get_modifiers.dart":"1025317029","packages/get/get_connect/http/src/status/http_status.dart":"1028670775","packages/get/get_connect/http/src/http/html/file_decoder_html.dart":"623457576","packages/get/get_connect/http/src/utils/utils.dart":"207731855","packages/get/get_connect/http/src/exceptions/exceptions.dart":"490802792","packages/get/get_connect/http/src/certificates/certificates.dart":"978827346","packages/firebase_auth/firebase_auth.dart":"206147333","packages/logafic/services/navigation_service.dart":"873786176","packages/logafic/routing/router.dart":"1018052233","packages/logafic/screens/user_information_screen.dart":"351659699","packages/image_picker/image_picker.dart":"144987930","packages/firebase_storage/firebase_storage.dart":"842302405","packages/firebase_storage/src/utils.dart":"456548141","packages/logafic/widgets/background.dart":"244751285","packages/logafic/screens/update_user_information.dart":"788123181","packages/logafic/extensions/string_extensions.dart":"895184418","packages/logafic/data_model/routing_data.dart":"569802445","packages/logafic/screens/reset_password_screen.dart":"160304603","packages/logafic/widgets/formInputFieldWithIcon.dart":"307886903","packages/logafic/widgets/primaryButton.dart":"818293123","packages/logafic/widgets/labelButton.dart":"719897280","packages/logafic/widgets/formVerticalSpacing.dart":"973919508","packages/logafic/screens/first_screen.dart":"996147007","packages/logafic/widgets/firstScreenColumnSecond.dart":"400519258","packages/logafic/widgets/smallFirstScreen.dart":"66531627","packages/logafic/widgets/firstScreenColumnThird.dart":"780697890","packages/logafic/widgets/firstSccreenColumnFirst.dart":"510645835","packages/logafic/widgets/textFirstScreen.dart":"772030314","packages/logafic/widgets/appBarSingleAction.dart":"732305503","packages/logafic/widgets/responsive.dart":"524952473","packages/logafic/screens/register_screen.dart":"770835635","packages/logafic/widgets/FormInputFieldWithIcon.dart":"189576608","packages/logafic/helpers/validate.dart":"862976595","packages/logafic/screens/profile_screen.dart":"46287669","packages/logafic/widgets/updatePostWidget.dart":"649681845","packages/logafic/widgets/profileBarAction.dart":"448863218","packages/logafic/widgets/deletePostProfileScreenWidget.dart":"372497454","packages/logafic/screens/notification_screen.dart":"673617156","packages/logafic/screens/message_screen.dart":"784875191","packages/logafic/widgets/userMessageScreenWidget.dart":"973261953","packages/logafic/widgets/messageScreenWidget.dart":"354168799","packages/logafic/services/messageService.dart":"649122663","packages/logafic/widgets/deleteMessegaScreenWidget.dart":"756703943","packages/logafic/screens/login_screen.dart":"85911151","packages/logafic/screens/home_page.dart":"650927265","packages/logafic/widgets/top_bar_contents.dart":"676342263","packages/logafic/widgets/showDialogPostImageUploadWidget.dart":"416596228","packages/logafic/services/upload_image.dart":"972257262","packages/logafic/services/database.dart":"48177837","packages/logafic/data_model/post_data_model.dart":"635665612","packages/logafic/widgets/floating_quick_access_bar.dart":"250153667","packages/logafic/widgets/explore_drawer.dart":"237794543","packages/logafic/widgets/appBarHomePageWidget.dart":"484902727","packages/logafic/services/notificationService.dart":"479571102","packages/lazy_load_scrollview/lazy_load_scrollview.dart":"1054570305","packages/lazy_load_scrollview/src/lazy_load_scrollview.dart":"504147588","packages/logafic/screens/status_screen.dart":"1004638993","packages/logafic/widgets/showCommentDialogStatusWidget.dart":"732141167","packages/logafic/widgets/menubaraction.dart":"857983513","packages/get_storage/get_storage.dart":"418193910","packages/path_provider/path_provider.dart":"142304179","packages/path_provider_platform_interface/src/method_channel_path_provider.dart":"485075873","packages/path_provider_platform_interface/src/enums.dart":"1019981792","packages/platform/platform.dart":"458311954","packages/platform/src/testing/fake_platform.dart":"660400054","packages/platform/src/interface/platform.dart":"306764608","packages/platform/src/interface/local_platform.dart":"851653387","packages/path_provider_windows/path_provider_windows.dart":"360823741","packages/path_provider_windows/src/path_provider_windows_stub.dart":"1014217186","packages/path_provider_windows/src/folders_stub.dart":"827345603","packages/path_provider_linux/path_provider_linux.dart":"733298637","packages/xdg_directories/xdg_directories.dart":"320625649","packages/process/src/interface/local_process_manager.dart":"386192035","packages/process/src/interface/process_wrapper.dart":"636087069","packages/process/src/interface/process_manager.dart":"88844793","packages/process/src/interface/exceptions.dart":"662830240","packages/process/src/interface/common.dart":"442206179","packages/file/local.dart":"1007009624","packages/file/src/backends/local.dart":"963417162","packages/file/src/backends/local/local_file_system.dart":"994817253","packages/file/src/backends/local/local_link.dart":"372434852","packages/file/src/forwarding/forwarding_link.dart":"182410531","packages/file/src/interface.dart":"178841212","packages/file/src/io.dart":"510842535","packages/file/src/interface/link.dart":"451637349","packages/file/src/interface/error_codes.dart":"282553175","packages/file/src/interface/error_codes_internal.dart":"375711259","packages/file/src/forwarding/forwarding_random_access_file.dart":"262684124","packages/file/src/common.dart":"419534122","packages/get_storage/src/value.dart":"125471120","packages/get/state_manager.dart":"402808239","packages/get_storage/src/storage_impl.dart":"636141746","packages/get_storage/src/storage/html.dart":"375431382","packages/get_storage/src/read_write_value.dart":"510125930"}
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/logafic/controllers/authController.dart', 'packages/flutter/src/widgets/preferred_size.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/logafic/services/notificationService.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/popup_menu.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/get/get_core/src/get_main.dart'], (function load__packages__logafic__widgets__top_bar_contents_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__logafic__controllers__authController$46dart, packages__flutter__src__widgets__preferred_size$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__logafic__services__notificationService$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__popup_menu$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__get__get_core__src__get_main$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const visibility = packages__flutter__src__widgets__widget_span$46dart.src__widgets__visibility;
+  const authController = packages__logafic__controllers__authController$46dart.controllers__authController;
+  const preferred_size = packages__flutter__src__widgets__preferred_size$46dart.src__widgets__preferred_size;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const ink_well = packages__flutter__src__material__icon_button$46dart.src__material__ink_well;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const notificationService = packages__logafic__services__notificationService$46dart.services__notificationService;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const popup_menu = packages__flutter__src__material__popup_menu$46dart.src__material__popup_menu;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var top_bar_contents = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    boolTovoid: () => (T.boolTovoid = dart.constFn(dart.fnType(dart.void, [core.bool])))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    FutureBuilderOfvoid: () => (T.FutureBuilderOfvoid = dart.constFn(async$.FutureBuilder$(dart.void)))(),
+    BuildContextAndAsyncSnapshotToWidget: () => (T.BuildContextAndAsyncSnapshotToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, async$.AsyncSnapshot])))(),
+    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureNOfvoid: () => (T.FutureNOfvoid = dart.constFn(dart.nullable(T.FutureOfvoid())))(),
+    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    JSArrayOfPopupMenuEntry: () => (T.JSArrayOfPopupMenuEntry = dart.constFn(_interceptors.JSArray$(popup_menu.PopupMenuEntry)))(),
+    ListOfPopupMenuEntry: () => (T.ListOfPopupMenuEntry = dart.constFn(core.List$(popup_menu.PopupMenuEntry)))(),
+    BuildContextToListOfPopupMenuEntry: () => (T.BuildContextToListOfPopupMenuEntry = dart.constFn(dart.fnType(T.ListOfPopupMenuEntry(), [framework.BuildContext])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 17,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 17,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 79,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], widget_inspector._Location);
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 94,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 39,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 48,
+        [_Location_line]: 129,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 43,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 43,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 48,
+        [_Location_line]: 127,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 41,
+        [_Location_line]: 127,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 41,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 41,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 41,
+        [_Location_line]: 141,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 126,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 126,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55], widget_inspector._Location);
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 125,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 29,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialData",
+        [_Location_column]: 29,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 29,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 110,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 29,
+        [_Location_line]: 151,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 29,
+        [_Location_line]: 152,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64], widget_inspector._Location);
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 150,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 162,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.constList([C[67] || CT.C67, C[68] || CT.C68, C[69] || CT.C69], widget_inspector._Location);
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[66] || CT.C66,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 159,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 157,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 158,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 159,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72, C[73] || CT.C73, C[74] || CT.C74, C[75] || CT.C75, C[76] || CT.C76], widget_inspector._Location);
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 154,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.constList([C[79] || CT.C79, C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[78] || CT.C78,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 103,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 95,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.constList([C[88] || CT.C88], widget_inspector._Location);
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[87] || CT.C87,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 168,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.constList([C[91] || CT.C91, C[92] || CT.C92], widget_inspector._Location);
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[90] || CT.C90,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 183,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 190,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.constList([C[95] || CT.C95], widget_inspector._Location);
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[94] || CT.C94,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 190,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 197,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99, C[100] || CT.C100], widget_inspector._Location);
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[97] || CT.C97,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 196,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 194,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 196,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.constList([C[103] || CT.C103, C[104] || CT.C104, C[105] || CT.C105, C[106] || CT.C106, C[107] || CT.C107], widget_inspector._Location);
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[102] || CT.C102,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.constList([C[110] || CT.C110, C[111] || CT.C111], widget_inspector._Location);
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[109] || CT.C109,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 180,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116], widget_inspector._Location);
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 169,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 205,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.constList([C[119] || CT.C119], widget_inspector._Location);
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[118] || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 205,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.constList([C[122] || CT.C122, C[123] || CT.C123], widget_inspector._Location);
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[121] || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 220,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 36,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126], widget_inspector._Location);
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 227,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 31,
+        [_Location_line]: 234,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 31,
+        [_Location_line]: 235,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 31,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.constList([C[129] || CT.C129, C[130] || CT.C130, C[131] || CT.C131], widget_inspector._Location);
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[128] || CT.C128,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 233,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainAnimation",
+        [_Location_column]: 29,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainState",
+        [_Location_column]: 29,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maintainSize",
+        [_Location_column]: 29,
+        [_Location_line]: 231,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 29,
+        [_Location_line]: 232,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C[133] = dart.constList([C[134] || CT.C134, C[135] || CT.C135, C[136] || CT.C136, C[137] || CT.C137, C[138] || CT.C138], widget_inspector._Location);
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[133] || CT.C133,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 228,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 25,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 25,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C140() {
+      return C[140] = dart.constList([C[141] || CT.C141, C[142] || CT.C142], widget_inspector._Location);
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[140] || CT.C140,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 217,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 23,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 23,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 217,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.constList([C[145] || CT.C145, C[146] || CT.C146, C[147] || CT.C147], widget_inspector._Location);
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[144] || CT.C144,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C149() {
+      return C[149] = dart.constList([C[150] || CT.C150, C[151] || CT.C151], widget_inspector._Location);
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[149] || CT.C149,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C153() {
+      return C[153] = dart.constList([C[154] || CT.C154], widget_inspector._Location);
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[153] || CT.C153,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C157() {
+      return C[157] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 17,
+        [_Location_line]: 246,
+        [_Location_file]: null
+      });
+    },
+    get C156() {
+      return C[156] = dart.constList([C[157] || CT.C157], widget_inspector._Location);
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[156] || CT.C156,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 245,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 29,
+        [_Location_line]: 257,
+        [_Location_file]: null
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 23,
+        [_Location_line]: 258,
+        [_Location_file]: null
+      });
+    },
+    get C159() {
+      return C[159] = dart.constList([C[160] || CT.C160, C[161] || CT.C161], widget_inspector._Location);
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[159] || CT.C159,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 256,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C163() {
+      return C[163] = dart.constList([C[164] || CT.C164], widget_inspector._Location);
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[163] || CT.C163,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 269,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.constList([C[167] || CT.C167], widget_inspector._Location);
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[166] || CT.C166,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 270,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.constList([C[170] || CT.C170, C[171] || CT.C171, C[172] || CT.C172], widget_inspector._Location);
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[169] || CT.C169,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 262,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 262,
+        [_Location_file]: null
+      });
+    },
+    get C174() {
+      return C[174] = dart.constList([C[175] || CT.C175], widget_inspector._Location);
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[174] || CT.C174,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 261,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 278,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.constList([C[178] || CT.C178], widget_inspector._Location);
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[177] || CT.C177,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 278,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 279,
+        [_Location_file]: null
+      });
+    },
+    get C180() {
+      return C[180] = dart.constList([C[181] || CT.C181], widget_inspector._Location);
+    },
+    get C179() {
+      return C[179] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[180] || CT.C180,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 279,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 278,
+        [_Location_file]: null
+      });
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 279,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184, C[185] || CT.C185, C[186] || CT.C186], widget_inspector._Location);
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 274,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 274,
+        [_Location_file]: null
+      });
+    },
+    get C188() {
+      return C[188] = dart.constList([C[189] || CT.C189], widget_inspector._Location);
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[188] || CT.C188,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 273,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 47,
+        [_Location_line]: 287,
+        [_Location_file]: null
+      });
+    },
+    get C191() {
+      return C[191] = dart.constList([C[192] || CT.C192], widget_inspector._Location);
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[191] || CT.C191,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 287,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 288,
+        [_Location_file]: null
+      });
+    },
+    get C194() {
+      return C[194] = dart.constList([C[195] || CT.C195], widget_inspector._Location);
+    },
+    get C193() {
+      return C[193] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[194] || CT.C194,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 288,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C198() {
+      return C[198] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 27,
+        [_Location_line]: 284,
+        [_Location_file]: null
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 27,
+        [_Location_line]: 287,
+        [_Location_file]: null
+      });
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 27,
+        [_Location_line]: 288,
+        [_Location_file]: null
+      });
+    },
+    get C197() {
+      return C[197] = dart.constList([C[198] || CT.C198, C[199] || CT.C199, C[200] || CT.C200], widget_inspector._Location);
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[197] || CT.C197,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 283,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 283,
+        [_Location_file]: null
+      });
+    },
+    get C202() {
+      return C[202] = dart.constList([C[203] || CT.C203], widget_inspector._Location);
+    },
+    get C201() {
+      return C[201] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[202] || CT.C202,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 282,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C206() {
+      return C[206] = dart.constList([], widget_inspector._Location);
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[206] || CT.C206,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 305,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: popup_menu.PopupMenuDivider.prototype,
+        [Widget__location]: C[205] || CT.C205,
+        [Widget_key]: null,
+        [PopupMenuDivider_height]: 16
+      });
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 37,
+        [_Location_line]: 313,
+        [_Location_file]: null
+      });
+    },
+    get C208() {
+      return C[208] = dart.constList([C[209] || CT.C209], widget_inspector._Location);
+    },
+    get C207() {
+      return C[207] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[208] || CT.C208,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 313,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 25,
+        [_Location_line]: 308,
+        [_Location_file]: null
+      });
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 25,
+        [_Location_line]: 313,
+        [_Location_file]: null
+      });
+    },
+    get C211() {
+      return C[211] = dart.constList([C[212] || CT.C212, C[213] || CT.C213], widget_inspector._Location);
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[211] || CT.C211,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 307,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 307,
+        [_Location_file]: null
+      });
+    },
+    get C215() {
+      return C[215] = dart.constList([C[216] || CT.C216], widget_inspector._Location);
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[215] || CT.C215,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 306,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C219() {
+      return C[219] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 21,
+        [_Location_line]: 256,
+        [_Location_file]: null
+      });
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 21,
+        [_Location_line]: 260,
+        [_Location_file]: null
+      });
+    },
+    get C218() {
+      return C[218] = dart.constList([C[219] || CT.C219, C[220] || CT.C220], widget_inspector._Location);
+    },
+    get C217() {
+      return C[217] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[218] || CT.C218,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 255,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C223() {
+      return C[223] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 19,
+        [_Location_line]: 249,
+        [_Location_file]: null
+      });
+    },
+    get C224() {
+      return C[224] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 19,
+        [_Location_line]: 254,
+        [_Location_file]: null
+      });
+    },
+    get C225() {
+      return C[225] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 255,
+        [_Location_file]: null
+      });
+    },
+    get C222() {
+      return C[222] = dart.constList([C[223] || CT.C223, C[224] || CT.C224, C[225] || CT.C225], widget_inspector._Location);
+    },
+    get C221() {
+      return C[221] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[222] || CT.C222,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 248,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C228() {
+      return C[228] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C229() {
+      return C[229] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C227() {
+      return C[227] = dart.constList([C[228] || CT.C228, C[229] || CT.C229], widget_inspector._Location);
+    },
+    get C226() {
+      return C[226] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[227] || CT.C227,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C232() {
+      return C[232] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 11,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C233() {
+      return C[233] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C231() {
+      return C[231] = dart.constList([C[232] || CT.C232, C[233] || CT.C233], widget_inspector._Location);
+    },
+    get C230() {
+      return C[230] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[231] || CT.C231,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C236() {
+      return C[236] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C237() {
+      return C[237] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C235() {
+      return C[235] = dart.constList([C[236] || CT.C236, C[237] || CT.C237], widget_inspector._Location);
+    },
+    get C234() {
+      return C[234] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[235] || CT.C235,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    },
+    get C240() {
+      return C[240] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "preferredSize",
+        [_Location_column]: 7,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C241() {
+      return C[241] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C239() {
+      return C[239] = dart.constList([C[240] || CT.C240, C[241] || CT.C241], widget_inspector._Location);
+    },
+    get C238() {
+      return C[238] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[239] || CT.C239,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/widgets/top_bar_contents.dart"
+      });
+    }
+  }, false);
+  var C = Array(242).fill(void 0);
+  var I = ["package:logafic/widgets/top_bar_contents.dart"];
+  var opacity$ = dart.privateName(top_bar_contents, "TopBarContents.opacity");
+  var fontSize = dart.privateName(top_bar_contents, "TopBarContents.fontSize");
+  top_bar_contents.TopBarContents = class TopBarContents extends framework.StatefulWidget {
+    get opacity() {
+      return this[opacity$];
+    }
+    set opacity(value) {
+      super.opacity = value;
+    }
+    get fontSize() {
+      return this[fontSize];
+    }
+    set fontSize(value) {
+      super.fontSize = value;
+    }
+    createState() {
+      return new top_bar_contents._TopBarContentsState.new();
+    }
+  };
+  (top_bar_contents.TopBarContents.new = function(opacity, opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[fontSize] = 16;
+    this[opacity$] = opacity;
+    top_bar_contents.TopBarContents.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = top_bar_contents.TopBarContents.prototype;
+  dart.addTypeTests(top_bar_contents.TopBarContents);
+  dart.addTypeCaches(top_bar_contents.TopBarContents);
+  dart.setMethodSignature(top_bar_contents.TopBarContents, () => ({
+    __proto__: dart.getMethods(top_bar_contents.TopBarContents.__proto__),
+    createState: dart.fnType(top_bar_contents._TopBarContentsState, [])
+  }));
+  dart.setLibraryUri(top_bar_contents.TopBarContents, I[0]);
+  dart.setFieldSignature(top_bar_contents.TopBarContents, () => ({
+    __proto__: dart.getFields(top_bar_contents.TopBarContents.__proto__),
+    opacity: dart.finalFieldType(core.double),
+    fontSize: dart.finalFieldType(core.int)
+  }));
+  var _isHovering = dart.privateName(top_bar_contents, "_isHovering");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var Widget__location = dart.privateName(framework, "Widget._location");
+  var Widget_key = dart.privateName(framework, "Widget.key");
+  var PopupMenuDivider_height = dart.privateName(popup_menu, "PopupMenuDivider.height");
+  top_bar_contents._TopBarContentsState = class _TopBarContentsState extends framework.State$(top_bar_contents.TopBarContents) {
+    build(context) {
+      let screenSize = media_query.MediaQuery.of(context).size;
+      return new preferred_size.PreferredSize.new({preferredSize: new ui.Size.new(screenSize.width, 1000.0), child: new container.Container.new({color: theme.Theme.of(context).splashColor.withOpacity(this.widget.opacity), child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(20.0), child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidget().of([new text.Text.new("LOGAFIC", {style: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 20.0, fontFamily: "Montserrat", fontWeight: ui.FontWeight.w400, letterSpacing: 3.0}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new basic.Expanded.new({child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: screenSize.width / 8, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 0, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 0, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/home");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("Anasayfa", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](0)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](0)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19})]), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 1, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 1, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/notification");
+                          notificationService.setUnreadNotification();
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new (T.FutureBuilderOfvoid()).new({future: notificationService.getUnreadNotificationCount(), initialData: this.authController.unreadNotification, builder: dart.fn((context, snapshot) => this.authController.unreadNotification === 0 ? new text.Text.new("Bildirimler", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](1)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}) : new basic.Positioned.new({child: new container.Container.new({child: new text.Text.new(this.authController.unreadNotification[$toString](), {textAlign: ui.TextAlign.center, style: new text_style.TextStyle.new({color: theme.Theme.of(context).primaryColor, fontSize: 8.0}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), padding: new edge_insets.EdgeInsets.all(0.0), decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.amber, borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(10.0))}), constraints: new box.BoxConstraints.new({minWidth: 13.0, maxWidth: 13.0, minHeight: 13.0, maxHeight: 13.0}), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), T.BuildContextAndAsyncSnapshotToWidget()), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), new basic.SizedBox.new({height: 5.0, width: 10.0, $creationLocationd_0dea112b090073317d4: C[61] || CT.C61}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](1)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[65] || CT.C65}), $creationLocationd_0dea112b090073317d4: C[70] || CT.C70})]), $creationLocationd_0dea112b090073317d4: C[77] || CT.C77}), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[86] || CT.C86}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 2, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 2, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/message");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("Mesajlar", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](2)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](2)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[96] || CT.C96}), $creationLocationd_0dea112b090073317d4: C[101] || CT.C101})]), $creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), $creationLocationd_0dea112b090073317d4: C[112] || CT.C112}), new basic.SizedBox.new({width: screenSize.width / 20, $creationLocationd_0dea112b090073317d4: C[117] || CT.C117}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                          this.setState(dart.fn(() => {
+                            let t2, t1, t0, t2$, t1$, t0$;
+                            value ? (t0 = this[_isHovering], t1 = 4, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 4, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                          }, T.VoidTovoid()));
+                        }, T.boolTovoid()), onTap: dart.fn(() => {
+                          navigator.Navigator.pushNamed(T.ObjectN(), context, "/jobs");
+                        }, T.VoidTovoid()), child: new basic.Column.new({mainAxisSize: flex.MainAxisSize.min, children: T.JSArrayOfWidget().of([new text.Text.new("İş ve Etkinlik ilanları", {style: new text_style.TextStyle.new({color: dart.dtest(this[_isHovering][$_get](4)) ? colors.Colors.red : colors.Colors.black, fontSize: 16.0}), $creationLocationd_0dea112b090073317d4: C[120] || CT.C120}), new basic.SizedBox.new({height: 5.0, $creationLocationd_0dea112b090073317d4: C[124] || CT.C124}), new visibility.Visibility.new({maintainAnimation: true, maintainState: true, maintainSize: true, visible: core.bool.as(this[_isHovering][$_get](4)), child: new container.Container.new({height: 2.0, width: 20.0, color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[127] || CT.C127}), $creationLocationd_0dea112b090073317d4: C[132] || CT.C132})]), $creationLocationd_0dea112b090073317d4: C[139] || CT.C139}), $creationLocationd_0dea112b090073317d4: C[143] || CT.C143})]), $creationLocationd_0dea112b090073317d4: C[148] || CT.C148}), $creationLocationd_0dea112b090073317d4: C[152] || CT.C152}), new basic.SizedBox.new({width: screenSize.width / 50, $creationLocationd_0dea112b090073317d4: C[155] || CT.C155}), new ink_well.InkWell.new({onHover: dart.fn(value => {
+                    this.setState(dart.fn(() => {
+                      let t2, t1, t0, t2$, t1$, t0$;
+                      value ? (t0 = this[_isHovering], t1 = 3, t2 = true, t0[$_set](t1, t2), t2) : (t0$ = this[_isHovering], t1$ = 3, t2$ = false, t0$[$_set](t1$, t2$), t2$);
+                    }, T.VoidTovoid()));
+                  }, T.boolTovoid()), onTap: dart.fn(() => {
+                  }, T.VoidTovoid()), child: new popup_menu.PopupMenuButton.new({icon: new icon.Icon.new(icons.Icons.person, {color: colors.Colors.black45, $creationLocationd_0dea112b090073317d4: C[158] || CT.C158}), itemBuilder: dart.fn(context => T.JSArrayOfPopupMenuEntry().of([new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/profile", {arguments: new (T.IdentityMapOfString$String()).from(["userId", dart.nullCheck(this.authController.firebaseUser.value).uid])});
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.reorder, {$creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), title: new text.Text.new("Profilim", {$creationLocationd_0dea112b090073317d4: C[165] || CT.C165}), $creationLocationd_0dea112b090073317d4: C[168] || CT.C168}), $creationLocationd_0dea112b090073317d4: C[173] || CT.C173}), new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/notification");
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.notification_important, {$creationLocationd_0dea112b090073317d4: C[176] || CT.C176}), title: new text.Text.new("Bildirimler", {$creationLocationd_0dea112b090073317d4: C[179] || CT.C179}), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182}), $creationLocationd_0dea112b090073317d4: C[187] || CT.C187}), new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => {
+                            navigator.Navigator.pushNamed(T.ObjectN(), context, "/message");
+                          }, T.VoidTovoid()), leading: new icon.Icon.new(icons.Icons.message, {$creationLocationd_0dea112b090073317d4: C[190] || CT.C190}), title: new text.Text.new("Mesajlar", {$creationLocationd_0dea112b090073317d4: C[193] || CT.C193}), $creationLocationd_0dea112b090073317d4: C[196] || CT.C196}), $creationLocationd_0dea112b090073317d4: C[201] || CT.C201}), C[204] || CT.C204, new popup_menu.PopupMenuItem.new({child: new list_tile.ListTile.new({onTap: dart.fn(() => async.async(dart.void, (function*() {
+                            yield this.authController.signOut().whenComplete(dart.fn(() => extension_navigation['GetNavigation|offAllNamed'](dart.void, get_main.Get, "/"), T.VoidToFutureNOfvoid()));
+                          }).bind(this)), T.VoidToFutureOfvoid()), title: new text.Text.new("Çıkış Yap", {$creationLocationd_0dea112b090073317d4: C[207] || CT.C207}), $creationLocationd_0dea112b090073317d4: C[210] || CT.C210}), $creationLocationd_0dea112b090073317d4: C[214] || CT.C214})]), T.BuildContextToListOfPopupMenuEntry()), $creationLocationd_0dea112b090073317d4: C[217] || CT.C217}), $creationLocationd_0dea112b090073317d4: C[221] || CT.C221})]), $creationLocationd_0dea112b090073317d4: C[226] || CT.C226}), $creationLocationd_0dea112b090073317d4: C[230] || CT.C230}), $creationLocationd_0dea112b090073317d4: C[234] || CT.C234}), $creationLocationd_0dea112b090073317d4: C[238] || CT.C238});
+    }
+  };
+  (top_bar_contents._TopBarContentsState.new = function() {
+    this.authController = authController.AuthController.to;
+    this[_isHovering] = [false, false, false, false, false, false, false, false];
+    top_bar_contents._TopBarContentsState.__proto__.new.call(this);
+    ;
+  }).prototype = top_bar_contents._TopBarContentsState.prototype;
+  dart.addTypeTests(top_bar_contents._TopBarContentsState);
+  dart.addTypeCaches(top_bar_contents._TopBarContentsState);
+  dart.setMethodSignature(top_bar_contents._TopBarContentsState, () => ({
+    __proto__: dart.getMethods(top_bar_contents._TopBarContentsState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(top_bar_contents._TopBarContentsState, I[0]);
+  dart.setFieldSignature(top_bar_contents._TopBarContentsState, () => ({
+    __proto__: dart.getFields(top_bar_contents._TopBarContentsState.__proto__),
+    authController: dart.fieldType(authController.AuthController),
+    [_isHovering]: dart.finalFieldType(core.List)
+  }));
+  dart.trackLibraries("packages/logafic/widgets/top_bar_contents.dart", {
+    "package:logafic/widgets/top_bar_contents.dart": top_bar_contents
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["top_bar_contents.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAOe;;;;;;IACH;;;;;;;AAK4B;IAAsB;;kDAHxC;;IAFV,iBAAW;IAED;AAApB;;EAA4B;;;;;;;;;;;;;;;;;;;;;;;UAoBF;AACpB,uBAAwB,AAAY,0BAAT,OAAO;AAEtC,YAAO,sDACU,gBAAK,AAAW,UAAD,QAAQ,gBAC/B,oCACQ,AAAY,AAAY,eAArB,OAAO,0BAA0B,AAAO,6BACjD,gCACe,+BAAI,cACjB,uCACkC,0CAC7B,wBACR,kBACE,mBACO,qCACS,+BACJ,kBACE,0BACW,mCACR,gEAGnB,+BACS,sCACgC,wCAC3B,wBACR,+BAAgB,AAAW,AAAM,UAAP,SAAS,4DACnC,mCACW,QAAC;AAKN,0BAJF,cAAS;;AAGqB,4BAF5B,KAAK,IACY,KAAX,wBAAY,QAAK,MAAN,0BACA,MAAX,yBAAY,SAAK,OAAN;;mDAGd;AACkC,0BAA7B,2CAAU,OAAO;mDAEtB,oCACsB,iCACjB,wBACR,kBACE,oBACO,gDACE,AAAW,yBAAC,MAAY,oBAAa,+BAClC,iEAGd,gCAAiB,gEACjB,kDACqB,qBACJ,oBACD,4BACL,AAAW,yBAAC,YACd,qCACG,YACD,aACO,qQAMxB,+BAAgB,AAAW,AAAM,UAAP,SAAS,+DACnC,mCACW,QAAC;AAKN,0BAJF,cAAS;;AAGqB,4BAF5B,KAAK,IACY,KAAX,wBAAY,QAAK,MAAN,0BACA,MAAX,yBAAY,SAAK,OAAN;;mDAGd;AAC0C,0BAArC,2CAAU,OAAO;AACJ,0BAAvB;mDAEK,oCACsB,iCACjB,wBACR,2CACU,+DACK,AAAe,iDAExB,SAAc,SAAuB,aAChC,AAAe,AAAmB,2CAAG,IACtC,kBACE,uBACO,gDACE,AAAW,yBAAC,MACN,oBACA,+BACH,oEAGd,iCACS,oCACE,kBACL,AAAe,AACV,iEACgB,4BACd,qCACU,AACR,eADW,OAAO,0BAEb,2EAEI,+BAAI,kBACZ,6CACM,mCACa,mCAChB,uBAAS,uBACX,sCACC,gBACA,iBACC,iBACA,oOAK7B,gCACU,YACD,iEAET,kDACqB,qBACJ,oBACD,4BACL,AAAW,yBAAC,YACd,qCACG,YACD,aACO,qQAMxB,+BAAgB,AAAW,AAAM,UAAP,SAAS,+DACnC,mCACW,QAAC;AAKN,0BAJF,cAAS;;AAGqB,4BAF5B,KAAK,IACY,KAAX,wBAAY,QAAK,MAAN,0BACA,MAAX,yBAAY,SAAK,OAAN;;mDAGd;AACqC,0BAAhC,2CAAU,OAAO;mDAEtB,oCACsB,iCACjB,wBACR,kBACE,oBACO,gDACE,AAAW,yBAAC,MAAY,oBAAa,+BAClC,mEAGd,gCAAiB,gEACjB,kDACqB,qBACJ,oBACD,4BACL,AAAW,yBAAC,YACd,qCACG,YACD,aACO,2QAMxB,+BAAgB,AAAW,AAAM,UAAP,SAAS,iEACnC,mCACW,QAAC;AAKN,0BAJF,cAAS;;AAGqB,4BAF5B,KAAK,IACY,KAAX,wBAAY,QAAK,MAAN,0BACA,MAAX,yBAAY,SAAK,OAAN;;mDAGd;AACwC,0BAAnC,2CAAU,OAAO;mDAEtB,oCACsB,iCACjB,wBACR,kBACE,mCACO,gDACE,AAAW,yBAAC,MAAY,oBAAa,+BAClC,qEAGd,gCAAiB,kEACjB,kDACqB,qBACJ,oBACD,4BACL,AAAW,yBAAC,YACd,qCACG,YACD,aACO,yYAS9B,+BACS,AAAW,AAAM,UAAP,SAAS,iEAE5B,mCACa,QAAC;AAGN,oBAFF,cAAS;;AAC+C,sBAAtD,KAAK,IAAc,KAAX,wBAAY,QAAK,MAAN,0BAAwB,MAAX,yBAAY,SAAK,OAAN;;6CAGxC;6CACA,0CACC,kBACE,4BACQ,iGAEH,QAAc,WAA4B,gCACrD,yCACS,mCACE;AAIH,4BAHQ,2CACN,OAAO,0BAA2B,2CACpC,UAA2C,AAAE,eAAnC,AAAe,AAAa;uDAGjC,kBAAW,0FACb,kBAAK,oMAGhB,yCACS,mCACE;AAC0C,4BAArC,2CAAU,OAAO;uDAEpB,kBAAW,yGACb,kBAAK,uMAGhB,yCACS,mCACE;AACqC,4BAAhC,2CAAU,OAAO;uDAEpB,kBAAW,0FACb,kBAAK,uNAkBhB,yCACW,mCACF;AAG+C,4BAFpD,MAAM,AACD,AACA,2CAAa,cAAU,6DAAJ;0BACzB,gDACM,kBAAK;IASlC;;;IAhTe,sBAAgC;IACpC,oBAAc,CACvB,OACA,OACA,OACA,OACA,OACA,OACA,OACA;;;EAwSJ","file":"../../../../../../../packages/logafic/widgets/top_bar_contents.dart.lib.js"}');
+  // Exports:
+  return {
+    widgets__top_bar_contents: top_bar_contents
+  };
+}));
+
+//# sourceMappingURL=top_bar_contents.dart.lib.js.map

@@ -14,25 +14,30 @@ class UserProfile {
   String? instagram;
   String? birtday;
   String? biograpfy;
+  bool? unreadMessage;
+  bool? unreadNotification;
   bool? isAdmin;
 
-  UserProfile(
-      {this.userEmail,
-      this.userId,
-      this.userName,
-      this.universty,
-      this.userProfileImage,
-      this.userBackImage,
-      this.department,
-      this.city,
-      this.gender,
-      this.webSite,
-      this.linkedin,
-      this.twitter,
-      this.instagram,
-      this.birtday,
-      this.biograpfy,
-      this.isAdmin});
+  UserProfile({
+    this.userEmail,
+    this.userId,
+    this.userName,
+    this.universty,
+    this.userProfileImage,
+    this.userBackImage,
+    this.department,
+    this.city,
+    this.gender,
+    this.webSite,
+    this.linkedin,
+    this.twitter,
+    this.instagram,
+    this.birtday,
+    this.biograpfy,
+    this.isAdmin,
+    this.unreadMessage,
+    this.unreadNotification,
+  });
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -52,6 +57,8 @@ class UserProfile {
     data['biograpfy'] = this.biograpfy;
     data['email'] = this.userEmail;
     data['isAdmin'] = this.isAdmin;
+    data['unreadNotification'] = this.unreadNotification;
+    data['unreadMessage'] = this.unreadMessage;
 
     return data;
   }
@@ -73,6 +80,8 @@ class UserProfile {
       userBackImage: data['userBackImage'],
       userProfileImage: data['userProfileImage'],
       isAdmin: data['isAdmin'],
+      unreadMessage: data['unreadMessage'],
+      unreadNotification: data['unreadNotification'],
       universty: data['universty'],
     );
   }
