@@ -39,7 +39,7 @@ Future<void> lastMessage(String messageSentUserId, String profileImage,
     'sender': authController.firebaseUser.value!.uid,
     'message': message,
     'created_at': DateTime.now().toString()
-  }).whenComplete(() => setUnreadMessage());
+  }).whenComplete(() => setUnreadMessage(messageSentUserId));
 }
 
 Future<void> setReadMessage() async {
@@ -51,11 +51,11 @@ Future<void> setReadMessage() async {
       .update({'unreadMessage': false});
 }
 
-Future<void> setUnreadMessage() async {
+Future<void> setUnreadMessage(String messageSentUserId) async {
   CollectionReference checkUnreadMessageReference =
       FirebaseFirestore.instance.collection('users');
 
   checkUnreadMessageReference
-      .doc(authController.firebaseUser.value!.uid)
+      .doc(messageSentUserId)
       .update({'unreadMessage': true});
 }
