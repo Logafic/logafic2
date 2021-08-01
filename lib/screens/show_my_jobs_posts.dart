@@ -5,6 +5,12 @@ import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/showApplyJobsDiaologWidget.dart';
 import 'package:logafic/widgets/showJobsWdiget.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/myjobs '
+// Ekran görüntülerine github adresi üzerinden erişilebilir.
+// Yetkili kullanıcı tarafından yapılan iş ve etkinlik ilanı paylaşımlarının kullanıcının kendi paylaşımlarını görüntülediği web sayfası
+// Kullanıcı bu ilanlara başvuruda bulunmuş kullanıcıları bir liste olarak görüntüleyebilir bu kullanıcıların profillerini görüntüler ve mesaj gönderebilir.
+// İlanları silebilir ve değiştirebilir.
+
 class ShowMyJobsPostScreen extends StatefulWidget {
   ShowMyJobsPostScreen({Key? key}) : super(key: key);
 
@@ -12,6 +18,7 @@ class ShowMyJobsPostScreen extends StatefulWidget {
   _ShowMyJobsPostScreenState createState() => _ShowMyJobsPostScreenState();
 }
 
+// İş ve etkinlik ilanlarının tutulduğu koleksiyonun referans adresi
 final Stream<QuerySnapshot> _userJobsStreamCreatedAt = FirebaseFirestore
     .instance
     .collection('jobs')
@@ -56,13 +63,14 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
                             child: Text('Bir şeyler yanlış gitti'),
                           );
                         }
+                        // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return Center(
                             child: CircularProgressIndicator(),
                           );
                         }
-
+                        // İndirilen jobs verilerinin ListView üzerinde görselleştirilmesi sağlanmıştır.
                         return new ListView(
                           shrinkWrap: true,
                           physics: ClampingScrollPhysics(),
@@ -76,6 +84,7 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
                                         MediaQuery.of(context).size.width * 0.7,
                                     child: GestureDetector(
                                       onTap: () {
+                                        // İş ve etkinlik ilanı paylaşımlarının ayrıntılarının görüntülenmesini sağlayan show dialog widget
                                         showJobsWidget(context, document.id);
                                       },
                                       child: Card(
@@ -142,6 +151,7 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
                                                     padding: EdgeInsets.all(10),
                                                     child: TextButton(
                                                       onPressed: () {
+                                                        // İş ve etkinlik ilanlarına başvuruda bulunmuş kişilerin görüntülendiği show dialog widget
                                                         showJobsApplyWidget(
                                                             context,
                                                             document.id);

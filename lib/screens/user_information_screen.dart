@@ -10,6 +10,14 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/save '
+// Ekran görüntüleri github üzerinden erişilebilir. ->>
+// Yeni kayıt olmuş kullanıcı email adresini doğruladıktan sonra bu sayfaya yönlendirilir. Profile ve arka plan görselleri seçilebilir kullanıcı adı, üniversite,
+// bölüm ve doğum tarihi doldurulması zorunlu alanlardır.
+// Görsel seçimi için ImagePicker eklentisi kullanılmıştır. Seçilen görseller firebase storeage yüklenmektedir ve kullanıcı verilerine yüklenen
+// fotoğrafın adresi verilmiştir.
+// ImagePicker ile ayrıntılı bilgi için ' https://pub.dev/packages/image_picker/example '.
+
 class UserInformation extends StatefulWidget {
   UserInformation({Key? key}) : super(key: key);
 
@@ -24,16 +32,19 @@ enum UploadType {
 }
 
 class _UserInformationState extends State<UserInformation> {
+  // Varsayolın profil görseli adresi
   final String defaultProfileImage =
       'https://firebasestorage.googleapis.com/v0/b/logafic-7911f.appspot.com/o/defaultProfile%2FdefaultProfileImage.png?alt=media&token=a52d30db-14ed-4d68-a94b-e518c893f5a5';
 
+  // Varsayılan arka plan görseli adresi
   final String defaultBannerImage =
       'https://firebasestorage.googleapis.com/v0/b/logafic-7911f.appspot.com/o/defaultProfile%2FdefaultBannerImage.jpg?alt=media&token=ca4a7d8c-7f89-4929-b541-3096073c0470';
 
+  // AuthController nesnesi oluşturuldu
   AuthController authController = AuthController.to;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  // Doğum tarihinin tutulduğu değişken
   TextEditingController dateCtl = TextEditingController();
 
   final FocusNode _emailFocusNode = FocusNode();
@@ -44,7 +55,7 @@ class _UserInformationState extends State<UserInformation> {
   PickedFile? _fileProfileImage;
   PickedFile? _fileBannerImage;
 
-  /// Enum representing the upload task types the example app supports.
+  // Kullanıcı bilgilerini tutmak için kullanılan değişkenler.
 
   final ImagePicker _picker = ImagePicker();
 
@@ -112,6 +123,7 @@ class _UserInformationState extends State<UserInformation> {
         ));
   }
 
+// Şehir seçimi için kullanılan açılır seçim kutusu
   Widget get _dropdownCity {
     return DropdownButton<String>(
       value: dropdownCity,
@@ -134,6 +146,7 @@ class _UserInformationState extends State<UserInformation> {
     );
   }
 
+  // Cinsiyet seçimi için kullanılan açılır seçim kutusu.
   Widget get _dropdownGender {
     return DropdownButton<String>(
       value: dropdownGender,
@@ -156,6 +169,7 @@ class _UserInformationState extends State<UserInformation> {
     );
   }
 
+  // Kullanıcını bilgilerinin yüklenmesi için kullanılan FutureBuilder sınıfı
   Widget get _userInfoForm {
     return Form(
       key: _formKey,
@@ -312,23 +326,29 @@ class _UserInformationState extends State<UserInformation> {
                   icon: Icon(Icons.save_alt_outlined, size: 18),
                   label: Text("KAYDET"),
                   onPressed: () async {
+                    // Validation koşullarının tamamlanması durumunda çalışır
                     if (_formKey.currentState!.validate()) {
                       String profileRef = '';
                       String bannerRef = '';
                       if (authController.firebaseUser.value!.uid.isNotEmpty) {
+                        // Profil görseli seçilmişse firebase storeage yükleme işlemi gerçekleştirilir ve yüklenen görselin referans adresi alınır.
                         _fileProfileImage != null
                             ? profileRef =
                                 await uploadFile(_fileProfileImage!, 'profile')
                             // ignore: unnecessary_statements
                             : '';
                         Duration(seconds: 1);
+                        // Arka plan görseli seçilmişse firebase storeage yükleme işlemi gerçekleştirilir ve yüklenen görselin referans adresi alınır.
                         _fileBannerImage != null
                             ? bannerRef =
                                 await uploadFile(_fileBannerImage!, 'banner')
                             // ignore: unnecessary_statements
                             : '';
                         Duration(seconds: 1);
+                        // UserProfile model nesnesi oluşturuluyor.
                         UserProfile? userProfile = UserProfile();
+
+                        // Kullanıcı verileri ile model verileri eşitleniyor.
                         userProfile.userEmail =
                             authController.firebaseUser.value!.email;
                         userProfile.userId =
@@ -375,6 +395,8 @@ class _UserInformationState extends State<UserInformation> {
                         userProfile.isAdmin = false;
                         userProfile.unreadMessage = false;
                         userProfile.unreadNotification = false;
+
+                        // Yeni bir firestore kullanıcısı oluşturuluyor
                         authController.createUserFirestore(
                             userProfile, authController.firebaseUser.value!);
                         authController.newUser = false;
@@ -394,6 +416,7 @@ class _UserInformationState extends State<UserInformation> {
     );
   }
 
+// Boş stringleri kontrol eden method
   String? _validateEmptyString(String? email) {
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
     if (email!.isEmpty || !regex.hasMatch(email))
@@ -401,6 +424,9 @@ class _UserInformationState extends State<UserInformation> {
     if (email.isEmpty) return 'Bu alanı boş bırakamazsınız.';
   }
 
+// Görselleri saklama için kullandığımız firebase storeage'a yükleme işlemlerinin yapıldığı method
+  // Yükleme userId-profileImage veya userId-bannerImage olarak gerçekleştiriliyor.
+  // Ayrıntılı bilgi için ' https://firebase.flutter.dev/docs/storage/usage/ '
   Future<String> uploadFile(PickedFile file, String imageName) async {
     try {
       // Create a Reference to the file
@@ -423,6 +449,7 @@ class _UserInformationState extends State<UserInformation> {
     }
     return '';
   }
+  // Seçilen görselin Pickedfile değişkenine eşitlenmesi işlemini sağlayan method.
 
   Future<void>? handleUploadType(UploadType type) async {
     switch (type) {

@@ -8,15 +8,26 @@ import 'package:logafic/widgets/menubaraction.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/status '
+// Ekran görüntüsü github adresi üzerinden ziyaret edilebilir.
+// Paylaşımların anasayfada 240 karakterlik kısmı gösteriliyor, kullanıcının paylaşımın bütününü görüntülemesi için kullanlır
+// Paylaşıma yapılan yorumlar bu sayfada görüntülenir, paylaşıma yorum yapılabilir. Paylaşımı yapan kullanıcının profili görüntülenebilir.
+// Kullanıcıya mesaj gönderilebilir ve paylaşım bildirilebilir.
+// Paylaşım sayfaya argüment olarak gönderilen postId ile indiriliyor.
+
 // ignore: must_be_immutable
 class StatusScreen extends StatelessWidget {
+  // Argüment olarak gönderilen postId
   final String id;
+  // AuthController nesnesi oluşturuluyor
   AuthController authController = AuthController.to;
+  // Paylaşımın indirilmesi için koleksinyon referans adresi
   CollectionReference posts = FirebaseFirestore.instance.collection('posts');
   StatusScreen({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // Paylaşım verilerinin indirilmesi için FutureBuilde sınıfı kullanılıyor.
     return FutureBuilder(
       future: posts.doc(id).get(),
       builder:
@@ -27,6 +38,7 @@ class StatusScreen extends StatelessWidget {
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {
+          // İndirilen veriler Json formatından dönüştürülüyor.
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
           return Scaffold(
@@ -56,6 +68,7 @@ class StatusScreen extends StatelessWidget {
                 ),
               ),
               actions: <Widget>[
+                // Menü için kullanılan widget
                 MenuActionBar(
                     postId: id,
                     userId: data['userId'],
@@ -89,6 +102,7 @@ class StatusScreen extends StatelessWidget {
                                   style: TextStyle(fontSize: 20),
                                 ),
                                 onPressed: () {
+                                  // Paylaşımı yapan kullanıcının profiline yönlendirme
                                   Navigator.pushNamed(context, ProfileRoute,
                                       arguments: {'userId': data['userId']});
                                 },
@@ -102,6 +116,7 @@ class StatusScreen extends StatelessWidget {
                         ),
                       ),
                       Divider(),
+                      // Paylaşımın bir görsel içerip içermediği kontrol ediliyor.
                       Padding(
                         padding: EdgeInsets.all(20),
                         child: data['urlImage'] == ''
@@ -127,6 +142,7 @@ class StatusScreen extends StatelessWidget {
                             padding: EdgeInsets.all(10),
                             child: TextButton(
                               onPressed: () {
+                                // Post paylaşımı için kullanılan show dialog widget
                                 showCommentPostShareWidget(
                                     context,
                                     id,
@@ -144,6 +160,7 @@ class StatusScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          // Paylaşımı beğenme için yapılan işlemler
                           FutureBuilder(
                             future: checkIfDocExists('$id'),
                             builder:
@@ -179,6 +196,7 @@ class StatusScreen extends StatelessWidget {
                               }
                             },
                           ),
+                          // Paylaşımın beğeni boyutu
                           FutureBuilder(
                               future: getSize('$id'),
                               builder: (BuildContext context,
@@ -194,6 +212,7 @@ class StatusScreen extends StatelessWidget {
                         'Yorumlar',
                         style: TextStyle(fontSize: 20),
                       ),
+                      // Paylaşıma yapılan yorumların indirilmesi ve bir listView üzerinden görselleştirilmesi sağlanıyor.
                       Expanded(
                         child: StreamBuilder<QuerySnapshot>(
                           stream: FirebaseFirestore.instance
@@ -256,6 +275,7 @@ class StatusScreen extends StatelessWidget {
                                         data['created_at'],
                                         style: TextStyle(fontSize: 12),
                                       ),
+                                      // Kullanıcı kendi yorumlarını silme işlemi yapabiliyor.
                                       trailing: authController
                                                   .firebaseUser.value!.uid ==
                                               data['userId']

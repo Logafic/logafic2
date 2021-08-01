@@ -7,32 +7,43 @@ import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/formVerticalSpacing.dart';
 import 'package:logafic/widgets/primaryButton.dart';
 
+// Kayıt olmamış kullanıcıların kayıt olma işlemlerini gerçekleştirdiği web sayfası kayıt olan kullanıcılar email adreslerini doğrulamaları için verify sayfasına yönlendirilirler.
+// Doğrulama işlemi sonrasında profil bildilerinin girildiği user_information_screen.dart sayfasına yönlendirilirler.
+// Kullanıcıdan bir mail adresi bir şifre ve kurum mail adresi istenmektedir bu mail adresi veri tabanına kayıt edilmektedir.
+
+// Web sayfasının adresi ' http://logafic.click/#/register '
+// Ekran görüntülerine github üzerinden erişilebilir.
+
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  // AuthController nesnesi oluşturuluyor.
   AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  // Email adresini tutan değişken.
   TextEditingController? _emailController;
+  // Şifreyi tutan değişken
   TextEditingController? _passController;
-  TextEditingController? _passConfirmationController;
+  // Kurum mail adresini tutan değişken
   TextEditingController? _eduMailController;
 //Validation
+  // Kullanıcı sözleşmesinin kabulünü tutan değişken.
   bool _agree = false;
-
+  // sayfa oluşturulduğunda çalışır.
   void initState() {
     super.initState();
     _emailController = TextEditingController();
     _passController = TextEditingController();
-    _passConfirmationController = TextEditingController();
     _eduMailController = TextEditingController();
   }
 
+  // Sayfa kapatıldığında çalışır
   void dispose() {
     _emailController!.dispose();
     _passController!.dispose();
-    _passConfirmationController!.dispose();
     _eduMailController!.dispose();
     super.dispose();
   }
@@ -80,6 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       fontWeight: FontWeight.w500),
                 ),
                 onPressed: () {
+                  // Giriş sayfasına yönlendirme yapılıyor.
                   Navigator.pushNamed(context, LoginRoute);
                 },
               ),
@@ -108,6 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fontFamily: 'Montserrat'),
                       ),
                     ),
+                    // Email TextField
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: FormInputFieldWithIcon(
@@ -122,6 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }),
                     ),
                     FormVerticalSpace(),
+                    // Password TextField
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: FormInputFieldWithIcon(
@@ -137,6 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }),
                     ),
                     FormVerticalSpace(),
+                    // Kurum mail adresi TextField
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: FormInputFieldWithIcon(
@@ -153,9 +168,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     PrimaryButton(
                         labelText: 'Kayıt Ol',
                         onPressed: () {
+                          // Validation işlemleri kontrol ediliyor ve geçersiz bir durum ekrana çıktı olarak veriliyor.
                           if (_formKey.currentState!.validate()) {
                             try {
+                              //Kullanıcının yeni bir kullanıcı olduğu belirtiliyor bu ilk giriş işleminden sonra profil oluşturma sayfasına yönlendirilmesine olanak sağlıyor.
                               authController.newUser = true;
+                              // Kullanıcı oluşturuluyor.
                               authController
                                   .registerWithEmailAndPassword(context);
                             } catch (err) {
@@ -184,6 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ));
   }
 
+  // Kullanıcı sözleşmesinin kontrolünü sağlayan widget
   Widget get _buildAgreeToTermsField {
     return FormField<bool>(
       // 1

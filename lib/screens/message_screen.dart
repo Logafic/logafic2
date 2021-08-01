@@ -8,17 +8,24 @@ import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/userMessageScreenWidget.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/message '
+// Mesweb sayfası iki bölümden oluşur tüm kullanıcıların görüntülendiği ve istenilen kullanıcıya mesaj gönderilen ve mesaj gönderilmiş kullanıcıların görüntülendiği bölümler.
+// Sayfanın ekran görüntüsü github adresinden erişilebilir.
+// Gönderilen mesaj hem gönderen hemde mesaj gönderilen kişinin message koleksiyonuna ekleniyor.
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Kullanıcıların görüntülenmesi için Firestore referans adresi
   final Stream<QuerySnapshot> _usersMessageStream =
       FirebaseFirestore.instance.collection('users').snapshots();
-
+  // AuthController nesnesi oluşturuluyor.
   AuthController authController = AuthController.to;
 
+  // Kullanıcıların görüntülendiği widget
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -26,11 +33,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final headerList = new StreamBuilder(
       stream: _usersMessageStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        // Asenkron olarak indirilen veriler snapshot değişkeni içerisinde tutuluyor.
+
+        // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
             child: CircularProgressIndicator(),
           );
         }
+        // Verilerin indirilmesi sırasında bir hatayla karşılaşılması durumunda ekrana çıktı veriliyor.
         if (snapshot.hasError) {
           return Text('Bir şeyler yanlış gitti');
         }
@@ -39,10 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Map<String, dynamic> data = document.data() as Map<String, dynamic>;
             return new Padding(
               padding: EdgeInsets.all(8),
+              // Diğer kullanıcıların görüntülenmesi sağlanıyor.
               child: authController.firebaseUser.value!.uid == data['userId']
                   ? Text('')
                   : new InkWell(
                       onTap: () {
+                        // Mesaj göndermek ve gönderilen mesajları görüntülemek için kullanılan show  dialog
                         messageShowDialogWidget(context, data['userName'],
                             data['userProfileImage'], data['userId']);
                       },
@@ -185,6 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       backgroundColor: Colors.transparent,
       body: Center(
+        // Sayfa boyutuna göre genişlik ayarlanıyor.
         child: new Container(
           width: ResponsiveWidget.isSmallScreen(context)
               ? MediaQuery.of(context).size.width * 0.9
@@ -220,7 +234,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                 : 30),
                       ),
                     ),
-                    new Expanded(child: MessageScreenUserMessagesWidget())
+                    new Expanded(
+                        // Kullanıcının diğer kullanıcılara gönderdiği son mesajların görüntülendiği widget
+                        child: MessageScreenUserMessagesWidget())
                   ],
                 ),
               ),
@@ -229,7 +245,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-
+    // Arka plan tasarımı ekleniyor.
     return new Container(
       decoration: new BoxDecoration(
         color: Colors.black26,

@@ -8,6 +8,12 @@ import 'package:logafic/widgets/smallFirstScreen.dart';
 
 import 'package:logafic/widgets/firstScreenColumnSecond.dart';
 
+// Web sayfasının adresi 'logafic.com/'
+// Kullanıcıların karşılandığı sayfa .Giriş yapmamış kullanıcılar bu web sayfasına yönlendiriliyor.
+//Kullanıcıların giriş ve kayıt olma arayüzüne yönlendirilmesi sağlanıyor.
+// Bu web sayfası büyük ekranlı cihazlar için 3 adet widget bölünmüştür.
+// Web sayfasının ekran görüntüsüne linkten ulaşılabilir.
+
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity = 8;
   final int fontSize = 16;
@@ -25,10 +31,14 @@ class _FirstScreenTopBarContentsState extends State<FirstScreenTopBarContents> {
         body: ResponsiveWidget.isLargeScreen(context) ||
                 ResponsiveWidget.isMediumScreen(context)
             ? Row(children: <Widget>[
+                // Widget 1 logafic tanıtım yazıları.
                 firstSccreenColumnFirst(context),
+                // Karşılama ekranı görseli
                 firstSccreenColumnSecond(context),
+                // Yönlendirme butonları.
                 firstScreenColumnThird(context),
               ])
+            // Küçük ekranlı cihazlar için kullanılan widget
             : smallScreenFirstScreen(context));
   }
 }

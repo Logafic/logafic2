@@ -9,12 +9,23 @@ import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/updatePostWidget.dart';
 
+// Kullanıcı paylaşımlarının ve bilgilerinin görüntülendiği web sayfası
+// Web sayfasının adresi ' http://logafic.click/#/profile '
+// Kullanıcı userId sayfa içerisine argüment olarak gönderiliyor ve kullanıcı bilgilerinin depolandığı koleksiyondan kullanıcı verileri indiriliyor.
+// Kullanıcı kendi profilini düzenleyebilir başkasının profilinden mesaj gönderebilir.
+// Yetkiye sahip kullanıcılar etkinlik ve iş ilanı paylaşımı üst menüden yapılabilir.
+// Ekran görüntüsü github adresinden ulaşılabilir.
 // ignore: must_be_immutable
 class ProfileScreen extends StatelessWidget {
+  // AuthController nesnesi oluşturuluyor.
   AuthController authController = AuthController.to;
+  // Argüment olarak gönderilen userId'nin tutulduğu değişken
   final String userId;
   ProfileScreen({Key? key, required this.userId}) : super(key: key);
+
+  // Kullanıcının paylaşımlarının görüntülenmesi için kullanılan koleksiyon referans adresi
   CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
+  // Paylaşımların düzenlenmesi için kullanılan değişken.
   TextEditingController updateContentController = TextEditingController();
 
   @override
@@ -22,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
     var screenSizeW = MediaQuery.of(context).size.width * 8 / 10;
-
+    // Sayfa scaffold sınıfı ile çerçeveleniyor.
     final body = new Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -34,6 +45,7 @@ class ProfileScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
                 onPressed: () {
+                  // Önceki sayfaya yönlendirme yapılıyor.
                   Navigator.pop(context);
                 },
               );
@@ -56,6 +68,7 @@ class ProfileScreen extends StatelessWidget {
             )
           ],
         ),
+        // Kullanıcı bilgilerinin indirilmesi için kullanılan asenkron FutureBuilder sınıfı
         body: FutureBuilder<Map>(
             future: getUser(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -65,6 +78,7 @@ class ProfileScreen extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               }
+              // Büyük ve orta ekran boyutlu cihazlar için
               return ResponsiveWidget.isLargeScreen(context) ||
                       ResponsiveWidget.isMediumScreen(context)
                   ? new Container(
@@ -74,10 +88,11 @@ class ProfileScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              // Kullanıcı arka plan fotoğrafı
                               Padding(
                                   padding: EdgeInsets.only(top: 8),
                                   child: SizedBox(
-                                    width: 200,
+                                    width: 400,
                                     height: 200,
                                     child: Image.network(
                                         snapshot.data['userBackImage']),
@@ -112,6 +127,7 @@ class ProfileScreen extends StatelessWidget {
                                     width: screenSizeW * 3 / 10,
                                     child: Column(
                                       children: [
+                                        // Kullanıcı profil fotoğrafı
                                         Padding(
                                           padding: EdgeInsets.only(
                                               left: 100, top: 10),
@@ -202,6 +218,7 @@ class ProfileScreen extends StatelessWidget {
                                         new Divider(
                                           indent: 8,
                                         ),
+                                        // Kullanıcı kendi profilini ziyaret ediyorsa profili düzenleme butonu aktif olacaktır.
                                         authController
                                                     .firebaseUser.value!.uid ==
                                                 userId
@@ -228,6 +245,7 @@ class ProfileScreen extends StatelessWidget {
                                                         ))
                                                   ],
                                                 ))
+                                            // Kullanıcı başka bir kullanıcının profil sayfasını ziyaret ediyor ise mesaj gönderme butonu aktif olacaktır.
                                             : Text(''),
                                         authController
                                                     .firebaseUser.value!.uid !=
@@ -259,12 +277,15 @@ class ProfileScreen extends StatelessWidget {
                                       ],
                                     ),
                                   ),
+                                  // Kullanıcıya ait paylaşımların görüntülendiği widget parametre olarak userId almaktadır.
                                   Expanded(child: streamPosts(userId))
                                 ],
                               ))
                         ],
                       ),
                     ))
+
+                  // Mobil cihazların ekran boyutu için kullanılan sayfa yapısı
                   : Container(
                       child: new ListView(
                         children: [
@@ -273,6 +294,7 @@ class ProfileScreen extends StatelessWidget {
                               children: [
                                 Padding(
                                     padding: EdgeInsets.all(16),
+                                    // Kullanıcı profil fotoğrafı
                                     child: Container(
                                       width: 100,
                                       height: 100,
@@ -321,6 +343,7 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                 )
                               ]),
+                          // Kullanıcıya ait paylaşımların görüntülendiği widget parametre olarak userId almaktadır.
                           streamPosts(userId),
                         ],
                       ),
@@ -342,8 +365,10 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+  // // Kullanıcıya ait paylaşımların görüntülendiği widget parametre olarak userId almaktadır.
   Widget streamPosts(String userId) {
     return StreamBuilder(
+      // Paylaşımların tutulduğu koleksiyon içerisinden isEqualTo parametresi ile gönderilen userId' ait paylaşımlar bir listeye ekleniyor.
       stream: FirebaseFirestore.instance
           .collection('posts')
           .where('userId', isEqualTo: userId)
@@ -355,7 +380,7 @@ class ProfileScreen extends StatelessWidget {
           );
         } else {
           // return Text(snapshot.data.docs[index]['content']);
-
+          // İndirilen paylaşım verilerini görselleştirmek için LisView kullanılıyor.
           return ListView.builder(
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
@@ -368,7 +393,7 @@ class ProfileScreen extends StatelessWidget {
                             : MediaQuery.of(context).size.width * 0.7,
                         child: GestureDetector(
                           onTap: () {
-                            print(snapshot.data.id);
+                            // Paylaşımın görüntülenmesi için yönlendirme veriliyor
                             Navigator.pushNamed(context, StatusRoute,
                                 arguments: {'id': snapshot.data.id});
                           },
@@ -410,6 +435,7 @@ class ProfileScreen extends StatelessWidget {
                                               PopupMenuItem(
                                                   child: ListTile(
                                                       onTap: () {
+                                                        // Paylaşım düzenleme için kullanılan show dialog widget
                                                         postUpdataShowDialog(
                                                             context,
                                                             '${snapshot.data.docs[index].id}',
@@ -423,6 +449,7 @@ class ProfileScreen extends StatelessWidget {
                                               PopupMenuItem(
                                                   child: ListTile(
                                                       onTap: () {
+                                                        // Paylaşımları silmek için kullanılan show dialog widget
                                                         showDeletePostProfileScreenWidget(
                                                             context,
                                                             '${snapshot.data.docs[index].id}');
@@ -435,6 +462,7 @@ class ProfileScreen extends StatelessWidget {
                                         : Text('')),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
+                                  // Paylaşımın bir görsel içerip içermediği kontrol ediliyor.
                                   child: snapshot.data.docs[index]
                                               ['urlImage'] ==
                                           ''
@@ -536,6 +564,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
+  // Paylaşımın beğenilip beğenilmediğini kontrol eden asenkron method
   Future<bool> checkIfDocExists(String docId) async {
     try {
       // Get reference to Firestore collection
@@ -546,6 +575,7 @@ class ProfileScreen extends StatelessWidget {
     }
   }
 
+  // Beğeni sayılarının getirilmesini sağlayan method.
   Future<int> getSize(String documentId) async {
     var size = 0;
     await likeRef
@@ -556,6 +586,7 @@ class ProfileScreen extends StatelessWidget {
     return size;
   }
 
+  // Kullanıcı bilgilerinin getirilmesini sağlayan method
   Future<Map<String, dynamic>> getUser() async {
     final documentId = userId;
     CollectionReference user = FirebaseFirestore.instance.collection('users');

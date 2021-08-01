@@ -9,7 +9,13 @@ import 'package:logafic/widgets/labelButton.dart';
 import 'package:logafic/widgets/primaryButton.dart';
 import 'package:logafic/widgets/formInputFieldWithIcon.dart';
 
+// Login sayfasında yönlendirilen Şifreyi yenileme sayfası.
+// şifresini unutan kullanıcılar için sistemde kayıtlı mail adresine şifre yenileme bağlantısı gönderen sayfa.
+// Web sayfası adresi ' http://logafic.click/#/reset '
+// Ekran görüntüsüne github adresi üzerinden erişilebilir.
+
 class ResetPasswordUI extends StatelessWidget {
+  // AuthController nesnesi oluşturulluyor.
   final AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -28,6 +34,7 @@ class ResetPasswordUI extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  // Şifre yenileme bağlantısı gönderilecek mail adresini tutan TextField
                   FormInputFieldWithIcon(
                     controller: authController.emailController,
                     iconPrefix: Icons.email,
@@ -43,7 +50,9 @@ class ResetPasswordUI extends StatelessWidget {
                   PrimaryButton(
                       labelText: 'Yenileme bağlantısı gönder',
                       onPressed: () async {
+                        // Mail adresinin siteme kayıtlı olması gerekir.
                         if (_formKey.currentState!.validate()) {
+                          // Yenileme bağlantısı gönderiliyor.
                           await authController.sendPasswordResetEmail(context);
                         }
                       }),
@@ -65,6 +74,7 @@ class ResetPasswordUI extends StatelessWidget {
     return AppBar(title: Text('auth.resetPasswordTitle'.tr));
   }
 
+  // Geçerli mail adresi için bir validation methodu
   String? _validateEmail(String? email) {
     // 1
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
@@ -81,6 +91,7 @@ class ResetPasswordUI extends StatelessWidget {
       return null;
   }
 
+  // Giriş sayfasına yönlendirme işlemi gerçekleştiriliyor.
   signInLink(BuildContext context) {
     if (authController.emailController.text == '') {
       return LabelButton(

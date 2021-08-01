@@ -17,7 +17,12 @@ class JobsShareScreen extends StatefulWidget {
   _JobSharesScreenState createState() => _JobSharesScreenState();
 }
 
+// Web sayfasının adresi ' http://logafic.click/#/jobs '
+// Kullanıcıların paylaşılmış ilanları görüntülemeleri bu ilanlara başvuruda bulunabilmeleri için oluşturulmuş web sayfası.
+// Sayfanın ekran görüntüsüne github adresi üzerinden ulaşılabilir.
+
 class _JobSharesScreenState extends State<JobsShareScreen> {
+  // İş ilanları ve etkinlik ilanlarını kategorik olarak listelememizi sağlayan referanslar
   final Stream<QuerySnapshot> _jobsStreamCreatedAt = FirebaseFirestore.instance
       .collection('jobs')
       .where('category', isEqualTo: 'İş ilanı')
@@ -26,7 +31,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
       .collection('jobs')
       .where('category', isEqualTo: 'Etkinlik ilanı')
       .snapshots();
-
+  // AuthController nesnesi oluşturuluyor.
   AuthController authController = AuthController.to;
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -37,47 +42,54 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
         ? _scrollPosition / (screenSize.height * 0.40)
         : 1;
     _opacity = 1;
-
-    final _width = MediaQuery.of(context).size.width;
-    final _height = MediaQuery.of(context).size.height;
-
+    // Sayfada scaffold çerçevesi üzerine inşa ediliyor.
     final body = new Scaffold(
         backgroundColor: Colors.transparent,
         extendBodyBehindAppBar: true,
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? appBarHomePageWidget()
+            // PreferredSize özel bir uygulama çubuğu oluşturmamıza imkan veren özel bir penceredir.İncelemek için ' https://api.flutter.dev/flutter/widgets/PreferredSize-class.html '
             : PreferredSize(
                 preferredSize: Size(screenSize.width, 1000),
+                // Navbar olarak tasarlan özel uygulama çubuğu widgetı.
                 child: TopBarContents(_opacity),
               ),
+        // Küçük ekran için kullanılan açılır menü ekran görüntüsü için github adresi ->>
         drawer: ExploreDrawer(),
         body: Scrollbar(
           child: ListView(
             children: [
+              // İş ilanları ve Etkinlik ilanları arasında seçimi sağlayan  bar widgetı
               Center(
                 child: JobsScreenFloatingQuickAccessBar(screenSize: screenSize),
               ),
               StreamBuilder(
+                  // İlanların kategorik olarak listelenmesi
                   stream: authController.isRank == true
                       ? _jobsStreamCreatedAt
                       : _jobsStreamRanked,
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    // Asenkron olarak indirilen veriler snapshot değişkeni içerisinde tutuluyor.
+
+                    // Verilerin indirilmesi sırasında bir hatayla karşılaşılması durumunda ekrana çıktı veriliyor.
                     if (snapshot.hasError) {
                       return Center(
                         child: Text('Bir şeyler yanlış gitti'),
                       );
                     }
+                    // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(
                         child: CircularProgressIndicator(),
                       );
                     }
-
+                    // İndirilen verilerin ListView üzerinde görselleştirilmesi sağlanıyor.
                     return new ListView(
                       shrinkWrap: true,
                       physics: ClampingScrollPhysics(),
                       children: snapshot.data.docs
                           .map<Widget>((DocumentSnapshot document) {
+                        // indirilen verilerin json formatından dönüştürülme işlemi yapılıyor.
                         Map<String, dynamic> data =
                             document.data() as Map<String, dynamic>;
                         return new Center(
@@ -85,6 +97,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 child: GestureDetector(
                                   onTap: () {
+                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir.
                                     showJobsWidget(context, document.id);
                                   },
                                   child: Card(
@@ -93,6 +106,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                       child: Column(
                                         children: [
                                           ListTile(
+                                            // Paylaşım içerisinde bulunan kullanıcı profile resminin adresi .
                                             leading: Image.network(
                                                 data['userProfileImage']),
                                             title: Column(
@@ -104,6 +118,8 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                                     (data['userName']),
                                                   ),
                                                   onPressed: () {
+                                                    // İlan paylaşımını yapan kullanıcının profil görüntülenmesi için profile sayfasına userId argüment olarak gönderiliyor.
+
                                                     Navigator.pushNamed(
                                                         context, ProfileRoute,
                                                         arguments: {
@@ -114,6 +130,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                                 ),
                                               ],
                                             ),
+                                            // İlanın oluşturulma zamanı .
                                             subtitle: Text(
                                                 data['created_at'].toString()),
                                           ),
@@ -145,6 +162,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                                 padding: EdgeInsets.all(10),
                                                 child: TextButton(
                                                   onPressed: () {
+                                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir.
                                                     showJobsWidget(
                                                         context, document.id);
                                                   },
@@ -167,6 +185,8 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
             ],
           ),
         ));
+
+    //Arka plan tasarımı olarak kullanılan widget
     return new Container(
       decoration: new BoxDecoration(
         color: Colors.black26,
@@ -174,7 +194,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
       child: new Stack(
         children: <Widget>[
           new CustomPaint(
-            size: new Size(_width, _height),
+            size: new Size(screenSize.width, screenSize.height),
             painter: new Background(),
           ),
           body,

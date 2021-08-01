@@ -3,6 +3,10 @@ import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/verify '
+// Ekran görüntüsü github adresinden erişilebilir.
+//Email adresi doğrulanmamış kullanıcılar bu sayfaya yönlendirilir.
+
 class VerifyScreen extends StatefulWidget {
   VerifyScreen({Key? key}) : super(key: key);
 

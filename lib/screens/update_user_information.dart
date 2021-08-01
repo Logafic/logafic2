@@ -11,6 +11,17 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// web sayfası adresi ' http://logafic.click/#/update '
+// Ekran görüntüsü Github adresi üzerinden erişilebilir.
+// Kullanıcı bilgilerinin güncellendiği bu web sayfasına kullanıcının profil sayfası üzeriden erişilebilir.
+// Kullanıcı kullanıcı adı dışında profil, arka plan görsellerini değiştirebilir ve diğer kullanıcı bildilerini güncelleyebilir.
+
+// Görsel seçimi için ImagePicker eklentisi kullanılmıştır. Seçilen görseller firebase storeage yüklenmektedir ve kullanıcı verilerine yüklenen
+// fotoğrafın adresi verilmiştir.
+// ImagePicker ile ayrıntılı bilgi için ' https://pub.dev/packages/image_picker/example '.
+
+// Ayrıntılı güncelleme işlemleri için ziyaret edilebilir. ' https://firebase.flutter.dev/docs/firestore/usage '
+
 class UpdateUserInformation extends StatefulWidget {
   final String userId;
   UpdateUserInformation({Key? key, required this.userId}) : super(key: key);
@@ -19,16 +30,20 @@ class UpdateUserInformation extends StatefulWidget {
   _UpdateUserInformationState createState() => _UpdateUserInformationState();
 }
 
+// Görsellerin yüklenmesi için kullanılan sabitler.
 enum UploadType {
-  /// Uploads a file from the device.
+  /// Cihazdan bir dosya yükler.
   profileFile,
   bannerFile,
 }
 
 class _UpdateUserInformationState extends State<UpdateUserInformation> {
+  // AuthController nesnesi oluşturuldu.
   AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+// Doğum tarihini tutmak için kullanılan değişken
   TextEditingController dateCtl = TextEditingController();
+
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   DateTime? dateTime;
   PickedFile? _fileProfileImage;
@@ -85,7 +100,6 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  // ÇIkmak istediğinize emin misiniz diye sorsun.
                   Navigator.pop(context);
                 },
               );
@@ -108,6 +122,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
         ));
   }
 
+  // Şehir seçimi için kullanılan açılır seçim kutusu
   Widget get _dropdownCity {
     return DropdownButton<String>(
       value: dropdownCity,
@@ -130,6 +145,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
     );
   }
 
+  // Cinsiyet seçimi için kullanılan açılır seçim kutusu.
   Widget get _dropdownGender {
     return DropdownButton<String>(
       value: dropdownGender,
@@ -152,6 +168,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
     );
   }
 
+  // Kullanıcını bilgilerinin yüklenmesi için kullanılan FutureBuilder sınıfı
   Widget get _userInfoForm {
     return FutureBuilder<DocumentSnapshot>(
         future: firestore.collection('users').doc(widget.userId).get(),
@@ -160,6 +177,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
+            // indirilen verilerin değişkenler ile eşitlenmesi yapılıyor.
             urlProfileImage = data['userProfileImage'];
             urlBannerImage = data['userBackImage'];
             _userName.text = data['userName'];
@@ -337,10 +355,14 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                         child: ElevatedButton.icon(
                             icon: Icon(Icons.save_alt_outlined, size: 18),
                             label: Text("GÜNCELLE"),
+
+                            //
                             onPressed: () async {
                               if (authController
                                   .firebaseUser.value!.uid.isNotEmpty) {
+                                // UserProfile model nesnesi oluşturuluyor.
                                 UserProfile? userProfile = UserProfile();
+                                // Profile fotoğrafı güncelleme işlemi kontrol ediliyor ve yapılmışsa firebase storage yükleme işlemi yapılıyor.
                                 if (_fileProfileImage != null) {
                                   String profileRef = await uploadFile(
                                       _fileProfileImage!, 'profile');
@@ -349,6 +371,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                   userProfile.userProfileImage = urlBannerImage;
                                 }
                                 Duration(seconds: 1);
+                                // Arka plan fotoğrafı güncelleme işlemi kontrol ediliyor ve yapılmışsa firebase storage yükleme işlemi yapılıyor.
                                 if (_fileBannerImage != null) {
                                   String bannerRef = await uploadFile(
                                       _fileBannerImage!, 'banner');
@@ -357,6 +380,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                   userProfile.userBackImage = urlBannerImage;
                                 }
                                 Duration(seconds: 1);
+                                // Kullanıcı verileri ile model verileri eşitleniyor.
                                 userProfile.userEmail = data['email'];
                                 userProfile.userId = data['userId'];
                                 userProfile.userName = _userName.value.text;
@@ -371,7 +395,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
                                 userProfile.birtday = _birthday;
                                 userProfile.biograpfy = _biography.value.text;
                                 isLoading = true;
-
+                                // Güncelleme işlemi için oluşturulan model nesnesi Json formatında gönderiliyor.
                                 firestore
                                     .collection('users')
                                     .doc(widget.userId)
@@ -400,6 +424,10 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
         });
   }
 
+  // Görselleri saklama için kullandığımız firebase storeage'a yükleme işlemlerinin yapıldığı method
+  // Yükleme userId-profileImage veya userId-bannerImage olarak gerçekleştiriliyor.
+  // Ayrıntılı bilgi için ' https://firebase.flutter.dev/docs/storage/usage/ '
+
   Future<String> uploadFile(PickedFile file, String imageName) async {
     try {
       // Create a Reference to the file
@@ -423,6 +451,7 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
     return '';
   }
 
+  // Seçilen görselin Pickedfile değişkenine eşitlenmesi işlemini sağlayan method.
   Future<void>? handleUploadType(UploadType type) async {
     switch (type) {
       case UploadType.profileFile:

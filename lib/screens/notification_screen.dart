@@ -6,21 +6,34 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// Web sayfası adresi ' http://logafic.clicki/#/notification '
+// Kullanıcı bildirimlerin görüntülendiği web sayfası kullanıcının paylaşımlarına yapılan beğeni ve yorumlarına yapılan işlemlerin görüntülendiği sayfa
+// Cloud Firestore notifications koleksiyonu içerisinde her kullanıcının userId'si ile oluşturulan dokümanlar üzerinde depolanmaktadır.
+// notificationService ile bildirimlerin eklenmesi ve görüntülenen bildirimlerin işaretlenme işlemleri yapılıyor.
+// Ekran görüntüsü github adresi üzerinden erişilebilir. ->>
+
 // ignore: must_be_immutable
 class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
+
+    // AuthController nesnesi oluşturuluyor.
     AuthController authController = AuthController.to;
+
+    // Bildirimleri depolandığı firestore koleksiyonunun referans adresi, bildirimlerin silinmesi için kullanılıyor.
     CollectionReference notiRef =
         FirebaseFirestore.instance.collection('notifications');
+    // Bildirimlerin bir liste şeklinde indirilmesi için kullanılan referans adresi
     final Stream<QuerySnapshot> _notificationSteam = FirebaseFirestore.instance
         .collection('notifications')
         .doc('${authController.firebaseUser.value!.uid}')
         .collection('userNotification')
         .snapshots();
 
+    // Web sayfası scaffold sınıfı ile çerçeveleniyor.
     final body = new Scaffold(
+      // Üst menü başlangıç
       appBar: new AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -104,7 +117,8 @@ class NotificationScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.transparent,
+      // Üst menü bitiş
+      backgroundColor: Colors.black26,
       body: new Container(
         child: new Stack(
           children: <Widget>[
@@ -136,6 +150,7 @@ class NotificationScreen extends StatelessWidget {
                           child: CircularProgressIndicator(),
                         );
                       }
+                      // İndirilen verilerin boş olması durumunda
                       if (snapshot.data == null) {
                         return Center(
                           child: Text(
@@ -148,13 +163,13 @@ class NotificationScreen extends StatelessWidget {
                           ),
                         );
                       }
-
+                      // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
                       }
-
+                      // İndirilen bildirim verilerinin görselleştirilmesi için ListView sınıfı kullanılıyor.
                       return new ListView(
                         children: snapshot.data!.docs
                             .map((DocumentSnapshot document) {
@@ -173,6 +188,7 @@ class NotificationScreen extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        // Yorum ve beğeni bildirimlerinin birbirinden ayrılması için type verisi kullanılıyor.
                                         data['type'] == 'Like'
                                             ? TextButton(
                                                 child: Text(
@@ -181,6 +197,7 @@ class NotificationScreen extends StatelessWidget {
                                                       TextStyle(fontSize: 17),
                                                 ),
                                                 onPressed: () {
+                                                  // Beğeni bildirimini yapan kullanıcının profili görüntüleniyor.
                                                   Navigator.pushNamed(
                                                       context, ProfileRoute,
                                                       arguments: {
@@ -195,6 +212,7 @@ class NotificationScreen extends StatelessWidget {
                                                       TextStyle(fontSize: 17),
                                                 ),
                                                 onPressed: () {
+                                                  // Yorum yapılan gönderi görüntüleniyor
                                                   Navigator.pushNamed(
                                                       context, StatusRoute,
                                                       arguments: {
@@ -212,11 +230,13 @@ class NotificationScreen extends StatelessWidget {
                                 ),
                               ),
                               IconButton(
+                                // Bildirimlerin silinmesi için kullanlan IconButton
                                 icon: Icon(Icons.delete_outline_rounded),
                                 tooltip: 'Sil',
                                 color: Colors.black54,
                                 onPressed: () {
                                   try {
+                                    // Silme işlemi kullanıcın bildirimlerinin bulunduğu koleksiyon referansından silme işlemi gerçekleştiriliyor.
                                     notiRef
                                         .doc(
                                             '${authController.firebaseUser.value!.uid}')
@@ -252,6 +272,7 @@ class NotificationScreen extends StatelessWidget {
         ),
       ),
     );
+    // Arka plan tasarımı ekleniyor.
     return new Container(
       decoration: new BoxDecoration(
         color: Colors.black26,

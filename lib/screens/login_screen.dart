@@ -11,23 +11,30 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-Future<String>? success;
-
+//Kayıt olmuş kullanıcının giriş yapması için login sayfası
+// Web sayfasının adresi ' http://logafic.click/#/login '
+// Ekran görüntüsü github adresinde erişilebilir.
 class _LoginScreenState extends State<LoginScreen> {
   //Form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  //Validation
+  //Validation işlemleri için sayfaya girildiğinde veya yanlış giriş yapıldığında email TextField'ına odaklanılması sağlanılıyor.
   final FocusNode _emailFocusNode = FocusNode();
+
+  // AuthController nesnesi oluşturuluyor.
   final AuthController authController = AuthController.to;
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
+    // Sayfa scaffold sınıfı ile çerçeveleniyor.
     final boyd = new Scaffold(
         backgroundColor: Colors.transparent,
+
+        // Üst menü başlangıç
         appBar: AppBar(
           backgroundColor: Colors.transparent,
+          // Başlık
           title: Text(
             'LOGAFIC',
             style: TextStyle(
@@ -46,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.white,
                 ),
                 onPressed: () {
+                  // Önceki sayfaya yönlendirme
                   Navigator.pop(context);
                 },
               );
@@ -63,12 +71,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.w500),
                 ),
                 onPressed: () {
+                  // Kayıt olma sayfasına yönlendirme
                   Navigator.pushNamed(context, RegisterRoute);
                 },
               ),
             )
           ],
         ),
+        // Üst menü bitiş
+
+        // Giriş yapılması için Form sınıfı ile çerçeveleniyor.
         body: Form(
           key: _formKey,
           child: Container(
@@ -95,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+                    //E mail TextField email adresi olma zorunluluklarına sahip
                     FormInputFieldWithIcon(
                         controller: authController.emailController,
                         iconPrefix: Icons.email,
@@ -106,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onSaved: (value) =>
                             authController.emailController.text != value),
                     FormVerticalSpace(),
+                    //Şifre TextField  en az 8 karakterden oluşma zorunluluğuna sahip
                     FormInputFieldWithIcon(
                         controller: authController.passwordController,
                         iconPrefix: Icons.password,
@@ -122,6 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             try {
+                              // Oluşturulan authController nesnesi ile sisteme giriş yapılıyor
                               authController
                                   .signInWithEmailAndPassword(context);
                             } catch (err) {
@@ -131,6 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         }),
                     FormVerticalSpace(),
                     LabelButton(
+                        // Şifresini hatırlamayan kullanıcılar için Şifre yenileme sayfasına yönlendirme yapılıyor.
                         labelText: 'Şifreni mi Unuttun?',
                         onPressed: () {
                           Navigator.pushNamed(context, ResetRoute);

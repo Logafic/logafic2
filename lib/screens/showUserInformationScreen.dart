@@ -2,6 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// Web sayfası adresi ' http://logafic.click/#/fullProfile '
+// Ekran görüntüsü github adresinden erişilebilir.
+// Profile sayfasında kullanıcının bütün bilgilerinin görüntülendiği web sayfası
+// Sayfaya gönderilen userId ile kullanıcı bilgileri indiriliyor ve görselleştiriliyor.
+
 // ignore: must_be_immutable
 class ShowFullUserInformationScreen extends StatelessWidget {
   final String userId;
@@ -45,6 +50,7 @@ class ShowFullUserInformationScreen extends StatelessWidget {
         ],
       ),
       body: Scrollbar(
+          // Kullanıcı bilgileri indiriliyor.
           child: FutureBuilder<DocumentSnapshot>(
         future: user.doc(userId).get(),
         builder:
@@ -62,6 +68,7 @@ class ShowFullUserInformationScreen extends StatelessWidget {
                 snapshot.data!.data() as Map<String, dynamic>;
             return Center(
               child: Scrollbar(
+                  // Küçük ekran boyutuna sahip cihazlar için
                   child: ResponsiveWidget.isSmallScreen(context)
                       ? Card(
                           child: ListView(
@@ -89,6 +96,7 @@ class ShowFullUserInformationScreen extends StatelessWidget {
                             ],
                           ),
                         )
+                      // Diğer cihazlar için
                       : Container(
                           width: MediaQuery.of(context).size.width * 0.6,
                           child: Card(
@@ -129,6 +137,7 @@ class ShowFullUserInformationScreen extends StatelessWidget {
     );
   }
 
+  // Bilgilerin ekrana yazdırılması için kullanılan widget
   Widget textField(String title, String content) {
     return Padding(
       padding: EdgeInsets.only(right: 10, left: 10),
