@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// HomePage ve JobsShareScreende kullanılan üst menü widget
+
 AppBar appBarHomePageWidget() {
   return AppBar(
     backgroundColor: Colors.transparent,

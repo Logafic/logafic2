@@ -1,3 +1,5 @@
+// Yönlendirme adresleri
+
 const String FirstRoute = '/';
 const String HomeRoute = '/home';
 const String LoginRoute = '/login';

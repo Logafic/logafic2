@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Arka plan tasarımı olarak kullanılan sınıf
+// Ekran görüntüsü için github adresi ziyaret edilebilir.
 class Background extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

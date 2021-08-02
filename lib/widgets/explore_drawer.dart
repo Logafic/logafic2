@@ -3,6 +3,10 @@ import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 
+// Küçük ekranlı cihazlar için kullanılan menü
+// Ekran görüntüsü github üzerinden erişilebilir.
+// Home page ve JobsShareScreen sayfalarında kullanılıyor.
+
 class ExploreDrawer extends StatefulWidget {
   const ExploreDrawer({
     Key? key,

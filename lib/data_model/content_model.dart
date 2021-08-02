@@ -1,3 +1,5 @@
+// İçeriklerin kontrol edildiği ve tutulduğu model
+
 class ContentModel {
   String? parentId;
   String? parentName;

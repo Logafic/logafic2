@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Text widget first screen
 Widget textFirstScreen(String text) {
   return Padding(
     padding: EdgeInsets.only(bottom: 8),

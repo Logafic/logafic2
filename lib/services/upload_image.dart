@@ -3,6 +3,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:logafic/controllers/authController.dart';
 
+// Firebase storage görsel yüklemesi yapılıyor görselin referans adresi veritabanına ekleniyor.
+// Ayrıntı için ' https://firebase.flutter.dev/docs/storage/usage '
+
 AuthController authController = AuthController.to;
 
 Future<String> uploadFile(PickedFile file) async {

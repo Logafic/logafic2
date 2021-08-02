@@ -1,8 +1,10 @@
+// Validation işlemleri için kullanılan sınıf
+
 class HelpersValidate {
   String? validateEmail(String? email) {
     // 1
     RegExp regex = RegExp(r'\w+@\w+\.\w+');
-    // Add the following line to set focus to the email field
+
     if (email!.isEmpty || !regex.hasMatch(email))
 
     // 2

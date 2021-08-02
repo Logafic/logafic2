@@ -5,6 +5,10 @@ import 'package:logafic/services/database.dart';
 import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// İş ilanı oluşturmak için kullanılan show dialog
+// Profil sayfasından ulaşılabilir.
+// Ekran görüntüsü github adresinden erişilebilir.
+
 TextEditingController titleController = TextEditingController();
 TextEditingController jobsNameController = TextEditingController();
 TextEditingController explanationController = TextEditingController();

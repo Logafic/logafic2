@@ -3,6 +3,8 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
+//Anasayfa Akış Zamanı ve Trend Gönderileri butonlarının bulunduğu bar.
+
 class FloatingQuickAccessBar extends StatefulWidget {
   const FloatingQuickAccessBar({
     Key? key,

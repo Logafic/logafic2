@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
+// MessageScreen menü bar
 class MessageBarAction extends StatelessWidget {
   const MessageBarAction({Key? key}) : super(key: key);
 

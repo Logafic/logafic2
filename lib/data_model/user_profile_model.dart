@@ -1,3 +1,4 @@
+// Kullanıcı profil verilerinin kontrol edildiği ve tutulduğu model
 class UserProfile {
   String? userEmail;
   String? userId;

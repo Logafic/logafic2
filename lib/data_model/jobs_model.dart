@@ -1,3 +1,4 @@
+// İş ve Etkinlik ilanlarının kontrol edildiği ve tutulduğu model
 class JobsModel {
   String? userId;
   String? userName;

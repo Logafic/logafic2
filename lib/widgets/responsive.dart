@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+// Ekran boyutlarının kontrol edildiği widget
+// Küçük ekran : genişliği 500 pikselden küçük
+// Orta ekran : genişliği 800 piksel ile 1200 piksel arasında
+// Büyük ekran : genişliği 1200 pikselden büyük ekran
 
 class ResponsiveWidget extends StatelessWidget {
   final Widget largeScreen;

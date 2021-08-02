@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logafic/widgets/textFirstScreen.dart';
 
+// FirstScreen 1. Sütun
 Widget firstSccreenColumnFirst(BuildContext context) {
   return Column(
     children: [

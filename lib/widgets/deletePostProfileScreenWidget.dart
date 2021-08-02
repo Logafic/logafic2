@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+//Profil sayfası paylaşımların silinme onayı için kullanılan show dialog
+// Ekran görüntüsü github adresi üzerinden erişilebilir.
 
 CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
 Future<void> showDeletePostProfileScreenWidget(

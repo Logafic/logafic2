@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// Paylaşımların güncellenmesi için kullanılan show dialog widget
+// Ekran görüntüsü github adresinden erişilebilir.
 CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
 TextEditingController updateContentController = TextEditingController();
 Future<void> postUpdataShowDialog(BuildContext context, String postId,
@@ -14,7 +16,7 @@ Future<void> postUpdataShowDialog(BuildContext context, String postId,
                 borderRadius: BorderRadius.all(Radius.circular(10.0))),
             content: Builder(
               builder: (context) {
-                // Get available height and width of the build area of this widget. Make a choice depending on the size.
+                // Bu parçacığın yapı alanının mevcut yüksekliğini ve genişliğini alın. Boyuta bağlı olarak bir seçim yapın.
                 var height = MediaQuery.of(context).size.height;
                 var width = MediaQuery.of(context).size.width;
 

@@ -5,6 +5,10 @@ import 'package:logafic/services/database.dart';
 import 'package:logafic/services/upload_image.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// Paylaşımlara görsel eklemek için kullanılan show dialog
+// Database service kullanılıyor.
+// Ekran görüntüsü github üzerinden erişilebilir
+
 TextEditingController messageController = TextEditingController();
 PickedFile? postImage;
 ImagePicker _picker = ImagePicker();

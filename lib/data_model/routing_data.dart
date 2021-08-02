@@ -1,3 +1,4 @@
+// Yönlendirme modeli
 class RoutingData {
   final String route;
   final Map<String, String> _queryParameters;

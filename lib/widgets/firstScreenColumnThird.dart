@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
+// FirstScreen 3. sütun
 
 Widget firstScreenColumnThird(BuildContext context) {
   return Column(

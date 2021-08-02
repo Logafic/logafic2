@@ -7,6 +7,8 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/showAddedActivityDialogWidget.dart';
 import 'package:logafic/widgets/showAddedJobsDialogWidget.dart';
 
+// ProfileScreen menü bar
+
 // ignore: must_be_immutable
 class ProfileActionBar extends StatelessWidget {
   final String userProfileId;

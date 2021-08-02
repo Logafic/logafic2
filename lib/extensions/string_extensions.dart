@@ -1,5 +1,6 @@
 import 'package:logafic/data_model/routing_data.dart';
 
+// Yönlendirme için kullanılan uzantı
 extension StringExtensions on String {
   RoutingData get getRoutingData {
     var uriData = Uri.parse(this);

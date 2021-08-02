@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// FirstScreen sayfasında kullanılan appbar widget
 
 AppBar myAppBar(BuildContext context, String title, String? action1Name,
     String? routeName) {

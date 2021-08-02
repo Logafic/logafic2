@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
+// Küçük ekranlar için kullanılan first screen widget
+
 Widget smallScreenFirstScreen(BuildContext context) {
   return Container(
     child: Column(
@@ -39,16 +41,16 @@ Widget smallScreenFirstScreen(BuildContext context) {
                 child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.blue)),
+                          MaterialStateProperty.all<Color>(Colors.black26)),
                   child: Text(
-                    'Kayıt Ol',
+                    'Giriş Yap',
                     style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.w400),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, RegisterRoute);
+                    Navigator.pushNamed(context, LoginRoute);
                   },
                 ),
               ),
@@ -66,22 +68,22 @@ Widget smallScreenFirstScreen(BuildContext context) {
                 child: ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black26)),
+                          MaterialStateProperty.all<Color>(Colors.blue)),
                   child: Text(
-                    'Giriş Yap',
+                    'Kayıt Ol',
                     style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.w400),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, LoginRoute);
+                    Navigator.pushNamed(context, RegisterRoute);
                   },
                 ),
               ),
             ),
           ],
-        )
+        ),
       ],
     ),
   );

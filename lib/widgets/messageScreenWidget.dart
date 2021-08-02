@@ -6,6 +6,7 @@ import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 TextEditingController messageController = TextEditingController();
+// Mesaj gönderme ve gönderilen mesajların okunduğu show dialog widget
 
 Future<void> messageShowDialogWidget(BuildContext context, String userName,
     String userProfile, String messageSentUserId) async {

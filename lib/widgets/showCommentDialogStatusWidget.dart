@@ -6,6 +6,9 @@ import 'package:logafic/services/messageService.dart';
 import 'package:logafic/services/notificationService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// Paylaşımlara yorum yapılması için kullanılan show dialog
+// Ekran görüntüsü github adresinden erişilebilir.
+
 TextEditingController commentController = TextEditingController();
 PickedFile? postImage;
 bool isLoading = false;

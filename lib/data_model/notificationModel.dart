@@ -1,3 +1,5 @@
+// Bildirimlerin kontrol edildiği ve tutulduğu model
+
 class NotificationModel {
   NotificationModel(
       {required this.userName, required this.userId, required this.date});

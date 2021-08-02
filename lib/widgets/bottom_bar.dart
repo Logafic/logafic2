@@ -3,6 +3,7 @@ import 'package:logafic/widgets/info_text.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
+// Alt menü
 class BottomBar extends StatelessWidget {
   const BottomBar({
     Key? key,

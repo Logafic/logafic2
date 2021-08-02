@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// İş veya Etkinlik ilanlarına başvuranları görüntülendiği show dialog
+// İlanlarım sayfasından erişilebilir
+// Ekran görüntüsü github adresinden erişilebilir.
+
 Future<void> showJobsApplyWidget(BuildContext context, String jobsId) async {
   final Stream<QuerySnapshot> _applicationstream = FirebaseFirestore.instance
       .collection('jobs')

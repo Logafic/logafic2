@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// Yönlendirme için kullanılan service.
+// Ayrıntılı bilgi için ' https://flutter.dev/docs/cookbook/navigation/named-routes '
+
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   Future<dynamic> navigateTo(String routeName,

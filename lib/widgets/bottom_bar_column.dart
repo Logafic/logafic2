@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// Alt menü sınıfları
+// bottom_bar.dart widget
 
 class BottomBarColumn extends StatelessWidget {
   final String heading;

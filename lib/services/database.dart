@@ -3,11 +3,18 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/data_model/jobs_model.dart';
-import 'package:logafic/data_model/post_data_model.dart';
+
+// Post paylaşımı
+// Posta yorum ekleme
+// İş ve etkinlik ilanı paylaşma
+// Posta görsel ekleme işlemleri Databse sınıfı tarafından yapılıyor.
 
 class Database {
   AuthController authController = AuthController.to;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
+  // Yapılan post paylaşımları posts koleksiyuna ekleniyor ekleme işlemi sonrasında kullanıcının userPosts koleksiyonuna paylaşımın postId'si ekleniyor.
+  // Profil sayfasının görüntülenmesinde userPost koleksiyonundan alınan postId listesi kullanılmaktadır. Paylaşımı beğenen kullanıcıların bulunduğu likes koleksiyonu ekleniyor.
+  // Başarılı paylaşım sonrasında snackbar olarak post gönderildi çıktısı veriliyor.
   Future<void> addPost(String content) async {
     try {
       if (authController.firebaseUser.value!.uid.isNotEmpty) {
@@ -43,6 +50,9 @@ class Database {
     }
   }
 
+  // Paylaşıma yorum yapılması için kullanılan method yorum içeriğini ve paylaşımın postId'sini parametre olarak almaktadır.
+  // Yorum posts koleksiyonunda bulunan parametre olarak gönderilen postId'ye sahip dokümananın comment koleksiyonuna ekleme işlemi yapılıyor.
+  //  Paylaşımı beğenen kullanıcıların bulunduğu likes koleksiyonu ekleniyor.
   Future<void> addPostComment(String comment, String postId) async {
     try {
       if (authController.firebaseUser.value!.uid.isNotEmpty) {
@@ -64,6 +74,8 @@ class Database {
     }
   }
 
+  // Görsel paylaşımı yapmak için kullanılan method firebase storage yüklenen görselin referans adresini ve görsel paylaşımında eklenen notu parametre olarak alır.
+  // Paylaşılan görsel post modelinde bulunan urlImage alanına eklenmektedir. Paylaşım sonrasında paylaşımın postId'si userPosts koleksiyonuna eklenmektedir.
   Future<void> addPostImage(String urlImage, String note) async {
     try {
       if (authController.firebaseUser.value!.uid.isNotEmpty) {
@@ -99,20 +111,7 @@ class Database {
     }
   }
 
-  Stream<List<PostModel>> postStream(String uid) {
-    return _firebaseFirestore
-        .collection('posts')
-        .orderBy('created_at')
-        .snapshots()
-        .map((event) {
-      List<PostModel> retVal = [];
-      event.docs.forEach((element) {
-        retVal.add(PostModel.fromJson(element.data()));
-      });
-      return retVal;
-    });
-  }
-
+  // İş ve etkinlik paylaşımı için kullanılan bir JobsModel alan method. Jobs koleksiyonuna ekleme yapılmaktadır.
   Future<void> addJob(JobsModel jobsModel) async {
     try {
       if (authController.firebaseUser.value!.uid.isNotEmpty) {
@@ -128,6 +127,9 @@ class Database {
     }
   }
 
+  // İş ve etkinlik ilanlarına başvuru yapılması için kullanılan method jobsId, userId, userName ve userProfile referans adresini paremetre olarak alıyor.
+  // jobs koleksiyonunda bulunan jobsId'ye sahip dökümanın applications koleksiyonuna başvuru yapan kullanıcının bilgileri ekleniyor. Kullanıcının başvurularının tutulması için
+  // users koleksiyonunda bulununa userJobs koleksiyonuna jobsId ekleniyor.
   Future<void> applyJobs(String jobsId, String userId, String userName,
       String userProfileImage) async {
     try {

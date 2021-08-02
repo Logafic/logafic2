@@ -1,3 +1,4 @@
+// Postların verilerinin tutulduğu model
 class PostModel {
   final String userId;
   final String userName;

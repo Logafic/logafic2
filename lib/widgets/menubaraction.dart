@@ -7,6 +7,9 @@ import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
 
 import 'messageScreenWidget.dart';
 
+// StatusScreen menü bar
+
+//
 // ignore: must_be_immutable
 class MenuActionBar extends StatelessWidget {
   AuthController authController = AuthController.to;

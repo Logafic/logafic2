@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
 
+// Mesaj silme işleminin onaylanması için show dialog
+// Ekran görüntüsü github adresinden erişilebilir.
+// AuthController nesnesi oluşturuluyor.
 AuthController authController = AuthController.to;
 
 Future<void> showDeleteMessegaScreenWidget(

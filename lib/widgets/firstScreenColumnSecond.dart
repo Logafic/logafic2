@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// FirsScreen 2. sütun
+
 Widget firstSccreenColumnSecond(BuildContext context) {
   return Column(
     children: [

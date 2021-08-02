@@ -5,6 +5,9 @@ import 'package:logafic/services/database.dart';
 import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
+// İş ve etkinlik ilanlarının ayrıntılarının görüntülendiği show dialog widget
+// Ekran görüntüsüne github adresi üzerinden erişilebilir
+
 CollectionReference jobsRef = FirebaseFirestore.instance.collection('jobs');
 CollectionReference applyRef = FirebaseFirestore.instance.collection('users');
 Future<void> showJobsWidget(BuildContext context, String jobsId) async {

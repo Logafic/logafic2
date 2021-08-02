@@ -2,6 +2,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/responsive.dart';
 import 'package:flutter/material.dart';
+// JobsScreen İş ilanları ve Etkinlik ilanları butonlarının bulunduğu bar
 
 class JobsScreenFloatingQuickAccessBar extends StatefulWidget {
   const JobsScreenFloatingQuickAccessBar({
