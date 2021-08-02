@@ -91,13 +91,13 @@ class _UpdateUserInformationState extends State<UpdateUserInformation> {
             'Profilinizi birlikte güncelleyelim..',
             style: TextStyle(color: Colors.white),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: Colors.black54,
                 ),
                 onPressed: () {
                   Navigator.pop(context);

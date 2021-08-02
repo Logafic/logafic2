@@ -49,7 +49,7 @@ class StatusScreen extends StatelessWidget {
                   return IconButton(
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Colors.black,
+                      color: Colors.black54,
                     ),
                     onPressed: () {
                       Navigator.pop(context);
@@ -60,7 +60,7 @@ class StatusScreen extends StatelessWidget {
               title: Text(
                 'Gönderi',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.black54,
                   fontSize: 20,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
@@ -213,90 +213,89 @@ class StatusScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 20),
                       ),
                       // Paylaşıma yapılan yorumların indirilmesi ve bir listView üzerinden görselleştirilmesi sağlanıyor.
-                      Expanded(
-                        child: StreamBuilder<QuerySnapshot>(
-                          stream: FirebaseFirestore.instance
-                              .collection('posts')
-                              .doc(id)
-                              .collection('comment')
-                              .snapshots(),
-                          builder: (BuildContext context,
-                              AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
-                            if (snapshot.hasError) {
-                              Center(
-                                child: Text(
-                                    'Birşeyler yanlış lütfen daha sonra tekrar deneyiniz.'),
-                              );
-                            }
 
-                            return new ListView(
-                              shrinkWrap: true,
-                              physics: ClampingScrollPhysics(),
-                              children: snapshot.data!.docs
-                                  .map((DocumentSnapshot document) {
-                                Map<String, dynamic> data =
-                                    document.data() as Map<String, dynamic>;
-                                return new Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: ListTile(
-                                      leading: Image.network(
-                                          data['userProfileImage']),
-                                      title: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          TextButton(
-                                            child: Text(
-                                              (data['userName']),
-                                              style: TextStyle(fontSize: 17),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.pushNamed(
-                                                  context, ProfileRoute,
-                                                  arguments: {
-                                                    'userId': data['userId']
-                                                  });
-                                            },
-                                          ),
-                                          Text(
-                                            data['comment'],
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection('posts')
+                            .doc(id)
+                            .collection('comment')
+                            .snapshots(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<QuerySnapshot> snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                          if (snapshot.hasError) {
+                            Center(
+                              child: Text(
+                                  'Birşeyler yanlış lütfen daha sonra tekrar deneyiniz.'),
+                            );
+                          }
+
+                          return new ListView(
+                            shrinkWrap: true,
+                            physics: ClampingScrollPhysics(),
+                            children: snapshot.data!.docs
+                                .map((DocumentSnapshot document) {
+                              Map<String, dynamic> data =
+                                  document.data() as Map<String, dynamic>;
+                              return new Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: ListTile(
+                                    leading:
+                                        Image.network(data['userProfileImage']),
+                                    title: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        TextButton(
+                                          child: Text(
+                                            (data['userName']),
                                             style: TextStyle(fontSize: 17),
                                           ),
-                                          Divider(),
-                                        ],
-                                      ),
-                                      subtitle: Text(
-                                        data['created_at'],
-                                        style: TextStyle(fontSize: 12),
-                                      ),
-                                      // Kullanıcı kendi yorumlarını silme işlemi yapabiliyor.
-                                      trailing: authController
-                                                  .firebaseUser.value!.uid ==
-                                              data['userId']
-                                          ? IconButton(
-                                              onPressed: () {
-                                                posts
-                                                    .doc(id)
-                                                    .collection('comment')
-                                                    .doc(document.id)
-                                                    .delete();
-                                                print(document.id);
-                                              },
-                                              icon: Icon(Icons
-                                                  .delete_forever_outlined))
-                                          : null,
-                                    ));
-                              }).toList(),
-                            );
-                          },
-                        ),
-                      )
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, ProfileRoute,
+                                                arguments: {
+                                                  'userId': data['userId']
+                                                });
+                                          },
+                                        ),
+                                        Text(
+                                          data['comment'],
+                                          style: TextStyle(fontSize: 17),
+                                        ),
+                                        Divider(),
+                                      ],
+                                    ),
+                                    subtitle: Text(
+                                      data['created_at'],
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                    // Kullanıcı kendi yorumlarını silme işlemi yapabiliyor.
+                                    trailing: authController
+                                                .firebaseUser.value!.uid ==
+                                            data['userId']
+                                        ? IconButton(
+                                            onPressed: () {
+                                              posts
+                                                  .doc(id)
+                                                  .collection('comment')
+                                                  .doc(document.id)
+                                                  .delete();
+                                              print(document.id);
+                                            },
+                                            icon: Icon(
+                                                Icons.delete_forever_outlined))
+                                        : null,
+                                  ));
+                            }).toList(),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 )),

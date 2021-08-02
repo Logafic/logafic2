@@ -111,13 +111,13 @@ class _MyHomePageState extends State<MyHomePage> {
     final body = new Scaffold(
       appBar: new AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(
                 Icons.arrow_back,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           'Mesajlar',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black54,
             fontSize: 30,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
@@ -136,13 +136,13 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         actions: [
-          ElevatedButton(
+          TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, HomeRoute);
               },
               child: Text(
                 'Anasayfa',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black54),
               )),
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: PopupMenuButton(
               icon: Icon(
                 Icons.person,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                 PopupMenuItem(

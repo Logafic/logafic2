@@ -33,12 +33,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
         // Üst menü başlangıç
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           // Başlık
           title: Text(
             'LOGAFIC',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black54,
               fontSize: 20,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               return IconButton(
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: Colors.black54,
                 ),
                 onPressed: () {
                   // Önceki sayfaya yönlendirme
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Kayıt Ol',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black54,
                       fontSize: 17,
                       fontWeight: FontWeight.w500),
                 ),

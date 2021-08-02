@@ -21,11 +21,11 @@ class _VerifyScreenState extends State<VerifyScreen> {
     return Container(
         child: Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: Text(
           'LOGAFIC',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black54,
             fontSize: 20,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.w400,
@@ -37,7 +37,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
             return IconButton(
               icon: const Icon(
                 Icons.arrow_back,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.pop(context);

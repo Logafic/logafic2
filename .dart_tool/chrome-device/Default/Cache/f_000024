@@ -55,7 +55,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "icon",
         [_Location_column]: 23,
-        [_Location_line]: 21,
+        [_Location_line]: 26,
         [_Location_file]: null
       });
     },
@@ -65,7 +65,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "color",
         [_Location_column]: 17,
-        [_Location_line]: 22,
+        [_Location_line]: 27,
         [_Location_file]: null
       });
     },
@@ -78,7 +78,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[2] || CT.C2,
         [_Location_name]: null,
         [_Location_column]: 27,
-        [_Location_line]: 20,
+        [_Location_line]: 25,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -115,7 +115,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "icon",
         [_Location_column]: 15,
-        [_Location_line]: 20,
+        [_Location_line]: 25,
         [_Location_file]: null
       });
     },
@@ -125,7 +125,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "onPressed",
         [_Location_column]: 15,
-        [_Location_line]: 24,
+        [_Location_line]: 29,
         [_Location_file]: null
       });
     },
@@ -138,7 +138,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[8] || CT.C8,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 19,
+        [_Location_line]: 24,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -148,7 +148,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "builder",
         [_Location_column]: 11,
-        [_Location_line]: 18,
+        [_Location_line]: 23,
         [_Location_file]: null
       });
     },
@@ -161,7 +161,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[12] || CT.C12,
         [_Location_name]: null,
         [_Location_column]: 18,
-        [_Location_line]: 17,
+        [_Location_line]: 22,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -171,7 +171,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 11,
-        [_Location_line]: 32,
+        [_Location_line]: 37,
         [_Location_file]: null
       });
     },
@@ -181,7 +181,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "style",
         [_Location_column]: 11,
-        [_Location_line]: 33,
+        [_Location_line]: 38,
         [_Location_file]: null
       });
     },
@@ -194,7 +194,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[15] || CT.C15,
         [_Location_name]: null,
         [_Location_column]: 16,
-        [_Location_line]: 31,
+        [_Location_line]: 36,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -204,7 +204,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "icon",
         [_Location_column]: 25,
-        [_Location_line]: 41,
+        [_Location_line]: 46,
         [_Location_file]: null
       });
     },
@@ -214,7 +214,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "color",
         [_Location_column]: 19,
-        [_Location_line]: 42,
+        [_Location_line]: 47,
         [_Location_file]: null
       });
     },
@@ -227,7 +227,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[19] || CT.C19,
         [_Location_name]: null,
         [_Location_column]: 23,
-        [_Location_line]: 40,
+        [_Location_line]: 45,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -237,7 +237,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "onPressed",
         [_Location_column]: 17,
-        [_Location_line]: 39,
+        [_Location_line]: 44,
         [_Location_file]: null
       });
     },
@@ -247,7 +247,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "icon",
         [_Location_column]: 17,
-        [_Location_line]: 40,
+        [_Location_line]: 45,
         [_Location_file]: null
       });
     },
@@ -260,7 +260,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[23] || CT.C23,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 38,
+        [_Location_line]: 43,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -270,7 +270,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "padding",
         [_Location_column]: 13,
-        [_Location_line]: 37,
+        [_Location_line]: 42,
         [_Location_file]: null
       });
     },
@@ -280,7 +280,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 13,
-        [_Location_line]: 38,
+        [_Location_line]: 43,
         [_Location_file]: null
       });
     },
@@ -293,7 +293,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[27] || CT.C27,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 36,
+        [_Location_line]: 41,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -303,7 +303,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "leading",
         [_Location_column]: 9,
-        [_Location_line]: 17,
+        [_Location_line]: 22,
         [_Location_file]: null
       });
     },
@@ -313,7 +313,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "backgroundColor",
         [_Location_column]: 9,
-        [_Location_line]: 30,
+        [_Location_line]: 35,
         [_Location_file]: null
       });
     },
@@ -323,7 +323,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "title",
         [_Location_column]: 9,
-        [_Location_line]: 31,
+        [_Location_line]: 36,
         [_Location_file]: null
       });
     },
@@ -333,7 +333,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "actions",
         [_Location_column]: 9,
-        [_Location_line]: 35,
+        [_Location_line]: 40,
         [_Location_file]: null
       });
     },
@@ -346,7 +346,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[31] || CT.C31,
         [_Location_name]: null,
         [_Location_column]: 15,
-        [_Location_line]: 16,
+        [_Location_line]: 21,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -356,7 +356,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 25,
-        [_Location_line]: 53,
+        [_Location_line]: 59,
         [_Location_file]: null
       });
     },
@@ -369,7 +369,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[37] || CT.C37,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 53,
+        [_Location_line]: 59,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -379,7 +379,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 25,
-        [_Location_line]: 57,
+        [_Location_line]: 63,
         [_Location_file]: null
       });
     },
@@ -392,7 +392,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[40] || CT.C40,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 57,
+        [_Location_line]: 63,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -402,7 +402,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "src",
         [_Location_column]: 57,
-        [_Location_line]: 75,
+        [_Location_line]: 82,
         [_Location_file]: null
       });
     },
@@ -415,7 +415,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[43] || CT.C43,
         [_Location_name]: null,
         [_Location_column]: 45,
-        [_Location_line]: 75,
+        [_Location_line]: 82,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -425,7 +425,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "width",
         [_Location_column]: 35,
-        [_Location_line]: 72,
+        [_Location_line]: 79,
         [_Location_file]: null
       });
     },
@@ -435,7 +435,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "height",
         [_Location_column]: 35,
-        [_Location_line]: 73,
+        [_Location_line]: 80,
         [_Location_file]: null
       });
     },
@@ -445,7 +445,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 35,
-        [_Location_line]: 74,
+        [_Location_line]: 81,
         [_Location_file]: null
       });
     },
@@ -458,7 +458,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[46] || CT.C46,
         [_Location_name]: null,
         [_Location_column]: 40,
-        [_Location_line]: 71,
+        [_Location_line]: 78,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -468,7 +468,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "padding",
         [_Location_column]: 33,
-        [_Location_line]: 70,
+        [_Location_line]: 77,
         [_Location_file]: null
       });
     },
@@ -478,7 +478,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 33,
-        [_Location_line]: 71,
+        [_Location_line]: 78,
         [_Location_file]: null
       });
     },
@@ -491,7 +491,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[51] || CT.C51,
         [_Location_name]: null,
         [_Location_column]: 31,
-        [_Location_line]: 69,
+        [_Location_line]: 76,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -501,7 +501,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "children",
         [_Location_column]: 29,
-        [_Location_line]: 68,
+        [_Location_line]: 75,
         [_Location_file]: null
       });
     },
@@ -514,7 +514,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[55] || CT.C55,
         [_Location_name]: null,
         [_Location_column]: 34,
-        [_Location_line]: 67,
+        [_Location_line]: 74,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -524,7 +524,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 27,
-        [_Location_line]: 67,
+        [_Location_line]: 74,
         [_Location_file]: null
       });
     },
@@ -537,7 +537,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[58] || CT.C58,
         [_Location_name]: null,
         [_Location_column]: 25,
-        [_Location_line]: 66,
+        [_Location_line]: 73,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -547,7 +547,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "src",
         [_Location_column]: 59,
-        [_Location_line]: 103,
+        [_Location_line]: 111,
         [_Location_file]: null
       });
     },
@@ -560,7 +560,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[61] || CT.C61,
         [_Location_name]: null,
         [_Location_column]: 47,
-        [_Location_line]: 103,
+        [_Location_line]: 111,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -570,7 +570,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "width",
         [_Location_column]: 37,
-        [_Location_line]: 100,
+        [_Location_line]: 108,
         [_Location_file]: null
       });
     },
@@ -580,7 +580,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "height",
         [_Location_column]: 37,
-        [_Location_line]: 101,
+        [_Location_line]: 109,
         [_Location_file]: null
       });
     },
@@ -590,7 +590,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 37,
-        [_Location_line]: 102,
+        [_Location_line]: 110,
         [_Location_file]: null
       });
     },
@@ -603,7 +603,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[64] || CT.C64,
         [_Location_name]: null,
         [_Location_column]: 42,
-        [_Location_line]: 99,
+        [_Location_line]: 107,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -613,7 +613,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "padding",
         [_Location_column]: 35,
-        [_Location_line]: 98,
+        [_Location_line]: 106,
         [_Location_file]: null
       });
     },
@@ -623,7 +623,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 35,
-        [_Location_line]: 99,
+        [_Location_line]: 107,
         [_Location_file]: null
       });
     },
@@ -636,7 +636,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[69] || CT.C69,
         [_Location_name]: null,
         [_Location_column]: 33,
-        [_Location_line]: 97,
+        [_Location_line]: 105,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -646,7 +646,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "children",
         [_Location_column]: 31,
-        [_Location_line]: 96,
+        [_Location_line]: 104,
         [_Location_file]: null
       });
     },
@@ -659,7 +659,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[73] || CT.C73,
         [_Location_name]: null,
         [_Location_column]: 36,
-        [_Location_line]: 95,
+        [_Location_line]: 103,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -669,7 +669,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 29,
-        [_Location_line]: 95,
+        [_Location_line]: 103,
         [_Location_file]: null
       });
     },
@@ -682,7 +682,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[76] || CT.C76,
         [_Location_name]: null,
         [_Location_column]: 34,
-        [_Location_line]: 94,
+        [_Location_line]: 102,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -692,7 +692,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "width",
         [_Location_column]: 27,
-        [_Location_line]: 93,
+        [_Location_line]: 101,
         [_Location_file]: null
       });
     },
@@ -702,7 +702,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 27,
-        [_Location_line]: 94,
+        [_Location_line]: 102,
         [_Location_file]: null
       });
     },
@@ -715,7 +715,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[79] || CT.C79,
         [_Location_name]: null,
         [_Location_column]: 25,
-        [_Location_line]: 92,
+        [_Location_line]: 100,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -725,7 +725,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 19,
-        [_Location_line]: 65,
+        [_Location_line]: 72,
         [_Location_file]: null
       });
     },
@@ -738,7 +738,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[83] || CT.C83,
         [_Location_name]: null,
         [_Location_column]: 22,
-        [_Location_line]: 64,
+        [_Location_line]: 70,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -748,7 +748,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 15,
-        [_Location_line]: 64,
+        [_Location_line]: 70,
         [_Location_file]: null
       });
     },
@@ -761,7 +761,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[86] || CT.C86,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 63,
+        [_Location_line]: 69,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -774,7 +774,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[89] || CT.C89,
         [_Location_name]: null,
         [_Location_column]: 20,
-        [_Location_line]: 125,
+        [_Location_line]: 133,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -784,7 +784,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 13,
-        [_Location_line]: 125,
+        [_Location_line]: 133,
         [_Location_file]: null
       });
     },
@@ -797,7 +797,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[91] || CT.C91,
         [_Location_name]: null,
         [_Location_column]: 18,
-        [_Location_line]: 124,
+        [_Location_line]: 132,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -807,7 +807,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "future",
         [_Location_column]: 9,
-        [_Location_line]: 49,
+        [_Location_line]: 55,
         [_Location_file]: null
       });
     },
@@ -817,7 +817,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "builder",
         [_Location_column]: 9,
-        [_Location_line]: 50,
+        [_Location_line]: 56,
         [_Location_file]: null
       });
     },
@@ -830,7 +830,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[94] || CT.C94,
         [_Location_name]: null,
         [_Location_column]: 18,
-        [_Location_line]: 48,
+        [_Location_line]: 54,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -840,7 +840,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 11,
-        [_Location_line]: 48,
+        [_Location_line]: 54,
         [_Location_file]: null
       });
     },
@@ -853,7 +853,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[98] || CT.C98,
         [_Location_name]: null,
         [_Location_column]: 13,
-        [_Location_line]: 47,
+        [_Location_line]: 52,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -863,7 +863,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "appBar",
         [_Location_column]: 7,
-        [_Location_line]: 16,
+        [_Location_line]: 21,
         [_Location_file]: null
       });
     },
@@ -873,7 +873,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "body",
         [_Location_column]: 7,
-        [_Location_line]: 47,
+        [_Location_line]: 52,
         [_Location_file]: null
       });
     },
@@ -886,7 +886,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[101] || CT.C101,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 15,
+        [_Location_line]: 20,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -896,7 +896,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[89] || CT.C89,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 138,
+        [_Location_line]: 147,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -906,7 +906,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 16,
-        [_Location_line]: 139,
+        [_Location_line]: 148,
         [_Location_file]: null
       });
     },
@@ -916,7 +916,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "style",
         [_Location_column]: 23,
-        [_Location_line]: 139,
+        [_Location_line]: 148,
         [_Location_file]: null
       });
     },
@@ -929,7 +929,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[106] || CT.C106,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 139,
+        [_Location_line]: 148,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -939,7 +939,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "data",
         [_Location_column]: 24,
-        [_Location_line]: 141,
+        [_Location_line]: 150,
         [_Location_file]: null
       });
     },
@@ -949,7 +949,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "style",
         [_Location_column]: 13,
-        [_Location_line]: 142,
+        [_Location_line]: 151,
         [_Location_file]: null
       });
     },
@@ -962,7 +962,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[110] || CT.C110,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 140,
+        [_Location_line]: 149,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -972,7 +972,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[89] || CT.C89,
         [_Location_name]: null,
         [_Location_column]: 11,
-        [_Location_line]: 144,
+        [_Location_line]: 153,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -982,7 +982,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "mainAxisAlignment",
         [_Location_column]: 9,
-        [_Location_line]: 136,
+        [_Location_line]: 145,
         [_Location_file]: null
       });
     },
@@ -992,7 +992,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "children",
         [_Location_column]: 9,
-        [_Location_line]: 137,
+        [_Location_line]: 146,
         [_Location_file]: null
       });
     },
@@ -1005,7 +1005,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[115] || CT.C115,
         [_Location_name]: null,
         [_Location_column]: 14,
-        [_Location_line]: 135,
+        [_Location_line]: 144,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     },
@@ -1015,7 +1015,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "padding",
         [_Location_column]: 7,
-        [_Location_line]: 134,
+        [_Location_line]: 143,
         [_Location_file]: null
       });
     },
@@ -1025,7 +1025,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: null,
         [_Location_name]: "child",
         [_Location_column]: 7,
-        [_Location_line]: 135,
+        [_Location_line]: 144,
         [_Location_file]: null
       });
     },
@@ -1038,7 +1038,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         [_Location_parameterLocations]: C[119] || CT.C119,
         [_Location_name]: null,
         [_Location_column]: 12,
-        [_Location_line]: 133,
+        [_Location_line]: 142,
         [_Location_file]: "file:///C:/Users/yunus/Documents/GitHub/logafic2/lib/screens/showUserInformationScreen.dart"
       });
     }
@@ -1124,7 +1124,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   dart.trackLibraries("packages/logafic/screens/showUserInformationScreen.dart", {
     "package:logafic/screens/showUserInformationScreen.dart": showUserInformationScreen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["showUserInformationScreen.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/screens/showUserInformationScreen.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["showUserInformationScreen.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/screens/showUserInformationScreen.dart.lib.js"}');
   // Exports:
   return {
     screens__showUserInformationScreen: showUserInformationScreen

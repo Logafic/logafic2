@@ -103,9 +103,9 @@ class _UserInformationState extends State<UserInformation> {
         appBar: AppBar(
           title: Text(
             'Profilinizi birlikte tamamlayalım.',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black54),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
         ),
         body: _userInfoForm);
     return new Container(

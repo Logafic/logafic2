@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
+import 'package:logafic/widgets/showReportStatusScreen.dart';
 
 import 'messageScreenWidget.dart';
 
@@ -61,7 +62,13 @@ class MenuActionBar extends StatelessWidget {
               color: Colors.black,
             ),
             tooltip: 'Bildir',
-            onPressed: () {}),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (_) {
+                    return ShowReportStatusScreenWidget();
+                  });
+            }),
         Padding(
           padding: EdgeInsets.only(right: 16),
           child: InkWell(

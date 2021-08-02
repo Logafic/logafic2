@@ -36,13 +36,13 @@ class NotificationScreen extends StatelessWidget {
       // Üst menü başlangıç
       appBar: new AppBar(
         elevation: 0.0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(
                 Icons.arrow_back,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -52,7 +52,7 @@ class NotificationScreen extends StatelessWidget {
         ),
         title: Text(
           'Bildirimler',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black54),
         ),
         actions: [
           TextButton(
@@ -61,7 +61,7 @@ class NotificationScreen extends StatelessWidget {
               },
               child: Text(
                 'Anasayfa',
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(color: Colors.black54, fontSize: 17),
               )),
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -69,7 +69,7 @@ class NotificationScreen extends StatelessWidget {
                 child: PopupMenuButton(
               icon: Icon(
                 Icons.person,
-                color: Colors.white,
+                color: Colors.black54,
               ),
               itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                 PopupMenuItem(
@@ -118,7 +118,7 @@ class NotificationScreen extends StatelessWidget {
         ],
       ),
       // Üst menü bitiş
-      backgroundColor: Colors.black26,
+      backgroundColor: Colors.transparent,
       body: new Container(
         child: new Stack(
           children: <Widget>[
@@ -129,16 +129,6 @@ class NotificationScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new Align(
-                    alignment: Alignment.centerLeft,
-                    child: new Padding(
-                        padding: new EdgeInsets.only(left: 8.0),
-                        child: new Text(
-                          'Bildirimler',
-                          style: new TextStyle(
-                              color: Colors.white70, fontSize: 26),
-                        )),
-                  ),
                   new Expanded(
                       child: Scrollbar(
                           child: StreamBuilder<QuerySnapshot>(

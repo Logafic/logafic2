@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:logafic/data_model/user_profile_model.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/loading.dart';
 
 // Contoller tasarımında GetX paketi kullanılmıştır. Getx hızlı kod yazılmasını sağlayan hızlı ve performanslı bir flutter paketidir.
@@ -73,6 +74,11 @@ class AuthController extends GetxController {
       }
     }
   }
+
+  Future<bool?> get getNotification async =>
+      authController.firestoreUser.value!.unreadNotification;
+  Future<bool?> get getMessage async =>
+      authController.firestoreUser.value!.unreadMessage;
 
   // Email doğrulaması kontrol method.
   Future<bool?> get getVerify async => _auth.currentUser!.emailVerified;

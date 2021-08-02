@@ -24,7 +24,7 @@ class ShowFullUserInformationScreen extends StatelessWidget {
             return IconButton(
               icon: const Icon(
                 Icons.arrow_back,
-                color: Colors.black,
+                color: Colors.black54,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -37,17 +37,6 @@ class ShowFullUserInformationScreen extends StatelessWidget {
           'Kullanıcının bütün bilgileri..',
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.message_outlined,
-                  color: Colors.black54,
-                )),
-          )
-        ],
       ),
       body: Scrollbar(
           // Kullanıcı bilgileri indiriliyor.

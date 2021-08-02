@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
               return new IconButton(
                 icon: const Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: Colors.black54,
                 ),
                 onPressed: () {
                   // Önceki sayfaya yönlendirme yapılıyor.
@@ -54,14 +54,14 @@ class ProfileScreen extends StatelessWidget {
           title: new Text(
             'LOGAFIC',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.black54,
               fontSize: screenSizeW > 400 ? 20 : 15,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w400,
               letterSpacing: 3,
             ),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           actions: <Widget>[
             ProfileActionBar(
               userProfileId: userId,
@@ -395,7 +395,9 @@ class ProfileScreen extends StatelessWidget {
                           onTap: () {
                             // Paylaşımın görüntülenmesi için yönlendirme veriliyor
                             Navigator.pushNamed(context, StatusRoute,
-                                arguments: {'id': snapshot.data.id});
+                                arguments: {
+                                  'id': snapshot.data.docs[index].id
+                                });
                           },
                           child: Card(
                             color: Colors.grey[50],
@@ -497,7 +499,7 @@ class ProfileScreen extends StatelessWidget {
                                       onPressed: () {
                                         Navigator.pushNamed(
                                             context, StatusRoute, arguments: {
-                                          'id': snapshot.data[index]['postId']
+                                          'id': snapshot.data.docs[index].id
                                         });
                                       },
                                       child: Text(

@@ -32,7 +32,7 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0.0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
@@ -54,124 +54,113 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
         body: Scrollbar(
           child: ListView(
             children: [
-              Expanded(
-                  child: StreamBuilder(
-                      stream: _userJobsStreamCreatedAt,
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text('Bir şeyler yanlış gitti'),
-                          );
-                        }
-                        // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        // İndirilen jobs verilerinin ListView üzerinde görselleştirilmesi sağlanmıştır.
-                        return new ListView(
-                          shrinkWrap: true,
-                          physics: ClampingScrollPhysics(),
-                          children: snapshot.data.docs
-                              .map<Widget>((DocumentSnapshot document) {
-                            Map<String, dynamic> data =
-                                document.data() as Map<String, dynamic>;
-                            return new Center(
-                                child: SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.7,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        // İş ve etkinlik ilanı paylaşımlarının ayrıntılarının görüntülenmesini sağlayan show dialog widget
-                                        showJobsWidget(context, document.id);
-                                      },
-                                      child: Card(
-                                          color: Colors.grey[50],
-                                          clipBehavior: Clip.antiAlias,
-                                          child: Column(
-                                            children: [
-                                              ListTile(
-                                                leading: Image.network(
-                                                    data['userProfileImage']),
-                                                title: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    TextButton(
-                                                      child: Text(
-                                                        (data['userName']),
-                                                      ),
-                                                      onPressed: () {
-                                                        Navigator.pushNamed(
-                                                            context,
-                                                            ProfileRoute,
-                                                            arguments: {
-                                                              'userId':
-                                                                  data['userId']
-                                                            });
-                                                      },
-                                                    ),
-                                                  ],
+              StreamBuilder(
+                  stream: _userJobsStreamCreatedAt,
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Bir şeyler yanlış gitti'),
+                      );
+                    }
+                    // Verilerin indirilmesi esnasında ekrana çıktı olarak dairesel işlem göstergesi veriliyor.
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    // İndirilen jobs verilerinin ListView üzerinde görselleştirilmesi sağlanmıştır.
+                    return new ListView(
+                      shrinkWrap: true,
+                      physics: ClampingScrollPhysics(),
+                      children: snapshot.data.docs
+                          .map<Widget>((DocumentSnapshot document) {
+                        Map<String, dynamic> data =
+                            document.data() as Map<String, dynamic>;
+                        return new Center(
+                            child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.7,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    // İş ve etkinlik ilanı paylaşımlarının ayrıntılarının görüntülenmesini sağlayan show dialog widget
+                                    showJobsWidget(context, document.id);
+                                  },
+                                  child: Card(
+                                      color: Colors.grey[50],
+                                      clipBehavior: Clip.antiAlias,
+                                      child: Column(
+                                        children: [
+                                          ListTile(
+                                            leading: Image.network(
+                                                data['userProfileImage']),
+                                            title: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                TextButton(
+                                                  child: Text(
+                                                    (data['userName']),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pushNamed(
+                                                        context, ProfileRoute,
+                                                        arguments: {
+                                                          'userId':
+                                                              data['userId']
+                                                        });
+                                                  },
                                                 ),
-                                                subtitle: Text(
-                                                    data['created_at']
-                                                        .toString()),
-                                              ),
+                                              ],
+                                            ),
+                                            subtitle: Text(
+                                                data['created_at'].toString()),
+                                          ),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan başlığı : ${data['title']}',
+                                                style: TextStyle(fontSize: 30),
+                                              )),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan veren firma : ${data['companyName']}',
+                                                style: TextStyle(fontSize: 25),
+                                              )),
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                'İlan konumu : ${data['location']}',
+                                                style: TextStyle(fontSize: 25),
+                                              )),
+                                          ButtonBar(
+                                            alignment: MainAxisAlignment.start,
+                                            children: [
                                               Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
+                                                padding: EdgeInsets.all(10),
+                                                child: TextButton(
+                                                  onPressed: () {
+                                                    // İş ve etkinlik ilanlarına başvuruda bulunmuş kişilerin görüntülendiği show dialog widget
+                                                    showJobsApplyWidget(
+                                                        context, document.id);
+                                                  },
                                                   child: Text(
-                                                    'İlan başlığı : ${data['title']}',
-                                                    style:
-                                                        TextStyle(fontSize: 30),
-                                                  )),
-                                              Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'İlan veren firma : ${data['companyName']}',
-                                                    style:
-                                                        TextStyle(fontSize: 25),
-                                                  )),
-                                              Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    'İlan konumu : ${data['location']}',
-                                                    style:
-                                                        TextStyle(fontSize: 25),
-                                                  )),
-                                              ButtonBar(
-                                                alignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: TextButton(
-                                                      onPressed: () {
-                                                        // İş ve etkinlik ilanlarına başvuruda bulunmuş kişilerin görüntülendiği show dialog widget
-                                                        showJobsApplyWidget(
-                                                            context,
-                                                            document.id);
-                                                      },
-                                                      child: Text(
-                                                        'Başvuraları görüntüle',
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black54),
-                                                      ),
-                                                    ),
-                                                  )
-                                                ],
+                                                    'Başvuraları görüntüle',
+                                                    style: TextStyle(
+                                                        color: Colors.black54),
+                                                  ),
+                                                ),
                                               )
                                             ],
-                                          )),
-                                    )));
-                          }).toList(),
-                        );
-                      })),
+                                          )
+                                        ],
+                                      )),
+                                )));
+                      }).toList(),
+                    );
+                  })
               // BottomBar()
             ],
           ),

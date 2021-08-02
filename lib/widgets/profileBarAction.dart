@@ -6,6 +6,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/showAddedActivityDialogWidget.dart';
 import 'package:logafic/widgets/showAddedJobsDialogWidget.dart';
+import 'package:logafic/widgets/showReportProfileScreen.dart';
 
 // ProfileScreen menü bar
 
@@ -31,7 +32,7 @@ class ProfileActionBar extends StatelessWidget {
           ? IconButton(
               icon: const Icon(
                 Icons.add_business_outlined,
-                color: Colors.black,
+                color: Colors.black54,
               ),
               tooltip: 'İş ilanı ver',
               onPressed: () {
@@ -43,7 +44,7 @@ class ProfileActionBar extends StatelessWidget {
           ? IconButton(
               icon: const Icon(
                 Icons.local_activity_outlined,
-                color: Colors.black,
+                color: Colors.black54,
               ),
               tooltip: 'Etkinlik oluştur',
               onPressed: () {
@@ -52,8 +53,21 @@ class ProfileActionBar extends StatelessWidget {
           : Text(''),
       IconButton(
           icon: const Icon(
+            Icons.notification_important,
+            color: Colors.black54,
+          ),
+          tooltip: 'Kullanıcıyı Bildir',
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (_) {
+                  return ShowReportProfileScreenWidget();
+                });
+          }),
+      IconButton(
+          icon: const Icon(
             Icons.visibility,
-            color: Colors.black,
+            color: Colors.black54,
           ),
           tooltip: 'Görüntüle',
           onPressed: () {
@@ -66,7 +80,7 @@ class ProfileActionBar extends StatelessWidget {
             child: PopupMenuButton(
           icon: Icon(
             Icons.person,
-            color: Colors.black,
+            color: Colors.black54,
           ),
           itemBuilder: (BuildContext context) => <PopupMenuEntry>[
             PopupMenuItem(
