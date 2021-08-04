@@ -38,8 +38,6 @@ class AuthController extends GetxController {
   bool newUser = false;
   // Anasayfada trend gönderilerin ve akış zamanına göre sıralama işleminde kullanılıyor.
   bool isRank = false;
-  // İş ve Etkinlik ilanı oluşturma işlemlerinde kullanılıyor.
-  bool isAdmin = false;
 
   // Kullanıcı değişiklikleri dinleniyor.
   @override
@@ -131,6 +129,7 @@ class AuthController extends GetxController {
           .createUserWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
           .then((result) async {
+        result.user!.updateDisplayName(eduMailController.text);
         result.user!.sendEmailVerification();
         hideLoadingIndicator();
       });
@@ -171,6 +170,24 @@ class AuthController extends GetxController {
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
           colorText: Get.theme.snackBarTheme.actionTextColor);
     }
+  }
+
+  Future<void> reSendVerifyEmail() async {
+    _auth.currentUser!.sendEmailVerification().whenComplete(() {
+      Get.snackbar('Şifreme yenileme bağlantı'.tr,
+          'Şifrenizi yenilemeniz için bağlantı email adresinize gönderildi.'.tr,
+          snackPosition: SnackPosition.BOTTOM,
+          duration: Duration(seconds: 5),
+          backgroundColor: Get.theme.snackBarTheme.backgroundColor,
+          colorText: Get.theme.snackBarTheme.actionTextColor);
+    });
+  }
+
+  Future<void> updateUserPassword(
+      String oldPassword, String newPassword, BuildContext context) async {
+    _auth.currentUser!.updatePassword(newPassword).whenComplete(() {
+      Navigator.pop(context);
+    });
   }
 
   // Çıkış yapılan method

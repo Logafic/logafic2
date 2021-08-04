@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/extensions/string_extensions.dart';
 import 'package:logafic/routing/router_names.dart';
@@ -16,7 +17,7 @@ import 'package:logafic/widgets/background.dart';
 
 // Projemizde yapılan paylaşımların kullanıcılara gösterildiği web sayfasıdır.
 // Web sayfasının adresş 'http://logafic.click/#/home'
-// Sayfanın ekran görüntüsüne aşağıdaki github adresinden ulaşılabilir.
+// Sayfanın ekran görüntüsüne aşağıdaki github adresinden ulaşılabilir. ' https://github.com/Logafic/logafic/blob/main/SS/home_screen_large.png '
 // Post paylaşımlarının gerçek zamanlı görüntülenmesi için Firebase firestore kullanılmıştır.
 
 // Kullanıcı ile etkileşime girildiğinden dolayı sayfa StatefulWidget olarak tasarlanmıştır.
@@ -29,17 +30,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Paylaşımların oluşturulma zamanına göre listelenmesi için kullanılan reference adresi.Posts firebase firestore üzerinde post paylaşımlarının tutulduğu
   //koleksiyonun adı
-  final Stream<QuerySnapshot> _usersStreamCreatedAt = FirebaseFirestore.instance
-      .collection('posts')
-      .orderBy('created_at', descending: true)
-      .snapshots();
-
-  // Paylaşımların begeni sayısına göre sıralanması için kullanılan ref adresi
-  final Stream<QuerySnapshot> _usersStreamRanked = FirebaseFirestore.instance
-      .collection('posts')
-      .orderBy('like', descending: true)
-      .snapshots();
-
+  int count = 20;
   // Paylaşımı beğenen kullanıcıların tutulduğu ve giriş yapmış kullanıcının paylaşımı beğenip beğenmediğinin kontrolünün sağlandığı koleksiyonun referans adresi.
   CollectionReference likeRef = FirebaseFirestore.instance.collection('posts');
   // AuthControllerın bir nesnesi oluşturuluyor.
@@ -48,10 +39,30 @@ class _HomePageState extends State<HomePage> {
   // Paylaşım yapmak için kullanılan TextField'controller nesnesi.
   final postController = TextEditingController();
   // Sayfada scroll konumunun tutulduğu değişken.
+  bool isLoading = false;
   double _scrollPosition = 0;
   double _opacity = 0;
   @override
   Widget build(BuildContext context) {
+    void sumCount() async {
+      count = count + 5;
+      setState(() {});
+    }
+
+    print(count);
+    final Stream<QuerySnapshot> _usersStreamCreatedAt = FirebaseFirestore
+        .instance
+        .collection('posts')
+        .limit(count)
+        .orderBy('created_at', descending: true)
+        .snapshots();
+
+    // Paylaşımların begeni sayısına göre sıralanması için kullanılan ref adresi
+    final Stream<QuerySnapshot> _usersStreamRanked = FirebaseFirestore.instance
+        .collection('posts')
+        .limit(count)
+        .orderBy('like', descending: true)
+        .snapshots();
     // Ekran boyutu bir değişkene atanıyor.
     var screenSize = MediaQuery.of(context).size;
     // Scroll konumuna göre opacity değeri değişiyor.
@@ -76,7 +87,9 @@ class _HomePageState extends State<HomePage> {
         // Küçük ekran için kullanılan açılır menü ekran görüntüsü için github adresi ->>
         drawer: ExploreDrawer(),
         // Paylaşımların görüntülenebilmesi için Scrollbar widget kullanılıyor.Ayrıntı için ' https://api.flutter.dev/flutter/material/Scrollbar-class.html '
-        body: Scrollbar(
+        body: LazyLoadScrollView(
+          isLoading: isLoading,
+          onEndOfPage: sumCount,
           child: ListView(
             children: [
               // Kullanıcın paylaşım yapmasın için kullanılan TextField sayfanın ortasına ayarlanıyor.
@@ -452,7 +465,10 @@ class _HomePageState extends State<HomePage> {
                     );
                   }),
               // Alt menü
-              BottomBar()
+              Padding(
+                padding: EdgeInsets.only(top: 300),
+                child: BottomBar(),
+              )
             ],
           ),
         ));

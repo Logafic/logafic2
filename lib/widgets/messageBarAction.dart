@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 
 // MessageScreen menü bar
 class MessageBarAction extends StatelessWidget {
@@ -50,6 +51,19 @@ class MessageBarAction extends StatelessWidget {
                     },
                     leading: Icon(Icons.message),
                     title: Text('Mesajlar'),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (_) {
+                            return ShowSettingsWidget();
+                          });
+                    },
+                    leading: Icon(Icons.settings),
+                    title: Text('Ayarlar'),
                   ),
                 ),
                 const PopupMenuDivider(),

@@ -5,6 +5,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
 import 'package:logafic/widgets/showReportStatusScreen.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 
 import 'messageScreenWidget.dart';
 
@@ -66,7 +67,9 @@ class MenuActionBar extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (_) {
-                    return ShowReportStatusScreenWidget();
+                    return ShowReportStatusScreenWidget(
+                      postId: postId,
+                    );
                   });
             }),
         Padding(
@@ -121,6 +124,19 @@ class MenuActionBar extends StatelessWidget {
               //           title: Text(''),
               //         ),
               //       ),
+              PopupMenuItem(
+                child: ListTile(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (_) {
+                          return ShowSettingsWidget();
+                        });
+                  },
+                  leading: Icon(Icons.settings),
+                  title: Text('Ayarlar'),
+                ),
+              ),
               const PopupMenuDivider(),
               PopupMenuItem(
                   child: ListTile(

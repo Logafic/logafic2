@@ -12,7 +12,7 @@ import 'package:logafic/widgets/firstScreenColumnSecond.dart';
 // Kullanıcıların karşılandığı sayfa .Giriş yapmamış kullanıcılar bu web sayfasına yönlendiriliyor.
 //Kullanıcıların giriş ve kayıt olma arayüzüne yönlendirilmesi sağlanıyor.
 // Bu web sayfası büyük ekranlı cihazlar için 3 adet widget bölünmüştür.
-// Web sayfasının ekran görüntüsüne linkten ulaşılabilir.
+// Web sayfasının ekran görüntüsüne linkten ulaşılabilir. ' https://github.com/Logafic/logafic/blob/main/SS/first_screen_large.png '
 
 class FirstScreenTopBarContents extends StatefulWidget {
   final double opacity = 8;

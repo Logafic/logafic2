@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 AppBar appBarHomePageWidget() {
   return AppBar(
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.transparent,
     elevation: 0,
     centerTitle: true,
     title: Text(

@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/save '
-// Ekran görüntüleri github üzerinden erişilebilir. ->>
+// Ekran görüntüleri github üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/user_information_screen_large.png '
 // Yeni kayıt olmuş kullanıcı email adresini doğruladıktan sonra bu sayfaya yönlendirilir. Profile ve arka plan görselleri seçilebilir kullanıcı adı, üniversite,
 // bölüm ve doğum tarihi doldurulması zorunlu alanlardır.
 // Görsel seçimi için ImagePicker eklentisi kullanılmıştır. Seçilen görseller firebase storeage yüklenmektedir ve kullanıcı verilerine yüklenen
@@ -392,7 +392,7 @@ class _UserInformationState extends State<UserInformation> {
 
                         userProfile.userBackImage =
                             bannerRef != '' ? bannerRef : defaultBannerImage;
-                        userProfile.isAdmin = false;
+                        // userProfile.isAdmin = false;
                         userProfile.unreadMessage = false;
                         userProfile.unreadNotification = false;
 

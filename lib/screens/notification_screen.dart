@@ -5,12 +5,13 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 
 // Web sayfası adresi ' http://logafic.clicki/#/notification '
 // Kullanıcı bildirimlerin görüntülendiği web sayfası kullanıcının paylaşımlarına yapılan beğeni ve yorumlarına yapılan işlemlerin görüntülendiği sayfa
 // Cloud Firestore notifications koleksiyonu içerisinde her kullanıcının userId'si ile oluşturulan dokümanlar üzerinde depolanmaktadır.
 // notificationService ile bildirimlerin eklenmesi ve görüntülenen bildirimlerin işaretlenme işlemleri yapılıyor.
-// Ekran görüntüsü github adresi üzerinden erişilebilir. ->>
+// Ekran görüntüsü github adresi üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/notification_screen_large.png '
 
 // ignore: must_be_immutable
 class NotificationScreen extends StatelessWidget {
@@ -79,7 +80,7 @@ class NotificationScreen extends StatelessWidget {
                         'userId': authController.firebaseUser.value!.uid
                       });
                     },
-                    leading: Icon(Icons.reorder),
+                    leading: Icon(Icons.person),
                     title: Text('Profilim'),
                   ),
                 ),
@@ -99,6 +100,19 @@ class NotificationScreen extends StatelessWidget {
                     },
                     leading: Icon(Icons.message),
                     title: Text('Mesajlar'),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (_) {
+                            return ShowSettingsWidget();
+                          });
+                    },
+                    leading: Icon(Icons.settings),
+                    title: Text('Ayarlar'),
                   ),
                 ),
                 const PopupMenuDivider(),

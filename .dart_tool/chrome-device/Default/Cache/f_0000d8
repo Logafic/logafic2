@@ -1,1 +1,1279 @@
-{"web_entrypoint.dart":"20475682","packages/logafic/generated_plugin_registrant.dart":"212885949","packages/flutter_web_plugins/flutter_web_plugins.dart":"114870687","packages/flutter_web_plugins/src/plugin_registry.dart":"585359497","packages/flutter/services.dart":"936797914","packages/flutter/src/services/text_input.dart":"446231103","packages/flutter/src/services/text_editing.dart":"484055313","packages/flutter/foundation.dart":"689789749","packages/flutter/src/foundation/unicode.dart":"794739404","packages/flutter/src/foundation/synchronous_future.dart":"906056006","packages/flutter/src/foundation/stack_frame.dart":"620765881","packages/flutter/src/foundation/object.dart":"892611490","packages/flutter/src/foundation/constants.dart":"36208614","packages/meta/meta.dart":"205946281","packages/meta/meta_meta.dart":"636205142","packages/flutter/src/foundation/serialization.dart":"68785410","packages/typed_data/typed_buffers.dart":"625404734","packages/typed_data/src/typed_buffer.dart":"133370594","packages/flutter/src/foundation/print.dart":"428753703","packages/flutter/src/foundation/_platform_web.dart":"118657311","packages/flutter/src/foundation/observer_list.dart":"258865745","packages/flutter/src/foundation/node.dart":"537393972","packages/flutter/src/foundation/licenses.dart":"337429525","packages/flutter/src/foundation/key.dart":"690628308","packages/flutter/src/foundation/_isolates_web.dart":"645978077","packages/flutter/src/foundation/debug.dart":"546747821","packages/flutter/src/foundation/basic_types.dart":"712964471","packages/flutter/src/foundation/consolidate_response.dart":"84395199","packages/flutter/src/foundation/collections.dart":"305206122","packages/flutter/src/foundation/change_notifier.dart":"142644457","packages/flutter/src/foundation/_bitfield_web.dart":"825826546","packages/flutter/src/foundation/binding.dart":"414889056","packages/flutter/src/foundation/annotations.dart":"318362193","packages/flutter/src/services/system_chrome.dart":"1003150190","packages/flutter/src/services/system_channels.dart":"308839763","packages/flutter/scheduler.dart":"632698288","packages/flutter/src/scheduler/ticker.dart":"209466680","packages/flutter/src/scheduler/binding.dart":"935367341","packages/flutter/src/scheduler/priority.dart":"404665207","packages/flutter/src/scheduler/debug.dart":"794085772","packages/collection/src/union_set_controller.dart":"591905628","packages/collection/src/queue_list.dart":"756765575","packages/collection/src/priority_queue.dart":"230430581","packages/collection/src/utils.dart":"489604331","packages/collection/src/list_extensions.dart":"825203145","packages/collection/src/equality.dart":"1037997868","packages/collection/src/comparators.dart":"148666429","packages/collection/src/algorithms.dart":"696222183","packages/collection/src/iterable_zip.dart":"805492913","packages/collection/src/iterable_extensions.dart":"571006536","packages/collection/src/functions.dart":"721432227","packages/collection/src/combined_wrappers/combined_map.dart":"992799370","packages/collection/src/combined_wrappers/combined_iterable.dart":"1030109384","packages/collection/src/combined_wrappers/combined_iterator.dart":"129655329","packages/collection/src/combined_wrappers/combined_list.dart":"514119674","packages/collection/src/canonicalized_map.dart":"42539342","packages/vector_math/vector_math_64.dart":"308829393","packages/vector_math/hash.dart":"733396993","packages/flutter/src/services/text_formatter.dart":"316547458","packages/characters/characters.dart":"166067922","packages/characters/src/extensions.dart":"87416782","packages/characters/src/characters_impl.dart":"1698486","packages/characters/src/grapheme_clusters/breaks.dart":"255436974","packages/characters/src/grapheme_clusters/table.dart":"161963258","packages/characters/src/grapheme_clusters/constants.dart":"32357440","packages/flutter/src/services/system_sound.dart":"817802646","packages/flutter/src/services/system_navigator.dart":"601479227","packages/flutter/src/services/raw_keyboard_windows.dart":"856991295","packages/flutter/src/services/keyboard_maps.dart":"122479023","packages/flutter/src/services/keyboard_key.dart":"1023396171","packages/flutter/src/services/platform_views.dart":"1019160760","packages/flutter/gestures.dart":"293952119","packages/flutter/src/gestures/velocity_tracker.dart":"1052477928","packages/flutter/src/gestures/lsq_solver.dart":"883331218","packages/flutter/src/gestures/events.dart":"933546837","packages/flutter/src/gestures/constants.dart":"1007231905","packages/flutter/src/gestures/team.dart":"433156244","packages/flutter/src/gestures/binding.dart":"815566740","packages/flutter/src/gestures/resampler.dart":"451249476","packages/flutter/src/gestures/pointer_signal_resolver.dart":"250636948","packages/flutter/src/gestures/pointer_router.dart":"94636632","packages/flutter/src/gestures/hit_test.dart":"237777564","packages/flutter/src/gestures/debug.dart":"890752731","packages/flutter/src/gestures/converter.dart":"856570057","packages/flutter/src/gestures/arena.dart":"909571471","packages/flutter/src/gestures/tap.dart":"169752855","packages/flutter/src/gestures/recognizer.dart":"839322509","packages/flutter/src/gestures/scale.dart":"372435250","packages/flutter/src/gestures/multitap.dart":"757851868","packages/flutter/src/gestures/multidrag.dart":"924134506","packages/flutter/src/gestures/drag_details.dart":"264331666","packages/flutter/src/gestures/drag.dart":"369572372","packages/flutter/src/gestures/monodrag.dart":"1010613623","packages/flutter/src/gestures/long_press.dart":"729228941","packages/flutter/src/gestures/force_press.dart":"734761681","packages/flutter/src/gestures/eager.dart":"773952742","packages/flutter/src/services/mouse_tracking.dart":"194081327","packages/flutter/src/services/mouse_cursor.dart":"87411571","packages/flutter/src/services/haptic_feedback.dart":"901710253","packages/flutter/src/services/font_loader.dart":"479002745","packages/flutter/src/services/deferred_component.dart":"606619020","packages/flutter/src/services/clipboard.dart":"798985242","packages/flutter_web_plugins/src/plugin_event_channel.dart":"517654226","packages/flutter_web_plugins/src/navigation/utils.dart":"985186381","packages/flutter_web_plugins/src/navigation/url_strategy.dart":"191105195","packages/js/js.dart":"47977235","packages/image_picker_for_web/image_picker_for_web.dart":"1010824286","packages/image_picker_platform_interface/src/method_channel/method_channel_image_picker.dart":"306134122","packages/image_picker_platform_interface/src/types/picked_file/lost_data.dart":"436619024","packages/image_picker_platform_interface/src/types/picked_file/html.dart":"916192693","packages/image_picker_platform_interface/src/types/picked_file/base.dart":"847423817","packages/http/src/multipart_request.dart":"574526532","packages/http/src/utils.dart":"724853398","packages/http/src/byte_stream.dart":"950679860","packages/http_parser/http_parser.dart":"837784273","packages/http_parser/src/media_type.dart":"765700413","packages/http_parser/src/utils.dart":"120655701","packages/source_span/source_span.dart":"714050593","packages/source_span/src/location_mixin.dart":"136585812","packages/source_span/src/colors.dart":"910011694","packages/source_span/src/charcode.dart":"950393634","packages/term_glyph/src/generated/top_level.dart":"762035934","packages/term_glyph/src/generated/unicode_glyph_set.dart":"659636948","packages/term_glyph/src/generated/glyph_set.dart":"373713913","packages/term_glyph/src/generated/ascii_glyph_set.dart":"346142656","packages/path/src/path_set.dart":"515922913","packages/path/src/utils.dart":"306755993","packages/path/src/characters.dart":"815266550","packages/path/src/path_exception.dart":"394780265","packages/source_span/src/span_exception.dart":"203205084","packages/http_parser/src/scan.dart":"555046037","packages/string_scanner/string_scanner.dart":"1671401","packages/string_scanner/src/utils.dart":"1065369734","packages/charcode/charcode.dart":"512847621","packages/charcode/html_entity.dart":"804597882","packages/charcode/ascii.dart":"648685320","packages/string_scanner/src/relative_span_scanner.dart":"1065632612","packages/string_scanner/src/line_scanner.dart":"838946562","packages/http_parser/src/case_insensitive_map.dart":"5897582","packages/http_parser/src/http_date.dart":"286972257","packages/http_parser/src/chunked_coding.dart":"181035638","packages/http_parser/src/chunked_coding/encoder.dart":"864634582","packages/http_parser/src/chunked_coding/decoder.dart":"885714923","packages/typed_data/typed_data.dart":"632623846","packages/typed_data/src/typed_queue.dart":"1021794054","packages/http_parser/src/authentication_challenge.dart":"116152272","packages/http/src/exception.dart":"711497748","packages/pedantic/pedantic.dart":"326263682","packages/http/src/boundary_characters.dart":"1033439640","packages/image_picker_platform_interface/src/types/retrieve_type.dart":"984764110","packages/image_picker_platform_interface/src/types/image_source.dart":"461512064","packages/image_picker_platform_interface/src/types/camera_device.dart":"73207626","packages/plugin_platform_interface/plugin_platform_interface.dart":"989008750","packages/firebase_storage_web/firebase_storage_web.dart":"457491787","packages/firebase_storage_web/src/reference_web.dart":"813264475","packages/firebase_storage_web/src/utils/errors.dart":"205871184","packages/firebase_core/src/internals.dart":"559955579","packages/firebase_core_web/firebase_core_web_interop.dart":"299202358","packages/firebase_core_web/src/interop/utils/utils.dart":"85967931","packages/firebase_core_web/src/interop/utils/js_interop.dart":"643999215","packages/js/js_util.dart":"298601787","packages/firebase_core_web/src/interop/utils/func.dart":"88780929","packages/firebase_core_web/src/interop/utils/es6_interop.dart":"1042163872","packages/firebase_core_web/src/interop/utils/js.dart":"960902857","packages/firebase_core_web/src/interop/core.dart":"432521106","packages/firebase_core_web/src/interop/core_interop.dart":"930630134","packages/firebase_core_web/src/interop/app.dart":"279059503","packages/firebase_core_platform_interface/firebase_core_platform_interface.dart":"986248518","packages/flutter/cupertino.dart":"52722048","packages/flutter/widgets.dart":"187832529","packages/flutter/src/widgets/will_pop_scope.dart":"752306718","packages/flutter/src/widgets/widget_span.dart":"236512935","packages/flutter/rendering.dart":"99074608","packages/flutter/src/rendering/wrap.dart":"878266426","packages/flutter/src/rendering/layer.dart":"81168828","packages/flutter/painting.dart":"196551542","packages/flutter/src/painting/strut_style.dart":"516530777","packages/flutter/src/painting/basic_types.dart":"347785940","packages/flutter/src/painting/colors.dart":"1017848060","packages/flutter/src/painting/placeholder_span.dart":"137754459","packages/flutter/src/painting/stadium_border.dart":"229359140","packages/flutter/src/painting/rounded_rectangle_border.dart":"636879003","packages/flutter/src/painting/edge_insets.dart":"145968915","packages/flutter/src/painting/circle_border.dart":"864262806","packages/flutter/src/painting/borders.dart":"649436724","packages/flutter/src/painting/border_radius.dart":"689307080","packages/flutter/src/painting/shape_decoration.dart":"891171015","packages/flutter/src/painting/_network_image_web.dart":"193277152","packages/flutter/src/painting/image_stream.dart":"676851329","packages/flutter/src/painting/image_cache.dart":"934688563","packages/flutter/src/painting/binding.dart":"95797890","packages/flutter/src/painting/shader_warm_up.dart":"1040703832","packages/flutter/src/painting/gradient.dart":"1032183695","packages/flutter/src/painting/alignment.dart":"336027151","packages/flutter/src/painting/decoration_image.dart":"835928907","packages/flutter/src/painting/debug.dart":"902772090","packages/flutter/src/painting/box_fit.dart":"527679856","packages/flutter/src/painting/decoration.dart":"22977267","packages/flutter/src/painting/box_shadow.dart":"727873498","packages/flutter/src/painting/box_decoration.dart":"474191729","packages/flutter/src/painting/box_border.dart":"771746878","packages/flutter/src/painting/paint_utilities.dart":"849927685","packages/flutter/src/painting/notched_shapes.dart":"662448004","packages/flutter/src/painting/matrix_utils.dart":"1005832097","packages/flutter/src/painting/image_resolution.dart":"1059289000","packages/flutter/src/painting/image_decoder.dart":"861739815","packages/flutter/src/painting/geometry.dart":"985705101","packages/flutter/src/painting/fractional_offset.dart":"1044035764","packages/flutter/src/painting/flutter_logo.dart":"157361277","packages/flutter/src/painting/continuous_rectangle_border.dart":"991102058","packages/flutter/src/painting/clip.dart":"702575250","packages/flutter/src/painting/beveled_rectangle_border.dart":"469054433","packages/flutter/semantics.dart":"758497022","packages/flutter/src/semantics/semantics_service.dart":"1008446528","packages/flutter/src/semantics/semantics_event.dart":"955705728","packages/flutter/src/semantics/semantics.dart":"755514756","packages/flutter/src/semantics/binding.dart":"851606480","packages/flutter/src/semantics/debug.dart":"908722470","packages/flutter/animation.dart":"441992699","packages/flutter/src/animation/tween_sequence.dart":"103085054","packages/flutter/src/animation/listener_helpers.dart":"771492240","packages/flutter/src/animation/curves.dart":"13301055","packages/flutter/src/animation/animation_controller.dart":"32478134","packages/flutter/physics.dart":"154487035","packages/flutter/src/physics/utils.dart":"946671714","packages/flutter/src/physics/tolerance.dart":"1072771701","packages/flutter/src/physics/spring_simulation.dart":"260771367","packages/flutter/src/physics/simulation.dart":"527380566","packages/flutter/src/physics/gravity_simulation.dart":"159651191","packages/flutter/src/physics/friction_simulation.dart":"791667530","packages/flutter/src/physics/clamped_simulation.dart":"765178580","packages/flutter/src/rendering/layout_helper.dart":"168688578","packages/flutter/src/rendering/viewport_offset.dart":"473154094","packages/flutter/src/rendering/sliver.dart":"181833015","packages/flutter/src/rendering/tweens.dart":"859824561","packages/flutter/src/rendering/texture.dart":"809846208","packages/flutter/src/rendering/table_border.dart":"783213650","packages/flutter/src/rendering/table.dart":"61338053","packages/flutter/src/rendering/stack.dart":"840499615","packages/flutter/src/rendering/sliver_persistent_header.dart":"923265578","packages/flutter/src/rendering/sliver_padding.dart":"72190575","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"662353443","packages/flutter/src/rendering/sliver_list.dart":"980814041","packages/flutter/src/rendering/sliver_grid.dart":"464983026","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"261992116","packages/flutter/src/rendering/sliver_fill.dart":"655754756","packages/flutter/src/rendering/shifted_box.dart":"196814236","packages/flutter/src/rendering/debug_overflow_indicator.dart":"61455829","packages/flutter/src/rendering/rotated_box.dart":"478664103","packages/flutter/src/rendering/proxy_sliver.dart":"392259420","packages/flutter/src/rendering/proxy_box.dart":"1062923408","packages/flutter/src/rendering/platform_view.dart":"1060835545","packages/flutter/src/rendering/performance_overlay.dart":"476317846","packages/flutter/src/rendering/paragraph.dart":"1003954630","packages/flutter/src/rendering/list_wheel_viewport.dart":"466723562","packages/flutter/src/rendering/list_body.dart":"65228257","packages/flutter/src/rendering/image.dart":"922139960","packages/flutter/src/rendering/flow.dart":"270736584","packages/flutter/src/rendering/flex.dart":"1016899367","packages/flutter/src/rendering/error.dart":"575262228","packages/flutter/src/rendering/editable.dart":"343622998","packages/flutter/src/rendering/custom_paint.dart":"427588272","packages/flutter/src/rendering/custom_layout.dart":"74236832","packages/flutter/src/rendering/animated_size.dart":"867293234","packages/flutter/src/widgets/constants.dart":"993772577","packages/flutter/src/widgets/scroll_simulation.dart":"147962465","packages/flutter/src/widgets/scroll_metrics.dart":"125065776","packages/flutter/src/widgets/value_listenable_builder.dart":"641469830","packages/flutter/src/widgets/unique_widget.dart":"1027516619","packages/flutter/src/widgets/tween_animation_builder.dart":"94214255","packages/flutter/src/widgets/implicit_animations.dart":"140967402","packages/flutter/src/widgets/texture.dart":"39211954","packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart":"194932144","packages/flutter/src/widgets/status_transitions.dart":"423830434","packages/flutter/src/widgets/spacer.dart":"1010133488","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"811663979","packages/flutter/src/widgets/sliver_persistent_header.dart":"350637538","packages/flutter/src/widgets/sliver_layout_builder.dart":"580110535","packages/flutter/src/widgets/layout_builder.dart":"343860757","packages/flutter/src/widgets/sliver_fill.dart":"413466002","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"1041989951","packages/flutter/src/widgets/single_child_scroll_view.dart":"236860521","packages/flutter/src/widgets/scroll_view.dart":"378396554","packages/flutter/src/widgets/safe_area.dart":"1027378470","packages/flutter/src/widgets/reorderable_list.dart":"234234702","packages/flutter/src/widgets/raw_keyboard_listener.dart":"633794982","packages/flutter/src/widgets/preferred_size.dart":"211546744","packages/flutter/src/widgets/platform_view.dart":"102399861","packages/flutter/src/widgets/page_view.dart":"979983066","packages/flutter/src/widgets/overflow_bar.dart":"520022592","packages/flutter/src/widgets/orientation_builder.dart":"222747143","packages/flutter/src/widgets/nested_scroll_view.dart":"945071103","packages/flutter/src/widgets/navigation_toolbar.dart":"752225527","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"748651639","packages/flutter/src/widgets/interactive_viewer.dart":"358167995","packages/flutter/src/widgets/image_icon.dart":"24376385","packages/flutter/src/widgets/icon_theme_data.dart":"900018711","packages/flutter/src/widgets/icon_theme.dart":"67589831","packages/flutter/src/widgets/icon.dart":"173199819","packages/flutter/src/widgets/icon_data.dart":"723117868","packages/flutter/src/widgets/image_filter.dart":"932920461","packages/flutter/src/widgets/grid_paper.dart":"8968919","packages/flutter/src/widgets/form.dart":"423261896","packages/flutter/src/widgets/fade_in_image.dart":"544070967","packages/flutter/src/widgets/dual_transition_builder.dart":"456540166","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"558342955","packages/flutter/src/widgets/drag_target.dart":"23123485","packages/flutter/src/widgets/dismissible.dart":"843351409","packages/flutter/src/widgets/desktop_text_selection_toolbar_layout_delegate.dart":"725133751","packages/flutter/src/widgets/color_filter.dart":"163727573","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"576210268","packages/flutter/src/widgets/autocomplete.dart":"394370826","packages/flutter/src/widgets/async.dart":"682094872","packages/flutter/src/widgets/annotated_region.dart":"1009838464","packages/flutter/src/widgets/animated_switcher.dart":"632675494","packages/flutter/src/widgets/animated_size.dart":"491965999","packages/flutter/src/widgets/animated_list.dart":"242992533","packages/flutter/src/widgets/animated_cross_fade.dart":"346844053","packages/flutter/src/cupertino/thumb_painter.dart":"531052224","packages/flutter/src/cupertino/text_theme.dart":"653558760","packages/flutter/src/cupertino/interface_level.dart":"883563486","packages/flutter/src/cupertino/text_selection_toolbar_button.dart":"1020695464","packages/flutter/src/cupertino/button.dart":"259200232","packages/flutter/src/cupertino/constants.dart":"648128446","packages/flutter/src/cupertino/text_selection_toolbar.dart":"491966614","packages/flutter/src/cupertino/text_selection.dart":"422800408","packages/flutter/src/cupertino/debug.dart":"1027081562","packages/flutter/src/cupertino/text_form_field_row.dart":"551395971","packages/flutter/src/cupertino/text_field.dart":"6139257","packages/flutter/src/cupertino/icons.dart":"843573227","packages/flutter/src/cupertino/desktop_text_selection.dart":"699523559","packages/flutter/src/cupertino/form_row.dart":"493550704","packages/flutter/src/cupertino/tab_view.dart":"422192591","packages/flutter/src/cupertino/route.dart":"152296267","packages/flutter/src/cupertino/app.dart":"78320370","packages/flutter/src/cupertino/scrollbar.dart":"223626998","packages/flutter/src/cupertino/tab_scaffold.dart":"390989220","packages/flutter/src/cupertino/bottom_tab_bar.dart":"872843528","packages/flutter/src/cupertino/switch.dart":"943810441","packages/flutter/src/cupertino/sliding_segmented_control.dart":"712479470","packages/flutter/src/cupertino/slider.dart":"564584436","packages/flutter/src/cupertino/segmented_control.dart":"909935169","packages/flutter/src/cupertino/search_field.dart":"877762045","packages/flutter/src/cupertino/refresh.dart":"978596499","packages/flutter/src/cupertino/activity_indicator.dart":"968486681","packages/flutter/src/cupertino/picker.dart":"1008363706","packages/flutter/src/cupertino/page_scaffold.dart":"6976544","packages/flutter/src/cupertino/nav_bar.dart":"206177461","packages/flutter/src/cupertino/form_section.dart":"308115460","packages/flutter/src/cupertino/dialog.dart":"877541490","packages/flutter/src/cupertino/date_picker.dart":"679012606","packages/flutter/src/cupertino/context_menu_action.dart":"89481626","packages/flutter/src/cupertino/context_menu.dart":"5939468","packages/flutter/src/cupertino/action_sheet.dart":"298753997","packages/firebase_core/firebase_core.dart":"528383520","packages/firebase_storage_web/src/utils/metadata_cache.dart":"211719085","packages/firebase_storage_platform_interface/src/platform_interface/platform_interface_task_snapshot.dart":"107133091","packages/firebase_storage_platform_interface/src/task_state.dart":"256608351","packages/firebase_storage_platform_interface/src/settable_metadata.dart":"558106559","packages/firebase_storage_platform_interface/src/put_string_format.dart":"1059166049","packages/firebase_storage_platform_interface/src/internal/pointer.dart":"1029855426","packages/firebase_storage_platform_interface/src/method_channel/utils/exception.dart":"716834605","packages/flutter/material.dart":"793493754","packages/flutter/src/material/user_accounts_drawer_header.dart":"244696455","packages/flutter/src/material/icon_button.dart":"984346254","packages/flutter/src/material/typography.dart":"340640135","packages/flutter/src/material/colors.dart":"686924073","packages/flutter/src/material/input_border.dart":"910622377","packages/flutter/src/material/constants.dart":"870388492","packages/flutter/src/material/material_state.dart":"937799145","packages/flutter/src/material/floating_action_button_theme.dart":"399365967","packages/flutter/src/material/curves.dart":"29281454","packages/flutter/src/material/bottom_sheet_theme.dart":"774437432","packages/flutter/src/material/tab_indicator.dart":"228785099","packages/flutter/src/material/tab_controller.dart":"1005669479","packages/flutter/src/material/icons.dart":"538524262","packages/flutter/src/material/drawer_header.dart":"837357865","packages/flutter/src/material/toggleable.dart":"495017846","packages/flutter/src/material/toggle_buttons.dart":"641039585","packages/flutter/src/material/time_picker.dart":"563688734","packages/flutter/src/material/text_form_field.dart":"915419505","packages/flutter/src/material/text_field.dart":"123646932","packages/flutter/src/material/text_selection.dart":"815597033","packages/flutter/src/material/text_selection_toolbar_text_button.dart":"679227572","packages/flutter/src/material/text_selection_toolbar.dart":"251547598","packages/flutter/src/material/selectable_text.dart":"253632508","packages/flutter/src/material/desktop_text_selection.dart":"438514767","packages/flutter/src/material/button_bar.dart":"416424205","packages/flutter/src/material/switch_list_tile.dart":"963978767","packages/flutter/src/material/switch.dart":"243687855","packages/flutter/src/material/shadows.dart":"973022724","packages/flutter/src/material/stepper.dart":"931882313","packages/flutter/src/material/slider.dart":"469454825","packages/flutter/src/material/search.dart":"790911203","packages/flutter/src/material/scrollbar.dart":"449099482","packages/flutter/src/material/reorderable_list.dart":"52599025","packages/flutter/src/material/refresh_indicator.dart":"206653073","packages/flutter/src/material/progress_indicator.dart":"454498301","packages/flutter/src/material/range_slider.dart":"521770265","packages/flutter/src/material/radio_list_tile.dart":"1064918475","packages/flutter/src/material/radio.dart":"580305860","packages/flutter/src/material/popup_menu.dart":"1053328880","packages/flutter/src/material/paginated_data_table.dart":"828660119","packages/flutter/src/material/dropdown.dart":"293017646","packages/flutter/src/material/data_table_source.dart":"913114245","packages/flutter/src/material/data_table.dart":"414386438","packages/flutter/src/material/checkbox.dart":"158758124","packages/flutter/src/material/card.dart":"473552291","packages/flutter/src/material/page.dart":"833229406","packages/flutter/src/material/outlined_button.dart":"937426400","packages/flutter/src/material/no_splash.dart":"531144774","packages/flutter/src/material/mergeable_material.dart":"30917785","packages/flutter/src/material/input_date_picker_form_field.dart":"543816390","packages/flutter/src/material/date.dart":"1015260018","packages/flutter/src/material/grid_tile_bar.dart":"645105488","packages/flutter/src/material/grid_tile.dart":"813432472","packages/flutter/src/material/flutter_logo.dart":"602489223","packages/flutter/src/material/expansion_tile.dart":"246998684","packages/flutter/src/material/expansion_panel.dart":"185274960","packages/flutter/src/material/expand_icon.dart":"648356247","packages/flutter/src/material/elevated_button.dart":"372643404","packages/flutter/src/material/date_picker_deprecated.dart":"455855523","packages/flutter/src/material/date_picker.dart":"254974557","packages/flutter/src/material/calendar_date_picker.dart":"414983727","packages/flutter/src/material/circle_avatar.dart":"128371063","packages/flutter/src/material/chip.dart":"584922113","packages/flutter/src/material/checkbox_list_tile.dart":"123173202","packages/flutter/src/material/bottom_app_bar.dart":"475702020","packages/flutter/src/material/banner.dart":"136396488","packages/flutter/src/material/autocomplete.dart":"136600499","packages/flutter/src/material/arc.dart":"117887324","packages/flutter/src/material/app.dart":"515694482","packages/flutter/src/material/animated_icons.dart":"297316596","packages/flutter/src/material/about.dart":"937124528","packages/firebase_storage_platform_interface/src/list_options.dart":"594413438","packages/firebase_storage_platform_interface/src/full_metadata.dart":"74625921","packages/firebase_storage_web/src/utils/list.dart":"484690961","packages/firebase_storage_web/src/list_result_web.dart":"1038493697","packages/firebase_storage_web/src/interop/storage.dart":"103264511","packages/firebase_storage_web/src/interop/storage_interop.dart":"710067538","packages/firebase_storage_web/src/interop/firebase_interop.dart":"340723343","packages/firebase_storage_web/src/task_web.dart":"1040680160","packages/firebase_storage_web/src/task_snapshot_web.dart":"925011818","packages/firebase_storage_web/src/utils/metadata.dart":"439007804","packages/async/src/chunked_stream_reader.dart":"162037594","packages/async/src/utils.dart":"455868174","packages/async/src/typed_stream_transformer.dart":"303713528","packages/async/src/subscription_stream.dart":"681311041","packages/async/src/delegate/stream_subscription.dart":"39966719","packages/async/src/typed/stream_subscription.dart":"798191418","packages/async/src/stream_zip.dart":"935683370","packages/async/src/stream_subscription_transformer.dart":"325066101","packages/async/src/async_memoizer.dart":"677523479","packages/async/src/stream_splitter.dart":"3723133","packages/async/src/result/release_transformer.dart":"656828474","packages/async/src/stream_sink_transformer/typed.dart":"518741585","packages/async/src/delegate/stream_sink.dart":"631247064","packages/async/src/future_group.dart":"768892492","packages/async/src/stream_sink_extensions.dart":"1059040570","packages/async/src/stream_sink_transformer/reject_errors.dart":"162161862","packages/async/src/stream_sink_completer.dart":"855715784","packages/async/src/null_stream_sink.dart":"383167310","packages/async/src/stream_completer.dart":"504436586","packages/async/src/stream_group.dart":"511609471","packages/async/src/stream_closer.dart":"555129249","packages/async/src/single_subscription_transformer.dart":"79440078","packages/async/src/result/future.dart":"892675329","packages/async/src/delegate/future.dart":"271331741","packages/async/src/restartable_timer.dart":"144352379","packages/async/src/lazy_stream.dart":"202724615","packages/async/src/delegate/stream_consumer.dart":"1045411897","packages/async/src/delegate/stream.dart":"361070138","packages/async/src/delegate/sink.dart":"1023292418","packages/async/src/delegate/event_sink.dart":"976089674","packages/firebase_core_web/firebase_core_web.dart":"382095934","packages/firebase_auth_web/firebase_auth_web.dart":"539708570","packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart":"960844431","packages/firebase_auth_web/src/utils/web_utils.dart":"679184628","packages/firebase_auth_web/src/interop/auth.dart":"363522715","packages/firebase_auth_web/src/interop/auth_interop.dart":"466570676","packages/firebase_auth_web/src/interop/utils/utils.dart":"458367757","packages/firebase_auth_web/src/interop/firebase_interop.dart":"775031938","packages/firebase_auth_platform_interface/src/types.dart":"749840363","packages/firebase_auth_platform_interface/src/user_metadata.dart":"385713915","packages/firebase_auth_platform_interface/src/user_info.dart":"335365311","packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart":"860403484","packages/firebase_auth_platform_interface/src/auth_credential.dart":"469702090","packages/firebase_auth_platform_interface/src/auth_provider.dart":"1059571735","packages/firebase_auth_platform_interface/src/providers/saml_auth.dart":"615500446","packages/firebase_auth_platform_interface/src/action_code_settings.dart":"290695285","packages/firebase_auth_platform_interface/src/id_token_result.dart":"791612108","packages/firebase_auth_platform_interface/src/additional_user_info.dart":"975594012","packages/firebase_auth_platform_interface/src/action_code_info.dart":"460814285","packages/intl/intl.dart":"914949036","packages/intl/src/intl/text_direction.dart":"393569352","packages/intl/src/intl/number_parser.dart":"297270514","packages/intl/src/intl/number_format_parser.dart":"88920850","packages/intl/src/intl/string_iterator.dart":"156961346","packages/intl/number_symbols_data.dart":"443992711","packages/intl/number_symbols.dart":"640865359","packages/intl/src/intl/intl_stream.dart":"949073741","packages/intl/src/intl/regexp.dart":"920025679","packages/intl/src/intl/constants.dart":"303479585","packages/intl/src/intl_helpers.dart":"949795478","packages/intl/src/global_state.dart":"34672115","packages/intl/src/intl/micro_money.dart":"310335656","packages/intl/src/intl/date_format.dart":"693555616","packages/intl/src/intl/date_computation.dart":"779443051","packages/intl/src/intl/date_builder.dart":"510729232","packages/clock/src/stopwatch.dart":"68746357","packages/clock/src/utils.dart":"83480379","packages/intl/src/date_format_internal.dart":"425134155","packages/intl/date_symbols.dart":"179141042","packages/intl/src/intl/bidi_formatter.dart":"372975697","packages/intl/src/intl/bidi.dart":"361696165","packages/intl/src/plural_rules.dart":"519851249","packages/firebase_auth_web/src/firebase_auth_web_recaptcha_verifier_factory.dart":"187787438","packages/cloud_firestore_web/src/write_batch_web.dart":"1054922683","packages/cloud_firestore_web/src/interop/utils/utils.dart":"311740846","packages/cloud_firestore_platform_interface/src/platform_interface/utils/load_bundle_task_state.dart":"255628662","packages/cloud_firestore_platform_interface/src/load_bundle_task_state.dart":"1000190737","packages/cloud_firestore_platform_interface/src/persistence_settings.dart":"365452772","packages/cloud_firestore_platform_interface/src/set_options.dart":"891322660","packages/cloud_firestore_platform_interface/src/field_path.dart":"550165160","packages/cloud_firestore_platform_interface/src/internal/field_path_type.dart":"444769991","packages/cloud_firestore_platform_interface/src/get_options.dart":"330769519","packages/cloud_firestore_platform_interface/src/source.dart":"7702255","packages/cloud_firestore_platform_interface/src/settings.dart":"43477740","packages/cloud_firestore_platform_interface/src/timestamp.dart":"123028693","packages/cloud_firestore_platform_interface/src/snapshot_metadata.dart":"417076774","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_load_bundle_task.dart":"21753065","packages/cloud_firestore_platform_interface/src/platform_interface/platform_interface_field_value.dart":"980994732","packages/cloud_firestore_platform_interface/src/internal/pointer.dart":"203227371","packages/cloud_firestore_platform_interface/src/method_channel/utils/exception.dart":"220399803","packages/cloud_firestore_platform_interface/src/method_channel/utils/source.dart":"54878719","packages/cloud_firestore_platform_interface/src/method_channel/utils/auto_id_generator.dart":"897393743","packages/cloud_firestore_platform_interface/src/geo_point.dart":"870107709","packages/cloud_firestore_platform_interface/src/blob.dart":"173514280","packages/cloud_firestore_web/src/field_value_web.dart":"1000327476","packages/cloud_firestore_web/src/internals.dart":"750957826","packages/cloud_firestore_web/src/load_bundle_task_web.dart":"221759288","packages/logafic/main.dart":"965544101","packages/logafic/controllers/authController.dart":"209805059","packages/logafic/widgets/loading.dart":"832195848","packages/logafic/routing/router_names.dart":"273237935","packages/logafic/data_model/user_profile_model.dart":"532100819","packages/cloud_firestore/cloud_firestore.dart":"519500709","packages/get/get_navigation/src/routes/route_middleware.dart":"344126193","packages/get/get_utils/src/platform/platform_web.dart":"402821955","packages/get/get_utils/src/queue/get_queue.dart":"339917688","packages/get/get_utils/src/get_utils/get_utils.dart":"1030891866","packages/get/get_core/get_core.dart":"151173794","packages/get/get_core/src/typedefs.dart":"712671813","packages/get/get_core/src/smart_management.dart":"1070132270","packages/get/get_core/src/get_main.dart":"823166884","packages/get/get_utils/src/extensions/widget_extensions.dart":"209530832","packages/get/get_utils/src/extensions/string_extensions.dart":"570120441","packages/get/get_utils/src/extensions/num_extensions.dart":"128118046","packages/get/get_utils/src/extensions/internacionalization.dart":"368726444","packages/get/get_utils/src/extensions/event_loop_extensions.dart":"851146143","packages/get/get_utils/src/extensions/dynamic_extensions.dart":"573639518","packages/get/get_utils/src/extensions/duration_extensions.dart":"161579106","packages/get/get_utils/src/extensions/double_extensions.dart":"434524230","packages/get/get_state_manager/src/simple/list_notifier.dart":"298349970","packages/get/instance_manager.dart":"905786582","packages/get/get_instance/get_instance.dart":"640489996","packages/get/get_instance/src/lifecycle.dart":"482756614","packages/get/get_instance/src/get_instance.dart":"201668568","packages/get/get_instance/src/extension_instance.dart":"107026613","packages/get/get_instance/src/bindings_interface.dart":"102754687","packages/get/get_state_manager/src/simple/get_view.dart":"1024254211","packages/get/get_state_manager/src/simple/get_widget_cache.dart":"533787776","packages/get/utils.dart":"114867192","packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart":"267122515","packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart":"134786007","packages/get/get_rx/src/rx_types/rx_types.dart":"522443693","packages/get/get_rx/src/rx_typedefs/rx_typedefs.dart":"1068508425","packages/get/get_rx/src/rx_stream/rx_stream.dart":"718198808","packages/get/get_rx/get_rx.dart":"671504288","packages/get/get_rx/src/rx_workers/rx_workers.dart":"450120631","packages/get/get_rx/src/rx_workers/utils/debouncer.dart":"77492739","packages/get/get_navigation/src/routes/transitions_type.dart":"270456951","packages/get/get_navigation/src/routes/default_transitions.dart":"462494021","packages/get/get_navigation/src/routes/custom_transition.dart":"19572105","packages/get/get_navigation/src/dialog/dialog_route.dart":"689482610","packages/get/get_navigation/src/root/internacionalization.dart":"796411746","packages/get/get_navigation/src/bottomsheet/bottomsheet.dart":"652430721","packages/get/get_connect/connect.dart":"949662908","packages/get/get_connect/sockets/sockets.dart":"601280509","packages/get/get_connect/sockets/src/sockets_html.dart":"219441098","packages/get/get_connect/sockets/src/socket_notifier.dart":"119418389","packages/get/get_connect/http/src/interceptors/get_modifiers.dart":"910185454","packages/get/get_connect/http/src/status/http_status.dart":"356527678","packages/get/get_connect/http/src/http/html/file_decoder_html.dart":"665403549","packages/get/get_connect/http/src/utils/utils.dart":"874133622","packages/get/get_connect/http/src/exceptions/exceptions.dart":"597424341","packages/get/get_connect/http/src/certificates/certificates.dart":"761635503","packages/firebase_auth/firebase_auth.dart":"448469115","packages/logafic/services/navigation_service.dart":"324847490","packages/logafic/routing/router.dart":"228703953","packages/logafic/screens/verify_screen.dart":"556676163","packages/logafic/screens/user_information_screen.dart":"958091217","packages/image_picker/image_picker.dart":"846726483","packages/firebase_storage/firebase_storage.dart":"747813464","packages/firebase_storage/src/utils.dart":"804791503","packages/logafic/widgets/background.dart":"554820311","packages/logafic/screens/update_user_information.dart":"1012218074","packages/logafic/extensions/string_extensions.dart":"543000369","packages/logafic/data_model/routing_data.dart":"352627279","packages/logafic/screens/reset_password_screen.dart":"421871176","packages/logafic/widgets/formInputFieldWithIcon.dart":"563724369","packages/logafic/widgets/primaryButton.dart":"424132164","packages/logafic/widgets/labelButton.dart":"906960305","packages/logafic/widgets/formVerticalSpacing.dart":"639856688","packages/logafic/screens/first_screen.dart":"555531863","packages/logafic/widgets/firstScreenColumnSecond.dart":"128407623","packages/logafic/widgets/smallFirstScreen.dart":"719717785","packages/logafic/widgets/firstScreenColumnThird.dart":"761643142","packages/logafic/widgets/firstSccreenColumnFirst.dart":"193452911","packages/logafic/widgets/textFirstScreen.dart":"906863755","packages/logafic/widgets/appBarSingleAction.dart":"309754507","packages/logafic/widgets/responsive.dart":"744082584","packages/logafic/screens/register_screen.dart":"833036282","packages/logafic/widgets/FormInputFieldWithIcon.dart":"486830371","packages/logafic/helpers/validate.dart":"177607798","packages/logafic/screens/profile_screen.dart":"653037149","packages/logafic/widgets/updatePostWidget.dart":"349904388","packages/logafic/widgets/profileBarAction.dart":"973823930","packages/logafic/widgets/showAddedJobsDialogWidget.dart":"694145499","packages/logafic/services/messageService.dart":"808876074","packages/logafic/services/database.dart":"1039491215","packages/logafic/data_model/post_data_model.dart":"311211248","packages/logafic/data_model/jobs_model.dart":"541754070","packages/logafic/widgets/showAddedActivityDialogWidget.dart":"284958826","packages/logafic/widgets/messageScreenWidget.dart":"695969450","packages/logafic/widgets/deletePostProfileScreenWidget.dart":"18786756","packages/logafic/screens/notification_screen.dart":"382766787","packages/logafic/screens/message_screen.dart":"713905745","packages/logafic/widgets/userMessageScreenWidget.dart":"109874207","packages/logafic/widgets/deleteMessegaScreenWidget.dart":"656519430","packages/logafic/screens/login_screen.dart":"428116142","packages/logafic/screens/home_page.dart":"375334861","packages/logafic/widgets/top_bar_contents.dart":"627293798","packages/logafic/widgets/showDialogPostImageUploadWidget.dart":"353107176","packages/logafic/services/upload_image.dart":"678795927","packages/logafic/widgets/floating_quick_access_bar.dart":"577780639","packages/logafic/widgets/explore_drawer.dart":"898803161","packages/logafic/widgets/bottom_bar.dart":"132804564","packages/logafic/widgets/info_text.dart":"163814193","packages/logafic/widgets/bottom_bar_column.dart":"851479079","packages/logafic/widgets/appBarHomePageWidget.dart":"823936615","packages/logafic/services/notificationService.dart":"344366997","packages/logafic/screens/status_screen.dart":"171382347","packages/logafic/widgets/showCommentDialogStatusWidget.dart":"537001480","packages/logafic/widgets/menubaraction.dart":"639665902","packages/logafic/screens/show_my_jobs_posts.dart":"677729073","packages/logafic/widgets/showJobsWdiget.dart":"212178155","packages/logafic/widgets/showApplyJobsDiaologWidget.dart":"129322486","packages/logafic/screens/showUserInformationScreen.dart":"329515067","packages/logafic/screens/jobs_share_screen.dart":"427712294","packages/logafic/widgets/jobs_screen_floating_quick_access_bar_widget.dart":"863450915","packages/get_storage/get_storage.dart":"413769713","packages/path_provider/path_provider.dart":"856473937","packages/path_provider_platform_interface/src/method_channel_path_provider.dart":"918732331","packages/path_provider_platform_interface/src/enums.dart":"372716385","packages/platform/platform.dart":"756775806","packages/platform/src/testing/fake_platform.dart":"289242799","packages/platform/src/interface/platform.dart":"379870512","packages/platform/src/interface/local_platform.dart":"45363597","packages/path_provider_windows/path_provider_windows.dart":"248098115","packages/path_provider_windows/src/path_provider_windows_stub.dart":"79554590","packages/path_provider_windows/src/folders_stub.dart":"414674829","packages/path_provider_linux/path_provider_linux.dart":"861867952","packages/xdg_directories/xdg_directories.dart":"800626294","packages/process/src/interface/local_process_manager.dart":"30446283","packages/process/src/interface/process_wrapper.dart":"145751130","packages/process/src/interface/process_manager.dart":"878163769","packages/process/src/interface/exceptions.dart":"970638043","packages/process/src/interface/common.dart":"432750826","packages/file/local.dart":"456261494","packages/file/src/backends/local.dart":"399274561","packages/file/src/backends/local/local_file_system.dart":"314748743","packages/file/src/backends/local/local_link.dart":"858728145","packages/file/src/forwarding/forwarding_link.dart":"796703609","packages/file/src/interface.dart":"333690489","packages/file/src/io.dart":"355503286","packages/file/src/interface/link.dart":"51098140","packages/file/src/interface/error_codes.dart":"1071464367","packages/file/src/interface/error_codes_internal.dart":"872054476","packages/file/src/forwarding/forwarding_random_access_file.dart":"239120112","packages/file/src/common.dart":"402079969","packages/get_storage/src/value.dart":"266834766","packages/get/state_manager.dart":"398918358","packages/get_storage/src/storage_impl.dart":"606776457","packages/get_storage/src/storage/html.dart":"226977104","packages/get_storage/src/read_write_value.dart":"851268407"}
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/text_selection_toolbar_layout_delegate.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/animated_size.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/painting/border_radius.dart'], (function load__packages__flutter__src__material__text_selection_toolbar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__text_selection_toolbar_layout_delegate$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__animated_size$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__painting__border_radius$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const text_selection = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text_selection;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_selection_toolbar_layout_delegate = packages__flutter__src__widgets__text_selection_toolbar_layout_delegate$46dart.src__widgets__text_selection_toolbar_layout_delegate;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const material_localizations = packages__flutter__src__material__icon_button$46dart.src__material__material_localizations;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const animated_size = packages__flutter__src__widgets__animated_size$46dart.src__widgets__animated_size;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  var text_selection_toolbar = Object.create(dart.library);
+  var $length = dartx.length;
+  var $addAll = dartx.addAll;
+  var $where = dartx.where;
+  var $forEach = dartx.forEach;
+  var $_equals = dartx._equals;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    BuildContextAndWidgetToWidget: () => (T.BuildContextAndWidgetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    BoxHitTestResultAndOffsetTobool: () => (T.BoxHitTestResultAndOffsetTobool = dart.constFn(dart.fnType(core.bool, [box.BoxHitTestResult, ui.Offset])))(),
+    ElementTobool: () => (T.ElementTobool = dart.constFn(dart.fnType(core.bool, [framework.Element])))(),
+    RenderObjectTovoid: () => (T.RenderObjectTovoid = dart.constFn(dart.fnType(dart.void, [object.RenderObject])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(text_selection_toolbar.TextSelectionToolbar._defaultToolbarBuilder, T.BuildContextAndWidgetToWidget());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isAbove",
+        [_Location_column]: 15,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "toolbarBuilder",
+        [_Location_column]: 15,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 13,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], widget_inspector._Location);
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15], widget_inspector._Location);
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], widget_inspector._Location);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 140000
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 40,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 15,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 15,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltip",
+        [_Location_column]: 15,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isAbove",
+        [_Location_column]: 11,
+        [_Location_line]: 197,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflowOpen",
+        [_Location_column]: 11,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 196,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "vsync",
+        [_Location_column]: 9,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 9,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 196,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36, C[37] || CT.C37, C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflowOpen",
+        [_Location_column]: 7,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 190,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42, C[43] || CT.C43, C[44] || CT.C44], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 187,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.fn(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement._shouldPaint, T.ElementTobool());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: ui.Radius.prototype,
+        [Radius_y]: 7,
+        [Radius_x]: 7
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: border_radius.BorderRadius.prototype,
+        [BorderRadius_bottomRight]: C[47] || CT.C47,
+        [BorderRadius_bottomLeft]: C[47] || CT.C47,
+        [BorderRadius_topRight]: C[47] || CT.C47,
+        [BorderRadius_topLeft]: C[47] || CT.C47
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 7,
+        [_Location_line]: 657,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 658,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 7,
+        [_Location_line]: 659,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 7,
+        [_Location_line]: 660,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 661,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 654,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 0
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 9,
+        [_Location_line]: 689,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 9,
+        [_Location_line]: 690,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltip",
+        [_Location_column]: 9,
+        [_Location_line]: 691,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], widget_inspector._Location);
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[57] || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 685,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 7,
+        [_Location_line]: 683,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 7,
+        [_Location_line]: 684,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 685,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65], widget_inspector._Location);
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 682,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart"
+      });
+    }
+  }, false);
+  var C = Array(66).fill(void 0);
+  var I = [
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/text_selection_toolbar.dart",
+    "package:flutter/src/material/text_selection_toolbar.dart"
+  ];
+  var anchorAbove$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.anchorAbove");
+  var anchorBelow$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.anchorBelow");
+  var children$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.children");
+  var toolbarBuilder$ = dart.privateName(text_selection_toolbar, "TextSelectionToolbar.toolbarBuilder");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  text_selection_toolbar.TextSelectionToolbar = class TextSelectionToolbar extends framework.StatelessWidget {
+    get anchorAbove() {
+      return this[anchorAbove$];
+    }
+    set anchorAbove(value) {
+      super.anchorAbove = value;
+    }
+    get anchorBelow() {
+      return this[anchorBelow$];
+    }
+    set anchorBelow(value) {
+      super.anchorBelow = value;
+    }
+    get children() {
+      return this[children$];
+    }
+    set children(value) {
+      super.children = value;
+    }
+    get toolbarBuilder() {
+      return this[toolbarBuilder$];
+    }
+    set toolbarBuilder(value) {
+      super.toolbarBuilder = value;
+    }
+    static _defaultToolbarBuilder(context, child) {
+      return new text_selection_toolbar._TextSelectionToolbarContainer.new({child: child, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1});
+    }
+    build(context) {
+      let paddingAbove = media_query.MediaQuery.of(context).padding.top + 8;
+      let availableHeight = this.anchorAbove.dy - paddingAbove;
+      let fitsAbove = 44 <= availableHeight;
+      let localAdjustment = new ui.Offset.new(8, paddingAbove);
+      return new basic.Padding.new({padding: new edge_insets.EdgeInsets.fromLTRB(8, paddingAbove, 8, 8), child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new basic.CustomSingleChildLayout.new({delegate: new text_selection_toolbar_layout_delegate.TextSelectionToolbarLayoutDelegate.new({anchorAbove: this.anchorAbove['-'](localAdjustment), anchorBelow: this.anchorBelow['-'](localAdjustment), fitsAbove: fitsAbove}), child: new text_selection_toolbar._TextSelectionToolbarOverflowable.new({isAbove: fitsAbove, toolbarBuilder: this.toolbarBuilder, children: this.children, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9})]), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+    }
+  };
+  (text_selection_toolbar.TextSelectionToolbar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let anchorAbove = opts && 'anchorAbove' in opts ? opts.anchorAbove : null;
+    let anchorBelow = opts && 'anchorBelow' in opts ? opts.anchorBelow : null;
+    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : C[0] || CT.C0;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[anchorAbove$] = anchorAbove;
+    this[anchorBelow$] = anchorBelow;
+    this[toolbarBuilder$] = toolbarBuilder;
+    this[children$] = children;
+    if (!(children[$length] > 0)) dart.assertFailed(null, I[0], 44, 15, "children.length > 0");
+    text_selection_toolbar.TextSelectionToolbar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar.TextSelectionToolbar.prototype;
+  dart.addTypeTests(text_selection_toolbar.TextSelectionToolbar);
+  dart.addTypeCaches(text_selection_toolbar.TextSelectionToolbar);
+  dart.setMethodSignature(text_selection_toolbar.TextSelectionToolbar, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar.TextSelectionToolbar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar.TextSelectionToolbar, I[1]);
+  dart.setFieldSignature(text_selection_toolbar.TextSelectionToolbar, () => ({
+    __proto__: dart.getFields(text_selection_toolbar.TextSelectionToolbar.__proto__),
+    anchorAbove: dart.finalFieldType(ui.Offset),
+    anchorBelow: dart.finalFieldType(ui.Offset),
+    children: dart.finalFieldType(core.List$(framework.Widget)),
+    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
+  }));
+  var children$0 = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.children");
+  var isAbove$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.isAbove");
+  var toolbarBuilder$0 = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowable.toolbarBuilder");
+  text_selection_toolbar._TextSelectionToolbarOverflowable = class _TextSelectionToolbarOverflowable extends framework.StatefulWidget {
+    get children() {
+      return this[children$0];
+    }
+    set children(value) {
+      super.children = value;
+    }
+    get isAbove() {
+      return this[isAbove$];
+    }
+    set isAbove(value) {
+      super.isAbove = value;
+    }
+    get toolbarBuilder() {
+      return this[toolbarBuilder$0];
+    }
+    set toolbarBuilder(value) {
+      super.toolbarBuilder = value;
+    }
+    createState() {
+      return new text_selection_toolbar._TextSelectionToolbarOverflowableState.new();
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarOverflowable.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let toolbarBuilder = opts && 'toolbarBuilder' in opts ? opts.toolbarBuilder : null;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[isAbove$] = isAbove;
+    this[toolbarBuilder$0] = toolbarBuilder;
+    this[children$0] = children;
+    if (!(children[$length] > 0)) dart.assertFailed(null, I[0], 133, 15, "children.length > 0");
+    text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowable.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowable);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowable);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowable, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__),
+    createState: dart.fnType(text_selection_toolbar._TextSelectionToolbarOverflowableState, [])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowable, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowable, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowable.__proto__),
+    children: dart.finalFieldType(core.List$(framework.Widget)),
+    isAbove: dart.finalFieldType(core.bool),
+    toolbarBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, framework.Widget]))
+  }));
+  var _overflowOpen = dart.privateName(text_selection_toolbar, "_overflowOpen");
+  var _containerKey = dart.privateName(text_selection_toolbar, "_containerKey");
+  var _reset = dart.privateName(text_selection_toolbar, "_reset");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(text_selection_toolbar._TextSelectionToolbarOverflowable) {};
+  (State_TickerProviderStateMixin$36.new = function() {
+    ticker_provider.TickerProviderStateMixin$(text_selection_toolbar._TextSelectionToolbarOverflowable)[dart.mixinNew].call(this);
+    State_TickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_TickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(text_selection_toolbar._TextSelectionToolbarOverflowable));
+  text_selection_toolbar._TextSelectionToolbarOverflowableState = class _TextSelectionToolbarOverflowableState extends State_TickerProviderStateMixin$36 {
+    [_reset]() {
+      this[_containerKey] = new framework.UniqueKey.new();
+      this[_overflowOpen] = false;
+    }
+    didUpdateWidget(oldWidget) {
+      text_selection_toolbar._TextSelectionToolbarOverflowable.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (!collections.listEquals(framework.Widget, this.widget.children, oldWidget.children)) {
+        this[_reset]();
+      }
+    }
+    build(context) {
+      let t3, t2, t1;
+      if (!debug.debugCheckHasMaterialLocalizations(context)) dart.assertFailed(null, I[0], 184, 12, "debugCheckHasMaterialLocalizations(context)");
+      let localizations = material_localizations.MaterialLocalizations.of(context);
+      return new text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.new({key: this[_containerKey], overflowOpen: this[_overflowOpen], textDirection: basic.Directionality.of(context), child: new animated_size.AnimatedSize.new({vsync: this, duration: C[20] || CT.C20, child: (t1 = this.widget, t2 = context, t3 = new text_selection_toolbar._TextSelectionToolbarItemsLayout.new({isAbove: this.widget.isAbove, overflowOpen: this[_overflowOpen], children: (() => {
+              let t0 = T.JSArrayOfWidget().of([new text_selection_toolbar._TextSelectionToolbarOverflowButton.new({icon: new icon.Icon.new(this[_overflowOpen] ? icons.Icons.arrow_back : icons.Icons.more_vert, {$creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), onPressed: dart.fn(() => {
+                    this.setState(dart.fn(() => {
+                      this[_overflowOpen] = !this[_overflowOpen];
+                    }, T.VoidTovoid()));
+                  }, T.VoidTovoid()), tooltip: this[_overflowOpen] ? localizations.backButtonTooltip : localizations.moreButtonTooltip, $creationLocationd_0dea112b090073317d4: C[24] || CT.C24})]);
+              t0[$addAll](this.widget.children);
+              return t0;
+            })(), $creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), t1.toolbarBuilder(t2, t3)), $creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39});
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarOverflowableState.new = function() {
+    this[_overflowOpen] = false;
+    this[_containerKey] = new framework.UniqueKey.new();
+    text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowableState.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowableState);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowableState);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowableState, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__),
+    [_reset]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowableState, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowableState, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowableState.__proto__),
+    [_overflowOpen]: dart.fieldType(core.bool),
+    [_containerKey]: dart.fieldType(framework.UniqueKey)
+  }));
+  var overflowOpen$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarTrailingEdgeAlign.overflowOpen");
+  var textDirection$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarTrailingEdgeAlign.textDirection");
+  text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign = class _TextSelectionToolbarTrailingEdgeAlign extends framework.SingleChildRenderObjectWidget {
+    get overflowOpen() {
+      return this[overflowOpen$];
+    }
+    set overflowOpen(value) {
+      super.overflowOpen = value;
+    }
+    get textDirection() {
+      return this[textDirection$];
+    }
+    set textDirection(value) {
+      super.textDirection = value;
+    }
+    createRenderObject(context) {
+      return new text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.new({overflowOpen: this.overflowOpen, textDirection: this.textDirection});
+    }
+    updateRenderObject(context, renderObject) {
+      let t1;
+      text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.as(renderObject);
+      t1 = renderObject;
+      (() => {
+        t1.overflowOpen = this.overflowOpen;
+        t1.textDirection = this.textDirection;
+        return t1;
+      })();
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[overflowOpen$] = overflowOpen;
+    this[textDirection$] = textDirection;
+    if (!(child !== null)) dart.assertFailed(null, I[0], 235, 15, "child != null");
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 236, 15, "overflowOpen != null");
+    text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__),
+    createRenderObject: dart.fnType(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlign.__proto__),
+    overflowOpen: dart.finalFieldType(core.bool),
+    textDirection: dart.finalFieldType(ui.TextDirection)
+  }));
+  var _closedWidth = dart.privateName(text_selection_toolbar, "_closedWidth");
+  var _textDirection = dart.privateName(text_selection_toolbar, "_textDirection");
+  text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox = class _TextSelectionToolbarTrailingEdgeAlignRenderBox extends proxy_box.RenderProxyBox {
+    get overflowOpen() {
+      return this[_overflowOpen];
+    }
+    set overflowOpen(value) {
+      if (value === this.overflowOpen) {
+        return;
+      }
+      this[_overflowOpen] = value;
+      this.markNeedsLayout();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (value === this.textDirection) {
+        return;
+      }
+      this[_textDirection] = value;
+      this.markNeedsLayout();
+    }
+    performLayout() {
+      dart.nullCheck(this.child).layout(this.constraints.loosen(), {parentUsesSize: true});
+      if (!this.overflowOpen && this[_closedWidth] == null) {
+        this[_closedWidth] = dart.nullCheck(this.child).size.width;
+      }
+      this.size = this.constraints.constrain(new ui.Size.new(this[_closedWidth] == null || dart.nullCheck(this.child).size.width > dart.nullCheck(this[_closedWidth]) ? dart.nullCheck(this.child).size.width : dart.nullCheck(this[_closedWidth]), dart.nullCheck(this.child).size.height));
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      childParentData.offset = new ui.Offset.new(this.textDirection === ui.TextDirection.rtl ? 0.0 : this.size.width - dart.nullCheck(this.child).size.width, 0.0);
+    }
+    paint(context, offset) {
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      context.paintChild(dart.nullCheck(this.child), childParentData.offset['+'](offset));
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      return result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+          if (!transformed._equals(position['-'](childParentData.offset))) dart.assertFailed(null, I[0], 337, 16, "transformed == position - childParentData.offset");
+          return dart.nullCheck(this.child).hitTest(result, {position: transformed});
+        }, T.BoxHitTestResultAndOffsetTobool())});
+    }
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (!text_selection.ToolbarItemsParentData.is(child.parentData)) {
+        child.parentData = new text_selection.ToolbarItemsParentData.new();
+      }
+    }
+    applyPaintTransform(child, transform) {
+      object.RenderObject.as(child);
+      let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+      transform.translate(childParentData.offset.dx, childParentData.offset.dy);
+      super.applyPaintTransform(child, transform);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.new = function(opts) {
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    this[_closedWidth] = null;
+    this[_textDirection] = textDirection;
+    this[_overflowOpen] = overflowOpen;
+    text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox);
+  dart.setGetterSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getGetters(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    overflowOpen: core.bool,
+    textDirection: ui.TextDirection
+  }));
+  dart.setSetterSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getSetters(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    overflowOpen: core.bool,
+    textDirection: ui.TextDirection
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarTrailingEdgeAlignRenderBox.__proto__),
+    [_closedWidth]: dart.fieldType(dart.nullable(core.double)),
+    [_overflowOpen]: dart.fieldType(core.bool),
+    [_textDirection]: dart.fieldType(ui.TextDirection)
+  }));
+  text_selection_toolbar._TextSelectionToolbarItemsLayout = class _TextSelectionToolbarItemsLayout extends framework.MultiChildRenderObjectWidget {
+    createRenderObject(context) {
+      return new text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.new({isAbove: this.isAbove, overflowOpen: this.overflowOpen});
+    }
+    updateRenderObject(context, renderObject) {
+      let t1;
+      text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.as(renderObject);
+      t1 = renderObject;
+      (() => {
+        t1.isAbove = this.isAbove;
+        t1.overflowOpen = this.overflowOpen;
+        return t1;
+      })();
+    }
+    createElement() {
+      return new text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.new(this);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarItemsLayout.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    let children = opts && 'children' in opts ? opts.children : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this.isAbove = isAbove;
+    this.overflowOpen = overflowOpen;
+    if (!(children !== null)) dart.assertFailed(null, I[0], 366, 15, "children != null");
+    if (!(isAbove !== null)) dart.assertFailed(null, I[0], 367, 15, "isAbove != null");
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 368, 15, "overflowOpen != null");
+    text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__.new.call(this, {key: key, children: children, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarItemsLayout.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarItemsLayout);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarItemsLayout);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__),
+    createRenderObject: dart.fnType(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, [framework.BuildContext]),
+    createElement: dart.fnType(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement, [])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarItemsLayout, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarItemsLayout.__proto__),
+    isAbove: dart.finalFieldType(core.bool),
+    overflowOpen: dart.finalFieldType(core.bool)
+  }));
+  text_selection_toolbar._TextSelectionToolbarItemsLayoutElement = class _TextSelectionToolbarItemsLayoutElement extends framework.MultiChildRenderObjectElement {
+    static _shouldPaint(child) {
+      return text_selection.ToolbarItemsParentData.as(dart.nullCheck(dart.nullCheck(child.renderObject).parentData)).shouldPaint;
+    }
+    debugVisitOnstageChildren(visitor) {
+      this.children[$where](C[45] || CT.C45)[$forEach](visitor);
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.new = function(widget) {
+    text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.__proto__.new.call(this, widget);
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarItemsLayoutElement.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement);
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarItemsLayoutElement, I[1]);
+  var _lastIndexThatFits = dart.privateName(text_selection_toolbar, "_lastIndexThatFits");
+  var _isAbove = dart.privateName(text_selection_toolbar, "_isAbove");
+  var _layoutChildren = dart.privateName(text_selection_toolbar, "_layoutChildren");
+  var _shouldPaintChild = dart.privateName(text_selection_toolbar, "_shouldPaintChild");
+  var _placeChildren = dart.privateName(text_selection_toolbar, "_placeChildren");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, text_selection.ToolbarItemsParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, text_selection.ToolbarItemsParentData));
+  text_selection_toolbar._RenderTextSelectionToolbarItemsLayout = class _RenderTextSelectionToolbarItemsLayout extends RenderBox_ContainerRenderObjectMixin$36 {
+    get isAbove() {
+      return this[_isAbove];
+    }
+    set isAbove(value) {
+      if (value === this.isAbove) {
+        return;
+      }
+      this[_isAbove] = value;
+      this.markNeedsLayout();
+    }
+    get overflowOpen() {
+      return this[_overflowOpen];
+    }
+    set overflowOpen(value) {
+      if (value === this.overflowOpen) {
+        return;
+      }
+      this[_overflowOpen] = value;
+      this.markNeedsLayout();
+    }
+    [_layoutChildren]() {
+      let sizedConstraints = this[_overflowOpen] ? this.constraints : new box.BoxConstraints.loose(new ui.Size.new(this.constraints.maxWidth, 44));
+      let i = -1;
+      let width = 0.0;
+      this.visitChildren(dart.fn(renderObjectChild => {
+        i = i + 1;
+        if (this[_lastIndexThatFits] !== -1 && !this.overflowOpen) {
+          return;
+        }
+        let child = box.RenderBox.as(renderObjectChild);
+        child.layout(sizedConstraints.loosen(), {parentUsesSize: true});
+        width = width + child.size.width;
+        if (width > sizedConstraints.maxWidth && this[_lastIndexThatFits] === -1) {
+          this[_lastIndexThatFits] = i - 1;
+        }
+      }, T.RenderObjectTovoid()));
+      let navButton = dart.nullCheck(this.firstChild);
+      if (this[_lastIndexThatFits] !== -1 && this[_lastIndexThatFits] === this.childCount - 2 && width - navButton.size.width <= sizedConstraints.maxWidth) {
+        this[_lastIndexThatFits] = -1;
+      }
+    }
+    [_shouldPaintChild](renderObjectChild, index) {
+      if (renderObjectChild[$_equals](this.firstChild)) {
+        return this[_lastIndexThatFits] !== -1;
+      }
+      if (this[_lastIndexThatFits] === -1) {
+        return true;
+      }
+      return index > this[_lastIndexThatFits] === this.overflowOpen;
+    }
+    [_placeChildren]() {
+      let i = -1;
+      let nextSize = ui.Size.zero;
+      let fitWidth = 0.0;
+      let navButton = dart.nullCheck(this.firstChild);
+      let overflowHeight = this.overflowOpen && !this.isAbove ? navButton.size.height : 0.0;
+      this.visitChildren(dart.fn(renderObjectChild => {
+        i = i + 1;
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (renderObjectChild[$_equals](navButton)) {
+          return;
+        }
+        if (!this[_shouldPaintChild](renderObjectChild, i)) {
+          childParentData.shouldPaint = false;
+          return;
+        }
+        childParentData.shouldPaint = true;
+        if (!this.overflowOpen) {
+          childParentData.offset = new ui.Offset.new(fitWidth, 0.0);
+          fitWidth = fitWidth + child.size.width;
+          nextSize = new ui.Size.new(fitWidth, math.max(core.double, child.size.height, nextSize.height));
+        } else {
+          childParentData.offset = new ui.Offset.new(0.0, overflowHeight);
+          overflowHeight = overflowHeight + child.size.height;
+          nextSize = new ui.Size.new(math.max(core.double, child.size.width, nextSize.width), overflowHeight);
+        }
+      }, T.RenderObjectTovoid()));
+      let navButtonParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(navButton.parentData));
+      if (this[_shouldPaintChild](dart.nullCheck(this.firstChild), 0)) {
+        navButtonParentData.shouldPaint = true;
+        if (this.overflowOpen) {
+          navButtonParentData.offset = this.isAbove ? new ui.Offset.new(0.0, overflowHeight) : ui.Offset.zero;
+          nextSize = new ui.Size.new(nextSize.width, this.isAbove ? nextSize.height + navButton.size.height : nextSize.height);
+        } else {
+          navButtonParentData.offset = new ui.Offset.new(fitWidth, 0.0);
+          nextSize = new ui.Size.new(nextSize.width + navButton.size.width, nextSize.height);
+        }
+      } else {
+        navButtonParentData.shouldPaint = false;
+      }
+      this.size = nextSize;
+    }
+    performLayout() {
+      this[_lastIndexThatFits] = -1;
+      if (this.firstChild == null) {
+        this.size = this.constraints.smallest;
+        return;
+      }
+      this[_layoutChildren]();
+      this[_placeChildren]();
+    }
+    paint(context, offset) {
+      this.visitChildren(dart.fn(renderObjectChild => {
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (!childParentData.shouldPaint) {
+          return;
+        }
+        context.paintChild(child, childParentData.offset['+'](offset));
+      }, T.RenderObjectTovoid()));
+    }
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (!text_selection.ToolbarItemsParentData.is(child.parentData)) {
+        child.parentData = new text_selection.ToolbarItemsParentData.new();
+      }
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      let child = this.lastChild;
+      while (child != null) {
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (!childParentData.shouldPaint) {
+          child = childParentData.previousSibling;
+          continue;
+        }
+        let isHit = result.addWithPaintOffset({offset: childParentData.offset, position: position, hitTest: dart.fn((result, transformed) => {
+            if (!transformed._equals(position['-'](childParentData.offset))) dart.assertFailed(null, I[0], 618, 18, "transformed == position - childParentData.offset");
+            return dart.nullCheck(child).hitTest(result, {position: transformed});
+          }, T.BoxHitTestResultAndOffsetTobool())});
+        if (isHit) return true;
+        child = childParentData.previousSibling;
+      }
+      return false;
+    }
+    visitChildrenForSemantics(visitor) {
+      this.visitChildren(dart.fn(renderObjectChild => {
+        let child = box.RenderBox.as(renderObjectChild);
+        let childParentData = text_selection.ToolbarItemsParentData.as(dart.nullCheck(child.parentData));
+        if (childParentData.shouldPaint) {
+          visitor(renderObjectChild);
+        }
+      }, T.RenderObjectTovoid()));
+    }
+  };
+  (text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.new = function(opts) {
+    let isAbove = opts && 'isAbove' in opts ? opts.isAbove : null;
+    let overflowOpen = opts && 'overflowOpen' in opts ? opts.overflowOpen : null;
+    this[_lastIndexThatFits] = -1;
+    if (!(overflowOpen !== null)) dart.assertFailed(null, I[0], 412, 15, "overflowOpen != null");
+    if (!(isAbove !== null)) dart.assertFailed(null, I[0], 413, 15, "isAbove != null");
+    this[_isAbove] = isAbove;
+    this[_overflowOpen] = overflowOpen;
+    text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__.new.call(this);
+    ;
+  }).prototype = text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.prototype;
+  dart.addTypeTests(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout);
+  dart.addTypeCaches(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout);
+  dart.setMethodSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    [_layoutChildren]: dart.fnType(dart.void, []),
+    [_shouldPaintChild]: dart.fnType(core.bool, [object.RenderObject, core.int]),
+    [_placeChildren]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getGetters(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    isAbove: core.bool,
+    overflowOpen: core.bool
+  }));
+  dart.setSetterSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getSetters(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    isAbove: core.bool,
+    overflowOpen: core.bool
+  }));
+  dart.setLibraryUri(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._RenderTextSelectionToolbarItemsLayout.__proto__),
+    [_lastIndexThatFits]: dart.fieldType(core.int),
+    [_isAbove]: dart.fieldType(core.bool),
+    [_overflowOpen]: dart.fieldType(core.bool)
+  }));
+  var child$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarContainer.child");
+  var Radius_y = dart.privateName(ui, "Radius.y");
+  var Radius_x = dart.privateName(ui, "Radius.x");
+  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
+  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
+  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
+  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
+  text_selection_toolbar._TextSelectionToolbarContainer = class _TextSelectionToolbarContainer extends framework.StatelessWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    build(context) {
+      return new material.Material.new({borderRadius: C[46] || CT.C46, clipBehavior: ui.Clip.antiAlias, elevation: 1.0, type: material.MaterialType.card, child: this.child, $creationLocationd_0dea112b090073317d4: C[48] || CT.C48});
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarContainer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    text_selection_toolbar._TextSelectionToolbarContainer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarContainer.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarContainer);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarContainer);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarContainer, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarContainer.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarContainer, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarContainer, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarContainer.__proto__),
+    child: dart.finalFieldType(framework.Widget)
+  }));
+  var icon$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.icon");
+  var onPressed$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.onPressed");
+  var tooltip$ = dart.privateName(text_selection_toolbar, "_TextSelectionToolbarOverflowButton.tooltip");
+  var Color_value = dart.privateName(ui, "Color.value");
+  text_selection_toolbar._TextSelectionToolbarOverflowButton = class _TextSelectionToolbarOverflowButton extends framework.StatelessWidget {
+    get icon() {
+      return this[icon$];
+    }
+    set icon(value) {
+      super.icon = value;
+    }
+    get onPressed() {
+      return this[onPressed$];
+    }
+    set onPressed(value) {
+      super.onPressed = value;
+    }
+    get tooltip() {
+      return this[tooltip$];
+    }
+    set tooltip(value) {
+      super.tooltip = value;
+    }
+    build(context) {
+      return new material.Material.new({type: material.MaterialType.card, color: C[55] || CT.C55, child: new icon_button.IconButton.new({icon: this.icon, onPressed: this.onPressed, tooltip: this.tooltip, $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
+    }
+  };
+  (text_selection_toolbar._TextSelectionToolbarOverflowButton.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let icon = opts && 'icon' in opts ? opts.icon : null;
+    let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+    let tooltip = opts && 'tooltip' in opts ? opts.tooltip : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[icon$] = icon;
+    this[onPressed$] = onPressed;
+    this[tooltip$] = tooltip;
+    text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = text_selection_toolbar._TextSelectionToolbarOverflowButton.prototype;
+  dart.addTypeTests(text_selection_toolbar._TextSelectionToolbarOverflowButton);
+  dart.addTypeCaches(text_selection_toolbar._TextSelectionToolbarOverflowButton);
+  dart.setMethodSignature(text_selection_toolbar._TextSelectionToolbarOverflowButton, () => ({
+    __proto__: dart.getMethods(text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(text_selection_toolbar._TextSelectionToolbarOverflowButton, I[1]);
+  dart.setFieldSignature(text_selection_toolbar._TextSelectionToolbarOverflowButton, () => ({
+    __proto__: dart.getFields(text_selection_toolbar._TextSelectionToolbarOverflowButton.__proto__),
+    icon: dart.finalFieldType(icon.Icon),
+    onPressed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    tooltip: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  dart.defineLazy(text_selection_toolbar, {
+    /*text_selection_toolbar._kToolbarScreenPadding*/get _kToolbarScreenPadding() {
+      return 8;
+    },
+    /*text_selection_toolbar._kToolbarHeight*/get _kToolbarHeight() {
+      return 44;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/text_selection_toolbar.dart", {
+    "package:flutter/src/material/text_selection_toolbar.dart": text_selection_toolbar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["text_selection_toolbar.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/material/text_selection_toolbar.dart.lib.js"}');
+  // Exports:
+  return {
+    src__material__text_selection_toolbar: text_selection_toolbar
+  };
+}));
+
+//# sourceMappingURL=text_selection_toolbar.dart.lib.js.map

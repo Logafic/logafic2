@@ -6,10 +6,10 @@ import 'package:logafic/services/messageService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 // İş ve etkinlik ilanlarının ayrıntılarının görüntülendiği show dialog widget
-// Ekran görüntüsüne github adresi üzerinden erişilebilir
+// Ekran görüntüsüne github adresi üzerinden erişilebilir ' https://github.com/Logafic/logafic/blob/main/SS/jobs_apply_show_dialog.png '
 
-CollectionReference jobsRef = FirebaseFirestore.instance.collection('jobs');
-CollectionReference applyRef = FirebaseFirestore.instance.collection('users');
+CollectionReference _jobsRef = FirebaseFirestore.instance.collection('jobs');
+CollectionReference _applyRef = FirebaseFirestore.instance.collection('users');
 Future<void> showJobsWidget(BuildContext context, String jobsId) async {
   return showDialog(
       context: context,
@@ -28,7 +28,7 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
                   child: Padding(
                     padding: EdgeInsets.all(12),
                     child: FutureBuilder(
-                      future: jobsRef.doc(jobsId).get(),
+                      future: _jobsRef.doc(jobsId).get(),
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.hasError) {
                           return Center(
@@ -130,7 +130,7 @@ Future<void> showJobsWidget(BuildContext context, String jobsId) async {
 Future<bool> checkIfDocExists(String docId) async {
   try {
     // Get reference to Firestore collection
-    var doc = await applyRef
+    var doc = await _applyRef
         .doc('${authController.firebaseUser.value!.uid}')
         .collection('jobs')
         .doc(docId)

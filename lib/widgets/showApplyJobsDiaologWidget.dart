@@ -5,7 +5,7 @@ import 'package:logafic/widgets/responsive.dart';
 
 // İş veya Etkinlik ilanlarına başvuranları görüntülendiği show dialog
 // İlanlarım sayfasından erişilebilir
-// Ekran görüntüsü github adresinden erişilebilir.
+// Ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/activty_jobs_show_dialog.png '
 
 Future<void> showJobsApplyWidget(BuildContext context, String jobsId) async {
   final Stream<QuerySnapshot> _applicationstream = FirebaseFirestore.instance

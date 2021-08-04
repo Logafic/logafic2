@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 
 // Küçük ekranlar için kullanılan first screen widget
+// Ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/first_screen_small.png '
 
 Widget smallScreenFirstScreen(BuildContext context) {
   return Container(

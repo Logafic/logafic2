@@ -6,11 +6,12 @@ import 'package:logafic/widgets/background.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 import 'package:logafic/widgets/userMessageScreenWidget.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/message '
 // Mesweb sayfası iki bölümden oluşur tüm kullanıcıların görüntülendiği ve istenilen kullanıcıya mesaj gönderilen ve mesaj gönderilmiş kullanıcıların görüntülendiği bölümler.
-// Sayfanın ekran görüntüsü github adresinden erişilebilir.
+// Sayfanın ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/message_screen_large.png '
 // Gönderilen mesaj hem gönderen hemde mesaj gönderilen kişinin message koleksiyonuna ekleniyor.
 
 class MyHomePage extends StatefulWidget {
@@ -156,9 +157,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 PopupMenuItem(
                   child: ListTile(
                     onTap: () {
-                      Navigator.pushNamed(context, ProfileRoute);
+                      Navigator.pushNamed(context, ProfileRoute, arguments: {
+                        'userId': authController.firebaseUser.value!.uid
+                      });
                     },
-                    leading: Icon(Icons.reorder),
+                    leading: Icon(Icons.person),
                     title: Text('Profilim'),
                   ),
                 ),
@@ -178,6 +181,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     leading: Icon(Icons.message),
                     title: Text('Mesajlar'),
+                  ),
+                ),
+                PopupMenuItem(
+                  child: ListTile(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (_) {
+                            return ShowSettingsWidget();
+                          });
+                    },
+                    leading: Icon(Icons.settings),
+                    title: Text('Ayarlar'),
                   ),
                 ),
                 const PopupMenuDivider(),

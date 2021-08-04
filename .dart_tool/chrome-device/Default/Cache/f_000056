@@ -1,32 +1,27 @@
-define(['dart_sdk', 'packages/collection/src/iterable_extensions.dart'], (function load__packages__async__src__stream_group_dart(dart_sdk, packages__collection__src__iterable_extensions$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__services__mouse_cursor_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const iterable_extensions = packages__collection__src__iterable_extensions$46dart.src__iterable_extensions;
-  var stream_group = Object.create(dart.library);
-  var $isEmpty = dartx.isEmpty;
-  var $forEach = dartx.forEach;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const system_channels = packages__flutter__src__services__system_channels$46dart.src__services__system_channels;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var mouse_cursor = Object.create(dart.library);
   var $_equals = dartx._equals;
-  var $putIfAbsent = dartx.putIfAbsent;
+  var $_get = dartx._get;
   var $remove = dartx.remove;
-  var $entries = dartx.entries;
-  var $toList = dartx.toList;
   var $_set = dartx._set;
-  var $values = dartx.values;
-  var $map = dartx.map;
-  var $clear = dartx.clear;
+  var $runtimeType = dartx.runtimeType;
+  var $hashCode = dartx.hashCode;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    StreamControllerOfNull: () => (T$.StreamControllerOfNull = dart.constFn(async.StreamController$(core.Null)))(),
-    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
-    dynamicToNull: () => (T$.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
-    FutureNOfvoid: () => (T$.FutureNOfvoid = dart.constFn(dart.nullable(T$.FutureOfvoid())))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  var T = {
+    IdentityMapOfint$MouseCursorSession: () => (T.IdentityMapOfint$MouseCursorSession = dart.constFn(_js_helper.IdentityMap$(core.int, mouse_cursor.MouseCursorSession)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    DiagnosticsPropertyOfString: () => (T.DiagnosticsPropertyOfString = dart.constFn(diagnostics.DiagnosticsProperty$(core.String)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -34,296 +29,635 @@ define(['dart_sdk', 'packages/collection/src/iterable_extensions.dart'], (functi
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: stream_group._StreamGroupState.prototype,
-        [name$]: "dormant"
+        __proto__: diagnostics.DiagnosticLevel.prototype,
+        [_name]: "DiagnosticLevel.info",
+        index: 3
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: stream_group._StreamGroupState.prototype,
-        [name$]: "listening"
+        __proto__: mouse_cursor._DeferringMouseCursor.prototype
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: stream_group._StreamGroupState.prototype,
-        [name$]: "paused"
+        __proto__: mouse_cursor._NoopMouseCursor.prototype
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: stream_group._StreamGroupState.prototype,
-        [name$]: "canceled"
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "none"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "basic"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "click"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "forbidden"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "wait"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "progress"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "contextMenu"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "help"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "text"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "verticalText"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "cell"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "precise"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "move"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "grab"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "grabbing"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "noDrop"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "alias"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "copy"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "disappearing"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "allScroll"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeLeftRight"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpDown"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpLeftDownRight"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpRightDownLeft"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUp"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDown"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeLeft"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeRight"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpLeft"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeUpRight"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDownLeft"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeDownRight"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeColumn"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "resizeRow"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "zoomIn"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: mouse_cursor.SystemMouseCursor.prototype,
+        [kind$]: "zoomOut"
       });
     }
   }, false);
-  var C = Array(4).fill(void 0);
-  var I = ["package:async/src/stream_group.dart"];
-  var __StreamGroup__controller = dart.privateName(stream_group, "_#StreamGroup#_controller");
-  var _closed = dart.privateName(stream_group, "_closed");
-  var _state = dart.privateName(stream_group, "_state");
-  var _onIdleController = dart.privateName(stream_group, "_onIdleController");
-  var _subscriptions = dart.privateName(stream_group, "_subscriptions");
-  var _controller = dart.privateName(stream_group, "_controller");
-  var _onListen = dart.privateName(stream_group, "_onListen");
-  var _onPause = dart.privateName(stream_group, "_onPause");
-  var _onResume = dart.privateName(stream_group, "_onResume");
-  var _onCancel = dart.privateName(stream_group, "_onCancel");
-  var _onCancelBroadcast = dart.privateName(stream_group, "_onCancelBroadcast");
-  var _listenToStream = dart.privateName(stream_group, "_listenToStream");
-  const _is_StreamGroup_default = Symbol('_is_StreamGroup_default');
-  stream_group.StreamGroup$ = dart.generic(T => {
-    var StreamOfT = () => (StreamOfT = dart.constFn(async.Stream$(T)))();
-    var StreamSubscriptionOfT = () => (StreamSubscriptionOfT = dart.constFn(async.StreamSubscription$(T)))();
-    var StreamSubscriptionNOfT = () => (StreamSubscriptionNOfT = dart.constFn(dart.nullable(StreamSubscriptionOfT())))();
-    var LinkedMapOfStreamOfT$StreamSubscriptionNOfT = () => (LinkedMapOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(_js_helper.LinkedMap$(StreamOfT(), StreamSubscriptionNOfT())))();
-    var StreamControllerOfT = () => (StreamControllerOfT = dart.constFn(async.StreamController$(T)))();
-    var VoidToStreamSubscriptionOfT = () => (VoidToStreamSubscriptionOfT = dart.constFn(dart.fnType(StreamSubscriptionOfT(), [])))();
-    var MapEntryOfStreamOfT$StreamSubscriptionNOfT = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfT = dart.constFn(core.MapEntry$(StreamOfT(), StreamSubscriptionNOfT())))();
-    var MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = () => (MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid = dart.constFn(dart.fnType(T$.FutureNOfvoid(), [MapEntryOfStreamOfT$StreamSubscriptionNOfT()])))();
-    var StreamOfTAndStreamSubscriptionNOfTTovoid = () => (StreamOfTAndStreamSubscriptionNOfTTovoid = dart.constFn(dart.fnType(dart.void, [StreamOfT(), StreamSubscriptionNOfT()])))();
-    class StreamGroup extends core.Object {
-      get stream() {
-        return this[_controller].stream;
-      }
-      get [_controller]() {
+  var C = Array(39).fill(void 0);
+  var I = [
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/services/mouse_cursor.dart",
+    "package:flutter/src/services/mouse_cursor.dart"
+  ];
+  var fallbackMouseCursor$ = dart.privateName(mouse_cursor, "MouseCursorManager.fallbackMouseCursor");
+  var _lastSession = dart.privateName(mouse_cursor, "_lastSession");
+  mouse_cursor.MouseCursorManager = class MouseCursorManager extends core.Object {
+    get fallbackMouseCursor() {
+      return this[fallbackMouseCursor$];
+    }
+    set fallbackMouseCursor(value) {
+      super.fallbackMouseCursor = value;
+    }
+    debugDeviceActiveCursor(device) {
+      let result = null;
+      if (!dart.fn(() => {
         let t0;
-        t0 = this[__StreamGroup__controller];
-        return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
-      }
-      set [_controller](t0) {
-        this[__StreamGroup__controller] = t0;
-      }
-      get isClosed() {
-        return this[_closed];
-      }
-      get isIdle() {
-        return this[_subscriptions][$isEmpty];
-      }
-      get onIdle() {
-        let t1;
-        return (t1 = this[_onIdleController], t1 == null ? this[_onIdleController] = T$.StreamControllerOfNull().broadcast() : t1).stream;
-      }
-      static merge(T, streams) {
-        let group = new (stream_group.StreamGroup$(T)).new();
-        streams[$forEach](dart.bind(group, 'add'));
-        group.close();
-        return group.stream;
-      }
-      static mergeBroadcast(T, streams) {
-        let group = new (stream_group.StreamGroup$(T)).broadcast();
-        streams[$forEach](dart.bind(group, 'add'));
-        group.close();
-        return group.stream;
-      }
-      add(stream) {
-        StreamOfT().as(stream);
-        if (this[_closed]) {
-          dart.throw(new core.StateError.new("Can't add a Stream to a closed StreamGroup."));
-        }
-        if (this[_state][$_equals](stream_group._StreamGroupState.dormant)) {
-          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => null, T$.VoidToNull()));
-        } else if (this[_state][$_equals](stream_group._StreamGroupState.canceled)) {
-          return stream.listen(null).cancel();
-        } else {
-          this[_subscriptions][$putIfAbsent](stream, dart.fn(() => this[_listenToStream](stream), VoidToStreamSubscriptionOfT()));
-        }
-        return null;
-      }
-      remove(stream) {
-        let t1, t1$;
-        StreamOfT().as(stream);
-        let subscription = this[_subscriptions][$remove](stream);
-        let future = subscription == null ? null : subscription.cancel();
-        if (this[_subscriptions][$isEmpty]) {
-          t1 = this[_onIdleController];
-          t1 == null ? null : t1.add(null);
-          if (this[_closed]) {
-            t1$ = this[_onIdleController];
-            t1$ == null ? null : t1$.close();
-            async.scheduleMicrotask(dart.bind(this[_controller], 'close'));
-          }
-        }
-        return future;
-      }
-      [_onListen]() {
-        let t2;
-        this[_state] = stream_group._StreamGroupState.listening;
-        for (let entry of this[_subscriptions][$entries][$toList]()) {
-          if (entry.value != null) return;
-          let stream = entry.key;
-          try {
-            this[_subscriptions][$_set](stream, this[_listenToStream](stream));
-          } catch (e) {
-            let error = dart.getThrown(e);
-            if (core.Object.is(error)) {
-              t2 = this[_onCancel]();
-              t2 == null ? null : t2.catchError(dart.fn(_ => {
-              }, T$.dynamicToNull()));
-              dart.rethrow(e);
-            } else
-              throw e;
-          }
-        }
-      }
-      [_onPause]() {
-        this[_state] = stream_group._StreamGroupState.paused;
-        for (let subscription of this[_subscriptions][$values]) {
-          dart.nullCheck(subscription).pause();
-        }
-      }
-      [_onResume]() {
-        this[_state] = stream_group._StreamGroupState.listening;
-        for (let subscription of this[_subscriptions][$values]) {
-          dart.nullCheck(subscription).resume();
-        }
-      }
-      [_onCancel]() {
-        this[_state] = stream_group._StreamGroupState.canceled;
-        let futures = iterable_extensions['IterableNullableExtension|whereNotNull'](T$.FutureOfvoid(), this[_subscriptions][$entries][$map](T$.FutureNOfvoid(), dart.fn(entry => {
-          let subscription = entry.value;
-          if (subscription != null) return subscription.cancel();
-          try {
-            return entry.key.listen(null).cancel();
-          } catch (e) {
-            let _ = dart.getThrown(e);
-            if (core.Object.is(_)) {
-              return null;
-            } else
-              throw e;
-          }
-        }, MapEntryOfStreamOfT$StreamSubscriptionNOfTToFutureNOfvoid())))[$toList]();
-        this[_subscriptions][$clear]();
-        let onIdleController = this[_onIdleController];
-        if (onIdleController != null && !onIdleController.isClosed) {
-          onIdleController.add(null);
-          onIdleController.close();
-        }
-        return futures[$isEmpty] ? null : async.Future.wait(dart.void, futures);
-      }
-      [_onCancelBroadcast]() {
-        this[_state] = stream_group._StreamGroupState.dormant;
-        this[_subscriptions][$forEach](dart.fn((stream, subscription) => {
-          if (!stream.isBroadcast) return;
-          dart.nullCheck(subscription).cancel();
-          this[_subscriptions][$_set](stream, null);
-        }, StreamOfTAndStreamSubscriptionNOfTTovoid()));
-      }
-      [_listenToStream](stream) {
-        let subscription = stream.listen(dart.bind(this[_controller], 'add'), {onError: dart.bind(this[_controller], 'addError'), onDone: dart.fn(() => this.remove(stream), T$.VoidTovoid())});
-        if (this[_state][$_equals](stream_group._StreamGroupState.paused)) subscription.pause();
-        return subscription;
-      }
-      close() {
-        if (this[_closed]) return this[_controller].done;
-        this[_closed] = true;
-        if (this[_subscriptions][$isEmpty]) this[_controller].close();
-        return this[_controller].done;
-      }
+        result = (t0 = this[_lastSession][$_get](device), t0 == null ? null : t0.cursor);
+        return true;
+      }, T.VoidTobool())()) dart.assertFailed(null, I[0], 38, 12, "() {\r\n      result = _lastSession[device]?.cursor;\r\n      return true;\r\n    }()");
+      return result;
     }
-    (StreamGroup.new = function() {
-      this[__StreamGroup__controller] = null;
-      this[_closed] = false;
-      this[_state] = stream_group._StreamGroupState.dormant;
-      this[_onIdleController] = null;
-      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
-      this[_controller] = StreamControllerOfT().new({onListen: dart.bind(this, _onListen), onPause: dart.bind(this, _onPause), onResume: dart.bind(this, _onResume), onCancel: dart.bind(this, _onCancel), sync: true});
-    }).prototype = StreamGroup.prototype;
-    (StreamGroup.broadcast = function() {
-      this[__StreamGroup__controller] = null;
-      this[_closed] = false;
-      this[_state] = stream_group._StreamGroupState.dormant;
-      this[_onIdleController] = null;
-      this[_subscriptions] = new (LinkedMapOfStreamOfT$StreamSubscriptionNOfT()).new();
-      this[_controller] = StreamControllerOfT().broadcast({onListen: dart.bind(this, _onListen), onCancel: dart.bind(this, _onCancelBroadcast), sync: true});
-    }).prototype = StreamGroup.prototype;
-    dart.addTypeTests(StreamGroup);
-    StreamGroup.prototype[_is_StreamGroup_default] = true;
-    dart.addTypeCaches(StreamGroup);
-    StreamGroup[dart.implements] = () => [core.Sink$(async.Stream$(T))];
-    dart.setMethodSignature(StreamGroup, () => ({
-      __proto__: dart.getMethods(StreamGroup.__proto__),
-      add: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
-      remove: dart.fnType(dart.nullable(async.Future), [dart.nullable(core.Object)]),
-      [_onListen]: dart.fnType(dart.void, []),
-      [_onPause]: dart.fnType(dart.void, []),
-      [_onResume]: dart.fnType(dart.void, []),
-      [_onCancel]: dart.fnType(dart.nullable(async.Future), []),
-      [_onCancelBroadcast]: dart.fnType(dart.void, []),
-      [_listenToStream]: dart.fnType(async.StreamSubscription$(T), [async.Stream$(T)]),
-      close: dart.fnType(async.Future, [])
-    }));
-    dart.setGetterSignature(StreamGroup, () => ({
-      __proto__: dart.getGetters(StreamGroup.__proto__),
-      stream: async.Stream$(T),
-      [_controller]: async.StreamController$(T),
-      isClosed: core.bool,
-      isIdle: core.bool,
-      onIdle: async.Stream$(dart.void)
-    }));
-    dart.setSetterSignature(StreamGroup, () => ({
-      __proto__: dart.getSetters(StreamGroup.__proto__),
-      [_controller]: async.StreamController$(T)
-    }));
-    dart.setLibraryUri(StreamGroup, I[0]);
-    dart.setFieldSignature(StreamGroup, () => ({
-      __proto__: dart.getFields(StreamGroup.__proto__),
-      [__StreamGroup__controller]: dart.fieldType(dart.nullable(async.StreamController$(T))),
-      [_closed]: dart.fieldType(core.bool),
-      [_state]: dart.fieldType(stream_group._StreamGroupState),
-      [_onIdleController]: dart.fieldType(dart.nullable(async.StreamController$(core.Null))),
-      [_subscriptions]: dart.finalFieldType(core.Map$(async.Stream$(T), dart.nullable(async.StreamSubscription$(T))))
-    }));
-    return StreamGroup;
-  });
-  stream_group.StreamGroup = stream_group.StreamGroup$();
-  dart.addTypeTests(stream_group.StreamGroup, _is_StreamGroup_default);
-  var name$ = dart.privateName(stream_group, "_StreamGroupState.name");
-  stream_group._StreamGroupState = class _StreamGroupState extends core.Object {
-    get name() {
-      return this[name$];
-    }
-    set name(value) {
-      super.name = value;
-    }
-    toString() {
-      return this.name;
+    handleDeviceCursorUpdate(device, triggeringEvent, cursorCandidates) {
+      let t0, t0$, t0$0;
+      if (events.PointerRemovedEvent.is(triggeringEvent)) {
+        this[_lastSession][$remove](device);
+        return;
+      }
+      let lastSession = this[_lastSession][$_get](device);
+      let nextCursor = (t0 = mouse_cursor._DeferringMouseCursor.firstNonDeferred(cursorCandidates), t0 == null ? this.fallbackMouseCursor : t0);
+      if (!!mouse_cursor._DeferringMouseCursor.is(nextCursor)) dart.assertFailed(null, I[0], 68, 12, "nextCursor is! _DeferringMouseCursor");
+      if (dart.equals((t0$ = lastSession, t0$ == null ? null : t0$.cursor), nextCursor)) return;
+      let nextSession = nextCursor.createSession(device);
+      this[_lastSession][$_set](device, nextSession);
+      t0$0 = lastSession;
+      t0$0 == null ? null : t0$0.dispose();
+      nextSession.activate();
     }
   };
-  (stream_group._StreamGroupState.new = function(name) {
-    this[name$] = name;
+  (mouse_cursor.MouseCursorManager.new = function(fallbackMouseCursor) {
+    this[_lastSession] = new (T.IdentityMapOfint$MouseCursorSession()).new();
+    this[fallbackMouseCursor$] = fallbackMouseCursor;
+    if (!!fallbackMouseCursor[$_equals](mouse_cursor.MouseCursor.defer)) dart.assertFailed(null, I[0], 20, 14, "fallbackMouseCursor != MouseCursor.defer");
     ;
-  }).prototype = stream_group._StreamGroupState.prototype;
-  dart.addTypeTests(stream_group._StreamGroupState);
-  dart.addTypeCaches(stream_group._StreamGroupState);
-  dart.setLibraryUri(stream_group._StreamGroupState, I[0]);
-  dart.setFieldSignature(stream_group._StreamGroupState, () => ({
-    __proto__: dart.getFields(stream_group._StreamGroupState.__proto__),
-    name: dart.finalFieldType(core.String)
+  }).prototype = mouse_cursor.MouseCursorManager.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursorManager);
+  dart.addTypeCaches(mouse_cursor.MouseCursorManager);
+  dart.setMethodSignature(mouse_cursor.MouseCursorManager, () => ({
+    __proto__: dart.getMethods(mouse_cursor.MouseCursorManager.__proto__),
+    debugDeviceActiveCursor: dart.fnType(dart.nullable(mouse_cursor.MouseCursor), [core.int]),
+    handleDeviceCursorUpdate: dart.fnType(dart.void, [core.int, dart.nullable(events.PointerEvent), core.Iterable$(mouse_cursor.MouseCursor)])
   }));
-  dart.defineExtensionMethods(stream_group._StreamGroupState, ['toString']);
-  dart.defineLazy(stream_group._StreamGroupState, {
-    /*stream_group._StreamGroupState.dormant*/get dormant() {
-      return C[0] || CT.C0;
-    },
-    /*stream_group._StreamGroupState.listening*/get listening() {
+  dart.setLibraryUri(mouse_cursor.MouseCursorManager, I[1]);
+  dart.setFieldSignature(mouse_cursor.MouseCursorManager, () => ({
+    __proto__: dart.getFields(mouse_cursor.MouseCursorManager.__proto__),
+    fallbackMouseCursor: dart.finalFieldType(mouse_cursor.MouseCursor),
+    [_lastSession]: dart.finalFieldType(core.Map$(core.int, mouse_cursor.MouseCursorSession))
+  }));
+  var cursor$ = dart.privateName(mouse_cursor, "MouseCursorSession.cursor");
+  var device$ = dart.privateName(mouse_cursor, "MouseCursorSession.device");
+  mouse_cursor.MouseCursorSession = class MouseCursorSession extends core.Object {
+    get cursor() {
+      return this[cursor$];
+    }
+    set cursor(value) {
+      super.cursor = value;
+    }
+    get device() {
+      return this[device$];
+    }
+    set device(value) {
+      super.device = value;
+    }
+  };
+  (mouse_cursor.MouseCursorSession.new = function(cursor, device) {
+    this[cursor$] = cursor;
+    this[device$] = device;
+    if (!(cursor !== null)) dart.assertFailed(null, I[0], 104, 14, "cursor != null");
+    if (!(device !== null)) dart.assertFailed(null, I[0], 105, 14, "device != null");
+    ;
+  }).prototype = mouse_cursor.MouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursorSession);
+  dart.addTypeCaches(mouse_cursor.MouseCursorSession);
+  dart.setLibraryUri(mouse_cursor.MouseCursorSession, I[1]);
+  dart.setFieldSignature(mouse_cursor.MouseCursorSession, () => ({
+    __proto__: dart.getFields(mouse_cursor.MouseCursorSession.__proto__),
+    cursor: dart.finalFieldType(mouse_cursor.MouseCursor),
+    device: dart.finalFieldType(core.int)
+  }));
+  var _name = dart.privateName(diagnostics, "_name");
+  const Object_Diagnosticable$36 = class Object_Diagnosticable extends core.Object {};
+  (Object_Diagnosticable$36.new = function() {
+  }).prototype = Object_Diagnosticable$36.prototype;
+  dart.applyMixin(Object_Diagnosticable$36, diagnostics.Diagnosticable);
+  mouse_cursor.MouseCursor = class MouseCursor extends Object_Diagnosticable$36 {
+    toString(opts) {
+      let minLevel = opts && 'minLevel' in opts ? opts.minLevel : C[0] || CT.C0;
+      let debugDescription = this.debugDescription;
+      if (minLevel.index >= diagnostics.DiagnosticLevel.info.index && debugDescription !== null) return debugDescription;
+      return super.toString({minLevel: minLevel});
+    }
+  };
+  (mouse_cursor.MouseCursor.new = function() {
+    ;
+  }).prototype = mouse_cursor.MouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor.MouseCursor);
+  dart.addTypeCaches(mouse_cursor.MouseCursor);
+  dart.setLibraryUri(mouse_cursor.MouseCursor, I[1]);
+  dart.defineExtensionMethods(mouse_cursor.MouseCursor, ['toString']);
+  dart.defineLazy(mouse_cursor.MouseCursor, {
+    /*mouse_cursor.MouseCursor.defer*/get defer() {
       return C[1] || CT.C1;
     },
-    /*stream_group._StreamGroupState.paused*/get paused() {
+    /*mouse_cursor.MouseCursor.uncontrolled*/get uncontrolled() {
       return C[2] || CT.C2;
-    },
-    /*stream_group._StreamGroupState.canceled*/get canceled() {
-      return C[3] || CT.C3;
     }
   }, false);
-  dart.trackLibraries("packages/async/src/stream_group.dart", {
-    "package:async/src/stream_group.dart": stream_group
+  mouse_cursor._DeferringMouseCursor = class _DeferringMouseCursor extends mouse_cursor.MouseCursor {
+    createSession(device) {
+      if (!false) dart.assertFailed("_DeferringMouseCursor can not create a session", I[0], 266, 12, "false");
+      dart.throw(new core.UnimplementedError.new());
+    }
+    get debugDescription() {
+      return "defer";
+    }
+    static firstNonDeferred(cursors) {
+      for (let cursor of cursors) {
+        if (!(cursor !== null)) dart.assertFailed(null, I[0], 276, 14, "cursor != null");
+        if (!cursor[$_equals](mouse_cursor.MouseCursor.defer)) return cursor;
+      }
+      return null;
+    }
+  };
+  (mouse_cursor._DeferringMouseCursor.__ = function() {
+    mouse_cursor._DeferringMouseCursor.__proto__.new.call(this);
+    ;
+  }).prototype = mouse_cursor._DeferringMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor._DeferringMouseCursor);
+  dart.addTypeCaches(mouse_cursor._DeferringMouseCursor);
+  dart.setMethodSignature(mouse_cursor._DeferringMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor._DeferringMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor.MouseCursorSession, [core.int])
+  }));
+  dart.setGetterSignature(mouse_cursor._DeferringMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor._DeferringMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor._DeferringMouseCursor, I[1]);
+  mouse_cursor._NoopMouseCursorSession = class _NoopMouseCursorSession extends mouse_cursor.MouseCursorSession {
+    activate() {
+      return async.async(dart.void, function* activate() {
+      });
+    }
+    dispose() {
+    }
+  };
+  (mouse_cursor._NoopMouseCursorSession.new = function(cursor, device) {
+    mouse_cursor._NoopMouseCursorSession.__proto__.new.call(this, cursor, device);
+    ;
+  }).prototype = mouse_cursor._NoopMouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor._NoopMouseCursorSession);
+  dart.addTypeCaches(mouse_cursor._NoopMouseCursorSession);
+  dart.setMethodSignature(mouse_cursor._NoopMouseCursorSession, () => ({
+    __proto__: dart.getMethods(mouse_cursor._NoopMouseCursorSession.__proto__),
+    activate: dart.fnType(async.Future$(dart.void), []),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(mouse_cursor._NoopMouseCursorSession, I[1]);
+  mouse_cursor._NoopMouseCursor = class _NoopMouseCursor extends mouse_cursor.MouseCursor {
+    createSession(device) {
+      return new mouse_cursor._NoopMouseCursorSession.new(this, device);
+    }
+    get debugDescription() {
+      return "uncontrolled";
+    }
+  };
+  (mouse_cursor._NoopMouseCursor.__ = function() {
+    mouse_cursor._NoopMouseCursor.__proto__.new.call(this);
+    ;
+  }).prototype = mouse_cursor._NoopMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor._NoopMouseCursor);
+  dart.addTypeCaches(mouse_cursor._NoopMouseCursor);
+  dart.setMethodSignature(mouse_cursor._NoopMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor._NoopMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor._NoopMouseCursorSession, [core.int])
+  }));
+  dart.setGetterSignature(mouse_cursor._NoopMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor._NoopMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor._NoopMouseCursor, I[1]);
+  mouse_cursor._SystemMouseCursorSession = class _SystemMouseCursorSession extends mouse_cursor.MouseCursorSession {
+    get cursor() {
+      return mouse_cursor.SystemMouseCursor.as(super.cursor);
+    }
+    activate() {
+      return system_channels.SystemChannels.mouseCursor.invokeMethod(dart.void, "activateSystemCursor", new (T.IdentityMapOfString$dynamic()).from(["device", this.device, "kind", this.cursor.kind]));
+    }
+    dispose() {
+    }
+  };
+  (mouse_cursor._SystemMouseCursorSession.new = function(cursor, device) {
+    mouse_cursor._SystemMouseCursorSession.__proto__.new.call(this, cursor, device);
+    ;
+  }).prototype = mouse_cursor._SystemMouseCursorSession.prototype;
+  dart.addTypeTests(mouse_cursor._SystemMouseCursorSession);
+  dart.addTypeCaches(mouse_cursor._SystemMouseCursorSession);
+  dart.setMethodSignature(mouse_cursor._SystemMouseCursorSession, () => ({
+    __proto__: dart.getMethods(mouse_cursor._SystemMouseCursorSession.__proto__),
+    activate: dart.fnType(async.Future$(dart.void), []),
+    dispose: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(mouse_cursor._SystemMouseCursorSession, () => ({
+    __proto__: dart.getGetters(mouse_cursor._SystemMouseCursorSession.__proto__),
+    cursor: mouse_cursor.SystemMouseCursor
+  }));
+  dart.setLibraryUri(mouse_cursor._SystemMouseCursorSession, I[1]);
+  var kind$ = dart.privateName(mouse_cursor, "SystemMouseCursor.kind");
+  mouse_cursor.SystemMouseCursor = class SystemMouseCursor extends mouse_cursor.MouseCursor {
+    get kind() {
+      return this[kind$];
+    }
+    set kind(value) {
+      super.kind = value;
+    }
+    get debugDescription() {
+      return object.objectRuntimeType(this, "SystemMouseCursor") + "(" + this.kind + ")";
+    }
+    createSession(device) {
+      return new mouse_cursor._SystemMouseCursorSession.new(this, device);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
+      return mouse_cursor.SystemMouseCursor.is(other) && other.kind === this.kind;
+    }
+    get hashCode() {
+      return this.kind[$hashCode];
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfString()).new("kind", this.kind, {level: diagnostics.DiagnosticLevel.debug}));
+    }
+  };
+  (mouse_cursor.SystemMouseCursor.__ = function(opts) {
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[kind$] = kind;
+    if (!(kind !== null)) dart.assertFailed(null, I[0], 372, 15, "kind != null");
+    mouse_cursor.SystemMouseCursor.__proto__.new.call(this);
+    ;
+  }).prototype = mouse_cursor.SystemMouseCursor.prototype;
+  dart.addTypeTests(mouse_cursor.SystemMouseCursor);
+  dart.addTypeCaches(mouse_cursor.SystemMouseCursor);
+  dart.setMethodSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getMethods(mouse_cursor.SystemMouseCursor.__proto__),
+    createSession: dart.fnType(mouse_cursor._SystemMouseCursorSession, [core.int])
+  }));
+  dart.setGetterSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getGetters(mouse_cursor.SystemMouseCursor.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(mouse_cursor.SystemMouseCursor, I[1]);
+  dart.setFieldSignature(mouse_cursor.SystemMouseCursor, () => ({
+    __proto__: dart.getFields(mouse_cursor.SystemMouseCursor.__proto__),
+    kind: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(mouse_cursor.SystemMouseCursor, ['_equals']);
+  dart.defineExtensionAccessors(mouse_cursor.SystemMouseCursor, ['hashCode']);
+  mouse_cursor.SystemMouseCursors = class SystemMouseCursors extends core.Object {
+    static __() {
+      return dart.throw(new core.Error.new());
+    }
+  };
+  (mouse_cursor.SystemMouseCursors[dart.mixinNew] = function() {
+  }).prototype = mouse_cursor.SystemMouseCursors.prototype;
+  dart.addTypeTests(mouse_cursor.SystemMouseCursors);
+  dart.addTypeCaches(mouse_cursor.SystemMouseCursors);
+  dart.setLibraryUri(mouse_cursor.SystemMouseCursors, I[1]);
+  dart.defineLazy(mouse_cursor.SystemMouseCursors, {
+    /*mouse_cursor.SystemMouseCursors.none*/get none() {
+      return C[3] || CT.C3;
+    },
+    /*mouse_cursor.SystemMouseCursors.basic*/get basic() {
+      return C[4] || CT.C4;
+    },
+    /*mouse_cursor.SystemMouseCursors.click*/get click() {
+      return C[5] || CT.C5;
+    },
+    /*mouse_cursor.SystemMouseCursors.forbidden*/get forbidden() {
+      return C[6] || CT.C6;
+    },
+    /*mouse_cursor.SystemMouseCursors.wait*/get wait() {
+      return C[7] || CT.C7;
+    },
+    /*mouse_cursor.SystemMouseCursors.progress*/get progress() {
+      return C[8] || CT.C8;
+    },
+    /*mouse_cursor.SystemMouseCursors.contextMenu*/get contextMenu() {
+      return C[9] || CT.C9;
+    },
+    /*mouse_cursor.SystemMouseCursors.help*/get help() {
+      return C[10] || CT.C10;
+    },
+    /*mouse_cursor.SystemMouseCursors.text*/get text() {
+      return C[11] || CT.C11;
+    },
+    /*mouse_cursor.SystemMouseCursors.verticalText*/get verticalText() {
+      return C[12] || CT.C12;
+    },
+    /*mouse_cursor.SystemMouseCursors.cell*/get cell() {
+      return C[13] || CT.C13;
+    },
+    /*mouse_cursor.SystemMouseCursors.precise*/get precise() {
+      return C[14] || CT.C14;
+    },
+    /*mouse_cursor.SystemMouseCursors.move*/get move() {
+      return C[15] || CT.C15;
+    },
+    /*mouse_cursor.SystemMouseCursors.grab*/get grab() {
+      return C[16] || CT.C16;
+    },
+    /*mouse_cursor.SystemMouseCursors.grabbing*/get grabbing() {
+      return C[17] || CT.C17;
+    },
+    /*mouse_cursor.SystemMouseCursors.noDrop*/get noDrop() {
+      return C[18] || CT.C18;
+    },
+    /*mouse_cursor.SystemMouseCursors.alias*/get alias() {
+      return C[19] || CT.C19;
+    },
+    /*mouse_cursor.SystemMouseCursors.copy*/get copy() {
+      return C[20] || CT.C20;
+    },
+    /*mouse_cursor.SystemMouseCursors.disappearing*/get disappearing() {
+      return C[21] || CT.C21;
+    },
+    /*mouse_cursor.SystemMouseCursors.allScroll*/get allScroll() {
+      return C[22] || CT.C22;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeLeftRight*/get resizeLeftRight() {
+      return C[23] || CT.C23;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpDown*/get resizeUpDown() {
+      return C[24] || CT.C24;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpLeftDownRight*/get resizeUpLeftDownRight() {
+      return C[25] || CT.C25;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpRightDownLeft*/get resizeUpRightDownLeft() {
+      return C[26] || CT.C26;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUp*/get resizeUp() {
+      return C[27] || CT.C27;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDown*/get resizeDown() {
+      return C[28] || CT.C28;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeLeft*/get resizeLeft() {
+      return C[29] || CT.C29;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeRight*/get resizeRight() {
+      return C[30] || CT.C30;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpLeft*/get resizeUpLeft() {
+      return C[31] || CT.C31;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeUpRight*/get resizeUpRight() {
+      return C[32] || CT.C32;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDownLeft*/get resizeDownLeft() {
+      return C[33] || CT.C33;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeDownRight*/get resizeDownRight() {
+      return C[34] || CT.C34;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeColumn*/get resizeColumn() {
+      return C[35] || CT.C35;
+    },
+    /*mouse_cursor.SystemMouseCursors.resizeRow*/get resizeRow() {
+      return C[36] || CT.C36;
+    },
+    /*mouse_cursor.SystemMouseCursors.zoomIn*/get zoomIn() {
+      return C[37] || CT.C37;
+    },
+    /*mouse_cursor.SystemMouseCursors.zoomOut*/get zoomOut() {
+      return C[38] || CT.C38;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/services/mouse_cursor.dart", {
+    "package:flutter/src/services/mouse_cursor.dart": mouse_cursor
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["stream_group.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/async/src/stream_group.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["mouse_cursor.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/services/mouse_cursor.dart.lib.js"}');
   // Exports:
   return {
-    src__stream_group: stream_group
+    src__services__mouse_cursor: mouse_cursor
   };
 }));
 
-//# sourceMappingURL=stream_group.dart.lib.js.map
+//# sourceMappingURL=mouse_cursor.dart.lib.js.map

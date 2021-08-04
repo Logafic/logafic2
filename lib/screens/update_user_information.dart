@@ -12,7 +12,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // web sayfası adresi ' http://logafic.click/#/update '
-// Ekran görüntüsü Github adresi üzerinden erişilebilir.
+// Ekran görüntüsü Github adresi üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/update_profile_screen.png '
 // Kullanıcı bilgilerinin güncellendiği bu web sayfasına kullanıcının profil sayfası üzeriden erişilebilir.
 // Kullanıcı kullanıcı adı dışında profil, arka plan görsellerini değiştirebilir ve diğer kullanıcı bildilerini güncelleyebilir.
 

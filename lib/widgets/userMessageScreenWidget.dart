@@ -9,7 +9,7 @@ import 'package:logafic/widgets/responsive.dart';
 import 'messageScreenWidget.dart';
 
 // Son mesajların görüntülendiği widget
-// Ekran görüntüsü github adresi üzerinden erişilebilir.
+// Ekran görüntüsü github adresi üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/message_screen_small.png '
 
 class MessageScreenUserMessagesWidget extends StatelessWidget {
   MessageScreenUserMessagesWidget({Key? key}) : super(key: key);

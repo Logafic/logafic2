@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:logafic/widgets/responsive.dart';
 
 // Paylaşımların güncellenmesi için kullanılan show dialog widget
 // Ekran görüntüsü github adresinden erişilebilir.
@@ -21,8 +22,12 @@ Future<void> postUpdataShowDialog(BuildContext context, String postId,
                 var width = MediaQuery.of(context).size.width;
 
                 return Container(
-                    height: height * 0.3,
-                    width: width * 0.6,
+                    height: ResponsiveWidget.isSmallScreen(context)
+                        ? height
+                        : height / 2,
+                    width: ResponsiveWidget.isSmallScreen(context)
+                        ? height * 0.9
+                        : width * 0.6,
                     child: Padding(
                       padding: EdgeInsets.all(40),
                       child: Column(

@@ -8,6 +8,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   const dartx = dart_sdk.dartx;
   const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
   const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
   const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
   const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
   const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
@@ -29,7 +30,6 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
     FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
     VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
-    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
     ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
     IdentityMapOfString$ObjectN: () => (T.IdentityMapOfString$ObjectN = dart.constFn(_js_helper.IdentityMap$(core.String, T.ObjectN())))(),
     RxnOfUser: () => (T.RxnOfUser = dart.constFn(rx_types.Rxn$(firebase_auth.User)))(),
@@ -42,7 +42,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
     UserCredentialToFutureOfNull: () => (T.UserCredentialToFutureOfNull = dart.constFn(dart.fnType(T.FutureOfNull(), [firebase_auth.UserCredential])))(),
     FutureNOfvoid: () => (T.FutureNOfvoid = dart.constFn(dart.nullable(T.FutureOfvoid())))(),
-    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))()
+    VoidToFutureNOfvoid: () => (T.VoidToFutureNOfvoid = dart.constFn(dart.fnType(T.FutureNOfvoid(), [])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -58,8 +59,9 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   };
   messageService.lastMessage = function lastMessage(messageSentUserId, profileImage, messageSentUserName, message) {
     return async.async(dart.void, function* lastMessage() {
-      let lastMessageRef = cloud_firestore.FirebaseFirestore.instance.collection("users").doc(dart.nullCheck(messageService.authController.firebaseUser.value).uid).collection("lastMessages");
-      lastMessageRef.doc(messageSentUserId).set(new (T.IdentityMapOfString$String()).from(["profileImage", profileImage, "messageSentUser", messageSentUserName, "sender", dart.nullCheck(messageService.authController.firebaseUser.value).uid, "message", messageService.encodeMessage(message), "created_at", new core.DateTime.now().toString()]));
+      let lastMessageRef = cloud_firestore.FirebaseFirestore.instance.collection("users");
+      lastMessageRef.doc(dart.nullCheck(messageService.authController.firebaseUser.value).uid).collection("lastMessages").doc(messageSentUserId).set(new (T.IdentityMapOfString$dynamic()).from(["profileImage", profileImage, "messageSentUser", messageSentUserName, "sender", dart.nullCheck(messageService.authController.firebaseUser.value).uid, "message", messageService.encodeMessage(message), "created_at", new core.DateTime.now().toString()]));
+      lastMessageRef.doc(messageSentUserId).collection("lastMessages").doc(dart.nullCheck(messageService.authController.firebaseUser.value).uid).set(new (T.IdentityMapOfString$dynamic()).from(["profileImage", dart.nullCheck(messageService.authController.firestoreUser.value).userProfileImage, "messageSentUser", dart.nullCheck(messageService.authController.firestoreUser.value).userName, "sender", messageSentUserId, "message", messageService.encodeMessage(message), "created_at", new core.DateTime.now().toString()]));
     });
   };
   messageService.setReadMessage = function setReadMessage() {
@@ -93,7 +95,6 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
   var firestoreUser = dart.privateName(authController, "AuthController.firestoreUser");
   var newUser = dart.privateName(authController, "AuthController.newUser");
   var isRank = dart.privateName(authController, "AuthController.isRank");
-  var isAdmin = dart.privateName(authController, "AuthController.isAdmin");
   var _auth = dart.privateName(authController, "_auth");
   var _db = dart.privateName(authController, "_db");
   authController.AuthController = class AuthController extends get_controllers.GetxController {
@@ -138,12 +139,6 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     }
     set isRank(value) {
       this[isRank] = value;
-    }
-    get isAdmin() {
-      return this[isAdmin];
-    }
-    set isAdmin(value) {
-      this[isAdmin] = value;
     }
     onReady() {
       rx_workers.ever(T.UserN(), this.firebaseUser, dart.bind(this, 'handleAuthChanged'));
@@ -222,10 +217,11 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
       return async.async(dart.dynamic, (function* registerWithEmailAndPassword() {
         try {
           loading.showLoadingIndicator();
-          yield this[_auth].createUserWithEmailAndPassword({email: this.emailController.text, password: this.passwordController.text}).then(core.Null, dart.fn(result => async.async(core.Null, function*() {
+          yield this[_auth].createUserWithEmailAndPassword({email: this.emailController.text, password: this.passwordController.text}).then(core.Null, dart.fn(result => async.async(core.Null, (function*() {
+            dart.nullCheck(result.user).updateDisplayName(this.eduMailController.text);
             dart.nullCheck(result.user).sendEmailVerification();
             loading.hideLoadingIndicator();
-          }), T.UserCredentialToFutureOfNull()));
+          }).bind(this)), T.UserCredentialToFutureOfNull()));
         } catch (e) {
           let err = dart.getThrown(e);
           if (firebase_auth_exception.FirebaseAuthException.is(err)) {
@@ -256,6 +252,20 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
         }
       }).bind(this));
     }
+    reSendVerifyEmail() {
+      return async.async(dart.void, (function* reSendVerifyEmail() {
+        dart.nullCheck(this[_auth].currentUser).sendEmailVerification().whenComplete(dart.fn(() => {
+          extension_navigation['ExtensionSnackbar|snackbar'](dart.dynamic, get_main.Get, internacionalization['Trans|get#tr']("Şifreme yenileme bağlantı"), internacionalization['Trans|get#tr']("Şifrenizi yenilemeniz için bağlantı email adresinize gönderildi."), {snackPosition: snack.SnackPosition.BOTTOM, duration: new core.Duration.new({seconds: 5}), backgroundColor: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.backgroundColor, colorText: extension_navigation['GetNavigation|get#theme'](get_main.Get).snackBarTheme.actionTextColor});
+        }, T.VoidToNull()));
+      }).bind(this));
+    }
+    updateUserPassword(oldPassword, newPassword, context) {
+      return async.async(dart.void, (function* updateUserPassword() {
+        dart.nullCheck(this[_auth].currentUser).updatePassword(newPassword).whenComplete(dart.fn(() => {
+          navigator.Navigator.pop(T.ObjectN(), context);
+        }, T.VoidToNull()));
+      }).bind(this));
+    }
     signOut() {
       this.eduMailController.clear();
       this.emailController.clear();
@@ -273,7 +283,6 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     this[firestoreUser] = new (T.RxnOfUserProfile()).new();
     this[newUser] = false;
     this[isRank] = false;
-    this[isAdmin] = false;
     authController.AuthController.__proto__.new.call(this);
     ;
   }).prototype = authController.AuthController.prototype;
@@ -288,6 +297,8 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     registerWithEmailAndPassword: dart.fnType(dart.dynamic, [framework.BuildContext]),
     createUserFirestore: dart.fnType(dart.void, [user_profile_model.UserProfile, firebase_auth.User]),
     sendPasswordResetEmail: dart.fnType(async.Future$(dart.void), [framework.BuildContext]),
+    reSendVerifyEmail: dart.fnType(async.Future$(dart.void), []),
+    updateUserPassword: dart.fnType(async.Future$(dart.void), [core.String, core.String, framework.BuildContext]),
     signOut: dart.fnType(async.Future$(dart.void), [])
   }));
   dart.setGetterSignature(authController.AuthController, () => ({
@@ -309,8 +320,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     firebaseUser: dart.fieldType(rx_types.Rxn$(firebase_auth.User)),
     firestoreUser: dart.fieldType(rx_types.Rxn$(user_profile_model.UserProfile)),
     newUser: dart.fieldType(core.bool),
-    isRank: dart.fieldType(core.bool),
-    isAdmin: dart.fieldType(core.bool)
+    isRank: dart.fieldType(core.bool)
   }));
   dart.defineLazy(authController.AuthController, {
     /*authController.AuthController.to*/get to() {
@@ -322,7 +332,7 @@ define(['dart_sdk', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/f
     "package:logafic/services/messageService.dart": messageService,
     "package:logafic/controllers/authController.dart": authController
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["messageService.dart","../controllers/authController.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/logafic/services/messageService.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["messageService.dart","../controllers/authController.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;oDAkBgC,mBAA0B,cAC/C,qBAA4B;AADf;AAEF,qCACE,AAAS,sDAAW;AAQxC,MAPF,AACK,AACA,AACA,wBAHmB,KACkB,AAAE,eAAnC,AAAe,AAAa,kEACrB,iBAAiB,MACxB,4CACP,iBAAkD,AAAE,eAAnC,AAAe,AAAa,uDAC7C,WAAW,6BAAc,OAAO,GAChC,cAAuB;AASiC,MAP1D,AACK,AACA,AACA,AAIF,wBAPqB,KACf,iBAAiB,aACuB,AAAE,eAAnC,AAAe,AAAa,2DACnC,4CACP,iBAAkD,AAAE,eAAnC,AAAe,AAAa,uDAC7C,WAAW,6BAAc,OAAO,GAChC,cAAuB,wCACT,cAAM,gCAAiB,iBAAiB;AAEkB,MAA1E,2BAAY,iBAAiB,EAAE,YAAY,EAAE,mBAAmB,EAAE,OAAO;IAC3E;;oDAGgC,mBAA0B,cAC/C,qBAA4B;AADf;AAEF,2BACE,AAAS,sDAAW;AAWxC,MAVF,AACK,AACA,AACA,AACA,cAJS,KAC+B,AAAE,eAAnC,AAAe,AAAa,kEACxB,oBACP,iBAAiB,MACjB,4CACP,gBAAgB,YAAY,EAC5B,mBAAmB,mBAAmB,EACtC,UAA2C,AAAE,eAAnC,AAAe,AAAa,uDACtC,WAAW,6BAAc,OAAO,GAChC,cAAuB,AAAM;AAY7B,MAVF,AACK,AACA,AACA,AACA,cAJS,KACH,iBAAiB,aACZ,oBAC6B,AAAE,eAAnC,AAAe,AAAa,2DAC/B,4CACP,gBAAkD,AAAE,eAApC,AAAe,AAAc,qEAC7C,mBAAqD,AAAE,eAApC,AAAe,AAAc,6DAChD,UAAU,iBAAiB,EAC3B,WAAW,6BAAc,OAAO,GAChC,cAAuB,AAAM;IAEjC;;;AAG2B;AACL,wCACE,AAAS,sDAAW;AAIL,MAFrC,AACK,AACA,2BAFsB,KACe,AAAE,eAAnC,AAAe,AAAa,8DACzB,4CAAC,iBAAiB;IAChC;;wDAG4B;AAC1B,UAAO,AAAK,qBAAO,AAAO,sBAAO,OAAO;EAC1C;wDAG4B;AAC1B,UAAO,AAAO,uBAAO,AAAK,oBAAO,OAAO;EAC1C;8DAGqC;AAAR;AACP,wCACE,AAAS,sDAAW;AAIN,MAFpC,AACK,AACA,2BAFsB,KAClB,iBAAiB,SACd,4CAAC,iBAAiB;IAChC;;;MAzFe,6BAAc;YAAkB;;;;;;;;;;;;;;ICevB;;;;;;IAEA;;;;;;IAEA;;;;;;IAKZ;;;;;;IACO;;;;;;IAEZ;;;;;;IAEA;;;;;;;AAKkC,MAArC,2BAAK,6BAAc;AACU,MAA7B,AAAa,6BAAW;AACT,MAAT;IACR;;AAG6B,MAA3B,AAAkB;AACO,MAAzB,AAAgB;AACY,MAA5B,AAAmB;AACJ,MAAT;IACR;sBAEkB;;AAChB,gBAAI,aAAa,eAAb,OAAe;AAC8B,QAA/C,AAAc,8BAAW;;AAE3B,UAAI,AAAc,aAAD;AACY,QAAvB,gEAAJ;;AAEA,YAAI,AAAQ,iBAAG;AAG2B,UAFtB,AAAE,eAApB,AAAa,yCACH,gEAAJ,yBACI,gEAAJ;;AAIkC,UAFtB,AAAE,eAApB,AAAa,yCACH,gEAAJ,yBACI,gEAAJ;;;IAGZ;;AAEkC;AAC9B,cAAkC,AAAE,gBAApC,AAAe,AAAc;MAAyB;;;AAC7B;AACzB,cAAkC,AAAE,gBAApC,AAAe,AAAc;MAAoB;;;AAGzB;AAAS,cAAiB,AAAE,gBAAnB,AAAM;MAA0B;;;AAG3C;AAAS,cAAiB,gBAAjB,AAAM;MAAY;;;AAG3B,YAAA,AAAM;IAAkB;;AAGhD,YAAO,AACF,AACA,AACA,eAFI,AAAmC,YAAP,AAAE,eAApB,AAAa,8EAEvB,QAAC,YAAyB,uCAAuB,eAAf,AAAS,QAAD;IACrD;;AAGE,YAAO,AACF,AACA,AACA,eAFI,AAAmC,YAAP,AAAE,eAApB,AAAa,yEAEtB,QAAC,YAAyB,uCAAuB,eAAf,AAAS,QAAD;IACtD;+BAGwC;AAAd;AACF,QAAtB;AACA;AAG+C,UAF7C,MAAM,AAAM,+CACD,AAAgB,AAAK,8CAClB,AAAmB,AAAK;AACf,UAAvB,AAAgB;AACU,UAA1B,AAAmB;AACG,UAAtB;;cACgC;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAa,gBAAmB,AAAI,GAAD,6BACF,sCACnB,gCAAkB,sBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;iCAG0C;AAAd;AAC1B;AACwB,UAAtB;AAQE,UAPF,MAAM,AACD,AAEA,mDADU,AAAgB,qCAAgB,AAAmB,+CACxD,QAAC;AAC6C,YAA3C,AAAE,eAAb,AAAO,MAAD,yBAAyB,AAAkB;AACb,YAAzB,AAAE,eAAb,AAAO,MAAD;AACgB,YAAtB;UACD;;cAC+B;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAa,gCAA2C,eAAX,AAAI,GAAD,2BACf,sCACnB,gCAAkB,uBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;wBAEqC,MAAW;AAIK,MAHnD,AACK,AACA,AACA,cAFI,AAA6B,YAAnB,AAAc,aAAD,UACvB,AAAK,IAAD,wBACK,cAAU,6DAAJ;IAC1B;2BAGiD;AAAd;AACX,QAAtB;AACA;AACiE,UAA/D,MAAM,AAAM,2CAA8B,AAAgB;AACpC,UAAtB;AAMuD,UALnD,iEAAJ,cAAyC,qCAA5B,8BAC0D,qCAAnE,qFAC6B,sCACnB,gCAAkB,sBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;cACiB;AAAhC;AACsB,YAAtB;AAKuD,YAJnD,iEAAJ,cAAqC,qCAAxB,0BAAuC,eAAX,AAAI,GAAD,2BACX,sCACnB,gCAAkB,uBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;;;MAEnB;;;AAE8B;AAQ1B,QAPe,AAAE,AAAwB,eAA3C,AAAM,8DAAkD;AAMC,UALnD,iEAAJ,cAAyC,qCAA5B,8BAC0D,qCAAnE,qFAC6B,sCACnB,gCAAkB,sBACP,AAAM,AAAc,gDAAxB,wDACF,AAAM,AAAc,gDAAxB;;MAEnB;;uBAGW,aAAoB,aAA0B;AAD1B;AAI3B,QAFe,AAAE,AAA4B,eAA/C,AAAM,wCAA4B,WAAW,eAAe;AACpC,UAAZ,qCAAI,OAAO;;MAEzB;;;AAI2B,MAAzB,AAAkB;AACK,MAAvB,AAAgB;AACU,MAA1B,AAAmB;AACnB,YAAO,AAAM;IACf;;;IA7KsB,0BAAoB;IAEpB,wBAAkB;IAElB,2BAAqB;IAExB,cAAqB;IAEhB,YAAwB;IACtC,qBAAe;IACR,sBAAgB;IAE5B,gBAAU;IAEV,eAAS;;;EAgKhB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAhLwB,gCAAE;YAAO,gEAAJ","file":"../../../../../../../packages/logafic/services/messageService.dart.lib.js"}');
   // Exports:
   return {
     services__messageService: messageService,

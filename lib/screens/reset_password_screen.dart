@@ -12,7 +12,7 @@ import 'package:logafic/widgets/formInputFieldWithIcon.dart';
 // Login sayfasında yönlendirilen Şifreyi yenileme sayfası.
 // şifresini unutan kullanıcılar için sistemde kayıtlı mail adresine şifre yenileme bağlantısı gönderen sayfa.
 // Web sayfası adresi ' http://logafic.click/#/reset '
-// Ekran görüntüsüne github adresi üzerinden erişilebilir.
+// Ekran görüntüsüne github adresi üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/reset_screen_large.png '
 
 class ResetPasswordUI extends StatelessWidget {
   // AuthController nesnesi oluşturulluyor.

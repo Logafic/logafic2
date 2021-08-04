@@ -9,7 +9,7 @@ import 'package:logafic/widgets/responsive.dart';
 import 'package:logafic/widgets/showCommentDialogStatusWidget.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/status '
-// Ekran görüntüsü github adresi üzerinden ziyaret edilebilir.
+// Ekran görüntüsü github adresi üzerinden ziyaret edilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/status_screen_large.png '
 // Paylaşımların anasayfada 240 karakterlik kısmı gösteriliyor, kullanıcının paylaşımın bütününü görüntülemesi için kullanlır
 // Paylaşıma yapılan yorumlar bu sayfada görüntülenir, paylaşıma yorum yapılabilir. Paylaşımı yapan kullanıcının profili görüntülenebilir.
 // Kullanıcıya mesaj gönderilebilir ve paylaşım bildirilebilir.

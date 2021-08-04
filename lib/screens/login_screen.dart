@@ -11,9 +11,9 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-//Kayıt olmuş kullanıcının giriş yapması için login sayfası
+// Kayıt olmuş kullanıcının giriş yapması için login sayfası
 // Web sayfasının adresi ' http://logafic.click/#/login '
-// Ekran görüntüsü github adresinde erişilebilir.
+// Ekran görüntüsü github adresinde erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/login_screen_large.png '
 class _LoginScreenState extends State<LoginScreen> {
   //Form
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

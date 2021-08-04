@@ -4,6 +4,7 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/services/messageService.dart';
 import 'package:logafic/services/notificationService.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 
 // Anasayfa üst menü
 
@@ -309,6 +310,19 @@ class _TopBarContentsState extends State<TopBarContents> {
                       //           title: Text(''),
                       //         ),
                       //       ),
+                      PopupMenuItem(
+                        child: ListTile(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (_) {
+                                  return ShowSettingsWidget();
+                                });
+                          },
+                          leading: Icon(Icons.settings),
+                          title: Text('Ayarlar'),
+                        ),
+                      ),
                       const PopupMenuDivider(),
                       PopupMenuItem(
                           child: ListTile(

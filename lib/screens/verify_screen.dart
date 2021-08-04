@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
+import 'package:logafic/widgets/formVerticalSpacing.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/verify '
-// Ekran görüntüsü github adresinden erişilebilir.
+// Ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/verify_screen.png '
 //Email adresi doğrulanmamış kullanıcılar bu sayfaya yönlendirilir.
 
 class VerifyScreen extends StatefulWidget {
@@ -66,6 +67,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
                       .whenComplete(() => Get.offAllNamed(LoginRoute));
                 },
                 child: Text('Giriş sayfasına git')),
+            FormVerticalSpace(),
+            ElevatedButton(
+                onPressed: () {
+                  authController.reSendVerifyEmail();
+                },
+                child: Text('Tekrar Gönder')),
           ],
         ),
       )),

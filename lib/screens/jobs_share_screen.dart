@@ -19,7 +19,7 @@ class JobsShareScreen extends StatefulWidget {
 
 // Web sayfasının adresi ' http://logafic.click/#/jobs '
 // Kullanıcıların paylaşılmış ilanları görüntülemeleri bu ilanlara başvuruda bulunabilmeleri için oluşturulmuş web sayfası.
-// Sayfanın ekran görüntüsüne github adresi üzerinden ulaşılabilir.
+// Sayfanın ekran görüntüsüne github adresi üzerinden ulaşılabilir. ' https://github.com/Logafic/logafic/blob/main/SS/jobs_screen_large.png '
 
 class _JobSharesScreenState extends State<JobsShareScreen> {
   // İş ilanları ve etkinlik ilanlarını kategorik olarak listelememizi sağlayan referanslar
@@ -97,7 +97,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 child: GestureDetector(
                                   onTap: () {
-                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir.
+                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/jobs_apply_show_dialog.png '
                                     showJobsWidget(context, document.id);
                                   },
                                   child: Card(
@@ -162,7 +162,7 @@ class _JobSharesScreenState extends State<JobsShareScreen> {
                                                 padding: EdgeInsets.all(10),
                                                 child: TextButton(
                                                   onPressed: () {
-                                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir.
+                                                    // İlanın detaylı görüntülenmesi için kullanılan show dialog ekran görüntüsü github adresinde erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/jobs_apply_show_dialog.png '
                                                     showJobsWidget(
                                                         context, document.id);
                                                   },

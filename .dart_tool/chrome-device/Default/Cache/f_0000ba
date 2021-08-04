@@ -1,313 +1,366 @@
-define(['dart_sdk', 'packages/intl/src/intl/date_computation.dart', 'packages/clock/src/stopwatch.dart'], (function load__packages__intl__src__intl__date_builder_dart(dart_sdk, packages__intl__src__intl__date_computation$46dart, packages__clock__src__stopwatch$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__cupertino__activity_indicator_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const date_computation = packages__intl__src__intl__date_computation$46dart.src__intl__date_computation;
-  const $default = packages__clock__src__stopwatch$46dart.src__default;
-  var date_builder = Object.create(dart.library);
-  var $truncate = dartx.truncate;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  var activity_indicator = Object.create(dart.library);
+  var $length = dartx.length;
+  var $floor = dartx.floor;
+  var $modulo = dartx['%'];
+  var $_get = dartx._get;
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
   const CT = Object.create({
     _: () => (C, CT)
   });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1000000
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 9,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[3] || CT.C3], widget_inspector._Location);
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[2] || CT.C2,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 118,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293651445.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282137668.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: colors.CupertinoDynamicColor.prototype,
+        [Color_value]: 0,
+        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastElevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkElevatedColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_elevatedColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkHighContrastColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_highContrastColor]: C[11] || CT.C11,
+        [CupertinoDynamicColor_darkColor]: C[10] || CT.C10,
+        [CupertinoDynamicColor_color]: C[11] || CT.C11,
+        [CupertinoDynamicColor__debugResolveContext]: null,
+        [CupertinoDynamicColor__debugLabel]: null,
+        [CupertinoDynamicColor__effectiveColor]: C[11] || CT.C11
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([47, 47, 47, 47, 72, 97, 122, 147], core.int);
+    }
+  }, false);
+  var C = Array(13).fill(void 0);
   var I = [
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/src/intl/date_builder.dart",
-    "package:intl/src/intl/date_builder.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/cupertino/activity_indicator.dart",
+    "package:flutter/src/cupertino/activity_indicator.dart"
   ];
-  var year = dart.privateName(date_builder, "DateBuilder.year");
-  var month = dart.privateName(date_builder, "DateBuilder.month");
-  var day = dart.privateName(date_builder, "DateBuilder.day");
-  var dayOfYear = dart.privateName(date_builder, "DateBuilder.dayOfYear");
-  var hour = dart.privateName(date_builder, "DateBuilder.hour");
-  var minute = dart.privateName(date_builder, "DateBuilder.minute");
-  var second = dart.privateName(date_builder, "DateBuilder.second");
-  var fractionalSecond = dart.privateName(date_builder, "DateBuilder.fractionalSecond");
-  var pm = dart.privateName(date_builder, "DateBuilder.pm");
-  var utc = dart.privateName(date_builder, "DateBuilder.utc");
-  var dateOnly = dart.privateName(date_builder, "DateBuilder.dateOnly");
-  var _hasAmbiguousCentury = dart.privateName(date_builder, "_hasAmbiguousCentury");
-  var _date = dart.privateName(date_builder, "_date");
-  var _retried = dart.privateName(date_builder, "_retried");
-  var _locale$ = dart.privateName(date_builder, "_locale");
-  var _dateTimeConstructor$ = dart.privateName(date_builder, "_dateTimeConstructor");
-  var _verify = dart.privateName(date_builder, "_verify");
-  var _offsetYear = dart.privateName(date_builder, "_offsetYear");
-  var _correctForErrors = dart.privateName(date_builder, "_correctForErrors");
-  date_builder.DateBuilder = class DateBuilder extends core.Object {
-    get year() {
-      return this[year];
+  var animating$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.animating");
+  var radius$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.radius");
+  var progress$ = dart.privateName(activity_indicator, "CupertinoActivityIndicator.progress");
+  activity_indicator.CupertinoActivityIndicator = class CupertinoActivityIndicator extends framework.StatefulWidget {
+    get animating() {
+      return this[animating$];
     }
-    set year(value) {
-      this[year] = value;
+    set animating(value) {
+      super.animating = value;
     }
-    get month() {
-      return this[month];
+    get radius() {
+      return this[radius$];
     }
-    set month(value) {
-      this[month] = value;
+    set radius(value) {
+      super.radius = value;
     }
-    get day() {
-      return this[day];
+    get progress() {
+      return this[progress$];
     }
-    set day(value) {
-      this[day] = value;
+    set progress(value) {
+      super.progress = value;
     }
-    get dayOfYear() {
-      return this[dayOfYear];
-    }
-    set dayOfYear(value) {
-      this[dayOfYear] = value;
-    }
-    get hour() {
-      return this[hour];
-    }
-    set hour(value) {
-      this[hour] = value;
-    }
-    get minute() {
-      return this[minute];
-    }
-    set minute(value) {
-      this[minute] = value;
-    }
-    get second() {
-      return this[second];
-    }
-    set second(value) {
-      this[second] = value;
-    }
-    get fractionalSecond() {
-      return this[fractionalSecond];
-    }
-    set fractionalSecond(value) {
-      this[fractionalSecond] = value;
-    }
-    get pm() {
-      return this[pm];
-    }
-    set pm(value) {
-      this[pm] = value;
-    }
-    get utc() {
-      return this[utc];
-    }
-    set utc(value) {
-      this[utc] = value;
-    }
-    get dateOnly() {
-      return this[dateOnly];
-    }
-    set dateOnly(value) {
-      this[dateOnly] = value;
-    }
-    setYear(x) {
-      this.year = x;
-    }
-    setHasAmbiguousCentury(isAmbiguous) {
-      this[_hasAmbiguousCentury] = isAmbiguous;
-    }
-    setMonth(x) {
-      this.month = x;
-    }
-    setDay(x) {
-      this.day = x;
-    }
-    setDayOfYear(x) {
-      this.dayOfYear = x;
-    }
-    get dayOrDayOfYear() {
-      return this.dayOfYear === 0 ? this.day : this.dayOfYear;
-    }
-    setHour(x) {
-      this.hour = x;
-    }
-    setMinute(x) {
-      this.minute = x;
-    }
-    setSecond(x) {
-      this.second = x;
-    }
-    setFractionalSecond(x) {
-      this.fractionalSecond = x;
-    }
-    get hour24() {
-      return this.pm ? this.hour + 12 : this.hour;
-    }
-    verify(s) {
-      this[_verify](this.month, 1, 12, "month", s);
-      this[_verify](this.hour24, 0, 23, "hour", s);
-      this[_verify](this.minute, 0, 59, "minute", s);
-      this[_verify](this.second, 0, 59, "second", s);
-      this[_verify](this.fractionalSecond, 0, 999, "fractional second", s);
-      let date = this.asDate();
-      let minimumDate = this.dateOnly && date.hour === 1 ? 0 : date.hour;
-      this[_verify](this.hour24, minimumDate, date.hour, "hour", s, date);
-      if (this.dayOfYear > 0) {
-        let leapYear = date_computation.isLeapYear(date);
-        let correspondingDay = date_computation.dayOfYear(date.month, date.day, leapYear);
-        this[_verify](this.dayOfYear, correspondingDay, correspondingDay, "dayOfYear", s, date);
-      } else {
-        this[_verify](this.day, date.day, date.day, "day", s, date);
-      }
-      this[_verify](this.year, date.year, date.year, "year", s, date);
-    }
-    [_verify](value, min, max, desc, originalInput, parsed = null) {
-      let t0, t0$;
-      if (value < min || value > max) {
-        let parsedDescription = parsed == null ? "" : " Date parsed as " + dart.str(parsed) + ".";
-        let errorDescription = "Error parsing " + originalInput + ", invalid " + desc + " value: " + dart.str(value) + " in " + this[_locale$] + " with time zone offset " + dart.str((t0$ = (t0 = parsed, t0 == null ? null : t0.timeZoneOffset), t0$ == null ? "unknown" : t0$)) + "." + " Expected value between " + dart.str(min) + " and " + dart.str(max) + "." + parsedDescription + ".";
-        if (this[_retried] > 0) {
-          errorDescription = errorDescription + (" Failed after " + dart.str(this[_retried]) + " retries.");
-        }
-        dart.throw(new core.FormatException.new(errorDescription));
-      }
-    }
-    [_offsetYear](dateTime, offsetYears) {
-      let t7, t6, t5, t4, t3, t2, t1, t0;
-      t0 = dateTime.year + offsetYears;
-      t1 = dateTime.month;
-      t2 = dateTime.day;
-      t3 = dateTime.hour;
-      t4 = dateTime.minute;
-      t5 = dateTime.second;
-      t6 = dateTime.millisecond;
-      t7 = dateTime.isUtc;
-      return this[_dateTimeConstructor$](t0, t1, t2, t3, t4, t5, t6, t7);
-    }
-    asDate(opts) {
-      let t7, t6, t5, t4, t3, t2, t1, t0, t7$, t6$, t5$, t4$, t3$, t2$, t1$, t0$, t7$0, t6$0, t5$0, t4$0, t3$0, t2$0, t1$0, t0$0;
-      let retries = opts && 'retries' in opts ? opts.retries : 3;
-      if (this[_date] != null) return dart.nullCheck(this[_date]);
-      let preliminaryResult = null;
-      let hasCentury = !this[_hasAmbiguousCentury] || this.year < 0 || this.year >= 100;
-      if (hasCentury) {
-        preliminaryResult = (t0 = this.year, t1 = this.month, t2 = this.dayOrDayOfYear, t3 = this.hour24, t4 = this.minute, t5 = this.second, t6 = this.fractionalSecond, t7 = this.utc, this[_dateTimeConstructor$](t0, t1, t2, t3, t4, t5, t6, t7));
-      } else {
-        let now = $default.clock.now();
-        if (this.utc) {
-          now = now.toUtc();
-        }
-        let lowerDate = this[_offsetYear](now, -80);
-        let upperDate = this[_offsetYear](now, 100 - 80);
-        let lowerCentury = (lowerDate.year / 100)[$truncate]() * 100;
-        let upperCentury = (upperDate.year / 100)[$truncate]() * 100;
-        preliminaryResult = (t0$ = upperCentury + this.year, t1$ = this.month, t2$ = this.dayOrDayOfYear, t3$ = this.hour24, t4$ = this.minute, t5$ = this.second, t6$ = this.fractionalSecond, t7$ = this.utc, this[_dateTimeConstructor$](t0$, t1$, t2$, t3$, t4$, t5$, t6$, t7$));
-        if (preliminaryResult.compareTo(upperDate) <= 0) {
-          if (!(preliminaryResult.compareTo(lowerDate) > 0)) dart.assertFailed(null, I[0], 217, 16, "preliminaryResult.compareTo(lowerDate) > 0");
-        } else {
-          preliminaryResult = (t0$0 = lowerCentury + this.year, t1$0 = this.month, t2$0 = this.dayOrDayOfYear, t3$0 = this.hour24, t4$0 = this.minute, t5$0 = this.second, t6$0 = this.fractionalSecond, t7$0 = this.utc, this[_dateTimeConstructor$](t0$0, t1$0, t2$0, t3$0, t4$0, t5$0, t6$0, t7$0));
-        }
-      }
-      if (this.utc && hasCentury) {
-        this[_date] = preliminaryResult;
-      } else {
-        this[_date] = this[_correctForErrors](preliminaryResult, retries);
-      }
-      return dart.nullCheck(this[_date]);
-    }
-    [_correctForErrors](result, retries) {
-      if (retries <= 0) {
-        return result;
-      }
-      let leapYear = date_computation.isLeapYear(result);
-      let resultDayOfYear = date_computation.dayOfYear(result.month, result.day, leapYear);
-      if (!this.utc && result.isUtc && (result.hour !== this.hour24 || result.day !== resultDayOfYear || !new core.DateTime.now().isUtc)) {
-        this[_retried] = this[_retried] + 1;
-        return this.asDate({retries: retries - 1});
-      }
-      if (this.dateOnly && result.hour !== 0) {
-        let tryAgain = this.asDate({retries: retries - 1});
-        if (!tryAgain._equals(result)) {
-          return tryAgain;
-        }
-        let expectedDayOfYear = this.dayOfYear === 0 ? date_computation.dayOfYear(this.month, this.day, leapYear) : this.dayOfYear;
-        let daysPrevious = expectedDayOfYear - resultDayOfYear;
-        let offset = daysPrevious * 24 - result.hour;
-        let adjusted = result.add(new core.Duration.new({hours: offset}));
-        if (adjusted.hour === 0) {
-          return adjusted;
-        }
-        let adjustedDayOfYear = date_computation.dayOfYear(adjusted.month, adjusted.day, leapYear);
-        if (adjustedDayOfYear !== expectedDayOfYear) {
-          return result;
-        }
-        return adjusted;
-      }
-      return result;
+    createState() {
+      return new activity_indicator._CupertinoActivityIndicatorState.new();
     }
   };
-  (date_builder.DateBuilder.new = function(_locale, _dateTimeConstructor) {
-    this[year] = 1970;
-    this[month] = 1;
-    this[day] = 1;
-    this[dayOfYear] = 0;
-    this[hour] = 0;
-    this[minute] = 0;
-    this[second] = 0;
-    this[fractionalSecond] = 0;
-    this[pm] = false;
-    this[utc] = false;
-    this[_hasAmbiguousCentury] = false;
-    this[_date] = null;
-    this[_retried] = 0;
-    this[dateOnly] = false;
-    this[_locale$] = _locale;
-    this[_dateTimeConstructor$] = _dateTimeConstructor;
+  (activity_indicator.CupertinoActivityIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let animating = opts && 'animating' in opts ? opts.animating : true;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[animating$] = animating;
+    this[radius$] = radius;
+    if (!(animating !== null)) dart.assertFailed(null, I[0], 32, 16, "animating != null");
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 33, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 34, 16, "radius > 0.0");
+    this[progress$] = 1.0;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = date_builder.DateBuilder.prototype;
-  dart.addTypeTests(date_builder.DateBuilder);
-  dart.addTypeCaches(date_builder.DateBuilder);
-  dart.setMethodSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getMethods(date_builder.DateBuilder.__proto__),
-    setYear: dart.fnType(dart.void, [core.int]),
-    setHasAmbiguousCentury: dart.fnType(dart.void, [core.bool]),
-    setMonth: dart.fnType(dart.void, [core.int]),
-    setDay: dart.fnType(dart.void, [core.int]),
-    setDayOfYear: dart.fnType(dart.void, [core.int]),
-    setHour: dart.fnType(dart.void, [core.int]),
-    setMinute: dart.fnType(dart.void, [core.int]),
-    setSecond: dart.fnType(dart.void, [core.int]),
-    setFractionalSecond: dart.fnType(dart.void, [core.int]),
-    verify: dart.fnType(dart.void, [core.String]),
-    [_verify]: dart.fnType(dart.void, [core.int, core.int, core.int, core.String, core.String], [dart.nullable(core.DateTime)]),
-    [_offsetYear]: dart.fnType(core.DateTime, [core.DateTime, core.int]),
-    asDate: dart.fnType(core.DateTime, [], {retries: core.int}, {}),
-    [_correctForErrors]: dart.fnType(core.DateTime, [core.DateTime, core.int])
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  (activity_indicator.CupertinoActivityIndicator.partiallyRevealed = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let radius = opts && 'radius' in opts ? opts.radius : 10;
+    let progress = opts && 'progress' in opts ? opts.progress : 1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[radius$] = radius;
+    this[progress$] = progress;
+    if (!(radius !== null)) dart.assertFailed(null, I[0], 48, 16, "radius != null");
+    if (!(radius > 0.0)) dart.assertFailed(null, I[0], 49, 16, "radius > 0.0");
+    if (!(progress !== null)) dart.assertFailed(null, I[0], 50, 16, "progress != null");
+    if (!(progress >= 0.0)) dart.assertFailed(null, I[0], 51, 16, "progress >= 0.0");
+    if (!(progress <= 1.0)) dart.assertFailed(null, I[0], 52, 16, "progress <= 1.0");
+    this[animating$] = false;
+    activity_indicator.CupertinoActivityIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = activity_indicator.CupertinoActivityIndicator.prototype;
+  dart.addTypeTests(activity_indicator.CupertinoActivityIndicator);
+  dart.addTypeCaches(activity_indicator.CupertinoActivityIndicator);
+  dart.setMethodSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getMethods(activity_indicator.CupertinoActivityIndicator.__proto__),
+    createState: dart.fnType(activity_indicator._CupertinoActivityIndicatorState, [])
   }));
-  dart.setGetterSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getGetters(date_builder.DateBuilder.__proto__),
-    dayOrDayOfYear: core.int,
-    hour24: core.int
+  dart.setLibraryUri(activity_indicator.CupertinoActivityIndicator, I[1]);
+  dart.setFieldSignature(activity_indicator.CupertinoActivityIndicator, () => ({
+    __proto__: dart.getFields(activity_indicator.CupertinoActivityIndicator.__proto__),
+    animating: dart.finalFieldType(core.bool),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double)
   }));
-  dart.setLibraryUri(date_builder.DateBuilder, I[1]);
-  dart.setFieldSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getFields(date_builder.DateBuilder.__proto__),
-    year: dart.fieldType(core.int),
-    month: dart.fieldType(core.int),
-    day: dart.fieldType(core.int),
-    dayOfYear: dart.fieldType(core.int),
-    hour: dart.fieldType(core.int),
-    minute: dart.fieldType(core.int),
-    second: dart.fieldType(core.int),
-    fractionalSecond: dart.fieldType(core.int),
-    pm: dart.fieldType(core.bool),
-    utc: dart.fieldType(core.bool),
-    [_hasAmbiguousCentury]: dart.fieldType(core.bool),
-    [_locale$]: dart.finalFieldType(core.String),
-    [_date]: dart.fieldType(dart.nullable(core.DateTime)),
-    [_retried]: dart.fieldType(core.int),
-    dateOnly: dart.fieldType(core.bool),
-    [_dateTimeConstructor$]: dart.finalFieldType(dart.fnType(core.DateTime, [core.int, core.int, core.int, core.int, core.int, core.int, core.int, core.bool]))
+  var ___CupertinoActivityIndicatorState__controller = dart.privateName(activity_indicator, "_#_CupertinoActivityIndicatorState#_controller");
+  var _controller = dart.privateName(activity_indicator, "_controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(activity_indicator.CupertinoActivityIndicator) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(activity_indicator.CupertinoActivityIndicator));
+  activity_indicator._CupertinoActivityIndicatorState = class _CupertinoActivityIndicatorState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      t0 = this[___CupertinoActivityIndicatorState__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+    }
+    set [_controller](t0) {
+      this[___CupertinoActivityIndicatorState__controller] = t0;
+    }
+    initState() {
+      super.initState();
+      this[_controller] = new animation_controller.AnimationController.new({duration: C[0] || CT.C0, vsync: this});
+      if (this.widget.animating) {
+        this[_controller].repeat();
+      }
+    }
+    didUpdateWidget(oldWidget) {
+      activity_indicator.CupertinoActivityIndicator.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      if (this.widget.animating !== oldWidget.animating) {
+        if (this.widget.animating)
+          this[_controller].repeat();
+        else
+          this[_controller].stop();
+      }
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      return new basic.SizedBox.new({height: this.widget.radius * 2, width: this.widget.radius * 2, child: new basic.CustomPaint.new({painter: new activity_indicator._CupertinoActivityIndicatorPainter.new({position: this[_controller], activeColor: colors.CupertinoDynamicColor.resolve(activity_indicator._kActiveTickColor, context), radius: this.widget.radius, progress: this.widget.progress}), $creationLocationd_0dea112b090073317d4: C[1] || CT.C1}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorState.new = function() {
+    this[___CupertinoActivityIndicatorState__controller] = null;
+    activity_indicator._CupertinoActivityIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorState.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorState);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorState);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.trackLibraries("packages/intl/src/intl/date_builder.dart", {
-    "package:intl/src/intl/date_builder.dart": date_builder
+  dart.setGetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getGetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getSetters(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorState, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorState, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorState.__proto__),
+    [___CupertinoActivityIndicatorState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  activity_indicator._CupertinoActivityIndicatorPainter = class _CupertinoActivityIndicatorPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let paint = ui.Paint.new();
+      let tickCount = activity_indicator._kAlphaValues[$length];
+      canvas.save();
+      canvas.translate(size.width / 2.0, size.height / 2.0);
+      let activeTick = (tickCount * this.position.value)[$floor]();
+      for (let i = 0; i < tickCount * this.progress; i = i + 1) {
+        let t = (i - activeTick)[$modulo](tickCount);
+        paint.color = this.activeColor.withAlpha(this.progress < 1 ? 147 : activity_indicator._kAlphaValues[$_get](t));
+        canvas.drawRRect(this.tickFundamentalRRect, paint);
+        canvas.rotate(6.283185307179586 / tickCount);
+      }
+      canvas.restore();
+    }
+    shouldRepaint(oldPainter) {
+      activity_indicator._CupertinoActivityIndicatorPainter.as(oldPainter);
+      return !oldPainter.position[$_equals](this.position) || !oldPainter.activeColor._equals(this.activeColor) || oldPainter.progress !== this.progress;
+    }
+  };
+  (activity_indicator._CupertinoActivityIndicatorPainter.new = function(opts) {
+    let position = opts && 'position' in opts ? opts.position : null;
+    let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let progress = opts && 'progress' in opts ? opts.progress : null;
+    this.position = position;
+    this.activeColor = activeColor;
+    this.radius = radius;
+    this.progress = progress;
+    this.tickFundamentalRRect = new ui.RRect.fromLTRBXY(-radius / 10, -radius / 3.0, radius / 10, -radius, radius / 10, radius / 10);
+    activity_indicator._CupertinoActivityIndicatorPainter.__proto__.new.call(this, {repaint: position});
+    ;
+  }).prototype = activity_indicator._CupertinoActivityIndicatorPainter.prototype;
+  dart.addTypeTests(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.addTypeCaches(activity_indicator._CupertinoActivityIndicatorPainter);
+  dart.setMethodSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getMethods(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(activity_indicator._CupertinoActivityIndicatorPainter, I[1]);
+  dart.setFieldSignature(activity_indicator._CupertinoActivityIndicatorPainter, () => ({
+    __proto__: dart.getFields(activity_indicator._CupertinoActivityIndicatorPainter.__proto__),
+    position: dart.finalFieldType(animation.Animation$(core.double)),
+    activeColor: dart.finalFieldType(ui.Color),
+    radius: dart.finalFieldType(core.double),
+    progress: dart.finalFieldType(core.double),
+    tickFundamentalRRect: dart.finalFieldType(ui.RRect)
+  }));
+  var Color_value = dart.privateName(ui, "Color.value");
+  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
+  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
+  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
+  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
+  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
+  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
+  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
+  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
+  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
+  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
+  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
+  dart.defineLazy(activity_indicator, {
+    /*activity_indicator._kDefaultIndicatorRadius*/get _kDefaultIndicatorRadius() {
+      return 10;
+    },
+    /*activity_indicator._kActiveTickColor*/get _kActiveTickColor() {
+      return C[9] || CT.C9;
+    },
+    /*activity_indicator._kTwoPI*/get _kTwoPI() {
+      return 6.283185307179586;
+    },
+    /*activity_indicator._kAlphaValues*/get _kAlphaValues() {
+      return C[12] || CT.C12;
+    },
+    /*activity_indicator._partiallyRevealedAlpha*/get _partiallyRevealedAlpha() {
+      return 147;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/cupertino/activity_indicator.dart", {
+    "package:flutter/src/cupertino/activity_indicator.dart": activity_indicator
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["date_builder.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/intl/src/intl/date_builder.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["activity_indicator.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA0Da;;;;;;IAKE;;;;;;IAQA;;;;;;;AAIT;IAAkC;;;QA/C/B;QACA;QACA;;IADA;IACA;UACM,AAAU,SAAD;UACT,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;IACP,kBAAE;AACX,iFAAW,GAAG;;EAAC;;QASd;QACA;QACA;;IADA;IACA;UACM,AAAO,MAAD;UACN,AAAO,MAAD,GAAG;UACT,AAAS,QAAD;UACR,AAAS,QAAD,IAAI;UACZ,AAAS,QAAD,IAAI;IACT,mBAAE;AACZ,iFAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA2BI;;IAAW;;AAAX;IAAW;;AAIjB,MAAX;AAIL,MAHD,oBAAc,kFAEL;AAGT,UAAI,AAAO;AACW,QAApB,AAAY;;IAEhB;;uDAGgD;AACd,MAA1B,sBAAgB,SAAS;AAC/B,UAAI,AAAO,0BAAa,AAAU,SAAD;AAC/B,YAAI,AAAO;AACW,UAApB,AAAY;;AAEM,UAAlB,AAAY;;IAElB;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;AACxB,YAAO,iCACG,AAAO,AAAO,qBAAE,UACjB,AAAO,AAAO,qBAAE,UAChB,oCACI,yEACG,gCAEgB,qCAAQ,sCAAmB,OAAO,WACpD,AAAO,8BACL,AAAO;IAIzB;;;2DA/CyB;;;EAgD3B;;;;;;;;;;;;;;;;;;;;;UA4CoB,QAAa;AACjB,kBAAQ;AACV,sBAAY,AAAc;AAEvB,MAAb,AAAO,MAAD;AAC+C,MAArD,AAAO,MAAD,WAAW,AAAK,AAAM,IAAP,SAAS,KAAK,AAAK,AAAO,IAAR,UAAU;AAEvC,uBAA0C,CAA5B,AAAU,SAAD,GAAG,AAAS;AAE7C,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAU,SAAD,GAAG,eAAY,IAAF,AAAE,CAAC,GAAH;AAC9B,gBAAqB,CAAhB,AAAE,CAAD,GAAG,UAAU,WAAI,SAAS;AAE+B,QADzE,AAAM,KAAD,SAAS,AACT,2BAAU,AAAS,gBAAE,UAA8B,AAAa,wCAAC,CAAC;AAC1B,QAA7C,AAAO,MAAD,WAAW,2BAAsB,KAAK;AACV,QAAlC,AAAO,MAAD,QAAgB,oBAAE,SAAS;;AAGnB,MAAhB,AAAO,MAAD;IACR;;+DAGsD;AACpD,YAC0C,EADnC,AAAW,UAAD,oBAAa,mBAC1B,AAAW,UAAD,qBAAgB,qBAC1B,AAAW,UAAD,cAAa;IAC7B;;;QA/CgB;QACA;QACA;QACA;IAHA;IACA;IACA;IACA;IACW,4BAAQ,wBAC3B,AAAQ,CAAP,MAAM,OACP,AAAQ,CAAP,MAAM,GAAG,KACV,AAAO,MAAD,OACN,CAAC,MAAM,EACP,AAAO,MAAD,OACN,AAAO,MAAD;AAER,6FAAe,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAxJnB,2CAAwB;;;MAGzB,oCAAiB;;;MAqHhB,0BAAO;;;MAIJ,gCAAa;;;MAYnB,0CAAuB","file":"../../../../../../../../packages/flutter/src/cupertino/activity_indicator.dart.lib.js"}');
   // Exports:
   return {
-    src__intl__date_builder: date_builder
+    src__cupertino__activity_indicator: activity_indicator
   };
 }));
 
-//# sourceMappingURL=date_builder.dart.lib.js.map
+//# sourceMappingURL=activity_indicator.dart.lib.js.map

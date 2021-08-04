@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/controllers/authController.dart';
+import 'package:logafic/extensions/string_extensions.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/background.dart';
 import 'package:logafic/widgets/deletePostProfileScreenWidget.dart';
 import 'package:logafic/widgets/messageScreenWidget.dart';
 import 'package:logafic/widgets/profileBarAction.dart';
 import 'package:logafic/widgets/responsive.dart';
+import 'package:logafic/widgets/showImageDialog.dart';
 import 'package:logafic/widgets/updatePostWidget.dart';
 
 // Kullanıcı paylaşımlarının ve bilgilerinin görüntülendiği web sayfası
@@ -14,7 +16,7 @@ import 'package:logafic/widgets/updatePostWidget.dart';
 // Kullanıcı userId sayfa içerisine argüment olarak gönderiliyor ve kullanıcı bilgilerinin depolandığı koleksiyondan kullanıcı verileri indiriliyor.
 // Kullanıcı kendi profilini düzenleyebilir başkasının profilinden mesaj gönderebilir.
 // Yetkiye sahip kullanıcılar etkinlik ve iş ilanı paylaşımı üst menüden yapılabilir.
-// Ekran görüntüsü github adresinden ulaşılabilir.
+// Ekran görüntüsü github adresinden ulaşılabilir. ' https://github.com/Logafic/logafic/blob/main/SS/profile_screen_large.png '
 // ignore: must_be_immutable
 class ProfileScreen extends StatelessWidget {
   // AuthController nesnesi oluşturuluyor.
@@ -92,11 +94,22 @@ class ProfileScreen extends StatelessWidget {
                               Padding(
                                   padding: EdgeInsets.only(top: 8),
                                   child: SizedBox(
-                                    width: 400,
-                                    height: 200,
-                                    child: Image.network(
-                                        snapshot.data['userBackImage']),
-                                  )),
+                                      width: 400,
+                                      height: 200,
+                                      child: GestureDetector(
+                                        child: Image.network(
+                                            snapshot.data['userBackImage']),
+                                        onTap: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (_) {
+                                                return ShowImageDialogWidget(
+                                                    urlImage: snapshot
+                                                        .data['userBackImage']
+                                                        .toString());
+                                              });
+                                        },
+                                      ))),
                             ],
                           ),
                           Row(
@@ -468,8 +481,9 @@ class ProfileScreen extends StatelessWidget {
                                   child: snapshot.data.docs[index]
                                               ['urlImage'] ==
                                           ''
-                                      ? Text(
-                                          snapshot.data.docs[index]['content'])
+                                      ? Text(truncateString(
+                                          snapshot.data.docs[index]['content'],
+                                          240))
                                       : Column(children: [
                                           SizedBox(
                                             height: MediaQuery.of(context)
@@ -486,8 +500,10 @@ class ProfileScreen extends StatelessWidget {
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 20.0),
-                                                  child: Text(snapshot.data
-                                                      .docs[index]['content']),
+                                                  child: Text(truncateString(
+                                                      snapshot.data.docs[index]
+                                                          ['content'],
+                                                      240)),
                                                 )
                                               : Text('')
                                         ]),

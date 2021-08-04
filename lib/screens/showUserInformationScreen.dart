@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/fullProfile '
-// Ekran görüntüsü github adresinden erişilebilir.
+// Ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/user_information_screen_large.png '
 // Profile sayfasında kullanıcının bütün bilgilerinin görüntülendiği web sayfası
 // Sayfaya gönderilen userId ile kullanıcı bilgileri indiriliyor ve görselleştiriliyor.
 

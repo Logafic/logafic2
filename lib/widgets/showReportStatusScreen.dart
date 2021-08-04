@@ -1,16 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:logafic/routing/router_names.dart';
-import 'package:logafic/services/database.dart';
 import 'package:logafic/services/messageService.dart';
-import 'package:logafic/services/notificationService.dart';
 import 'package:logafic/widgets/responsive.dart';
 
 // Paylaşımlara yorum yapılması için kullanılan show dialog
-// Ekran görüntüsü github adresinden erişilebilir.
+// Ekran görüntüsü github adresinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/report_show_dialog.png '
 
 class ShowReportStatusScreenWidget extends StatefulWidget {
-  ShowReportStatusScreenWidget({Key? key}) : super(key: key);
+  final String postId;
+  ShowReportStatusScreenWidget({Key? key, required this.postId})
+      : super(key: key);
 
   @override
   _ShowReportStatusScreenWidgetState createState() =>
@@ -21,6 +20,8 @@ enum report { spam, kotu, ciplaklik, siddet, taciz, nefret }
 
 class _ShowReportStatusScreenWidgetState
     extends State<ShowReportStatusScreenWidget> {
+  CollectionReference reportCollection =
+      FirebaseFirestore.instance.collection('report');
   TextEditingController reportController = TextEditingController();
   report? _character = report.spam;
   @override
@@ -32,7 +33,9 @@ class _ShowReportStatusScreenWidgetState
           var height = MediaQuery.of(context).size.height;
           var width = MediaQuery.of(context).size.width;
           return Container(
-              height: height * 0.6,
+              height: ResponsiveWidget.isSmallScreen(context)
+                  ? height * 0.9
+                  : height / 2,
               width:
                   ResponsiveWidget.isSmallScreen(context) ? width : width * 0.3,
               child: Stack(
@@ -171,7 +174,16 @@ class _ShowReportStatusScreenWidgetState
                             width: 15,
                           ),
                           FloatingActionButton(
-                            onPressed: () async {},
+                            onPressed: () async {
+                              reportCollection.add({
+                                'type': 'status',
+                                'reportUserId': widget.postId,
+                                'userId':
+                                    authController.firebaseUser.value!.uid,
+                                'report': _character.toString(),
+                                'text': reportController.text
+                              }).whenComplete(() => Navigator.pop(context));
+                            },
                             child: Icon(
                               Icons.send,
                               color: Colors.white,

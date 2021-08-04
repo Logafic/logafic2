@@ -1,800 +1,475 @@
-define(['dart_sdk'], (function load__packages__get__get_rx__src__rx_stream__rx_stream_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/stack.dart', 'packages/flutter/src/painting/strut_style.dart'], (function load__packages__flutter__src__rendering__debug_overflow_indicator_dart(dart_sdk, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__stack$46dart, packages__flutter__src__painting__strut_style$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
   const _interceptors = dart_sdk._interceptors;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var rx_stream = Object.create(dart.library);
-  var $remove = dartx.remove;
-  var $add = dartx.add;
+  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const stack = packages__flutter__src__rendering__stack$46dart.src__rendering__stack;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  var debug_overflow_indicator = Object.create(dart.library);
   var $length = dartx.length;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $toStringAsPrecision = dartx.toStringAsPrecision;
+  var $add = dartx.add;
+  var $isEmpty = dartx.isEmpty;
+  var $runtimeType = dartx.runtimeType;
   var $isNotEmpty = dartx.isNotEmpty;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $join = dartx.join;
+  var $times = dartx['*'];
+  var $truncate = dartx.truncate;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    boolN: () => (T$.boolN = dart.constFn(dart.nullable(core.bool)))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))()
+  var T = {
+    ListOfTextPainter: () => (T.ListOfTextPainter = dart.constFn(core.List$(text_painter.TextPainter)))(),
+    JSArrayOf_OverflowRegionData: () => (T.JSArrayOf_OverflowRegionData = dart.constFn(_interceptors.JSArray$(debug_overflow_indicator._OverflowRegionData)))(),
+    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    SyncIterableOfDiagnosticsNode: () => (T.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
+    IterableOfDiagnosticsNode: () => (T.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
+    VoidToIterableOfDiagnosticsNode: () => (T.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T.IterableOfDiagnosticsNode(), [])))(),
+    TextSpanN: () => (T.TextSpanN = dart.constFn(dart.nullable(text_span.TextSpan)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    JSArrayOfColor: () => (T.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
+    JSArrayOfdouble: () => (T.JSArrayOfdouble = dart.constFn(_interceptors.JSArray$(core.double)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: debug_overflow_indicator._OverflowSide.prototype,
+        [_name$]: "_OverflowSide.left",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: debug_overflow_indicator._OverflowSide.prototype,
+        [_name$]: "_OverflowSide.top",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: debug_overflow_indicator._OverflowSide.prototype,
+        [_name$]: "_OverflowSide.bottom",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: debug_overflow_indicator._OverflowSide.prototype,
+        [_name$]: "_OverflowSide.right",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], debug_overflow_indicator._OverflowSide);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 8.5
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 1,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 8.5,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 3204448256.0
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 3221225216.0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.FontWeight.prototype,
+        [FontWeight_index]: 7
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287627264.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_leadingDistribution]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: null,
+        [TextStyle_fontWeight]: C[12] || CT.C12,
+        [TextStyle_fontSize]: 7.5,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: null,
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: C[13] || CT.C13,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 10,
+        [OffsetBase__dx]: 10
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    }
+  }, false);
+  var C = Array(16).fill(void 0);
   var I = [
-    "file:///C:/Users/yunus/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_rx/src/rx_stream/get_stream.dart",
-    "package:get/get_rx/src/rx_stream/rx_stream.dart"
+    "package:flutter/src/rendering/debug_overflow_indicator.dart",
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/debug_overflow_indicator.dart"
   ];
-  var onListen$ = dart.privateName(rx_stream, "GetStream.onListen");
-  var onPause$ = dart.privateName(rx_stream, "GetStream.onPause");
-  var onResume$ = dart.privateName(rx_stream, "GetStream.onResume");
-  var onCancel$ = dart.privateName(rx_stream, "GetStream.onCancel");
-  var _onData = dart.privateName(rx_stream, "_onData");
-  var _isBusy = dart.privateName(rx_stream, "_isBusy");
-  var _value = dart.privateName(rx_stream, "_value");
-  var _data = dart.privateName(rx_stream, "_data");
-  var _notifyData = dart.privateName(rx_stream, "_notifyData");
-  var _onError = dart.privateName(rx_stream, "_onError");
-  var _onDone = dart.privateName(rx_stream, "_onDone");
-  var _notifyError = dart.privateName(rx_stream, "_notifyError");
-  var _notifyDone = dart.privateName(rx_stream, "_notifyDone");
-  const _is_GetStream_default = Symbol('_is_GetStream_default');
-  rx_stream.GetStream$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    var JSArrayOfLightSubscriptionOfT = () => (JSArrayOfLightSubscriptionOfT = dart.constFn(_interceptors.JSArray$(LightSubscriptionOfT())))();
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var TToNvoid = () => (TToNvoid = dart.constFn(dart.nullable(TTovoid())))();
-    var GetStreamTransformationOfT = () => (GetStreamTransformationOfT = dart.constFn(rx_stream.GetStreamTransformation$(T)))();
-    class GetStream extends core.Object {
-      get onListen() {
-        return this[onListen$];
+  var _name$ = dart.privateName(debug_overflow_indicator, "_name");
+  debug_overflow_indicator._OverflowSide = class _OverflowSide extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (debug_overflow_indicator._OverflowSide.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = debug_overflow_indicator._OverflowSide.prototype;
+  dart.addTypeTests(debug_overflow_indicator._OverflowSide);
+  dart.addTypeCaches(debug_overflow_indicator._OverflowSide);
+  dart.setLibraryUri(debug_overflow_indicator._OverflowSide, I[0]);
+  dart.setFieldSignature(debug_overflow_indicator._OverflowSide, () => ({
+    __proto__: dart.getFields(debug_overflow_indicator._OverflowSide.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(debug_overflow_indicator._OverflowSide, ['toString']);
+  debug_overflow_indicator._OverflowSide.left = C[0] || CT.C0;
+  debug_overflow_indicator._OverflowSide.top = C[1] || CT.C1;
+  debug_overflow_indicator._OverflowSide.bottom = C[2] || CT.C2;
+  debug_overflow_indicator._OverflowSide.right = C[3] || CT.C3;
+  debug_overflow_indicator._OverflowSide.values = C[4] || CT.C4;
+  var rect$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rect");
+  var label$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.label");
+  var labelOffset$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.labelOffset");
+  var rotation$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.rotation");
+  var side$ = dart.privateName(debug_overflow_indicator, "_OverflowRegionData.side");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  debug_overflow_indicator._OverflowRegionData = class _OverflowRegionData extends core.Object {
+    get rect() {
+      return this[rect$];
+    }
+    set rect(value) {
+      super.rect = value;
+    }
+    get label() {
+      return this[label$];
+    }
+    set label(value) {
+      super.label = value;
+    }
+    get labelOffset() {
+      return this[labelOffset$];
+    }
+    set labelOffset(value) {
+      super.labelOffset = value;
+    }
+    get rotation() {
+      return this[rotation$];
+    }
+    set rotation(value) {
+      super.rotation = value;
+    }
+    get side() {
+      return this[side$];
+    }
+    set side(value) {
+      super.side = value;
+    }
+  };
+  (debug_overflow_indicator._OverflowRegionData.new = function(opts) {
+    let rect = opts && 'rect' in opts ? opts.rect : null;
+    let label = opts && 'label' in opts ? opts.label : "";
+    let labelOffset = opts && 'labelOffset' in opts ? opts.labelOffset : C[5] || CT.C5;
+    let rotation = opts && 'rotation' in opts ? opts.rotation : 0;
+    let side = opts && 'side' in opts ? opts.side : null;
+    this[rect$] = rect;
+    this[label$] = label;
+    this[labelOffset$] = labelOffset;
+    this[rotation$] = rotation;
+    this[side$] = side;
+    ;
+  }).prototype = debug_overflow_indicator._OverflowRegionData.prototype;
+  dart.addTypeTests(debug_overflow_indicator._OverflowRegionData);
+  dart.addTypeCaches(debug_overflow_indicator._OverflowRegionData);
+  dart.setLibraryUri(debug_overflow_indicator._OverflowRegionData, I[0]);
+  dart.setFieldSignature(debug_overflow_indicator._OverflowRegionData, () => ({
+    __proto__: dart.getFields(debug_overflow_indicator._OverflowRegionData.__proto__),
+    rect: dart.finalFieldType(ui.Rect),
+    label: dart.finalFieldType(core.String),
+    labelOffset: dart.finalFieldType(ui.Offset),
+    rotation: dart.finalFieldType(core.double),
+    side: dart.finalFieldType(debug_overflow_indicator._OverflowSide)
+  }));
+  var _indicatorLabel = dart.privateName(debug_overflow_indicator, "_indicatorLabel");
+  var _overflowReportNeeded = dart.privateName(debug_overflow_indicator, "_overflowReportNeeded");
+  var _formatPixels = dart.privateName(debug_overflow_indicator, "_formatPixels");
+  var _calculateOverflowRegions = dart.privateName(debug_overflow_indicator, "_calculateOverflowRegions");
+  var _reportOverflow = dart.privateName(debug_overflow_indicator, "_reportOverflow");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
+  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
+  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
+  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
+  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
+  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
+  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
+  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
+  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
+  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
+  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
+  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
+  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
+  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
+  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
+  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
+  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
+  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
+  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
+  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
+  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
+  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
+  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
+  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
+  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
+  debug_overflow_indicator.DebugOverflowIndicatorMixin = class DebugOverflowIndicatorMixin extends object.RenderObject {};
+  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinOn] = RenderObject => class DebugOverflowIndicatorMixin extends RenderObject {
+    [_formatPixels](value) {
+      if (!(value > 0.0)) dart.assertFailed(null, I[1], 122, 12, "value > 0.0");
+      let pixels = null;
+      if (value > 10.0) {
+        pixels = value[$toStringAsFixed](0);
+      } else if (value > 1.0) {
+        pixels = value[$toStringAsFixed](1);
+      } else {
+        pixels = value[$toStringAsPrecision](3);
       }
-      set onListen(value) {
-        this[onListen$] = value;
+      return pixels;
+    }
+    [_calculateOverflowRegions](overflow, containerRect) {
+      let regions = T.JSArrayOf_OverflowRegionData().of([]);
+      if (overflow.left > 0.0) {
+        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width * 0.1, containerRect.height);
+        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "LEFT OVERFLOWED BY " + this[_formatPixels](overflow.left) + " PIXELS", labelOffset: markerRect.centerLeft['+'](C[6] || CT.C6), rotation: 3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.left}));
       }
-      get onPause() {
-        return this[onPause$];
+      if (overflow.right > 0.0) {
+        let markerRect = new ui.Rect.fromLTWH(containerRect.width * (1.0 - 0.1), 0.0, containerRect.width * 0.1, containerRect.height);
+        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "RIGHT OVERFLOWED BY " + this[_formatPixels](overflow.right) + " PIXELS", labelOffset: markerRect.centerRight['-'](C[6] || CT.C6), rotation: -3.141592653589793 / 2.0, side: debug_overflow_indicator._OverflowSide.right}));
       }
-      set onPause(value) {
-        this[onPause$] = value;
+      if (overflow.top > 0.0) {
+        let markerRect = new ui.Rect.fromLTWH(0.0, 0.0, containerRect.width, containerRect.height * 0.1);
+        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "TOP OVERFLOWED BY " + this[_formatPixels](overflow.top) + " PIXELS", labelOffset: markerRect.topCenter['+'](C[7] || CT.C7), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.top}));
       }
-      get onResume() {
-        return this[onResume$];
+      if (overflow.bottom > 0.0) {
+        let markerRect = new ui.Rect.fromLTWH(0.0, containerRect.height * (1.0 - 0.1), containerRect.width, containerRect.height * 0.1);
+        regions[$add](new debug_overflow_indicator._OverflowRegionData.new({rect: markerRect, label: "BOTTOM OVERFLOWED BY " + this[_formatPixels](overflow.bottom) + " PIXELS", labelOffset: markerRect.bottomCenter['-'](C[8] || CT.C8), rotation: 0.0, side: debug_overflow_indicator._OverflowSide.bottom}));
       }
-      set onResume(value) {
-        this[onResume$] = value;
+      return regions;
+    }
+    [_reportOverflow](overflow, overflowHints) {
+      overflowHints == null ? overflowHints = T.JSArrayOfDiagnosticsNode().of([]) : null;
+      if (overflowHints[$isEmpty]) {
+        overflowHints[$add](new assertions.ErrorDescription.new("The edge of the " + dart.str(this[$runtimeType]) + " that is " + "overflowing has been marked in the rendering with a yellow and black " + "striped pattern. This is usually caused by the contents being too big " + "for the " + dart.str(this[$runtimeType]) + "."));
+        overflowHints[$add](new assertions.ErrorHint.new("This is considered an error condition because it indicates that there " + "is content that cannot be seen. If the content is legitimately bigger " + "than the available space, consider clipping it with a ClipRect widget " + "before putting it in the " + dart.str(this[$runtimeType]) + ", or using a scrollable " + "container, like a ListView."));
       }
-      get onCancel() {
-        return this[onCancel$];
-      }
-      set onCancel(value) {
-        this[onCancel$] = value;
-      }
-      removeSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(T$.boolN(), (function* removeSubscription() {
-          let t0;
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$remove](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            t0 = this[_onData];
-            return t0 == null ? null : t0[$remove](subs);
-          }
-        }).bind(this));
-      }
-      addSubscription(subs) {
-        LightSubscriptionOfT().as(subs);
-        return async.async(dart.void, (function* addSubscription() {
-          if (!dart.nullCheck(this[_isBusy])) {
-            return dart.nullCheck(this[_onData])[$add](subs);
-          } else {
-            yield async.Future.delayed(core.Duration.zero);
-            return dart.nullCheck(this[_onData])[$add](subs);
-          }
-        }).bind(this));
-      }
-      get length() {
-        let t0;
-        t0 = this[_onData];
-        return t0 == null ? null : t0[$length];
-      }
-      get hasListeners() {
-        return dart.nullCheck(this[_onData])[$isNotEmpty];
-      }
-      [_notifyData](data) {
-        let t0;
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = TToNvoid().as(item[_data]);
-            t0 == null ? null : t0(data);
-          }
+      let overflows = (() => {
+        let t0 = T.JSArrayOfString().of([]);
+        if (overflow.left > 0.0) t0[$add](this[_formatPixels](overflow.left) + " pixels on the left");
+        if (overflow.top > 0.0) t0[$add](this[_formatPixels](overflow.top) + " pixels on the top");
+        if (overflow.bottom > 0.0) t0[$add](this[_formatPixels](overflow.bottom) + " pixels on the bottom");
+        if (overflow.right > 0.0) t0[$add](this[_formatPixels](overflow.right) + " pixels on the right");
+        return t0;
+      })();
+      let overflowText = "";
+      if (!overflows[$isNotEmpty]) dart.assertFailed("Somehow " + dart.str(this[$runtimeType]) + " didn't actually overflow like it thought it did.", I[1], 227, 12, "overflows.isNotEmpty");
+      switch (overflows[$length]) {
+        case 1:
+        {
+          overflowText = overflows[$first];
+          break;
         }
-        this[_isBusy] = false;
-      }
-      [_notifyError](error, stackTrace = null) {
-        let t0, t0$, t0$0;
-        if (!!this.isClosed) dart.assertFailed("You cannot add errors to a closed stream.", I[0], 54, 12, "!isClosed");
-        this[_isBusy] = true;
-        let itemsToRemove = JSArrayOfLightSubscriptionOfT().of([]);
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            if (stackTrace != null) {
-              t0 = item[_onError];
-              t0 == null ? null : dart.dcall(t0, [error, stackTrace]);
-            } else {
-              t0$ = item[_onError];
-              t0$ == null ? null : dart.dcall(t0$, [error]);
-            }
-            if (dart.nullCheck(item.cancelOnError)) {
-              itemsToRemove[$add](item);
-              item.pause();
-              t0$0 = item[_onDone];
-              t0$0 == null ? null : t0$0();
-            }
-          }
+        case 2:
+        {
+          overflowText = overflows[$first] + " and " + overflows[$last];
+          break;
         }
-        for (let item of itemsToRemove) {
-          dart.nullCheck(this[_onData])[$remove](item);
+        default:
+        {
+          overflows[$_set](overflows[$length] - 1, "and " + overflows[$_get](overflows[$length] - 1));
+          overflowText = overflows[$join](", ");
         }
-        this[_isBusy] = false;
       }
-      [_notifyDone]() {
-        let t0;
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed stream.", I[0], 80, 12, "!isClosed");
-        this[_isBusy] = true;
-        for (let item of dart.nullCheck(this[_onData])) {
-          if (!item.isPaused) {
-            t0 = item[_onDone];
-            t0 == null ? null : t0();
-          }
+      assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: assertions.FlutterError.new("A " + dart.str(this[$runtimeType]) + " overflowed by " + overflowText + "."), library: "rendering library", context: new assertions.ErrorDescription.new("during layout"), informationCollector: dart.fn(() => new (T.SyncIterableOfDiagnosticsNode()).new((function*() {
+          if (this.debugCreator != null) yield new object.DiagnosticsDebugCreator.new(dart.nullCheck(this.debugCreator));
+          yield* dart.nullCheck(overflowHints);
+          yield this.describeForError("The specific " + dart.str(this[$runtimeType]) + " in question is");
+          yield diagnostics.DiagnosticsNode.message("◢◤"[$times]((100 / 2)[$truncate]()), {allowWrap: false});
+        }).bind(this)), T.VoidToIterableOfDiagnosticsNode())}));
+    }
+    paintOverflowIndicator(context, offset, containerRect, childRect, opts) {
+      let t1;
+      let overflowHints = opts && 'overflowHints' in opts ? opts.overflowHints : null;
+      let overflow = stack.RelativeRect.fromRect(containerRect, childRect);
+      if (overflow.left <= 0.0 && overflow.right <= 0.0 && overflow.top <= 0.0 && overflow.bottom <= 0.0) {
+        return;
+      }
+      let overflowRegions = this[_calculateOverflowRegions](overflow, containerRect);
+      for (let region of overflowRegions) {
+        context.canvas.drawRect(region.rect.shift(offset), debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint);
+        let textSpan = T.TextSpanN().as(this[_indicatorLabel][$_get](region.side.index).text);
+        if ((t1 = textSpan, t1 == null ? null : t1.text) !== region.label) {
+          this[_indicatorLabel][$_get](region.side.index).text = new text_span.TextSpan.new({text: region.label, style: debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle});
+          this[_indicatorLabel][$_get](region.side.index).layout();
         }
-        this[_isBusy] = false;
+        let labelOffset = region.labelOffset['+'](offset);
+        let centerOffset = new ui.Offset.new(-this[_indicatorLabel][$_get](region.side.index).width / 2.0, 0.0);
+        let textBackgroundRect = centerOffset['&'](this[_indicatorLabel][$_get](region.side.index).size);
+        context.canvas.save();
+        context.canvas.translate(labelOffset.dx, labelOffset.dy);
+        context.canvas.rotate(region.rotation);
+        context.canvas.drawRect(textBackgroundRect, debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint);
+        this[_indicatorLabel][$_get](region.side.index).paint(context.canvas, centerOffset);
+        context.canvas.restore();
       }
-      get value() {
-        return this[_value];
-      }
-      add(event) {
-        T.as(event);
-        if (!!this.isClosed) dart.assertFailed("You cannot add event to closed Stream", I[0], 95, 12, "!isClosed");
-        this[_value] = event;
-        this[_notifyData](event);
-      }
-      get isClosed() {
-        return this[_onData] == null;
-      }
-      addError(error, stackTrace = null) {
-        if (!!this.isClosed) dart.assertFailed("You cannot add error to closed Stream", I[0], 103, 12, "!isClosed");
-        this[_notifyError](error, stackTrace);
-      }
-      close() {
-        if (!!this.isClosed) dart.assertFailed("You cannot close a closed Stream", I[0], 108, 12, "!isClosed");
-        this[_notifyDone]();
-        this[_onData] = null;
-        this[_isBusy] = null;
-        this[_value] = null;
-      }
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(dart.bind(this, 'removeSubscription'), {onPause: this.onPause, onResume: this.onResume, onCancel: this.onCancel}), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          t0.cancelOnError = cancelOnError;
-          return t0;
-        })());
-        this.addSubscription(subs);
-        t0$ = this.onListen;
-        t0$ == null ? null : t0$();
-        return subs;
-      }
-      get stream() {
-        return new (GetStreamTransformationOfT()).new(dart.bind(this, 'addSubscription'), dart.bind(this, 'removeSubscription'));
+      if (this[_overflowReportNeeded]) {
+        this[_overflowReportNeeded] = false;
+        this[_reportOverflow](overflow, overflowHints);
       }
     }
-    (GetStream.new = function(opts) {
-      let onListen = opts && 'onListen' in opts ? opts.onListen : null;
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[_onData] = JSArrayOfLightSubscriptionOfT().of([]);
-      this[_isBusy] = false;
-      this[_value] = null;
-      this[onListen$] = onListen;
-      this[onPause$] = onPause;
-      this[onResume$] = onResume;
-      this[onCancel$] = onCancel;
-      ;
-    }).prototype = GetStream.prototype;
-    dart.addTypeTests(GetStream);
-    GetStream.prototype[_is_GetStream_default] = true;
-    dart.addTypeCaches(GetStream);
-    dart.setMethodSignature(GetStream, () => ({
-      __proto__: dart.getMethods(GetStream.__proto__),
-      removeSubscription: dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [dart.nullable(core.Object)]),
-      addSubscription: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyData]: dart.fnType(dart.void, [T]),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      close: dart.fnType(dart.void, []),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setGetterSignature(GetStream, () => ({
-      __proto__: dart.getGetters(GetStream.__proto__),
-      length: dart.nullable(core.int),
-      hasListeners: core.bool,
-      value: dart.nullable(T),
-      isClosed: core.bool,
-      stream: async.Stream$(T)
-    }));
-    dart.setLibraryUri(GetStream, I[1]);
-    dart.setFieldSignature(GetStream, () => ({
-      __proto__: dart.getFields(GetStream.__proto__),
-      onListen: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onPause: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_onData]: dart.fieldType(dart.nullable(core.List$(rx_stream.LightSubscription$(T)))),
-      [_isBusy]: dart.fieldType(dart.nullable(core.bool)),
-      [_value]: dart.fieldType(dart.nullable(T))
-    }));
-    return GetStream;
-  });
-  rx_stream.GetStream = rx_stream.GetStream$();
-  dart.addTypeTests(rx_stream.GetStream, _is_GetStream_default);
-  var onPause$0 = dart.privateName(rx_stream, "LightSubscription.onPause");
-  var onResume$0 = dart.privateName(rx_stream, "LightSubscription.onResume");
-  var onCancel$0 = dart.privateName(rx_stream, "LightSubscription.onCancel");
-  var cancelOnError = dart.privateName(rx_stream, "LightSubscription.cancelOnError");
-  var _isPaused = dart.privateName(rx_stream, "_isPaused");
-  var _removeSubscription$ = dart.privateName(rx_stream, "_removeSubscription");
-  const _is_LightSubscription_default = Symbol('_is_LightSubscription_default');
-  rx_stream.LightSubscription$ = dart.generic(T => {
-    class LightSubscription extends async.StreamSubscription$(T) {
-      get onPause() {
-        return this[onPause$0];
-      }
-      set onPause(value) {
-        super.onPause = value;
-      }
-      get onResume() {
-        return this[onResume$0];
-      }
-      set onResume(value) {
-        super.onResume = value;
-      }
-      get onCancel() {
-        return this[onCancel$0];
-      }
-      set onCancel(value) {
-        super.onCancel = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError];
-      }
-      set cancelOnError(value) {
-        this[cancelOnError] = value;
-      }
-      cancel() {
-        let t0;
-        this[_removeSubscription$](this);
-        t0 = this.onCancel;
-        t0 == null ? null : t0();
-        return T$.FutureOfvoid().value();
-      }
-      onData(handleData) {
-        return this[_data] = handleData;
-      }
-      onError(handleError) {
-        return this[_onError] = handleError;
-      }
-      onDone(handleDone) {
-        return this[_onDone] = handleDone;
-      }
-      pause(resumeSignal = null) {
-        let t0;
-        this[_isPaused] = true;
-        t0 = this.onPause;
-        t0 == null ? null : t0();
-      }
-      resume() {
-        let t0;
-        this[_isPaused] = false;
-        t0 = this.onResume;
-        t0 == null ? null : t0();
-      }
-      get isPaused() {
-        return this[_isPaused];
-      }
-      asFuture(E, futureValue = null) {
-        return async.Future$(E).value(futureValue);
-      }
+    reassemble() {
+      super.reassemble();
+      if (!dart.fn(() => {
+        this[_overflowReportNeeded] = true;
+        return true;
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 315, 12, "() {\r\n      _overflowReportNeeded = true;\r\n      return true;\r\n    }()");
     }
-    (LightSubscription.new = function(_removeSubscription, opts) {
-      let onPause = opts && 'onPause' in opts ? opts.onPause : null;
-      let onResume = opts && 'onResume' in opts ? opts.onResume : null;
-      let onCancel = opts && 'onCancel' in opts ? opts.onCancel : null;
-      this[cancelOnError] = false;
-      this[_data] = null;
-      this[_onError] = null;
-      this[_onDone] = null;
-      this[_isPaused] = false;
-      this[_removeSubscription$] = _removeSubscription;
-      this[onPause$0] = onPause;
-      this[onResume$0] = onResume;
-      this[onCancel$0] = onCancel;
-      ;
-    }).prototype = LightSubscription.prototype;
-    dart.addTypeTests(LightSubscription);
-    LightSubscription.prototype[_is_LightSubscription_default] = true;
-    dart.addTypeCaches(LightSubscription);
-    dart.setMethodSignature(LightSubscription, () => ({
-      __proto__: dart.getMethods(LightSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), []),
-      onData: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [T]))]),
-      onError: dart.fnType(dart.void, [dart.nullable(core.Function)]),
-      onDone: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, []))]),
-      pause: dart.fnType(dart.void, [], [dart.nullable(async.Future$(dart.void))]),
-      resume: dart.fnType(dart.void, []),
-      asFuture: dart.gFnType(E => [async.Future$(E), [], [dart.nullable(E)]], E => [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(LightSubscription, () => ({
-      __proto__: dart.getGetters(LightSubscription.__proto__),
-      isPaused: core.bool
-    }));
-    dart.setLibraryUri(LightSubscription, I[1]);
-    dart.setFieldSignature(LightSubscription, () => ({
-      __proto__: dart.getFields(LightSubscription.__proto__),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)])),
-      onPause: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onResume: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      onCancel: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.fieldType(dart.nullable(core.bool)),
-      [_data]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [T]))),
-      [_onError]: dart.fieldType(dart.nullable(core.Function)),
-      [_onDone]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-      [_isPaused]: dart.fieldType(core.bool)
-    }));
-    return LightSubscription;
-  });
-  rx_stream.LightSubscription = rx_stream.LightSubscription$();
-  dart.addTypeTests(rx_stream.LightSubscription, _is_LightSubscription_default);
-  var _addSubscription$ = dart.privateName(rx_stream, "_addSubscription");
-  const _is_GetStreamTransformation_default = Symbol('_is_GetStreamTransformation_default');
-  rx_stream.GetStreamTransformation$ = dart.generic(T => {
-    var LightSubscriptionOfT = () => (LightSubscriptionOfT = dart.constFn(rx_stream.LightSubscription$(T)))();
-    class GetStreamTransformation extends async.Stream$(T) {
-      listen(onData, opts) {
-        let t0, t0$;
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : null;
-        let subs = (t0 = new (LightSubscriptionOfT()).new(this[_removeSubscription$]), (() => {
-          t0.onData(onData);
-          t0.onError(onError);
-          t0.onDone(onDone);
-          return t0;
-        })());
-        t0$ = subs;
-        this[_addSubscription$](t0$);
-        return subs;
-      }
+  };
+  (debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.mixinNew] = function() {
+    this[_indicatorLabel] = T.ListOfTextPainter().filled(debug_overflow_indicator._OverflowSide.values[$length], new text_painter.TextPainter.new({textDirection: ui.TextDirection.ltr}));
+    this[_overflowReportNeeded] = true;
+  }).prototype = debug_overflow_indicator.DebugOverflowIndicatorMixin.prototype;
+  dart.addTypeTests(debug_overflow_indicator.DebugOverflowIndicatorMixin);
+  dart.addTypeCaches(debug_overflow_indicator.DebugOverflowIndicatorMixin);
+  debug_overflow_indicator.DebugOverflowIndicatorMixin[dart.implements] = () => [object.RenderObject];
+  dart.setMethodSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
+    __proto__: dart.getMethods(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
+    [_formatPixels]: dart.fnType(core.String, [core.double]),
+    [_calculateOverflowRegions]: dart.fnType(core.List$(debug_overflow_indicator._OverflowRegionData), [stack.RelativeRect, ui.Rect]),
+    [_reportOverflow]: dart.fnType(dart.void, [stack.RelativeRect, dart.nullable(core.List$(diagnostics.DiagnosticsNode))]),
+    paintOverflowIndicator: dart.fnType(dart.void, [object.PaintingContext, ui.Offset, ui.Rect, ui.Rect], {overflowHints: dart.nullable(core.List$(diagnostics.DiagnosticsNode))}, {})
+  }));
+  dart.setLibraryUri(debug_overflow_indicator.DebugOverflowIndicatorMixin, I[0]);
+  dart.setFieldSignature(debug_overflow_indicator.DebugOverflowIndicatorMixin, () => ({
+    __proto__: dart.getFields(debug_overflow_indicator.DebugOverflowIndicatorMixin.__proto__),
+    [_indicatorLabel]: dart.finalFieldType(core.List$(text_painter.TextPainter)),
+    [_overflowReportNeeded]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(debug_overflow_indicator.DebugOverflowIndicatorMixin, {
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._black*/get _black() {
+      return C[9] || CT.C9;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow*/get _yellow() {
+      return C[10] || CT.C10;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFraction*/get _indicatorFraction() {
+      return 0.1;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorFontSizePixels*/get _indicatorFontSizePixels() {
+      return 7.5;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorLabelPaddingPixels*/get _indicatorLabelPaddingPixels() {
+      return 1;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorTextStyle*/get _indicatorTextStyle() {
+      return C[11] || CT.C11;
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._indicatorPaint*/get _indicatorPaint() {
+      let t1;
+      return t1 = ui.Paint.new(), (() => {
+        t1.shader = ui.Gradient.linear(ui.Offset.zero, C[14] || CT.C14, T.JSArrayOfColor().of([debug_overflow_indicator.DebugOverflowIndicatorMixin._black, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._yellow, debug_overflow_indicator.DebugOverflowIndicatorMixin._black]), T.JSArrayOfdouble().of([0.25, 0.25, 0.75, 0.75]), ui.TileMode.repeated);
+        return t1;
+      })();
+    },
+    /*debug_overflow_indicator.DebugOverflowIndicatorMixin._labelBackgroundPaint*/get _labelBackgroundPaint() {
+      let t1;
+      return t1 = ui.Paint.new(), (() => {
+        t1.color = C[15] || CT.C15;
+        return t1;
+      })();
     }
-    (GetStreamTransformation.new = function(_addSubscription, _removeSubscription) {
-      this[_addSubscription$] = _addSubscription;
-      this[_removeSubscription$] = _removeSubscription;
-      GetStreamTransformation.__proto__.new.call(this);
-      ;
-    }).prototype = GetStreamTransformation.prototype;
-    dart.addTypeTests(GetStreamTransformation);
-    GetStreamTransformation.prototype[_is_GetStreamTransformation_default] = true;
-    dart.addTypeCaches(GetStreamTransformation);
-    dart.setMethodSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getMethods(GetStreamTransformation.__proto__),
-      listen: dart.fnType(rx_stream.LightSubscription$(T), [dart.nullable(dart.fnType(dart.void, [T]))], {cancelOnError: dart.nullable(core.bool), onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {})
-    }));
-    dart.setLibraryUri(GetStreamTransformation, I[1]);
-    dart.setFieldSignature(GetStreamTransformation, () => ({
-      __proto__: dart.getFields(GetStreamTransformation.__proto__),
-      [_addSubscription$]: dart.finalFieldType(dart.fnType(dart.void, [rx_stream.LightSubscription$(T)])),
-      [_removeSubscription$]: dart.finalFieldType(dart.fnType(async.FutureOr$(dart.nullable(core.bool)), [rx_stream.LightSubscription$(T)]))
-    }));
-    return GetStreamTransformation;
-  });
-  rx_stream.GetStreamTransformation = rx_stream.GetStreamTransformation$();
-  dart.addTypeTests(rx_stream.GetStreamTransformation, _is_GetStreamTransformation_default);
-  var data$ = dart.privateName(rx_stream, "Node.data");
-  var next$ = dart.privateName(rx_stream, "Node.next");
-  const _is_Node_default = Symbol('_is_Node_default');
-  rx_stream.Node$ = dart.generic(T => {
-    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
-    var NodeOfT = () => (NodeOfT = dart.constFn(rx_stream.Node$(T)))();
-    var NodeNOfT = () => (NodeNOfT = dart.constFn(dart.nullable(NodeOfT())))();
-    class Node extends core.Object {
-      get data() {
-        return this[data$];
-      }
-      set data(value) {
-        this[data$] = TN().as(value);
-      }
-      get next() {
-        return this[next$];
-      }
-      set next(value) {
-        this[next$] = NodeNOfT().as(value);
-      }
-    }
-    (Node.new = function(opts) {
-      let data = opts && 'data' in opts ? opts.data : null;
-      let next = opts && 'next' in opts ? opts.next : null;
-      this[data$] = data;
-      this[next$] = next;
-      ;
-    }).prototype = Node.prototype;
-    dart.addTypeTests(Node);
-    Node.prototype[_is_Node_default] = true;
-    dart.addTypeCaches(Node);
-    dart.setLibraryUri(Node, I[1]);
-    dart.setFieldSignature(Node, () => ({
-      __proto__: dart.getFields(Node.__proto__),
-      data: dart.fieldType(dart.nullable(T)),
-      next: dart.fieldType(dart.nullable(rx_stream.Node$(T)))
-    }));
-    return Node;
-  });
-  rx_stream.Node = rx_stream.Node$();
-  dart.addTypeTests(rx_stream.Node, _is_Node_default);
-  var data$0 = dart.privateName(rx_stream, "MiniSubscription.data");
-  var onError$ = dart.privateName(rx_stream, "MiniSubscription.onError");
-  var onDone$ = dart.privateName(rx_stream, "MiniSubscription.onDone");
-  var cancelOnError$ = dart.privateName(rx_stream, "MiniSubscription.cancelOnError");
-  var listener$ = dart.privateName(rx_stream, "MiniSubscription.listener");
-  const _is_MiniSubscription_default = Symbol('_is_MiniSubscription_default');
-  rx_stream.MiniSubscription$ = dart.generic(T => {
-    class MiniSubscription extends core.Object {
-      get data() {
-        return this[data$0];
-      }
-      set data(value) {
-        super.data = value;
-      }
-      get onError() {
-        return this[onError$];
-      }
-      set onError(value) {
-        super.onError = value;
-      }
-      get onDone() {
-        return this[onDone$];
-      }
-      set onDone(value) {
-        super.onDone = value;
-      }
-      get cancelOnError() {
-        return this[cancelOnError$];
-      }
-      set cancelOnError(value) {
-        super.cancelOnError = value;
-      }
-      get listener() {
-        return this[listener$];
-      }
-      set listener(value) {
-        super.listener = value;
-      }
-      cancel() {
-        return async.async(dart.void, (function* cancel() {
-          return this.listener.removeListener(this);
-        }).bind(this));
-      }
-    }
-    (MiniSubscription.new = function(data, onError, onDone, cancelOnError, listener) {
-      this[data$0] = data;
-      this[onError$] = onError;
-      this[onDone$] = onDone;
-      this[cancelOnError$] = cancelOnError;
-      this[listener$] = listener;
-      ;
-    }).prototype = MiniSubscription.prototype;
-    dart.addTypeTests(MiniSubscription);
-    MiniSubscription.prototype[_is_MiniSubscription_default] = true;
-    dart.addTypeCaches(MiniSubscription);
-    dart.setMethodSignature(MiniSubscription, () => ({
-      __proto__: dart.getMethods(MiniSubscription.__proto__),
-      cancel: dart.fnType(async.Future$(dart.void), [])
-    }));
-    dart.setLibraryUri(MiniSubscription, I[1]);
-    dart.setFieldSignature(MiniSubscription, () => ({
-      __proto__: dart.getFields(MiniSubscription.__proto__),
-      data: dart.finalFieldType(dart.fnType(dart.void, [T])),
-      onError: dart.finalFieldType(dart.nullable(core.Function)),
-      onDone: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
-      cancelOnError: dart.finalFieldType(core.bool),
-      listener: dart.finalFieldType(rx_stream.FastList$(T))
-    }));
-    return MiniSubscription;
-  });
-  rx_stream.MiniSubscription = rx_stream.MiniSubscription$();
-  dart.addTypeTests(rx_stream.MiniSubscription, _is_MiniSubscription_default);
-  var listenable = dart.privateName(rx_stream, "MiniStream.listenable");
-  var __MiniStream__value = dart.privateName(rx_stream, "_#MiniStream#_value");
-  var __MiniStream__value_isSet = dart.privateName(rx_stream, "_#MiniStream#_value#isSet");
-  var _isClosed = dart.privateName(rx_stream, "_isClosed");
-  const _is_MiniStream_default = Symbol('_is_MiniStream_default');
-  rx_stream.MiniStream$ = dart.generic(T => {
-    var FastListOfT = () => (FastListOfT = dart.constFn(rx_stream.FastList$(T)))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    class MiniStream extends core.Object {
-      get listenable() {
-        return this[listenable];
-      }
-      set listenable(value) {
-        this[listenable] = FastListOfT().as(value);
-      }
-      get [_value]() {
-        let t0;
-        return this[__MiniStream__value_isSet] ? (t0 = this[__MiniStream__value], t0) : dart.throw(new _internal.LateError.fieldNI("_value"));
-      }
-      set [_value](t0) {
-        this[__MiniStream__value_isSet] = true;
-        this[__MiniStream__value] = t0;
-      }
-      get value() {
-        return this[_value];
-      }
-      set value(val) {
-        T.as(val);
-        this.add(val);
-      }
-      add(event) {
-        T.as(event);
-        this[_value] = event;
-        this.listenable[_notifyData](event);
-      }
-      addError(error, stackTrace = null) {
-        this.listenable[_notifyError](error, stackTrace);
-      }
-      get length() {
-        return this.listenable.length;
-      }
-      get hasListeners() {
-        return this.listenable.isNotEmpty;
-      }
-      get isClosed() {
-        return this[_isClosed];
-      }
-      listen(onData, opts) {
-        let onError = opts && 'onError' in opts ? opts.onError : null;
-        let onDone = opts && 'onDone' in opts ? opts.onDone : null;
-        let cancelOnError = opts && 'cancelOnError' in opts ? opts.cancelOnError : false;
-        let subs = new (MiniSubscriptionOfT()).new(onData, onError, onDone, cancelOnError, this.listenable);
-        this.listenable.addListener(subs);
-        return subs;
-      }
-      close() {
-        if (this[_isClosed]) {
-          dart.throw("You can not close a closed Stream");
-        }
-        this.listenable[_notifyDone]();
-        this.listenable.clear();
-        this[_isClosed] = true;
-      }
-    }
-    (MiniStream.new = function() {
-      this[listenable] = new (FastListOfT()).new();
-      this[__MiniStream__value] = null;
-      this[__MiniStream__value_isSet] = false;
-      this[_isClosed] = false;
-      ;
-    }).prototype = MiniStream.prototype;
-    dart.addTypeTests(MiniStream);
-    MiniStream.prototype[_is_MiniStream_default] = true;
-    dart.addTypeCaches(MiniStream);
-    dart.setMethodSignature(MiniStream, () => ({
-      __proto__: dart.getMethods(MiniStream.__proto__),
-      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addError: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      listen: dart.fnType(rx_stream.MiniSubscription$(T), [dart.fnType(dart.void, [T])], {cancelOnError: core.bool, onDone: dart.nullable(dart.fnType(dart.void, [])), onError: dart.nullable(core.Function)}, {}),
-      close: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(MiniStream, () => ({
-      __proto__: dart.getGetters(MiniStream.__proto__),
-      [_value]: T,
-      value: T,
-      length: core.int,
-      hasListeners: core.bool,
-      isClosed: core.bool
-    }));
-    dart.setSetterSignature(MiniStream, () => ({
-      __proto__: dart.getSetters(MiniStream.__proto__),
-      [_value]: T,
-      value: dart.nullable(core.Object)
-    }));
-    dart.setLibraryUri(MiniStream, I[1]);
-    dart.setFieldSignature(MiniStream, () => ({
-      __proto__: dart.getFields(MiniStream.__proto__),
-      listenable: dart.fieldType(rx_stream.FastList$(T)),
-      [__MiniStream__value]: dart.fieldType(dart.nullable(T)),
-      [__MiniStream__value_isSet]: dart.fieldType(core.bool),
-      [_isClosed]: dart.fieldType(core.bool)
-    }));
-    return MiniStream;
-  });
-  rx_stream.MiniStream = rx_stream.MiniStream$();
-  dart.addTypeTests(rx_stream.MiniStream, _is_MiniStream_default);
-  var _head = dart.privateName(rx_stream, "_head");
-  var _elementAt = dart.privateName(rx_stream, "_elementAt");
-  var _removeAt = dart.privateName(rx_stream, "_removeAt");
-  const _is_FastList_default = Symbol('_is_FastList_default');
-  rx_stream.FastList$ = dart.generic(T => {
-    var TTovoid = () => (TTovoid = dart.constFn(dart.fnType(dart.void, [T])))();
-    var MiniSubscriptionOfT = () => (MiniSubscriptionOfT = dart.constFn(rx_stream.MiniSubscription$(T)))();
-    var NodeOfMiniSubscriptionOfT = () => (NodeOfMiniSubscriptionOfT = dart.constFn(rx_stream.Node$(MiniSubscriptionOfT())))();
-    class FastList extends core.Object {
-      [_notifyData](data) {
-        let t4, t3, t2, t1, t1$;
-        T.as(data);
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2, t4 = data, TTovoid().as(t3.data)(t4)));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
-      }
-      [_notifyDone]() {
-        let t3, t2, t1, t1$;
-        let currentNode = this[_head];
-        do {
-          t1 = currentNode;
-          t1 == null ? null : (t2 = t1.data, t2 == null ? null : (t3 = t2.onDone, t3 == null ? null : t3()));
-          currentNode = (t1$ = currentNode, t1$ == null ? null : t1$.next);
-        } while (currentNode != null);
-      }
-      [_notifyError](error, stackTrace = null) {
-        let t1;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          t1 = dart.nullCheck(currentNode.data).onError;
-          t1 == null ? null : dart.dcall(t1, [error, stackTrace]);
-          currentNode = currentNode.next;
-        }
-      }
-      get isEmpty() {
-        return this[_head] == null;
-      }
-      get isNotEmpty() {
-        return !this.isEmpty;
-      }
-      get length() {
-        let length = 0;
-        let currentNode = this[_head];
-        while (currentNode != null) {
-          currentNode = currentNode.next;
-          length = length + 1;
-        }
-        return length;
-      }
-      [_elementAt](position) {
-        if (this.isEmpty || this.length < position || position < 0) return null;
-        let node = this[_head];
-        let current = 0;
-        while (current !== position) {
-          node = dart.nullCheck(node).next;
-          current = current + 1;
-        }
-        return dart.nullCheck(node).data;
-      }
-      addListener(data) {
-        MiniSubscriptionOfT().as(data);
-        let newNode = new (NodeOfMiniSubscriptionOfT()).new({data: data});
-        if (this.isEmpty) {
-          this[_head] = newNode;
-        } else {
-          let currentNode = dart.nullCheck(this[_head]);
-          while (currentNode.next != null) {
-            currentNode = dart.nullCheck(currentNode.next);
-          }
-          currentNode.next = newNode;
-        }
-      }
-      contains(element) {
-        T.as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) return true;
-          if (length !== this.length) {
-            dart.throw(new core.ConcurrentModificationError.new(this));
-          }
-        }
-        return false;
-      }
-      removeListener(element) {
-        MiniSubscriptionOfT().as(element);
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          if (dart.equals(this[_elementAt](i), element)) {
-            this[_removeAt](i);
-            break;
-          }
-        }
-      }
-      clear() {
-        let length = this.length;
-        for (let i = 0; i < length; i = i + 1) {
-          this[_removeAt](i);
-        }
-      }
-      [_removeAt](position) {
-        let index = 0;
-        let currentNode = this[_head];
-        let previousNode = null;
-        if (this.isEmpty || this.length < position || position < 0) {
-          dart.throw(core.Exception.new("Invalid position"));
-        } else if (position === 0) {
-          this[_head] = dart.nullCheck(this[_head]).next;
-        } else {
-          while (index !== position) {
-            previousNode = currentNode;
-            currentNode = dart.nullCheck(currentNode).next;
-            index = index + 1;
-          }
-          if (previousNode == null) {
-            this[_head] = null;
-          } else {
-            previousNode.next = dart.nullCheck(currentNode).next;
-          }
-          dart.nullCheck(currentNode).next = null;
-        }
-        return dart.nullCheck(currentNode).data;
-      }
-    }
-    (FastList.new = function() {
-      this[_head] = null;
-      ;
-    }).prototype = FastList.prototype;
-    dart.addTypeTests(FastList);
-    FastList.prototype[_is_FastList_default] = true;
-    dart.addTypeCaches(FastList);
-    dart.setMethodSignature(FastList, () => ({
-      __proto__: dart.getMethods(FastList.__proto__),
-      [_notifyData]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_notifyDone]: dart.fnType(dart.void, []),
-      [_notifyError]: dart.fnType(dart.void, [core.Object], [dart.nullable(core.StackTrace)]),
-      [_elementAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int]),
-      addListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      removeListener: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      [_removeAt]: dart.fnType(dart.nullable(rx_stream.MiniSubscription$(T)), [core.int])
-    }));
-    dart.setGetterSignature(FastList, () => ({
-      __proto__: dart.getGetters(FastList.__proto__),
-      isEmpty: core.bool,
-      isNotEmpty: core.bool,
-      length: core.int
-    }));
-    dart.setLibraryUri(FastList, I[1]);
-    dart.setFieldSignature(FastList, () => ({
-      __proto__: dart.getFields(FastList.__proto__),
-      [_head]: dart.fieldType(dart.nullable(rx_stream.Node$(rx_stream.MiniSubscription$(T))))
-    }));
-    return FastList;
-  });
-  rx_stream.FastList = rx_stream.FastList$();
-  dart.addTypeTests(rx_stream.FastList, _is_FastList_default);
-  dart.trackLibraries("packages/get/get_rx/src/rx_stream/rx_stream.dart", {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": rx_stream
+  }, false);
+  dart.trackLibraries("packages/flutter/src/rendering/debug_overflow_indicator.dart", {
+    "package:flutter/src/rendering/debug_overflow_indicator.dart": debug_overflow_indicator
   }, {
-    "package:get/get_rx/src/rx_stream/rx_stream.dart": ["get_stream.dart", "mini_stream.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["get_stream.dart","mini_stream.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAUmB;;;;;;MACA;;;;;;MACA;;;;;;MACU;;;;;;;kCAO6B;AAAtB;;AAChC,eAAY,eAAP;AACH,kBAAc,AAAE,gBAAT,wBAAgB,IAAI;;AAEQ,YAAnC,MAAa,qBAAiB;AAC9B,iBAAO;uCAAS,YAAO,IAAI;;QAE/B;;;kCAEoD;AAAtB;AAC5B,eAAY,eAAP;AACH,kBAAc,AAAE,gBAAT,qBAAa,IAAI;;AAEW,YAAnC,MAAa,qBAAiB;AAC9B,kBAAc,AAAE,gBAAT,qBAAa,IAAI;;QAE5B;;;;AAEmB;mCAAS;MAAM;;AAET,cAAO,AAAE,gBAAT;MAAmB;oBAEzB;;AACH,QAAd,gBAAU;AACV,iBAAW,OAAe,gBAAP;AACjB,eAAK,AAAK,IAAD;AACe,+BAAtB,AAAK,IAAD;yBAAC,OAAO,GAAK,IAAI;;;AAGV,QAAf,gBAAU;MACZ;qBAEyB,OAAoB;;AAC3C,aAAO,CAAC,iCAAU;AACJ,QAAd,gBAAU;AACN,4BAAsC;AAC1C,iBAAW,OAAe,gBAAP;AACjB,eAAK,AAAK,IAAD;AACP,gBAAI,UAAU;AAC0B,mBAAtC,AAAK,IAAD;2BAAC,OAAU,gBAAK,KAAK,EAAE,UAAU;;AAEX,oBAA1B,AAAK,IAAD;4BAAC,OAAU,iBAAK,KAAK;;AAG3B,gBAAsB,eAAlB,AAAK,IAAD;AAEiB,cAAvB,AAAc,aAAD,OAAK,IAAI;AACV,cAAZ,AAAK,IAAD;AACgB,qBAApB,AAAK,IAAD;6BAAC,OAAS;;;;AAIpB,iBAAW,OAAQ,cAAa;AACT,UAAd,AAAE,eAAT,wBAAgB,IAAI;;AAEP,QAAf,gBAAU;MACZ;;;AAGE,aAAO,CAAC,iCAAU;AACJ,QAAd,gBAAU;AACV,iBAAW,OAAe,gBAAP;AACjB,eAAK,AAAK,IAAD;AACa,iBAApB,AAAK,IAAD;yBAAC,OAAS;;;AAGH,QAAf,gBAAU;MACZ;;AAIgB;MAAM;;aAEX;AACT,aAAO,CAAC,iCAAU;AACJ,QAAd,eAAS,KAAK;AACI,QAAlB,kBAAY,KAAK;MACnB;;AAEqB,cAAA,AAAQ;MAAO;eAEf,OAAoB;AACvC,aAAO,CAAC,iCAAU;AACa,QAA/B,mBAAa,KAAK,EAAE,UAAU;MAChC;;AAGE,aAAO,CAAC,iCAAU;AACL,QAAb;AACc,QAAd,gBAAU;AACI,QAAd,gBAAU;AACG,QAAb,eAAS;MACX;aAEmD;;YACpC;YAA0B;YAAc;AAC/C,yBAAO,2CACX,uCACS,wBACC,yBACA,iBAJC;AAMT,oBAAO,MAAM;AACb,qBAAQ,OAAO;AACf,oBAAO,MAAM;AACb,6BAAgB,aAAa;;;AACZ,QAArB,qBAAgB,IAAI;AACJ,cAAhB;6BAAU;AACV,cAAO,KAAI;MACb;;AAGI,gEAAwB,oCAAiB;MAAmB;;;UArHhD;UAAe;UAAc;UAAe;MAChC,gBAAgC;MAEtD,gBAAU;MAuEb;MA1Ea;MAAe;MAAc;MAAe;;IAAU;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA4H/C;;;;;;MACA;;;;;;MACU;;;;;;MAE3B;;;;;;;;AAIqB,QAAzB,AAAmB,2BAAC;AACJ,aAAhB;4BAAU;AACV,cAAc;MAChB;aAWuB;AAAe,6BAAQ,UAAU;;cAGjC;AAAgB,gCAAW,WAAW;;aAGvC;AAAe,+BAAU,UAAU;;YAG/B;;AACR,QAAhB,kBAAY;AACG,aAAf;4BAAS;MACX;;;AAImB,QAAjB,kBAAY;AACI,aAAhB;4BAAU;MACZ;;AAGqB;MAAS;kBAGJ;AAAiB,cAAO,wBAAM,WAAW;MAAC;;sCAhD7C;UACb;UAAc;UAAe;MAKjC,sBAAgB;MASX;MAED;MAEA;MAEL,kBAAY;MArBM;MACb;MAAc;MAAe;;IAAU;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;aAwDG;;YACrC;YAA0B;YAAc;AAC/C,yBAAO,iCAAqB,6BAArB;AACT,oBAAO,MAAM;AACb,qBAAQ,OAAO;AACf,oBAAO,MAAM;;;AACK,cAAL,IAAI;QAArB,AAAgB;AAChB,cAAO,KAAI;MACb;;4CAX6B,kBAAuB;MAAvB;MAAuB;AAApD;;IAAwE;;;;;;;;;;;;;;;;;;;;;;;;;;MC5LrE;;;;;;MACM;;;;;;;;UACE;UAAW;MAAX;MAAW;;IAAM;;;;;;;;;;;;;;;;;;;;;;MAMZ;;;;;;MACA;;;;;;MACA;;;;;;MACL;;;;;;MAIO;;;;;;;AAFC;AAAY,gBAAA,AAAS,8BAAe;QAAK;;;qCANnD,MAAW,SAAc,QAAa,eAAoB;MAA1D;MAAW;MAAc;MAAa;MAAoB;;IAAS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAYhE;;;;;;;;AAEL;MAAM;;AAAN;;MAAM;;AAEE;MAAM;;aAET;AACF,QAAR,SAAI,GAAG;MACT;;aAEW;AACK,QAAd,eAAS,KAAK;AACe,QAA7B,AAAW,6BAAY,KAAK;MAC9B;eAEqB,OAAoB;AACG,QAA1C,AAAW,8BAAa,KAAK,EAAE,UAAU;MAC3C;;AAEkB,cAAA,AAAW;MAAM;;AAEV,cAAA,AAAW;MAAU;;AAEzB;MAAS;aAEoB;YACnC;YACM;YACZ;AACD,mBAAO,gCACX,MAAM,EACN,OAAO,EACP,MAAM,EACN,aAAa,EACb;AAE0B,QAA5B,AAAW,4BAAY,IAAI;AAC3B,cAAO,KAAI;MACb;;AAKE,YAAI;AACuC,UAAzC,WAAM;;AAEgB,QAAxB,AAAW;AACO,QAAlB,AAAW;AACK,QAAhB,kBAAY;MACd;;;MAjDY,mBAAa;kCAElB;;MAsCF,kBAAY;;IAUnB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;oBAKqB;;;AACb,0BAAc;AAClB;AAC+B,eAA7B,WAAW;+BAAX,KAAa,8BAAb,cAAwB,IAAI,EAAL,aAAJ;AACY,UAA/B,qBAAc,WAAW,gBAAX,OAAa;iBACpB,WAAW;MACtB;;;AAGM,0BAAc;AAClB;AACmC,eAAjC,WAAW;+BAAX,KAAa,8BAAb,KAAmB,wBAAnB,OAA2B;AACI,UAA/B,qBAAc,WAAW,gBAAX,OAAa;iBACpB,WAAW;MACtB;qBAEyB,OAAoB;;AACvC,0BAAc;AAClB,eAAO,WAAW;AACkC,eAAlC,AAAE,eAAlB,AAAY,WAAD;uBAAO,OAAS,gBAAK,KAAK,EAAE,UAAU;AACnB,UAA9B,cAAc,AAAY,WAAD;;MAE7B;;AAGoB,cAAA,AAAM;MAAO;;AAEV,gBAAC;MAAO;;AAIzB,qBAAS;AACT,0BAAc;AAElB,eAAO,WAAW;AACc,UAA9B,cAAc,AAAY,WAAD;AACjB,UAAR,SAAA,AAAM,MAAA;;AAER,cAAO,OAAM;MACf;mBAGoC;AAClC,YAAI,gBAAW,AAAO,cAAE,QAAQ,IAAI,AAAS,QAAD,GAAG,GAAG,MAAO;AAErD,mBAAO;AACP,sBAAU;AAEd,eAAO,OAAO,KAAI,QAAQ;AACP,UAAjB,OAAW,AAAE,eAAN,IAAI;AACF,UAAT,UAAA,AAAO,OAAA;;AAET,cAAW,AAAE,gBAAN,IAAI;MACb;;iCAGqC;AAC/B,sBAAU,6CAAW,IAAI;AAE7B,YAAI;AACa,UAAf,cAAQ,OAAO;;AAEX,4BAAmB,eAAL;AAClB,iBAAO,AAAY,WAAD;AACe,YAA/B,cAA8B,eAAhB,AAAY,WAAD;;AAED,UAA1B,AAAY,WAAD,QAAQ,OAAO;;MAE9B;;aAEgB;AACV,qBAAc;AAClB,iBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC3B,cAAkB,YAAd,iBAAW,CAAC,GAAK,OAAO,GAAE,MAAO;AACrC,cAAI,MAAM,KAAS;AACsB,YAAvC,WAAM,yCAA4B;;;AAGtC,cAAO;MACT;;iCAEwC;AAClC,qBAAc;AAClB,iBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC3B,cAAkB,YAAd,iBAAW,CAAC,GAAK,OAAO;AACd,YAAZ,gBAAU,CAAC;AACX;;;MAGN;;AAGM,qBAAc;AAClB,iBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AACf,UAAZ,gBAAU,CAAC;;MAEf;kBAEmC;AAC7B,oBAAQ;AACR,0BAAc;AACS;AAE3B,YAAI,gBAAW,AAAO,cAAE,QAAQ,IAAI,AAAS,QAAD,GAAG;AACV,UAAnC,WAAM,mBAAU;cACX,KAAI,AAAS,QAAD,KAAI;AACF,UAAnB,cAAa,AAAE,eAAP;;AAER,iBAAO,KAAK,KAAI,QAAQ;AACI,YAA1B,eAAe,WAAW;AACK,YAA/B,cAAyB,AAAE,eAAb,WAAW;AAClB,YAAP,QAAA,AAAK,KAAA;;AAGP,cAAI,AAAa,YAAD;AACF,YAAZ,cAAQ;;AAE6B,YAArC,AAAa,YAAD,QAAmB,AAAE,eAAb,WAAW;;AAGT,UAAb,AAAE,eAAb,WAAW,SAAS;;AAGtB,cAAkB,AAAE,gBAAb,WAAW;MACpB;;;MA9H2B;;IA+H7B","file":"../../../../../../../../../../../packages/get/get_rx/src/rx_stream/rx_stream.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["debug_overflow_indicator.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/debug_overflow_indicator.dart.lib.js"}');
   // Exports:
   return {
-    get_rx__src__rx_stream__rx_stream: rx_stream
+    src__rendering__debug_overflow_indicator: debug_overflow_indicator
   };
 }));
 
-//# sourceMappingURL=rx_stream.dart.lib.js.map
+//# sourceMappingURL=debug_overflow_indicator.dart.lib.js.map

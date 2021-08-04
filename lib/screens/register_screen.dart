@@ -12,7 +12,7 @@ import 'package:logafic/widgets/primaryButton.dart';
 // Kullanıcıdan bir mail adresi bir şifre ve kurum mail adresi istenmektedir bu mail adresi veri tabanına kayıt edilmektedir.
 
 // Web sayfasının adresi ' http://logafic.click/#/register '
-// Ekran görüntülerine github üzerinden erişilebilir.
+// Ekran görüntülerine github üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/register_screen_large.png '
 
 class RegisterScreen extends StatefulWidget {
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -23,30 +23,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
   AuthController authController = AuthController.to;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  // Email adresini tutan değişken.
-  TextEditingController? _emailController;
-  // Şifreyi tutan değişken
-  TextEditingController? _passController;
-  // Kurum mail adresini tutan değişken
-  TextEditingController? _eduMailController;
 //Validation
   // Kullanıcı sözleşmesinin kabulünü tutan değişken.
   bool _agree = false;
-  // sayfa oluşturulduğunda çalışır.
-  void initState() {
-    super.initState();
-    _emailController = TextEditingController();
-    _passController = TextEditingController();
-    _eduMailController = TextEditingController();
-  }
-
-  // Sayfa kapatıldığında çalışır
-  void dispose() {
-    _emailController!.dispose();
-    _passController!.dispose();
-    _eduMailController!.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,13 +134,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 20),
                       child: FormInputFieldWithIcon(
-                          controller: _eduMailController!,
+                          controller: authController.eduMailController,
                           iconPrefix: Icons.cast_for_education,
                           labelText: 'Okul email',
                           validator: HelpersValidate().validateEmail,
                           obscureText: false,
                           onChanged: (value) => null,
-                          onSaved: (value) {}),
+                          onSaved: (value) {
+                            authController.eduMailController.text = value!;
+                          }),
                     ),
                     FormVerticalSpace(),
                     _buildAgreeToTermsField,

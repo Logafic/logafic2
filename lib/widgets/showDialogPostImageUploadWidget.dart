@@ -37,8 +37,7 @@ Future<void> uploadImageShowDialog(BuildContext context) async {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 postImage == null
-                                    ? Text(
-                                        'Arka plan fotoğrafı eklemek ister misin?')
+                                    ? Text('Görsel seçmek için tıklayın.')
                                     : Center(
                                         child: SizedBox(
                                             height: MediaQuery.of(context)

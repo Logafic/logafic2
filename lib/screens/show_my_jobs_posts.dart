@@ -2,14 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/messageService.dart';
+import 'package:logafic/widgets/deleteJobsScreenWidget.dart';
 import 'package:logafic/widgets/showApplyJobsDiaologWidget.dart';
 import 'package:logafic/widgets/showJobsWdiget.dart';
 
 // Web sayfası adresi ' http://logafic.click/#/myjobs '
-// Ekran görüntülerine github adresi üzerinden erişilebilir.
+// Ekran görüntülerine github adresi üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/myjobs_screen_large.png '
 // Yetkili kullanıcı tarafından yapılan iş ve etkinlik ilanı paylaşımlarının kullanıcının kendi paylaşımlarını görüntülediği web sayfası
 // Kullanıcı bu ilanlara başvuruda bulunmuş kullanıcıları bir liste olarak görüntüleyebilir bu kullanıcıların profillerini görüntüler ve mesaj gönderebilir.
-// İlanları silebilir ve değiştirebilir.
+// İlanları silebilir.
 
 class ShowMyJobsPostScreen extends StatefulWidget {
   ShowMyJobsPostScreen({Key? key}) : super(key: key);
@@ -109,6 +110,26 @@ class _ShowMyJobsPostScreenState extends State<ShowMyJobsPostScreen> {
                                                         });
                                                   },
                                                 ),
+                                              ],
+                                            ),
+                                            trailing: PopupMenuButton(
+                                              icon: Icon(
+                                                Icons.more_horiz,
+                                                color: Colors.black45,
+                                              ),
+                                              itemBuilder:
+                                                  (BuildContext context) =>
+                                                      <PopupMenuEntry>[
+                                                PopupMenuItem(
+                                                    child: ListTile(
+                                                        onTap: () {
+                                                          showDeleteMoyJobsScreenWidget(
+                                                              context,
+                                                              document.id);
+                                                        },
+                                                        title: Text('Sil'),
+                                                        leading: Icon(
+                                                            Icons.delete))),
                                               ],
                                             ),
                                             subtitle: Text(

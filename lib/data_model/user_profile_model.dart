@@ -17,7 +17,7 @@ class UserProfile {
   String? biograpfy;
   bool? unreadMessage;
   bool? unreadNotification;
-  bool? isAdmin;
+  // bool? isAdmin;
 
   UserProfile({
     this.userEmail,
@@ -35,7 +35,7 @@ class UserProfile {
     this.instagram,
     this.birtday,
     this.biograpfy,
-    this.isAdmin,
+    // this.isAdmin,
     this.unreadMessage,
     this.unreadNotification,
   });
@@ -57,7 +57,7 @@ class UserProfile {
     data['birtday'] = this.birtday;
     data['biograpfy'] = this.biograpfy;
     data['email'] = this.userEmail;
-    data['isAdmin'] = this.isAdmin;
+    // data['isAdmin'] = this.isAdmin;
     data['unreadNotification'] = this.unreadNotification;
     data['unreadMessage'] = this.unreadMessage;
 
@@ -80,7 +80,7 @@ class UserProfile {
       userEmail: data['email'],
       userBackImage: data['userBackImage'],
       userProfileImage: data['userProfileImage'],
-      isAdmin: data['isAdmin'],
+      // isAdmin: data['isAdmin'],
       unreadMessage: data['unreadMessage'],
       unreadNotification: data['unreadNotification'],
       universty: data['universty'],

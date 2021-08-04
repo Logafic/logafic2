@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:logafic/extensions/string_extensions.dart';
 import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/services/database.dart';
 import 'package:logafic/services/messageService.dart';
@@ -31,7 +32,9 @@ Future<void> showCommentPostShareWidget(
             var height = MediaQuery.of(context).size.height;
             var width = MediaQuery.of(context).size.width;
             return Container(
-                height: height / 2,
+                height: ResponsiveWidget.isSmallScreen(context)
+                    ? height
+                    : height / 2,
                 width: ResponsiveWidget.isSmallScreen(context)
                     ? width
                     : width * 0.3,
@@ -77,7 +80,7 @@ Future<void> showCommentPostShareWidget(
                                 Padding(
                                   padding: EdgeInsets.all(20),
                                   child: postUrlImage == ''
-                                      ? Text(postContent)
+                                      ? Text(truncateString(postContent, 240))
                                       : Column(children: [
                                           SizedBox(
                                             height: MediaQuery.of(context)
@@ -91,7 +94,8 @@ Future<void> showCommentPostShareWidget(
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 20.0),
-                                                  child: Text(postContent),
+                                                  child: Text(truncateString(
+                                                      postContent, 240)),
                                                 )
                                               : Text('')
                                         ]),

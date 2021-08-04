@@ -43,14 +43,27 @@ Future<void> sendMessage(String messageSentUserId, String profileImage,
 // Son mesajlar user koleksiyonunda bulunan lastMessages koleksiyonuna ekleniyor.
 Future<void> lastMessage(String messageSentUserId, String profileImage,
     String messageSentUserName, String message) async {
-  CollectionReference lastMessageRef = FirebaseFirestore.instance
-      .collection('users')
+  CollectionReference lastMessageRef =
+      FirebaseFirestore.instance.collection('users');
+  lastMessageRef
       .doc('${authController.firebaseUser.value!.uid}')
-      .collection('lastMessages');
-  lastMessageRef.doc(messageSentUserId).set({
+      .collection('lastMessages')
+      .doc(messageSentUserId)
+      .set({
     'profileImage': profileImage,
     'messageSentUser': messageSentUserName,
     'sender': authController.firebaseUser.value!.uid,
+    'message': encodeMessage(message),
+    'created_at': DateTime.now().toString()
+  });
+  lastMessageRef
+      .doc('$messageSentUserId')
+      .collection('lastMessages')
+      .doc('${authController.firebaseUser.value!.uid}')
+      .set({
+    'profileImage': authController.firestoreUser.value!.userProfileImage,
+    'messageSentUser': authController.firestoreUser.value!.userName,
+    'sender': messageSentUserId,
     'message': encodeMessage(message),
     'created_at': DateTime.now().toString()
   });

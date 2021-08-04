@@ -4,7 +4,7 @@ import 'package:logafic/controllers/authController.dart';
 import 'package:logafic/routing/router_names.dart';
 
 // Küçük ekranlı cihazlar için kullanılan menü
-// Ekran görüntüsü github üzerinden erişilebilir.
+// Ekran görüntüsü github üzerinden erişilebilir. ' https://github.com/Logafic/logafic/blob/main/SS/show_menu_bar.png '
 // Home page ve JobsShareScreen sayfalarında kullanılıyor.
 
 class ExploreDrawer extends StatefulWidget {
@@ -111,6 +111,22 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               authController.firebaseUser.value!.uid != ''
                   ? SizedBox(height: 20)
                   : Container(),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(HomeRoute);
+                },
+                child: Text(
+                  'Anasayfa',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, ProfileRoute, arguments: {

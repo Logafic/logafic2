@@ -1,23 +1,34 @@
-define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/scheduler/ticker.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__rendering__animated_size_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__scheduler__ticker$46dart, packages__flutter__src__rendering__layer$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/services/mouse_cursor.dart', 'packages/flutter/src/material/material_state.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/toggleable.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter__src__material__radio_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__services__mouse_cursor$46dart, packages__flutter__src__material__material_state$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__toggleable$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
-  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
-  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
-  const ticker = packages__flutter__src__scheduler__ticker$46dart.src__scheduler__ticker;
-  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
-  var animated_size = Object.create(dart.library);
-  var $_equals = dartx._equals;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const focus_manager = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_manager;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const mouse_cursor = packages__flutter__src__services__mouse_cursor$46dart.src__services__mouse_cursor;
+  const material_state = packages__flutter__src__material__material_state$46dart.src__material__material_state;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const debug = packages__flutter__src__material__icon_button$46dart.src__material__debug;
+  const toggleable = packages__flutter__src__material__toggleable$46dart.src__material__toggleable;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var radio = Object.create(dart.library);
+  var $noSuchMethod = dartx.noSuchMethod;
   dart._checkModuleNullSafetyMode(true);
-  var T = {
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  var T$ = {
+    ColorN: () => (T$.ColorN = dart.constFn(dart.nullable(ui.Color)))(),
+    SetOfMaterialState: () => (T$.SetOfMaterialState = dart.constFn(core.Set$(material_state.MaterialState)))(),
+    SetOfMaterialStateToColorN: () => (T$.SetOfMaterialStateToColorN = dart.constFn(dart.fnType(T$.ColorN(), [T$.SetOfMaterialState()])))(),
+    SetOfMaterialStateToColor: () => (T$.SetOfMaterialStateToColor = dart.constFn(dart.fnType(ui.Color, [T$.SetOfMaterialState()])))(),
+    MouseCursorN: () => (T$.MouseCursorN = dart.constFn(dart.nullable(mouse_cursor.MouseCursor)))(),
+    SetOfMaterialStateToMouseCursor: () => (T$.SetOfMaterialStateToMouseCursor = dart.constFn(dart.fnType(mouse_cursor.MouseCursor, [T$.SetOfMaterialState()])))(),
+    ListenableN: () => (T$.ListenableN = dart.constFn(dart.nullable(change_notifier.Listenable)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -25,403 +36,514 @@ define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flut
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: animated_size.RenderAnimatedSizeState.prototype,
-        [_name$]: "RenderAnimatedSizeState.start",
-        index: 0
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 48,
+        [OffsetBase__dx]: 48
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: animated_size.RenderAnimatedSizeState.prototype,
-        [_name$]: "RenderAnimatedSizeState.stable",
-        index: 1
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.padded",
+        index: 0
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: animated_size.RenderAnimatedSizeState.prototype,
-        [_name$]: "RenderAnimatedSizeState.changed",
-        index: 2
+        __proto__: ui.Size.prototype,
+        [OffsetBase__dy]: 40,
+        [OffsetBase__dx]: 40
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: animated_size.RenderAnimatedSizeState.prototype,
-        [_name$]: "RenderAnimatedSizeState.unstable",
-        index: 3
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], animated_size.RenderAnimatedSizeState);
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: curves._Linear.prototype
+        __proto__: theme_data.MaterialTapTargetSize.prototype,
+        [_name]: "MaterialTapTargetSize.shrinkWrap",
+        index: 1
       });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "inMutuallyExclusiveGroup",
+        [_Location_column]: 7,
+        [_Location_line]: 486,
+        [_Location_file]: null
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name]: "Clip.hardEdge",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "checked",
+        [_Location_column]: 7,
+        [_Location_line]: 487,
+        [_Location_file]: null
       });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 488,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 485,
+        [_Location_file]: "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/radio.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const(new _js_helper.PrivateSymbol.new('_repaint', _repaint));
     }
   }, false);
-  var C = Array(8).fill(void 0);
+  var C = Array(10).fill(void 0);
   var I = [
-    "package:flutter/src/rendering/animated_size.dart",
-    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/rendering/animated_size.dart"
+    "file:///C:/Users/yunus/flutter/packages/flutter/lib/src/material/radio.dart",
+    "package:flutter/src/material/radio.dart"
   ];
-  var _name$ = dart.privateName(animated_size, "_name");
-  animated_size.RenderAnimatedSizeState = class RenderAnimatedSizeState extends core.Object {
-    toString() {
-      return this[_name$];
+  var value$ = dart.privateName(radio, "Radio.value");
+  var groupValue$ = dart.privateName(radio, "Radio.groupValue");
+  var onChanged$ = dart.privateName(radio, "Radio.onChanged");
+  var mouseCursor$ = dart.privateName(radio, "Radio.mouseCursor");
+  var toggleable$ = dart.privateName(radio, "Radio.toggleable");
+  var activeColor$ = dart.privateName(radio, "Radio.activeColor");
+  var fillColor$ = dart.privateName(radio, "Radio.fillColor");
+  var materialTapTargetSize$ = dart.privateName(radio, "Radio.materialTapTargetSize");
+  var visualDensity$ = dart.privateName(radio, "Radio.visualDensity");
+  var focusColor$ = dart.privateName(radio, "Radio.focusColor");
+  var hoverColor$ = dart.privateName(radio, "Radio.hoverColor");
+  var overlayColor$ = dart.privateName(radio, "Radio.overlayColor");
+  var splashRadius$ = dart.privateName(radio, "Radio.splashRadius");
+  var focusNode$ = dart.privateName(radio, "Radio.focusNode");
+  var autofocus$ = dart.privateName(radio, "Radio.autofocus");
+  var _selected = dart.privateName(radio, "_selected");
+  const _is_Radio_default = Symbol('_is_Radio_default');
+  radio.Radio$ = dart.generic(T => {
+    var _RadioStateOfT = () => (_RadioStateOfT = dart.constFn(radio._RadioState$(T)))();
+    class Radio extends framework.StatefulWidget {
+      get value() {
+        return this[value$];
+      }
+      set value(value) {
+        super.value = value;
+      }
+      get groupValue() {
+        return this[groupValue$];
+      }
+      set groupValue(value) {
+        super.groupValue = value;
+      }
+      get onChanged() {
+        return this[onChanged$];
+      }
+      set onChanged(value) {
+        super.onChanged = value;
+      }
+      get mouseCursor() {
+        return this[mouseCursor$];
+      }
+      set mouseCursor(value) {
+        super.mouseCursor = value;
+      }
+      get toggleable() {
+        return this[toggleable$];
+      }
+      set toggleable(value) {
+        super.toggleable = value;
+      }
+      get activeColor() {
+        return this[activeColor$];
+      }
+      set activeColor(value) {
+        super.activeColor = value;
+      }
+      get fillColor() {
+        return this[fillColor$];
+      }
+      set fillColor(value) {
+        super.fillColor = value;
+      }
+      get materialTapTargetSize() {
+        return this[materialTapTargetSize$];
+      }
+      set materialTapTargetSize(value) {
+        super.materialTapTargetSize = value;
+      }
+      get visualDensity() {
+        return this[visualDensity$];
+      }
+      set visualDensity(value) {
+        super.visualDensity = value;
+      }
+      get focusColor() {
+        return this[focusColor$];
+      }
+      set focusColor(value) {
+        super.focusColor = value;
+      }
+      get hoverColor() {
+        return this[hoverColor$];
+      }
+      set hoverColor(value) {
+        super.hoverColor = value;
+      }
+      get overlayColor() {
+        return this[overlayColor$];
+      }
+      set overlayColor(value) {
+        super.overlayColor = value;
+      }
+      get splashRadius() {
+        return this[splashRadius$];
+      }
+      set splashRadius(value) {
+        super.splashRadius = value;
+      }
+      get focusNode() {
+        return this[focusNode$];
+      }
+      set focusNode(value) {
+        super.focusNode = value;
+      }
+      get autofocus() {
+        return this[autofocus$];
+      }
+      set autofocus(value) {
+        super.autofocus = value;
+      }
+      get [_selected]() {
+        return dart.equals(this.value, this.groupValue);
+      }
+      createState() {
+        return new (_RadioStateOfT()).new();
+      }
     }
-  };
-  (animated_size.RenderAnimatedSizeState.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = animated_size.RenderAnimatedSizeState.prototype;
-  dart.addTypeTests(animated_size.RenderAnimatedSizeState);
-  dart.addTypeCaches(animated_size.RenderAnimatedSizeState);
-  dart.setLibraryUri(animated_size.RenderAnimatedSizeState, I[0]);
-  dart.setFieldSignature(animated_size.RenderAnimatedSizeState, () => ({
-    __proto__: dart.getFields(animated_size.RenderAnimatedSizeState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(animated_size.RenderAnimatedSizeState, ['toString']);
-  animated_size.RenderAnimatedSizeState.start = C[0] || CT.C0;
-  animated_size.RenderAnimatedSizeState.stable = C[1] || CT.C1;
-  animated_size.RenderAnimatedSizeState.changed = C[2] || CT.C2;
-  animated_size.RenderAnimatedSizeState.unstable = C[3] || CT.C3;
-  animated_size.RenderAnimatedSizeState.values = C[4] || CT.C4;
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
-  var _name = dart.privateName(ui, "_name");
-  var __RenderAnimatedSize__controller = dart.privateName(animated_size, "_#RenderAnimatedSize#_controller");
-  var __RenderAnimatedSize__animation = dart.privateName(animated_size, "_#RenderAnimatedSize#_animation");
-  var _sizeTween = dart.privateName(animated_size, "_sizeTween");
-  var __RenderAnimatedSize__hasVisualOverflow = dart.privateName(animated_size, "_#RenderAnimatedSize#_hasVisualOverflow");
-  var _lastValue = dart.privateName(animated_size, "_lastValue");
-  var _state = dart.privateName(animated_size, "_state");
-  var _clipBehavior = dart.privateName(animated_size, "_clipBehavior");
-  var _clipRectLayer = dart.privateName(animated_size, "_clipRectLayer");
-  var _vsync = dart.privateName(animated_size, "_vsync");
-  var _controller = dart.privateName(animated_size, "_controller");
-  var _animation = dart.privateName(animated_size, "_animation");
-  var _hasVisualOverflow = dart.privateName(animated_size, "_hasVisualOverflow");
-  var _animatedSize = dart.privateName(animated_size, "_animatedSize");
-  var _layoutStart = dart.privateName(animated_size, "_layoutStart");
-  var _layoutStable = dart.privateName(animated_size, "_layoutStable");
-  var _layoutChanged = dart.privateName(animated_size, "_layoutChanged");
-  var _layoutUnstable = dart.privateName(animated_size, "_layoutUnstable");
-  var _restartAnimation = dart.privateName(animated_size, "_restartAnimation");
-  animated_size.RenderAnimatedSize = class RenderAnimatedSize extends shifted_box.RenderAligningShiftedBox {
-    get [_controller]() {
+    (Radio.new = function(opts) {
+      let key = opts && 'key' in opts ? opts.key : null;
+      let value = opts && 'value' in opts ? opts.value : null;
+      let groupValue = opts && 'groupValue' in opts ? opts.groupValue : null;
+      let onChanged = opts && 'onChanged' in opts ? opts.onChanged : null;
+      let mouseCursor = opts && 'mouseCursor' in opts ? opts.mouseCursor : null;
+      let toggleable = opts && 'toggleable' in opts ? opts.toggleable : false;
+      let activeColor = opts && 'activeColor' in opts ? opts.activeColor : null;
+      let fillColor = opts && 'fillColor' in opts ? opts.fillColor : null;
+      let focusColor = opts && 'focusColor' in opts ? opts.focusColor : null;
+      let hoverColor = opts && 'hoverColor' in opts ? opts.hoverColor : null;
+      let overlayColor = opts && 'overlayColor' in opts ? opts.overlayColor : null;
+      let splashRadius = opts && 'splashRadius' in opts ? opts.splashRadius : null;
+      let materialTapTargetSize = opts && 'materialTapTargetSize' in opts ? opts.materialTapTargetSize : null;
+      let visualDensity = opts && 'visualDensity' in opts ? opts.visualDensity : null;
+      let focusNode = opts && 'focusNode' in opts ? opts.focusNode : null;
+      let autofocus = opts && 'autofocus' in opts ? opts.autofocus : false;
+      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+      this[value$] = value;
+      this[groupValue$] = groupValue;
+      this[onChanged$] = onChanged;
+      this[mouseCursor$] = mouseCursor;
+      this[toggleable$] = toggleable;
+      this[activeColor$] = activeColor;
+      this[fillColor$] = fillColor;
+      this[focusColor$] = focusColor;
+      this[hoverColor$] = hoverColor;
+      this[overlayColor$] = overlayColor;
+      this[splashRadius$] = splashRadius;
+      this[materialTapTargetSize$] = materialTapTargetSize;
+      this[visualDensity$] = visualDensity;
+      this[focusNode$] = focusNode;
+      this[autofocus$] = autofocus;
+      if (!(autofocus !== null)) dart.assertFailed(null, I[0], 122, 15, "autofocus != null");
+      if (!(toggleable !== null)) dart.assertFailed(null, I[0], 123, 15, "toggleable != null");
+      Radio.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+      ;
+    }).prototype = Radio.prototype;
+    dart.addTypeTests(Radio);
+    Radio.prototype[_is_Radio_default] = true;
+    dart.addTypeCaches(Radio);
+    dart.setMethodSignature(Radio, () => ({
+      __proto__: dart.getMethods(Radio.__proto__),
+      createState: dart.fnType(radio._RadioState$(T), [])
+    }));
+    dart.setGetterSignature(Radio, () => ({
+      __proto__: dart.getGetters(Radio.__proto__),
+      [_selected]: core.bool
+    }));
+    dart.setLibraryUri(Radio, I[1]);
+    dart.setFieldSignature(Radio, () => ({
+      __proto__: dart.getFields(Radio.__proto__),
+      value: dart.finalFieldType(T),
+      groupValue: dart.finalFieldType(dart.nullable(T)),
+      onChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [dart.nullable(T)]))),
+      mouseCursor: dart.finalFieldType(dart.nullable(mouse_cursor.MouseCursor)),
+      toggleable: dart.finalFieldType(core.bool),
+      activeColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      fillColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+      materialTapTargetSize: dart.finalFieldType(dart.nullable(theme_data.MaterialTapTargetSize)),
+      visualDensity: dart.finalFieldType(dart.nullable(theme_data.VisualDensity)),
+      focusColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      hoverColor: dart.finalFieldType(dart.nullable(ui.Color)),
+      overlayColor: dart.finalFieldType(dart.nullable(material_state.MaterialStateProperty$(dart.nullable(ui.Color)))),
+      splashRadius: dart.finalFieldType(dart.nullable(core.double)),
+      focusNode: dart.finalFieldType(dart.nullable(focus_manager.FocusNode)),
+      autofocus: dart.finalFieldType(core.bool)
+    }));
+    return Radio;
+  });
+  radio.Radio = radio.Radio$();
+  dart.addTypeTests(radio.Radio, _is_Radio_default);
+  var _painter = dart.privateName(radio, "_painter");
+  var _handleChanged = dart.privateName(radio, "_handleChanged");
+  var _widgetFillColor = dart.privateName(radio, "_widgetFillColor");
+  var _defaultFillColor = dart.privateName(radio, "_defaultFillColor");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name = dart.privateName(theme_data, "_name");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const _is__RadioState_default = Symbol('_is__RadioState_default');
+  radio._RadioState$ = dart.generic(T => {
+    var TN = () => (TN = dart.constFn(dart.nullable(T)))();
+    var TNTovoid = () => (TNTovoid = dart.constFn(dart.fnType(dart.void, [TN()])))();
+    var TNToNvoid = () => (TNToNvoid = dart.constFn(dart.nullable(TNTovoid())))();
+    var RadioOfT = () => (RadioOfT = dart.constFn(radio.Radio$(T)))();
+    const State_TickerProviderStateMixin$36 = class State_TickerProviderStateMixin extends framework.State$(radio.Radio$(T)) {};
+    (State_TickerProviderStateMixin$36.new = function() {
+      ticker_provider.TickerProviderStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
+      State_TickerProviderStateMixin$36.__proto__.new.call(this);
+    }).prototype = State_TickerProviderStateMixin$36.prototype;
+    dart.applyMixin(State_TickerProviderStateMixin$36, ticker_provider.TickerProviderStateMixin$(radio.Radio$(T)));
+    const State_ToggleableStateMixin$36 = class State_ToggleableStateMixin extends State_TickerProviderStateMixin$36 {};
+    (State_ToggleableStateMixin$36.new = function() {
+      toggleable.ToggleableStateMixin$(radio.Radio$(T))[dart.mixinNew].call(this);
+      State_ToggleableStateMixin$36.__proto__.new.call(this);
+    }).prototype = State_ToggleableStateMixin$36.prototype;
+    dart.applyMixin(State_ToggleableStateMixin$36, toggleable.ToggleableStateMixin$(radio.Radio$(T)));
+    class _RadioState extends State_ToggleableStateMixin$36 {
+      [_handleChanged](selected) {
+        if (selected == null) {
+          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(null);
+          return;
+        }
+        if (dart.test(selected)) {
+          dart.nullCheck(TNToNvoid().as(this.widget.onChanged))(this.widget.value);
+        }
+      }
+      didUpdateWidget(oldWidget) {
+        RadioOfT().as(oldWidget);
+        super.didUpdateWidget(oldWidget);
+        if (this.widget[_selected] !== oldWidget[_selected]) {
+          this.animateToValue();
+        }
+      }
+      dispose() {
+        this[_painter].dispose();
+        super.dispose();
+      }
+      get onChanged() {
+        return TNToNvoid().as(this.widget.onChanged) != null ? dart.bind(this, _handleChanged) : null;
+      }
+      get tristate() {
+        return this.widget.toggleable;
+      }
+      get value() {
+        return this.widget[_selected];
+      }
+      get [_widgetFillColor]() {
+        return material_state.MaterialStateProperty.resolveWith(T$.ColorN(), dart.fn(states => {
+          if (states.contains(material_state.MaterialState.disabled)) {
+            return null;
+          }
+          if (states.contains(material_state.MaterialState.selected)) {
+            return this.widget.activeColor;
+          }
+          return null;
+        }, T$.SetOfMaterialStateToColorN()));
+      }
+      get [_defaultFillColor]() {
+        let themeData = theme.Theme.of(this.context);
+        return material_state.MaterialStateProperty.resolveWith(ui.Color, dart.fn(states => {
+          if (states.contains(material_state.MaterialState.disabled)) {
+            return themeData.disabledColor;
+          }
+          if (states.contains(material_state.MaterialState.selected)) {
+            return themeData.toggleableActiveColor;
+          }
+          return themeData.unselectedWidgetColor;
+        }, T$.SetOfMaterialStateToColor()));
+      }
+      build(context) {
+        let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t1, t0$6, t0$7, t0$8, t0$9, t1$, t0$10, t0$11, t0$12, t0$13, t0$14, t1$0, t0$15, t0$16, t0$17, t0$18, t0$19, t1$1, t0$20, t0$21, t0$22, t0$23, t1$2, t0$24, t0$25, t0$26, t0$27, t1$3, t0$28, t0$29, t1$4, t1$5, t0$30;
+        if (!debug.debugCheckHasMaterial(context)) dart.assertFailed(null, I[0], 425, 12, "debugCheckHasMaterial(context)");
+        let themeData = theme.Theme.of(context);
+        let effectiveMaterialTapTargetSize = (t0$ = (t0 = this.widget.materialTapTargetSize, t0 == null ? themeData.radioTheme.materialTapTargetSize : t0), t0$ == null ? themeData.materialTapTargetSize : t0$);
+        let effectiveVisualDensity = (t0$1 = (t0$0 = this.widget.visualDensity, t0$0 == null ? themeData.radioTheme.visualDensity : t0$0), t0$1 == null ? themeData.visualDensity : t0$1);
+        let size = null;
+        switch (effectiveMaterialTapTargetSize) {
+          case C[1] || CT.C1:
+          {
+            size = C[0] || CT.C0;
+            break;
+          }
+          case C[3] || CT.C3:
+          {
+            size = C[2] || CT.C2;
+            break;
+          }
+        }
+        size = size['+'](effectiveVisualDensity.baseSizeAdjustment);
+        let effectiveMouseCursor = material_state.MaterialStateProperty.resolveWith(mouse_cursor.MouseCursor, dart.fn(states => {
+          let t1, t0, t0$;
+          t0$ = (t0 = material_state.MaterialStateProperty.resolveAs(T$.MouseCursorN(), this.widget.mouseCursor, states), t0 == null ? (t1 = themeData.radioTheme.mouseCursor, t1 == null ? null : t1.resolve(states)) : t0);
+          return t0$ == null ? material_state.MaterialStateProperty.resolveAs(mouse_cursor.MouseCursor, material_state.MaterialStateMouseCursor.clickable, states) : t0$;
+        }, T$.SetOfMaterialStateToMouseCursor()));
+        let activeStates = (t0$2 = this.states, (() => {
+          t0$2.add(material_state.MaterialState.selected);
+          return t0$2;
+        })());
+        let inactiveStates = (t0$3 = this.states, (() => {
+          t0$3.remove(material_state.MaterialState.selected);
+          return t0$3;
+        })());
+        let effectiveActiveColor = (t0$7 = (t0$6 = (t0$5 = (t0$4 = this.widget.fillColor, t0$4 == null ? null : t0$4.resolve(activeStates)), t0$5 == null ? this[_widgetFillColor].resolve(activeStates) : t0$5), t0$6 == null ? (t1 = themeData.radioTheme.fillColor, t1 == null ? null : t1.resolve(activeStates)) : t0$6), t0$7 == null ? this[_defaultFillColor].resolve(activeStates) : t0$7);
+        let effectiveInactiveColor = (t0$11 = (t0$10 = (t0$9 = (t0$8 = this.widget.fillColor, t0$8 == null ? null : t0$8.resolve(inactiveStates)), t0$9 == null ? this[_widgetFillColor].resolve(inactiveStates) : t0$9), t0$10 == null ? (t1$ = themeData.radioTheme.fillColor, t1$ == null ? null : t1$.resolve(inactiveStates)) : t0$10), t0$11 == null ? this[_defaultFillColor].resolve(inactiveStates) : t0$11);
+        let focusedStates = (t0$12 = this.states, (() => {
+          t0$12.add(material_state.MaterialState.focused);
+          return t0$12;
+        })());
+        let effectiveFocusOverlayColor = (t0$16 = (t0$15 = (t0$14 = (t0$13 = this.widget.overlayColor, t0$13 == null ? null : t0$13.resolve(focusedStates)), t0$14 == null ? this.widget.focusColor : t0$14), t0$15 == null ? (t1$0 = themeData.radioTheme.overlayColor, t1$0 == null ? null : t1$0.resolve(focusedStates)) : t0$15), t0$16 == null ? themeData.focusColor : t0$16);
+        let hoveredStates = (t0$17 = this.states, (() => {
+          t0$17.add(material_state.MaterialState.hovered);
+          return t0$17;
+        })());
+        let effectiveHoverOverlayColor = (t0$21 = (t0$20 = (t0$19 = (t0$18 = this.widget.overlayColor, t0$18 == null ? null : t0$18.resolve(hoveredStates)), t0$19 == null ? this.widget.hoverColor : t0$19), t0$20 == null ? (t1$1 = themeData.radioTheme.overlayColor, t1$1 == null ? null : t1$1.resolve(hoveredStates)) : t0$20), t0$21 == null ? themeData.hoverColor : t0$21);
+        let activePressedStates = (t0$22 = activeStates, (() => {
+          t0$22.add(material_state.MaterialState.pressed);
+          return t0$22;
+        })());
+        let effectiveActivePressedOverlayColor = (t0$25 = (t0$24 = (t0$23 = this.widget.overlayColor, t0$23 == null ? null : t0$23.resolve(activePressedStates)), t0$24 == null ? (t1$2 = themeData.radioTheme.overlayColor, t1$2 == null ? null : t1$2.resolve(activePressedStates)) : t0$24), t0$25 == null ? effectiveActiveColor.withAlpha(31) : t0$25);
+        let inactivePressedStates = (t0$26 = inactiveStates, (() => {
+          t0$26.add(material_state.MaterialState.pressed);
+          return t0$26;
+        })());
+        let effectiveInactivePressedOverlayColor = (t0$29 = (t0$28 = (t0$27 = this.widget.overlayColor, t0$27 == null ? null : t0$27.resolve(inactivePressedStates)), t0$28 == null ? (t1$3 = themeData.radioTheme.overlayColor, t1$3 == null ? null : t1$3.resolve(inactivePressedStates)) : t0$28), t0$29 == null ? effectiveActiveColor.withAlpha(31) : t0$29);
+        return new basic.Semantics.new({inMutuallyExclusiveGroup: true, checked: this.widget[_selected], child: this.buildToggleable({focusNode: this.widget.focusNode, autofocus: this.widget.autofocus, mouseCursor: effectiveMouseCursor, size: size, painter: (t0$30 = this[_painter], (() => {
+              t0$30.position = this.position;
+              t0$30.reaction = this.reaction;
+              t0$30.reactionFocusFade = this.reactionFocusFade;
+              t0$30.reactionHoverFade = this.reactionHoverFade;
+              t0$30.inactiveReactionColor = effectiveInactivePressedOverlayColor;
+              t0$30.reactionColor = effectiveActivePressedOverlayColor;
+              t0$30.hoverColor = effectiveHoverOverlayColor;
+              t0$30.focusColor = effectiveFocusOverlayColor;
+              t0$30.splashRadius = (t1$5 = (t1$4 = this.widget.splashRadius, t1$4 == null ? themeData.radioTheme.splashRadius : t1$4), t1$5 == null ? 20 : t1$5);
+              t0$30.downPosition = this.downPosition;
+              t0$30.isFocused = this.states.contains(material_state.MaterialState.focused);
+              t0$30.isHovered = this.states.contains(material_state.MaterialState.hovered);
+              t0$30.activeColor = effectiveActiveColor;
+              t0$30.inactiveColor = effectiveInactiveColor;
+              return t0$30;
+            })())}), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+      }
+    }
+    (_RadioState.new = function() {
+      this[_painter] = new radio._RadioPainter.new();
+      _RadioState.__proto__.new.call(this);
+      ;
+    }).prototype = _RadioState.prototype;
+    dart.addTypeTests(_RadioState);
+    _RadioState.prototype[_is__RadioState_default] = true;
+    dart.addTypeCaches(_RadioState);
+    dart.setMethodSignature(_RadioState, () => ({
+      __proto__: dart.getMethods(_RadioState.__proto__),
+      [_handleChanged]: dart.fnType(dart.void, [dart.nullable(core.bool)]),
+      build: dart.fnType(framework.Widget, [framework.BuildContext])
+    }));
+    dart.setGetterSignature(_RadioState, () => ({
+      __proto__: dart.getGetters(_RadioState.__proto__),
+      onChanged: dart.nullable(dart.fnType(dart.void, [dart.nullable(core.bool)])),
+      tristate: core.bool,
+      value: dart.nullable(core.bool),
+      [_widgetFillColor]: material_state.MaterialStateProperty$(dart.nullable(ui.Color)),
+      [_defaultFillColor]: material_state.MaterialStateProperty$(ui.Color)
+    }));
+    dart.setLibraryUri(_RadioState, I[1]);
+    dart.setFieldSignature(_RadioState, () => ({
+      __proto__: dart.getFields(_RadioState.__proto__),
+      [_painter]: dart.finalFieldType(radio._RadioPainter)
+    }));
+    return _RadioState;
+  });
+  radio._RadioState = radio._RadioState$();
+  dart.addTypeTests(radio._RadioState, _is__RadioState_default);
+  var _repaint = dart.privateName(radio, "_repaint");
+  var _repaint$ = dart.privateName(custom_paint, "_repaint");
+  radio._RadioPainter = class _RadioPainter extends toggleable.ToggleablePainter {
+    paint(canvas, size) {
       let t0;
-      t0 = this[__RenderAnimatedSize__controller];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
-    }
-    set [_controller](t0) {
-      if (this[__RenderAnimatedSize__controller] == null)
-        this[__RenderAnimatedSize__controller] = t0;
-      else
-        dart.throw(new _internal.LateError.fieldAI("_controller"));
-    }
-    get [_animation]() {
-      let t1;
-      t1 = this[__RenderAnimatedSize__animation];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_animation")) : t1;
-    }
-    set [_animation](t1) {
-      if (this[__RenderAnimatedSize__animation] == null)
-        this[__RenderAnimatedSize__animation] = t1;
-      else
-        dart.throw(new _internal.LateError.fieldAI("_animation"));
-    }
-    get [_hasVisualOverflow]() {
-      let t2;
-      t2 = this[__RenderAnimatedSize__hasVisualOverflow];
-      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_hasVisualOverflow")) : t2;
-    }
-    set [_hasVisualOverflow](t2) {
-      this[__RenderAnimatedSize__hasVisualOverflow] = t2;
-    }
-    get state() {
-      return this[_state];
-    }
-    get duration() {
-      return dart.nullCheck(this[_controller].duration);
-    }
-    set duration(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 123, 12, "value != null");
-      if (value._equals(this[_controller].duration)) return;
-      this[_controller].duration = value;
-    }
-    get reverseDuration() {
-      return this[_controller].reverseDuration;
-    }
-    set reverseDuration(value) {
-      if (dart.equals(value, this[_controller].reverseDuration)) return;
-      this[_controller].reverseDuration = value;
-    }
-    get curve() {
-      return this[_animation].curve;
-    }
-    set curve(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 140, 12, "value != null");
-      if (value[$_equals](this[_animation].curve)) return;
-      this[_animation].curve = value;
-    }
-    get clipBehavior() {
-      return this[_clipBehavior];
-    }
-    set clipBehavior(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 152, 12, "value != null");
-      if (value !== this[_clipBehavior]) {
-        this[_clipBehavior] = value;
-        this.markNeedsPaint();
-        this.markNeedsSemanticsUpdate();
+      this.paintRadialReaction({canvas: canvas, origin: size.center(ui.Offset.zero)});
+      let center = ui.Offset.zero['&'](size).center;
+      let paint = (t0 = ui.Paint.new(), (() => {
+        t0.color = dart.nullCheck(ui.Color.lerp(this.inactiveColor, this.activeColor, this.position.value));
+        t0.style = ui.PaintingStyle.stroke;
+        t0.strokeWidth = 2.0;
+        return t0;
+      })());
+      canvas.drawCircle(center, 8, paint);
+      if (!this.position.isDismissed) {
+        paint.style = ui.PaintingStyle.fill;
+        canvas.drawCircle(center, 4.5 * this.position.value, paint);
       }
     }
-    get isAnimating() {
-      return this[_controller].isAnimating;
-    }
-    get vsync() {
-      return this[_vsync];
-    }
-    set vsync(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 170, 12, "value != null");
-      if (value[$_equals](this[_vsync])) return;
-      this[_vsync] = value;
-      this[_controller].resync(this.vsync);
-    }
-    detach() {
-      this[_controller].stop();
-      super.detach();
-    }
-    get [_animatedSize]() {
-      return this[_sizeTween].evaluate(this[_animation]);
-    }
-    performLayout() {
-      let t3;
-      this[_lastValue] = this[_controller].value;
-      this[_hasVisualOverflow] = false;
-      let constraints = this.constraints;
-      if (this.child == null || constraints.isTight) {
-        this[_controller].stop();
-        this.size = this[_sizeTween].begin = this[_sizeTween].end = constraints.smallest;
-        this[_state] = animated_size.RenderAnimatedSizeState.start;
-        t3 = this.child;
-        t3 == null ? null : t3.layout(constraints);
-        return;
-      }
-      dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
-      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 202, 12, "_state != null");
-      switch (this[_state]) {
-        case C[0] || CT.C0:
-        {
-          this[_layoutStart]();
-          break;
-        }
-        case C[1] || CT.C1:
-        {
-          this[_layoutStable]();
-          break;
-        }
-        case C[2] || CT.C2:
-        {
-          this[_layoutChanged]();
-          break;
-        }
-        case C[3] || CT.C3:
-        {
-          this[_layoutUnstable]();
-          break;
-        }
-      }
-      this.size = constraints.constrain(dart.nullCheck(this[_animatedSize]));
-      this.alignChild();
-      if (this.size.width < dart.nullCheck(this[_sizeTween].end).width || this.size.height < dart.nullCheck(this[_sizeTween].end).height) this[_hasVisualOverflow] = true;
-    }
-    computeDryLayout(constraints) {
-      if (this.child == null || constraints.isTight) {
-        return constraints.smallest;
-      }
-      let childSize = dart.nullCheck(this.child).getDryLayout(constraints);
-      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 236, 12, "_state != null");
-      switch (this[_state]) {
-        case C[0] || CT.C0:
-        {
-          return constraints.constrain(childSize);
-        }
-        case C[1] || CT.C1:
-        {
-          if (!dart.equals(this[_sizeTween].end, childSize)) {
-            return constraints.constrain(this.size);
-          } else if (this[_controller].value === this[_controller].upperBound) {
-            return constraints.constrain(childSize);
-          }
-          break;
-        }
-        case C[3] || CT.C3:
-        case C[2] || CT.C2:
-        {
-          if (!dart.equals(this[_sizeTween].end, childSize)) {
-            return constraints.constrain(childSize);
-          }
-          break;
-        }
-      }
-      return constraints.constrain(dart.nullCheck(this[_animatedSize]));
-    }
-    [_restartAnimation]() {
-      this[_lastValue] = 0.0;
-      this[_controller].forward({from: 0.0});
-    }
-    [_layoutStart]() {
-      this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
-      this[_state] = animated_size.RenderAnimatedSizeState.stable;
-    }
-    [_layoutStable]() {
-      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
-        this[_sizeTween].begin = this.size;
-        this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
-        this[_restartAnimation]();
-        this[_state] = animated_size.RenderAnimatedSizeState.changed;
-      } else if (this[_controller].value === this[_controller].upperBound) {
-        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
-      } else if (!this[_controller].isAnimating) {
-        this[_controller].forward();
-      }
-    }
-    [_layoutChanged]() {
-      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
-        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
-        this[_restartAnimation]();
-        this[_state] = animated_size.RenderAnimatedSizeState.unstable;
-      } else {
-        this[_state] = animated_size.RenderAnimatedSizeState.stable;
-        if (!this[_controller].isAnimating) this[_controller].forward();
-      }
-    }
-    [_layoutUnstable]() {
-      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
-        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
-        this[_restartAnimation]();
-      } else {
-        this[_controller].stop();
-        this[_state] = animated_size.RenderAnimatedSizeState.stable;
-      }
-    }
-    paint(context, offset) {
-      if (this.child != null && this[_hasVisualOverflow] && this.clipBehavior !== ui.Clip.none) {
-        let rect = ui.Offset.zero['&'](this.size);
-        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, rect, dart.bind(this, 'paint', super.paint), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
-      } else {
-        this[_clipRectLayer] = null;
-        super.paint(context, offset);
-      }
+    get [_repaint$]() {
+      return T$.ListenableN().as(this[$noSuchMethod](new core._Invocation.getter(C[9] || CT.C9)));
     }
   };
-  (animated_size.RenderAnimatedSize.new = function(opts) {
-    let t0;
-    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
-    let duration = opts && 'duration' in opts ? opts.duration : null;
-    let reverseDuration = opts && 'reverseDuration' in opts ? opts.reverseDuration : null;
-    let curve = opts && 'curve' in opts ? opts.curve : C[5] || CT.C5;
-    let alignment = opts && 'alignment' in opts ? opts.alignment : C[6] || CT.C6;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[7] || CT.C7;
-    this[__RenderAnimatedSize__controller] = null;
-    this[__RenderAnimatedSize__animation] = null;
-    this[_sizeTween] = new tween.SizeTween.new();
-    this[__RenderAnimatedSize__hasVisualOverflow] = null;
-    this[_lastValue] = null;
-    this[_state] = animated_size.RenderAnimatedSizeState.start;
-    this[_clipBehavior] = ui.Clip.hardEdge;
-    this[_clipRectLayer] = null;
-    if (!(vsync !== null)) dart.assertFailed(null, I[1], 86, 15, "vsync != null");
-    if (!(duration !== null)) dart.assertFailed(null, I[1], 87, 15, "duration != null");
-    if (!(curve !== null)) dart.assertFailed(null, I[1], 88, 15, "curve != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 89, 15, "clipBehavior != null");
-    this[_vsync] = vsync;
-    this[_clipBehavior] = clipBehavior;
-    animated_size.RenderAnimatedSize.__proto__.new.call(this, {child: child, alignment: alignment, textDirection: textDirection});
-    this[_controller] = (t0 = new animation_controller.AnimationController.new({vsync: vsync, duration: duration, reverseDuration: reverseDuration}), (() => {
-      t0.addListener(dart.fn(() => {
-        if (this[_controller].value !== this[_lastValue]) this.markNeedsLayout();
-      }, T.VoidTovoid()));
-      return t0;
-    })());
-    this[_animation] = new animations.CurvedAnimation.new({parent: this[_controller], curve: curve});
-  }).prototype = animated_size.RenderAnimatedSize.prototype;
-  dart.addTypeTests(animated_size.RenderAnimatedSize);
-  dart.addTypeCaches(animated_size.RenderAnimatedSize);
-  dart.setMethodSignature(animated_size.RenderAnimatedSize, () => ({
-    __proto__: dart.getMethods(animated_size.RenderAnimatedSize.__proto__),
-    [_restartAnimation]: dart.fnType(dart.void, []),
-    [_layoutStart]: dart.fnType(dart.void, []),
-    [_layoutStable]: dart.fnType(dart.void, []),
-    [_layoutChanged]: dart.fnType(dart.void, []),
-    [_layoutUnstable]: dart.fnType(dart.void, [])
+  (radio._RadioPainter.new = function() {
+    radio._RadioPainter.__proto__.new.call(this);
+    ;
+  }).prototype = radio._RadioPainter.prototype;
+  dart.addTypeTests(radio._RadioPainter);
+  dart.addTypeCaches(radio._RadioPainter);
+  dart.setMethodSignature(radio._RadioPainter, () => ({
+    __proto__: dart.getMethods(radio._RadioPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size])
   }));
-  dart.setGetterSignature(animated_size.RenderAnimatedSize, () => ({
-    __proto__: dart.getGetters(animated_size.RenderAnimatedSize.__proto__),
-    [_controller]: animation_controller.AnimationController,
-    [_animation]: animations.CurvedAnimation,
-    [_hasVisualOverflow]: core.bool,
-    state: animated_size.RenderAnimatedSizeState,
-    duration: core.Duration,
-    reverseDuration: dart.nullable(core.Duration),
-    curve: curves.Curve,
-    clipBehavior: ui.Clip,
-    isAnimating: core.bool,
-    vsync: ticker.TickerProvider,
-    [_animatedSize]: dart.nullable(ui.Size)
+  dart.setGetterSignature(radio._RadioPainter, () => ({
+    __proto__: dart.getGetters(radio._RadioPainter.__proto__),
+    [_repaint$]: dart.nullable(change_notifier.Listenable)
   }));
-  dart.setSetterSignature(animated_size.RenderAnimatedSize, () => ({
-    __proto__: dart.getSetters(animated_size.RenderAnimatedSize.__proto__),
-    [_controller]: animation_controller.AnimationController,
-    [_animation]: animations.CurvedAnimation,
-    [_hasVisualOverflow]: core.bool,
-    duration: core.Duration,
-    reverseDuration: dart.nullable(core.Duration),
-    curve: curves.Curve,
-    clipBehavior: ui.Clip,
-    vsync: ticker.TickerProvider
-  }));
-  dart.setLibraryUri(animated_size.RenderAnimatedSize, I[0]);
-  dart.setFieldSignature(animated_size.RenderAnimatedSize, () => ({
-    __proto__: dart.getFields(animated_size.RenderAnimatedSize.__proto__),
-    [__RenderAnimatedSize__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
-    [__RenderAnimatedSize__animation]: dart.fieldType(dart.nullable(animations.CurvedAnimation)),
-    [_sizeTween]: dart.finalFieldType(tween.SizeTween),
-    [__RenderAnimatedSize__hasVisualOverflow]: dart.fieldType(dart.nullable(core.bool)),
-    [_lastValue]: dart.fieldType(dart.nullable(core.double)),
-    [_state]: dart.fieldType(animated_size.RenderAnimatedSizeState),
-    [_clipBehavior]: dart.fieldType(ui.Clip),
-    [_vsync]: dart.fieldType(ticker.TickerProvider),
-    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
-  }));
-  dart.trackLibraries("packages/flutter/src/rendering/animated_size.dart", {
-    "package:flutter/src/rendering/animated_size.dart": animated_size
+  dart.setLibraryUri(radio._RadioPainter, I[1]);
+  dart.defineLazy(radio, {
+    /*radio._kOuterRadius*/get _kOuterRadius() {
+      return 8;
+    },
+    /*radio._kInnerRadius*/get _kInnerRadius() {
+      return 4.5;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/radio.dart", {
+    "package:flutter/src/material/radio.dart": radio
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["animated_size.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/rendering/animated_size.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["radio.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/flutter/src/material/radio.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__animated_size: animated_size
+    src__material__radio: radio
   };
 }));
 
-//# sourceMappingURL=animated_size.dart.lib.js.map
+//# sourceMappingURL=radio.dart.lib.js.map

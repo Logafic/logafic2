@@ -7,6 +7,7 @@ import 'package:logafic/routing/router_names.dart';
 import 'package:logafic/widgets/showAddedActivityDialogWidget.dart';
 import 'package:logafic/widgets/showAddedJobsDialogWidget.dart';
 import 'package:logafic/widgets/showReportProfileScreen.dart';
+import 'package:logafic/widgets/showSettingWidget.dart';
 
 // ProfileScreen menü bar
 
@@ -27,8 +28,7 @@ class ProfileActionBar extends StatelessWidget {
     AuthController authController = AuthController.to;
     return Container(
         child: Row(children: [
-      authController.firestoreUser.value!.isAdmin == true &&
-              authController.firebaseUser.value!.uid == userProfileId
+      authController.firebaseUser.value!.uid == userProfileId
           ? IconButton(
               icon: const Icon(
                 Icons.add_business_outlined,
@@ -36,11 +36,14 @@ class ProfileActionBar extends StatelessWidget {
               ),
               tooltip: 'İş ilanı ver',
               onPressed: () {
-                showAddedJobsDialogWidget(context);
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return ShowAddedJobsDialogWidget();
+                    });
               })
           : Text(''),
-      authController.firestoreUser.value!.isAdmin == true &&
-              authController.firebaseUser.value!.uid == userProfileId
+      authController.firebaseUser.value!.uid == userProfileId
           ? IconButton(
               icon: const Icon(
                 Icons.local_activity_outlined,
@@ -48,7 +51,11 @@ class ProfileActionBar extends StatelessWidget {
               ),
               tooltip: 'Etkinlik oluştur',
               onPressed: () {
-                showAddedActivityDialogWidget(context);
+                showDialog(
+                    context: context,
+                    builder: (_) {
+                      return ShowAddedActivityDialogWidget();
+                    });
               })
           : Text(''),
       IconButton(
@@ -61,7 +68,9 @@ class ProfileActionBar extends StatelessWidget {
             showDialog(
                 context: context,
                 builder: (_) {
-                  return ShowReportProfileScreenWidget();
+                  return ShowReportProfileScreenWidget(
+                    reportUserId: userProfileId,
+                  );
                 });
           }),
       IconButton(
@@ -110,20 +119,28 @@ class ProfileActionBar extends StatelessWidget {
                 title: Text('Mesajlar'),
               ),
             ),
-            authController.firestoreUser.value!.isAdmin == true
-                ? PopupMenuItem(
-                    child: ListTile(
-                      onTap: () {},
-                      leading: Icon(Icons.message),
-                      title: Text('İlanlarım'),
-                    ),
-                  )
-                : PopupMenuItem(
-                    child: ListTile(
-                      onTap: () {},
-                      title: Text(''),
-                    ),
-                  ),
+            PopupMenuItem(
+              child: ListTile(
+                onTap: () {
+                  Navigator.pushNamed(context, MyJobsRoute);
+                },
+                leading: Icon(Icons.event_available),
+                title: Text('İlanlarım'),
+              ),
+            ),
+            PopupMenuItem(
+              child: ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (_) {
+                        return ShowSettingsWidget();
+                      });
+                },
+                leading: Icon(Icons.settings),
+                title: Text('Ayarlar'),
+              ),
+            ),
             const PopupMenuDivider(),
             PopupMenuItem(
               child: ListTile(
